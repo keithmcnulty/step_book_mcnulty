@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.8 Penney&#x27;s Game — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP III · 2001 · Question 13</div>
+    <div class="sec-head"><span class="sec-num">12.8</span><h1>Penney&#x27;s Game</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-8-penney.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>In a game for two players, a fair coin is tossed repeatedly. Each player is assigned a sequence of heads and tails and the player whose sequence appears first wins. Four players, <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span> take turns to play the game. Each time they play, <span class="math inline">\(A\)</span> is assigned the sequence TTH (i.e. Tail then Tail then Head), <span class="math inline">\(B\)</span> is assigned THH, <span class="math inline">\(C\)</span> is assigned HHT and <span class="math inline">\(D\)</span> is assigned HTT.</p>
+<ol class="roman">
+<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> play the game. Let <span class="math inline">\(p_{\mathrm{HH}}\)</span>, <span class="math inline">\(p_{\mathrm{HT}}\)</span>, <span class="math inline">\(p_{\mathrm{TH}}\)</span> and <span class="math inline">\(p_{\mathrm{TT}}\)</span> be the probabilities of <span class="math inline">\(A\)</span> winning the game given that the first two tosses of the coin show HH, HT, TH and TT, respectively. Explain why <span class="math inline">\(p_{\mathrm{TT}} = 1\)</span>, and why <span class="math inline">\(p_{\mathrm{HT}} = \frac12p_{\mathrm{TH}} + \frac12p_{\mathrm{TT}}\)</span>. Show that <span class="math inline">\(p_{\mathrm{HH}} = p_{\mathrm{HT}} = \frac23\)</span> and that <span class="math inline">\(p_{\mathrm{TH}} = \frac13\)</span>. Deduce that the probability that <span class="math inline">\(A\)</span> wins the game is <span class="math inline">\(\frac23\)</span>.</p></li>
+<li><p><span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> play the game. Find the probability that <span class="math inline">\(B\)</span> wins.</p></li>
+<li><p>Show that if <span class="math inline">\(C\)</span> plays <span class="math inline">\(D\)</span>, then <span class="math inline">\(C\)</span> is more likely to win than <span class="math inline">\(D\)</span>, but that if <span class="math inline">\(D\)</span> plays <span class="math inline">\(A\)</span>, then <span class="math inline">\(D\)</span> is more likely to win than <span class="math inline">\(A\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>You and a friend each choose a sequence of three coin tosses, and a coin is tossed until one of the sequences appears. Every sequence of three tosses is equally likely to occur at any given moment, so surely every choice is equally good? Not at all. Whatever sequence your friend chooses, you can choose one that beats it, sometimes with odds of <span class="math inline">\(7\)</span> to <span class="math inline">\(1\)</span>.</p>
+<p>This is <em>Penney’s game</em>, invented by Walter Penney in 1969. The question shows that <span class="math inline">\(A\)</span> beats <span class="math inline">\(B\)</span>, <span class="math inline">\(B\)</span> beats <span class="math inline">\(C\)</span>, <span class="math inline">\(C\)</span> beats <span class="math inline">\(D\)</span>, and <span class="math inline">\(D\)</span> beats <span class="math inline">\(A\)</span>: a cycle, like rock–paper–scissors. “Beats” is not transitive. Whoever chooses second can always win in the long run.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Suppose the tosses so far end in TT and nobody has won yet. Can THH ever appear before TTH?</p>
+</div>
+<p>From TT, every further T keeps the last two tosses as TT, and the first H completes TTH. For THH to appear we would need a TH, which can only arise from a T followed by an H, and that H already completes TTH. So once TT has occurred, <span class="math inline">\(A\)</span> wins.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-states" class="stage"><span class="stage-n">Stage 1</span> States</h4>
+<div class="askyourself">
+<p>Neither sequence can be completed in two tosses. After two tosses, what is the next toss’s effect from each state?</p>
+</div>
+<p>Since the game depends only on the last two tosses, we can track the state (last two tosses):</p>
+<ul>
+<li><p>From TT: <span class="math inline">\(A\)</span> wins (shown above), so <span class="math inline">\(p_{\mathrm{TT}} = 1\)</span>.</p></li>
+<li><p>From HT: the next toss gives TH or TT, so <span class="math inline">\(p_{\mathrm{HT}} = \frac12p_{\mathrm{TH}} + \frac12p_{\mathrm{TT}}\)</span>.</p></li>
+<li><p>From TH: an H completes THH (<span class="math inline">\(B\)</span> wins); a T gives HT. So <span class="math inline">\(p_{\mathrm{TH}} = \frac12 \cdot 0 + \frac12p_{\mathrm{HT}}\)</span>.</p></li>
+<li><p>From HH: an H gives HH again; a T gives HT. So <span class="math inline">\(p_{\mathrm{HH}} = \frac12p_{\mathrm{HH}} + \frac12p_{\mathrm{HT}}\)</span>, giving <span class="math inline">\(p_{\mathrm{HH}} = p_{\mathrm{HT}}\)</span>.</p></li>
+</ul>
+<h4 id="stagemark2-solving" class="stage"><span class="stage-n">Stage 2</span> Solving</h4>
+<p>Substituting <span class="math inline">\(p_{\mathrm{TH}} = \frac12p_{\mathrm{HT}}\)</span> into the HT equation: <span class="math inline">\(p_{\mathrm{HT}} = \frac14p_{\mathrm{HT}} + \frac12\)</span>, so <span class="math inline">\(p_{\mathrm{HT}} = \frac23\)</span>, <span class="math inline">\(p_{\mathrm{HH}} = \frac23\)</span> and <span class="math inline">\(p_{\mathrm{TH}} = \frac13\)</span>. Each of the four starting states has probability <span class="math inline">\(\frac14\)</span>, so <span class="math display">\[\mathrm{P}(A \text{ wins}) = \tfrac14\bigl(\tfrac23 + \tfrac23 + \tfrac13 + 1\bigr) = \tfrac23. \qed\]</span></p>
+<h4 id="stagemark3-b-against-c" class="stage"><span class="stage-n">Stage 3</span> <span class="math inline">\(B\)</span> against <span class="math inline">\(C\)</span></h4>
+<div class="askyourself">
+<p><span class="math inline">\(C\)</span> wants HHT and <span class="math inline">\(B\)</span> wants THH. When does <span class="math inline">\(C\)</span> win? (Look at what must come just before the first HH.)</p>
+</div>
+<p>If the first two tosses are HH, then the first T after that completes HHT, before THH can appear: <span class="math inline">\(C\)</span> wins. Otherwise, there is a T somewhere before the first occurrence of HH, and so the first HH is immediately preceded by a T: THH appears at that moment, before HHT (which needs a T after HH). So <span class="math inline">\(C\)</span> wins only if the game starts HH: <span class="math display">\[\mathrm{P}(B \text{ wins}) = \tfrac34. \qed\]</span></p>
+<h4 id="stagemark4-the-cycle" class="stage"><span class="stage-n">Stage 4</span> The cycle</h4>
+<p>The same method (or the shortcut in the What’s Really Going On section) shows that <span class="math inline">\(C\)</span> (HHT) beats <span class="math inline">\(D\)</span> (HTT) with probability <span class="math inline">\(\frac23\)</span>, and <span class="math inline">\(D\)</span> (HTT) beats <span class="math inline">\(A\)</span> (TTH) with probability <span class="math inline">\(\frac34\)</span>; the last is the mirror image of Stage 3 with heads and tails swapped. So <span class="math display">\[A \text{ beats } B, \qquad B \text{ beats } C, \qquad C \text{ beats } D, \qquad D \text{ beats } A. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-8-1.svg" alt="Figure 12.8.1"><figcaption><span class="fig-label">Figure 12.8.1</span> Penney’s cycle. An arrow from <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> means that <span class="math inline">\(X\)</span>’s sequence beats <span class="math inline">\(Y\)</span>’s, with the probability shown. Every sequence is beaten by another, so whoever chooses second can always pick a winner.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Choose the right state.</strong> Only the last two tosses mattered, so four states and four equations captured the whole game.</p></li>
+<li><p><strong>First-step analysis.</strong> Each equation conditioned on the next toss: the probability from a state is the average over where the next toss leads.</p></li>
+<li><p><strong>Look for a decisive event.</strong> In Stage 3, “the first HH is preceded by a T” settled the game without equations.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="why-some-sequences-are-better">Why some sequences are better</h3>
+<p>All sequences of three tosses are equally likely at any given position, and the expected waiting time for each is easy to compute. But the waiting times differ: you wait on average <span class="math inline">\(8\)</span> tosses for TTH but <span class="math inline">\(14\)</span> for TTT, because a sequence that overlaps itself (like TTT, where a near miss TTH ruins two tosses of progress) is slow to appear. And in a race between two sequences, what matters is how each overlaps the <em>other</em>. THH beats HHT because every occurrence of HHT (except at the very start) is preceded by a T, which means THH has just occurred. The second player’s trick is always the same: take the first two symbols of your opponent’s sequence, and put in front of them the opposite of the opponent’s middle symbol.</p>
+<h3 id="conways-formula">Conway’s formula</h3>
+<p>John Conway found a remarkable formula for the odds. For two sequences <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> of length <span class="math inline">\(n\)</span>, define the <em>correlation</em> <span class="math inline">\(XY\)</span> as a binary number with <span class="math inline">\(n\)</span> digits: reading from the left, the <span class="math inline">\(i\)</span>th digit is <span class="math inline">\(1\)</span> if the part of <span class="math inline">\(X\)</span> starting at its <span class="math inline">\(i\)</span>th symbol equals the beginning of <span class="math inline">\(Y\)</span> of the same length. Then the odds that <span class="math inline">\(Y\)</span> appears before <span class="math inline">\(X\)</span> are <span class="math display">\[(XX - XY) : (YY - YX).\]</span> For <span class="math inline">\(X =\)</span> HHT and <span class="math inline">\(Y =\)</span> THH: <span class="math inline">\(XX = 100_2 = 4\)</span> (only the whole of HHT matches itself); <span class="math inline">\(XY = 001_2 = 1\)</span> (only the final T of HHT matches the start of THH); <span class="math inline">\(YY = 100_2 = 4\)</span>; and <span class="math inline">\(YX = 011_2 = 3\)</span> (both HH and H at the end of THH match the start of HHT). So the odds that THH comes first are <span class="math inline">\((4 - 1) : (4 - 3) = 3 : 1\)</span>, the <span class="math inline">\(\frac34\)</span> of Stage 3. Conway’s formula works for sequences of any length and any alphabet, and its proof uses the theory of <em>martingales</em>: imagine a casino in which gamblers bet on the sequence appearing, and use the fact that a fair game has zero expected profit.</p>
+<div class="historybox">
+<div class="box-title">Penney and Gardner</div>
+<p>Walter Penney described the game in a short note in the <em>Journal of Recreational Mathematics</em> in 1969. Martin Gardner made it famous in his <em>Scientific American</em> column in 1974, including Conway’s formula, which Conway had found but not published. Non-transitive relations of this kind (Efron’s dice, where die <span class="math inline">\(A\)</span> beats <span class="math inline">\(B\)</span>, <span class="math inline">\(B\)</span> beats <span class="math inline">\(C\)</span>, <span class="math inline">\(C\)</span> beats <span class="math inline">\(D\)</span> and <span class="math inline">\(D\)</span> beats <span class="math inline">\(A\)</span>, are another example) are a recurring source of surprise, and they matter in voting theory, where majority preferences can form cycles: Condorcet’s paradox.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">First-step analysis</div>
+<p><em>To find a probability or expectation for a process that moves between states, condition on the first step. This gives one linear equation per state.</em></p>
+<p>This is the basic technique for Markov chains, which you will meet in <a href="../ch12/markov.html">Section 12.16</a> and throughout a university course in probability. The same method finds the probability of reaching one state before another, the expected time to absorption, and the probability of ruin in gambling problems.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Four players together.</strong> (From STEP II, 2015.) Players choose HHT, THH, TTH and HTT. Show that if only HHT and THH play, HHT wins with probability <span class="math inline">\(\frac14\)</span>. If all four play together, show that each wins with probability <span class="math inline">\(\frac14\)</span>. If only THH and TTH play, find the probability that TTH wins.</p></li>
+<li><p><strong>Waiting times.</strong> Show that the expected number of tosses until HH first appears is <span class="math inline">\(6\)</span>, and until HT is <span class="math inline">\(4\)</span>. (Use first-step analysis.)</p></li>
+<li><p><strong>The best reply.</strong> For each of the eight sequences of length three, find the sequence that beats it with the greatest probability. Which sequence is beaten most easily?</p></li>
+<li><p><strong>Conway’s formula.</strong> Use Conway’s formula to check that HHT beats HTT with probability <span class="math inline">\(\frac23\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Martin Gardner, <em>Time Travel and Other Mathematical Bewilderments</em></strong> (W. H. Freeman). Includes Penney’s game and Conway’s formula.</p></li>
+<li><p><strong>Ronald Graham, Donald Knuth &amp; Oren Patashnik, <em>Concrete Mathematics</em></strong> (Addison-Wesley), Section 8.4. Penney’s game with generating functions.</p></li>
+<li><p><strong>David Williams, <em>Probability with Martingales</em></strong> (Cambridge University Press). The martingale proof, for later.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="knockout.html">← 12.7 Who Meets Whom in a Knockout</a><a class="next" href="von-neumann.html">→ 12.9 A Fair Decision from a Biased Coin</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

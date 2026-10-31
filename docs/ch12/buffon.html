@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.20 Buffon&#x27;s Needle — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP I · 1993 · Question 16</div>
+    <div class="sec-head"><span class="sec-num">12.20</span><h1>Buffon&#x27;s Needle</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-20-buffon.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>By making the substitution <span class="math inline">\(y = \cos^{-1}t\)</span>, or otherwise, show that <span class="math display">\[\int_0^1\cos^{-1}t\,\mathrm{d}t = 1.\]</span> A pin of length <span class="math inline">\(2a\)</span> is thrown onto a floor ruled with parallel lines equally spaced at a distance <span class="math inline">\(2b\)</span> apart. The distance <span class="math inline">\(X\)</span> of its centre from the nearest line is a uniformly distributed random variable taking values between <span class="math inline">\(0\)</span> and <span class="math inline">\(b\)</span> and the acute angle <span class="math inline">\(Y\)</span> the pin makes with a direction perpendicular to the line is a uniformly distributed random variable taking values between <span class="math inline">\(0\)</span> and <span class="math inline">\(\pi/2\)</span>. <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. If <span class="math inline">\(X = x\)</span> what is the probability that the pin crosses the line?</p>
+<p>If <span class="math inline">\(a &lt; b\)</span> show that the probability that the pin crosses a line for a general throw is <span class="math inline">\(\dfrac{2a}{\pi b}\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Drop a needle onto a floor of parallel floorboards. The chance that it lies across a crack involves <span class="math inline">\(\pi\)</span>, even though there is no circle anywhere in sight. Count the crossings in many throws and you can estimate <span class="math inline">\(\pi\)</span> by experiment. This is <em>Buffon’s needle</em>, posed by Georges-Louis Leclerc, Comte de Buffon, in 1733 and solved by him in 1777: the first problem in <em>geometric probability</em>, and the ancestor of every Monte Carlo method.</p>
+<p>The <span class="math inline">\(\pi\)</span> comes from the angle: the needle’s direction is uniform on a half-turn, and averaging the length of its “shadow” across the lines over all directions gives a factor <span class="math inline">\(\frac2\pi\)</span>. The question does the calculation with an integral of <span class="math inline">\(\cos^{-1}\)</span>.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The pin’s centre is at distance <span class="math inline">\(x\)</span> from the nearest line, and the pin makes angle <span class="math inline">\(y\)</span> with the perpendicular to the lines. How far does the pin reach towards the line?</p>
+</div>
+<p>Each half of the pin has length <span class="math inline">\(a\)</span>, and its component perpendicular to the lines is <span class="math inline">\(a\cos y\)</span>. So the pin crosses the nearest line exactly when <span class="math inline">\(a\cos y \geq x\)</span>. (Since <span class="math inline">\(a &lt; b\)</span>, it cannot reach any other line.)</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-integral" class="stage"><span class="stage-n">Stage 1</span> The integral</h4>
+<p>With <span class="math inline">\(t = \cos y\)</span>, as <span class="math inline">\(t\)</span> goes from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>, <span class="math inline">\(y = \cos^{-1}t\)</span> goes from <span class="math inline">\(\frac\pi2\)</span> to <span class="math inline">\(0\)</span>, and <span class="math inline">\(\mathrm{d}t = -\sin y\,\mathrm{d}y\)</span>. So <span class="math display">\[\int_0^1\cos^{-1}t\,\mathrm{d}t = \int_0^{\pi/2}y\sin y\,\mathrm{d}y = \bigl[-y\cos y\bigr]_0^{\pi/2} + \int_0^{\pi/2}\cos y\,\mathrm{d}y = 0 + 1 = 1. \qed\]</span> (Or: the integral is the area between the graph of <span class="math inline">\(\cos^{-1}\)</span> and the axes, which is the same as the area under <span class="math inline">\(y = \cos x\)</span> from <span class="math inline">\(0\)</span> to <span class="math inline">\(\frac\pi2\)</span>, reflected in <span class="math inline">\(y = x\)</span>.)</p>
+<h4 id="stagemark2-given-the-position" class="stage"><span class="stage-n">Stage 2</span> Given the position</h4>
+<div class="askyourself">
+<p>For fixed <span class="math inline">\(x\)</span>, which angles <span class="math inline">\(y\)</span> give a crossing? What is their probability?</p>
+</div>
+<p>If <span class="math inline">\(x \geq a\)</span>, the pin cannot reach the line. If <span class="math inline">\(x &lt; a\)</span>, a crossing needs <span class="math inline">\(\cos y \geq \frac xa\)</span>, that is <span class="math inline">\(y \leq \cos^{-1}\frac xa\)</span>. Since <span class="math inline">\(Y\)</span> is uniform on <span class="math inline">\([0, \frac\pi2]\)</span>, <span class="math display">\[\mathrm{P}(\text{cross} \mid X = x) = \frac{2}{\pi}\cos^{-1}\frac xa \qquad (0 \leq x &lt; a). \qed\]</span></p>
+<h4 id="stagemark3-averaging-over-the-position" class="stage"><span class="stage-n">Stage 3</span> Averaging over the position</h4>
+<p><span class="math inline">\(X\)</span> is uniform on <span class="math inline">\([0, b]\)</span>, with density <span class="math inline">\(\frac1b\)</span>, so <span class="math display">\[\mathrm{P}(\text{cross}) = \frac1b\int_0^a\frac2\pi\cos^{-1}\frac xa\,\mathrm{d}x = \frac{2a}{\pi b}\int_0^1\cos^{-1}t\,\mathrm{d}t = \frac{2a}{\pi b}, \qed\]</span> substituting <span class="math inline">\(x = at\)</span>.</p>
+<div class="pausebox">
+<p>With a needle exactly as long as the half-spacing (<span class="math inline">\(a = \frac{b}{2}\)</span>, so the needle’s length <span class="math inline">\(2a\)</span> equals <span class="math inline">\(b\)</span>), the crossing probability is <span class="math inline">\(\frac1\pi\)</span>. How many throws would you need to estimate <span class="math inline">\(\pi\)</span> to two decimal places?</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-12-20-1.svg" alt="Figure 12.20.1"><figcaption><span class="fig-label">Figure 12.20.1</span> Thirty needles of length <span class="math inline">\(2a = 1.4\)</span> thrown onto lines <span class="math inline">\(2b = 2\)</span> apart. The ones crossing a line are plum. Here <span class="math inline">\(17\)</span> cross, compared with the <span class="math inline">\(13.4\)</span> expected: small samples give rough estimates, and Buffon’s needle is a famously slow way to compute <span class="math inline">\(\pi\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Two independent coordinates.</strong> The pin’s position and angle were independent and uniform, so the probability was a double integral that could be done one variable at a time.</p></li>
+<li><p><strong>Condition, then average.</strong> First fix <span class="math inline">\(x\)</span> and average over the angle; then average over <span class="math inline">\(x\)</span>.</p></li>
+<li><p><strong>A substitution reveals the constant.</strong> Scaling <span class="math inline">\(x = at\)</span> reduced the answer to a single universal integral.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="buffons-noodle">Buffon’s noodle</h3>
+<p>Here is a way to see the answer with almost no calculation. Bend the needle into any shape, a “noodle”, and let <span class="math inline">\(C\)</span> be the number of times it crosses a line. By linearity of expectation, the expected number of crossings of a curve is the sum over its small pieces, so it is proportional to the length: <span class="math inline">\(\mathrm{E}(C) = \kappa L\)</span> for some constant <span class="math inline">\(\kappa\)</span>. To find <span class="math inline">\(\kappa\)</span>, take the noodle to be a circle of diameter equal to the line spacing <span class="math inline">\(2b\)</span>: it always crosses exactly twice, and its length is <span class="math inline">\(2\pi b\)</span>. So <span class="math inline">\(\kappa \cdot 2\pi b = 2\)</span>, giving <span class="math inline">\(\kappa = \frac{1}{\pi b}\)</span>. For a straight needle of length <span class="math inline">\(2a &lt; 2b\)</span>, which crosses at most once, <span class="math inline">\(\mathrm{P}(\text{cross}) = \mathrm{E}(C) = \frac{2a}{\pi b}\)</span>. This argument is due to Joseph-Émile Barbier (1860), and it is a gem of probabilistic reasoning: the <span class="math inline">\(\pi\)</span> comes from the circle that was chosen to calibrate the constant.</p>
+<h3 id="estimating-pi-and-how-not-to">Estimating <span class="math inline">\(\pi\)</span>, and how not to</h3>
+<p>If <span class="math inline">\(n\)</span> needles are thrown and <span class="math inline">\(c\)</span> cross, then <span class="math inline">\(\frac cn \approx \frac{2a}{\pi b}\)</span> and <span class="math inline">\(\pi \approx \frac{2an}{bc}\)</span>. The error shrinks only like <span class="math inline">\(\frac{1}{\sqrt n}\)</span>, so to get <span class="math inline">\(\pi\)</span> to three decimal places needs about a million throws. In 1901 the Italian mathematician Mario Lazzarini claimed to have obtained <span class="math inline">\(\pi \approx \frac{355}{113} = 3.1415929\ldots\)</span> (correct to six decimal places) from <span class="math inline">\(3408\)</span> throws. Statisticians have pointed out that the result is far too good to be true: with <span class="math inline">\(3408\)</span> throws and a carefully chosen needle, <span class="math inline">\(\frac{355}{113}\)</span> arises from exactly <span class="math inline">\(1808\)</span> crossings, and stopping the experiment at the right moment would produce it. It is a classic cautionary tale about selective reporting.</p>
+<div class="historybox">
+<div class="box-title">Buffon</div>
+<p>Buffon was a naturalist, director of the royal botanical garden in Paris and author of a <span class="math inline">\(36\)</span>-volume natural history. He presented the needle problem (and a version with square tiles, the “franc-carreau” game) to the Académie des Sciences in 1733, and published the solution in 1777. His aim was to show that geometry, not just arithmetic, could be used in probability. Integral geometry, the theory of random lines and their intersections with curves and surfaces, grew from it, and is now used in stereology, the science of estimating the size and shape of three-dimensional structures (such as cells in a tissue) from two-dimensional slices.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Probability as an integral over a region</div>
+<p><em>When an outcome depends on several independent continuous random variables, the probability of an event is the integral of the joint density over the region where the event occurs.</em></p>
+<p>At university this becomes the foundation of continuous probability: joint densities, marginal distributions and changes of variable, all of which reappear in <a href="../ch12/broken-stick.html">Section 12.21</a> and <a href="../ch12/cauchy.html">Section 12.22</a>.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A long needle.</strong> If <span class="math inline">\(a &gt; b\)</span>, the needle may cross more than one line. Show that the expected number of crossings is still <span class="math inline">\(\frac{2a}{\pi b}\)</span>.</p></li>
+<li><p><strong>The noodle.</strong> Bend a needle of length <span class="math inline">\(2a\)</span> into a right angle (two arms of length <span class="math inline">\(a\)</span>). What is the expected number of crossings?</p></li>
+<li><p><strong>Square tiles.</strong> A coin of radius <span class="math inline">\(r\)</span> is tossed onto a floor of square tiles of side <span class="math inline">\(s &gt; 2r\)</span>. Find the probability that it lies entirely within one tile.</p></li>
+<li><p><strong>Lazzarini’s needle.</strong> With <span class="math inline">\(a = \frac56b\)</span> (so that <span class="math inline">\(\frac{2a}{\pi b} = \frac{5}{3\pi}\)</span>), show that <span class="math inline">\(3408\)</span> throws with <span class="math inline">\(1808\)</span> crossings give the estimate <span class="math inline">\(\pi \approx \frac{355}{113}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Daniel Klain &amp; Gian-Carlo Rota, <em>Introduction to Geometric Probability</em></strong> (Cambridge University Press), which starts from Buffon’s needle.</p></li>
+<li><p><strong>Lee Badger, “Lazzarini’s lucky approximation of <span class="math inline">\(\pi\)</span>”</strong>, <em>Mathematics Magazine</em> 67 (1994). The statistics of a suspicious experiment.</p></li>
+<li><p><strong>Paul Nahin, <em>Digital Dice</em></strong> (Princeton University Press). Monte Carlo methods for probability problems.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="spatial-poisson.html">← 12.19 Random Points in the Plane</a><a class="next" href="broken-stick.html">→ 12.21 Breaking a Stick</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

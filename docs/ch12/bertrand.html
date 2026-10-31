@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.3 What Does &quot;Random&quot; Mean? — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP III · 2022 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">12.3</span><h1>What Does &quot;Random&quot; Mean?</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-3-bertrand.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>The point <span class="math inline">\(A\)</span> lies on the circumference of a circle of radius <span class="math inline">\(a\)</span> and centre <span class="math inline">\(O\)</span>. The point <span class="math inline">\(B\)</span> is chosen at random on the circumference, so that the angle <span class="math inline">\(AOB\)</span> has a uniform distribution on <span class="math inline">\([0, 2\pi]\)</span>. Find the expected length of the chord <span class="math inline">\(AB\)</span>.</p></li>
+<li><p>The point <span class="math inline">\(C\)</span> is chosen at random in the interior of a circle of radius <span class="math inline">\(a\)</span> and centre <span class="math inline">\(O\)</span>, so that the probability that it lies in any given region is proportional to the area of the region. The random variable <span class="math inline">\(R\)</span> is defined as the distance between <span class="math inline">\(C\)</span> and <span class="math inline">\(O\)</span>. Find the probability density function of <span class="math inline">\(R\)</span>.</p>
+<p>Obtain a formula in terms of <span class="math inline">\(a\)</span>, <span class="math inline">\(R\)</span> and <span class="math inline">\(t\)</span> for the length of a chord through <span class="math inline">\(C\)</span> that makes an acute angle of <span class="math inline">\(t\)</span> with <span class="math inline">\(OC\)</span>.</p>
+<p>Show that as <span class="math inline">\(C\)</span> varies (with <span class="math inline">\(t\)</span> fixed), the expected length <span class="math inline">\(L(t)\)</span> of such chords is given by <span class="math display">\[L(t) = \frac{4a(1 - \cos^3t)}{3\sin^2t}.\]</span> Show further that <span class="math display">\[L(t) = \frac{4a}{3}\bigl(\cos t + \tfrac12\sec^2(\tfrac12t)\bigr).\]</span></p></li>
+<li><p>The random variable <span class="math inline">\(T\)</span> is uniformly distributed on <span class="math inline">\([0, \frac12\pi]\)</span>. Find the expected value of <span class="math inline">\(L(T)\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>“Choose a chord of a circle at random. What is its expected length?” The question sounds as if it has an answer. It does not, until you say what “at random” means. Pick two random points on the circle and join them, and the expected length is <span class="math inline">\(\frac{4a}{\pi} \approx 1.27a\)</span>. Pick a random point inside the circle and a random direction through it, and the answer is <span class="math inline">\(\frac{16a}{3\pi} \approx 1.70a\)</span>. Both are perfectly reasonable ways to choose “a random chord”.</p>
+<p>This is <em>Bertrand’s paradox</em>, published by Joseph Bertrand in 1889 as a warning. Probability is only well defined once the random experiment is specified. The paradox helped to push mathematicians towards the rigorous foundations of probability built in the twentieth century, in which every probability lives on a precisely defined space of outcomes.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>If the angle <span class="math inline">\(AOB\)</span> is <span class="math inline">\(\theta\)</span>, what is the length of the chord <span class="math inline">\(AB\)</span>? (Drop a perpendicular from <span class="math inline">\(O\)</span>.)</p>
+</div>
+<p>The perpendicular from <span class="math inline">\(O\)</span> bisects the chord and the angle, so <span class="math inline">\(AB = 2a\sin\frac\theta2\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-two-points-on-the-circle" class="stage"><span class="stage-n">Stage 1</span> Two points on the circle</h4>
+<p><span class="math display">\[\mathrm{E}(AB) = \frac{1}{2\pi}\int_0^{2\pi}2a\sin\frac\theta2\,\mathrm{d}\theta = \frac{a}{\pi}\Bigl[-2\cos\frac\theta2\Bigr]_0^{2\pi} = \frac{a}{\pi}\cdot 4 = \frac{4a}{\pi}. \qed\]</span></p>
+<h4 id="stagemark2-a-random-point-inside" class="stage"><span class="stage-n">Stage 2</span> A random point inside</h4>
+<div class="askyourself">
+<p>What is <span class="math inline">\(\mathrm{P}(R \leq r)\)</span> for <span class="math inline">\(0 \leq r \leq a\)</span>? Differentiate to get the density.</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(R \leq r)\)</span> is the area of the disc of radius <span class="math inline">\(r\)</span> divided by the area of the whole disc, <span class="math inline">\(\frac{r^2}{a^2}\)</span>. So <span class="math inline">\(R\)</span> has density <span class="math inline">\(\frac{2r}{a^2}\)</span> on <span class="math inline">\([0, a]\)</span>. (Points are more likely to be far from the centre, because there is more area there.)</p>
+<div class="askyourself">
+<p>A chord through <span class="math inline">\(C\)</span> makes angle <span class="math inline">\(t\)</span> with <span class="math inline">\(OC\)</span>. How far is the chord from <span class="math inline">\(O\)</span>?</p>
+</div>
+<p>The distance from <span class="math inline">\(O\)</span> to the line is <span class="math inline">\(R\sin t\)</span>, so the chord has length <span class="math inline">\(2\sqrt{a^2 - R^2\sin^2t}\)</span>.</p>
+<h4 id="stagemark3-averaging-over-c" class="stage"><span class="stage-n">Stage 3</span> Averaging over <span class="math inline">\(C\)</span></h4>
+<p>With <span class="math inline">\(s = \sin t\)</span>, <span class="math display">\[\begin{aligned}
+  L(t) &amp;= \int_0^a 2\sqrt{a^2 - r^2s^2}\cdot\frac{2r}{a^2}\,\mathrm{d}r = \frac{4}{a^2}\Bigl[-\frac{(a^2 - r^2s^2)^{3/2}}{3s^2}\Bigr]_0^a \\
+  &amp;= \frac{4}{a^2}\cdot\frac{a^3 - a^3(1 - s^2)^{3/2}}{3s^2} = \frac{4a(1 - \cos^3t)}{3\sin^2t}. \qed
+\end{aligned}\]</span></p>
+<div class="askyourself">
+<p>Factorise <span class="math inline">\(1 - \cos^3t\)</span> and <span class="math inline">\(\sin^2t = 1 - \cos^2t\)</span>. What cancels?</p>
+</div>
+<p>With <span class="math inline">\(c = \cos t\)</span>, <span class="math inline">\(\frac{1 - c^3}{1 - c^2} = \frac{(1 - c)(1 + c + c^2)}{(1 - c)(1 + c)} = \frac{1 + c + c^2}{1 + c} = c + \frac{1}{1 + c}\)</span>, and <span class="math inline">\(1 + \cos t = 2\cos^2\frac t2\)</span>. So <span class="math display">\[L(t) = \frac{4a}{3}\Bigl(\cos t + \tfrac12\sec^2\tfrac t2\Bigr). \qed\]</span></p>
+<h4 id="stagemark4-a-random-direction-too" class="stage"><span class="stage-n">Stage 4</span> A random direction too</h4>
+<p><span class="math display">\[\begin{aligned}
+  \mathrm{E}\bigl(L(T)\bigr) &amp;= \frac2\pi\int_0^{\pi/2}\frac{4a}{3}\Bigl(\cos t + \tfrac12\sec^2\tfrac t2\Bigr)\mathrm{d}t \\
+  &amp;= \frac{8a}{3\pi}\Bigl[\sin t + \tan\tfrac t2\Bigr]_0^{\pi/2} = \frac{8a}{3\pi}(1 + 1) = \frac{16a}{3\pi}. \qed
+\end{aligned}\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-3-1.svg" alt="Figure 12.3.1"><figcaption><span class="fig-label">Figure 12.3.1</span> Twenty-eight “random chords” chosen in two different ways. Left: two independent uniform points on the circle. Right: a uniformly random point in the disc as the chord’s midpoint. The right-hand method produces fewer short chords near the edge. Different methods give different distributions, and different answers.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Specify the experiment.</strong> “A random chord” became a precise procedure in each part, and each procedure gave a different answer.</p></li>
+<li><p><strong>Densities from areas.</strong> <span class="math inline">\(\mathrm{P}(R \leq r)\)</span> came directly from geometry; differentiating gave the density.</p></li>
+<li><p><strong>Average in stages.</strong> First over the position of <span class="math inline">\(C\)</span> (with <span class="math inline">\(t\)</span> fixed), then over <span class="math inline">\(t\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="bertrands-three-answers">Bertrand’s three answers</h3>
+<p>Bertrand’s own question was: what is the probability that a random chord is longer than the side of the inscribed equilateral triangle, <span class="math inline">\(\sqrt3a\)</span>? He gave three methods and three answers.</p>
+<ul>
+<li><p>Random endpoints: fix one endpoint; the chord is long if the other lies in the middle third of the circle. Probability <span class="math inline">\(\frac13\)</span>.</p></li>
+<li><p>Random radius and a random point on it as the midpoint: the chord is long if its distance from <span class="math inline">\(O\)</span> is less than <span class="math inline">\(\frac a2\)</span>. Probability <span class="math inline">\(\frac12\)</span>.</p></li>
+<li><p>Random midpoint anywhere in the disc: the chord is long if the midpoint lies within <span class="math inline">\(\frac a2\)</span> of <span class="math inline">\(O\)</span>. Probability <span class="math inline">\(\frac14\)</span>.</p></li>
+</ul>
+<p>Each method is a different probability distribution on the set of chords, and there is no contradiction: they answer different questions. The lesson is that “uniformly at random” only makes sense relative to a chosen parametrisation, and for continuous sets there is usually no single natural one.</p>
+<h3 id="is-there-a-right-answer">Is there a right answer?</h3>
+<p>In 1973 the physicist Edwin Jaynes argued that the second method is the “right” one, on the grounds that the answer should not change if the circle is moved or rescaled slightly: a random chord should be like a straw thrown onto a circle drawn on the floor. Only the distribution with uniform distance from the centre has this invariance, and experiments throwing straws confirm <span class="math inline">\(\frac12\)</span>. The same idea, that the right distribution is the one that respects the symmetries of the situation, underlies <em>integral geometry</em>, the mathematics of random lines, which also explains Buffon’s needle in <a href="../ch12/buffon.html">Section 12.20</a>.</p>
+<div class="historybox">
+<div class="box-title">From paradox to axioms</div>
+<p>Bertrand published his chord paradox in <em>Calcul des probabilités</em> (1889), partly to mock what he saw as careless uses of “geometric probability”. Henri Poincaré discussed it too. In 1900 David Hilbert listed the axiomatisation of probability among his famous problems for the new century, and Andrey Kolmogorov solved it in 1933: probability is a measure on a space of outcomes, and every question about “random” objects must first say which space and which measure. Bertrand’s paradox is the standard example of why this is necessary.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Define the random experiment</div>
+<p><em>Before calculating a probability, describe exactly how the random object is generated. Different descriptions can give different answers.</em></p>
+<p>At university, every probability calculation starts from a sample space and a probability measure. In statistics and physics, choosing the right model of randomness, often by symmetry, is a large part of the work.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Bertrand’s probabilities.</strong> Verify the three probabilities <span class="math inline">\(\frac13\)</span>, <span class="math inline">\(\frac12\)</span>, <span class="math inline">\(\frac14\)</span> above.</p></li>
+<li><p><strong>The other mean.</strong> Show that if the chord’s midpoint is chosen uniformly in the disc (the right-hand picture), the expected length is <span class="math inline">\(\frac{4a}{3}\)</span>. (<em>Hint:</em> this is <span class="math inline">\(L(\frac\pi2)\)</span>. Why?)</p></li>
+<li><p><strong>Random distance.</strong> If the distance of the chord from <span class="math inline">\(O\)</span> is uniform on <span class="math inline">\([0, a]\)</span>, show that the expected length is <span class="math inline">\(\frac{\pi a}{2}\)</span>.</p></li>
+<li><p><strong>Three methods, three distributions.</strong> For each of the three methods, find the probability density of the chord’s length <span class="math inline">\(\ell\)</span> on <span class="math inline">\([0, 2a]\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Edwin Jaynes, “The well-posed problem”</strong>, <em>Foundations of Physics</em> 3 (1973). The invariance argument, readable and provocative.</p></li>
+<li><p><strong>Gábor Székely, <em>Paradoxes in Probability Theory and Mathematical Statistics</em></strong> (Reidel). Bertrand’s paradox and many others.</p></li>
+<li><p><strong>Daniel Klain &amp; Gian-Carlo Rota, <em>Introduction to Geometric Probability</em></strong> (Cambridge University Press). Integral geometry, for later.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="base-rate.html">← 12.2 The Base-Rate Fallacy</a><a class="next" href="pairwise-independence.html">→ 12.4 Independent in Pairs, Not All Together</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

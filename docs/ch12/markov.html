@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.16 Markov Chains Forwards and Backwards — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP III · 1996 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">12.16</span><h1>Markov Chains Forwards and Backwards</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-16-markov.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>It has been observed that Professor Ecks proves three types of theorems: 1, those that are correct and new; 2, those that are correct, but already known; 3, those that are false. It has also been observed that, if a certain of her theorems is of type <span class="math inline">\(i\)</span>, then her next theorem is of type <span class="math inline">\(j\)</span> with probability <span class="math inline">\(p_{ij}\)</span>, where <span class="math inline">\(p_{ij}\)</span> is the entry in the <span class="math inline">\(i\)</span>th row and <span class="math inline">\(j\)</span>th column of the following array: <span class="math display">\[\begin{pmatrix} 0.3 &amp; 0.3 &amp; 0.4 \\ 0.2 &amp; 0.4 &amp; 0.4 \\ 0.1 &amp; 0.3 &amp; 0.6 \end{pmatrix}.\]</span> Let <span class="math inline">\(a_i\)</span>, <span class="math inline">\(i = 1, 2, 3\)</span>, be the probability that a given theorem is of type <span class="math inline">\(i\)</span>, and let <span class="math inline">\(b_j\)</span> be the consequent probability that the next theorem is of type <span class="math inline">\(j\)</span>.</p>
+<ol class="roman">
+<li><p>Explain why <span class="math inline">\(b_j = a_1p_{1j} + a_2p_{2j} + a_3p_{3j}\)</span>.</p></li>
+<li><p>Find values of <span class="math inline">\(a_1\)</span>, <span class="math inline">\(a_2\)</span> and <span class="math inline">\(a_3\)</span> such that <span class="math inline">\(b_i = a_i\)</span> for <span class="math inline">\(i = 1, 2, 3\)</span>.</p></li>
+<li><p>For these values of the <span class="math inline">\(a_i\)</span> find the probabilities <span class="math inline">\(q_{ij}\)</span> that, if a particular theorem is of type <span class="math inline">\(j\)</span>, then the <em>preceding</em> theorem was of type <span class="math inline">\(i\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Professor Ecks’s theorems follow a pattern: what she proves next depends only on what she proved last. A process whose future depends on the present but not on the past is a <em>Markov chain</em>, and Markov chains are everywhere: in weather models, in the board game Snakes and Ladders, in models of DNA, in Google’s original PageRank algorithm, and in the methods statisticians use to simulate complicated probability distributions.</p>
+<p>This question finds the long-run mix of theorem types, the <em>stationary distribution</em>: in the long run, one in six of her theorems is new and correct, and half are false. Then it runs the chain backwards in time, and asks: given today’s theorem, what was yesterday’s?</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>What does the condition “each row adds up to <span class="math inline">\(1\)</span>” mean? Do the columns add up to <span class="math inline">\(1\)</span>?</p>
+</div>
+<p>Row <span class="math inline">\(i\)</span> lists the probabilities of the next type, given that the current type is <span class="math inline">\(i\)</span>; one of the three must occur, so each row adds to <span class="math inline">\(1\)</span>. The columns need not: the second column adds to exactly <span class="math inline">\(1\)</span>, but the first adds to <span class="math inline">\(0.6\)</span> and the third to <span class="math inline">\(1.4\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-one-step" class="stage"><span class="stage-n">Stage 1</span> One step</h4>
+<p>By the law of total probability, conditioning on the type <span class="math inline">\(i\)</span> of the current theorem, <span class="math display">\[b_j = \sum_i\mathrm{P}(\text{current } i)\,\mathrm{P}(\text{next } j \mid \text{current } i) = a_1p_{1j} + a_2p_{2j} + a_3p_{3j}. \qed\]</span> In matrix terms, the row vector <span class="math inline">\(\mathbf b = \mathbf aP\)</span>.</p>
+<h4 id="stagemark2-the-stationary-distribution" class="stage"><span class="stage-n">Stage 2</span> The stationary distribution</h4>
+<div class="askyourself">
+<p>We want <span class="math inline">\(\mathbf a = \mathbf aP\)</span> with <span class="math inline">\(a_1 + a_2 + a_3 = 1\)</span>. Write out the equations. Which are the simplest?</p>
+</div>
+<p>The equations are <span class="math display">\[\begin{aligned}
+  a_1 &amp;= 0.3a_1 + 0.2a_2 + 0.1a_3, \\
+  a_2 &amp;= 0.3a_1 + 0.4a_2 + 0.3a_3, \\
+  a_3 &amp;= 0.4a_1 + 0.4a_2 + 0.6a_3.
+\end{aligned}\]</span> (They are not independent: adding them gives <span class="math inline">\(a_1 + a_2 + a_3\)</span> on both sides.) The second gives <span class="math inline">\(0.6a_2 = 0.3(a_1 + a_3) = 0.3(1 - a_2)\)</span>, so <span class="math inline">\(a_2 = \frac13\)</span>. The first gives <span class="math inline">\(7a_1 = 2a_2 + a_3 = \frac23 + a_3\)</span>, and <span class="math inline">\(a_1 + a_3 = \frac23\)</span>, so <span class="math inline">\(8a_1 = \frac43\)</span>, <span class="math inline">\(a_1 = \frac16\)</span>, <span class="math inline">\(a_3 = \frac12\)</span>: <span class="math display">\[(a_1, a_2, a_3) = \bigl(\tfrac16, \tfrac13, \tfrac12\bigr). \qed\]</span></p>
+<h4 id="stagemark3-running-the-chain-backwards" class="stage"><span class="stage-n">Stage 3</span> Running the chain backwards</h4>
+<div class="askyourself">
+<p><span class="math inline">\(q_{ij} = \mathrm{P}(\text{previous } i \mid \text{current } j)\)</span>. Use Bayes’ theorem, with the stationary distribution for both the previous and the current theorem.</p>
+</div>
+<p>By Bayes’ theorem, <span class="math display">\[q_{ij} = \frac{\mathrm{P}(\text{previous } i)\,\mathrm{P}(\text{current } j \mid \text{previous } i)}{\mathrm{P}(\text{current } j)} = \frac{a_ip_{ij}}{a_j}.\]</span> For example <span class="math inline">\(q_{11} = \frac{\frac16 \times 0.3}{\frac16} = 0.3\)</span> and <span class="math inline">\(q_{21} = \frac{\frac13 \times 0.2}{\frac16} = 0.4\)</span>. Altogether (with <span class="math inline">\(i\)</span> labelling rows and <span class="math inline">\(j\)</span> columns): <span class="math display">\[(q_{ij}) = \begin{pmatrix} 0.3 &amp; 0.15 &amp; \frac{2}{15} \\ 0.4 &amp; 0.4 &amp; \frac{4}{15} \\ 0.3 &amp; 0.45 &amp; 0.6 \end{pmatrix}. \qed\]</span> Each <em>column</em> now adds to <span class="math inline">\(1\)</span>, since column <span class="math inline">\(j\)</span> lists the possible types of the previous theorem.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-16-1.svg" alt="Figure 12.16.1"><figcaption><span class="fig-label">Figure 12.16.1</span> Professor Ecks’s theorems as a Markov chain. Arrows show the probability that the next theorem is of each type. The fractions inside the circles are the stationary distribution: in the long run, one theorem in six is new and correct, one in three is already known, and half are false.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>The law of total probability, as a matrix.</strong> One step of the chain is multiplication of a row vector by the matrix <span class="math inline">\(P\)</span>.</p></li>
+<li><p><strong>Stationarity is an eigenvector.</strong> <span class="math inline">\(\mathbf a = \mathbf aP\)</span> says that <span class="math inline">\(\mathbf a\)</span> is a left eigenvector of <span class="math inline">\(P\)</span> with eigenvalue <span class="math inline">\(1\)</span>.</p></li>
+<li><p><strong>Reverse with Bayes.</strong> The backwards probabilities are another stochastic matrix, built from the forwards one and the stationary distribution.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="convergence-to-equilibrium">Convergence to equilibrium</h3>
+<p>Start Professor Ecks with any theorem; after <span class="math inline">\(n\)</span> more, the distribution of the type is <span class="math inline">\(\mathbf a_0P^n\)</span>. For a chain like this one, in which every type can follow every other, <span class="math inline">\(P^n\)</span> converges to a matrix with every row equal to the stationary distribution <span class="math inline">\((\frac16, \frac13, \frac12)\)</span>, whatever the starting point. The speed of convergence is governed by the other eigenvalues of <span class="math inline">\(P\)</span> (here <span class="math inline">\(0.2\)</span> and <span class="math inline">\(0.1\)</span>), which shrink geometrically: after just a few theorems, her past is forgotten. This <em>ergodic theorem</em> for Markov chains is a central result of a second-year probability course, and it is what makes Markov chain Monte Carlo methods work: to sample from a complicated distribution, design a Markov chain with that stationary distribution, and run it for a long time.</p>
+<h3 id="reversibility">Reversibility</h3>
+<p>The backwards chain <span class="math inline">\((q_{ij})\)</span> is different from the forwards chain <span class="math inline">\((p_{ij})\)</span>: you can tell the direction of time from a long record of her theorems. Chains whose backwards and forwards versions agree, <span class="math inline">\(a_ip_{ij} = a_jp_{ji}\)</span> for all <span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span>, are called <em>reversible</em>; they include random walks on networks and the models of physical systems in thermal equilibrium. Reversibility is a powerful property, because it makes the stationary distribution easy to find.</p>
+<div class="historybox">
+<div class="box-title">Markov and Pushkin</div>
+<p>Andrey Markov introduced his chains in 1906, partly to show that the law of large numbers does not require independence, in a dispute with the mathematician Pavel Nekrasov, who had claimed it did. In 1913 Markov applied his idea to the first <span class="math inline">\(20\,000\)</span> letters of Pushkin’s verse novel <em>Eugene Onegin</em>, classifying each as a vowel or consonant and showing that the type of each letter depends on the type of the previous one in a way well described by a two-state chain. It was the first statistical analysis of a text, and the ancestor of every predictive-text system.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Probabilities as vectors, transitions as matrices</div>
+<p><em>When a system moves between states with fixed probabilities, write the distribution as a vector and the transitions as a matrix. Then long-run behaviour becomes a question about eigenvectors.</em></p>
+<p>At university, this brings the linear algebra of Chapter 7 into probability. The Perron–Frobenius theorem guarantees the stationary distribution, and the other eigenvalues measure how quickly it is reached.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A rabbit warren.</strong> (From STEP III, 2003.) Chambers <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>, <span class="math inline">\(D\)</span> are at the corners of a square, joined by burrows along the sides, and each has a tunnel to the surface. A rabbit in a chamber runs to one of the two neighbouring chambers, or leaves by the tunnel, each with probability <span class="math inline">\(\frac13\)</span>. Let <span class="math inline">\(p_X\)</span> be the probability of leaving by the tunnel at <span class="math inline">\(A\)</span>, starting from chamber <span class="math inline">\(X\)</span>. Show that <span class="math inline">\(p_A = \frac13 + \frac13p_B + \frac13p_D\)</span>, and find <span class="math inline">\(p_A\)</span>. Find the probability that a rabbit starting at <span class="math inline">\(A\)</span> never visits <span class="math inline">\(C\)</span>, given that it leaves by the tunnel at <span class="math inline">\(A\)</span>.</p></li>
+<li><p><strong>Two steps.</strong> If Professor Ecks’s last theorem was new and correct, find the probabilities of the three types for the theorem after next.</p></li>
+<li><p><strong>Eigenvalues.</strong> Show that the eigenvalues of <span class="math inline">\(P\)</span> are <span class="math inline">\(1\)</span>, <span class="math inline">\(0.2\)</span> and <span class="math inline">\(0.1\)</span>.</p></li>
+<li><p><strong>Reversible?</strong> Check whether <span class="math inline">\(a_ip_{ij} = a_jp_{ji}\)</span> for Professor Ecks’s chain. What does the answer tell you?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>James Norris, <em>Markov Chains</em></strong> (Cambridge University Press). The standard undergraduate text.</p></li>
+<li><p><strong>Olle Häggström, <em>Finite Markov Chains and Algorithmic Applications</em></strong> (Cambridge University Press). Short, and good on Markov chain Monte Carlo.</p></li>
+<li><p><strong>Brian Hayes, “First links in the Markov chain”</strong>, <em>American Scientist</em> 101 (2013). Markov’s Pushkin analysis, retold.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="branching.html">← 12.15 Extinction or Explosion</a><a class="next" href="matchboxes.html">→ 12.17 Banach&#x27;s Matchboxes</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

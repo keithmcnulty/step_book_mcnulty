@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.7 Who Meets Whom in a Knockout — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP II · Specimen paper · Question 16</div>
+    <div class="sec-head"><span class="sec-num">12.7</span><h1>Who Meets Whom in a Knockout</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-7-knockout.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A tennis tournament is arranged for <span class="math inline">\(2^n\)</span> players. It is organised as a knockout tournament so that only the winners in any given round proceed to the next round. Opponents in each round except the final are drawn at random, and in any match either player has a probability of <span class="math inline">\(\frac12\)</span> of winning. Two players are chosen at random before the draw for the first round. Find the probabilities that they play each other:</p>
+<ol class="roman">
+<li><p>in the first round,</p></li>
+<li><p>in the final,</p></li>
+<li><p>in the tournament.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>At Wimbledon, <span class="math inline">\(128\)</span> players enter the draw. Pick two at random: what is the chance that they meet at some point? You might try to add up the probabilities of meeting in each round, each a product of chances of surviving and being drawn together. That works, but there is a much better way. Count the matches: every match is between a pair of players, and there are exactly <span class="math inline">\(127\)</span> matches. By symmetry, every pair of players is equally likely to be any of them. So the chance is <span class="math inline">\(127\)</span> divided by the number of pairs.</p>
+<p>This question is a perfect example of solving a probability problem by counting the right thing. The answer, <span class="math inline">\(\frac{1}{2^{n-1}}\)</span>, comes out in one line.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>How many matches are played in a knockout tournament with <span class="math inline">\(2^n\)</span> players? (Each match eliminates one player.)</p>
+</div>
+<p>Each match eliminates exactly one player, and all but one player is eliminated, so there are <span class="math inline">\(2^n - 1\)</span> matches.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-first-round" class="stage"><span class="stage-n">Stage 1</span> The first round</h4>
+<p>Call the two chosen players <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. In the first round, <span class="math inline">\(X\)</span>’s opponent is equally likely to be any of the other <span class="math inline">\(2^n - 1\)</span> players, so <span class="math display">\[\mathrm{P}(\text{meet in round } 1) = \frac{1}{2^n - 1}.\]</span></p>
+<h4 id="stagemark2-the-key-symmetry" class="stage"><span class="stage-n">Stage 2</span> The key symmetry</h4>
+<div class="askyourself">
+<p>The draw in each round is random and every match is a fair coin toss. Does the process treat any pair of players differently from any other?</p>
+</div>
+<p>No. Relabelling the players does not change any probability, since draws are random and every match is <span class="math inline">\(50\)</span>–<span class="math inline">\(50\)</span>. So any particular match (say, the final) is equally likely to be between any of the <span class="math inline">\(\binom{2^n}{2}\)</span> pairs.</p>
+<h4 id="stagemark3-the-final" class="stage"><span class="stage-n">Stage 3</span> The final</h4>
+<p>The final is one specific match, so the probability that it is between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is <span class="math display">\[\frac{1}{\binom{2^n}{2}} = \frac{2}{2^n(2^n - 1)}.\]</span> (Check: both must reach the final, which needs them in different halves and each to win <span class="math inline">\(n - 1\)</span> matches.)</p>
+<h4 id="stagemark4-at-any-stage" class="stage"><span class="stage-n">Stage 4</span> At any stage</h4>
+<div class="askyourself">
+<p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> can meet at most once. How does that let you add probabilities over matches?</p>
+</div>
+<p>Let <span class="math inline">\(I_m\)</span> be <span class="math inline">\(1\)</span> if match <span class="math inline">\(m\)</span> is between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Each of the <span class="math inline">\(2^n - 1\)</span> matches has <span class="math inline">\(\mathrm{P}(I_m = 1) = \binom{2^n}{2}^{-1}\)</span>, and the events are mutually exclusive (they cannot meet twice), so <span class="math display">\[\mathrm{P}(\text{meet}) = \frac{2^n - 1}{\binom{2^n}{2}} = \frac{2(2^n - 1)}{2^n(2^n - 1)} = \frac{1}{2^{n-1}}. \qed\]</span> For Wimbledon, with <span class="math inline">\(n = 7\)</span>, the probability that two given players meet is <span class="math inline">\(\frac{1}{64}\)</span>. As a check, the first round contains <span class="math inline">\(2^{n-1}\)</span> of the <span class="math inline">\(2^n - 1\)</span> matches, giving <span class="math inline">\(\frac{2^{n-1}}{\binom{2^n}{2}} = \frac{1}{2^n - 1}\)</span>, agreeing with Stage 1.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-7-1.svg" alt="Figure 12.7.1"><figcaption><span class="fig-label">Figure 12.7.1</span> A knockout tournament for <span class="math inline">\(2^3 = 8\)</span> players (drawn as a fixed bracket, though the question redraws each round at random). There are <span class="math inline">\(7\)</span> matches. By symmetry each is equally likely to involve any of the <span class="math inline">\(28\)</span> pairs, so two chosen players meet with probability <span class="math inline">\(\frac{7}{28} = \frac14 = \frac{1}{2^{n-1}}\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Count the matches.</strong> The number of matches, <span class="math inline">\(2^n - 1\)</span>, was the key fact.</p></li>
+<li><p><strong>Symmetry among pairs.</strong> Every pair of players is equally likely to contest any particular match.</p></li>
+<li><p><strong>Linearity over matches.</strong> Since two players meet at most once, the probability of meeting is the expected number of meetings, a sum over matches.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="expected-counts">Expected counts</h3>
+<p>The argument in Stage 4 is really an expectation calculation: the number of times <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> meet is a sum of indicators, one per match, and its expectation (which equals the probability of meeting, since it is <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>) is the sum of the indicators’ expectations. This is linearity of expectation, used in <a href="../ch09/coupon-collector.html">Section 9.11</a> and <a href="../ch12/pairwise-independence.html">Section 12.4</a>. Its great advantage is that it ignores all the complicated dependence between the rounds.</p>
+<h3 id="seeded-tournaments">Seeded tournaments</h3>
+<p>Real tournaments are <em>seeded</em>: the strongest players are placed so that they cannot meet until the late rounds. And real matches are not <span class="math inline">\(50\)</span>–<span class="math inline">\(50\)</span>. Both destroy the symmetry, and calculating the chance that two given players meet becomes a genuine computation. Statisticians who model sport use exactly such calculations, with each match’s probability estimated from players’ ratings, to forecast tournaments. The symmetric case is the baseline against which the real effects are measured.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Count the right thing</div>
+<p><em>A probability can often be found as (number of favourable objects) <span class="math inline">\(\div\)</span> (number of equally likely objects), once the right objects are chosen. Here they were matches and pairs.</em></p>
+<p>Choosing what to count is the art of combinatorial probability. At university the same idea appears as <em>double counting</em> (<a href="../ch07/platonic-solids.html">Section 7.9</a>) and in the probabilistic method, where the expected number of some structure proves that it exists.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Round by round.</strong> Show directly that the probability that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> meet in round <span class="math inline">\(k\)</span> is <span class="math inline">\(\frac{2^{n-k}}{\binom{2^n}{2}}\)</span>, and check that these add up to <span class="math inline">\(\frac{1}{2^{n-1}}\)</span>.</p></li>
+<li><p><strong>A fixed bracket.</strong> If instead the bracket is fixed in advance (as in the figure) but all players are placed in it at random, does the answer change?</p></li>
+<li><p><strong>A strong player.</strong> Suppose player <span class="math inline">\(X\)</span> wins every match. What is now the probability that <span class="math inline">\(X\)</span> meets <span class="math inline">\(Y\)</span>?</p></li>
+<li><p><strong>A league.</strong> In a league of <span class="math inline">\(2n\)</span> teams where every pair meets once, how many matches are there? What is the analogous “probability of meeting”?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Frederick Mosteller, <em>Fifty Challenging Problems in Probability</em></strong> (Dover), which includes tournament problems.</p></li>
+<li><p><strong>David Spiegelhalter, <em>The Art of Statistics</em></strong> (Pelican), on modelling and forecasting.</p></li>
+<li><p><strong>Joseph Blitzstein &amp; Jessica Hwang, <em>Introduction to Probability</em></strong> (CRC Press; free online), on indicators and symmetry.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="one-more-coin.html">← 12.6 One More Coin</a><a class="next" href="penney.html">→ 12.8 Penney&#x27;s Game</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

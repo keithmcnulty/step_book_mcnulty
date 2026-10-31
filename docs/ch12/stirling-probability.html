@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.23 Stirling from Probability — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP II · 2016 · Question 13</div>
+    <div class="sec-head"><span class="sec-num">12.23</span><h1>Stirling from Probability</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-23-stirling-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>The random variable <span class="math inline">\(X\)</span> has a binomial distribution with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, where <span class="math inline">\(n = 16\)</span> and <span class="math inline">\(p = \frac12\)</span>. Show, using an approximation in terms of the standard normal density function <span class="math inline">\(\frac{1}{\sqrt{2\pi}}e^{-\frac12x^2}\)</span>, that <span class="math display">\[\mathrm{P}(X = 8) \approx \frac{1}{2\sqrt{2\pi}}.\]</span></p></li>
+<li><p>By considering a binomial distribution with parameters <span class="math inline">\(2n\)</span> and <span class="math inline">\(\frac12\)</span>, show that <span class="math display">\[(2n)! \approx \frac{2^{2n}(n!)^2}{\sqrt{n\pi}}.\]</span></p></li>
+<li><p>By considering a Poisson distribution with parameter <span class="math inline">\(n\)</span>, show that <span class="math display">\[n! \approx \sqrt{2\pi n}\,e^{-n}n^n.\]</span></p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>How big is <span class="math inline">\(100!\)</span>? Multiplying out takes a while: it has <span class="math inline">\(158\)</span> digits. <em>Stirling’s formula</em>, <span class="math inline">\(n! \approx \sqrt{2\pi n}\,(n/e)^n\)</span>, gives it to within <span class="math inline">\(0.1\%\)</span> in a single line. It is one of the most useful approximations in mathematics, used constantly in probability, statistical physics and the analysis of algorithms.</p>
+<p>There are many proofs, using integrals (<a href="../ch04/wallis-beta.html">Section 4.4</a>) or the Euler–Maclaurin formula. This question gives the most surprising one: a proof by probability. The Poisson distribution with mean <span class="math inline">\(n\)</span> is approximately normal, and comparing the two at the peak forces the value of <span class="math inline">\(n!\)</span>. The <span class="math inline">\(\sqrt{2\pi}\)</span> in Stirling’s formula is literally the <span class="math inline">\(\sqrt{2\pi}\)</span> in the normal density.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>If a discrete random variable <span class="math inline">\(X\)</span> with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span> is approximately normal, roughly what is <span class="math inline">\(\mathrm{P}(X = \mu)\)</span>? (Think of the probability of an interval of width <span class="math inline">\(1\)</span> centred at <span class="math inline">\(\mu\)</span>.)</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(X = \mu) \approx \mathrm{P}(\mu - \frac12 &lt; X &lt; \mu + \frac12)\)</span> for the normal approximation, which is about the width <span class="math inline">\(1\)</span> times the density at the peak: <span class="math inline">\(\frac{1}{\sigma\sqrt{2\pi}}\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-sixteen-coins" class="stage"><span class="stage-n">Stage 1</span> Sixteen coins</h4>
+<p><span class="math inline">\(X \sim \mathrm{B}(16, \frac12)\)</span> has mean <span class="math inline">\(8\)</span> and variance <span class="math inline">\(16 \cdot \frac12 \cdot \frac12 = 4\)</span>, so <span class="math inline">\(\sigma = 2\)</span>. By the normal approximation, <span class="math display">\[\mathrm{P}(X = 8) \approx \frac{1}{2\sqrt{2\pi}} \approx 0.1995.\]</span> The exact value is <span class="math inline">\(\binom{16}{8}/2^{16} = \frac{12870}{65536} \approx 0.1964\)</span>, within <span class="math inline">\(2\%\)</span>.</p>
+<h4 id="stagemark2-the-central-binomial-coefficient" class="stage"><span class="stage-n">Stage 2</span> The central binomial coefficient</h4>
+<div class="askyourself">
+<p>For <span class="math inline">\(\mathrm{B}(2n, \frac12)\)</span>, what are the mean and standard deviation? Write <span class="math inline">\(\mathrm{P}(X = n)\)</span> exactly and approximately.</p>
+</div>
+<p>The mean is <span class="math inline">\(n\)</span> and the variance <span class="math inline">\(\frac n2\)</span>, so <span class="math inline">\(\sigma = \sqrt{n/2}\)</span>. Exactly, <span class="math inline">\(\mathrm{P}(X = n) = \binom{2n}{n}\frac{1}{2^{2n}}\)</span>; approximately, <span class="math inline">\(\frac{1}{\sqrt{n/2}\sqrt{2\pi}} = \frac{1}{\sqrt{\pi n}}\)</span>. Equating, <span class="math display">\[\frac{(2n)!}{(n!)^2\,2^{2n}} \approx \frac{1}{\sqrt{\pi n}}, \qquad (2n)! \approx \frac{2^{2n}(n!)^2}{\sqrt{n\pi}}. \qed\]</span></p>
+<h4 id="stagemark3-stirlings-formula" class="stage"><span class="stage-n">Stage 3</span> Stirling’s formula</h4>
+<div class="askyourself">
+<p>A Poisson distribution with parameter <span class="math inline">\(n\)</span> has mean and variance both equal to <span class="math inline">\(n\)</span>. Write <span class="math inline">\(\mathrm{P}(X = n)\)</span> exactly and approximately.</p>
+</div>
+<p>Exactly, <span class="math inline">\(\mathrm{P}(X = n) = e^{-n}\frac{n^n}{n!}\)</span>. For large <span class="math inline">\(n\)</span> the Poisson distribution is approximately normal (it is the sum of <span class="math inline">\(n\)</span> independent Poisson<span class="math inline">\((1)\)</span> variables), with <span class="math inline">\(\sigma = \sqrt n\)</span>, so <span class="math inline">\(\mathrm{P}(X = n) \approx \frac{1}{\sqrt{2\pi n}}\)</span>. Equating, <span class="math display">\[n! \approx \sqrt{2\pi n}\,e^{-n}n^n. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-23-1.svg" alt="Figure 12.23.1"><figcaption><span class="fig-label">Figure 12.23.1</span> The Poisson distribution with mean <span class="math inline">\(10\)</span> (bars) and the normal density with the same mean and variance (plum). At the peak, the Poisson probability <span class="math inline">\(e^{-10}10^{10}/10!\)</span> (amber) is close to the normal density <span class="math inline">\(\frac{1}{\sqrt{2\pi\cdot10}}\)</span>. Rearranging that near-equality is Stirling’s formula.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Probability at a point <span class="math inline">\(\approx\)</span> density times width.</strong> For a lattice distribution, the normal density at a point approximates the probability of that point.</p></li>
+<li><p><strong>An exact formula meets an approximation.</strong> The binomial and Poisson probabilities are exact; equating them to their normal approximations gave estimates for factorials.</p></li>
+<li><p><strong>Choose the distribution to fit the formula.</strong> <span class="math inline">\(\binom{2n}{n}\)</span> suggested <span class="math inline">\(\mathrm{B}(2n, \frac12)\)</span>; <span class="math inline">\(\frac{n^n}{n!}\)</span> suggested Poisson<span class="math inline">\((n)\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="how-good-is-the-approximation">How good is the approximation?</h3>
+<p>This argument is a heuristic: it uses the normal approximation <em>at a single point</em>, which the usual central limit theorem does not justify. A rigorous version, the <em>local central limit theorem</em>, does exactly that, and makes this a genuine proof. Stirling’s formula is in fact remarkably accurate: the ratio <span class="math inline">\(\frac{n!}{\sqrt{2\pi n}(n/e)^n}\)</span> is about <span class="math inline">\(1 + \frac{1}{12n}\)</span>, so even for <span class="math inline">\(n = 1\)</span> it gives <span class="math inline">\(0.92\)</span> instead of <span class="math inline">\(1\)</span>, and for <span class="math inline">\(n = 10\)</span> it is <span class="math inline">\(0.8\%\)</span> too small. The full series, <span class="math inline">\(1 + \frac{1}{12n} + \frac{1}{288n^2} - \cdots\)</span>, is an example of an <em>asymptotic series</em>: it gives better and better approximations for large <span class="math inline">\(n\)</span>, but for fixed <span class="math inline">\(n\)</span> it eventually diverges.</p>
+<h3 id="why-factorials-and-normals-are-linked">Why factorials and normals are linked</h3>
+<p>The <span class="math inline">\(\sqrt{2\pi}\)</span> in Stirling’s formula and in the normal density are the same constant, because <span class="math inline">\(\int_{-\infty}^\infty e^{-x^2/2}\,\mathrm{d}x = \sqrt{2\pi}\)</span>. Abraham de Moivre found the normal approximation to the binomial in 1733 in exactly this way, needing an approximation to <span class="math inline">\(\binom{n}{k}\)</span> for large <span class="math inline">\(n\)</span>; he found the form <span class="math inline">\(n! \approx Cn^{n + 1/2}e^{-n}\)</span> but not the constant. James Stirling showed that <span class="math inline">\(C = \sqrt{2\pi}\)</span>. The normal distribution was born from the asymptotics of factorials.</p>
+<div class="historybox">
+<div class="box-title">De Moivre and Stirling</div>
+<p>Abraham de Moivre, a French Protestant who fled to London and earned a living tutoring and advising gamblers, published <em>The Doctrine of Chances</em> in 1718 and found the normal approximation to the binomial in a pamphlet of 1733, the first appearance of the normal curve. James Stirling, a Scottish mathematician, published the value of the constant in his <em>Methodus Differentialis</em> (1730), and de Moivre generously credited him. The approximation of factorials is still an active subject: computing <span class="math inline">\(n!\)</span> for huge <span class="math inline">\(n\)</span> is needed in combinatorics and cryptography.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Use probability to prove something that is not about probability</div>
+<p><em>An exact probability, compared with an approximation, can give information about the numbers in the formula.</em></p>
+<p>This “probabilistic method” runs both ways. Here probability gave an estimate for factorials; Erdős used it to prove the existence of graphs (<a href="../ch09/ramsey.html">Section 9.2</a>). At university you will see probability used to prove theorems in analysis, number theory and combinatorics.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Check the formula.</strong> Use Stirling’s formula to estimate <span class="math inline">\(10!\)</span> and <span class="math inline">\(20!\)</span>, and compare with the true values <span class="math inline">\(3\,628\,800\)</span> and <span class="math inline">\(2\,432\,902\,008\,176\,640\,000\)</span>.</p></li>
+<li><p><strong>From (iii) to (ii).</strong> Show that Stirling’s formula in part (iii) implies the approximation in part (ii).</p></li>
+<li><p><strong>Digits of <span class="math inline">\(100!\)</span>.</strong> Use <span class="math inline">\(\log_{10}n! \approx n\log_{10}\frac ne + \frac12\log_{10}(2\pi n)\)</span> to show that <span class="math inline">\(100!\)</span> has <span class="math inline">\(158\)</span> digits.</p></li>
+<li><p><strong>A tie in coin tossing.</strong> Use part (ii) to show that the probability of exactly <span class="math inline">\(500\)</span> heads in <span class="math inline">\(1000\)</span> tosses of a fair coin is about <span class="math inline">\(0.025\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>William Feller, <em>An Introduction to Probability Theory and Its Applications</em>, Vol. 1</strong> (Wiley), Chapter II, which proves Stirling’s formula.</p></li>
+<li><p><strong>Ronald Graham, Donald Knuth &amp; Oren Patashnik, <em>Concrete Mathematics</em></strong> (Addison-Wesley), Chapter 9, on asymptotics.</p></li>
+<li><p><strong>Stephen Stigler, <em>The History of Statistics</em></strong> (Harvard University Press), on de Moivre and the birth of the normal curve.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="cauchy.html">← 12.22 A Distribution With No Mean</a><a class="next" href="clt.html">→ 12.24 The Central Limit Theorem</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.14 Mixed Strategies — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP I · 1989 · Question 16</div>
+    <div class="sec-head"><span class="sec-num">12.14</span><h1>Mixed Strategies</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-14-mixed-strategies.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A and B play a guessing game. Each simultaneously names one of the numbers <span class="math inline">\(1, 2, 3\)</span>. If the numbers differ by <span class="math inline">\(2\)</span>, whoever guessed the <em>smaller</em> pays the opponent £2. If the numbers differ by <span class="math inline">\(1\)</span>, whoever guessed the <em>larger</em> pays the opponent £1. Otherwise no money changes hands. Many rounds of the game are played.</p>
+<ol class="roman">
+<li><p>If A says he will always guess the same number <span class="math inline">\(N\)</span>, explain (for each value of <span class="math inline">\(N\)</span>) how B can maximise his winnings.</p></li>
+<li><p>In an attempt to improve his play, A announces that he will guess each number at random with probability <span class="math inline">\(\frac13\)</span>, guesses on different rounds being independent. To counter this, B secretly decides to guess <span class="math inline">\(j\)</span> with probability <span class="math inline">\(b_j\)</span> (<span class="math inline">\(j = 1, 2, 3\)</span>, <span class="math inline">\(b_1 + b_2 + b_3 = 1\)</span>), guesses on different rounds being independent. Derive an expression for B’s expected winnings on any round. How should the probabilities <span class="math inline">\(b_j\)</span> be chosen so as to maximize this expression?</p></li>
+<li><p>A now announces that he will guess <span class="math inline">\(j\)</span> with probability <span class="math inline">\(a_j\)</span> (<span class="math inline">\(j = 1, 2, 3\)</span>, <span class="math inline">\(a_1 + a_2 + a_3 = 1\)</span>). If B guesses <span class="math inline">\(j\)</span> with probability <span class="math inline">\(b_j\)</span> (<span class="math inline">\(j = 1, 2, 3\)</span>, <span class="math inline">\(b_1 + b_2 + b_3 = 1\)</span>), obtain an expression for his expected winnings in the form <span class="math display">\[Xa_1 + Ya_2 + Za_3.\]</span> Show that he can choose <span class="math inline">\(b_1\)</span>, <span class="math inline">\(b_2\)</span> and <span class="math inline">\(b_3\)</span> such that <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> are all non-negative. Deduce that, whatever values for <span class="math inline">\(a_j\)</span> are chosen by A, B can ensure that in the long run he loses no money.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>In rock–paper–scissors, any fixed choice can be exploited: play rock every time and your opponent will learn to play paper. The only safe strategy is to randomise. This question is a more intricate version, where the payoffs are unequal and the right randomisation is not obvious. It turns out that by guessing <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> with probabilities <span class="math inline">\(\frac14\)</span>, <span class="math inline">\(\frac12\)</span>, <span class="math inline">\(\frac14\)</span>, a player can guarantee not to lose in the long run, whatever the opponent does.</p>
+<p>This is a first glimpse of John von Neumann’s <em>minimax theorem</em> of 1928, the founding result of game theory: in every two-player game where one player’s gain is the other’s loss, there is a randomised strategy for each player that guarantees the best possible result against an opponent who plays perfectly.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Write down a table of B’s winnings for each pair of guesses (B’s guess down the side, A’s across the top).</p>
+</div>
+<p>Working through the rules (for instance, if B says <span class="math inline">\(1\)</span> and A says <span class="math inline">\(3\)</span>, they differ by <span class="math inline">\(2\)</span> and B, the smaller, pays £2):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">B <span class="math inline">\(\backslash\)</span> A</th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>The table is <em>antisymmetric</em> (swapping the players changes the sign), so the game is fair in the sense that neither player has a built-in advantage.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-against-a-fixed-guess" class="stage"><span class="stage-n">Stage 1</span> Against a fixed guess</h4>
+<p>If A always says <span class="math inline">\(1\)</span>, B should say <span class="math inline">\(3\)</span> and win £2 every round. If A always says <span class="math inline">\(2\)</span>, B says <span class="math inline">\(1\)</span> and wins £1. If A always says <span class="math inline">\(3\)</span>, B says <span class="math inline">\(2\)</span> and wins £1. Any fixed guess can be exploited.</p>
+<h4 id="stagemark2-against-random-guessing" class="stage"><span class="stage-n">Stage 2</span> Against random guessing</h4>
+<div class="askyourself">
+<p>If A guesses uniformly at random, what is B’s expected gain when B says <span class="math inline">\(j\)</span>? (Average along row <span class="math inline">\(j\)</span> of the table.)</p>
+</div>
+<p>The row averages are <span class="math inline">\(\frac13(0 + 1 - 2) = -\frac13\)</span> for <span class="math inline">\(j = 1\)</span>, <span class="math inline">\(0\)</span> for <span class="math inline">\(j = 2\)</span> and <span class="math inline">\(\frac13(2 - 1 + 0) = \frac13\)</span> for <span class="math inline">\(j = 3\)</span>. So B’s expected winnings per round are <span class="math display">\[-\tfrac13b_1 + 0\cdot b_2 + \tfrac13b_3,\]</span> which is maximised by <span class="math inline">\(b_3 = 1\)</span>: always say <span class="math inline">\(3\)</span>, winning <span class="math inline">\(\frac13\)</span> of a pound per round on average. Uniform randomisation does not protect A.</p>
+<h4 id="stagemark3-the-general-case" class="stage"><span class="stage-n">Stage 3</span> The general case</h4>
+<div class="askyourself">
+<p>Now A plays <span class="math inline">\(j\)</span> with probability <span class="math inline">\(a_j\)</span>. Collect B’s expected winnings by A’s guess: what is the coefficient of <span class="math inline">\(a_1\)</span> (the average of column <span class="math inline">\(1\)</span> with weights <span class="math inline">\(b_j\)</span>)?</p>
+</div>
+<p>Reading down the columns of the table, <span class="math display">\[\text{B&#39;s expected winnings} = (-b_2 + 2b_3)a_1 + (b_1 - b_3)a_2 + (-2b_1 + b_2)a_3,\]</span> so <span class="math inline">\(X = -b_2 + 2b_3\)</span>, <span class="math inline">\(Y = b_1 - b_3\)</span> and <span class="math inline">\(Z = -2b_1 + b_2\)</span>.</p>
+<div class="askyourself">
+<p>Can you make all three zero? (Three equations, but they are not independent; why not?)</p>
+</div>
+<p>They are not independent: <span class="math inline">\(X + 2Y + Z = 0\)</span> identically (check it). So <span class="math inline">\(Y = 0\)</span>, giving <span class="math inline">\(b_1 = b_3\)</span>, and <span class="math inline">\(X = 0\)</span>, giving <span class="math inline">\(b_2 = 2b_3\)</span>, force <span class="math inline">\(Z = 0\)</span> as well. With <span class="math inline">\(b_1 + b_2 + b_3 = 1\)</span>: <span class="math display">\[b_1 = \tfrac14, \qquad b_2 = \tfrac12, \qquad b_3 = \tfrac14,\]</span> giving <span class="math inline">\(X = Y = Z = 0\)</span>. Then B’s expected winnings are <span class="math inline">\(0\)</span> whatever the <span class="math inline">\(a_j\)</span>, and B loses nothing in the long run.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-14-1.svg" alt="Figure 12.14.1"><figcaption><span class="fig-label">Figure 12.14.1</span> B’s expected gain against each of A’s choices, for three strategies of B. Always saying <span class="math inline">\(3\)</span> wins against A’s <span class="math inline">\(1\)</span> but loses against A’s <span class="math inline">\(2\)</span>; uniform guessing loses against A’s <span class="math inline">\(3\)</span>. The strategy <span class="math inline">\((\frac14, \frac12, \frac14)\)</span> gives exactly <span class="math inline">\(0\)</span> (drawn as a thin bar) whatever A does, so it can never be exploited.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Write the payoff table.</strong> All the reasoning was about rows and columns of a <span class="math inline">\(3 \times 3\)</span> matrix.</p></li>
+<li><p><strong>Pure strategies are exploitable.</strong> Against any fixed guess, and even against uniform guessing, the opponent has a profitable reply.</p></li>
+<li><p><strong>Equalise.</strong> The safe strategy makes the opponent indifferent: every one of A’s choices gives the same expected result.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-minimax-theorem">The minimax theorem</h3>
+<p>In a two-player <em>zero-sum</em> game, given by a payoff matrix <span class="math inline">\(M\)</span>, B choosing probabilities <span class="math inline">\(\mathbf{b}\)</span> and A choosing <span class="math inline">\(\mathbf{a}\)</span>, B’s expected winnings are <span class="math inline">\(\mathbf{b}^{\mathsf T}M\mathbf{a}\)</span>. Von Neumann’s minimax theorem says <span class="math display">\[\max_{\mathbf b}\min_{\mathbf a}\mathbf{b}^{\mathsf T}M\mathbf{a} = \min_{\mathbf a}\max_{\mathbf b}\mathbf{b}^{\mathsf T}M\mathbf{a}.\]</span> In words: the amount B can guarantee by announcing a randomised strategy in advance equals the amount A can hold B to by announcing his. This common value is the <em>value</em> of the game. Here, by antisymmetry, the value is <span class="math inline">\(0\)</span>, and the strategy <span class="math inline">\((\frac14, \frac12, \frac14)\)</span> is optimal for both players. The theorem is proved using linear algebra and convexity (it is equivalent to the duality theorem of linear programming), and its generalisation to many players, the <em>Nash equilibrium</em>, won John Nash the Nobel Prize in economics.</p>
+<h3 id="why-randomise">Why randomise?</h3>
+<p>Randomness here is not about luck but about information. If B’s choice can be predicted, A can exploit it; by randomising with the right probabilities, B makes his choice unpredictable <em>and</em> ensures that no prediction would help. Real examples include penalty kicks in football, where studies of professional players have found kickers and goalkeepers randomising between left and right in proportions close to the game-theoretic optimum, and tennis serves.</p>
+<div class="historybox">
+<div class="box-title">Von Neumann’s 1928 paper</div>
+<p>John von Neumann proved the minimax theorem in 1928, in a paper “On the theory of games of strategy”, motivated by poker, where bluffing is a form of randomisation. In 1944 he and the economist Oskar Morgenstern published <em>Theory of Games and Economic Behavior</em>, which founded game theory as a subject. Von Neumann later recalled that he had regarded the minimax theorem as the key result, without which there would be no theory of games worth publishing.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Randomise to remove an opponent’s advantage</div>
+<p><em>When any fixed choice can be exploited, choose at random, with probabilities that make the opponent indifferent between their options.</em></p>
+<p>At university, game theory, linear programming and the theory of algorithms all use this idea. Randomised algorithms, for example, protect themselves against worst-case inputs by making random choices that no adversary can predict.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A’s best reply.</strong> If B uses <span class="math inline">\((\frac14, \frac12, \frac14)\)</span>, show that every strategy of A gives expected winnings <span class="math inline">\(0\)</span>. If instead B uses <span class="math inline">\((\frac13, \frac13, \frac13)\)</span>, find A’s best reply.</p></li>
+<li><p><strong>Rock, paper, scissors.</strong> Write the payoff matrix for rock–paper–scissors and find the optimal strategy. Why is it uniform here but not in the question?</p></li>
+<li><p><strong>Uniqueness.</strong> Show that <span class="math inline">\((\frac14, \frac12, \frac14)\)</span> is the <em>only</em> strategy for B that guarantees not losing. (<em>Hint:</em> it must make <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, <span class="math inline">\(Z\)</span> all non-negative; use <span class="math inline">\(X + 2Y + Z = 0\)</span>.)</p></li>
+<li><p><strong>A modified game.</strong> If the penalty for differing by <span class="math inline">\(2\)</span> is £3 instead of £2, find the optimal strategy.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Ken Binmore, <em>Playing for Real</em></strong> (Oxford University Press). A thorough but friendly introduction to game theory.</p></li>
+<li><p><strong>Avinash Dixit &amp; Barry Nalebuff, <em>The Art of Strategy</em></strong> (Norton). Game theory with examples from sport and business.</p></li>
+<li><p><strong>William Poundstone, <em>Prisoner’s Dilemma</em></strong> (Anchor). Von Neumann, game theory and the Cold War.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="truel.html">← 12.13 The Truel</a><a class="next" href="branching.html">→ 12.15 Extinction or Explosion</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

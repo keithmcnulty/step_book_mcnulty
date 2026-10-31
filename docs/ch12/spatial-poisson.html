@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.19 Random Points in the Plane — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP II · 2012 · Question 13</div>
+    <div class="sec-head"><span class="sec-num">12.19</span><h1>Random Points in the Plane</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-19-spatial-poisson.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>In this question, you may assume that <span class="math inline">\(\displaystyle\int_0^\infty e^{-x^2/2}\,\mathrm{d}x = \sqrt{\tfrac12\pi}\)</span>.</p>
+<p>The number of supermarkets situated in any given region can be modelled by a Poisson random variable, where the mean is <span class="math inline">\(k\)</span> times the area of the given region. Find the probability that there are no supermarkets within a circle of radius <span class="math inline">\(y\)</span>.</p>
+<p>The random variable <span class="math inline">\(Y\)</span> denotes the distance between a randomly chosen point in the region and the nearest supermarket. Write down <span class="math inline">\(\mathrm{P}(Y &lt; y)\)</span> and hence show that the probability density function of <span class="math inline">\(Y\)</span> is <span class="math inline">\(2\pi yke^{-\pi ky^2}\)</span> for <span class="math inline">\(y \geq 0\)</span>.</p>
+<p>Find <span class="math inline">\(\mathrm{E}(Y)\)</span> and show that <span class="math inline">\(\mathrm{Var}(Y) = \dfrac{4 - \pi}{4\pi k}\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>If supermarkets, trees, stars or mobile-phone masts are scattered “at random” across a region, how far do you have to go to the nearest one? The answer depends only on the density <span class="math inline">\(k\)</span> (the average number per unit area), and it has a characteristic shape, the <em>Rayleigh distribution</em>. On average the nearest is at distance <span class="math inline">\(\frac{1}{2\sqrt k}\)</span>: with one supermarket per square kilometre, <span class="math inline">\(500\)</span> metres.</p>
+<p>The model is the <em>spatial Poisson process</em>, the two-dimensional version of random arrivals in time (<a href="../ch12/memoryless.html">Section 12.18</a>). The calculation is short and pretty, but its real interest is as a benchmark: ecologists compare real nearest-neighbour distances with this formula to decide whether trees or nests are clustered, randomly scattered or deliberately spaced out.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>A Poisson random variable with mean <span class="math inline">\(\mu\)</span> takes the value <span class="math inline">\(0\)</span> with what probability?</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(0) = e^{-\mu}\)</span>. A circle of radius <span class="math inline">\(y\)</span> has area <span class="math inline">\(\pi y^2\)</span>, so the number of supermarkets inside it has mean <span class="math inline">\(k\pi y^2\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-no-supermarket-nearby" class="stage"><span class="stage-n">Stage 1</span> No supermarket nearby</h4>
+<p>The probability of no supermarket within distance <span class="math inline">\(y\)</span> is <span class="math inline">\(e^{-\pi ky^2}\)</span>.</p>
+<h4 id="stagemark2-the-distribution-of-the-nearest-distance" class="stage"><span class="stage-n">Stage 2</span> The distribution of the nearest distance</h4>
+<div class="askyourself">
+<p><span class="math inline">\(Y \geq y\)</span> means there is no supermarket within distance <span class="math inline">\(y\)</span>. So what is <span class="math inline">\(\mathrm{P}(Y &lt; y)\)</span>?</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(Y &lt; y) = 1 - e^{-\pi ky^2}\)</span>, and differentiating gives the density <span class="math display">\[\mathrm{f}(y) = 2\pi kye^{-\pi ky^2}, \qquad y \geq 0. \qed\]</span></p>
+<h4 id="stagemark3-the-mean" class="stage"><span class="stage-n">Stage 3</span> The mean</h4>
+<div class="askyourself">
+<p>Either integrate <span class="math inline">\(y\,\mathrm{f}(y)\)</span> by parts, or use <span class="math inline">\(\mathrm{E}(Y) = \int_0^\infty\mathrm{P}(Y &gt; y)\,\mathrm{d}y\)</span>. Then substitute to use the given Gaussian integral.</p>
+</div>
+<p><span class="math display">\[\mathrm{E}(Y) = \int_0^\infty e^{-\pi ky^2}\,\mathrm{d}y.\]</span> Substituting <span class="math inline">\(x = y\sqrt{2\pi k}\)</span>, so that <span class="math inline">\(\pi ky^2 = \frac12x^2\)</span>, gives <span class="math inline">\(\mathrm{E}(Y) = \frac{1}{\sqrt{2\pi k}}\sqrt{\frac\pi2} = \frac{1}{2\sqrt k}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-the-variance" class="stage"><span class="stage-n">Stage 4</span> The variance</h4>
+<p><span class="math display">\[\mathrm{E}(Y^2) = \int_0^\infty y^2\cdot2\pi kye^{-\pi ky^2}\,\mathrm{d}y.\]</span> Substituting <span class="math inline">\(u = \pi ky^2\)</span> (so <span class="math inline">\(\mathrm{d}u = 2\pi ky\,\mathrm{d}y\)</span>), this is <span class="math inline">\(\int_0^\infty\frac{u}{\pi k}e^{-u}\,\mathrm{d}u = \frac{1}{\pi k}\)</span>. Hence <span class="math display">\[\mathrm{Var}(Y) = \frac{1}{\pi k} - \frac{1}{4k} = \frac{4 - \pi}{4\pi k}. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-19-1.svg" alt="Figure 12.19.1"><figcaption><span class="fig-label">Figure 12.19.1</span> Left: sixty points scattered at random over a region of area <span class="math inline">\(24\)</span> (so <span class="math inline">\(k = 2.5\)</span>), and the distance from a chosen point to the nearest of them (amber). Right: the Rayleigh density <span class="math inline">\(2\pi kye^{-\pi ky^2}\)</span> of that distance, with distance measured in units of <span class="math inline">\(1/\sqrt k\)</span>. Its mean is <span class="math inline">\(\frac{1}{2\sqrt k}\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Turn a distance question into a counting question.</strong> “The nearest is further than <span class="math inline">\(y\)</span>” is “there are none within <span class="math inline">\(y\)</span>”.</p></li>
+<li><p><strong>Cumulative first, density second.</strong> <span class="math inline">\(\mathrm{P}(Y &lt; y)\)</span> came directly; differentiating gave the density.</p></li>
+<li><p><strong>Substitutions to known integrals.</strong> Each moment reduced to the Gaussian integral or the exponential integral.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-poisson-process-in-the-plane">The Poisson process in the plane</h3>
+<p>A spatial Poisson process with intensity <span class="math inline">\(k\)</span> is a random scatter of points such that the numbers in disjoint regions are independent, and the number in a region of area <span class="math inline">\(A\)</span> is Poisson with mean <span class="math inline">\(kA\)</span>. It is what you get from dropping a huge number of points independently and uniformly over a huge area, with the right average density: the “law of rare events” that also explains derangements (<a href="../ch09/derangements.html">Section 9.8</a>). It is the natural model of complete spatial randomness, and real patterns are judged against it. The <em>Clark–Evans test</em>, devised by two ecologists in 1954, compares the observed mean nearest-neighbour distance with <span class="math inline">\(\frac{1}{2\sqrt k}\)</span>: much smaller suggests clustering (seeds falling near their parent tree), much larger suggests regular spacing (territorial birds, or competition between plants for water).</p>
+<h3 id="in-three-dimensions">In three dimensions</h3>
+<p>The same calculation in three dimensions gives <span class="math inline">\(\mathrm{P}(Y &gt; y) = e^{-\frac43\pi ky^3}\)</span> for the distance to the nearest star, molecule or galaxy. Subrahmanyan Chandrasekhar used it in 1943 to study the gravitational forces on a star from its random neighbours, and physicists use it for the mean free path of molecules in a gas.</p>
+<div class="historybox">
+<div class="box-title">Rayleigh</div>
+<p>The density <span class="math inline">\(\frac{y}{\sigma^2}e^{-y^2/(2\sigma^2)}\)</span> is named after Lord Rayleigh, who met it in 1880 in the theory of sound: it describes the amplitude of the sum of many waves with random phases. It also gives the distance from the origin of a point whose two coordinates are independent normal random variables, which is another way to see why it appears here (exercise 3). Today it models the fading of mobile-phone signals, which reach the receiver along many paths with random phases.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Find the distribution function first</div>
+<p><em>For the distribution of a minimum, a maximum or a nearest distance, <span class="math inline">\(\mathrm{P}(Y &gt; y)\)</span> is often easy to write down directly. Differentiate to get the density.</em></p>
+<p>This approach recurs in <a href="../ch12/extremes.html">Section 12.25</a>, for the largest of many random lifetimes. At university it is the standard first step for any “order statistic”.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The median.</strong> Find the median distance to the nearest supermarket, and compare it with the mean.</p></li>
+<li><p><strong>The second nearest.</strong> Find the distribution of the distance to the <em>second</em> nearest supermarket. (<em>Hint:</em> <span class="math inline">\(\mathrm{P}(Y_2 &gt; y)\)</span> is the probability of at most one supermarket within <span class="math inline">\(y\)</span>.)</p></li>
+<li><p><strong>Normal coordinates.</strong> If <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> are independent <span class="math inline">\(\mathrm{N}(0, \sigma^2)\)</span>, show that <span class="math inline">\(\sqrt{U^2 + V^2}\)</span> has density <span class="math inline">\(\frac{r}{\sigma^2}e^{-r^2/(2\sigma^2)}\)</span>. Which value of <span class="math inline">\(\sigma\)</span> gives the supermarket distribution?</p></li>
+<li><p><strong>Clark–Evans.</strong> In a survey of a <span class="math inline">\(1\)</span> km<span class="math inline">\(^2\)</span> wood containing <span class="math inline">\(400\)</span> trees, the mean distance from a tree to its nearest neighbour is <span class="math inline">\(35\)</span> m. Is this consistent with complete spatial randomness, or does it suggest clustering or spacing?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Peter Diggle, <em>Statistical Analysis of Spatial Point Patterns</em></strong> (Arnold). The standard reference, with the Clark–Evans test and its successors.</p></li>
+<li><p><strong>John Kingman, <em>Poisson Processes</em></strong> (Oxford University Press). A beautiful short book on Poisson processes in any number of dimensions.</p></li>
+<li><p><strong>Geoffrey Grimmett &amp; David Stirzaker, <em>Probability and Random Processes</em></strong> (Oxford University Press), the chapter on the Poisson process.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="memoryless.html">← 12.18 Memorylessness</a><a class="next" href="buffon.html">→ 12.20 Buffon&#x27;s Needle</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

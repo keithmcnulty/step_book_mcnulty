@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.9 A Fair Decision from a Biased Coin — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP I · 2019 · Question 11</div>
+    <div class="sec-head"><span class="sec-num">12.9</span><h1>A Fair Decision from a Biased Coin</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-9-von-neumann.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Two people adopt the following procedure for deciding where to go for a cup of tea: either to a hotel or to a tea shop. Each person has a coin which has a probability <span class="math inline">\(p\)</span> of showing heads and <span class="math inline">\(q\)</span> of showing tails (where <span class="math inline">\(p + q = 1\)</span>). In each round of the procedure, both people toss their coins once. If both coins show heads, then both people go to the hotel; if both coins show tails, then both people go to the tea shop; otherwise, they continue to the next round. This process is repeated until a decision is made.</p>
+<p>Show that the probability that they make a decision on the <span class="math inline">\(n\)</span>th round is <span class="math display">\[(q^2 + p^2)(2qp)^{n-1}.\]</span> Show also that the probability that they make a decision on or before the <span class="math inline">\(n\)</span>th round is at least <span class="math display">\[1 - \frac{1}{2^n}\]</span> whatever the value of <span class="math inline">\(p\)</span>.</p></li>
+<li><p>Three people adopt the following procedure for deciding where to go for a cup of tea: either to a hotel or to a tea shop. Each person has a coin which has a probability <span class="math inline">\(p\)</span> of showing heads and <span class="math inline">\(q\)</span> of showing tails (where <span class="math inline">\(p + q = 1\)</span>). In the first round of the procedure, all three people toss their coins once. If all three coins show heads, then all three people go to the hotel; if all three coins show tails, then all three people go to the tea shop; otherwise, they continue to the next round.</p>
+<p>In the next round the two people whose coins showed the same face toss again, but the third person just turns over his or her coin. If all three coins show heads, then all three people go to the hotel; if all three coins show tails, then all three people go to the tea shop; otherwise, they go to the third round.</p>
+<p>Show that the probability that they make a decision on or before the second round is at least <span class="math inline">\(\frac{7}{16}\)</span>, whatever the value of <span class="math inline">\(p\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>You need to make a fair decision, but the only coin available is bent, and you do not know how biased it is. Can you still make a fair choice? John von Neumann’s answer, from 1951: toss it twice. If it comes up HT, choose the hotel; if TH, the tea shop; if HH or TT, toss twice more. Since HT and TH both have probability <span class="math inline">\(pq\)</span>, the decision is perfectly fair, whatever <span class="math inline">\(p\)</span> is.</p>
+<p>The procedure in this question is the opposite: it decides on HH and TT, which is quick but unfair (hotel with probability <span class="math inline">\(\frac{p^2}{p^2 + q^2}\)</span>). The question shows that it never takes long, whatever the coin. Comparing the two procedures shows a basic trade-off in generating randomness: speed against fairness.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>In one round, what is the probability of a decision? Of no decision? What is the largest value <span class="math inline">\(2pq\)</span> can take?</p>
+</div>
+<p>A decision is made if the coins agree, with probability <span class="math inline">\(p^2 + q^2\)</span>; otherwise, with probability <span class="math inline">\(2pq\)</span>, they continue. Since <span class="math inline">\(pq = p(1 - p) \leq \frac14\)</span> (with equality at <span class="math inline">\(p = \frac12\)</span>), we have <span class="math inline">\(2pq \leq \frac12\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-decision-on-the-nth-round" class="stage"><span class="stage-n">Stage 1</span> Decision on the <span class="math inline">\(n\)</span>th round</h4>
+<p>Rounds are independent. A decision on the <span class="math inline">\(n\)</span>th round needs <span class="math inline">\(n - 1\)</span> rounds of disagreement followed by agreement: <span class="math display">\[\mathrm{P}(\text{decision on round } n) = (2pq)^{n-1}(p^2 + q^2). \qed\]</span></p>
+<h4 id="stagemark2-decision-by-round-n" class="stage"><span class="stage-n">Stage 2</span> Decision by round <span class="math inline">\(n\)</span></h4>
+<div class="askyourself">
+<p>What is the probability of <em>no</em> decision in the first <span class="math inline">\(n\)</span> rounds?</p>
+</div>
+<p>No decision in <span class="math inline">\(n\)</span> rounds has probability <span class="math inline">\((2pq)^n \leq \bigl(\frac12\bigr)^n\)</span>, so a decision by round <span class="math inline">\(n\)</span> has probability at least <span class="math inline">\(1 - \frac{1}{2^n}\)</span>, whatever <span class="math inline">\(p\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-three-people" class="stage"><span class="stage-n">Stage 3</span> Three people</h4>
+<div class="askyourself">
+<p>After a first round with two heads and one tail, the third person turns the tail over to a head. What must happen in round two for a decision? And after two tails and one head?</p>
+</div>
+<p>Round one decides with probability <span class="math inline">\(p^3 + q^3\)</span>. Otherwise two coins agree and one differs. If the majority showed heads (probability <span class="math inline">\(3p^2q\)</span>), the odd coin is turned to heads, and the round-two decision needs the other two to toss heads: probability <span class="math inline">\(p^2\)</span> (all tails is now impossible). Similarly with a tails majority (probability <span class="math inline">\(3pq^2\)</span>), a decision needs two tails: <span class="math inline">\(q^2\)</span>. So <span class="math display">\[\mathrm{P}(\text{decision by round } 2) = p^3 + q^3 + 3p^2q\cdot p^2 + 3pq^2\cdot q^2.\]</span></p>
+<div class="askyourself">
+<p>Write everything in terms of <span class="math inline">\(s = pq\)</span>. (Use <span class="math inline">\(p + q = 1\)</span>.)</p>
+</div>
+<p>We have <span class="math inline">\(p^3 + q^3 = (p + q)^3 - 3pq(p + q) = 1 - 3s\)</span>, and <span class="math inline">\(3p^4q + 3pq^4 = 3s(p^3 + q^3) = 3s(1 - 3s)\)</span>. So <span class="math display">\[\mathrm{P} = 1 - 3s + 3s - 9s^2 = 1 - 9s^2 \geq 1 - \frac{9}{16} = \frac{7}{16},\]</span> since <span class="math inline">\(s \leq \frac14\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Complements.</strong> “At least once by round <span class="math inline">\(n\)</span>” was easiest as <span class="math inline">\(1 -\)</span> (“never in <span class="math inline">\(n\)</span> rounds”).</p></li>
+<li><p><strong>Bound the worst case.</strong> The unknown <span class="math inline">\(p\)</span> was handled by the inequality <span class="math inline">\(pq \leq \frac14\)</span>.</p></li>
+<li><p><strong>Symmetric functions.</strong> Expressions symmetric in <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> simplify when written in terms of <span class="math inline">\(p + q = 1\)</span> and <span class="math inline">\(pq\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="von-neumanns-trick">Von Neumann’s trick</h3>
+<p>The procedure in the question is quick but biased. Von Neumann’s procedure is fair: toss twice, decide on HT or TH, repeat on HH or TT. Each attempt succeeds with probability <span class="math inline">\(2pq\)</span>, so it takes on average <span class="math inline">\(\frac{1}{2pq}\)</span> attempts, which is slow when the coin is very biased (Figure 12.9.1). The question’s procedure decides with probability <span class="math inline">\(p^2 + q^2 \geq \frac12\)</span> per round, but its answer favours the hotel when <span class="math inline">\(p &gt; \frac12\)</span>.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-9-1.svg" alt="Figure 12.9.1"><figcaption><span class="fig-label">Figure 12.9.1</span> The probability of choosing the hotel, against the bias of the coin. Deciding when the coins agree (plum) is fast but favours the more likely face. Von Neumann’s procedure (teal) is exactly fair for every <span class="math inline">\(p\)</span>, at the cost of taking longer when the coin is very biased.</figcaption></figure>
+<h3 id="extracting-randomness">Extracting randomness</h3>
+<p>Von Neumann’s trick is the first <em>randomness extractor</em>: a procedure that turns imperfect randomness into perfect randomness. It wastes a lot (each pair of tosses yields at most one fair bit, and often none), and better methods recycle the discarded HH and TT pairs to extract almost all the randomness the coin contains, which is measured by its <em>entropy</em> <span class="math inline">\(-p\log_2p - q\log_2q\)</span> bits per toss. Extractors are used in computers’ hardware random number generators, which harvest unpredictable but biased physical noise and must turn it into unbiased bits for cryptography.</p>
+<div class="historybox">
+<div class="box-title">Von Neumann and random numbers</div>
+<p>John von Neumann described the trick in a 1951 paper, “Various techniques used in connection with random digits”, written when he and his colleagues were running some of the first computer simulations (the “Monte Carlo method”) for the design of nuclear weapons. In the same paper he made a famous remark about generating random numbers by arithmetic: “Anyone who considers arithmetical methods of producing random digits is, of course, in a state of sin.”</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Use symmetry to cancel an unknown</div>
+<p><em>When a parameter is unknown, look for events whose probabilities are equal whatever its value, and base decisions on those.</em></p>
+<p>HT and TH have the same probability <span class="math inline">\(pq\)</span>, so comparing them removes <span class="math inline">\(p\)</span> altogether. At university, the same idea appears in statistics as <em>pivotal quantities</em> and in the design of experiments, where randomisation and symmetry cancel out unknown effects.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Expected rounds.</strong> Find the expected number of rounds for the procedure in part (i), and for von Neumann’s procedure. For which <span class="math inline">\(p\)</span> is von Neumann’s procedure slower?</p></li>
+<li><p><strong>Fair three-way choice.</strong> Using a biased coin, devise a procedure that chooses one of three options, each with probability exactly <span class="math inline">\(\frac13\)</span>.</p></li>
+<li><p><strong>A biased die from a fair coin.</strong> Using a fair coin, devise a procedure that simulates a coin with probability of heads exactly <span class="math inline">\(\frac13\)</span>. What is the expected number of tosses?</p></li>
+<li><p><strong>Three people again.</strong> In part (ii), what is the probability that they go to the hotel, as a function of <span class="math inline">\(p\)</span>? Is the procedure fair when <span class="math inline">\(p = \frac12\)</span>?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>John von Neumann, “Various techniques used in connection with random digits”</strong>, <em>National Bureau of Standards Applied Mathematics Series</em> 12 (1951). Short and famous.</p></li>
+<li><p><strong>Donald Knuth, <em>The Art of Computer Programming</em>, Vol. 2</strong> (Addison-Wesley), Chapter 3, on random numbers.</p></li>
+<li><p><strong>Michael Mitzenmacher &amp; Eli Upfal, <em>Probability and Computing</em></strong> (Cambridge University Press), on extracting randomness and entropy.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="penney.html">← 12.8 Penney&#x27;s Game</a><a class="next" href="loose-ends.html">→ 12.10 Tying Loose Ends</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

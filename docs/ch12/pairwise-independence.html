@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.4 Independent in Pairs, Not All Together — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP III · 2021 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">12.4</span><h1>Independent in Pairs, Not All Together</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-4-pairwise-independence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>In a game, each member of a team of <span class="math inline">\(n\)</span> players rolls a fair six-sided die. The total score of the team is the number of pairs of players rolling the same number. For example, if <span class="math inline">\(7\)</span> players roll <span class="math inline">\(3, 3, 3, 3, 6, 6, 2\)</span> the total score is <span class="math inline">\(7\)</span>, as six different pairs of players both score <span class="math inline">\(3\)</span> and one pair of players both score <span class="math inline">\(6\)</span>.</p>
+<p>Let <span class="math inline">\(X_{ij}\)</span>, for <span class="math inline">\(1 \leq i &lt; j \leq n\)</span>, be the random variable that takes the value <span class="math inline">\(1\)</span> if players <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> roll the same number and the value <span class="math inline">\(0\)</span> otherwise. Show that <span class="math inline">\(X_{12}\)</span> is independent of <span class="math inline">\(X_{23}\)</span>. Hence find the mean and variance of the team’s total score.</p></li>
+<li><p>Show that, if <span class="math inline">\(Y_i\)</span>, for <span class="math inline">\(1 \leq i \leq m\)</span>, are random variables with mean zero, then <span class="math display">\[\mathrm{Var}(Y_1 + Y_2 + \cdots + Y_m) = \sum_{i=1}^{m}\mathrm{E}(Y_i^2) + 2\sum_{i=1}^{m-1}\sum_{j=i+1}^{m}\mathrm{E}(Y_iY_j).\]</span></p></li>
+<li><p>In a different game, each member of a team of <span class="math inline">\(n\)</span> players rolls a fair six-sided die. The total score of the team is the number of pairs of players rolling the same even number minus the number of pairs of players rolling the same odd number. For example, if <span class="math inline">\(7\)</span> players roll <span class="math inline">\(3, 3, 3, 3, 6, 6, 2\)</span> the total score is <span class="math inline">\(-5\)</span>.</p>
+<p>Let <span class="math inline">\(Z_{ij}\)</span>, for <span class="math inline">\(1 \leq i &lt; j \leq n\)</span>, be the random variable that takes the value <span class="math inline">\(1\)</span> if players <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> roll the same even number, the value <span class="math inline">\(-1\)</span> if players <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> roll the same odd number and the value <span class="math inline">\(0\)</span> otherwise. Show that <span class="math inline">\(Z_{12}\)</span> is not independent of <span class="math inline">\(Z_{23}\)</span>. Find the mean of the team’s total score and show that the variance of the team’s total score is <span class="math inline">\(\frac{1}{36}n(n^2 - 1)\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Players <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> roll the same number. Does that tell you anything about whether players <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span> roll the same number? Surprisingly, no: the events are independent. The same goes for players <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span>. But if <span class="math inline">\(1\)</span> matches <span class="math inline">\(2\)</span> and <span class="math inline">\(2\)</span> matches <span class="math inline">\(3\)</span>, then certainly <span class="math inline">\(1\)</span> matches <span class="math inline">\(3\)</span>. Three events, each pair independent, but not independent all together.</p>
+<p><em>Pairwise independence</em> is weaker than full independence, and the difference matters. For variances, pairwise independence is all you need, which this question exploits. For many other purposes it is not enough. Computer scientists use pairwise independent random numbers deliberately, because they are much cheaper to generate than fully independent ones and are good enough for many algorithms.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>What is <span class="math inline">\(\mathrm{P}(X_{12} = 1)\)</span>? What is <span class="math inline">\(\mathrm{P}(X_{12} = 1 \text{ and } X_{23} = 1)\)</span>?</p>
+</div>
+<p>Whatever player <span class="math inline">\(1\)</span> rolls, player <span class="math inline">\(2\)</span> matches it with probability <span class="math inline">\(\frac16\)</span>. Both <span class="math inline">\(X_{12} = 1\)</span> and <span class="math inline">\(X_{23} = 1\)</span> means all three roll the same number: probability <span class="math inline">\(\frac{6}{216} = \frac{1}{36}\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-pairwise-independence" class="stage"><span class="stage-n">Stage 1</span> Pairwise independence</h4>
+<p>Since <span class="math inline">\(\mathrm{P}(X_{12} = 1, X_{23} = 1) = \frac{1}{36} = \frac16 \cdot \frac16 = \mathrm{P}(X_{12} = 1)\mathrm{P}(X_{23} = 1)\)</span>, and each variable takes only two values, <span class="math inline">\(X_{12}\)</span> and <span class="math inline">\(X_{23}\)</span> are independent. (For two-valued variables, one cell of the joint table determines the rest; exercise 1 makes this precise.) Pairs with no player in common, such as <span class="math inline">\(X_{12}\)</span> and <span class="math inline">\(X_{34}\)</span>, are clearly independent. So all the <span class="math inline">\(X_{ij}\)</span> are pairwise independent.</p>
+<h4 id="stagemark2-mean-and-variance-of-the-score" class="stage"><span class="stage-n">Stage 2</span> Mean and variance of the score</h4>
+<p>The score is <span class="math inline">\(S = \sum_{i&lt;j}X_{ij}\)</span>, a sum of <span class="math inline">\(\binom n2\)</span> variables, each with mean <span class="math inline">\(\frac16\)</span> and variance <span class="math inline">\(\frac16 \cdot \frac56 = \frac{5}{36}\)</span>. Expectation always adds, so <span class="math inline">\(\mathrm{E}(S) = \frac16\binom n2\)</span>.</p>
+<div class="askyourself">
+<p>When does the variance of a sum equal the sum of the variances?</p>
+</div>
+<p>The variance of a sum is the sum of the variances plus twice the sum of the covariances, and independent pairs have zero covariance. Pairwise independence is enough: <span class="math display">\[\mathrm{E}(S) = \frac{n(n - 1)}{12}, \qquad \mathrm{Var}(S) = \frac{5}{36}\binom n2 = \frac{5n(n - 1)}{72}.\]</span></p>
+<h4 id="stagemark3-the-variance-formula" class="stage"><span class="stage-n">Stage 3</span> The variance formula</h4>
+<p>If the <span class="math inline">\(Y_i\)</span> have mean zero, then <span class="math inline">\(\mathrm{Var}(\sum Y_i) = \mathrm{E}\bigl((\sum Y_i)^2\bigr)\)</span>, and expanding the square gives every <span class="math inline">\(Y_i^2\)</span> once and every product <span class="math inline">\(Y_iY_j\)</span> (with <span class="math inline">\(i &lt; j\)</span>) twice. Taking expectations gives the formula.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-the-odd-and-even-game" class="stage"><span class="stage-n">Stage 4</span> The odd-and-even game</h4>
+<div class="askyourself">
+<p>What is <span class="math inline">\(\mathrm{E}(Z_{12})\)</span>? What values can <span class="math inline">\(Z_{12}Z_{23}\)</span> take, and when is it non-zero?</p>
+</div>
+<p><span class="math inline">\(Z_{12} = 1\)</span> with probability <span class="math inline">\(\frac{3}{36} = \frac{1}{12}\)</span> (both roll <span class="math inline">\(2\)</span>, both <span class="math inline">\(4\)</span> or both <span class="math inline">\(6\)</span>), and <span class="math inline">\(-1\)</span> with probability <span class="math inline">\(\frac{1}{12}\)</span>; so <span class="math inline">\(\mathrm{E}(Z_{12}) = 0\)</span> and <span class="math inline">\(\mathrm{E}(Z_{12}^2) = \frac16\)</span>.</p>
+<p><span class="math inline">\(Z_{12}Z_{23} \neq 0\)</span> only when all three players roll the same number, and then <span class="math inline">\(Z_{12} = Z_{23}\)</span> (both <span class="math inline">\(+1\)</span> or both <span class="math inline">\(-1\)</span>), so the product is <span class="math inline">\(1\)</span>. Hence <span class="math inline">\(\mathrm{E}(Z_{12}Z_{23}) = \frac{1}{36}\)</span>, which is not <span class="math inline">\(\mathrm{E}(Z_{12})\mathrm{E}(Z_{23}) = 0\)</span>: they are not independent.<span class="qed" aria-label="end of proof">■</span></p>
+<p>(Even more directly, <span class="math inline">\(\mathrm{P}(Z_{12} = 1, Z_{23} = -1) = 0\)</span>, while each event alone has probability <span class="math inline">\(\frac{1}{12}\)</span>.)</p>
+<h4 id="stagemark5-the-variance" class="stage"><span class="stage-n">Stage 5</span> The variance</h4>
+<p>The total score <span class="math inline">\(T = \sum Z_{ij}\)</span> has mean <span class="math inline">\(0\)</span>. By part (ii), <span class="math inline">\(\mathrm{Var}(T)\)</span> is <span class="math inline">\(\binom n2 \cdot \frac16\)</span> plus twice the sum of <span class="math inline">\(\mathrm{E}(Z_{ij}Z_{kl})\)</span> over pairs of pairs. Pairs of pairs with no common player contribute <span class="math inline">\(0\)</span> (they are independent, each with mean zero). Pairs of pairs sharing exactly one player each contribute <span class="math inline">\(\frac{1}{36}\)</span>, and there are <span class="math inline">\(n\binom{n-1}{2}\)</span> of them (choose the shared player, then two others). So <span class="math display">\[\begin{aligned}
+  \mathrm{Var}(T) &amp;= \frac{n(n - 1)}{12} + 2 \cdot \frac{1}{36} \cdot \frac{n(n - 1)(n - 2)}{2} \\
+  &amp;= \frac{n(n - 1)}{36}\bigl(3 + (n - 2)\bigr) = \frac{n(n^2 - 1)}{36}. \qed
+\end{aligned}\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-4-1.svg" alt="Figure 12.4.1"><figcaption><span class="fig-label">Figure 12.4.1</span> Bernstein’s example: two fair coins. The events “first coin is heads” (teal), “second coin is heads” (plum) and “the coins agree” (amber, dashed) each have probability <span class="math inline">\(\frac12\)</span>, and each pair meets in a single square of probability <span class="math inline">\(\frac14\)</span>, so they are pairwise independent. But all three meet in HH, which has probability <span class="math inline">\(\frac14\)</span>, not <span class="math inline">\(\frac18\)</span>: any two of them determine the third.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Indicators.</strong> Writing the score as a sum of indicator variables reduced everything to pairs of players.</p></li>
+<li><p><strong>Variance needs only pairs.</strong> The variance of a sum depends only on the pairwise covariances, so pairwise independence is enough to add variances.</p></li>
+<li><p><strong>Check independence, do not assume it.</strong> Two games that look alike had different dependence structures.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="independence-of-several-events">Independence of several events</h3>
+<p>Events <span class="math inline">\(A_1, \ldots, A_n\)</span> are <em>independent</em> if, for every subcollection, the probability of the intersection is the product of the probabilities. For three events this means four conditions: three for the pairs, and <span class="math inline">\(\mathrm{P}(A \cap B \cap C) = \mathrm{P}(A)\mathrm{P}(B)\mathrm{P}(C)\)</span>. Sergei Bernstein gave the example in Figure 12.4.1 in the 1920s to show that the pairwise conditions do not imply the triple one. (Conversely, the triple condition alone does not imply the pairwise ones either.) The matching events <span class="math inline">\(X_{12}\)</span>, <span class="math inline">\(X_{23}\)</span>, <span class="math inline">\(X_{13}\)</span> in the question are exactly like Bernstein’s coins.</p>
+<h3 id="uncorrelated-is-not-independent">Uncorrelated is not independent</h3>
+<p>Zero covariance, <span class="math inline">\(\mathrm{E}(XY) = \mathrm{E}(X)\mathrm{E}(Y)\)</span>, is weaker still than independence. STEP III 2000 Q14 (in the exercises) shows that for variables taking only two values the two notions coincide, but with three values they do not. A simple example: let <span class="math inline">\(X\)</span> be uniform on <span class="math inline">\(\{-1, 0, 1\}\)</span> and <span class="math inline">\(Y = X^2\)</span>. Then <span class="math inline">\(\mathrm{E}(XY) = \mathrm{E}(X^3) = 0 = \mathrm{E}(X)\mathrm{E}(Y)\)</span>, yet <span class="math inline">\(Y\)</span> is completely determined by <span class="math inline">\(X\)</span>. Covariance measures only linear association.</p>
+<div class="historybox">
+<div class="box-title">Cheap randomness</div>
+<p>Random numbers are expensive for a computer to generate. In 1979 Larry Carter and Mark Wegman showed that for many algorithms, such as <em>hashing</em>, which stores data at pseudo-random locations, pairwise independent random choices are just as good as fully independent ones. Pairwise independent values can be generated very cheaply: for example, <span class="math inline">\(a + bk \pmod p\)</span> for <span class="math inline">\(k = 0, 1, \ldots, p - 1\)</span>, with <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> random, gives <span class="math inline">\(p\)</span> values any two of which are independent. The variance calculation of this question is why it works: Chebyshev’s inequality needs only variances, and variances need only pairs.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Decompose into indicators</div>
+<p><em>To find the mean and variance of a count, write it as a sum of indicator variables, one for each thing that might be counted. The mean needs single indicators; the variance needs pairs.</em></p>
+<p>This is one of the most useful techniques in probability, and it appeared already in <a href="../ch09/derangements.html">Section 9.8</a>. At university it powers the analysis of random graphs, of algorithms and of statistical tests.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Two values.</strong> (From STEP III, 2000.) <span class="math inline">\(X\)</span> takes the values <span class="math inline">\(x_1 \neq x_2\)</span> and <span class="math inline">\(Y\)</span> the values <span class="math inline">\(y_1 \neq y_2\)</span>, with <span class="math inline">\(\mathrm{P}(X = x_1, Y = y_1) = a\)</span>, <span class="math inline">\(\mathrm{P}(X = x_1) = q\)</span>, <span class="math inline">\(\mathrm{P}(Y = y_1) = p\)</span>. Show that if <span class="math inline">\(\mathrm{E}(XY) = \mathrm{E}(X)\mathrm{E}(Y)\)</span> then <span class="math inline">\((a - pq)(x_1 - x_2)(y_1 - y_2) = 0\)</span>, and deduce that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. Give a joint distribution for <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, each uniform on <span class="math inline">\(\{-1, 0, 1\}\)</span>, with <span class="math inline">\(\mathrm{E}(AB) = \mathrm{E}(A)\mathrm{E}(B)\)</span> but not independent.</p></li>
+<li><p><strong>A bigger team.</strong> For <span class="math inline">\(n = 7\)</span> in part (i), find the mean and standard deviation of the score, and compare the example score <span class="math inline">\(7\)</span> with them.</p></li>
+<li><p><strong>Birthdays again.</strong> Use indicators to find the mean and variance of the number of pairs sharing a birthday among <span class="math inline">\(k\)</span> people (<a href="../ch09/birthday.html">Section 9.9</a>). Are the indicators pairwise independent?</p></li>
+<li><p><strong>Pairwise but not triple.</strong> Find three events, each of probability <span class="math inline">\(\frac12\)</span>, with <span class="math inline">\(\mathrm{P}(A \cap B \cap C) = \frac18\)</span> but which are not pairwise independent.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; David Stirzaker, <em>Probability and Random Processes</em></strong> (Oxford University Press), the opening chapters on independence.</p></li>
+<li><p><strong>Michael Mitzenmacher &amp; Eli Upfal, <em>Probability and Computing</em></strong> (Cambridge University Press). Pairwise independence and its uses in algorithms.</p></li>
+<li><p><strong>Joseph Blitzstein &amp; Jessica Hwang, <em>Introduction to Probability</em></strong> (CRC Press; free online), on indicators and covariance.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="bertrand.html">← 12.3 What Does &quot;Random&quot; Mean?</a><a class="next" href="airline-seat.html">→ 12.5 The Last Passenger&#x27;s Seat</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

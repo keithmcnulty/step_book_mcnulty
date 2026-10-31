@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.25 The Largest of Many — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP III · 2025 · Question 11</div>
+    <div class="sec-head"><span class="sec-num">12.25</span><h1>The Largest of Many</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-25-extremes.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Let <span class="math inline">\(\lambda &gt; 0\)</span>. The independent random variables <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> all have probability density function <span class="math display">\[\mathrm{f}(t) = \begin{cases} \lambda e^{-\lambda t} &amp; t \geq 0 \\ 0 &amp; t &lt; 0 \end{cases}\]</span> and cumulative distribution function <span class="math inline">\(\mathrm{F}(x)\)</span>. The value of random variable <span class="math inline">\(Y\)</span> is the largest of the values <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span>. Show that the cumulative distribution function of <span class="math inline">\(Y\)</span> is given, for <span class="math inline">\(y \geq 0\)</span>, by <span class="math display">\[\mathrm{G}(y) = \bigl(1 - e^{-\lambda y}\bigr)^n.\]</span></p></li>
+<li><p>The values <span class="math inline">\(L(\alpha)\)</span> and <span class="math inline">\(U(\alpha)\)</span>, where <span class="math inline">\(0 &lt; \alpha \leq \frac12\)</span>, are such that <span class="math display">\[\mathrm{P}\bigl(Y &lt; L(\alpha)\bigr) = \alpha \quad\text{and}\quad \mathrm{P}\bigl(Y &gt; U(\alpha)\bigr) = \alpha.\]</span> Show that <span class="math display">\[L(\alpha) = -\frac1\lambda\ln\bigl(1 - \alpha^{\frac1n}\bigr)\]</span> and write down a similar expression for <span class="math inline">\(U(\alpha)\)</span>.</p></li>
+<li><p>Use the approximation <span class="math inline">\(e^t \approx 1 + t\)</span>, for <span class="math inline">\(|t|\)</span> small, to show that, for sufficiently large <span class="math inline">\(n\)</span>, <span class="math display">\[\lambda L(\alpha) \approx \ln(n) - \ln\Bigl(\ln\frac1\alpha\Bigr).\]</span></p></li>
+<li><p>Hence show that the median of <span class="math inline">\(Y\)</span> tends to infinity as <span class="math inline">\(n\)</span> increases, but that the width of the interval <span class="math inline">\(U(\alpha) - L(\alpha)\)</span> tends to a value which is independent of <span class="math inline">\(n\)</span>.</p></li>
+<li><p>You are given that, for <span class="math inline">\(|t|\)</span> small, <span class="math inline">\(\ln(1 + t) \approx t\)</span> and that <span class="math inline">\(e^3 \approx 20\)</span>. Show that, for sufficiently large <span class="math inline">\(n\)</span>, there is an interval of width approximately <span class="math inline">\(4\lambda^{-1}\)</span> in which <span class="math inline">\(Y\)</span> lies with probability <span class="math inline">\(0.9\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>How high will the highest flood of the next century be? How long will the longest-lived of a thousand light bulbs last? How fast will the fastest marathon runner in a field of <span class="math inline">\(n\)</span> be? Questions about <em>extremes</em>, the largest or smallest of many random values, matter enormously in engineering, insurance and climate science, and they behave very differently from averages.</p>
+<p>This question finds the distribution of the largest of <span class="math inline">\(n\)</span> exponential lifetimes. Its typical size grows like <span class="math inline">\(\ln n\)</span>, slowly but without limit. Its spread, however, does not grow at all: the maximum of a thousand lifetimes is just as predictable, give or take, as the maximum of ten. In the limit, the shape of its distribution is the <em>Gumbel distribution</em>, the extreme-value counterpart of the normal curve.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The largest of <span class="math inline">\(X_1, \ldots, X_n\)</span> is at most <span class="math inline">\(y\)</span> exactly when what happens?</p>
+</div>
+<p><span class="math inline">\(Y \leq y\)</span> exactly when every <span class="math inline">\(X_i \leq y\)</span>. Independence then turns this into a product.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-distribution-of-the-maximum" class="stage"><span class="stage-n">Stage 1</span> The distribution of the maximum</h4>
+<p>Each <span class="math inline">\(X_i\)</span> has <span class="math inline">\(\mathrm{F}(y) = 1 - e^{-\lambda y}\)</span> for <span class="math inline">\(y \geq 0\)</span>, and by independence <span class="math display">\[\mathrm{G}(y) = \mathrm{P}(X_1 \leq y, \ldots, X_n \leq y) = \bigl(1 - e^{-\lambda y}\bigr)^n. \qed\]</span></p>
+<h4 id="stagemark2-the-quantiles" class="stage"><span class="stage-n">Stage 2</span> The quantiles</h4>
+<div class="askyourself">
+<p>Solve <span class="math inline">\(\mathrm{G}(L) = \alpha\)</span> for <span class="math inline">\(L\)</span>. Then solve <span class="math inline">\(\mathrm{G}(U) = 1 - \alpha\)</span>.</p>
+</div>
+<p><span class="math inline">\(\bigl(1 - e^{-\lambda L}\bigr)^n = \alpha\)</span> gives <span class="math inline">\(e^{-\lambda L} = 1 - \alpha^{1/n}\)</span>, so <span class="math display">\[L(\alpha) = -\frac1\lambda\ln\bigl(1 - \alpha^{1/n}\bigr), \qquad U(\alpha) = -\frac1\lambda\ln\bigl(1 - (1 - \alpha)^{1/n}\bigr). \qed\]</span></p>
+<h4 id="stagemark3-large-n" class="stage"><span class="stage-n">Stage 3</span> Large <span class="math inline">\(n\)</span></h4>
+<div class="askyourself">
+<p>Write <span class="math inline">\(\alpha^{1/n} = e^{(\ln\alpha)/n}\)</span>. For large <span class="math inline">\(n\)</span> the exponent is small. What is <span class="math inline">\(1 - \alpha^{1/n}\)</span> approximately?</p>
+</div>
+<p><span class="math inline">\(\alpha^{1/n} = e^{(\ln\alpha)/n} \approx 1 + \frac{\ln\alpha}{n}\)</span>, so <span class="math inline">\(1 - \alpha^{1/n} \approx \frac{-\ln\alpha}{n} = \frac{\ln(1/\alpha)}{n}\)</span>. Hence <span class="math display">\[\lambda L(\alpha) \approx -\ln\frac{\ln(1/\alpha)}{n} = \ln n - \ln\Bigl(\ln\frac1\alpha\Bigr). \qed\]</span> Similarly, <span class="math inline">\(\lambda U(\alpha) \approx \ln n - \ln\bigl(\ln\frac{1}{1 - \alpha}\bigr)\)</span>.</p>
+<h4 id="stagemark4-growth-and-spread" class="stage"><span class="stage-n">Stage 4</span> Growth and spread</h4>
+<p>The median is <span class="math inline">\(L(\frac12)\)</span>, with <span class="math inline">\(\lambda L(\frac12) \approx \ln n - \ln\ln2 \to \infty\)</span>. But <span class="math display">\[\lambda\bigl(U(\alpha) - L(\alpha)\bigr) \approx \ln\Bigl(\ln\frac1\alpha\Bigr) - \ln\Bigl(\ln\frac{1}{1 - \alpha}\Bigr),\]</span> in which the <span class="math inline">\(\ln n\)</span> terms have cancelled: the width does not depend on <span class="math inline">\(n\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark5-a-90-interval" class="stage"><span class="stage-n">Stage 5</span> A <span class="math inline">\(90\%\)</span> interval</h4>
+<div class="askyourself">
+<p>Take <span class="math inline">\(\alpha = 0.05\)</span>. What are <span class="math inline">\(\ln\frac1\alpha = \ln 20\)</span> and <span class="math inline">\(\ln\frac{1}{0.95}\)</span>, approximately?</p>
+</div>
+<p>With <span class="math inline">\(\alpha = 0.05\)</span>, <span class="math inline">\(\ln20 \approx 3\)</span>, so <span class="math inline">\(\ln\ln\frac1\alpha \approx \ln3\)</span>. And <span class="math inline">\(\ln\frac{1}{0.95} = -\ln(1 - 0.05) \approx 0.05 = \frac{1}{20}\)</span>, so <span class="math inline">\(\ln\ln\frac{1}{1 - \alpha} \approx \ln\frac{1}{20} \approx -3\)</span>. The width is therefore about <span class="math inline">\(\frac1\lambda(\ln3 + 3) \approx \frac{4.1}{\lambda}\)</span>, and <span class="math inline">\(Y\)</span> lies in <span class="math inline">\([L(0.05), U(0.05)]\)</span>, an interval of width about <span class="math inline">\(4\lambda^{-1}\)</span>, with probability <span class="math inline">\(0.9\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-25-1.svg" alt="Figure 12.25.1"><figcaption><span class="fig-label">Figure 12.25.1</span> The density of the largest of <span class="math inline">\(n\)</span> exponential lifetimes (mean <span class="math inline">\(1\)</span>) for <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(100\)</span> and <span class="math inline">\(1000\)</span>. Each tenfold increase in <span class="math inline">\(n\)</span> shifts the curve right by <span class="math inline">\(\ln10 \approx 2.3\)</span>, but its shape and width stay essentially the same: the Gumbel distribution, shifted by <span class="math inline">\(\ln n\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>The maximum is at most <span class="math inline">\(y\)</span> when all are.</strong> Independence made the distribution of the maximum a power.</p></li>
+<li><p><strong>Quantiles by inversion.</strong> Solving <span class="math inline">\(\mathrm{G}(y) = \alpha\)</span> gave exact formulas for the interval ends.</p></li>
+<li><p><strong>Approximate, then compare.</strong> The approximations for <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span> both contained <span class="math inline">\(\ln n\)</span>, which cancelled in the width.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-gumbel-distribution">The Gumbel distribution</h3>
+<p>Since <span class="math inline">\(\mathrm{P}(\lambda Y - \ln n \leq x) = \bigl(1 - \frac{e^{-x}}{n}\bigr)^n \to \exp(-e^{-x})\)</span>, the shifted maximum <span class="math inline">\(\lambda Y - \ln n\)</span> has, in the limit, the <em>Gumbel distribution</em> with distribution function <span class="math inline">\(\exp(-e^{-x})\)</span>. Its mean is Euler’s constant <span class="math inline">\(\gamma \approx 0.577\)</span>. You met it already: the time to collect all <span class="math inline">\(n\)</span> coupons (<a href="../ch09/coupon-collector.html">Section 9.11</a>) is the maximum of <span class="math inline">\(n\)</span> (nearly independent) waiting times, which is why it is about <span class="math inline">\(n\ln n + \gamma n\)</span>, with Gumbel fluctuations of order <span class="math inline">\(n\)</span>.</p>
+<h3 id="extreme-value-theory">Extreme value theory</h3>
+<p>A remarkable theorem of Fisher, Tippett and Gnedenko (1928–1943) says that, suitably shifted and scaled, the maximum of many independent identically distributed variables can have only three possible limiting shapes: Gumbel (for light tails, like the exponential or normal), Fréchet (for heavy tails, like the Cauchy) and Weibull (for variables with a hard upper limit). It is the extreme-value analogue of the central limit theorem (<a href="../ch12/clt.html">Section 12.24</a>). Engineers use it to design flood defences and offshore platforms for the “hundred-year wave”, insurers to price catastrophe cover, and climate scientists to estimate how heatwaves are changing.</p>
+<div class="historybox">
+<div class="box-title">Gumbel and the floods</div>
+<p>Emil Julius Gumbel, a German statistician and an outspoken opponent of the Nazis, who was forced out of his university post in 1932 and eventually fled to the United States, applied extreme value theory to the flooding of rivers in the 1930s and 1940s. His book <em>Statistics of Extremes</em> (1958) made the subject a practical tool. The Dutch Delta Works, built after the North Sea flood of 1953 to protect the Netherlands, were designed using extreme value statistics to withstand a storm surge expected about once in <span class="math inline">\(10\,000\)</span> years.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Distributions of maxima and minima</div>
+<p><em>For the maximum of independent variables, <span class="math inline">\(\mathrm{P}(\max \leq y) = \prod\mathrm{P}(X_i \leq y)\)</span>; for the minimum, <span class="math inline">\(\mathrm{P}(\min &gt; y) = \prod\mathrm{P}(X_i &gt; y)\)</span>.</em></p>
+<p>This one idea handles the nearest supermarket (<a href="../ch12/spatial-poisson.html">Section 12.19</a>), the first bus (<a href="../ch12/memoryless.html">Section 12.18</a>) and the longest-lived bulb. At university it is the starting point of order statistics and extreme value theory.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The expected maximum.</strong> Show that <span class="math inline">\(\mathrm{E}(Y) = \frac1\lambda\bigl(1 + \frac12 + \cdots + \frac1n\bigr)\)</span>. (<em>Hint:</em> by memorylessness, after the first of the <span class="math inline">\(n\)</span> lifetimes ends, the remaining <span class="math inline">\(n - 1\)</span> start afresh.)</p></li>
+<li><p><strong>The minimum.</strong> Show that the smallest of <span class="math inline">\(X_1, \ldots, X_n\)</span> is exponential with parameter <span class="math inline">\(n\lambda\)</span>.</p></li>
+<li><p><strong>The median exactly.</strong> Find the exact median of <span class="math inline">\(Y\)</span> and compare it with the approximation <span class="math inline">\(\frac1\lambda(\ln n - \ln\ln2)\)</span> for <span class="math inline">\(n = 10\)</span>.</p></li>
+<li><p><strong>Uniform maxima.</strong> If <span class="math inline">\(X_1, \ldots, X_n\)</span> are uniform on <span class="math inline">\([0, 1]\)</span>, find the distribution of their maximum <span class="math inline">\(M\)</span>, and show that <span class="math inline">\(n(1 - M)\)</span> is approximately exponential for large <span class="math inline">\(n\)</span>. Which of the three extreme-value shapes is this?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Stuart Coles, <em>An Introduction to Statistical Modeling of Extreme Values</em></strong> (Springer). The standard introduction, with real data on floods and sea levels.</p></li>
+<li><p><strong>Emil Julius Gumbel, <em>Statistics of Extremes</em></strong> (Dover). The classic.</p></li>
+<li><p><strong>David Spiegelhalter, <em>The Art of Uncertainty</em></strong> (Pelican), on rare events and how to think about them.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="clt.html">← 12.24 The Central Limit Theorem</a><a class="next" href="wrap-up.html">→ Looking back</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

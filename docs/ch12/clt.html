@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.24 The Central Limit Theorem — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP III · 2008 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">12.24</span><h1>The Central Limit Theorem</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-24-clt.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Let <span class="math inline">\(X\)</span> be a random variable with a Laplace distribution, so that its probability density function is given by <span class="math display">\[\mathrm{f}(x) = \tfrac12e^{-|x|}, \qquad -\infty &lt; x &lt; \infty. \tag{$*$}\]</span> Sketch <span class="math inline">\(\mathrm{f}(x)\)</span>. Show that its moment generating function <span class="math inline">\(\mathrm{M}_X(\theta)\)</span> is given by <span class="math inline">\(\mathrm{M}_X(\theta) = (1 - \theta^2)^{-1}\)</span> and hence find the variance of <span class="math inline">\(X\)</span>.</p>
+<p>A frog is jumping up and down, attempting to land on the same spot each time. In fact, in each of <span class="math inline">\(n\)</span> successive jumps he always lands on a fixed straight line but when he lands from the <span class="math inline">\(i\)</span>th jump (<span class="math inline">\(i = 1, 2, \ldots, n\)</span>) his displacement from the point from which he jumped is <span class="math inline">\(X_i\)</span> cm, where <span class="math inline">\(X_i\)</span> has the distribution <span class="math inline">\((*)\)</span>. His displacement from his starting point after <span class="math inline">\(n\)</span> jumps is <span class="math inline">\(Y\)</span> cm (so that <span class="math inline">\(Y = \sum_{i=1}^nX_i\)</span>). Each jump is independent of the others.</p>
+<p>Obtain the moment generating function for <span class="math inline">\(Y/\sqrt{2n}\)</span> and, by considering its logarithm, show that this moment generating function tends to <span class="math inline">\(\exp(\frac12\theta^2)\)</span> as <span class="math inline">\(n \to \infty\)</span>.</p>
+<p>Given that <span class="math inline">\(\exp(\frac12\theta^2)\)</span> is the moment generating function of the standard Normal random variable, estimate the least number of jumps such that there is a <span class="math inline">\(5\%\)</span> chance that the frog lands <span class="math inline">\(25\)</span> cm or more from his starting point.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Add up many small independent random effects, whatever their individual distribution, and the total follows the bell-shaped normal curve. This is the <em>central limit theorem</em>, perhaps the most important theorem in probability. It explains why heights, measurement errors and exam marks are roughly normal, and why statisticians can say how reliable an average is without knowing anything about the underlying distribution, provided it has a finite variance (compare <a href="../ch12/cauchy.html">Section 12.22</a>).</p>
+<p>This question proves the theorem in a special case. A frog makes random jumps with a two-sided exponential distribution, whose density has a sharp peak, nothing like a bell. After many jumps, his total displacement is normal. The tool is the <em>moment generating function</em>, which turns sums of independent variables into products, and products into sums by taking logarithms.</p>
+<div class="skillbox">
+<div class="box-title">A note on the syllabus</div>
+<p>Moment generating functions were removed from the STEP specification in 2019. The moment generating function of a random variable <span class="math inline">\(X\)</span> is <span class="math inline">\(\mathrm{M}_X(\theta) = \mathrm{E}(e^{\theta X})\)</span>. Its derivatives at <span class="math inline">\(0\)</span> give the moments: <span class="math inline">\(\mathrm{M}&#39;(0) = \mathrm{E}(X)\)</span>, <span class="math inline">\(\mathrm{M}&#39;&#39;(0) = \mathrm{E}(X^2)\)</span>. For independent <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, <span class="math inline">\(\mathrm{M}_{X+Y} = \mathrm{M}_X\mathrm{M}_Y\)</span>, and <span class="math inline">\(\mathrm{M}_{cX}(\theta) = \mathrm{M}_X(c\theta)\)</span>. If moment generating functions converge, so (in a suitable sense) do the distributions.</p>
+</div>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The density <span class="math inline">\(\frac12e^{-|x|}\)</span> is symmetric. What does it look like? What is its mean?</p>
+</div>
+<p>It is a tent-shaped curve with a sharp peak of height <span class="math inline">\(\frac12\)</span> at <span class="math inline">\(0\)</span>, decaying exponentially on both sides (Figure 12.24.1). By symmetry the mean is <span class="math inline">\(0\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-moment-generating-function" class="stage"><span class="stage-n">Stage 1</span> The moment generating function</h4>
+<p>For <span class="math inline">\(|\theta| &lt; 1\)</span>, splitting the integral at <span class="math inline">\(0\)</span>, <span class="math display">\[\mathrm{M}_X(\theta) = \frac12\int_{-\infty}^0e^{(1 + \theta)x}\,\mathrm{d}x + \frac12\int_0^\infty e^{-(1 - \theta)x}\,\mathrm{d}x = \frac12\Bigl(\frac{1}{1 + \theta} + \frac{1}{1 - \theta}\Bigr) = \frac{1}{1 - \theta^2}. \qed\]</span> Expanding, <span class="math inline">\(\mathrm{M}_X(\theta) = 1 + \theta^2 + \theta^4 + \cdots\)</span>, so <span class="math inline">\(\mathrm{E}(X) = 0\)</span> and <span class="math inline">\(\mathrm{E}(X^2) = 2\)</span> (the coefficient of <span class="math inline">\(\frac{\theta^2}{2!}\)</span>). The variance is <span class="math inline">\(2\)</span>.</p>
+<h4 id="stagemark2-the-frogs-displacement" class="stage"><span class="stage-n">Stage 2</span> The frog’s displacement</h4>
+<div class="askyourself">
+<p>What is the moment generating function of <span class="math inline">\(Y = X_1 + \cdots + X_n\)</span>? Of <span class="math inline">\(Y/\sqrt{2n}\)</span>?</p>
+</div>
+<p>By independence <span class="math inline">\(\mathrm{M}_Y(\theta) = (1 - \theta^2)^{-n}\)</span>, and scaling, <span class="math display">\[\mathrm{M}_{Y/\sqrt{2n}}(\theta) = \mathrm{M}_Y\Bigl(\frac{\theta}{\sqrt{2n}}\Bigr) = \Bigl(1 - \frac{\theta^2}{2n}\Bigr)^{-n}.\]</span> (The scaling by <span class="math inline">\(\sqrt{2n}\)</span>, the standard deviation of <span class="math inline">\(Y\)</span>, makes the variance <span class="math inline">\(1\)</span>.)</p>
+<h4 id="stagemark3-the-limit" class="stage"><span class="stage-n">Stage 3</span> The limit</h4>
+<div class="askyourself">
+<p>Take the logarithm and use <span class="math inline">\(\ln(1 - u) \approx -u\)</span> for small <span class="math inline">\(u\)</span>.</p>
+</div>
+<p><span class="math inline">\(\ln\mathrm{M}_{Y/\sqrt{2n}}(\theta) = -n\ln\bigl(1 - \frac{\theta^2}{2n}\bigr) = -n\bigl(-\frac{\theta^2}{2n} - \frac{\theta^4}{8n^2} - \cdots\bigr) \to \frac{\theta^2}{2}\)</span>, so <span class="math display">\[\mathrm{M}_{Y/\sqrt{2n}}(\theta) \to e^{\theta^2/2}, \qed\]</span> the moment generating function of the standard normal distribution.</p>
+<h4 id="stagemark4-the-frogs-chances" class="stage"><span class="stage-n">Stage 4</span> The frog’s chances</h4>
+<div class="askyourself">
+<p>For large <span class="math inline">\(n\)</span>, <span class="math inline">\(Y\)</span> is approximately <span class="math inline">\(\mathrm{N}(0, 2n)\)</span>. When is <span class="math inline">\(\mathrm{P}(|Y| \geq 25) = 0.05\)</span>?</p>
+</div>
+<p>For a standard normal <span class="math inline">\(Z\)</span>, <span class="math inline">\(\mathrm{P}(|Z| \geq 1.96) = 0.05\)</span>. So we need <span class="math inline">\(\frac{25}{\sqrt{2n}} = 1.96\)</span>, giving <span class="math inline">\(2n = \bigl(\frac{25}{1.96}\bigr)^2 \approx 162.7\)</span> and <span class="math inline">\(n \approx 81.3\)</span>. Since the chance of landing far away grows with <span class="math inline">\(n\)</span>, the least number of jumps giving at least a <span class="math inline">\(5\%\)</span> chance is about <span class="math inline">\(82\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-24-1.svg" alt="Figure 12.24.1"><figcaption><span class="fig-label">Figure 12.24.1</span> The density of the frog’s standardised displacement after <span class="math inline">\(n = 1\)</span> jump (amber: a sharp Laplace peak) and <span class="math inline">\(n = 2\)</span> jumps (plum), compared with the standard normal density (teal). Already after two jumps the peak has rounded off; the central limit theorem says the curves converge to the normal as <span class="math inline">\(n \to \infty\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Transforms turn sums into products.</strong> The moment generating function of a sum of independent variables is the product of theirs.</p></li>
+<li><p><strong>Logarithms turn products into sums.</strong> <span class="math inline">\(\ln\bigl(1 - \frac{\theta^2}{2n}\bigr)^{-n}\)</span> became a sum whose limit was easy.</p></li>
+<li><p><strong>Standardise.</strong> Dividing by the standard deviation <span class="math inline">\(\sqrt{2n}\)</span> kept the variance at <span class="math inline">\(1\)</span>, so the limit was neither <span class="math inline">\(0\)</span> nor infinite.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-general-theorem">The general theorem</h3>
+<p>The same argument works for any distribution with mean <span class="math inline">\(0\)</span> and finite variance <span class="math inline">\(\sigma^2\)</span> (and a moment generating function, though this can be avoided). Then <span class="math inline">\(\mathrm{M}(\theta) = 1 + \frac12\sigma^2\theta^2 + o(\theta^2)\)</span>, and <span class="math display">\[\Bigl(\mathrm{M}\Bigl(\frac{\theta}{\sigma\sqrt n}\Bigr)\Bigr)^n = \Bigl(1 + \frac{\theta^2}{2n} + o\Bigl(\frac1n\Bigr)\Bigr)^n \to e^{\theta^2/2}.\]</span> Only the variance survives the limit: the shape of the original distribution is forgotten. That is why the normal distribution is universal. At university the theorem is proved with the <em>characteristic function</em> <span class="math inline">\(\mathrm{E}(e^{i\theta X})\)</span>, which always exists, and the convergence of distributions is made precise by Lévy’s continuity theorem.</p>
+<h3 id="how-fast">How fast?</h3>
+<p>The central limit theorem says what happens in the limit, not how quickly. The <em>Berry–Esseen theorem</em> bounds the error by a constant times <span class="math inline">\(\frac{\mathrm{E}|X|^3}{\sigma^3\sqrt n}\)</span>. For a symmetric distribution like the frog’s, the approximation is good after a few dozen jumps. For skewed distributions, or in the extreme tails, it can be poor even for large <span class="math inline">\(n\)</span>: the normal approximation underestimates the chance of very rare events, a fact with consequences for insurance and finance.</p>
+<div class="historybox">
+<div class="box-title">From de Moivre to Lindeberg</div>
+<p>De Moivre found the normal approximation to the binomial in 1733 (<a href="../ch12/stirling-probability.html">Section 12.23</a>), and Laplace extended it to sums of more general variables in 1810, coining the idea that errors of measurement are sums of many small effects. Rigorous proofs came much later: Aleksandr Lyapunov in 1901, and Jarl Lindeberg in 1922, who found essentially the weakest conditions under which the theorem holds. The name “central limit theorem” was given by George Pólya in 1920, meaning that the theorem is central to probability theory.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Transform, simplify, transform back</div>
+<p><em>A hard operation (adding independent random variables, which convolves their densities) becomes an easy one (multiplication) after a transform. Do the work there, and interpret the result.</em></p>
+<p>The same strategy underlies generating functions (<a href="../ch09/generating-functions.html">Section 9.4</a>), Fourier and Laplace transforms in analysis and engineering, and logarithms, which turn multiplication into addition.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Exact for two jumps.</strong> Show that <span class="math inline">\(Y = X_1 + X_2\)</span> has density <span class="math inline">\(\frac14(1 + |y|)e^{-|y|}\)</span>, and check its variance is <span class="math inline">\(4\)</span>.</p></li>
+<li><p><strong>Binomial to normal.</strong> For <span class="math inline">\(X \sim \mathrm{B}(1, \frac12)\)</span> shifted to have mean <span class="math inline">\(0\)</span> (taking values <span class="math inline">\(\pm\frac12\)</span>), find <span class="math inline">\(\mathrm{M}_X(\theta) = \cosh\frac\theta2\)</span>, and show that the moment generating function of a standardised sum of <span class="math inline">\(n\)</span> such variables tends to <span class="math inline">\(e^{\theta^2/2}\)</span>.</p></li>
+<li><p><strong>The frog, exactly.</strong> Use a computer (or the exact density for <span class="math inline">\(n = 2\)</span> as a check) to see how accurate the normal approximation is for <span class="math inline">\(n = 82\)</span>.</p></li>
+<li><p><strong>Why not Cauchy?</strong> The Cauchy distribution (<a href="../ch12/cauchy.html">Section 12.22</a>) has no moment generating function. Which step of the argument fails, and what happens to the average of <span class="math inline">\(n\)</span> Cauchy variables?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <em>Probability: An Introduction</em></strong> (Oxford University Press), the chapter on generating functions and limit theorems.</p></li>
+<li><p><strong>Hans Fischer, <em>A History of the Central Limit Theorem</em></strong> (Springer). From Laplace to Lindeberg.</p></li>
+<li><p><strong>David Spiegelhalter, <em>The Art of Statistics</em></strong> (Pelican), on why the normal distribution is everywhere.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="stirling-probability.html">← 12.23 Stirling from Probability</a><a class="next" href="extremes.html">→ 12.25 The Largest of Many</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

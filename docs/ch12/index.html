@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 12: Probability — Beyond STEP</title>
+<meta name="description" content="Five themes: thinking clearly, symmetry, expectation and games, random processes, and limits.">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter</div>
+    <div class="ch-num">12</div>
+    <h1>Probability</h1>
+    <p class="strap">Uncertainty can be reasoned about exactly. Intuition, it turns out, cannot.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Download the whole chapter</span><span class="dl-sub">PDF, typeset for print</span></span></a>
+  </div>
+  <h2 class="contents-head">In this chapter</h2>
+  <ol class="toc"><li><a class="toc-link" href="conditioning.html"><span class="toc-num">12.1</span>
+<span class="toc-title">Precise Conditioning</span>
+<span class="toc-src">STEP I 2007</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-1-conditioning.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="base-rate.html"><span class="toc-num">12.2</span>
+<span class="toc-title">The Base-Rate Fallacy</span>
+<span class="toc-src">STEP II 1998</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-2-base-rate.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="bertrand.html"><span class="toc-num">12.3</span>
+<span class="toc-title">What Does &quot;Random&quot; Mean?</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-3-bertrand.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="pairwise-independence.html"><span class="toc-num">12.4</span>
+<span class="toc-title">Independent in Pairs, Not All Together</span>
+<span class="toc-src">STEP III 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-4-pairwise-independence.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="airline-seat.html"><span class="toc-num">12.5</span>
+<span class="toc-title">The Last Passenger&#x27;s Seat</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-5-airline-seat.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="one-more-coin.html"><span class="toc-num">12.6</span>
+<span class="toc-title">One More Coin</span>
+<span class="toc-src">STEP I 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-6-one-more-coin.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="knockout.html"><span class="toc-num">12.7</span>
+<span class="toc-title">Who Meets Whom in a Knockout</span>
+<span class="toc-src">STEP II Specimen paper</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-7-knockout.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="penney.html"><span class="toc-num">12.8</span>
+<span class="toc-title">Penney&#x27;s Game</span>
+<span class="toc-src">STEP III 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-8-penney.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="von-neumann.html"><span class="toc-num">12.9</span>
+<span class="toc-title">A Fair Decision from a Biased Coin</span>
+<span class="toc-src">STEP I 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-9-von-neumann.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="loose-ends.html"><span class="toc-num">12.10</span>
+<span class="toc-title">Tying Loose Ends</span>
+<span class="toc-src">STEP III 2008</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-10-loose-ends.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="stamps-and-e.html"><span class="toc-num">12.11</span>
+<span class="toc-title">Stamps, Cups and \(e\)</span>
+<span class="toc-src">STEP I 1996</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-11-stamps-and-e.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="secretary.html"><span class="toc-num">12.12</span>
+<span class="toc-title">When to Stop Looking</span>
+<span class="toc-src">STEP I 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-12-secretary.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="truel.html"><span class="toc-num">12.13</span>
+<span class="toc-title">The Truel</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-13-truel.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="mixed-strategies.html"><span class="toc-num">12.14</span>
+<span class="toc-title">Mixed Strategies</span>
+<span class="toc-src">STEP I 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-14-mixed-strategies.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="branching.html"><span class="toc-num">12.15</span>
+<span class="toc-title">Extinction or Explosion</span>
+<span class="toc-src">STEP II 2003</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-15-branching.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="markov.html"><span class="toc-num">12.16</span>
+<span class="toc-title">Markov Chains Forwards and Backwards</span>
+<span class="toc-src">STEP III 1996</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-16-markov.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="matchboxes.html"><span class="toc-num">12.17</span>
+<span class="toc-title">Banach&#x27;s Matchboxes</span>
+<span class="toc-src">STEP II 1992</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-17-matchboxes.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="memoryless.html"><span class="toc-num">12.18</span>
+<span class="toc-title">Memorylessness</span>
+<span class="toc-src">STEP III 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-18-memoryless.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="spatial-poisson.html"><span class="toc-num">12.19</span>
+<span class="toc-title">Random Points in the Plane</span>
+<span class="toc-src">STEP II 2012</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-19-spatial-poisson.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="buffon.html"><span class="toc-num">12.20</span>
+<span class="toc-title">Buffon&#x27;s Needle</span>
+<span class="toc-src">STEP I 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-20-buffon.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="broken-stick.html"><span class="toc-num">12.21</span>
+<span class="toc-title">Breaking a Stick</span>
+<span class="toc-src">STEP III 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-21-broken-stick.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="cauchy.html"><span class="toc-num">12.22</span>
+<span class="toc-title">A Distribution With No Mean</span>
+<span class="toc-src">STEP III 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-22-cauchy.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="stirling-probability.html"><span class="toc-num">12.23</span>
+<span class="toc-title">Stirling from Probability</span>
+<span class="toc-src">STEP II 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-23-stirling-probability.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="clt.html"><span class="toc-num">12.24</span>
+<span class="toc-title">The Central Limit Theorem</span>
+<span class="toc-src">STEP III 2008</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-24-clt.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="extremes.html"><span class="toc-num">12.25</span>
+<span class="toc-title">The Largest of Many</span>
+<span class="toc-src">STEP III 2025</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-25-extremes.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">Looking back: what we have learned</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">Chapter 12  \(\cdot\)  Introduction</div>
+    <h1 class="essay-title">Reasoning About Chance</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>Probability theory is nothing but common sense reduced to calculation.</p>
+<p class="who">— Pierre-Simon Laplace, <em>Théorie analytique des probabilités</em> (1812)</p>
+</div>
+<p>Laplace’s famous remark is half true. Probability is common sense made precise; but, as this chapter shows again and again, common sense left to itself goes wrong. People think a positive test for a rare disease means you probably have it; that the second passenger to board a plane is as badly off as the last; that a sequence of coin tosses cannot beat another sequence of the same length; that the average of many measurements always settles down. All of these are false, and in each case a short calculation reveals the truth and, better still, the reason for it.</p>
+<p>Probability began in the seventeenth century with questions about gambling, in the letters between Blaise Pascal and Pierre de Fermat. It became a branch of rigorous mathematics only in 1933, when Andrey Kolmogorov set out its axioms. In between, and since, it has grown into one of the most widely used parts of mathematics.</p>
+<h3 id="why-probability-matters">Why probability matters</h3>
+<p>Every field that deals with uncertainty uses probability: medicine (diagnostic tests and clinical trials), law (the weight of evidence), finance (risk and insurance), engineering (reliability and floods), computer science (randomised algorithms, cryptography, machine learning), physics (quantum mechanics and statistical mechanics) and biology (genetics and epidemics). Modern artificial intelligence is, in large part, applied probability: a language model predicts the probability of the next word. And the ability to reason correctly about risk, chance and evidence is one of the most valuable skills any educated person can have.</p>
+<h3 id="what-you-will-meet-at-university">What you will meet at university</h3>
+<p>First-year probability covers the axioms, conditional probability and Bayes’ theorem, independence, discrete and continuous random variables, expectation and variance, generating functions, and the two great limit theorems: the law of large numbers and the central limit theorem. Later courses study random processes (Markov chains, Poisson processes, random walks, branching processes), measure-theoretic probability (which puts limits and continuous distributions on a firm footing) and martingales, and connect probability with statistics, analysis, combinatorics and physics.</p>
+<h3 id="the-questions-that-run-through-this-chapter">The questions that run through this chapter</h3>
+<div class="skillbox">
+<div class="box-title">Three big questions</div>
+<ol class="arabic">
+<li><p><strong>What exactly is the question?</strong> What is the random experiment, what is being conditioned on, and what does “at random” mean?</p></li>
+<li><p><strong>What is the clever way in?</strong> When can symmetry, indicators, conditioning or a well-chosen state replace a long calculation?</p></li>
+<li><p><strong>What happens in the long run?</strong> How do random processes behave over time, and what do sums, averages and maxima of many random quantities look like?</p></li>
+</ol>
+</div>
+<p>The chapter has five parts. <em>Thinking clearly</em> (<a href="../ch12/conditioning.html">Section 12.1</a> to <a href="../ch12/pairwise-independence.html">Section 12.4</a>) deals with the traps: conditioning, base rates, the meaning of “random” and the meaning of independence. <em>Symmetry and clever arguments</em> (<a href="../ch12/airline-seat.html">Section 12.5</a> to <a href="../ch12/von-neumann.html">Section 12.9</a>) collects problems with beautiful short solutions. <em>Expectation, games and stopping</em> (<a href="../ch12/loose-ends.html">Section 12.10</a> to <a href="../ch12/mixed-strategies.html">Section 12.14</a>) turns to averages and decisions: when to stop, whom to shoot at, how to randomise. <em>Random processes</em> (<a href="../ch12/branching.html">Section 12.15</a> to <a href="../ch12/spatial-poisson.html">Section 12.19</a>) follows randomness through time and space. And <em>Limits and continuous probability</em> (<a href="../ch12/buffon.html">Section 12.20</a> to <a href="../ch12/extremes.html">Section 12.25</a>) ends with geometric probability and the great limit theorems.</p>
+<h3 id="ideas-in-this-chapter">Ideas in this chapter</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">12.1</td>
+<td style="text-align: left;">Conditioning</td>
+<td style="text-align: left;">“A specific one” versus “at least one”</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.2</td>
+<td style="text-align: left;">Bayes’ theorem</td>
+<td style="text-align: left;">Base rates and natural frequencies</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.3</td>
+<td style="text-align: left;">Bertrand’s paradox</td>
+<td style="text-align: left;">“Random” needs a definition</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.4</td>
+<td style="text-align: left;">Independence</td>
+<td style="text-align: left;">Pairwise is not mutual</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.5</td>
+<td style="text-align: left;">The airline seat</td>
+<td style="text-align: left;">Symmetry between two seats</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.6</td>
+<td style="text-align: left;">One more coin</td>
+<td style="text-align: left;">Complementary symmetric events</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.7</td>
+<td style="text-align: left;">Tournaments</td>
+<td style="text-align: left;">Counting matches and pairs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.8</td>
+<td style="text-align: left;">Penney’s game</td>
+<td style="text-align: left;">First-step analysis; non-transitivity</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.9</td>
+<td style="text-align: left;">Fair coins</td>
+<td style="text-align: left;">Extracting fairness from bias</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.10</td>
+<td style="text-align: left;">Random loops</td>
+<td style="text-align: left;">A memoryless sum of indicators</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.11</td>
+<td style="text-align: left;">Cups and <span class="math inline">\(e\)</span></td>
+<td style="text-align: left;">Factorials and the exponential series</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.12</td>
+<td style="text-align: left;">Optimal stopping</td>
+<td style="text-align: left;">The <span class="math inline">\(\frac1e\)</span> rule</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.13</td>
+<td style="text-align: left;">The truel</td>
+<td style="text-align: left;">Strategic weakness</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.14</td>
+<td style="text-align: left;">Game theory</td>
+<td style="text-align: left;">Randomised strategies; minimax</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.15</td>
+<td style="text-align: left;">Branching processes</td>
+<td style="text-align: left;">Extinction as a fixed point</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.16</td>
+<td style="text-align: left;">Markov chains</td>
+<td style="text-align: left;">Stationary distributions; reversal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.17</td>
+<td style="text-align: left;">Banach’s matchboxes</td>
+<td style="text-align: left;">The negative binomial</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.18</td>
+<td style="text-align: left;">The exponential</td>
+<td style="text-align: left;">Memorylessness and independence</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.19</td>
+<td style="text-align: left;">Spatial randomness</td>
+<td style="text-align: left;">Nearest neighbours; Rayleigh</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.20</td>
+<td style="text-align: left;">Buffon’s needle</td>
+<td style="text-align: left;">Geometric probability and <span class="math inline">\(\pi\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.21</td>
+<td style="text-align: left;">Random triangles</td>
+<td style="text-align: left;">Probability as area</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.22</td>
+<td style="text-align: left;">The Cauchy distribution</td>
+<td style="text-align: left;">A distribution with no mean</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.23</td>
+<td style="text-align: left;">Stirling’s formula</td>
+<td style="text-align: left;">Factorials from the normal curve</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.24</td>
+<td style="text-align: left;">Central limit theorem</td>
+<td style="text-align: left;">Moment generating functions</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.25</td>
+<td style="text-align: left;">Extreme values</td>
+<td style="text-align: left;">The Gumbel distribution</td>
+</tr>
+</tbody>
+</table></div>
+<p>One section, <a href="../ch12/clt.html">Section 12.24</a>, uses moment generating functions, which were removed from the STEP specification in 2019; it explains what it needs.</p>
+<h3 id="how-to-read-this-chapter">How to read this chapter</h3>
+<p>When a probability question seems confusing, write down the sample space for a small case and count. When an answer comes out suspiciously simple, look for the symmetry that explains it. And when your intuition and the calculation disagree, trust the calculation, then find out why your intuition was wrong: that is where the learning happens.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="conditioning.html">→ Begin: 12.1 Precise Conditioning</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

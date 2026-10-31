@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.22 A Distribution With No Mean — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP III · 1995 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">12.22</span><h1>A Distribution With No Mean</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-22-cauchy.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independently normally distributed with means <span class="math inline">\(0\)</span> and variances <span class="math inline">\(1\)</span>. Show that the joint probability density function for <span class="math inline">\((X, Y)\)</span> is <span class="math display">\[\mathrm{f}(x, y) = \frac{1}{2\pi}e^{-\frac12(x^2 + y^2)} \qquad -\infty &lt; x &lt; \infty,\ -\infty &lt; y &lt; \infty.\]</span> If <span class="math inline">\((x, y)\)</span> are the coordinates, referred to rectangular axes, of a point in the plane, explain what is meant by saying that this density is radially symmetrical.</p>
+<p>The random variables <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> have a joint probability density function which is radially symmetrical (in the above sense). By considering the straight line with equation <span class="math inline">\(U = kV\)</span>, or otherwise, show that <span class="math display">\[\mathrm{P}\Bigl(\frac UV &lt; k\Bigr) = 2\mathrm{P}(U &lt; kV, V &gt; 0).\]</span> Hence, or otherwise, show that the probability density function of <span class="math inline">\(U/V\)</span> is <span class="math display">\[\mathrm{g}(k) = \frac{1}{\pi(1 + k^2)} \qquad -\infty &lt; k &lt; \infty.\]</span></p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Take the average of many measurements, and the random errors cancel out: the average settles down to the true value. This <em>law of large numbers</em> is the foundation of all statistics. But it has a hidden assumption: the measurements must have a finite mean. This question constructs a perfectly natural random variable, the ratio of two independent standard normal variables, which has no mean at all. Its averages never settle down; in fact the average of a million of them has exactly the same distribution as a single one.</p>
+<p>This is the <em>Cauchy distribution</em>. Its density looks like a harmless bell, but its tails are so heavy that occasional enormous values dominate any average. The question finds it with a lovely geometric argument: a ratio of coordinates is the slope of a line, and radial symmetry makes the angle of that line uniform.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>If <span class="math inline">\((U, V)\)</span> is a random point whose density depends only on its distance from the origin, what can you say about the angle <span class="math inline">\(\Theta\)</span> that the line from the origin to the point makes with an axis?</p>
+</div>
+<p>Rotating the plane does not change the density, so every direction is equally likely: the angle <span class="math inline">\(\Theta\)</span> is uniform on <span class="math inline">\([0, 2\pi)\)</span>. And <span class="math inline">\(\frac UV\)</span> depends only on the direction, not the distance.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-joint-density" class="stage"><span class="stage-n">Stage 1</span> The joint density</h4>
+<p>Since <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, their joint density is the product of their densities: <span class="math display">\[\mathrm{f}(x, y) = \frac{1}{\sqrt{2\pi}}e^{-x^2/2}\cdot\frac{1}{\sqrt{2\pi}}e^{-y^2/2} = \frac{1}{2\pi}e^{-\frac12(x^2 + y^2)}.\]</span> It depends on <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> only through <span class="math inline">\(x^2 + y^2\)</span>, the square of the distance from the origin: the density is constant on circles centred at the origin. That is what “radially symmetrical” means.</p>
+<h4 id="stagemark2-using-the-symmetry" class="stage"><span class="stage-n">Stage 2</span> Using the symmetry</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\frac UV &lt; k\)</span> happens in two ways, according to the sign of <span class="math inline">\(V\)</span>. How are they related by the rotation through <span class="math inline">\(180^\circ\)</span>, <span class="math inline">\((u, v) \mapsto (-u, -v)\)</span>?</p>
+</div>
+<p><span class="math inline">\(\frac UV &lt; k\)</span> means: either <span class="math inline">\(V &gt; 0\)</span> and <span class="math inline">\(U &lt; kV\)</span>, or <span class="math inline">\(V &lt; 0\)</span> and <span class="math inline">\(U &gt; kV\)</span>. The rotation <span class="math inline">\((u, v) \mapsto (-u, -v)\)</span> maps the first region onto the second, and preserves the density. So the two have the same probability, and <span class="math display">\[\mathrm{P}\Bigl(\frac UV &lt; k\Bigr) = 2\mathrm{P}(U &lt; kV, V &gt; 0). \qed\]</span></p>
+<h4 id="stagemark3-an-angle" class="stage"><span class="stage-n">Stage 3</span> An angle</h4>
+<div class="askyourself">
+<p>Draw the region <span class="math inline">\(\{V &gt; 0, U &lt; kV\}\)</span> in the plane with <span class="math inline">\(u\)</span> horizontal and <span class="math inline">\(v\)</span> vertical. It is a wedge with its vertex at the origin. What is its angle?</p>
+</div>
+<p>The region <span class="math inline">\(V &gt; 0\)</span> is the upper half-plane. The line <span class="math inline">\(u = kv\)</span> through the origin makes angle <span class="math inline">\(\arctan k\)</span> with the positive <span class="math inline">\(v\)</span>-axis (towards the positive <span class="math inline">\(u\)</span> side when <span class="math inline">\(k &gt; 0\)</span>). The part of the upper half-plane to the left of this line is a wedge of angle <span class="math inline">\(\frac\pi2 + \arctan k\)</span>. By radial symmetry, the probability of a wedge is its angle divided by <span class="math inline">\(2\pi\)</span>, so <span class="math display">\[\mathrm{P}\Bigl(\frac UV &lt; k\Bigr) = 2\cdot\frac{\frac\pi2 + \arctan k}{2\pi} = \frac12 + \frac1\pi\arctan k.\]</span> Differentiating with respect to <span class="math inline">\(k\)</span> gives the density <span class="math display">\[\mathrm{g}(k) = \frac{1}{\pi(1 + k^2)}. \qed\]</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Independent normals are radially symmetric.</strong> The product of two normal densities depends only on distance.</p></li>
+<li><p><strong>Ratio means direction.</strong> <span class="math inline">\(\frac UV\)</span> depends only on the angle of the point, which is uniform.</p></li>
+<li><p><strong>Probabilities of wedges.</strong> With radial symmetry, the probability of a wedge is proportional to its angle.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="no-mean">No mean</h3>
+<p>The mean of the Cauchy distribution would be <span class="math inline">\(\int_{-\infty}^\infty\frac{k}{\pi(1 + k^2)}\,\mathrm{d}k\)</span>, but <span class="math inline">\(\int_0^K\frac{k}{1 + k^2}\,\mathrm{d}k = \frac12\ln(1 + K^2) \to \infty\)</span>: the integral does not converge, and the mean does not exist. (Symmetry might suggest the answer is <span class="math inline">\(0\)</span>, but the positive and negative parts are both infinite, and <span class="math inline">\(\infty - \infty\)</span> has no value.) The variance is infinite too.</p>
+<p>Worse, the average of <span class="math inline">\(n\)</span> independent Cauchy variables is again Cauchy, with exactly the same distribution. (One way to see this uses the characteristic function <span class="math inline">\(\mathrm{E}(e^{itX}) = e^{-|t|}\)</span>.) So averaging does not help at all: the average of a million measurements is no more reliable than one. Figure 12.22.1 shows what happens: the running average of normal samples settles down, while that of Cauchy samples lurches about for ever, jolted by occasional huge values.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-22-1.svg" alt="Figure 12.22.1"><figcaption><span class="fig-label">Figure 12.22.1</span> Running averages of <span class="math inline">\(2000\)</span> independent samples. For standard normal samples (teal) the average settles down to <span class="math inline">\(0\)</span>, as the law of large numbers predicts. For Cauchy samples (plum) it never settles: every so often a single enormous value throws it somewhere new.</figcaption></figure>
+<h3 id="where-cauchy-variables-come-from">Where Cauchy variables come from</h3>
+<p>Shine a torch, pointing in a uniformly random direction, at a wall: the position of the spot on the wall is Cauchy distributed. In physics the same density, called the <em>Lorentzian</em>, describes the shape of spectral lines and resonance peaks (compare <a href="../ch11/resonance.html">Section 11.1</a>). In finance, heavy-tailed distributions like the Cauchy are used to model the occasional crashes that normal models wildly underestimate. The lesson for statistics is serious: methods based on averages and variances fail for heavy-tailed data, and robust methods, such as using the median (which for the Cauchy distribution is perfectly well behaved), are needed.</p>
+<div class="historybox">
+<div class="box-title">Poisson, Cauchy and a dispute</div>
+<p>The distribution was studied by Siméon Denis Poisson in 1824, who noticed that it violates the law of large numbers. Augustin-Louis Cauchy met it in 1853 during a public dispute with Irénée-Jules Bienaymé over the method of least squares: Cauchy used it to show that least squares can be a poor method when errors are heavy-tailed. The name stuck to Cauchy, an example of what Stephen Stigler calls “Stigler’s law of eponymy”: no scientific discovery is named after its original discoverer.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Check that expectations exist</div>
+<p><em>Before using a mean or variance, make sure the integral defining it converges. Symmetry does not make a divergent integral zero.</em></p>
+<p>At university, integrability conditions are part of every theorem in probability: the law of large numbers needs a finite mean, the central limit theorem (<a href="../ch12/clt.html">Section 12.24</a>) a finite variance. The Cauchy distribution is the standard counterexample when they fail.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The torch.</strong> A torch at distance <span class="math inline">\(1\)</span> from a long straight wall points in a direction making angle <span class="math inline">\(\Theta\)</span> with the perpendicular, where <span class="math inline">\(\Theta\)</span> is uniform on <span class="math inline">\((-\frac\pi2, \frac\pi2)\)</span>. Show that the spot’s position <span class="math inline">\(\tan\Theta\)</span> has the Cauchy distribution.</p></li>
+<li><p><strong>The reciprocal.</strong> Show that if <span class="math inline">\(C\)</span> is Cauchy, so is <span class="math inline">\(\frac1C\)</span>. (<em>Hint:</em> <span class="math inline">\(\frac UV\)</span> and <span class="math inline">\(\frac VU\)</span>.)</p></li>
+<li><p><strong>The median works.</strong> Show that the median of the Cauchy distribution is <span class="math inline">\(0\)</span> and its quartiles are <span class="math inline">\(\pm1\)</span>.</p></li>
+<li><p><strong>Radius and angle.</strong> For <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> independent standard normals, show by changing to polar coordinates that <span class="math inline">\(R^2 = X^2 + Y^2\)</span> is exponential with mean <span class="math inline">\(2\)</span> and is independent of the angle. (This is the basis of the Box–Muller method for generating normal random numbers.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <em>Probability: An Introduction</em></strong> (Oxford University Press), on transformations of random variables.</p></li>
+<li><p><strong>Nassim Nicholas Taleb, <em>The Black Swan</em></strong> (Penguin). Heavy tails and why they matter, for a general reader.</p></li>
+<li><p><strong>Stephen Stigler, <em>The History of Statistics</em></strong> (Harvard University Press). Includes the Cauchy–Bienaymé dispute.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="broken-stick.html">← 12.21 Breaking a Stick</a><a class="next" href="stirling-probability.html">→ 12.23 Stirling from Probability</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

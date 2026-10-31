@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.15 Extinction or Explosion — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP II · 2003 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">12.15</span><h1>Extinction or Explosion</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-15-branching.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The life of a certain species of elementary particles can be described as follows. Each particle has a life time of <span class="math inline">\(T\)</span> seconds, after which it disintegrates into <span class="math inline">\(X\)</span> particles of the same species, where <span class="math inline">\(X\)</span> is a random variable with binomial distribution <span class="math inline">\(\mathrm{B}(2, p)\)</span>. A population of these particles starts with the creation of a single such particle at <span class="math inline">\(t = 0\)</span>. Let <span class="math inline">\(X_n\)</span> be the number of particles in existence in the time interval <span class="math inline">\(nT &lt; t &lt; (n + 1)T\)</span>, where <span class="math inline">\(n = 1, 2, \ldots\)</span>.</p>
+<p>Show that <span class="math inline">\(\mathrm{P}(X_1 = 2 \text{ and } X_2 = 2) = 6p^4q^2\)</span>, where <span class="math inline">\(q = 1 - p\)</span>. Find the possible values of <span class="math inline">\(p\)</span> if it is known that <span class="math inline">\(\mathrm{P}(X_1 = 2 \mid X_2 = 2) = 9/25\)</span>.</p>
+<p>Explain briefly why <span class="math inline">\(\mathrm{E}(X_n) = 2p\,\mathrm{E}(X_{n-1})\)</span> and hence determine <span class="math inline">\(\mathrm{E}(X_n)\)</span> in terms of <span class="math inline">\(p\)</span>. Show that for one of the values of <span class="math inline">\(p\)</span> found above <span class="math inline">\(\lim_{n\to\infty}\mathrm{E}(X_n) = 0\)</span> and that for the other <span class="math inline">\(\lim_{n\to\infty}\mathrm{E}(X_n) = +\infty\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>In 1873 Francis Galton posed a question in the <em>Educational Times</em>: why do aristocratic family names die out so often? Each man has some random number of sons, each of whom passes on the name. Even if each man has on average more than one son, will the name survive for ever? The question founded the theory of <em>branching processes</em>, which now models nuclear chain reactions, the spread of epidemics, the growth of cell populations and the survival of mutations.</p>
+<p>This question sets up the simplest model: each particle splits into <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span> or <span class="math inline">\(2\)</span> particles. The expected population grows or shrinks geometrically. But expectation is not the whole story. Even when the expected population explodes, there is a positive chance that the line dies out completely, and a beautiful fixed-point argument finds it.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>If there are two particles at one stage, what is the distribution of the number at the next stage?</p>
+</div>
+<p>Each of the two particles independently produces a <span class="math inline">\(\mathrm{B}(2, p)\)</span> number of offspring, so the total is <span class="math inline">\(\mathrm{B}(4, p)\)</span>: four independent “chances” each succeeding with probability <span class="math inline">\(p\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-two-then-two" class="stage"><span class="stage-n">Stage 1</span> Two, then two</h4>
+<p><span class="math inline">\(\mathrm{P}(X_1 = 2) = p^2\)</span>, and then <span class="math inline">\(\mathrm{P}(X_2 = 2 \mid X_1 = 2) = \binom42p^2q^2 = 6p^2q^2\)</span>. So <span class="math display">\[\mathrm{P}(X_1 = 2, X_2 = 2) = 6p^4q^2. \qed\]</span></p>
+<h4 id="stagemark2-reasoning-backwards" class="stage"><span class="stage-n">Stage 2</span> Reasoning backwards</h4>
+<div class="askyourself">
+<p>In how many ways can <span class="math inline">\(X_2 = 2\)</span> happen? (What can <span class="math inline">\(X_1\)</span> be?)</p>
+</div>
+<p><span class="math inline">\(X_2 = 2\)</span> needs <span class="math inline">\(X_1 = 1\)</span> (probability <span class="math inline">\(2pq\)</span>) followed by <span class="math inline">\(2\)</span> offspring (<span class="math inline">\(p^2\)</span>), or <span class="math inline">\(X_1 = 2\)</span> followed by <span class="math inline">\(2\)</span> from <span class="math inline">\(\mathrm{B}(4, p)\)</span>. (<span class="math inline">\(X_1 = 0\)</span> leaves nothing.) So <span class="math inline">\(\mathrm{P}(X_2 = 2) = 2p^3q + 6p^4q^2\)</span>, and <span class="math display">\[\mathrm{P}(X_1 = 2 \mid X_2 = 2) = \frac{6p^4q^2}{2p^3q + 6p^4q^2} = \frac{3pq}{1 + 3pq}.\]</span> Setting this equal to <span class="math inline">\(\frac{9}{25}\)</span>: <span class="math inline">\(75pq = 9 + 27pq\)</span>, so <span class="math inline">\(pq = \frac{3}{16}\)</span>, that is <span class="math inline">\(p(1 - p) = \frac{3}{16}\)</span>, giving <span class="math inline">\(p = \frac14\)</span> or <span class="math inline">\(p = \frac34\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-the-expected-population" class="stage"><span class="stage-n">Stage 3</span> The expected population</h4>
+<div class="askyourself">
+<p>If there are <span class="math inline">\(k\)</span> particles at stage <span class="math inline">\(n - 1\)</span>, what is the expected number at stage <span class="math inline">\(n\)</span>? Then average over <span class="math inline">\(k\)</span>.</p>
+</div>
+<p>Each particle has on average <span class="math inline">\(\mathrm{E}(X) = 2p\)</span> offspring, so <span class="math inline">\(k\)</span> particles have <span class="math inline">\(2pk\)</span> on average: <span class="math inline">\(\mathrm{E}(X_n \mid X_{n-1} = k) = 2pk\)</span>. Averaging over <span class="math inline">\(k\)</span>, <span class="math inline">\(\mathrm{E}(X_n) = 2p\,\mathrm{E}(X_{n-1})\)</span>. With <span class="math inline">\(\mathrm{E}(X_0) = 1\)</span>, <span class="math display">\[\mathrm{E}(X_n) = (2p)^n.\]</span> For <span class="math inline">\(p = \frac14\)</span>, <span class="math inline">\((2p)^n = 2^{-n} \to 0\)</span>; for <span class="math inline">\(p = \frac34\)</span>, <span class="math inline">\((2p)^n = \bigl(\frac32\bigr)^n \to \infty\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Sums of independent binomials.</strong> <span class="math inline">\(k\)</span> particles each giving <span class="math inline">\(\mathrm{B}(2, p)\)</span> give <span class="math inline">\(\mathrm{B}(2k, p)\)</span> in total.</p></li>
+<li><p><strong>Bayes’ theorem in time.</strong> <span class="math inline">\(\mathrm{P}(X_1 = 2 \mid X_2 = 2)\)</span> reasoned backwards from a later observation to an earlier state.</p></li>
+<li><p><strong>Conditional expectation.</strong> Conditioning on the previous generation turned the expectation into a geometric sequence.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-probability-of-extinction">The probability of extinction</h3>
+<p>For <span class="math inline">\(p = \frac34\)</span>, the expected population grows without limit. Does that mean the population survives? Not necessarily: if the first particle has no offspring (probability <span class="math inline">\(q^2 = \frac{1}{16}\)</span>), the line ends at once. Let <span class="math inline">\(e\)</span> be the probability of eventual extinction. The first particle has <span class="math inline">\(k\)</span> offspring, and each of their lines dies out independently with probability <span class="math inline">\(e\)</span>, so <span class="math display">\[e = q^2 + 2pq\,e + p^2e^2 = (q + pe)^2 = \mathrm{G}(e),\]</span> where <span class="math inline">\(\mathrm{G}(s) = (q + ps)^2\)</span> is the <em>probability generating function</em> of the offspring number. The extinction probability is a fixed point of <span class="math inline">\(\mathrm{G}\)</span>: in fact the <em>smallest</em> non-negative one. For <span class="math inline">\(p = \frac34\)</span>, <span class="math inline">\((1 + 3e)^2 = 16e\)</span> gives <span class="math inline">\(9e^2 - 10e + 1 = 0\)</span>, so <span class="math inline">\(e = \frac19\)</span> or <span class="math inline">\(1\)</span>, and the extinction probability is <span class="math inline">\(\frac19\)</span>. For <span class="math inline">\(p = \frac14\)</span>, the only fixed point in <span class="math inline">\([0, 1]\)</span> is <span class="math inline">\(e = 1\)</span>: extinction is certain (Figure 12.15.1).</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-15-1.svg" alt="Figure 12.15.1"><figcaption><span class="fig-label">Figure 12.15.1</span> The offspring generating function <span class="math inline">\(\mathrm{G}(s) = (q + ps)^2\)</span> and the line <span class="math inline">\(y = s\)</span>. The probability of extinction is the smallest point where they meet. For <span class="math inline">\(p = \frac14\)</span> (plum, mean <span class="math inline">\(\frac12\)</span>) that is <span class="math inline">\(s = 1\)</span>: extinction is certain. For <span class="math inline">\(p = \frac34\)</span> (teal, mean <span class="math inline">\(\frac32\)</span>) it is <span class="math inline">\(s = \frac19\)</span> (amber): the population survives for ever with probability <span class="math inline">\(\frac89\)</span>.</figcaption></figure>
+<h3 id="the-critical-threshold">The critical threshold</h3>
+<p>In general, a branching process dies out with certainty if the mean number of offspring is at most <span class="math inline">\(1\)</span>, and survives with positive probability if it is greater than <span class="math inline">\(1\)</span>. The mean offspring number is the <em>reproduction number</em> <span class="math inline">\(R\)</span> of epidemiology: an epidemic with <span class="math inline">\(R &gt; 1\)</span> may take off, but even then an early outbreak can fizzle out by chance, with probability given by exactly the fixed-point equation above. In nuclear physics, a chain reaction is <em>critical</em> when each fission causes on average exactly one more, and the art of running a reactor is to keep it there.</p>
+<div class="historybox">
+<div class="box-title">Galton, Watson and Bienaymé</div>
+<p>Galton’s question was answered, partly incorrectly, by the Reverend Henry William Watson in 1874: he found the fixed-point equation but concluded that every family name dies out eventually, missing the second root. The correct analysis had in fact been given in 1845 by the French statistician Irénée-Jules Bienaymé, whose work was forgotten until the 1970s. The model is now called the <em>Galton–Watson process</em> (sometimes Bienaymé–Galton–Watson), and is a central example in every course on random processes.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Condition on the first generation</div>
+<p><em>A process that renews itself (each offspring starts an independent copy of the whole process) satisfies an equation obtained by conditioning on the first step.</em></p>
+<p>The equation <span class="math inline">\(e = \mathrm{G}(e)\)</span> is a fixed-point problem, the same kind met in <a href="../ch02/golden-limit.html">Section 2.2</a> and <a href="../ch08/solvable-chaos.html">Section 8.7</a>. At university, generating functions and fixed points are the main tools for branching processes, random trees and random networks.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Extinction in general.</strong> For offspring distribution <span class="math inline">\(\mathrm{B}(2, p)\)</span>, show that the extinction probability is <span class="math inline">\(1\)</span> if <span class="math inline">\(p \leq \frac12\)</span> and <span class="math inline">\(\bigl(\frac qp\bigr)^2\)</span> if <span class="math inline">\(p &gt; \frac12\)</span>.</p></li>
+<li><p><strong>The variance.</strong> Show that <span class="math inline">\(\mathrm{Var}(X_n)\)</span> satisfies <span class="math inline">\(\mathrm{Var}(X_n) = (2p)^2\mathrm{Var}(X_{n-1}) + 2pq\,\mathrm{E}(X_{n-1})\)</span>, and find it for <span class="math inline">\(p = \frac12\)</span>.</p></li>
+<li><p><strong>Extinction by generation <span class="math inline">\(n\)</span>.</strong> Let <span class="math inline">\(e_n = \mathrm{P}(X_n = 0)\)</span>. Show that <span class="math inline">\(e_n = \mathrm{G}(e_{n-1})\)</span>, and compute <span class="math inline">\(e_1\)</span>, <span class="math inline">\(e_2\)</span>, <span class="math inline">\(e_3\)</span> for <span class="math inline">\(p = \frac34\)</span>. Do they approach <span class="math inline">\(\frac19\)</span>?</p></li>
+<li><p><strong>Surnames.</strong> If each man has <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span> or <span class="math inline">\(3\)</span> sons with probabilities <span class="math inline">\(\frac14\)</span> each, what is the probability that his surname eventually dies out?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; David Stirzaker, <em>Probability and Random Processes</em></strong> (Oxford University Press), the section on branching processes.</p></li>
+<li><p><strong>Adam Kucharski, <em>The Rules of Contagion</em></strong> (Profile). Reproduction numbers and outbreaks, for a general reader.</p></li>
+<li><p><strong>David Kendall, “Branching processes since 1873”</strong>, <em>Journal of the London Mathematical Society</em> 41 (1966). The history, including Bienaymé.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="mixed-strategies.html">← 12.14 Mixed Strategies</a><a class="next" href="markov.html">→ 12.16 Markov Chains Forwards and Backwards</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

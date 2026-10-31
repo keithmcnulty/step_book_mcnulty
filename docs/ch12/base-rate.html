@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.2 The Base-Rate Fallacy — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP II · 1998 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">12.2</span><h1>The Base-Rate Fallacy</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-2-base-rate.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The diagnostic test AL has a probability <span class="math inline">\(0.9\)</span> of giving a positive result when applied to a person suffering from the rare disease mathematitis. It also has a probability <span class="math inline">\(1/11\)</span> of giving a false positive result when applied to a non-sufferer. It is known that only <span class="math inline">\(1\%\)</span> of the population suffer from the disease. Given that the test AL is positive when applied to Frankie, who is chosen at random from the population, what is the probability that Frankie is a sufferer?</p>
+<p>In an attempt to identify sufferers more accurately, a second diagnostic test STEP is given to those for whom the test AL gave a positive result. The probability of STEP giving a positive result on a sufferer is <span class="math inline">\(0.9\)</span>, and the probability that it gives a false positive result on a non-sufferer is <span class="math inline">\(p\)</span>. Half of those for whom AL was positive and on whom STEP then also gives a positive result are sufferers. Find <span class="math inline">\(p\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>A test for a disease is <span class="math inline">\(90\%\)</span> accurate on people who have it and gives few false alarms. Frankie tests positive. How worried should Frankie be? Most people, including, in many studies, most doctors, say “about <span class="math inline">\(90\%\)</span>”. The true answer in this question is <span class="math inline">\(\frac{1}{11}\)</span>, about <span class="math inline">\(9\%\)</span>. Ten times smaller.</p>
+<p>The mistake is to ignore the <em>base rate</em>: the disease is rare, so even a small false-positive rate among the many healthy people produces far more false alarms than there are true cases. This <em>base-rate fallacy</em> matters in medicine, in law (where it is called the prosecutor’s fallacy), in security screening and in machine learning. Bayes’ theorem is the cure.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Imagine <span class="math inline">\(1000\)</span> people. How many have the disease? How many of them test positive? How many of the healthy people test positive?</p>
+</div>
+<p>Of <span class="math inline">\(1000\)</span> people, <span class="math inline">\(10\)</span> have the disease and <span class="math inline">\(9\)</span> of them test positive. Of the <span class="math inline">\(990\)</span> healthy people, <span class="math inline">\(\frac{1}{11}\)</span> test positive: <span class="math inline">\(90\)</span> false positives. So <span class="math inline">\(99\)</span> people test positive, of whom only <span class="math inline">\(9\)</span> are ill.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-bayes-theorem" class="stage"><span class="stage-n">Stage 1</span> Bayes’ theorem</h4>
+<div class="askyourself">
+<p>Write <span class="math inline">\(D\)</span> for “Frankie has the disease” and <span class="math inline">\(+\)</span> for “AL is positive”. You know <span class="math inline">\(\mathrm{P}(+ \mid D)\)</span> and want <span class="math inline">\(\mathrm{P}(D \mid +)\)</span>. How are they related?</p>
+</div>
+<p>By the definition of conditional probability, <span class="math inline">\(\mathrm{P}(D \mid +) = \frac{\mathrm{P}(D \cap +)}{\mathrm{P}(+)}\)</span>, and <span class="math inline">\(\mathrm{P}(+)\)</span> splits according to whether Frankie has the disease: <span class="math display">\[\begin{aligned}
+  \mathrm{P}(D \mid +) &amp;= \frac{\mathrm{P}(+ \mid D)\mathrm{P}(D)}{\mathrm{P}(+ \mid D)\mathrm{P}(D) + \mathrm{P}(+ \mid \bar D)\mathrm{P}(\bar D)} \\
+  &amp;= \frac{0.9 \times 0.01}{0.9 \times 0.01 + \frac{1}{11} \times 0.99} = \frac{0.009}{0.009 + 0.09} = \frac{1}{11}. \qed
+\end{aligned}\]</span> This is the <span class="math inline">\(\frac{9}{99}\)</span> of the thousand people.</p>
+<h4 id="stagemark2-a-second-test" class="stage"><span class="stage-n">Stage 2</span> A second test</h4>
+<div class="askyourself">
+<p>The second test is given only to those who tested positive on AL. What is the proportion of sufferers in that group? Use it as the new “base rate”.</p>
+</div>
+<p>Among those positive on AL, a fraction <span class="math inline">\(\frac{1}{11}\)</span> are sufferers and <span class="math inline">\(\frac{10}{11}\)</span> are not. Applying Bayes’ theorem again, with these as the prior probabilities, <span class="math display">\[\mathrm{P}(D \mid \text{both positive}) = \frac{0.9 \times \frac{1}{11}}{0.9 \times \frac{1}{11} + p \times \frac{10}{11}} = \frac{0.9}{0.9 + 10p}.\]</span> Setting this equal to <span class="math inline">\(\frac12\)</span> gives <span class="math inline">\(10p = 0.9\)</span>, so <span class="math inline">\(p = 0.09\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>(Assuming, as the question implicitly does, that the two tests’ errors are independent given whether Frankie is ill.)</p>
+<div class="pausebox">
+<p>With <span class="math inline">\(p = 0.09\)</span>, STEP’s false-positive rate is about the same as AL’s, yet a second positive result raises the probability from <span class="math inline">\(\frac{1}{11}\)</span> to <span class="math inline">\(\frac12\)</span>. Why does the same quality of test have a much bigger effect the second time?</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-12-2-1.svg" alt="Figure 12.2.1"><figcaption><span class="fig-label">Figure 12.2.1</span> A typical hundred people. One has the disease (plum), and will test positive nine times in ten. About <span class="math inline">\(9\)</span> of the <span class="math inline">\(99\)</span> healthy people test positive by mistake (amber). Among those who test positive, the healthy outnumber the sick roughly ten to one.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Natural frequencies.</strong> Imagining <span class="math inline">\(1000\)</span> people made the answer obvious and easy to check.</p></li>
+<li><p><strong>Prior times likelihood.</strong> The posterior probability depends on both the test’s accuracy and the base rate.</p></li>
+<li><p><strong>Updating in stages.</strong> Yesterday’s posterior is today’s prior: the second test started from <span class="math inline">\(\frac{1}{11}\)</span>, not <span class="math inline">\(\frac{1}{100}\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="odds-and-evidence">Odds and evidence</h3>
+<p>Bayes’ theorem is clearest in terms of <em>odds</em>. The odds of <span class="math inline">\(D\)</span> are <span class="math inline">\(\mathrm{P}(D) : \mathrm{P}(\bar D)\)</span>. A piece of evidence <span class="math inline">\(E\)</span> multiplies the odds by the <em>likelihood ratio</em> <span class="math inline">\(\frac{\mathrm{P}(E \mid D)}{\mathrm{P}(E \mid \bar D)}\)</span>: <span class="math display">\[\text{posterior odds} = \text{prior odds} \times \text{likelihood ratio}.\]</span> Here the prior odds are <span class="math inline">\(1 : 99\)</span>, and AL’s likelihood ratio is <span class="math inline">\(0.9 \div \frac{1}{11} = 9.9\)</span>, giving posterior odds <span class="math inline">\(9.9 : 99 = 1 : 10\)</span>, that is, probability <span class="math inline">\(\frac{1}{11}\)</span>. A second independent test with likelihood ratio <span class="math inline">\(10\)</span> (as STEP with <span class="math inline">\(p = 0.09\)</span> has) brings the odds to <span class="math inline">\(1 : 1\)</span>. Taking logarithms, evidence <em>adds</em>: each independent test contributes the logarithm of its likelihood ratio. Alan Turing used exactly this, measuring evidence in “bans” and “decibans”, to break Enigma messages at Bletchley Park.</p>
+<h3 id="the-prosecutors-fallacy">The prosecutor’s fallacy</h3>
+<p>In 1999 the solicitor Sally Clark was convicted of murdering her two baby sons, partly on the strength of evidence that the chance of two cot deaths in one family was “1 in 73 million”. Quite apart from the error in that number (it assumed the two deaths were independent, ignoring genetic and environmental factors), the reasoning confused <span class="math inline">\(\mathrm{P}(\text{evidence} \mid \text{innocent})\)</span> with <span class="math inline">\(\mathrm{P}(\text{innocent} \mid \text{evidence})\)</span>. Double murder by a mother is also extremely rare, and the relevant comparison is between the two explanations. The Royal Statistical Society wrote publicly to point out the error, and her conviction was overturned in 2003. The mathematics is exactly that of this question.</p>
+<div class="historybox">
+<div class="box-title">Gigerenzer and natural frequencies</div>
+<p>In the 1990s the psychologist Gerd Gigerenzer showed that doctors who were given test statistics as conditional probabilities mostly got questions like this one badly wrong, but that when the same information was presented as natural frequencies (“of <span class="math inline">\(1000\)</span> women, <span class="math inline">\(10\)</span> have breast cancer; of these, <span class="math inline">\(8\)</span> test positive…”) most got them right. His work has changed how medical risks are communicated to patients in many countries.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Reverse a conditional with Bayes’ theorem</div>
+<p><em><span class="math inline">\(\mathrm{P}(A \mid B)\)</span> and <span class="math inline">\(\mathrm{P}(B \mid A)\)</span> are different numbers. To get from one to the other you need the base rate <span class="math inline">\(\mathrm{P}(A)\)</span>.</em></p>
+<p>Bayesian reasoning, updating beliefs in the light of evidence, is the foundation of modern statistics and machine learning, from spam filters to medical diagnosis. At university you will meet it as Bayesian inference, with prior and posterior distributions instead of single probabilities.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A body in the fridge.</strong> (From STEP II, 1987.) Two friends, who tell the truth independently with probabilities <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>, both tell me there is a body in my fridge. If I had thought this equally likely as not, explain why my new estimate should be <span class="math inline">\(\frac{pq}{1 - p - q + 2pq}\)</span>. There is indeed a body. It could be my enemy <span class="math inline">\(A\)</span>, my enemy <span class="math inline">\(B\)</span>, or both, which I judged equally likely; both friends now say <span class="math inline">\(A\)</span> is in the fridge. What is my new estimate that both are there?</p></li>
+<li><p><strong>How rare?</strong> For a test with sensitivity <span class="math inline">\(0.9\)</span> and false-positive rate <span class="math inline">\(\frac{1}{11}\)</span>, how common must a disease be for a positive result to mean a better than even chance of having it?</p></li>
+<li><p><strong>Repeat the test.</strong> If AL itself is repeated, and the results are independent given the person’s true state, what is the probability of disease after two positive AL results? After three?</p></li>
+<li><p><strong>Screening.</strong> A screening programme tests a million people for a condition with prevalence <span class="math inline">\(1\)</span> in <span class="math inline">\(10\,000\)</span>, using a test with sensitivity <span class="math inline">\(99\%\)</span> and false-positive rate <span class="math inline">\(1\%\)</span>. How many people will be told they may have the condition, and how many of them actually do?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Gerd Gigerenzer, <em>Reckoning with Risk</em></strong> (Penguin). Natural frequencies, medical tests and the courtroom.</p></li>
+<li><p><strong>David Spiegelhalter, <em>The Art of Statistics</em></strong> (Pelican). Includes medical screening and the Sally Clark case.</p></li>
+<li><p><strong>Sharon Bertsch McGrayne, <em>The Theory That Would Not Die</em></strong> (Yale University Press). The history of Bayes’ theorem, including Turing’s use of it.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="conditioning.html">← 12.1 Precise Conditioning</a><a class="next" href="bertrand.html">→ 12.3 What Does &quot;Random&quot; Mean?</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

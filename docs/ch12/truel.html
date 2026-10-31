@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.13 The Truel — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP II · 1995 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">12.13</span><h1>The Truel</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-13-truel.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Bread roll throwing duels at the Drones’ Club are governed by a strict etiquette. The two duellists throw alternately until one is hit, when the other is declared the winner. If Percy has probability <span class="math inline">\(p &gt; 0\)</span> of hitting his target and Rodney has probability <span class="math inline">\(r &gt; 0\)</span> of hitting his, show that, if Percy throws first, the probability that he beats Rodney is <span class="math display">\[\frac{p}{p + r - pr}.\]</span> Algernon, Bertie and Cuthbert decide to have a three sided duel in which they throw in order A, B, C, A, B, C, … except that anyone who is hit must leave the game. Cuthbert always hits his target, Bertie hits his target with probability <span class="math inline">\(\frac35\)</span> and Algernon hits his target with probability <span class="math inline">\(\frac25\)</span>. Bertie and Cuthbert will always aim at each other if they are both still in the duel. Otherwise they aim at Algernon. With his first shot Algernon may aim at either Bertie or Cuthbert or deliberately miss both. Faced with only one opponent Algernon will aim at him. What are Algernon’s chances of winning if he:</p>
+<ol class="roman">
+<li><p>hits Cuthbert with his first shot?</p></li>
+<li><p>hits Bertie with his first shot?</p></li>
+<li><p>misses with his first shot?</p></li>
+</ol>
+<p>Advise Algernon as to his best plan and show that, if he uses this plan, his probability of winning is <span class="math inline">\(226/475\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Three people fight a duel with bread rolls. Cuthbert never misses, Bertie hits three times in five, and Algernon, the worst shot, only two times in five. Algernon throws first. Whom should he aim at? The surprising answer: nobody. He should throw his roll deliberately wide.</p>
+<p>The reason is strategic. While all three are in the game, Bertie and Cuthbert, the two dangerous throwers, aim at each other. If Algernon removes one of them, the survivor turns on him. By missing, he lets them fight it out, and then gets the first throw against whoever survives. In fact, with the best plan the worst shot becomes the <em>most</em> likely to win. This “truel” is a favourite example in game theory of how weakness can be an advantage.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>In a two-person duel, Percy throws first. Either he hits at once, or both miss and the situation repeats exactly. Write an equation for Percy’s probability of winning.</p>
+</div>
+<p>Let <span class="math inline">\(P\)</span> be Percy’s probability of winning. He hits at once with probability <span class="math inline">\(p\)</span>; otherwise (probability <span class="math inline">\(1 - p\)</span>) Rodney throws, and misses with probability <span class="math inline">\(1 - r\)</span>, returning to the start. So <span class="math inline">\(P = p + (1 - p)(1 - r)P\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-duel" class="stage"><span class="stage-n">Stage 1</span> The duel</h4>
+<p>Solving, <span class="math inline">\(P\bigl(1 - (1 - p)(1 - r)\bigr) = p\)</span>, and <span class="math inline">\(1 - (1 - p)(1 - r) = p + r - pr\)</span>, so <span class="math display">\[P = \frac{p}{p + r - pr}. \qed\]</span> For Algernon (<span class="math inline">\(p = \frac25\)</span>) against Bertie (<span class="math inline">\(r = \frac35\)</span>), with Algernon throwing first, this is <span class="math inline">\(\frac{2/5}{2/5 + 3/5 - 6/25} = \frac{10}{19}\)</span>; with Bertie throwing first, Algernon wins with probability <span class="math inline">\(\bigl(1 - \frac35\bigr)\cdot\frac{10}{19} = \frac{4}{19}\)</span>.</p>
+<h4 id="stagemark2-algernons-three-options" class="stage"><span class="stage-n">Stage 2</span> Algernon’s three options</h4>
+<div class="askyourself">
+<p>In each case, who is left, and who throws next?</p>
+</div>
+<ol class="roman">
+<li><p><em>Algernon hits Cuthbert.</em> Bertie throws next, at Algernon. Algernon wins the duel with Bertie throwing first: probability <span class="math inline">\(\frac{4}{19}\)</span>.</p></li>
+<li><p><em>Algernon hits Bertie.</em> Cuthbert throws next, at Algernon, and never misses. Algernon’s chance is <span class="math inline">\(0\)</span>.</p></li>
+<li><p><em>Algernon misses.</em> Bertie throws at Cuthbert. With probability <span class="math inline">\(\frac35\)</span> he hits, leaving Algernon and Bertie with Algernon to throw: Algernon wins with probability <span class="math inline">\(\frac{10}{19}\)</span>. With probability <span class="math inline">\(\frac25\)</span> Bertie misses, Cuthbert hits Bertie, and Algernon faces Cuthbert with one throw: he wins only if he hits, probability <span class="math inline">\(\frac25\)</span>. Altogether, <span class="math display">\[\tfrac35\cdot\tfrac{10}{19} + \tfrac25\cdot\tfrac25 = \tfrac{6}{19} + \tfrac{4}{25} = \tfrac{150 + 76}{475} = \tfrac{226}{475} \approx 0.476.\]</span></p></li>
+</ol>
+<h4 id="stagemark3-advice" class="stage"><span class="stage-n">Stage 3</span> Advice</h4>
+<div class="askyourself">
+<p>If Algernon aims at Cuthbert, he might hit (probability <span class="math inline">\(\frac25\)</span>) or miss. What is his overall chance? Compare with deliberately missing.</p>
+</div>
+<p>Aiming at Cuthbert gives <span class="math inline">\(\frac25\cdot\frac{4}{19} + \frac35\cdot\frac{226}{475} = \frac{200 + 678}{2375} = \frac{878}{2375} \approx 0.370\)</span>. Aiming at Bertie is worse still. Deliberately missing gives <span class="math inline">\(\frac{226}{475} \approx 0.476\)</span>, the best. So Algernon should throw wide, and then his probability of winning is <span class="math inline">\(\frac{226}{475}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-13-1.svg" alt="Figure 12.13.1"><figcaption><span class="fig-label">Figure 12.13.1</span> Algernon’s best plan. By missing deliberately he lets his two stronger opponents fight first, and is guaranteed the first throw at whoever survives. The worst shot ends up the most likely winner, and the perfect shot the least likely.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Repeated situations give equations.</strong> The duel “starts again” after two misses, giving a linear equation for the winning probability.</p></li>
+<li><p><strong>Think about the opponents’ responses.</strong> Each of Algernon’s options changes what Bertie and Cuthbert do next.</p></li>
+<li><p><strong>Compare all options, including doing nothing.</strong> The best move was the one that looked worst.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="strategy-and-game-theory">Strategy and game theory</h3>
+<p>The truel shows the central idea of <em>game theory</em>: the best action depends on how the other players will respond. Hitting Cuthbert, the most dangerous opponent, is the obvious move, but it changes the game in a way that hurts Algernon. In this question Bertie’s and Cuthbert’s strategies are fixed (they aim at each other); in a full game-theoretic analysis each player would choose their own strategy, knowing that the others are doing the same. Such analyses, starting with the work of John von Neumann and Oskar Morgenstern in 1944 and John Nash in 1950, now underpin economics, evolutionary biology and political science.</p>
+<h3 id="strength-as-a-weakness">Strength as a weakness</h3>
+<p>Who wins the truel? With Algernon’s best plan, the probabilities are <span class="math inline">\(\frac{226}{475}\)</span> for Algernon, <span class="math inline">\(\frac{135}{475}\)</span> for Bertie and <span class="math inline">\(\frac{114}{475}\)</span> for Cuthbert. The best shot is the least likely to survive, because everyone with a choice aims at him. The same pattern appears in elections with several candidates, in competition between firms, and in nature, where the strongest competitor can be the first target. Martin Shubik, who introduced truels into game theory in the 1950s, used them to ask whether the fittest necessarily survive.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Think one move ahead</div>
+<p><em>Before choosing an action, work out how it changes the situation for everyone else, and what they will do in response.</em></p>
+<p>At university, this becomes backward induction in game theory: analyse the end of the game first, then work back to decide the best opening move.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Bertie and Cuthbert.</strong> Verify that, with Algernon missing deliberately, Bertie wins with probability <span class="math inline">\(\frac{135}{475}\)</span> and Cuthbert with <span class="math inline">\(\frac{114}{475}\)</span>.</p></li>
+<li><p><strong>A better shot.</strong> If Algernon hit with probability <span class="math inline">\(a\)</span> instead of <span class="math inline">\(\frac25\)</span>, for which values of <span class="math inline">\(a\)</span> is deliberately missing still his best first move?</p></li>
+<li><p><strong>Should Bertie aim at Cuthbert?</strong> Given that Algernon misses deliberately, is it in Bertie’s interest to aim at Cuthbert rather than at Algernon? (Assume Cuthbert’s behaviour is unchanged.)</p></li>
+<li><p><strong>A duel with a fixed number of throws.</strong> In a duel where each player has only two throws, find Percy’s probability of winning, and compare with the unlimited duel.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>D. Marc Kilgour &amp; Steven Brams, “The truel”</strong>, <em>Mathematics Magazine</em> 70 (1997). An accessible survey of three-way duels.</p></li>
+<li><p><strong>Avinash Dixit &amp; Barry Nalebuff, <em>Thinking Strategically</em></strong> (Norton). Game theory for a general reader, including the truel.</p></li>
+<li><p><strong>Ken Binmore, <em>Game Theory: A Very Short Introduction</em></strong> (Oxford University Press).</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="secretary.html">← 12.12 When to Stop Looking</a><a class="next" href="mixed-strategies.html">→ 12.14 Mixed Strategies</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

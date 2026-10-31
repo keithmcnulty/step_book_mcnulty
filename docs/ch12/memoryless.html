@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.18 Memorylessness — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP III · 2021 · Question 11</div>
+    <div class="sec-head"><span class="sec-num">12.18</span><h1>Memorylessness</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-18-memoryless.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The continuous random variable <span class="math inline">\(X\)</span> has probability density function <span class="math display">\[\mathrm{f}(x) = \begin{cases} \lambda e^{-\lambda x} &amp; \text{for } x \geq 0, \\ 0 &amp; \text{otherwise,} \end{cases}\]</span> where <span class="math inline">\(\lambda\)</span> is a positive constant. The random variable <span class="math inline">\(Y\)</span> is the greatest integer less than or equal to <span class="math inline">\(X\)</span>, and <span class="math inline">\(Z = X - Y\)</span>.</p>
+<ol class="roman">
+<li><p>Show that, for any non-negative integer <span class="math inline">\(n\)</span>, <span class="math inline">\(\mathrm{P}(Y = n) = (1 - e^{-\lambda})e^{-n\lambda}\)</span>.</p></li>
+<li><p>Show that <span class="math inline">\(\mathrm{P}(Z &lt; z) = \dfrac{1 - e^{-\lambda z}}{1 - e^{-\lambda}}\)</span> for <span class="math inline">\(0 \leq z \leq 1\)</span>.</p></li>
+<li><p>Evaluate <span class="math inline">\(\mathrm{E}(Z)\)</span>.</p></li>
+<li><p>Obtain an expression for <span class="math inline">\(\mathrm{P}(Y = n \text{ and } z_1 &lt; Z &lt; z_2)\)</span>, where <span class="math inline">\(0 \leq z_1 &lt; z_2 \leq 1\)</span> and <span class="math inline">\(n\)</span> is a non-negative integer. Determine whether <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> are independent.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>A radioactive atom has been sitting in a laboratory for a million years without decaying. Is it “due” to decay soon? No: its chance of decaying in the next second is exactly the same as that of a freshly made atom. Radioactive atoms do not age. The waiting time until decay has the <em>exponential distribution</em>, and its defining property is that it has no memory.</p>
+<p>This question shows the memorylessness in a striking form. Split an exponential waiting time into its whole number of units and its fractional part. These two pieces turn out to be <em>independent</em>: knowing how many whole hours you waited tells you nothing about the minutes. The question also explains, in the exercises, why your wait for a bus can seem longer than the gap between buses.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>What is <span class="math inline">\(\mathrm{P}(X &gt; x)\)</span> for <span class="math inline">\(x \geq 0\)</span>? What is <span class="math inline">\(\mathrm{P}(X &gt; s + t \mid X &gt; s)\)</span>?</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(X &gt; x) = \int_x^\infty\lambda e^{-\lambda u}\,\mathrm{d}u = e^{-\lambda x}\)</span>. Then <span class="math inline">\(\mathrm{P}(X &gt; s + t \mid X &gt; s) = \frac{e^{-\lambda(s + t)}}{e^{-\lambda s}} = e^{-\lambda t} = \mathrm{P}(X &gt; t)\)</span>: having already waited <span class="math inline">\(s\)</span>, the remaining wait has the same distribution as a fresh one. This is the <em>memoryless property</em>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-whole-part" class="stage"><span class="stage-n">Stage 1</span> The whole part</h4>
+<p><span class="math inline">\(Y = n\)</span> exactly when <span class="math inline">\(n \leq X &lt; n + 1\)</span>: <span class="math display">\[\mathrm{P}(Y = n) = e^{-\lambda n} - e^{-\lambda(n + 1)} = (1 - e^{-\lambda})e^{-n\lambda}. \qed\]</span> So <span class="math inline">\(Y\)</span> has a geometric distribution: each whole unit is “survived” with probability <span class="math inline">\(e^{-\lambda}\)</span>.</p>
+<h4 id="stagemark2-the-fractional-part" class="stage"><span class="stage-n">Stage 2</span> The fractional part</h4>
+<div class="askyourself">
+<p><span class="math inline">\(Z &lt; z\)</span> means <span class="math inline">\(X\)</span> lies in one of the intervals <span class="math inline">\([n, n + z)\)</span>. Add up their probabilities.</p>
+</div>
+<p><span class="math display">\[\mathrm{P}(Z &lt; z) = \sum_{n \geq 0}\bigl(e^{-\lambda n} - e^{-\lambda(n + z)}\bigr) = (1 - e^{-\lambda z})\sum_{n \geq 0}e^{-\lambda n} = \frac{1 - e^{-\lambda z}}{1 - e^{-\lambda}}. \qed\]</span></p>
+<h4 id="stagemark3-the-mean-of-z" class="stage"><span class="stage-n">Stage 3</span> The mean of <span class="math inline">\(Z\)</span></h4>
+<div class="askyourself">
+<p>For a random variable on <span class="math inline">\([0, 1]\)</span>, <span class="math inline">\(\mathrm{E}(Z) = \int_0^1\mathrm{P}(Z &gt; z)\,\mathrm{d}z\)</span>. Use it.</p>
+</div>
+<p>With <span class="math inline">\(c = 1 - e^{-\lambda}\)</span>, <span class="math inline">\(\mathrm{P}(Z &gt; z) = 1 - \frac{1 - e^{-\lambda z}}{c}\)</span>, so <span class="math display">\[\mathrm{E}(Z) = 1 - \frac1c\Bigl(1 - \frac{1 - e^{-\lambda}}{\lambda}\Bigr) = 1 - \frac1c + \frac1\lambda = \frac1\lambda - \frac{e^{-\lambda}}{1 - e^{-\lambda}} = \frac1\lambda - \frac{1}{e^\lambda - 1}. \qed\]</span> (For small <span class="math inline">\(\lambda\)</span>, long waits, this tends to <span class="math inline">\(\frac12\)</span>: the fractional part is nearly uniform. For large <span class="math inline">\(\lambda\)</span> it is close to <span class="math inline">\(\frac1\lambda\)</span>, because <span class="math inline">\(X\)</span> is almost always less than <span class="math inline">\(1\)</span>.)</p>
+<h4 id="stagemark4-independence" class="stage"><span class="stage-n">Stage 4</span> Independence</h4>
+<p><span class="math display">\[\mathrm{P}(Y = n, z_1 &lt; Z &lt; z_2) = \mathrm{P}(n + z_1 &lt; X &lt; n + z_2) = e^{-\lambda n}\bigl(e^{-\lambda z_1} - e^{-\lambda z_2}\bigr).\]</span></p>
+<div class="askyourself">
+<p>Compare with <span class="math inline">\(\mathrm{P}(Y = n)\,\mathrm{P}(z_1 &lt; Z &lt; z_2)\)</span>, using parts (i) and (ii).</p>
+</div>
+<p>From (i) and (ii), <span class="math inline">\(\mathrm{P}(Y = n)\mathrm{P}(z_1 &lt; Z &lt; z_2) = (1 - e^{-\lambda})e^{-n\lambda}\cdot\frac{e^{-\lambda z_1} - e^{-\lambda z_2}}{1 - e^{-\lambda}}\)</span>, which is the same. So <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> are independent.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-18-1.svg" alt="Figure 12.18.1"><figcaption><span class="fig-label">Figure 12.18.1</span> The exponential density with <span class="math inline">\(\lambda = 1\)</span>, divided into unit strips. Because <span class="math inline">\(e^{-(n + z)} = e^{-n}e^{-z}\)</span>, every strip has the same shape. Which strip <span class="math inline">\(X\)</span> falls in (the whole part <span class="math inline">\(Y\)</span>) and where it falls within the strip (the fractional part <span class="math inline">\(Z\)</span>) are independent.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Sum over pieces.</strong> Both the distribution of <span class="math inline">\(Z\)</span> and the joint probabilities came from adding probabilities over the intervals <span class="math inline">\([n, n + 1)\)</span>.</p></li>
+<li><p><strong>The tail formula.</strong> <span class="math inline">\(\mathrm{E}(Z) = \int\mathrm{P}(Z &gt; z)\,\mathrm{d}z\)</span> avoided finding the density.</p></li>
+<li><p><strong>Factorisation means independence.</strong> The joint probability split into a function of <span class="math inline">\(n\)</span> times a function of <span class="math inline">\(z_1\)</span>, <span class="math inline">\(z_2\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="why-the-exponential-is-special">Why the exponential is special</h3>
+<p>The independence of <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> comes straight from <span class="math inline">\(e^{-\lambda(n + z)} = e^{-\lambda n}e^{-\lambda z}\)</span>, and that is the memoryless property in disguise. In fact the exponential is the <em>only</em> continuous distribution without memory: if <span class="math inline">\(\mathrm{P}(X &gt; s + t) = \mathrm{P}(X &gt; s)\mathrm{P}(X &gt; t)\)</span> for all <span class="math inline">\(s, t \geq 0\)</span>, then <span class="math inline">\(g(t) = \ln\mathrm{P}(X &gt; t)\)</span> satisfies <span class="math inline">\(g(s + t) = g(s) + g(t)\)</span>, and (for a monotonic <span class="math inline">\(g\)</span>) this forces <span class="math inline">\(g(t) = -\lambda t\)</span>. That is why the exponential models waiting times for events that happen “at random”, with no build-up: radioactive decays, the arrival of customers, the failure of electronic components that do not wear out.</p>
+<h3 id="minima-and-the-waiting-time-paradox">Minima and the waiting-time paradox</h3>
+<p>If <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are independent exponentials with rates <span class="math inline">\(\lambda_1\)</span> and <span class="math inline">\(\lambda_2\)</span>, then <span class="math inline">\(\mathrm{P}(\min &gt; x) = e^{-\lambda_1x}e^{-\lambda_2x}\)</span>, so the minimum is exponential with rate <span class="math inline">\(\lambda_1 + \lambda_2\)</span>. Waiting for the first of two independent random events is like waiting for one event at the combined rate (STEP III 2002 Q13, in the exercises). Memorylessness also explains the <em>waiting-time paradox</em>: if buses arrive at random with an average gap of <span class="math inline">\(10\)</span> minutes, then a passenger arriving at a random time waits on average <span class="math inline">\(10\)</span> minutes, not <span class="math inline">\(5\)</span>, because the remaining wait is memoryless; and the gap they arrive in is on average <span class="math inline">\(20\)</span> minutes long, since long gaps are more likely to be landed in.</p>
+<div class="historybox">
+<div class="box-title">Rutherford and the Poisson process</div>
+<p>In 1910 Ernest Rutherford and Hans Geiger counted the alpha particles emitted by a radioactive source in intervals of <span class="math inline">\(7.5\)</span> seconds, and found that the counts followed the Poisson distribution, as the mathematician Harry Bateman showed they should if the emissions occurred independently at a constant rate. The times between emissions are then exponential. The <em>Poisson process</em>, a stream of events with exponential gaps, is now the basic model of randomness in time, used for telephone calls, insurance claims and the firing of neurons; the next section, <a href="../ch12/spatial-poisson.html">Section 12.19</a>, extends it to space.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Test independence by factorising</div>
+<p><em>Two random variables are independent if their joint probabilities factorise into a function of one times a function of the other.</em></p>
+<p>At university, factorisation of a joint density is the standard test for independence, and it is how you will recognise independent components in multivariate problems, such as the radius and angle of a normally distributed point in <a href="../ch12/cauchy.html">Section 12.22</a>.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Two bus routes.</strong> (From STEP III, 2002.) Show that the minimum of independent exponentials with parameters <span class="math inline">\(\lambda_1\)</span> and <span class="math inline">\(\lambda_2\)</span> is exponential with parameter <span class="math inline">\(\lambda_1 + \lambda_2\)</span>. Buses on route A and route B have exponential gaps with means <span class="math inline">\(15\)</span> and <span class="math inline">\(30\)</span> minutes, independently. Having just seen one of each leave, show that the median wait for the next bus is about <span class="math inline">\(7\)</span> minutes.</p></li>
+<li><p><strong>Memoryless discrete.</strong> Show that the geometric distribution is memoryless: <span class="math inline">\(\mathrm{P}(Y \geq m + n \mid Y \geq m) = \mathrm{P}(Y \geq n)\)</span>.</p></li>
+<li><p><strong>The waiting-time paradox.</strong> Buses arrive as a Poisson process with rate <span class="math inline">\(\lambda\)</span>. Show that the gap containing a fixed time <span class="math inline">\(t\)</span> (for large <span class="math inline">\(t\)</span>) has expected length <span class="math inline">\(\frac2\lambda\)</span>, twice the average gap.</p></li>
+<li><p><strong>The density of <span class="math inline">\(Z\)</span>.</strong> Find the probability density of <span class="math inline">\(Z\)</span>, and sketch it for <span class="math inline">\(\lambda = 1\)</span> and <span class="math inline">\(\lambda = 5\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <em>Probability: An Introduction</em></strong> (Oxford University Press), on the exponential distribution and the Poisson process.</p></li>
+<li><p><strong>Sheldon Ross, <em>Introduction to Probability Models</em></strong> (Academic Press). Exponential distributions, Poisson processes and queues.</p></li>
+<li><p><strong>David Spiegelhalter, <em>The Art of Uncertainty</em></strong> (Pelican). Randomness and waiting in everyday life.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="matchboxes.html">← 12.17 Banach&#x27;s Matchboxes</a><a class="next" href="spatial-poisson.html">→ 12.19 Random Points in the Plane</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

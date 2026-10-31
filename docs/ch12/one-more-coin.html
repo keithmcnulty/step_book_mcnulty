@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.6 One More Coin — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP I · 2016 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">12.6</span><h1>One More Coin</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-6-one-more-coin.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Alice tosses a fair coin twice and Bob tosses a fair coin three times. Calculate the probability that Bob gets more heads than Alice.</p></li>
+<li><p>Alice tosses a fair coin three times and Bob tosses a fair coin four times. Calculate the probability that Bob gets more heads than Alice.</p></li>
+<li><p>Let <span class="math inline">\(p_1\)</span> be the probability that Bob gets the same number of heads as Alice, and let <span class="math inline">\(p_2\)</span> be the probability that Bob gets more heads than Alice, when Alice and Bob each toss a fair coin <span class="math inline">\(n\)</span> times.</p>
+<p>Alice tosses a fair coin <span class="math inline">\(n\)</span> times and Bob tosses a fair coin <span class="math inline">\(n + 1\)</span> times. Express the probability that Bob gets more heads than Alice in terms of <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span>, and hence obtain a generalisation of the results of parts (i) and (ii).</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Bob tosses one more coin than Alice. What is the probability that he gets more heads? He has an advantage, but heads are not guaranteed, and ties go against him. Work out the first two cases by brute force and the answer is <span class="math inline">\(\frac12\)</span> both times. Is that a coincidence?</p>
+<p>It is not, and there is a proof that takes one sentence, once you notice that Bob must get either more heads than Alice or more tails, but not both. This question is a model of how a calculation can suggest a pattern, and how a clever symmetry can then explain it.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Alice tosses twice: what is the distribution of her number of heads? And Bob, tossing three times?</p>
+</div>
+<p>Alice gets <span class="math inline">\(0, 1, 2\)</span> heads with probabilities <span class="math inline">\(\frac14, \frac24, \frac14\)</span>; Bob gets <span class="math inline">\(0, 1, 2, 3\)</span> with probabilities <span class="math inline">\(\frac18, \frac38, \frac38, \frac18\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-brute-force" class="stage"><span class="stage-n">Stage 1</span> Brute force</h4>
+<p>For part (i), add up over Alice’s number of heads: <span class="math display">\[\begin{aligned}
+  \mathrm{P}(B &gt; A) &amp;= \tfrac14\,\mathrm{P}(B \geq 1) + \tfrac24\,\mathrm{P}(B \geq 2) + \tfrac14\,\mathrm{P}(B = 3) \\
+  &amp;= \tfrac14\cdot\tfrac78 + \tfrac12\cdot\tfrac48 + \tfrac14\cdot\tfrac18 = \frac{7 + 8 + 1}{32} = \frac12.
+\end{aligned}\]</span> Part (ii) is the same calculation with more terms; counting the <span class="math inline">\(8 \times 16 = 128\)</span> equally likely outcomes, <span class="math inline">\(64\)</span> have Bob ahead (Figure 12.6.1), so again the answer is <span class="math inline">\(\frac12\)</span>.</p>
+<h4 id="stagemark2-splitting-bobs-tosses" class="stage"><span class="stage-n">Stage 2</span> Splitting Bob’s tosses</h4>
+<div class="askyourself">
+<p>Think of Bob’s <span class="math inline">\(n + 1\)</span> tosses as <span class="math inline">\(n\)</span> tosses followed by one extra toss. After his first <span class="math inline">\(n\)</span> tosses, he is ahead of Alice, level with her, or behind. What happens in each case?</p>
+</div>
+<p>After <span class="math inline">\(n\)</span> tosses each, Bob is ahead with probability <span class="math inline">\(p_2\)</span>, level with probability <span class="math inline">\(p_1\)</span>, and behind with probability <span class="math inline">\(p_2\)</span> (by symmetry between Alice and Bob). If he is ahead, he stays ahead. If he is level, his extra toss puts him ahead with probability <span class="math inline">\(\frac12\)</span>. If he is behind, one extra head can at best draw level. So <span class="math display">\[\mathrm{P}(\text{Bob more heads}) = p_2 + \tfrac12p_1.\]</span> Since the three cases cover everything, <span class="math inline">\(2p_2 + p_1 = 1\)</span>, and so <span class="math inline">\(p_2 + \frac12p_1 = \frac12\)</span>. With one extra coin, Bob gets more heads with probability exactly <span class="math inline">\(\frac12\)</span>, for every <span class="math inline">\(n\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>Here is the one-sentence proof. Bob has <span class="math inline">\(n + 1\)</span> tosses, so his heads and tails add to <span class="math inline">\(n + 1\)</span>, one more than Alice’s. Show that Bob has more heads than Alice if and only if he does <em>not</em> have more tails than Alice. Since heads and tails are symmetric, these two events have equal probability, so each is <span class="math inline">\(\frac12\)</span>.</p>
+</div>
+<p>Indeed, writing <span class="math inline">\(H_A + T_A = n\)</span> and <span class="math inline">\(H_B + T_B = n + 1\)</span>: if <span class="math inline">\(H_B &gt; H_A\)</span> then <span class="math inline">\(H_B \geq H_A + 1\)</span>, so <span class="math inline">\(T_B = n + 1 - H_B \leq n - H_A = T_A\)</span>; and conversely if <span class="math inline">\(T_B \leq T_A\)</span> then <span class="math inline">\(H_B \geq H_A + 1\)</span>. So “more heads” and “more tails” are complementary, and swapping heads and tails (which does not change the probabilities, as the coins are fair) swaps them.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-6-1.svg" alt="Figure 12.6.1"><figcaption><span class="fig-label">Figure 12.6.1</span> Part (ii): the number of the <span class="math inline">\(128\)</span> equally likely outcomes with each combination of heads. Bob is ahead in the shaded cells, which contain exactly half of the outcomes.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Compute small cases.</strong> Two calculations suggested the answer <span class="math inline">\(\frac12\)</span>.</p></li>
+<li><p><strong>Condition on a natural split.</strong> Separating Bob’s extra toss reduced the problem to an even contest plus one coin.</p></li>
+<li><p><strong>Find the complementary pair.</strong> “More heads” and “more tails” are complements and are swapped by a symmetry.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="symmetry-and-complements">Symmetry and complements</h3>
+<p>The slick proof combines two facts: two events that are swapped by a symmetry have equal probabilities, and two complementary events have probabilities adding to <span class="math inline">\(1\)</span>. If both hold, each has probability <span class="math inline">\(\frac12\)</span>. The same reasoning appears throughout probability. In the airline problem (<a href="../ch12/airline-seat.html">Section 12.5</a>), <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_n\)</span> were swapped by a symmetry and exactly one of them is left at the end. In a game of Hex, the board’s symmetry and the fact that exactly one player must win show that the first player has the advantage, though nobody knows a winning strategy on large boards.</p>
+<h3 id="how-likely-is-a-tie">How likely is a tie?</h3>
+<p>For equal numbers of tosses the tie probability <span class="math inline">\(p_1\)</span> matters. Alice and Bob tie when Alice’s heads equal Bob’s heads, which (replacing Bob’s heads by his tails, by symmetry) has the same probability as Alice’s heads plus Bob’s heads equalling <span class="math inline">\(n\)</span>: a total of <span class="math inline">\(n\)</span> heads in <span class="math inline">\(2n\)</span> tosses. So <span class="math display">\[p_1 = \binom{2n}{n}\frac{1}{4^n} \approx \frac{1}{\sqrt{\pi n}},\]</span> using Stirling’s approximation (<a href="../ch12/stirling-probability.html">Section 12.23</a>). Ties become rare, but slowly: with <span class="math inline">\(100\)</span> tosses each, the chance of a tie is still about <span class="math inline">\(5.6\%\)</span>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Calculate, conjecture, then explain</div>
+<p><em>When a calculation gives a suspiciously simple answer, look for a reason. A simple answer usually has a simple explanation.</em></p>
+<p>At university this habit separates understanding from computation. The first proof here confirms the answer; the second explains it, and generalises immediately (try exercise 2).</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Two extra coins.</strong> If Bob tosses <span class="math inline">\(n + 2\)</span> coins and Alice <span class="math inline">\(n\)</span>, prove <span class="math inline">\(\mathrm{P}(\text{Bob more heads}) = \frac12 + \frac12\mathrm{P}(H&#39; = H_A)\)</span>, where <span class="math inline">\(H&#39;\)</span> is the number of heads in Bob’s first <span class="math inline">\(n + 1\)</span> tosses.</p></li>
+<li><p><strong>Biased coins.</strong> If both use a coin with probability <span class="math inline">\(p\)</span> of heads, is the answer still <span class="math inline">\(\frac12\)</span> with one extra toss? Which step of the slick proof fails?</p></li>
+<li><p><strong>Ties.</strong> Show that <span class="math inline">\(p_1 = \binom{2n}{n}/4^n\)</span> by the trick in the text, and evaluate it for <span class="math inline">\(n = 1, 2, 3\)</span>.</p></li>
+<li><p><strong>Dice.</strong> Alice rolls <span class="math inline">\(n\)</span> dice and Bob rolls <span class="math inline">\(n + 1\)</span>. Is the probability that Bob gets more sixes equal to <span class="math inline">\(\frac12\)</span>?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Peter Winkler, <em>Mathematical Mind-Benders</em></strong> (A K Peters). Many probability puzzles with symmetric solutions.</p></li>
+<li><p><strong>Gabor Székely, <em>Paradoxes in Probability Theory and Mathematical Statistics</em></strong> (Reidel).</p></li>
+<li><p><strong>Frederick Mosteller, <em>Fifty Challenging Problems in Probability</em></strong> (Dover).</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="airline-seat.html">← 12.5 The Last Passenger&#x27;s Seat</a><a class="next" href="knockout.html">→ 12.7 Who Meets Whom in a Knockout</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

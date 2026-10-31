@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.21 Breaking a Stick — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP III · 1990 · Question 16</div>
+    <div class="sec-head"><span class="sec-num">12.21</span><h1>Breaking a Stick</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-21-broken-stick.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>A rod of unit length is cut into pieces of length <span class="math inline">\(X\)</span> and <span class="math inline">\(1 - X\)</span>; the latter is then cut in half. The random variable <span class="math inline">\(X\)</span> is uniformly distributed over <span class="math inline">\([0, 1]\)</span>. For some values of <span class="math inline">\(X\)</span> a triangle can be formed from the three pieces of the rod. Show that the conditional probability that, if a triangle can be formed, it will be obtuse-angled is <span class="math inline">\(3 - 2\sqrt2\)</span>.</p></li>
+<li><p>The bivariate distribution of the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is uniform over the triangle with vertices <span class="math inline">\((1, 0)\)</span>, <span class="math inline">\((1, 1)\)</span> and <span class="math inline">\((0, 1)\)</span>. A pair of values <span class="math inline">\(x, y\)</span> is chosen at random from this distribution and a (perhaps degenerate) triangle <span class="math inline">\(ABC\)</span> is constructed with <span class="math inline">\(BC = x\)</span> and <span class="math inline">\(CA = y\)</span> and <span class="math inline">\(AB = 2 - x - y\)</span>. Show that the construction is always possible and that <span class="math inline">\(\angle ABC\)</span> is obtuse if and only if <span class="math display">\[y &gt; \frac{x^2 - 2x + 2}{2 - x}.\]</span> Deduce that the probability that <span class="math inline">\(\angle ABC\)</span> is obtuse is <span class="math inline">\(3 - 4\ln2\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Break a stick at two random points. Can the three pieces form a triangle? The famous answer is: with probability <span class="math inline">\(\frac14\)</span>. And if they do, is the triangle acute or obtuse? Obtuse, usually: only about a third of the triangles formed are acute. Questions like these, about random shapes, have entertained probabilists since the nineteenth century, and they are a perfect training ground for working with continuous probability: a random point in a region, a condition defining a sub-region, and an integral for its area.</p>
+<p>This question takes two different ways of breaking the stick, and in each case asks how likely an obtuse angle is. The answers, <span class="math inline">\(3 - 2\sqrt2\)</span> and <span class="math inline">\(3 - 4\ln2\)</span>, are unexpected numbers that come from simple geometry.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Three lengths form a triangle if and only if each is less than the sum of the other two. If the lengths add up to <span class="math inline">\(L\)</span>, what does this say about the longest one? When is the angle opposite side <span class="math inline">\(c\)</span> obtuse?</p>
+</div>
+<p><span class="math inline">\(c &lt; a + b\)</span> with <span class="math inline">\(a + b + c = L\)</span> means <span class="math inline">\(c &lt; \frac L2\)</span>; so three pieces form a triangle exactly when every piece is shorter than half the total. By the cosine rule, the angle opposite <span class="math inline">\(c\)</span> is obtuse exactly when <span class="math inline">\(c^2 &gt; a^2 + b^2\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-one-cut-then-halve" class="stage"><span class="stage-n">Stage 1</span> One cut, then halve</h4>
+<p>The pieces are <span class="math inline">\(X\)</span>, <span class="math inline">\(\frac{1 - X}{2}\)</span>, <span class="math inline">\(\frac{1 - X}{2}\)</span>. The two equal pieces are always less than <span class="math inline">\(\frac12\)</span>, so a triangle forms if and only if <span class="math inline">\(X &lt; \frac12\)</span>. The triangle is isosceles; the equal angles are acute, so it is obtuse only if the angle opposite <span class="math inline">\(X\)</span> is obtuse: <span class="math display">\[X^2 &gt; 2\Bigl(\frac{1 - X}{2}\Bigr)^2 = \frac{(1 - X)^2}{2}, \qquad\text{that is}\qquad \sqrt2X &gt; 1 - X, \quad X &gt; \frac{1}{1 + \sqrt2} = \sqrt2 - 1.\]</span> Given <span class="math inline">\(X &lt; \frac12\)</span>, <span class="math inline">\(X\)</span> is uniform on <span class="math inline">\([0, \frac12]\)</span>, so <span class="math display">\[\mathrm{P}(\text{obtuse} \mid \text{triangle}) = \frac{\frac12 - (\sqrt2 - 1)}{\frac12} = 3 - 2\sqrt2 \approx 0.172. \qed\]</span></p>
+<h4 id="stagemark2-the-second-construction" class="stage"><span class="stage-n">Stage 2</span> The second construction</h4>
+<div class="askyourself">
+<p>Check the three triangle inequalities for sides <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and <span class="math inline">\(2 - x - y\)</span>, for <span class="math inline">\((x, y)\)</span> in the triangle with vertices <span class="math inline">\((1, 0)\)</span>, <span class="math inline">\((1, 1)\)</span>, <span class="math inline">\((0, 1)\)</span>.</p>
+</div>
+<p>The region is <span class="math inline">\(\{x \leq 1, y \leq 1, x + y \geq 1\}\)</span>. The inequalities are: <span class="math inline">\(x + y \geq 2 - x - y\)</span>, i.e. <span class="math inline">\(x + y \geq 1\)</span>; <span class="math inline">\(x + (2 - x - y) \geq y\)</span>, i.e. <span class="math inline">\(y \leq 1\)</span>; and <span class="math inline">\(y + (2 - x - y) \geq x\)</span>, i.e. <span class="math inline">\(x \leq 1\)</span>. All hold in the region (with equality on its edges, where the triangle is degenerate).<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>The angle at <span class="math inline">\(B\)</span> is opposite the side <span class="math inline">\(CA = y\)</span>. Write the condition <span class="math inline">\(y^2 &gt; x^2 + (2 - x - y)^2\)</span> as an inequality for <span class="math inline">\(y\)</span>.</p>
+</div>
+<p>Expanding, <span class="math inline">\(y^2 &gt; x^2 + 4 + x^2 + y^2 - 4x - 4y + 2xy\)</span>, so <span class="math inline">\(4y - 2xy &gt; 2x^2 - 4x + 4\)</span>, that is <span class="math inline">\(2y(2 - x) &gt; 2(x^2 - 2x + 2)\)</span>. Since <span class="math inline">\(2 - x &gt; 0\)</span>, <span class="math display">\[\angle ABC \text{ obtuse} \iff y &gt; \frac{x^2 - 2x + 2}{2 - x}. \qed\]</span></p>
+<h4 id="stagemark3-the-area" class="stage"><span class="stage-n">Stage 3</span> The area</h4>
+<div class="askyourself">
+<p>Divide <span class="math inline">\(x^2 - 2x + 2\)</span> by <span class="math inline">\(2 - x\)</span>. Then find the area of the part of the region above the curve, and divide by the region’s area, <span class="math inline">\(\frac12\)</span>.</p>
+</div>
+<p>Since <span class="math inline">\(x^2 - 2x + 2 = -x(2 - x) + 2\)</span>, the curve is <span class="math inline">\(y = -x + \frac{2}{2 - x}\)</span>. It runs from <span class="math inline">\((0, 1)\)</span> to <span class="math inline">\((1, 1)\)</span>, and lies above the line <span class="math inline">\(y = 1 - x\)</span> and below <span class="math inline">\(y = 1\)</span> for <span class="math inline">\(0 &lt; x &lt; 1\)</span> (Figure 12.21.1). The obtuse region lies between the curve and <span class="math inline">\(y = 1\)</span>, with area <span class="math display">\[\int_0^1\Bigl(1 + x - \frac{2}{2 - x}\Bigr)\mathrm{d}x = 1 + \frac12 + \bigl[2\ln(2 - x)\bigr]_0^1 = \frac32 - 2\ln2.\]</span> Dividing by <span class="math inline">\(\frac12\)</span>: <span class="math inline">\(\mathrm{P}(\angle ABC \text{ obtuse}) = 3 - 4\ln2 \approx 0.227\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-21-1.svg" alt="Figure 12.21.1"><figcaption><span class="fig-label">Figure 12.21.1</span> The triangle of possible <span class="math inline">\((x, y)\)</span> in part (ii). The angle at <span class="math inline">\(B\)</span> is obtuse above the curve <span class="math inline">\(y = \frac{x^2 - 2x + 2}{2 - x}\)</span> (plum region), which occupies a fraction <span class="math inline">\(3 - 4\ln2 \approx 0.23\)</span> of the triangle.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Translate geometry into inequalities.</strong> “Forms a triangle” and “is obtuse” both became inequalities between the lengths.</p></li>
+<li><p><strong>Conditional probability for continuous variables.</strong> Given <span class="math inline">\(X &lt; \frac12\)</span>, <span class="math inline">\(X\)</span> was uniform on the smaller interval.</p></li>
+<li><p><strong>Probability as a ratio of areas.</strong> For a uniform point in a region, probability is area divided by total area.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-classic-broken-stick">The classic broken stick</h3>
+<p>Break a stick at two independent uniform points <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span>. The pair <span class="math inline">\((U, V)\)</span> is uniform on the unit square, and the three pieces form a triangle exactly when each is less than <span class="math inline">\(\frac12\)</span>: that cuts out four small triangles of total area <span class="math inline">\(\frac34\)</span>, leaving probability <span class="math inline">\(\frac14\)</span>. Given that a triangle forms, the probability that it is acute is <span class="math inline">\(3\ln2 - 2 \approx 0.079\)</span> out of <span class="math inline">\(\frac14\)</span>, that is about <span class="math inline">\(32\%\)</span>. The pieces are an example of a <em>uniform random partition</em>, and their joint distribution is the <em>Dirichlet distribution</em>, which appears in Bayesian statistics and in models of how a resource is shared out at random.</p>
+<h3 id="how-you-break-the-stick-matters">How you break the stick matters</h3>
+<p>Notice that the two methods in the question give different answers, <span class="math inline">\(3 - 2\sqrt2\)</span> and <span class="math inline">\(3 - 4\ln2\)</span>, to similar-sounding questions, and both differ from the classic method. As with Bertrand’s chords (<a href="../ch12/bertrand.html">Section 12.3</a>), “random” means nothing until the procedure is specified.</p>
+<div class="historybox">
+<div class="box-title">Random triangles</div>
+<p>Problems about random triangles were popular Victorian puzzles. Lewis Carroll’s <em>Pillow Problems</em> (1893) asks for the probability that a triangle chosen “at random” is obtuse, and his answer, like those in this section, depends entirely on the model of randomness he chose. Problems about random triangles have continued to produce surprises: for instance, the probability that three uniformly random points in a square form an obtuse triangle is about <span class="math inline">\(0.725\)</span>, computed exactly only in the twentieth century.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Geometry of the sample space</div>
+<p><em>Represent the random outcome as a point in a region, the event as a sub-region, and compute probability as a ratio of areas (or an integral of a density).</em></p>
+<p>At university, this picture is the foundation of multivariate probability, and of the change-of-variables formula, which tells you how densities transform when the coordinates are changed.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The classic.</strong> Show that if a stick is broken at two independent uniform points, the probability that the pieces form a triangle is <span class="math inline">\(\frac14\)</span>.</p></li>
+<li><p><strong>Break the longer piece.</strong> Break a stick at a uniform point, then break the <em>longer</em> piece at a uniform point. Show that the probability that the three pieces form a triangle is <span class="math inline">\(2\ln2 - 1 \approx 0.386\)</span>.</p></li>
+<li><p><strong>Acute or obtuse.</strong> In part (ii), find the probability that the triangle <span class="math inline">\(ABC\)</span> has an obtuse angle at <span class="math inline">\(C\)</span> (opposite <span class="math inline">\(AB = 2 - x - y\)</span>). Hence find the probability that it has an obtuse angle somewhere.</p></li>
+<li><p><strong>Expected longest piece.</strong> For the classic broken stick, show that the expected length of the longest piece is <span class="math inline">\(\frac{11}{18}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Martin Gardner, <em>The Colossal Book of Mathematics</em></strong> (Norton), which includes the broken-stick problem.</p></li>
+<li><p><strong>Frederick Mosteller, <em>Fifty Challenging Problems in Probability</em></strong> (Dover).</p></li>
+<li><p><strong>Lewis Carroll, <em>Pillow Problems</em></strong> (Dover, with <em>A Tangled Tale</em>). Victorian puzzles, including random triangles.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="buffon.html">← 12.20 Buffon&#x27;s Needle</a><a class="next" href="cauchy.html">→ 12.22 A Distribution With No Mean</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

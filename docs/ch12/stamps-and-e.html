@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.11 Stamps, Cups and e — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP I · 1996 · Question 13</div>
+    <div class="sec-head"><span class="sec-num">12.11</span><h1>Stamps, Cups and \(e\)</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-11-stamps-and-e.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>I have a Penny Black stamp which I want to sell to my friend Jim, but we cannot agree a price. So I put the stamp under one of two cups, jumble them up, and let Jim guess which one it is under. If he guesses correctly, I add a third cup, jumble them up, and let Jim guess correctly, adding another cup each time. The price he pays for the stamp is <span class="math inline">\(\pounds N\)</span>, where <span class="math inline">\(N\)</span> is the number of cups present when Jim fails to guess correctly. Find <span class="math inline">\(\mathrm{P}(N = k)\)</span>. Show that <span class="math inline">\(\mathrm{E}(N) = e\)</span> and calculate <span class="math inline">\(\mathrm{Var}(N)\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>A strange way to sell a stamp: the buyer keeps guessing which cup hides it, with one more cup each round, and pays one pound per cup on the table when he first guesses wrong. On average he pays <span class="math inline">\(\pounds e\)</span>, about <span class="math inline">\(\pounds 2.72\)</span>.</p>
+<p>The number <span class="math inline">\(e\)</span> appears in probability with uncanny frequency: the chance that nobody gets their own shirt (<a href="../ch09/derangements.html">Section 9.8</a>), the secretary problem (<a href="../ch12/secretary.html">Section 12.12</a>), the Poisson distribution. This question is perhaps the simplest of all its appearances, and it turns out to have exactly the same distribution as another famous puzzle: how many random numbers between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> must you add before the total exceeds <span class="math inline">\(1\)</span>? On average, <span class="math inline">\(e\)</span>.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>For <span class="math inline">\(N = 4\)</span>, what must happen? With what probability?</p>
+</div>
+<p>Jim must guess correctly with <span class="math inline">\(2\)</span> cups (probability <span class="math inline">\(\frac12\)</span>) and with <span class="math inline">\(3\)</span> cups (<span class="math inline">\(\frac13\)</span>), then fail with <span class="math inline">\(4\)</span> cups (<span class="math inline">\(\frac34\)</span>). So <span class="math inline">\(\mathrm{P}(N = 4) = \frac12\cdot\frac13\cdot\frac34 = \frac{3}{4!} = \frac18\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-distribution" class="stage"><span class="stage-n">Stage 1</span> The distribution</h4>
+<p>For <span class="math inline">\(N = k\)</span> (with <span class="math inline">\(k \geq 2\)</span>), Jim succeeds with <span class="math inline">\(2, 3, \ldots, k - 1\)</span> cups and fails with <span class="math inline">\(k\)</span>: <span class="math display">\[\mathrm{P}(N = k) = \frac12\cdot\frac13\cdots\frac{1}{k - 1}\cdot\frac{k - 1}{k} = \frac{k - 1}{k!}.\]</span> (Check: <span class="math inline">\(\frac{1}{2!} + \frac{2}{3!} + \frac{3}{4!} + \cdots = \sum_{k \geq 2}\bigl(\frac{1}{(k-1)!} - \frac{1}{k!}\bigr) = 1\)</span>, a telescoping sum.)</p>
+<h4 id="stagemark2-the-expectation" class="stage"><span class="stage-n">Stage 2</span> The expectation</h4>
+<div class="askyourself">
+<p>Simplify <span class="math inline">\(k\cdot\frac{k - 1}{k!}\)</span>. What series do you get?</p>
+</div>
+<p><span class="math display">\[\mathrm{E}(N) = \sum_{k \geq 2}\frac{k(k - 1)}{k!} = \sum_{k \geq 2}\frac{1}{(k - 2)!} = \frac{1}{0!} + \frac{1}{1!} + \cdots = e. \qed\]</span></p>
+<h4 id="stagemark3-the-variance" class="stage"><span class="stage-n">Stage 3</span> The variance</h4>
+<div class="askyourself">
+<p>Find <span class="math inline">\(\mathrm{E}(N^2)\)</span> by writing <span class="math inline">\(k^2 = k(k - 1) + k\)</span>, or by simplifying <span class="math inline">\(\frac{k^2(k-1)}{k!}\)</span> directly.</p>
+</div>
+<p><span class="math display">\[\mathrm{E}(N^2) = \sum_{k \geq 2}\frac{k^2(k - 1)}{k!} = \sum_{k \geq 2}\frac{k}{(k - 2)!} = \sum_{j \geq 0}\frac{j + 2}{j!} = \sum_{j \geq 1}\frac{1}{(j - 1)!} + 2\sum_{j \geq 0}\frac{1}{j!} = e + 2e = 3e.\]</span> So <span class="math inline">\(\mathrm{Var}(N) = 3e - e^2 = e(3 - e) \approx 0.766\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-11-1.svg" alt="Figure 12.11.1"><figcaption><span class="fig-label">Figure 12.11.1</span> The distribution of the price, <span class="math inline">\(\mathrm{P}(N = k) = \frac{k - 1}{k!}\)</span>. Half the time Jim pays <span class="math inline">\(\pounds2\)</span>; the long but thin tail brings the average up to <span class="math inline">\(\pounds e \approx \pounds2.72\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Products of probabilities.</strong> A sequence of independent successes followed by a failure gave a product that collapsed to <span class="math inline">\(\frac{k-1}{k!}\)</span>.</p></li>
+<li><p><strong>Cancel factorials.</strong> Multiplying by <span class="math inline">\(k\)</span> or <span class="math inline">\(k^2\)</span> and cancelling turned the sums into the exponential series.</p></li>
+<li><p><strong><span class="math inline">\(\mathrm{E}(N^2)\)</span> via a shift.</strong> Re-indexing with <span class="math inline">\(j = k - 2\)</span> split the sum into two copies of <span class="math inline">\(e\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-same-distribution-in-disguise">The same distribution, in disguise</h3>
+<p>Choose random numbers <span class="math inline">\(U_1, U_2, \ldots\)</span> uniformly from <span class="math inline">\([0, 1]\)</span>, and let <span class="math inline">\(M\)</span> be the number needed for their sum to exceed <span class="math inline">\(1\)</span>. The probability that the first <span class="math inline">\(k\)</span> numbers add up to less than <span class="math inline">\(1\)</span> is the volume of the region <span class="math inline">\(\{u_1 + \cdots + u_k &lt; 1, u_i \geq 0\}\)</span>, which is <span class="math inline">\(\frac{1}{k!}\)</span> (a triangle of area <span class="math inline">\(\frac12\)</span>, a tetrahedron of volume <span class="math inline">\(\frac16\)</span>, and so on). So <span class="math display">\[\mathrm{P}(M &gt; k) = \frac{1}{k!}, \qquad \mathrm{P}(M = k) = \frac{1}{(k - 1)!} - \frac{1}{k!} = \frac{k - 1}{k!},\]</span> exactly the distribution of <span class="math inline">\(N\)</span>. In both problems <span class="math inline">\(\mathrm{P}(N &gt; k) = \frac{1}{k!}\)</span>: for the cups, that is the probability of <span class="math inline">\(k - 1\)</span> correct guesses in a row. Using <span class="math inline">\(\mathrm{E}(N) = \sum_{k \geq 0}\mathrm{P}(N &gt; k)\)</span> (a formula from <a href="../ch09/birthday.html">Section 9.9</a>) gives <span class="math inline">\(\mathrm{E}(N) = \sum\frac{1}{k!} = e\)</span> in one line.</p>
+<h3 id="why-e-keeps-appearing">Why <span class="math inline">\(e\)</span> keeps appearing</h3>
+<p>Whenever a probability involves <span class="math inline">\(\frac{1}{k!}\)</span>, whether from <span class="math inline">\(k\)</span> objects in a particular order, <span class="math inline">\(k\)</span> successive events with probabilities <span class="math inline">\(\frac12, \frac13, \ldots\)</span>, or the volume of a simplex, sums over <span class="math inline">\(k\)</span> produce the exponential series. Derangements (<a href="../ch09/derangements.html">Section 9.8</a>) gave <span class="math inline">\(\sum\frac{(-1)^k}{k!} = e^{-1}\)</span>; here we have <span class="math inline">\(\sum\frac{1}{k!} = e\)</span>. And limits of the form <span class="math inline">\(\bigl(1 - \frac1n\bigr)^n \to e^{-1}\)</span>, which come from many independent unlikely events, explain <span class="math inline">\(e\)</span> in the secretary problem and the Poisson distribution.</p>
+<div class="historybox">
+<div class="box-title">Monte Carlo <span class="math inline">\(e\)</span></div>
+<p>The “sum exceeds <span class="math inline">\(1\)</span>” problem gives a way to estimate <span class="math inline">\(e\)</span> by experiment: generate random numbers, count how many are needed to exceed <span class="math inline">\(1\)</span>, repeat many times and average. It is a cousin of Buffon’s needle (<a href="../ch12/buffon.html">Section 12.20</a>), which estimates <span class="math inline">\(\pi\)</span>. Such <em>Monte Carlo</em> methods, named after the casino, use random sampling to estimate quantities that are hard to compute directly; they are now used throughout science, from particle physics to finance, mostly for integrals in many dimensions.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Recognise a series</div>
+<p><em>When an expectation is a sum involving factorials, simplify the terms until a standard series (exponential, geometric, binomial) appears.</em></p>
+<p>At university, generating functions systematise this: the probability generating function <span class="math inline">\(\mathrm{E}(t^N)\)</span> packages the whole distribution, and its derivatives at <span class="math inline">\(t = 1\)</span> give the mean and variance.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The generating function.</strong> Show that <span class="math inline">\(\mathrm{E}(t^N) = 1 + (t - 1)e^t\)</span>, and use it to find <span class="math inline">\(\mathrm{E}(N)\)</span> and <span class="math inline">\(\mathrm{E}(N(N - 1))\)</span>.</p></li>
+<li><p><strong>The tail formula.</strong> Prove that <span class="math inline">\(\mathrm{E}(N) = \sum_{k \geq 0}\mathrm{P}(N &gt; k)\)</span> for a random variable taking non-negative integer values, and use it to find <span class="math inline">\(\mathrm{E}(N)\)</span> in one line.</p></li>
+<li><p><strong>Starting with one cup.</strong> If the game starts with one cup (which Jim cannot get wrong), how does the distribution change? What is the expected price?</p></li>
+<li><p><strong>The simplex.</strong> Show that the volume of <span class="math inline">\(\{u_1 + u_2 + u_3 &lt; 1, u_i \geq 0\}\)</span> is <span class="math inline">\(\frac16\)</span>, and use induction to show the <span class="math inline">\(k\)</span>-dimensional version is <span class="math inline">\(\frac{1}{k!}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Eli Maor, <em>e: The Story of a Number</em></strong> (Princeton University Press). The history of <span class="math inline">\(e\)</span>, including its appearances in probability.</p></li>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <em>Probability: An Introduction</em></strong> (Oxford University Press), on generating functions.</p></li>
+<li><p><strong>Paul Nahin, <em>Digital Dice</em></strong> (Princeton University Press). Probability puzzles solved by Monte Carlo simulation.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="loose-ends.html">← 12.10 Tying Loose Ends</a><a class="next" href="secretary.html">→ 12.12 When to Stop Looking</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

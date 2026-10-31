@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.1 Precise Conditioning — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP I · 2007 · Question 13</div>
+    <div class="sec-head"><span class="sec-num">12.1</span><h1>Precise Conditioning</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-1-conditioning.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A bag contains eleven small discs, which are identical except that six of the discs are blank and five of the discs are numbered, using the numbers <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(4\)</span> and <span class="math inline">\(5\)</span>. The bag is shaken, and four discs are taken one at a time without replacement.</p>
+<p>Calculate the probability that:</p>
+<ol class="roman">
+<li><p>all four discs taken are numbered;</p></li>
+<li><p>all four discs taken are numbered, given that the disc numbered “3” is taken first;</p></li>
+<li><p>exactly two numbered discs are taken, given that the disc numbered “3” is taken first;</p></li>
+<li><p>exactly two numbered discs are taken, given that the disc numbered “3” is taken;</p></li>
+<li><p>exactly two numbered discs are taken, given that a numbered disc is taken first;</p></li>
+<li><p>exactly two numbered discs are taken, given that a numbered disc is taken.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>“Given that” is the most dangerous phrase in probability. The last four parts of this question sound almost identical: the disc numbered 3 is taken first; the disc numbered 3 is taken; a numbered disc is taken first; a numbered disc is taken. Three of them give the answer <span class="math inline">\(\frac12\)</span>. The fourth does not.</p>
+<p>The difference is exactly the one behind the famous “boy or girl” puzzle (a family has two children, at least one is a boy; what is the chance both are boys?), which has tripped up generations of students and a fair number of professional mathematicians. The lesson is that a condition is a precise statement about which outcomes remain possible, and the way information was obtained matters as much as the information itself.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Four discs are taken from eleven. Does the order of drawing matter for the event “all four are numbered”? How many equally likely sets of four discs are there?</p>
+</div>
+<p>Every set of four discs is equally likely to be the set drawn, so we can ignore order: there are <span class="math inline">\(\binom{11}{4} = 330\)</span> equally likely sets.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-no-condition" class="stage"><span class="stage-n">Stage 1</span> No condition</h4>
+<p>There are <span class="math inline">\(\binom54 = 5\)</span> sets of four numbered discs, so <span class="math display">\[\mathrm{P}(\text{all four numbered}) = \frac{5}{330} = \frac{1}{66}.\]</span></p>
+<h4 id="stagemark2-the-3-comes-first" class="stage"><span class="stage-n">Stage 2</span> The 3 comes first</h4>
+<div class="askyourself">
+<p>Once the disc numbered 3 has been drawn first, what are the remaining three draws?</p>
+</div>
+<p>The other three discs form a random set of three from the remaining ten (four numbered, six blank), all <span class="math inline">\(\binom{10}{3} = 120\)</span> sets equally likely. So <span class="math display">\[\text{(ii)}\quad \frac{\binom43}{120} = \frac{4}{120} = \frac{1}{30}, \qquad \text{(iii)}\quad \frac{\binom41\binom62}{120} = \frac{4 \times 15}{120} = \frac12,\]</span> since in (iii) exactly one of the other three must be numbered.</p>
+<h4 id="stagemark3-the-3-is-taken-at-some-point" class="stage"><span class="stage-n">Stage 3</span> The 3 is taken (at some point)</h4>
+<div class="askyourself">
+<p>Does it matter <em>when</em> the disc numbered 3 was drawn? Given that 3 is among the four, what can you say about the other three?</p>
+</div>
+<p>By symmetry, given that the set of four contains the 3, the other three discs are a random set of three from the remaining ten, exactly as in Stage 2. So (iv) is also <span class="math inline">\(\frac12\)</span>.</p>
+<h4 id="stagemark4-a-numbered-disc-comes-first" class="stage"><span class="stage-n">Stage 4</span> A numbered disc comes first</h4>
+<p>Given that the first disc is numbered (whichever number it is), the other three are again a random set of three from the remaining ten discs, of which four are numbered and six blank. So (v) is <span class="math inline">\(\frac12\)</span> too.</p>
+<h4 id="stagemark5-a-numbered-disc-is-taken" class="stage"><span class="stage-n">Stage 5</span> A numbered disc is taken</h4>
+<div class="askyourself">
+<p>Now the condition is “at least one of the four is numbered”. Is that the same as any of the previous conditions? How many of the 330 sets satisfy it?</p>
+</div>
+<p>This condition is different: it does not single out any particular disc. Only <span class="math inline">\(\binom64 = 15\)</span> sets have no numbered disc, so <span class="math inline">\(315\)</span> satisfy the condition. Of these, <span class="math inline">\(\binom52\binom62 = 10 \times 15 = 150\)</span> contain exactly two numbered discs. So <span class="math display">\[\text{(vi)}\quad \frac{150}{315} = \frac{10}{21}. \qed\]</span></p>
+<div class="pausebox">
+<p>Why is (vi) different from (v)? In (v) we know <em>which</em> disc is numbered (the first), and the other three are unconstrained. In (vi) we only know that <em>some</em> disc is numbered. Sets with three or four numbered discs satisfy “some disc is numbered” in more ways, so they are not under-represented the way they are in (v).</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-12-1-1.svg" alt="Figure 12.1.1"><figcaption><span class="fig-label">Figure 12.1.1</span> The six answers. Parts (iii), (iv) and (v) all condition on a <em>specific</em> disc being numbered, and give <span class="math inline">\(\frac12\)</span>. Part (vi) conditions only on <em>some</em> disc being numbered, and gives <span class="math inline">\(\frac{10}{21}\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>A condition restricts the sample space.</strong> <span class="math inline">\(\mathrm{P}(A \mid B)\)</span> is the proportion of outcomes in <span class="math inline">\(B\)</span> that are also in <span class="math inline">\(A\)</span>.</p></li>
+<li><p><strong>Symmetry saves work.</strong> Whether the 3 was drawn first or at some point made no difference, because all positions are alike.</p></li>
+<li><p><strong>“A specific one” is not “at least one”.</strong> Conditions that sound alike can select quite different sets of outcomes.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-boy-or-girl-puzzle">The boy-or-girl puzzle</h3>
+<p>Martin Gardner posed this in 1959: Mr Smith has two children, at least one of whom is a boy; what is the probability that both are boys? Listing the equally likely families BB, BG, GB, GG and removing GG leaves three, of which one is BB: the answer is <span class="math inline">\(\frac13\)</span>. But if we know that the <em>elder</em> child is a boy, the answer is <span class="math inline">\(\frac12\)</span>. These are parts (vi) and (v) of our question in miniature. Gardner later admitted that the question as he first posed it was ambiguous: it depends on how we came to know that there is a boy. If we met one of the children at random and he was a boy, the answer is <span class="math inline">\(\frac12\)</span>; if we asked “do you have at least one son?” and were told yes, it is <span class="math inline">\(\frac13\)</span>. Probability depends on the process that produced the information, not just the information.</p>
+<h3 id="monty-hall">Monty Hall</h3>
+<p>The same lesson underlies the most argued-about puzzle in probability. On a game show, a car is behind one of three doors. You pick door 1. The host, who knows where the car is, opens door 3 to reveal a goat, and offers you the chance to switch to door 2. Should you? Yes: switching wins with probability <span class="math inline">\(\frac23\)</span>. The host’s choice of door is not random; it depends on where the car is, and that carries information. When Marilyn vos Savant gave this answer in a magazine column in 1990, she received thousands of letters telling her she was wrong, some from mathematicians. A computer simulation, or a careful list of the equally likely cases, settles it.</p>
+<div class="historybox">
+<div class="box-title">Bayes and Laplace</div>
+<p>Conditional probability was put on a systematic footing by Thomas Bayes, whose essay was published after his death in 1763, and by Pierre-Simon Laplace, who in 1774 stated the rule now called Bayes’ theorem in its general form. Andrey Kolmogorov’s axioms of 1933, which every university course now starts from, define <span class="math inline">\(\mathrm{P}(A \mid B) = \mathrm{P}(A \cap B)/\mathrm{P}(B)\)</span>, and the rest of probability theory is built on that definition. The next section, <a href="../ch12/base-rate.html">Section 12.2</a>, shows what Bayes’ theorem does in practice.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Be precise about the condition</div>
+<p><em>Before computing a conditional probability, write down exactly which outcomes satisfy the condition. Ask how the information was obtained.</em></p>
+<p>At university, conditional probability and conditional expectation are among the most important tools in probability and statistics, and the most frequent source of errors. Writing out the sample space, at least for a small case, is the best defence.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Generalise.</strong> With <span class="math inline">\(b\)</span> blank and <span class="math inline">\(n\)</span> numbered discs, and <span class="math inline">\(k\)</span> drawn, show that the answers to (iv) and (v) are always equal, and find when (vi) equals them.</p></li>
+<li><p><strong>Boys born on Tuesday.</strong> A family has two children, and at least one is a boy born on a Tuesday. Show that the probability that both are boys is <span class="math inline">\(\frac{13}{27}\)</span>. (List the <span class="math inline">\(14 \times 14\)</span> equally likely possibilities, or count cleverly.)</p></li>
+<li><p><strong>Monty Hall.</strong> Verify the <span class="math inline">\(\frac23\)</span> by listing outcomes. What if the host does not know where the car is, opens one of the other doors at random, and it happens to show a goat?</p></li>
+<li><p><strong>Two aces.</strong> A bridge hand of <span class="math inline">\(13\)</span> cards contains at least one ace. What is the probability that it contains at least two? Compare with the probability given that it contains the ace of spades.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Jason Rosenhouse, <em>The Monty Hall Problem</em></strong> (Oxford University Press). The puzzle, its history and its many variations.</p></li>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <em>Probability: An Introduction</em></strong> (Oxford University Press), the chapters on conditional probability.</p></li>
+<li><p><strong>Joseph Blitzstein &amp; Jessica Hwang, <em>Introduction to Probability</em></strong> (CRC Press; free online). Excellent on conditioning, with many paradoxes.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← Chapter introduction</a><a class="next" href="base-rate.html">→ 12.2 The Base-Rate Fallacy</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

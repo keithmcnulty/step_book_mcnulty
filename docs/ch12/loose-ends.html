@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.10 Tying Loose Ends — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP III · 2008 · Question 13</div>
+    <div class="sec-head"><span class="sec-num">12.10</span><h1>Tying Loose Ends</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-10-loose-ends.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A box contains <span class="math inline">\(n\)</span> pieces of string, each of which has two ends. I select two string ends at random and tie them together. This creates either a ring (if the two ends are from the same string) or a longer piece of string. I repeat the process of tying together string ends chosen at random until there are none left.</p>
+<p>Find the expected number of rings created at the first step and hence obtain an expression for the expected number of rings created by the end of the process. Find also an expression for the variance of the number of rings created.</p>
+<p>Given that <span class="math inline">\(\ln 20 \approx 3\)</span> and that <span class="math inline">\(1 + \frac12 + \cdots + \frac1n \approx \ln n\)</span> for large <span class="math inline">\(n\)</span>, determine approximately the expected number of rings created in the case <span class="math inline">\(n = 40\,000\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Put a hundred pieces of string in a bag, so that only their ends poke out. Pick two ends at random and tie them; repeat until no loose ends are left. You end up with a tangle of loops. How many? A hundred strings could in principle make a hundred little rings, or one enormous loop. Remarkably, the expected number is only about <span class="math inline">\(3.3\)</span>; with forty thousand strings, it is still only about <span class="math inline">\(6\)</span>.</p>
+<p>The key observation makes the problem almost trivial: after each knot, the box simply contains one fewer piece of string, whatever happened. The process “forgets” its history, and the number of rings becomes a sum of independent coin tosses with changing probabilities.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>After tying two ends together, how many pieces of string are left (counting a ring as no longer a “piece”)? Does it depend on whether a ring was made?</p>
+</div>
+<p>If the two ends belong to the same string, it becomes a ring and <span class="math inline">\(n - 1\)</span> pieces remain. If they belong to different strings, those two become one longer piece, and again <span class="math inline">\(n - 1\)</span> pieces remain. Either way, we are left with <span class="math inline">\(n - 1\)</span> pieces of string, each with two ends.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-first-knot" class="stage"><span class="stage-n">Stage 1</span> The first knot</h4>
+<p>There are <span class="math inline">\(2n\)</span> ends. Choose one; its partner is equally likely to be any of the other <span class="math inline">\(2n - 1\)</span> ends, and exactly one of these belongs to the same string. So the first knot makes a ring with probability <span class="math inline">\(\frac{1}{2n - 1}\)</span>, and the expected number of rings created at the first step is <span class="math inline">\(\frac{1}{2n - 1}\)</span>.</p>
+<h4 id="stagemark2-all-the-knots" class="stage"><span class="stage-n">Stage 2</span> All the knots</h4>
+<div class="askyourself">
+<p>By the observation above, what is the situation before the second knot? The third? Let <span class="math inline">\(I_k\)</span> indicate a ring at the knot made when <span class="math inline">\(k\)</span> pieces remain. What are the <span class="math inline">\(\mathrm{E}(I_k)\)</span>?</p>
+</div>
+<p>Before each knot the box contains <span class="math inline">\(k\)</span> pieces for <span class="math inline">\(k = n, n - 1, \ldots, 1\)</span>, and the knot makes a ring with probability <span class="math inline">\(\frac{1}{2k - 1}\)</span>. (The last knot, with one piece left, always makes a ring.) The total number of rings is <span class="math inline">\(R = I_n + I_{n-1} + \cdots + I_1\)</span>, so <span class="math display">\[\mathrm{E}(R) = \sum_{k=1}^{n}\frac{1}{2k - 1} = 1 + \frac13 + \frac15 + \cdots + \frac{1}{2n - 1}. \qed\]</span></p>
+<h4 id="stagemark3-the-variance" class="stage"><span class="stage-n">Stage 3</span> The variance</h4>
+<div class="askyourself">
+<p>Are the indicators <span class="math inline">\(I_k\)</span> independent? (Does the probability of a ring at one step depend on what happened earlier?)</p>
+</div>
+<p>At each step, the probability of a ring is <span class="math inline">\(\frac{1}{2k - 1}\)</span> whatever happened before, because the configuration is always “<span class="math inline">\(k\)</span> pieces of string”. So the <span class="math inline">\(I_k\)</span> are independent, and variances add: <span class="math display">\[\mathrm{Var}(R) = \sum_{k=1}^{n}\frac{1}{2k - 1}\Bigl(1 - \frac{1}{2k - 1}\Bigr) = \sum_{k=1}^{n}\frac{2k - 2}{(2k - 1)^2}. \qed\]</span></p>
+<h4 id="stagemark4-forty-thousand-strings" class="stage"><span class="stage-n">Stage 4</span> Forty thousand strings</h4>
+<div class="askyourself">
+<p>Write the sum of the reciprocals of the odd numbers up to <span class="math inline">\(2n - 1\)</span> using harmonic numbers.</p>
+</div>
+<p>The sum of reciprocals of all numbers up to <span class="math inline">\(2n\)</span>, minus those of the even numbers, is <span class="math display">\[\sum_{k=1}^{n}\frac{1}{2k - 1} = H_{2n} - \tfrac12H_n \approx \ln(2n) - \tfrac12\ln n = \tfrac12\ln(4n).\]</span> For <span class="math inline">\(n = 40\,000\)</span>, <span class="math inline">\(4n = 160\,000 = 20^4\)</span>, so <span class="math inline">\(\mathrm{E}(R) \approx \frac12 \cdot 4\ln20 \approx 6\)</span>.<span class="qed" aria-label="end of proof">■</span> (The exact value is <span class="math inline">\(6.28\)</span>; the difference comes from Euler’s constant, as <span class="math inline">\(H_n \approx \ln n + 0.577\)</span>.)</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-10-1.svg" alt="Figure 12.10.1"><figcaption><span class="fig-label">Figure 12.10.1</span> The expected number of rings against the number of strings, on a logarithmic scale. The exact values (teal) lie on the straight line <span class="math inline">\(\frac12\ln(4n) + \frac\gamma2\)</span> (plum, dashed), where <span class="math inline">\(\gamma \approx 0.577\)</span> is Euler’s constant. Multiplying the number of strings by <span class="math inline">\(10\)</span> adds only about <span class="math inline">\(1.15\)</span> rings.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Find what the process forgets.</strong> After each knot the box was “<span class="math inline">\(k\)</span> pieces of string”, regardless of history.</p></li>
+<li><p><strong>Indicators again.</strong> The number of rings was a sum of indicators, one per knot.</p></li>
+<li><p><strong>Independence gives the variance.</strong> Because each step’s probability did not depend on the past, the indicators were independent.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="logarithmic-growth">Logarithmic growth</h3>
+<p>The expected number of rings grows like <span class="math inline">\(\frac12\ln n\)</span>, and the variance is close to the mean (both are sums of small probabilities). By the central limit theorem (<a href="../ch12/clt.html">Section 12.24</a>), the number of rings is approximately normal for large <span class="math inline">\(n\)</span>, with mean and variance about <span class="math inline">\(\frac12\ln(4n)\)</span>. With <span class="math inline">\(40\,000\)</span> strings, you will usually get between <span class="math inline">\(2\)</span> and <span class="math inline">\(11\)</span> rings.</p>
+<h3 id="cycles-of-random-permutations">Cycles of random permutations</h3>
+<p>The same logarithm appears in the number of cycles of a random permutation of <span class="math inline">\(n\)</span> objects: on average <span class="math inline">\(H_n \approx \ln n\)</span> (the strings problem is a close relative, with <span class="math inline">\(\frac12\ln n\)</span>). Random permutations have few cycles: one giant cycle usually contains most of the elements, and the fraction of elements in the largest cycle averages about <span class="math inline">\(0.62\)</span>, the Golomb–Dickman constant. Tangling strings at random behaves the same way: most of the string ends up in one or two long loops. These facts are part of the study of <em>random combinatorial structures</em>, which has connections to number theory (the prime factors of a random integer behave like the cycles of a random permutation).</p>
+<div class="historybox">
+<div class="box-title">Random knots and polymers</div>
+<p>The string-tying problem is a toy model for physical systems. Long polymer molecules in a solution join end to end to form rings and chains, and the statistics of loop formation follow similar rules. In knot theory, mathematicians ask the harder question of how likely a random closed loop is to be knotted; for long random loops, the answer tends to <span class="math inline">\(1\)</span>, a result proved by De Witt Sumners and Stuart Whittington in 1988.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Find the memoryless structure</div>
+<p><em>If, after each step, the system is in a state that depends only on the number of steps taken, then the steps behave independently, and expectations and variances simply add.</em></p>
+<p>This is the idea behind the coupon collector (<a href="../ch09/coupon-collector.html">Section 9.11</a>), where each stage is a fresh geometric wait, and it reappears in the theory of Markov chains, where only the current state matters.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Small cases.</strong> For <span class="math inline">\(n = 2\)</span>, list the possibilities and check that the expected number of rings is <span class="math inline">\(\frac43\)</span>.</p></li>
+<li><p><strong>One big loop.</strong> Show that the probability that the process ends with a single loop containing all the strings is <span class="math inline">\(\prod_{k=2}^{n}\bigl(1 - \frac{1}{2k - 1}\bigr)\)</span>, and that this is approximately <span class="math inline">\(\sqrt{\frac{\pi}{4n}}\)</span> for large <span class="math inline">\(n\)</span>. (<em>Hint:</em> relate the product to <span class="math inline">\(\binom{2n}{n}\)</span>.)</p></li>
+<li><p><strong>Cycles of permutations.</strong> Show that the expected number of cycles of a random permutation of <span class="math inline">\(n\)</span> objects is <span class="math inline">\(H_n\)</span>, by building the permutation one element at a time (the “Chinese restaurant” construction).</p></li>
+<li><p><strong>The variance.</strong> Show that <span class="math inline">\(\mathrm{Var}(R) = \mathrm{E}(R) - \sum_{k=1}^{n}\frac{1}{(2k - 1)^2}\)</span>, and that the subtracted sum tends to <span class="math inline">\(\frac{\pi^2}{8}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Peter Winkler, <em>Mathematical Puzzles: A Connoisseur’s Collection</em></strong> (A K Peters), which includes the string-tying puzzle.</p></li>
+<li><p><strong>Richard Arratia, Andrew Barbour &amp; Simon Tavaré, <em>Logarithmic Combinatorial Structures</em></strong> (European Mathematical Society). Cycles, primes and random structures, for later.</p></li>
+<li><p><strong>Colin Adams, <em>The Knot Book</em></strong> (American Mathematical Society). An introduction to knot theory, including random knots.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="von-neumann.html">← 12.9 A Fair Decision from a Biased Coin</a><a class="next" href="stamps-and-e.html">→ 12.11 Stamps, Cups and e</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

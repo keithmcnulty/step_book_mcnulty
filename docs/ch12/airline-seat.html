@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.5 The Last Passenger&#x27;s Seat — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP II · 2021 · Question 11</div>
+    <div class="sec-head"><span class="sec-num">12.5</span><h1>The Last Passenger&#x27;s Seat</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-5-airline-seat.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A train has <span class="math inline">\(n\)</span> seats, where <span class="math inline">\(n \geq 2\)</span>. For a particular journey, all <span class="math inline">\(n\)</span> seats have been sold, and each of the <span class="math inline">\(n\)</span> passengers has been allocated a seat. The passengers arrive one at a time and are labelled <span class="math inline">\(T_1, \ldots, T_n\)</span> according to the order in which they arrive: <span class="math inline">\(T_1\)</span> arrives first and <span class="math inline">\(T_n\)</span> arrives last. The seat allocated to <span class="math inline">\(T_r\)</span> (<span class="math inline">\(r = 1, \ldots, n\)</span>) is labelled <span class="math inline">\(S_r\)</span>.</p>
+<p>Passenger <span class="math inline">\(T_1\)</span> ignores their allocation and decides to choose a seat at random (each of the <span class="math inline">\(n\)</span> seats being equally likely). However, for each <span class="math inline">\(r \geq 2\)</span>, passenger <span class="math inline">\(T_r\)</span> sits in <span class="math inline">\(S_r\)</span> if it is available or, if <span class="math inline">\(S_r\)</span> is not available, chooses from the available seats at random.</p>
+<ol class="roman">
+<li><p>Let <span class="math inline">\(P_n\)</span> be the probability that, in a train with <span class="math inline">\(n\)</span> seats, <span class="math inline">\(T_n\)</span> sits in <span class="math inline">\(S_n\)</span>. Write down the value of <span class="math inline">\(P_2\)</span> and find the value of <span class="math inline">\(P_3\)</span>.</p></li>
+<li><p>Explain why, for <span class="math inline">\(k = 2, 3, \ldots, n - 1\)</span>, <span class="math display">\[\mathrm{P}(T_n \text{ sits in } S_n \mid T_1 \text{ sits in } S_k) = P_{n-k+1},\]</span> and deduce that, for <span class="math inline">\(n \geq 3\)</span>, <span class="math display">\[P_n = \frac1n\Bigl(1 + \sum_{r=2}^{n-1}P_r\Bigr).\]</span></p></li>
+<li><p>Give the value of <span class="math inline">\(P_n\)</span> in its simplest form and prove your result by induction.</p></li>
+<li><p>Let <span class="math inline">\(Q_n\)</span> be the probability that, in a train with <span class="math inline">\(n\)</span> seats, <span class="math inline">\(T_{n-1}\)</span> sits in <span class="math inline">\(S_{n-1}\)</span>. Determine <span class="math inline">\(Q_n\)</span> for <span class="math inline">\(n \geq 2\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>A hundred passengers board a full plane. The first has lost their boarding card and sits anywhere. Each later passenger takes their own seat if it is free, and otherwise a random free seat. What is the probability that the last passenger gets their own seat? The chaos might cascade through the whole plane, so you might expect a small probability; or perhaps most passengers are unaffected and it should be close to <span class="math inline">\(1\)</span>.</p>
+<p>The answer is exactly <span class="math inline">\(\frac12\)</span>, for any number of passengers. This question proves it with a recurrence and induction. But there is also a beautiful one-line argument by symmetry, which explains why the answer is <span class="math inline">\(\frac12\)</span> and lets you write down the answer for any passenger at once.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="pausebox">
+<p>Work out <span class="math inline">\(P_2\)</span> and <span class="math inline">\(P_3\)</span> by listing what can happen.</p>
+</div>
+<p>With two seats, <span class="math inline">\(T_1\)</span> takes <span class="math inline">\(S_1\)</span> (then <span class="math inline">\(T_2\)</span> gets <span class="math inline">\(S_2\)</span>) or <span class="math inline">\(S_2\)</span>, each with probability <span class="math inline">\(\frac12\)</span>: <span class="math inline">\(P_2 = \frac12\)</span>. With three seats: if <span class="math inline">\(T_1\)</span> takes <span class="math inline">\(S_1\)</span> (probability <span class="math inline">\(\frac13\)</span>), everyone is fine; if <span class="math inline">\(T_1\)</span> takes <span class="math inline">\(S_3\)</span>, <span class="math inline">\(T_3\)</span> loses; if <span class="math inline">\(T_1\)</span> takes <span class="math inline">\(S_2\)</span>, then <span class="math inline">\(T_2\)</span> chooses between <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_3\)</span> at random, and <span class="math inline">\(T_3\)</span> is fine only if <span class="math inline">\(T_2\)</span> chooses <span class="math inline">\(S_1\)</span>. So <span class="math inline">\(P_3 = \frac13 + \frac13\cdot\frac12 = \frac12\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-recurrence" class="stage"><span class="stage-n">Stage 1</span> The recurrence</h4>
+<div class="askyourself">
+<p>Suppose <span class="math inline">\(T_1\)</span> sits in <span class="math inline">\(S_k\)</span>, with <span class="math inline">\(2 \leq k \leq n - 1\)</span>. What happens to passengers <span class="math inline">\(T_2, \ldots, T_{k-1}\)</span>? When <span class="math inline">\(T_k\)</span> arrives, which seats are free, and how does the situation compare with a smaller train?</p>
+</div>
+<p>Passengers <span class="math inline">\(T_2, \ldots, T_{k-1}\)</span> find their seats free and sit in them. When <span class="math inline">\(T_k\)</span> arrives, the free seats are <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_{k+1}, \ldots, S_n\)</span>: there are <span class="math inline">\(n - k + 1\)</span> of them. <span class="math inline">\(T_k\)</span> chooses one at random, and from then on each passenger takes their own seat if free and a random one if not. This is exactly the original problem with <span class="math inline">\(n - k + 1\)</span> seats, <span class="math inline">\(T_k\)</span> playing the role of the first passenger and <span class="math inline">\(S_1\)</span> playing the role of <span class="math inline">\(T_k\)</span>’s “own” seat (the one that, if taken, sorts everything out). So the conditional probability that <span class="math inline">\(T_n\)</span> gets <span class="math inline">\(S_n\)</span> is <span class="math inline">\(P_{n-k+1}\)</span>.</p>
+<p>Now condition on <span class="math inline">\(T_1\)</span>’s seat, each with probability <span class="math inline">\(\frac1n\)</span>: <span class="math inline">\(S_1\)</span> gives success for sure, <span class="math inline">\(S_n\)</span> gives certain failure, and <span class="math inline">\(S_k\)</span> gives <span class="math inline">\(P_{n-k+1}\)</span>. So <span class="math display">\[P_n = \frac1n\Bigl(1 + 0 + \sum_{k=2}^{n-1}P_{n-k+1}\Bigr) = \frac1n\Bigl(1 + \sum_{r=2}^{n-1}P_r\Bigr). \qed\]</span></p>
+<h4 id="stagemark2-the-answer" class="stage"><span class="stage-n">Stage 2</span> The answer</h4>
+<div class="askyourself">
+<p><span class="math inline">\(P_2 = P_3 = \frac12\)</span>. Guess <span class="math inline">\(P_n\)</span> and prove it by strong induction.</p>
+</div>
+<p>Claim: <span class="math inline">\(P_n = \frac12\)</span> for all <span class="math inline">\(n \geq 2\)</span>. It holds for <span class="math inline">\(n = 2\)</span>. If <span class="math inline">\(P_r = \frac12\)</span> for <span class="math inline">\(2 \leq r \leq n - 1\)</span>, then <span class="math display">\[P_n = \frac1n\Bigl(1 + \frac{n - 2}{2}\Bigr) = \frac1n\cdot\frac n2 = \frac12. \qed\]</span></p>
+<h4 id="stagemark3-the-penultimate-passenger" class="stage"><span class="stage-n">Stage 3</span> The penultimate passenger</h4>
+<div class="askyourself">
+<p>Try to find a slicker argument. At the end, which seat is left for <span class="math inline">\(T_n\)</span>? Could it be <span class="math inline">\(S_2\)</span>?</p>
+</div>
+<p>The last seat left for <span class="math inline">\(T_n\)</span> is either <span class="math inline">\(S_1\)</span> or <span class="math inline">\(S_n\)</span>. It cannot be <span class="math inline">\(S_k\)</span> for <span class="math inline">\(2 \leq k \leq n - 1\)</span>, because <span class="math inline">\(T_k\)</span> would have taken it. And every random choice made before then treats <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_n\)</span> symmetrically: whenever a displaced passenger chooses, <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_n\)</span> are equally likely to be picked. The first of the two to be chosen decides the outcome, so each is equally likely to be the one left: <span class="math inline">\(P_n = \frac12\)</span>.</p>
+<p>The same argument works for any passenger <span class="math inline">\(T_k\)</span>, <span class="math inline">\(k \geq 2\)</span>. <span class="math inline">\(T_k\)</span> loses their seat only if some earlier passenger took it. The displacement continues until someone picks <span class="math inline">\(S_1\)</span>; among the seats <span class="math inline">\(S_1, S_k, S_{k+1}, \ldots, S_n\)</span>, which are all treated alike by the choosers before <span class="math inline">\(T_k\)</span> arrives, the first to be chosen is equally likely to be any of these <span class="math inline">\(n - k + 2\)</span> seats, and <span class="math inline">\(T_k\)</span> loses only if it is <span class="math inline">\(S_k\)</span>. So <span class="math display">\[\mathrm{P}(T_k \text{ sits in } S_k) = \frac{n - k + 1}{n - k + 2}.\]</span> For <span class="math inline">\(k = n - 1\)</span> (with <span class="math inline">\(n \geq 3\)</span>) this gives <span class="math inline">\(Q_n = \frac23\)</span>; and <span class="math inline">\(Q_2 = \frac12\)</span>, since then <span class="math inline">\(T_{n-1} = T_1\)</span>, who sits in <span class="math inline">\(S_1\)</span> with probability <span class="math inline">\(\frac12\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-5-1.svg" alt="Figure 12.5.1"><figcaption><span class="fig-label">Figure 12.5.1</span> The probability that passenger <span class="math inline">\(k\)</span> gets their own seat, in a train of <span class="math inline">\(n = 20\)</span>. For <span class="math inline">\(2 \leq k \leq n\)</span> it is <span class="math inline">\(\frac{n - k + 1}{n - k + 2}\)</span>: from <span class="math inline">\(\frac{19}{20}\)</span> for <span class="math inline">\(T_2\)</span> down to <span class="math inline">\(\frac23\)</span> for <span class="math inline">\(T_{19}\)</span> and <span class="math inline">\(\frac12\)</span> for the last passenger (plum).</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Reduce to a smaller copy.</strong> After <span class="math inline">\(T_1\)</span> sat in <span class="math inline">\(S_k\)</span>, the rest of the problem was the same problem with fewer seats.</p></li>
+<li><p><strong>Strong induction.</strong> The recurrence involved all smaller cases, so the induction assumed the result for all of them.</p></li>
+<li><p><strong>Find the symmetry.</strong> The seats <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_n\)</span> are interchangeable throughout, which explains the <span class="math inline">\(\frac12\)</span> without any algebra.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="symmetry-arguments">Symmetry arguments</h3>
+<p>The second proof is an example of a powerful idea in probability: if two outcomes are related by a symmetry of the random process, they have the same probability. The process here does not distinguish between <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_n\)</span> until one of them is chosen, so they must be equally likely to be the survivor. Symmetry arguments often replace long calculations with a single observation. The next few sections are full of them: an extra coin toss in <a href="../ch12/one-more-coin.html">Section 12.6</a>, a knockout draw in <a href="../ch12/knockout.html">Section 12.7</a>.</p>
+<h3 id="how-many-passengers-are-displaced">How many passengers are displaced?</h3>
+<p>The number of displaced passengers (those who do not get their own seat) is also nicely behaved. <span class="math inline">\(T_1\)</span> is displaced unless they choose <span class="math inline">\(S_1\)</span>, and <span class="math inline">\(T_k\)</span> (for <span class="math inline">\(k \geq 2\)</span>) is displaced with probability <span class="math inline">\(\frac{1}{n - k + 2}\)</span>. Adding, the expected number of displaced passengers is <span class="math display">\[\Bigl(1 - \frac1n\Bigr) + \Bigl(\frac1n + \frac{1}{n - 1} + \cdots + \frac12\Bigr) = H_n - \frac1n,\]</span> roughly <span class="math inline">\(\ln n\)</span>: even in a plane of <span class="math inline">\(300\)</span> the chaos affects only about six passengers on average. The harmonic numbers, again (<a href="../ch09/coupon-collector.html">Section 9.11</a>).</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Look for a symmetry</div>
+<p><em>If the random process cannot tell two outcomes apart, they are equally likely. Find the moment at which they first become distinguishable.</em></p>
+<p>At university, symmetry arguments appear throughout probability, from the reflection principle (<a href="../ch09/ballot.html">Section 9.10</a>) to exchangeability, the property that a sequence of random variables has the same distribution in any order, which is the basis of much of modern statistics.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Two forgetful passengers.</strong> If the first <em>two</em> passengers both choose at random, what is the probability that the last gets their own seat?</p></li>
+<li><p><strong>Displaced passengers.</strong> Verify the expected number of displaced passengers for <span class="math inline">\(n = 3\)</span> by listing the possibilities.</p></li>
+<li><p><strong>An indirect route.</strong> Show, using the recurrence, that <span class="math inline">\(\sum_{r=2}^{n-1}P_r = \frac{n - 2}{2}\)</span> is consistent with the symmetry argument.</p></li>
+<li><p><strong>The last seat.</strong> Show that, conditional on the last passenger not getting their own seat, the last passenger gets <span class="math inline">\(S_1\)</span> with probability <span class="math inline">\(1\)</span>. Why?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Peter Winkler, <em>Mathematical Puzzles: A Connoisseur’s Collection</em></strong> (A K Peters). Includes the airline seat puzzle and many others solved by symmetry.</p></li>
+<li><p><strong>Frederick Mosteller, <em>Fifty Challenging Problems in Probability</em></strong> (Dover). A classic collection.</p></li>
+<li><p><strong>Joseph Blitzstein &amp; Jessica Hwang, <em>Introduction to Probability</em></strong> (CRC Press; free online).</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="pairwise-independence.html">← 12.4 Independent in Pairs, Not All Together</a><a class="next" href="one-more-coin.html">→ 12.6 One More Coin</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12.17 Banach&#x27;s Matchboxes — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 12 · Probability</a>
+    <div class="src">STEP II · 1992 · Question 16</div>
+    <div class="sec-head"><span class="sec-num">12.17</span><h1>Banach&#x27;s Matchboxes</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-17-matchboxes.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 12</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A taxi driver keeps a packet of toffees and a packet of mints in her taxi. From time to time she takes either a toffee (with probability <span class="math inline">\(p\)</span>) or mint (with probability <span class="math inline">\(q = 1 - p\)</span>). At the beginning of the week she has <span class="math inline">\(n\)</span> toffees and <span class="math inline">\(m\)</span> mints in the packets. On the <span class="math inline">\(N\)</span>th occasion that she reaches for a sweet, she discovers (for the first time) that she has run out of that kind of sweet. What is the probability that she was reaching for a toffee?</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>The mathematician Stefan Banach, so the story goes, was a heavy smoker who kept a box of matches in each pocket. Each time he wanted a match he chose a pocket at random. One day he found a box empty. How many matches were left in the other box? This is <em>Banach’s matchbox problem</em>, devised by Hugo Steinhaus in Banach’s honour, and this question is the taxi driver’s version with sweets.</p>
+<p>The subtlety is in the word “discovers”. The driver does not notice that a packet is empty when she takes its last sweet, only when she next reaches for it. So the event is: she reaches for a toffee, and all <span class="math inline">\(n\)</span> toffees have already gone. Counting the ways this can happen on the <span class="math inline">\(N\)</span>th reach is a neat exercise in the binomial distribution, and the answer to Banach’s problem has a surprising feature: the most likely number of matches left in the other box is <span class="math inline">\(0\)</span> (tied with <span class="math inline">\(1\)</span>).</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>For the driver to discover on the <span class="math inline">\(N\)</span>th reach that the toffees have run out, what must the <span class="math inline">\(N\)</span>th reach be? What must the previous <span class="math inline">\(N - 1\)</span> reaches contain?</p>
+</div>
+<p>The <span class="math inline">\(N\)</span>th reach must be for a toffee, and the previous <span class="math inline">\(N - 1\)</span> reaches must have taken exactly <span class="math inline">\(n\)</span> toffees (all of them) and <span class="math inline">\(N - 1 - n\)</span> mints. Also, she must not have discovered the mints empty earlier.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-discovering-the-toffees-are-gone" class="stage"><span class="stage-n">Stage 1</span> Discovering the toffees are gone</h4>
+<div class="askyourself">
+<p>In what order can the first <span class="math inline">\(N - 1\)</span> reaches occur? What condition on <span class="math inline">\(N - 1 - n\)</span> ensures she never found the mint packet empty?</p>
+</div>
+<p>The <span class="math inline">\(n\)</span> toffee-reaches can be any <span class="math inline">\(n\)</span> of the first <span class="math inline">\(N - 1\)</span> reaches. She never reached for a mint after the mints were gone provided she took at most <span class="math inline">\(m\)</span> mints: <span class="math inline">\(N - 1 - n \leq m\)</span>. So, for <span class="math inline">\(n + 1 \leq N \leq n + m + 1\)</span>, <span class="math display">\[\mathrm{P}(T_N) = \binom{N - 1}{n}p^{n+1}q^{N-1-n},\]</span> where <span class="math inline">\(T_N\)</span> is the event “on the <span class="math inline">\(N\)</span>th reach she discovers the toffees are gone” (the factor <span class="math inline">\(p^{n+1}\)</span> includes the <span class="math inline">\(N\)</span>th reach itself).</p>
+<h4 id="stagemark2-discovering-the-mints-are-gone" class="stage"><span class="stage-n">Stage 2</span> Discovering the mints are gone</h4>
+<p>By the same argument with the roles swapped, for <span class="math inline">\(m + 1 \leq N \leq n + m + 1\)</span>, <span class="math display">\[\mathrm{P}(M_N) = \binom{N - 1}{m}q^{m+1}p^{N-1-m}.\]</span></p>
+<h4 id="stagemark3-the-conditional-probability" class="stage"><span class="stage-n">Stage 3</span> The conditional probability</h4>
+<div class="askyourself">
+<p>We are told that a discovery happens on the <span class="math inline">\(N\)</span>th reach. What is the probability that it was a toffee?</p>
+</div>
+<p>The events <span class="math inline">\(T_N\)</span> and <span class="math inline">\(M_N\)</span> are exclusive, so <span class="math display">\[\mathrm{P}(\text{toffee} \mid \text{discovery at } N) = \frac{\binom{N-1}{n}p^{n+1}q^{N-1-n}}{\binom{N-1}{n}p^{n+1}q^{N-1-n} + \binom{N-1}{m}q^{m+1}p^{N-1-m}},\]</span> where a binomial coefficient is taken to be <span class="math inline">\(0\)</span> outside the ranges above. (If <span class="math inline">\(N \leq m\)</span>, only the toffees can have run out, and the probability is <span class="math inline">\(1\)</span>; similarly it is <span class="math inline">\(0\)</span> if <span class="math inline">\(N \leq n\)</span> but <span class="math inline">\(N &gt; m\)</span>.)<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>Check the formula when <span class="math inline">\(n = m\)</span> and <span class="math inline">\(p = q = \frac12\)</span>. By symmetry the answer should be <span class="math inline">\(\frac12\)</span> for every possible <span class="math inline">\(N\)</span>. Is it?</p>
+</div>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Read the event precisely.</strong> “Discovers” meant reaching for an empty packet, not taking the last sweet.</p></li>
+<li><p><strong>Fix the last step, count the rest.</strong> The <span class="math inline">\(N\)</span>th reach was fixed; the first <span class="math inline">\(N - 1\)</span> could be in any order, giving a binomial coefficient.</p></li>
+<li><p><strong>Check the boundaries.</strong> The constraints <span class="math inline">\(N - 1 - n \leq m\)</span> and <span class="math inline">\(N - 1 - m \leq n\)</span> excluded impossible histories.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="banachs-matchboxes">Banach’s matchboxes</h3>
+<p>In Banach’s version, each box starts with <span class="math inline">\(n\)</span> matches and each pocket is equally likely. When he first finds a box empty, let <span class="math inline">\(K\)</span> be the number of matches in the other box. For <span class="math inline">\(K = k\)</span>, he must have taken <span class="math inline">\(n\)</span> from the empty box and <span class="math inline">\(n - k\)</span> from the other, in any order, before reaching for the empty box once more; and either box could be the empty one: <span class="math display">\[\mathrm{P}(K = k) = 2\binom{2n - k}{n}\Bigl(\frac12\Bigr)^{2n - k + 1} = \binom{2n - k}{n}\Bigl(\frac12\Bigr)^{2n - k}.\]</span> These probabilities decrease with <span class="math inline">\(k\)</span>, except that <span class="math inline">\(\mathrm{P}(K = 0) = \mathrm{P}(K = 1)\)</span> (Figure 12.17.1). The expected number left is about <span class="math inline">\(2\sqrt{n/\pi} - 1\)</span>: with <span class="math inline">\(50\)</span> matches in each box, about <span class="math inline">\(7\)</span>. The <span class="math inline">\(\sqrt n\)</span> is the typical size of the imbalance between the two boxes after <span class="math inline">\(2n\)</span> random choices, the same square-root law as in the birthday problem (<a href="../ch09/birthday.html">Section 9.9</a>) and the random walk.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-17-1.svg" alt="Figure 12.17.1"><figcaption><span class="fig-label">Figure 12.17.1</span> Banach’s matchbox problem with <span class="math inline">\(50\)</span> matches in each box: the distribution of the number left in the other box when one is first found empty. The most likely values are <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, equally, but the mean is about <span class="math inline">\(7\)</span>.</figcaption></figure>
+<h3 id="the-negative-binomial-distribution">The negative binomial distribution</h3>
+<p>The number of trials needed to obtain the <span class="math inline">\(r\)</span>th success in independent trials, each succeeding with probability <span class="math inline">\(p\)</span>, has the <em>negative binomial distribution</em>: <span class="math inline">\(\mathrm{P}(N = k) = \binom{k - 1}{r - 1}p^rq^{k-r}\)</span>. The taxi driver’s problem is a race between two negative binomial processes (the toffees and the mints), each needing one more “success” than it has sweets. The negative binomial appears in insurance (numbers of claims), ecology (clustered counts of animals) and genetics, often as a more flexible alternative to the Poisson distribution.</p>
+<div class="historybox">
+<div class="box-title">Banach and the Scottish Café</div>
+<p>Stefan Banach, one of the founders of functional analysis, did much of his mathematics in the Scottish Café in Lwów (now Lviv), where he and his colleagues wrote problems in a notebook kept by the waiter, the <em>Scottish Book</em>, with prizes ranging from a beer to a live goose. Hugo Steinhaus, Banach’s mentor, devised the matchbox problem for a speech honouring Banach’s smoking. The problem was first analysed in print by William Feller in his celebrated probability textbook of 1950.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Fix the final event, count the paths to it</div>
+<p><em>To find the probability that a process ends in a particular way at a particular time, fix what happens at the last step and count the histories that lead there.</em></p>
+<p>At university this is the basis of the negative binomial distribution, of first-passage times for random walks, and of the reflection principle in <a href="../ch09/ballot.html">Section 9.10</a>.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Small case.</strong> With <span class="math inline">\(n = m = 1\)</span> and <span class="math inline">\(p = \frac12\)</span>, list the possible sequences and find the distribution of <span class="math inline">\(N\)</span>.</p></li>
+<li><p><strong>Banach’s formula.</strong> Verify that <span class="math inline">\(\sum_{k=0}^{n}\binom{2n - k}{n}2^{-(2n-k)} = 1\)</span> for <span class="math inline">\(n = 1\)</span> and <span class="math inline">\(n = 2\)</span>.</p></li>
+<li><p><strong>Equal tops.</strong> Show that <span class="math inline">\(\mathrm{P}(K = 0) = \mathrm{P}(K = 1)\)</span> for every <span class="math inline">\(n\)</span> in Banach’s problem.</p></li>
+<li><p><strong>Which runs out first?</strong> For the taxi driver, find the probability that the toffees are the first packet to be discovered empty (at any time), when <span class="math inline">\(n = m = 2\)</span> and <span class="math inline">\(p = \frac23\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>William Feller, <em>An Introduction to Probability Theory and Its Applications</em>, Vol. 1</strong> (Wiley), Chapter VI, which introduced Banach’s problem to the world.</p></li>
+<li><p><strong>R. Daniel Mauldin (ed.), <em>The Scottish Book</em></strong> (Birkhäuser). The problems from the Scottish Café, with commentary.</p></li>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <em>Probability: An Introduction</em></strong> (Oxford University Press), on the negative binomial distribution.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="markov.html">← 12.16 Markov Chains Forwards and Backwards</a><a class="next" href="memoryless.html">→ 12.18 Memorylessness</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
