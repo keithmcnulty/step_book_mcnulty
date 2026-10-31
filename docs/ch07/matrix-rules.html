@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7.1 Rules That Fail for Matrices — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 7 · Linear Algebra and Geometry</a>
+    <div class="src">STEP II · 1993 · Question 6</div>
+    <div class="sec-head"><span class="sec-num">7.1</span><h1>Rules That Fail for Matrices</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-1-matrix-rules.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 7</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p><em>In this question, <span class="math inline">\(\mathbf{A}\)</span>, <span class="math inline">\(\mathbf{B}\)</span> and <span class="math inline">\(\mathbf{X}\)</span> are non-zero <span class="math inline">\(2 \times 2\)</span> real matrices.</em></p>
+<p>Are the following assertions true or false? You must provide a proof or a counterexample in each case.</p>
+<ol class="roman">
+<li><p>If <span class="math inline">\(\mathbf{AB} = \mathbf{0}\)</span> then <span class="math inline">\(\mathbf{BA} = \mathbf{0}\)</span>.</p></li>
+<li><p><span class="math inline">\((\mathbf{A} - \mathbf{B})(\mathbf{A} + \mathbf{B}) = \mathbf{A}^2 - \mathbf{B}^2\)</span>.</p></li>
+<li><p>The equation <span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span> has a non-zero solution <span class="math inline">\(\mathbf{X}\)</span> if and only if <span class="math inline">\(\det\mathbf{A} = 0\)</span>.</p></li>
+<li><p>For any <span class="math inline">\(\mathbf{A}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> there are at most two matrices <span class="math inline">\(\mathbf{X}\)</span> such that <span class="math inline">\(\mathbf{X}^2 + \mathbf{AX} + \mathbf{B} = \mathbf{0}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Matrices can be added and multiplied, so it is tempting to treat them like numbers. This question tests that temptation with four “rules” that are true for numbers, and asks which survive for matrices. Most of them fail, and the way they fail is instructive. Matrix multiplication is not commutative; there are non-zero matrices whose product is zero; and a quadratic equation for matrices can have infinitely many solutions.</p>
+<p>These failures are not defects. They are the reason matrices are useful: they describe transformations of space, and doing two transformations in different orders genuinely gives different results. In 1925 Werner Heisenberg discovered that the quantities of quantum mechanics behave like matrices rather than numbers, and that the failure of <span class="math inline">\(\mathbf{AB} = \mathbf{BA}\)</span> is the mathematical form of the uncertainty principle.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>For real numbers, why is it true that <span class="math inline">\(ab = 0\)</span> implies <span class="math inline">\(a = 0\)</span> or <span class="math inline">\(b = 0\)</span>? Which property of numbers does the argument use, and does it hold for matrices?</p>
+</div>
+<p>If <span class="math inline">\(ab = 0\)</span> and <span class="math inline">\(a \neq 0\)</span>, divide by <span class="math inline">\(a\)</span> to get <span class="math inline">\(b = 0\)</span>. The argument needs every non-zero number to have an inverse. Non-zero matrices need not have inverses (those with determinant zero do not), so the argument breaks down. Keep the <em>geometric</em> picture in mind too: a matrix is a transformation of the plane, and a product <span class="math inline">\(\mathbf{AB}\)</span> means “do <span class="math inline">\(\mathbf{B}\)</span>, then <span class="math inline">\(\mathbf{A}\)</span>”.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-can-mathbfab-mathbf0-but-mathbfba-neq-mathbf0" class="stage"><span class="stage-n">Stage 1</span> Can <span class="math inline">\(\mathbf{AB} = \mathbf{0}\)</span> but <span class="math inline">\(\mathbf{BA} \neq \mathbf{0}\)</span>?</h4>
+<div class="askyourself">
+<p>Think geometrically. You want <span class="math inline">\(\mathbf{B}\)</span> to send everything into a line that <span class="math inline">\(\mathbf{A}\)</span> then squashes to zero. But in the other order, <span class="math inline">\(\mathbf{A}\)</span> should not squash everything that <span class="math inline">\(\mathbf{B}\)</span> then kills.</p>
+</div>
+<p>Let <span class="math inline">\(\mathbf{A} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\)</span>, which projects onto the <span class="math inline">\(x\)</span>-axis (killing the <span class="math inline">\(y\)</span>-axis), and <span class="math inline">\(\mathbf{B} = \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}\)</span>, which sends <span class="math inline">\((x, y)\)</span> to <span class="math inline">\((0, x)\)</span>, into the <span class="math inline">\(y\)</span>-axis. Then <span class="math display">\[\mathbf{AB} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix} = \begin{pmatrix} 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}, \qquad \mathbf{BA} = \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix} \neq \mathbf{0}.\]</span> The assertion is <strong>false</strong> (Figure 7.1.1).<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-difference-of-two-squares" class="stage"><span class="stage-n">Stage 2</span> The difference of two squares</h4>
+<p>Expanding carefully, keeping the order of every product: <span class="math display">\[(\mathbf{A} - \mathbf{B})(\mathbf{A} + \mathbf{B}) = \mathbf{A}^2 + \mathbf{AB} - \mathbf{BA} - \mathbf{B}^2.\]</span> This equals <span class="math inline">\(\mathbf{A}^2 - \mathbf{B}^2\)</span> exactly when <span class="math inline">\(\mathbf{AB} = \mathbf{BA}\)</span>. With the matrices of Stage 1, <span class="math inline">\(\mathbf{AB} - \mathbf{BA} = -\mathbf{BA} \neq \mathbf{0}\)</span>, so the assertion is <strong>false</strong>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-non-zero-solutions-of-mathbfax-mathbf0" class="stage"><span class="stage-n">Stage 3</span> Non-zero solutions of <span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span></h4>
+<div class="askyourself">
+<p>If <span class="math inline">\(\det\mathbf{A} \neq 0\)</span>, what can you do to <span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span>? If <span class="math inline">\(\det\mathbf{A} = 0\)</span>, can you find a non-zero column vector <span class="math inline">\(\mathbf{v}\)</span> with <span class="math inline">\(\mathbf{Av} = \mathbf{0}\)</span>?</p>
+</div>
+<p>If <span class="math inline">\(\det\mathbf{A} \neq 0\)</span>, then <span class="math inline">\(\mathbf{A}^{-1}\)</span> exists and <span class="math inline">\(\mathbf{X} = \mathbf{A}^{-1}\mathbf{AX} = \mathbf{0}\)</span>: no non-zero solution.</p>
+<p>If <span class="math inline">\(\det\mathbf{A} = 0\)</span>, write <span class="math inline">\(\mathbf{A} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span> with <span class="math inline">\(ad = bc\)</span>. The vectors <span class="math inline">\(\begin{pmatrix} b \\ -a \end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix} d \\ -c \end{pmatrix}\)</span> satisfy <span class="math inline">\(\mathbf{A}\begin{pmatrix} b \\ -a \end{pmatrix} = \begin{pmatrix} ab - ba \\ cb - da \end{pmatrix} = \mathbf{0}\)</span>, and similarly for the other. Since <span class="math inline">\(\mathbf{A} \neq \mathbf{0}\)</span>, at least one of them is non-zero; call it <span class="math inline">\(\mathbf{v}\)</span>. Then the matrix <span class="math inline">\(\mathbf{X}\)</span> whose two columns are both <span class="math inline">\(\mathbf{v}\)</span> is non-zero and <span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span>. So the assertion is <strong>true</strong>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-how-many-square-roots" class="stage"><span class="stage-n">Stage 4</span> How many square roots?</h4>
+<div class="pausebox">
+<p>Find non-zero <span class="math inline">\(\mathbf{A}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> for which <span class="math inline">\(\mathbf{X}^2 + \mathbf{AX} + \mathbf{B} = \mathbf{0}\)</span> has infinitely many solutions. (<em>Hint:</em> make the left-hand side a perfect square, <span class="math inline">\((\mathbf{X} - \mathbf{I})^2\)</span>, and think about matrices whose square is zero.)</p>
+</div>
+<p>Take <span class="math inline">\(\mathbf{A} = -2\mathbf{I}\)</span> and <span class="math inline">\(\mathbf{B} = \mathbf{I}\)</span>, both non-zero. The equation becomes <span class="math inline">\((\mathbf{X} - \mathbf{I})^2 = \mathbf{0}\)</span>. Any matrix <span class="math inline">\(\mathbf{N}\)</span> with <span class="math inline">\(\mathbf{N}^2 = \mathbf{0}\)</span> gives a solution <span class="math inline">\(\mathbf{X} = \mathbf{I} + \mathbf{N}\)</span>, and there are infinitely many such <span class="math inline">\(\mathbf{N}\)</span>: <span class="math display">\[\mathbf{N} = \begin{pmatrix} 0 &amp; t \\ 0 &amp; 0 \end{pmatrix}, \qquad \mathbf{N}^2 = \mathbf{0} \text{ for every real } t.\]</span> So <span class="math inline">\(\mathbf{X} = \begin{pmatrix} 1 &amp; t \\ 0 &amp; 1 \end{pmatrix}\)</span> is a solution for every <span class="math inline">\(t\)</span>, and the assertion is <strong>false</strong>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Order matters.</strong> Every expansion must keep products in order; <span class="math inline">\(\mathbf{AB}\)</span> and <span class="math inline">\(\mathbf{BA}\)</span> are usually different.</p></li>
+<li><p><strong>Zero divisors.</strong> Non-zero matrices can multiply to zero, which breaks the argument behind “a quadratic has at most two roots”.</p></li>
+<li><p><strong>Think of transformations.</strong> Each counterexample was easy to find by picturing what the matrices do to the plane.</p></li>
+</ul>
+<figure class="stepfig"><img src="../assets/fig/fig-7-1-1.svg" alt="Figure 7.1.1"><figcaption><span class="fig-label">Figure 7.1.1</span> Why <span class="math inline">\(\mathbf{AB} = \mathbf{0}\)</span> but <span class="math inline">\(\mathbf{BA} \neq \mathbf{0}\)</span>. Top: <span class="math inline">\(\mathbf{B}\)</span> sends every vector onto the <span class="math inline">\(y\)</span>-axis, which <span class="math inline">\(\mathbf{A}\)</span> (projection onto the <span class="math inline">\(x\)</span>-axis) then crushes to zero. Bottom: in the other order, <span class="math inline">\(\mathbf{A}\)</span> keeps the <span class="math inline">\(x\)</span>-component, and <span class="math inline">\(\mathbf{B}\)</span> moves it onto the <span class="math inline">\(y\)</span>-axis, where it survives.</figcaption></figure>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Matrices as an algebra</div>
+<p>Arthur Cayley introduced matrix algebra in 1858, treating matrices as single objects that can be added and multiplied, rather than just as tables of coefficients. He noticed at once that multiplication is not commutative, and he proved the <em>Cayley–Hamilton theorem</em>: every square matrix satisfies its own characteristic equation. For a <span class="math inline">\(2 \times 2\)</span> matrix with trace <span class="math inline">\(t\)</span> and determinant <span class="math inline">\(d\)</span>, this says <span class="math inline">\(\mathbf{M}^2 - t\mathbf{M} + d\mathbf{I} = \mathbf{0}\)</span>, a fact we use repeatedly in this chapter (<a href="../ch07/finite-order.html">Section 7.4</a>). The <span class="math inline">\(2 \times 2\)</span> real matrices form a <em>ring</em>: you can add, subtract and multiply, but multiplication is not commutative, and there are <em>zero divisors</em>, non-zero elements whose product is zero.</p>
+</div>
+<h3 id="infinitely-many-square-roots">Infinitely many square roots</h3>
+<p>Stage 4 can be made even more striking. The equation <span class="math inline">\(\mathbf{X}^2 = \mathbf{I}\)</span> has the obvious solutions <span class="math inline">\(\pm\mathbf{I}\)</span>, but also every reflection of the plane in a line through the origin, <span class="math inline">\(\mathbf{X} = \begin{pmatrix} \cos\theta &amp; \sin\theta \\ \sin\theta &amp; -\cos\theta \end{pmatrix}\)</span>, since reflecting twice does nothing. That is a whole circle of square roots of <span class="math inline">\(\mathbf{I}\)</span>. A polynomial of degree <span class="math inline">\(n\)</span> with number coefficients has at most <span class="math inline">\(n\)</span> roots because numbers have no zero divisors; matrices do, and the count fails.</p>
+<h3 id="non-commutativity-in-physics">Non-commutativity in physics</h3>
+<p>In classical mechanics, position <span class="math inline">\(x\)</span> and momentum <span class="math inline">\(p\)</span> are numbers and <span class="math inline">\(xp = px\)</span>. In quantum mechanics they become operators (infinite matrices) with <span class="math inline">\(xp - px = \mathrm{i}\hbar\)</span>, where <span class="math inline">\(\hbar\)</span> is Planck’s constant divided by <span class="math inline">\(2\pi\)</span>. This single non-commutation relation implies Heisenberg’s uncertainty principle: position and momentum cannot both be known exactly. When Heisenberg discovered the rules of quantum mechanics in 1925 he did not know what matrices were; Max Born recognised that the strange multiplication rule Heisenberg had invented was matrix multiplication.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Test familiar rules in a new setting</div>
+<p><em>When you meet a new kind of object, check which familiar rules still hold, and find out exactly which property each rule depends on.</em></p>
+<p>The rule “<span class="math inline">\(ab = 0\)</span> implies <span class="math inline">\(a = 0\)</span> or <span class="math inline">\(b = 0\)</span>” depends on division; “<span class="math inline">\((a - b)(a + b) = a^2 - b^2\)</span>” depends on commutativity. Knowing what each rule rests on tells you when you can still use it.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>When do they commute?</strong> Find all <span class="math inline">\(2 \times 2\)</span> matrices that commute with <span class="math inline">\(\begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\)</span>.</p></li>
+<li><p><strong>Square roots of zero.</strong> Find all <span class="math inline">\(2 \times 2\)</span> real matrices <span class="math inline">\(\mathbf{N}\)</span> with <span class="math inline">\(\mathbf{N}^2 = \mathbf{0}\)</span>. (<em>Hint:</em> use the Cayley–Hamilton theorem to show <span class="math inline">\(\operatorname{tr}\mathbf{N} = \det\mathbf{N} = 0\)</span>.)</p></li>
+<li><p><strong>Reflections.</strong> Show that every reflection matrix <span class="math inline">\(\begin{pmatrix} \cos\theta &amp; \sin\theta \\ \sin\theta &amp; -\cos\theta \end{pmatrix}\)</span> squares to <span class="math inline">\(\mathbf{I}\)</span>, and find the line it reflects in.</p></li>
+<li><p><strong>Cayley–Hamilton.</strong> Prove that every <span class="math inline">\(2 \times 2\)</span> matrix satisfies <span class="math inline">\(\mathbf{M}^2 - (\operatorname{tr}\mathbf{M})\mathbf{M} + (\det\mathbf{M})\mathbf{I} = \mathbf{0}\)</span> by direct calculation.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Gilbert Strang, <em>Introduction to Linear Algebra</em></strong> (Wellesley-Cambridge). The most popular first linear algebra text, with an emphasis on understanding.</p></li>
+<li><p><strong>Sheldon Axler, <em>Linear Algebra Done Right</em></strong> (Springer; free online). A more abstract approach, centred on linear maps rather than matrices.</p></li>
+<li><p><strong>Jim Baggott, <em>The Quantum Story</em></strong> (Oxford University Press). The history of quantum mechanics, including Heisenberg’s matrix mechanics.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← Chapter introduction</a><a class="next" href="eigenvectors.html">→ 7.2 Stretching Without Turning</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

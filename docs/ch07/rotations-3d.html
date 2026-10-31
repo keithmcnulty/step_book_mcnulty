@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7.5 Rotating in Three Dimensions — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 7 · Linear Algebra and Geometry</a>
+    <div class="src">STEP III · 2022 · Question 7</div>
+    <div class="sec-head"><span class="sec-num">7.5</span><h1>Rotating in Three Dimensions</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-5-rotations-3d.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 7</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Let <span class="math inline">\(\mathbf{n}\)</span> be a vector of unit length in three dimensions. For each vector <span class="math inline">\(\mathbf{r}\)</span>, <span class="math inline">\(\mathrm{f}(\mathbf{r})\)</span> is defined by <span class="math inline">\(\mathrm{f}(\mathbf{r}) = \mathbf{n} \times \mathbf{r}\)</span>.</p>
+<ol class="roman">
+<li><p>Given that <span class="math display">\[\mathbf{n} = \begin{pmatrix} a \\ b \\ c \end{pmatrix} \quad\text{and}\quad \mathbf{r} = \begin{pmatrix} x \\ y \\ z \end{pmatrix},\]</span> show that the <span class="math inline">\(x\)</span>-component of <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r}))\)</span> is <span class="math inline">\(-x(b^2 + c^2) + aby + acz\)</span>. Show further that <span class="math display">\[\mathrm{f}(\mathrm{f}(\mathbf{r})) = (\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}.\]</span> Explain, by means of a diagram, how <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r}))\)</span> is related to <span class="math inline">\(\mathbf{n}\)</span> and <span class="math inline">\(\mathbf{r}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the point with position vector <span class="math inline">\(\mathbf{r}\)</span> and <span class="math inline">\(P\)</span> be the point with position vector <span class="math inline">\(\mathrm{g}(\mathbf{r})\)</span>, where <span class="math inline">\(\mathrm{g}\)</span> is defined by <span class="math display">\[\mathrm{g}(\mathbf{s}) = \mathbf{s} + \sin\theta\,\mathrm{f}(\mathbf{s}) + (1 - \cos\theta)\,\mathrm{f}(\mathrm{f}(\mathbf{s})).\]</span> By considering <span class="math inline">\(\mathrm{g}(\mathbf{n})\)</span> and <span class="math inline">\(\mathrm{g}(\mathbf{r})\)</span> when <span class="math inline">\(\mathbf{r}\)</span> is perpendicular to <span class="math inline">\(\mathbf{n}\)</span>, state, with justification, the geometric transformation which maps <span class="math inline">\(R\)</span> onto <span class="math inline">\(P\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the point with position vector <span class="math inline">\(\mathbf{r}\)</span> and <span class="math inline">\(Q\)</span> be the point with position vector <span class="math inline">\(\mathrm{h}(\mathbf{r})\)</span>, where <span class="math inline">\(\mathrm{h}\)</span> is defined by <span class="math display">\[\mathrm{h}(\mathbf{s}) = -\mathbf{s} - 2\,\mathrm{f}(\mathrm{f}(\mathbf{s})).\]</span> State, with justification, the geometric transformation which maps <span class="math inline">\(R\)</span> onto <span class="math inline">\(Q\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>In two dimensions, rotating a point is easy: multiply by <span class="math inline">\(e^{\mathrm{i}\theta}\)</span>. In three dimensions it is much harder. There is no single complex number to multiply by, rotations about different axes do not commute, and writing down the matrix for “rotate by <span class="math inline">\(37^\circ\)</span> about the axis through <span class="math inline">\((1, 2, 2)\)</span>” looks daunting.</p>
+<p>This question builds that matrix, for any axis and any angle, out of the cross product. The result is <em>Rodrigues’ rotation formula</em>, published by Olinde Rodrigues in 1840. It is used every day in robotics, computer graphics and spacecraft navigation, and it reveals a lovely fact: crossing with <span class="math inline">\(\mathbf{n}\)</span> is “rotation by <span class="math inline">\(90^\circ\)</span> about <span class="math inline">\(\mathbf{n}\)</span>”, and every rotation about <span class="math inline">\(\mathbf{n}\)</span> is built from it, just as <span class="math inline">\(e^{\mathrm{i}\theta} = \cos\theta + \mathrm{i}\sin\theta\)</span> is built from multiplication by <span class="math inline">\(\mathrm{i}\)</span>.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>What does <span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span> look like geometrically, when <span class="math inline">\(\mathbf{r}\)</span> is perpendicular to <span class="math inline">\(\mathbf{n}\)</span>? And when <span class="math inline">\(\mathbf{r}\)</span> is parallel to <span class="math inline">\(\mathbf{n}\)</span>?</p>
+</div>
+<p>If <span class="math inline">\(\mathbf{r} \parallel \mathbf{n}\)</span>, then <span class="math inline">\(\mathbf{n} \times \mathbf{r} = \mathbf{0}\)</span>. If <span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span>, then <span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span> has the same length as <span class="math inline">\(\mathbf{r}\)</span> (since <span class="math inline">\(|\mathbf{n}| = 1\)</span> and the angle is <span class="math inline">\(90^\circ\)</span>), is perpendicular to both, and by the right-hand rule is <span class="math inline">\(\mathbf{r}\)</span> rotated by <span class="math inline">\(90^\circ\)</span> anticlockwise about <span class="math inline">\(\mathbf{n}\)</span> (looking down <span class="math inline">\(\mathbf{n}\)</span>). So <span class="math inline">\(\mathrm{f}\)</span> kills the component of <span class="math inline">\(\mathbf{r}\)</span> along <span class="math inline">\(\mathbf{n}\)</span> and rotates the perpendicular component by <span class="math inline">\(90^\circ\)</span>. That picture explains the whole question.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-crossing-twice" class="stage"><span class="stage-n">Stage 1</span> Crossing twice</h4>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{r}) = \mathbf{n} \times \mathbf{r} = (bz - cy,\ cx - az,\ ay - bx)\)</span>. Crossing again with <span class="math inline">\(\mathbf{n} = (a, b, c)\)</span>, the <span class="math inline">\(x\)</span>-component of <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r}))\)</span> is <span class="math display">\[b(ay - bx) - c(cx - az) = -x(b^2 + c^2) + aby + acz. \qed\]</span> Since <span class="math inline">\(a^2 + b^2 + c^2 = 1\)</span>, this is <span class="math inline">\(-x(1 - a^2) + aby + acz = a(ax + by + cz) - x\)</span>, which is the <span class="math inline">\(x\)</span>-component of <span class="math inline">\((\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span>. The other components follow by symmetry, so <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = (\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>Write <span class="math inline">\(\mathbf{r} = \mathbf{r}_\parallel + \mathbf{r}_\perp\)</span>, where <span class="math inline">\(\mathbf{r}_\parallel = (\mathbf{n}.\mathbf{r})\mathbf{n}\)</span> is the component along <span class="math inline">\(\mathbf{n}\)</span>. What is <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r}))\)</span> in terms of these?</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = \mathbf{r}_\parallel - \mathbf{r} = -\mathbf{r}_\perp\)</span>. Applying <span class="math inline">\(\mathrm{f}\)</span> twice kills the parallel part and rotates the perpendicular part by <span class="math inline">\(180^\circ\)</span> about <span class="math inline">\(\mathbf{n}\)</span>, which simply reverses it (Figure 7.5.1). This is the analogue of <span class="math inline">\(\mathrm{i}^2 = -1\)</span>.</p>
+<h4 id="stagemark2-the-rotation" class="stage"><span class="stage-n">Stage 2</span> The rotation</h4>
+<div class="askyourself">
+<p>Compute <span class="math inline">\(\mathrm{g}(\mathbf{n})\)</span>. Then compute <span class="math inline">\(\mathrm{g}(\mathbf{r})\)</span> for <span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span>, using <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = -\mathbf{r}\)</span> for such <span class="math inline">\(\mathbf{r}\)</span>.</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{n}) = \mathbf{n} \times \mathbf{n} = \mathbf{0}\)</span>, so <span class="math inline">\(\mathrm{g}(\mathbf{n}) = \mathbf{n}\)</span>: the axis is fixed. If <span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span>, then <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = -\mathbf{r}\)</span> and <span class="math display">\[\mathrm{g}(\mathbf{r}) = \mathbf{r} + \sin\theta\,(\mathbf{n} \times \mathbf{r}) - (1 - \cos\theta)\mathbf{r} = \cos\theta\,\mathbf{r} + \sin\theta\,(\mathbf{n} \times \mathbf{r}).\]</span> Since <span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span> is <span class="math inline">\(\mathbf{r}\)</span> turned through <span class="math inline">\(90^\circ\)</span> about <span class="math inline">\(\mathbf{n}\)</span>, with the same length, this is <span class="math inline">\(\mathbf{r}\)</span> rotated through <span class="math inline">\(\theta\)</span> about <span class="math inline">\(\mathbf{n}\)</span>, exactly like <span class="math inline">\((\cos\theta + \mathrm{i}\sin\theta)z\)</span> in the plane. Since <span class="math inline">\(\mathrm{g}\)</span> is linear and every vector is a sum of a multiple of <span class="math inline">\(\mathbf{n}\)</span> and a vector perpendicular to <span class="math inline">\(\mathbf{n}\)</span>, <span class="math inline">\(\mathrm{g}\)</span> is the <strong>rotation through angle <span class="math inline">\(\theta\)</span> about the axis through the origin in the direction <span class="math inline">\(\mathbf{n}\)</span></strong> (anticlockwise when viewed from the tip of <span class="math inline">\(\mathbf{n}\)</span>).<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-5-1.svg" alt="Figure 7.5.1"><figcaption><span class="fig-label">Figure 7.5.1</span> Rodrigues’ formula. The vector <span class="math inline">\(\mathbf{r}\)</span> splits into a part along the axis <span class="math inline">\(\mathbf{n}\)</span> and a part <span class="math inline">\(\mathbf{r}_\perp\)</span> perpendicular to it, which sweeps out a circle. Crossing with <span class="math inline">\(\mathbf{n}\)</span> turns <span class="math inline">\(\mathbf{r}_\perp\)</span> through <span class="math inline">\(90^\circ\)</span> (amber); crossing twice gives <span class="math inline">\(-\mathbf{r}_\perp\)</span> (plum). The rotated vector <span class="math inline">\(\mathrm{g}(\mathbf{r})\)</span> is <span class="math inline">\(\mathbf{r}_\parallel + \cos\theta\,\mathbf{r}_\perp + \sin\theta\,(\mathbf{n} \times \mathbf{r})\)</span>.</figcaption></figure>
+<h4 id="stagemark3-the-reflection" class="stage"><span class="stage-n">Stage 3</span> The reflection</h4>
+<div class="pausebox">
+<p>Simplify <span class="math inline">\(\mathrm{h}(\mathbf{s}) = -\mathbf{s} - 2\mathrm{f}(\mathrm{f}(\mathbf{s}))\)</span> using part (i). What does it do to vectors along <span class="math inline">\(\mathbf{n}\)</span>, and to vectors perpendicular to <span class="math inline">\(\mathbf{n}\)</span>?</p>
+</div>
+<p><span class="math inline">\(\mathrm{h}(\mathbf{s}) = -\mathbf{s} - 2\bigl((\mathbf{n}.\mathbf{s})\mathbf{n} - \mathbf{s}\bigr) = \mathbf{s} - 2(\mathbf{n}.\mathbf{s})\mathbf{n}\)</span>. Vectors perpendicular to <span class="math inline">\(\mathbf{n}\)</span> are unchanged, and <span class="math inline">\(\mathrm{h}(\mathbf{n}) = -\mathbf{n}\)</span>. So <span class="math inline">\(\mathrm{h}\)</span> is the <strong>reflection in the plane through the origin perpendicular to <span class="math inline">\(\mathbf{n}\)</span></strong>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Decompose into parallel and perpendicular parts.</strong> Every step became clear once <span class="math inline">\(\mathbf{r}\)</span> was split into its components along and across <span class="math inline">\(\mathbf{n}\)</span>.</p></li>
+<li><p><strong>Linearity reduces the work.</strong> To identify a linear map, it is enough to know what it does to a few well-chosen vectors.</p></li>
+<li><p><strong>An analogue of complex numbers.</strong> On vectors perpendicular to <span class="math inline">\(\mathbf{n}\)</span>, <span class="math inline">\(\mathrm{f}\)</span> behaves like multiplication by <span class="math inline">\(\mathrm{i}\)</span>: <span class="math inline">\(\mathrm{f}^2 = -1\)</span>, and <span class="math inline">\(\mathrm{g} = \cos\theta + \sin\theta\,\mathrm{f}\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Euler’s rotation theorem</div>
+<p>Every rotation of three-dimensional space that fixes the origin is a rotation about some axis through the origin. Euler proved this in 1775. In matrix terms, every <span class="math inline">\(3 \times 3\)</span> rotation matrix has an eigenvector with eigenvalue <span class="math inline">\(1\)</span>, the axis. Rodrigues’ formula gives the converse: for every axis <span class="math inline">\(\mathbf{n}\)</span> and angle <span class="math inline">\(\theta\)</span>, the rotation matrix is <span class="math display">\[\mathbf{R} = \mathbf{I} + \sin\theta\,\mathbf{K} + (1 - \cos\theta)\,\mathbf{K}^2, \qquad \mathbf{K} = \begin{pmatrix} 0 &amp; -c &amp; b \\ c &amp; 0 &amp; -a \\ -b &amp; a &amp; 0 \end{pmatrix},\]</span> where <span class="math inline">\(\mathbf{K}\)</span> is the matrix of <span class="math inline">\(\mathbf{r} \mapsto \mathbf{n} \times \mathbf{r}\)</span>. Since <span class="math inline">\(\mathbf{K}^3 = -\mathbf{K}\)</span>, the exponential series <span class="math inline">\(e^{\theta\mathbf{K}} = \mathbf{I} + \theta\mathbf{K} + \frac{\theta^2}{2!}\mathbf{K}^2 + \cdots\)</span> collapses to exactly this formula, the three-dimensional version of <span class="math inline">\(e^{\mathrm{i}\theta} = \cos\theta + \mathrm{i}\sin\theta\)</span>. This connection between rotations and exponentials of “infinitesimal rotations” <span class="math inline">\(\mathbf{K}\)</span> is the starting point of the theory of <em>Lie groups</em>.</p>
+</div>
+<h3 id="rotations-do-not-commute">Rotations do not commute</h3>
+<p>Hold a book flat, rotate it <span class="math inline">\(90^\circ\)</span> about a vertical axis and then <span class="math inline">\(90^\circ\)</span> about a horizontal axis; then start again and do the two rotations in the other order. The book ends up in different positions. Composition of rotations in three dimensions is not commutative, unlike in two dimensions. This is one reason the quaternions of <a href="../ch06/quaternions.html">Section 6.7</a> are useful: the rotation by <span class="math inline">\(\theta\)</span> about <span class="math inline">\(\mathbf{n}\)</span> corresponds to the quaternion <span class="math inline">\(\cos\frac\theta2 + \sin\frac\theta2(a\mathrm{i} + b\mathrm{j} + c\mathrm{k})\)</span>, and composing rotations is multiplying quaternions, with the non-commutativity built in. Rodrigues himself, in his 1840 paper, found the composition formula for rotations three years before Hamilton invented quaternions.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Split into invariant parts</div>
+<p><em>To understand a transformation, split space into pieces it treats simply: here, the axis (left alone) and the plane perpendicular to it (rotated).</em></p>
+<p>This is the same idea as eigenvectors in <a href="../ch07/eigenvectors.html">Section 7.2</a>: find subspaces the transformation preserves, and study it on each piece.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Rotations in the plane.</strong> (From STEP III, 2017.) Show that rotation by <span class="math inline">\(\theta\)</span> about the point <span class="math inline">\(a\)</span> in the complex plane sends <span class="math inline">\(z\)</span> to <span class="math inline">\(e^{\mathrm{i}\theta}z + a(1 - e^{\mathrm{i}\theta})\)</span>. Show that rotating by <span class="math inline">\(\theta\)</span> about <span class="math inline">\(a\)</span> and then by <span class="math inline">\(\phi\)</span> about <span class="math inline">\(b\)</span> is a rotation by <span class="math inline">\(\theta + \phi\)</span> about some point <span class="math inline">\(c\)</span>, provided <span class="math inline">\(\theta + \phi\)</span> is not a multiple of <span class="math inline">\(2\pi\)</span>. What is it when <span class="math inline">\(\theta + \phi = 2\pi\)</span>?</p></li>
+<li><p><strong>A specific rotation.</strong> Find the matrix of the rotation by <span class="math inline">\(120^\circ\)</span> about the axis in the direction <span class="math inline">\((1, 1, 1)\)</span>. Show that it permutes the coordinate axes cyclically.</p></li>
+<li><p><strong>Powers of <span class="math inline">\(\mathbf{K}\)</span>.</strong> Show that <span class="math inline">\(\mathbf{K}^2\mathbf{r} = (\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span> and <span class="math inline">\(\mathbf{K}^3 = -\mathbf{K}\)</span>, and deduce Rodrigues’ formula from the exponential series.</p></li>
+<li><p><strong>Two reflections make a rotation.</strong> Show that reflecting in two planes through the origin, at angle <span class="math inline">\(\alpha\)</span> to each other, is a rotation by <span class="math inline">\(2\alpha\)</span> about their line of intersection.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Simon Altmann, <em>Rotations, Quaternions, and Double Groups</em></strong> (Dover). The definitive account of three-dimensional rotations, including Rodrigues’ contribution.</p></li>
+<li><p><strong>Simon Altmann, “Hamilton, Rodrigues, and the quaternion scandal”</strong>, <em>Mathematics Magazine</em> 62 (1989). A short, lively history.</p></li>
+<li><p><strong>John Stillwell, <em>Naive Lie Theory</em></strong> (Springer). Rotations, quaternions and Lie groups for undergraduates.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="finite-order.html">← 7.4 Matrices That Return to the Start</a><a class="next" href="hyperbolic-rotations.html">→ 7.6 Hyperbolic Rotations and Relativity</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

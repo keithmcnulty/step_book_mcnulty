@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7.4 Matrices That Return to the Start — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 7 · Linear Algebra and Geometry</a>
+    <div class="src">STEP II · 2020 · Question 6</div>
+    <div class="sec-head"><span class="sec-num">7.4</span><h1>Matrices That Return to the Start</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-4-finite-order.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 7</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A <span class="math inline">\(2 \times 2\)</span> matrix <span class="math inline">\(\mathbf{M}\)</span> is real if it can be written as <span class="math inline">\(\mathbf{M} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span>, where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(d\)</span> are real. In this case, the <em>trace</em> of matrix <span class="math inline">\(\mathbf{M}\)</span> is defined to be <span class="math inline">\(\operatorname{tr}(\mathbf{M}) = a + d\)</span> and <span class="math inline">\(\det(\mathbf{M})\)</span> is the determinant of matrix <span class="math inline">\(\mathbf{M}\)</span>. In this question, <span class="math inline">\(\mathbf{M}\)</span> is a real <span class="math inline">\(2 \times 2\)</span> matrix.</p>
+<ol class="roman">
+<li><p>Prove that <span class="math display">\[\operatorname{tr}(\mathbf{M}^2) = \operatorname{tr}(\mathbf{M})^2 - 2\det(\mathbf{M}).\]</span></p></li>
+<li><p>Prove that <span class="math display">\[\mathbf{M}^2 = \mathbf{I} \text{ but } \mathbf{M} \neq \pm\mathbf{I} \iff \operatorname{tr}(\mathbf{M}) = 0 \text{ and } \det(\mathbf{M}) = -1,\]</span> and that <span class="math display">\[\mathbf{M}^2 = -\mathbf{I} \iff \operatorname{tr}(\mathbf{M}) = 0 \text{ and } \det(\mathbf{M}) = 1.\]</span></p></li>
+<li><p>Use part (ii) to prove that <span class="math display">\[\mathbf{M}^4 = \mathbf{I} \iff \mathbf{M}^2 = \pm\mathbf{I}.\]</span> Find a necessary and sufficient condition on <span class="math inline">\(\det(\mathbf{M})\)</span> and <span class="math inline">\(\operatorname{tr}(\mathbf{M})\)</span> so that <span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span>.</p></li>
+<li><p>Give an example of a matrix <span class="math inline">\(\mathbf{M}\)</span> for which <span class="math inline">\(\mathbf{M}^8 = \mathbf{I}\)</span>, but which does not represent a rotation or reflection. [Note that the matrices <span class="math inline">\(\pm\mathbf{I}\)</span> are both rotations.]</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Some transformations, repeated enough times, bring everything back to where it started. A rotation by <span class="math inline">\(90^\circ\)</span> does it in four steps, a reflection in two. Which <span class="math inline">\(2 \times 2\)</span> matrices have this property, <span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span> for some <span class="math inline">\(n\)</span>, and how can you tell?</p>
+<p>The surprise of this question is that two numbers, the <em>trace</em> and the <em>determinant</em>, are enough to decide. You do not need to know the four entries, only <span class="math inline">\(a + d\)</span> and <span class="math inline">\(ad - bc\)</span>. And the answer has a striking consequence for the physical world: it explains why crystals can have <span class="math inline">\(2\)</span>-, <span class="math inline">\(3\)</span>-, <span class="math inline">\(4\)</span>- and <span class="math inline">\(6\)</span>-fold symmetry but never <span class="math inline">\(5\)</span>-fold, a “law” of crystallography that held for two centuries until a discovery in 1982 won a Nobel Prize.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Every <span class="math inline">\(2 \times 2\)</span> matrix satisfies <span class="math inline">\(\mathbf{M}^2 - (\operatorname{tr}\mathbf{M})\mathbf{M} + (\det\mathbf{M})\mathbf{I} = \mathbf{0}\)</span> (the Cayley–Hamilton theorem; check it by multiplying out). How could that help with questions about <span class="math inline">\(\mathbf{M}^2\)</span>?</p>
+</div>
+<p>It expresses <span class="math inline">\(\mathbf{M}^2\)</span> in terms of <span class="math inline">\(\mathbf{M}\)</span> and <span class="math inline">\(\mathbf{I}\)</span>: <span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I}\)</span>, where <span class="math inline">\(t = \operatorname{tr}\mathbf{M}\)</span> and <span class="math inline">\(d = \det\mathbf{M}\)</span>. So a condition on <span class="math inline">\(\mathbf{M}^2\)</span> becomes a condition linking <span class="math inline">\(\mathbf{M}\)</span>, <span class="math inline">\(t\)</span> and <span class="math inline">\(d\)</span>. That is the key to the whole question.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-trace-of-the-square" class="stage"><span class="stage-n">Stage 1</span> The trace of the square</h4>
+<p><span class="math inline">\(\mathbf{M}^2 = \begin{pmatrix} a^2 + bc &amp; ab + bd \\ ac + cd &amp; bc + d^2 \end{pmatrix}\)</span>, so <span class="math inline">\(\operatorname{tr}(\mathbf{M}^2) = a^2 + 2bc + d^2 = (a + d)^2 - 2(ad - bc)\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-square-roots-of-pmmathbfi" class="stage"><span class="stage-n">Stage 2</span> Square roots of <span class="math inline">\(\pm\mathbf{I}\)</span></h4>
+<div class="askyourself">
+<p>Suppose <span class="math inline">\(\mathbf{M}^2 = \mathbf{I}\)</span>. Substitute into <span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I}\)</span>. If <span class="math inline">\(t \neq 0\)</span>, what does that say about <span class="math inline">\(\mathbf{M}\)</span>?</p>
+</div>
+<p>If <span class="math inline">\(\mathbf{M}^2 = \mathbf{I}\)</span>, then <span class="math inline">\(\mathbf{I} = t\mathbf{M} - d\mathbf{I}\)</span>, so <span class="math inline">\(t\mathbf{M} = (1 + d)\mathbf{I}\)</span>. If <span class="math inline">\(t \neq 0\)</span>, then <span class="math inline">\(\mathbf{M}\)</span> is a multiple of <span class="math inline">\(\mathbf{I}\)</span>, say <span class="math inline">\(c\mathbf{I}\)</span>, and <span class="math inline">\(c^2 = 1\)</span>, so <span class="math inline">\(\mathbf{M} = \pm\mathbf{I}\)</span>, which is excluded. Hence <span class="math inline">\(t = 0\)</span>, and then <span class="math inline">\((1 + d)\mathbf{I} = \mathbf{0}\)</span>, so <span class="math inline">\(d = -1\)</span>.</p>
+<p>Conversely, if <span class="math inline">\(t = 0\)</span> and <span class="math inline">\(d = -1\)</span>, then <span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I} = \mathbf{I}\)</span>, and <span class="math inline">\(\mathbf{M} \neq \pm\mathbf{I}\)</span> because <span class="math inline">\(\operatorname{tr}(\pm\mathbf{I}) = \pm2 \neq 0\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>For <span class="math inline">\(\mathbf{M}^2 = -\mathbf{I}\)</span>: substituting gives <span class="math inline">\(t\mathbf{M} = (d - 1)\mathbf{I}\)</span>. If <span class="math inline">\(t \neq 0\)</span> then <span class="math inline">\(\mathbf{M} = c\mathbf{I}\)</span> with <span class="math inline">\(c^2 = -1\)</span>, impossible for real <span class="math inline">\(c\)</span>. So <span class="math inline">\(t = 0\)</span> and <span class="math inline">\(d = 1\)</span>. Conversely, <span class="math inline">\(t = 0\)</span> and <span class="math inline">\(d = 1\)</span> give <span class="math inline">\(\mathbf{M}^2 = -\mathbf{I}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-fourth-roots" class="stage"><span class="stage-n">Stage 3</span> Fourth roots</h4>
+<div class="pausebox">
+<p>Let <span class="math inline">\(\mathbf{N} = \mathbf{M}^2\)</span>, so <span class="math inline">\(\mathbf{M}^4 = \mathbf{I}\)</span> means <span class="math inline">\(\mathbf{N}^2 = \mathbf{I}\)</span>. By part (ii), either <span class="math inline">\(\mathbf{N} = \pm\mathbf{I}\)</span> or <span class="math inline">\(\operatorname{tr}\mathbf{N} = 0\)</span> and <span class="math inline">\(\det\mathbf{N} = -1\)</span>. Why is the second case impossible?</p>
+</div>
+<p><span class="math inline">\(\det\mathbf{N} = \det(\mathbf{M}^2) = (\det\mathbf{M})^2 \geq 0\)</span>, so <span class="math inline">\(\det\mathbf{N} \neq -1\)</span>. Hence <span class="math inline">\(\mathbf{N} = \mathbf{M}^2 = \pm\mathbf{I}\)</span>. The converse is clear.<span class="qed" aria-label="end of proof">■</span></p>
+<p>For <span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span>: by part (ii) applied to <span class="math inline">\(\mathbf{N} = \mathbf{M}^2\)</span>, this holds exactly when <span class="math inline">\(\operatorname{tr}(\mathbf{M}^2) = 0\)</span> and <span class="math inline">\(\det(\mathbf{M}^2) = 1\)</span>, that is, <span class="math inline">\(t^2 - 2d = 0\)</span> and <span class="math inline">\(d^2 = 1\)</span>. Since <span class="math inline">\(t^2 = 2d \geq 0\)</span>, we need <span class="math inline">\(d = 1\)</span>, and then <span class="math inline">\(t^2 = 2\)</span>. So <span class="math display">\[\mathbf{M}^4 = -\mathbf{I} \iff \det\mathbf{M} = 1 \text{ and } \operatorname{tr}\mathbf{M} = \pm\sqrt2. \qed\]</span></p>
+<h4 id="stagemark4-an-eighth-root-of-mathbfi-that-is-not-a-rotation" class="stage"><span class="stage-n">Stage 4</span> An eighth root of <span class="math inline">\(\mathbf{I}\)</span> that is not a rotation</h4>
+<p>Any matrix with <span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span> has <span class="math inline">\(\mathbf{M}^8 = \mathbf{I}\)</span>. A rotation by <span class="math inline">\(45^\circ\)</span> has trace <span class="math inline">\(\sqrt2\)</span> and determinant <span class="math inline">\(1\)</span>; we want another matrix with the same trace and determinant that is not a rotation. Take <span class="math display">\[\mathbf{M} = \begin{pmatrix} \sqrt2 &amp; -1 \\ 1 &amp; 0 \end{pmatrix}, \qquad \operatorname{tr}\mathbf{M} = \sqrt2, \quad \det\mathbf{M} = 1.\]</span> By Stage 3, <span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span>, so <span class="math inline">\(\mathbf{M}^8 = \mathbf{I}\)</span>. But <span class="math inline">\(\mathbf{M}\)</span> is not a rotation or reflection, because those preserve lengths, and <span class="math inline">\(\mathbf{M}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} \sqrt2 \\ 1 \end{pmatrix}\)</span> has length <span class="math inline">\(\sqrt3 \neq 1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-4-1.svg" alt="Figure 7.4.1"><figcaption><span class="fig-label">Figure 7.4.1</span> The orbit of <span class="math inline">\(\mathbf{v} = (1, 0)\)</span> under <span class="math inline">\(\mathbf{M} = \begin{pmatrix} \sqrt2 &amp; -1 \\ 1 &amp; 0 \end{pmatrix}\)</span>. After eight steps it returns to the start. The points do not lie on a circle (dashed), so <span class="math inline">\(\mathbf{M}\)</span> is not a rotation, but they do lie on an ellipse: <span class="math inline">\(\mathbf{M}\)</span> is a <span class="math inline">\(45^\circ\)</span> rotation viewed in skewed coordinates.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Cayley–Hamilton turns powers into linear combinations.</strong> Every power of a <span class="math inline">\(2 \times 2\)</span> matrix is a combination of <span class="math inline">\(\mathbf{M}\)</span> and <span class="math inline">\(\mathbf{I}\)</span>, with coefficients depending only on trace and determinant.</p></li>
+<li><p><strong>Determinants of squares are non-negative.</strong> That simple fact ruled out a whole case in part (iii).</p></li>
+<li><p><strong>Trace and determinant are invariants.</strong> Two matrices with the same trace and determinant (and not multiples of <span class="math inline">\(\mathbf{I}\)</span>) behave alike under powers, whether or not they look alike.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Similar matrices</div>
+<p>Why is <span class="math inline">\(\mathbf{M}\)</span> in Stage 4 “a rotation in disguise”? Two matrices <span class="math inline">\(\mathbf{M}\)</span> and <span class="math inline">\(\mathbf{R}\)</span> are <em>similar</em> if <span class="math inline">\(\mathbf{M} = \mathbf{SRS}^{-1}\)</span> for some invertible <span class="math inline">\(\mathbf{S}\)</span>: they represent the same transformation in different coordinates. Similar matrices have the same trace and determinant, and (for <span class="math inline">\(2 \times 2\)</span> matrices that are not multiples of <span class="math inline">\(\mathbf{I}\)</span>) the converse holds too. So any real matrix with trace <span class="math inline">\(\sqrt2\)</span> and determinant <span class="math inline">\(1\)</span> is similar to the rotation by <span class="math inline">\(45^\circ\)</span>, and in the skewed coordinates given by <span class="math inline">\(\mathbf{S}\)</span> it simply rotates (Figure 7.4.1). In general, a real <span class="math inline">\(2 \times 2\)</span> matrix with <span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span> is always similar to a rotation or a reflection.</p>
+</div>
+<h3 id="why-crystals-have-no-five-fold-symmetry">Why crystals have no five-fold symmetry</h3>
+<p>A crystal is a regular, repeating arrangement of atoms. A rotational symmetry of the crystal sends the lattice of atoms to itself, so in coordinates based on the lattice it is given by a matrix with <em>integer</em> entries. Its trace is therefore an integer. But a rotation by angle <span class="math inline">\(\theta\)</span> has trace <span class="math inline">\(2\cos\theta\)</span> in any coordinates, and <span class="math inline">\(2\cos\theta\)</span> is an integer only when it is <span class="math inline">\(-2, -1, 0, 1\)</span> or <span class="math inline">\(2\)</span>, that is, for rotations of order <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(4\)</span> and <span class="math inline">\(6\)</span> (and <span class="math inline">\(1\)</span>). Five-fold symmetry would need <span class="math inline">\(2\cos72^\circ = \frac{\sqrt5 - 1}{2}\)</span>, which is not an integer. This is the <em>crystallographic restriction theorem</em>. In 1982 Dan Shechtman observed an alloy with apparent five-fold symmetry and was at first ridiculed; it turned out to be a <em>quasicrystal</em>, ordered but not periodic, like the Penrose tilings, and so not covered by the theorem. He received the Nobel Prize in Chemistry in 2011.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Look for invariants that capture the essential behaviour</div>
+<p><em>When a question is about an object with many parameters, ask whether a few combinations of them, invariant under a change of viewpoint, are enough.</em></p>
+<p>Here four entries reduced to two invariants, the trace and the determinant, because the question (“does <span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span>?”) does not depend on the coordinates. Finding the right invariants is often the key to classification problems.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Rotations of order three.</strong> (From STEP II, 2021.) The matrix <span class="math inline">\(\mathbf{R}\)</span> represents an anticlockwise rotation through angle <span class="math inline">\(\phi\)</span>, and <span class="math inline">\(\mathbf{R} + \mathbf{I}\)</span> also represents a rotation. Find the possible values of <span class="math inline">\(\phi\)</span> and deduce that <span class="math inline">\(\mathbf{R}^3 = \mathbf{I}\)</span>. Then show that if <span class="math inline">\(\mathbf{S}\)</span> is a real matrix with <span class="math inline">\(\mathbf{S}^3 = \mathbf{I}\)</span> but <span class="math inline">\(\mathbf{S} \neq \mathbf{I}\)</span>, then <span class="math inline">\(\det\mathbf{S} = 1\)</span> and <span class="math inline">\(\operatorname{tr}\mathbf{S} = -1\)</span>.</p></li>
+<li><p><strong>Order six.</strong> Find a condition on the trace and determinant for <span class="math inline">\(\mathbf{M}^6 = \mathbf{I}\)</span> but <span class="math inline">\(\mathbf{M}^2 \neq \mathbf{I}\)</span> and <span class="math inline">\(\mathbf{M}^3 \neq \mathbf{I}\)</span>.</p></li>
+<li><p><strong>The crystallographic restriction.</strong> Show that if <span class="math inline">\(\mathbf{M}\)</span> has integer entries, <span class="math inline">\(\det\mathbf{M} = 1\)</span> and <span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span> for some <span class="math inline">\(n\)</span>, then <span class="math inline">\(\operatorname{tr}\mathbf{M} \in \{-2, -1, 0, 1, 2\}\)</span>. Find an integer matrix of order <span class="math inline">\(6\)</span>.</p></li>
+<li><p><strong>Cayley–Hamilton for powers.</strong> Use <span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I}\)</span> to express <span class="math inline">\(\mathbf{M}^3\)</span> and <span class="math inline">\(\mathbf{M}^4\)</span> in the form <span class="math inline">\(p\mathbf{M} + q\mathbf{I}\)</span>, and use this to rederive the condition for <span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>M. A. Armstrong, <em>Groups and Symmetry</em></strong> (Springer). Includes the crystallographic restriction and the classification of wallpaper patterns.</p></li>
+<li><p><strong>Marjorie Senechal, <em>Quasicrystals and Geometry</em></strong> (Cambridge University Press). The mathematics of quasicrystals and aperiodic order.</p></li>
+<li><p><strong>Gilbert Strang, <em>Introduction to Linear Algebra</em></strong> (Wellesley-Cambridge). Similar matrices and the Cayley–Hamilton theorem.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="determinant-axioms.html">← 7.3 What Makes a Determinant</a><a class="next" href="rotations-3d.html">→ 7.5 Rotating in Three Dimensions</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7.7 Quantities That Never Change — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 7 · Linear Algebra and Geometry</a>
+    <div class="src">STEP III · 2024 · Question 5</div>
+    <div class="sec-head"><span class="sec-num">7.7</span><h1>Quantities That Never Change</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-7-lax-pairs.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 7</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>In this question, <span class="math inline">\(\mathbf{M}\)</span> and <span class="math inline">\(\mathbf{N}\)</span> are non-singular <span class="math inline">\(2 \times 2\)</span> matrices.</p>
+<p>The <em>trace</em> of the matrix <span class="math inline">\(\mathbf{M} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span> is defined as <span class="math inline">\(\operatorname{tr}(\mathbf{M}) = a + d\)</span>.</p>
+<ol class="roman">
+<li><p>Prove that, for any two matrices <span class="math inline">\(\mathbf{M}\)</span> and <span class="math inline">\(\mathbf{N}\)</span>, <span class="math inline">\(\operatorname{tr}(\mathbf{MN}) = \operatorname{tr}(\mathbf{NM})\)</span> and derive an expression for <span class="math inline">\(\operatorname{tr}(\mathbf{M} + \mathbf{N})\)</span> in terms of <span class="math inline">\(\operatorname{tr}(\mathbf{M})\)</span> and <span class="math inline">\(\operatorname{tr}(\mathbf{N})\)</span>.</p></li>
+</ol>
+<p>The entries in matrix <span class="math inline">\(\mathbf{M}\)</span> are functions of <span class="math inline">\(t\)</span> and <span class="math inline">\(\dfrac{\mathrm{d}\mathbf{M}}{\mathrm{d}t}\)</span> denotes the matrix whose entries are the derivatives of the corresponding entries in <span class="math inline">\(\mathbf{M}\)</span>.</p>
+<ol class="roman" start="2" style="counter-reset: rom 1">
+<li><p>Show that <span class="math display">\[\frac{1}{\det\mathbf{M}}\frac{\mathrm{d}}{\mathrm{d}t}(\det\mathbf{M}) = \operatorname{tr}\left(\mathbf{M}^{-1}\frac{\mathrm{d}\mathbf{M}}{\mathrm{d}t}\right).\]</span></p></li>
+<li><p>In this part, matrix <span class="math inline">\(\mathbf{M}\)</span> satisfies the differential equation <span class="math display">\[\frac{\mathrm{d}\mathbf{M}}{\mathrm{d}t} = \mathbf{MN} - \mathbf{NM},\]</span> where the entries in matrix <span class="math inline">\(\mathbf{N}\)</span> are also functions of <span class="math inline">\(t\)</span>.</p>
+<p>Show that <span class="math inline">\(\det\mathbf{M}\)</span>, <span class="math inline">\(\operatorname{tr}(\mathbf{M})\)</span> and <span class="math inline">\(\operatorname{tr}(\mathbf{M}^2)\)</span> are independent of <span class="math inline">\(t\)</span>.</p>
+<p>In the case <span class="math inline">\(\mathbf{N} = \begin{pmatrix} t &amp; t \\ 0 &amp; t \end{pmatrix}\)</span>, and given that <span class="math inline">\(\mathbf{M} = \begin{pmatrix} A &amp; B \\ C &amp; D \end{pmatrix}\)</span> when <span class="math inline">\(t = 0\)</span>, find <span class="math inline">\(\mathbf{M}\)</span> as a function of <span class="math inline">\(t\)</span>.</p></li>
+<li><p>In this part, matrix <span class="math inline">\(\mathbf{M}\)</span> satisfies the differential equation <span class="math display">\[\frac{\mathrm{d}\mathbf{M}}{\mathrm{d}t} = \mathbf{MN},\]</span> where the entries in matrix <span class="math inline">\(\mathbf{N}\)</span> are again functions of <span class="math inline">\(t\)</span>.</p>
+<p>The trace of <span class="math inline">\(\mathbf{M}\)</span> is non-zero and independent of <span class="math inline">\(t\)</span>. Is it necessarily true that <span class="math inline">\(\operatorname{tr}(\mathbf{N}) = 0\)</span>?</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Some of the deepest facts in physics are <em>conservation laws</em>: energy, momentum and angular momentum stay the same however complicated the motion. When a system has enough conserved quantities, its motion can be solved exactly; when it has too few, it can be chaotic.</p>
+<p>This question shows a remarkable way of manufacturing conserved quantities. If a matrix changes in time according to <span class="math inline">\(\frac{\mathrm{d}\mathbf{M}}{\mathrm{d}t} = \mathbf{MN} - \mathbf{NM}\)</span>, then however wildly its entries vary, its trace and determinant, and hence its eigenvalues, never change. Such a pair <span class="math inline">\((\mathbf{M}, \mathbf{N})\)</span> is called a <em>Lax pair</em>, after Peter Lax, who introduced the idea in 1968 to explain the astonishing behaviour of <em>solitons</em>, solitary waves that pass through each other unchanged.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The expression <span class="math inline">\(\mathbf{MN} - \mathbf{NM}\)</span> is called the <em>commutator</em> of <span class="math inline">\(\mathbf{M}\)</span> and <span class="math inline">\(\mathbf{N}\)</span>. When is it zero? What is its trace, given part (i)?</p>
+</div>
+<p>It is zero exactly when <span class="math inline">\(\mathbf{M}\)</span> and <span class="math inline">\(\mathbf{N}\)</span> commute. And by part (i) its trace is <span class="math inline">\(\operatorname{tr}(\mathbf{MN}) - \operatorname{tr}(\mathbf{NM}) = 0\)</span>, always. That single fact is the beginning of every conservation law in the question.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-trace" class="stage"><span class="stage-n">Stage 1</span> The trace</h4>
+<p>With <span class="math inline">\(\mathbf{M} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span> and <span class="math inline">\(\mathbf{N} = \begin{pmatrix} p &amp; q \\ r &amp; s \end{pmatrix}\)</span>, the diagonal entries of <span class="math inline">\(\mathbf{MN}\)</span> are <span class="math inline">\(ap + br\)</span> and <span class="math inline">\(cq + ds\)</span>, so <span class="math inline">\(\operatorname{tr}(\mathbf{MN}) = ap + br + cq + ds\)</span>. Swapping the roles of <span class="math inline">\(\mathbf{M}\)</span> and <span class="math inline">\(\mathbf{N}\)</span> gives <span class="math inline">\(pa + qc + rb + sd\)</span>, the same. Clearly <span class="math inline">\(\operatorname{tr}(\mathbf{M} + \mathbf{N}) = \operatorname{tr}\mathbf{M} + \operatorname{tr}\mathbf{N}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-derivative-of-a-determinant" class="stage"><span class="stage-n">Stage 2</span> The derivative of a determinant</h4>
+<div class="askyourself">
+<p>Differentiate <span class="math inline">\(\det\mathbf{M} = ad - bc\)</span> by the product rule. Then compute <span class="math inline">\(\mathbf{M}^{-1}\frac{\mathrm{d}\mathbf{M}}{\mathrm{d}t}\)</span> and its trace, using <span class="math inline">\(\mathbf{M}^{-1} = \frac{1}{\det\mathbf{M}}\begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}\)</span>.</p>
+</div>
+<p>Writing dots for derivatives, <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\det\mathbf{M} = \dot ad + a\dot d - \dot bc - b\dot c\)</span>. And <span class="math display">\[\mathbf{M}^{-1}\dot{\mathbf{M}} = \frac{1}{\det\mathbf{M}}\begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}\begin{pmatrix} \dot a &amp; \dot b \\ \dot c &amp; \dot d \end{pmatrix}\]</span> has diagonal entries <span class="math inline">\(\frac{d\dot a - b\dot c}{\det\mathbf{M}}\)</span> and <span class="math inline">\(\frac{-c\dot b + a\dot d}{\det\mathbf{M}}\)</span>. Their sum is <span class="math inline">\(\frac{1}{\det\mathbf{M}}\frac{\mathrm{d}}{\mathrm{d}t}\det\mathbf{M}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-three-conserved-quantities" class="stage"><span class="stage-n">Stage 3</span> Three conserved quantities</h4>
+<div class="askyourself">
+<p>Take the trace of <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span>. For the determinant, use part (ii): what is <span class="math inline">\(\mathbf{M}^{-1}(\mathbf{MN} - \mathbf{NM})\)</span>?</p>
+</div>
+<p><em>Trace:</em> <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\operatorname{tr}\mathbf{M} = \operatorname{tr}\dot{\mathbf{M}} = \operatorname{tr}(\mathbf{MN}) - \operatorname{tr}(\mathbf{NM}) = 0\)</span>.</p>
+<p><em>Determinant:</em> by part (ii), <span class="math display">\[\frac{1}{\det\mathbf{M}}\frac{\mathrm{d}}{\mathrm{d}t}\det\mathbf{M} = \operatorname{tr}\bigl(\mathbf{M}^{-1}(\mathbf{MN} - \mathbf{NM})\bigr) = \operatorname{tr}\mathbf{N} - \operatorname{tr}(\mathbf{M}^{-1}\mathbf{NM}) = \operatorname{tr}\mathbf{N} - \operatorname{tr}\mathbf{N} = 0,\]</span> using part (i) in the form <span class="math inline">\(\operatorname{tr}\bigl(\mathbf{M}^{-1}(\mathbf{NM})\bigr) = \operatorname{tr}\bigl((\mathbf{NM})\mathbf{M}^{-1}\bigr) = \operatorname{tr}\mathbf{N}\)</span>.</p>
+<p><em>Trace of the square:</em> <span class="math inline">\(\operatorname{tr}(\mathbf{M}^2) = (\operatorname{tr}\mathbf{M})^2 - 2\det\mathbf{M}\)</span> (see <a href="../ch07/finite-order.html">Section 7.4</a>), which is constant because both terms are.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-an-explicit-solution" class="stage"><span class="stage-n">Stage 4</span> An explicit solution</h4>
+<div class="pausebox">
+<p>With <span class="math inline">\(\mathbf{N} = t\mathbf{I} + t\mathbf{E}\)</span>, where <span class="math inline">\(\mathbf{E} = \begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}\)</span>, compute <span class="math inline">\(\mathbf{MN} - \mathbf{NM}\)</span> and write down the differential equations for <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, <span class="math inline">\(d\)</span>. Solve them in the order <span class="math inline">\(c\)</span>, then <span class="math inline">\(a\)</span> and <span class="math inline">\(d\)</span>, then <span class="math inline">\(b\)</span>.</p>
+</div>
+<p>The part <span class="math inline">\(t\mathbf{I}\)</span> commutes with everything, so <span class="math inline">\(\mathbf{MN} - \mathbf{NM} = t(\mathbf{ME} - \mathbf{EM})\)</span>. Now <span class="math inline">\(\mathbf{ME} = \begin{pmatrix} 0 &amp; a \\ 0 &amp; c \end{pmatrix}\)</span> and <span class="math inline">\(\mathbf{EM} = \begin{pmatrix} c &amp; d \\ 0 &amp; 0 \end{pmatrix}\)</span>, so <span class="math display">\[\dot a = -tc, \qquad \dot b = t(a - d), \qquad \dot c = 0, \qquad \dot d = tc.\]</span> So <span class="math inline">\(c = C\)</span> is constant; then <span class="math inline">\(a = A - \frac12Ct^2\)</span> and <span class="math inline">\(d = D + \frac12Ct^2\)</span>; then <span class="math inline">\(\dot b = t(A - D - Ct^2)\)</span>, so <span class="math inline">\(b = B + \frac12(A - D)t^2 - \frac14Ct^4\)</span>. Therefore <span class="math display">\[\mathbf{M} = \begin{pmatrix} A - \frac12Ct^2 &amp; B + \frac12(A - D)t^2 - \frac14Ct^4 \\[0.5ex] C &amp; D + \frac12Ct^2 \end{pmatrix}. \qed\]</span> Check: the trace is <span class="math inline">\(A + D\)</span>, and the determinant is <span class="math inline">\((A - \frac12Ct^2)(D + \frac12Ct^2) - C\bigl(B + \frac12(A - D)t^2 - \frac14Ct^4\bigr) = AD - BC\)</span>, constant as promised (Figure 7.7.1).</p>
+<h4 id="stagemark5-a-different-equation" class="stage"><span class="stage-n">Stage 5</span> A different equation</h4>
+<div class="askyourself">
+<p>If <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN}\)</span>, then <span class="math inline">\(\mathbf{N} = \mathbf{M}^{-1}\dot{\mathbf{M}}\)</span>, and by part (ii) <span class="math inline">\(\operatorname{tr}\mathbf{N}\)</span> is the logarithmic derivative of <span class="math inline">\(\det\mathbf{M}\)</span>. Can the trace of <span class="math inline">\(\mathbf{M}\)</span> stay constant while its determinant changes?</p>
+</div>
+<p>Certainly. Take <span class="math inline">\(\mathbf{M} = \begin{pmatrix} 1 &amp; t \\ t &amp; 1 \end{pmatrix}\)</span> for <span class="math inline">\(|t| &lt; 1\)</span> (where <span class="math inline">\(\det\mathbf{M} = 1 - t^2 \neq 0\)</span>). Its trace is constantly <span class="math inline">\(2\)</span>. Define <span class="math inline">\(\mathbf{N} = \mathbf{M}^{-1}\dot{\mathbf{M}}\)</span>, so that <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN}\)</span>: <span class="math display">\[\mathbf{N} = \frac{1}{1 - t^2}\begin{pmatrix} 1 &amp; -t \\ -t &amp; 1 \end{pmatrix}\begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix} = \frac{1}{1 - t^2}\begin{pmatrix} -t &amp; 1 \\ 1 &amp; -t \end{pmatrix},\]</span> which is non-singular, with <span class="math inline">\(\operatorname{tr}\mathbf{N} = \frac{-2t}{1 - t^2} \neq 0\)</span> for <span class="math inline">\(t \neq 0\)</span>. So <strong>no</strong>, <span class="math inline">\(\operatorname{tr}\mathbf{N}\)</span> need not be zero.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-7-1.svg" alt="Figure 7.7.1"><figcaption><span class="fig-label">Figure 7.7.1</span> The entries of <span class="math inline">\(\mathbf{M}(t)\)</span> from Stage 4, with <span class="math inline">\(A = 2\)</span>, <span class="math inline">\(B = 1\)</span>, <span class="math inline">\(C = 1\)</span>, <span class="math inline">\(D = 1\)</span>. All four entries except <span class="math inline">\(c\)</span> change, but the trace stays at <span class="math inline">\(3\)</span> and the determinant stays at <span class="math inline">\(1\)</span> throughout. So the eigenvalues, <span class="math inline">\(\frac{3 \pm \sqrt5}{2}\)</span>, never change: the flow is <em>isospectral</em>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>The trace of a commutator is zero.</strong> From <span class="math inline">\(\operatorname{tr}(\mathbf{MN}) = \operatorname{tr}(\mathbf{NM})\)</span>, every conservation law followed.</p></li>
+<li><p><strong>Logarithmic derivatives.</strong> Part (ii) turned the derivative of a determinant into a trace, which is linear and easy to handle.</p></li>
+<li><p><strong>Check conservation in the explicit solution.</strong> The formula for <span class="math inline">\(\mathbf{M}(t)\)</span> was checked by confirming that its trace and determinant are constant.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Solitons and Lax pairs</div>
+<p>In 1834 the Scottish engineer John Scott Russell followed, on horseback, a solitary wave travelling along the Union Canal near Edinburgh for over a mile without losing its shape. Such waves are described by the <em>Korteweg–de Vries (KdV) equation</em>, and in the 1960s computer experiments by Norman Zabusky and Martin Kruskal showed that two of these “solitons” can collide and emerge unchanged, as if they were particles. Explaining this needed infinitely many conserved quantities. Peter Lax showed in 1968 that the KdV equation can be written as <span class="math inline">\(\dot L = LP - PL\)</span> for a pair of differential operators <span class="math inline">\(L\)</span> and <span class="math inline">\(P\)</span>; then, exactly as in this question, the eigenvalues of <span class="math inline">\(L\)</span> are conserved, and they provide the infinitely many conservation laws. Systems with a Lax pair are called <em>integrable</em>, and they are among the few nonlinear systems that can be solved exactly.</p>
+</div>
+<h3 id="isospectral-flows">Isospectral flows</h3>
+<p>Since the trace and determinant of <span class="math inline">\(\mathbf{M}\)</span> determine its characteristic polynomial <span class="math inline">\(\lambda^2 - (\operatorname{tr}\mathbf{M})\lambda + \det\mathbf{M}\)</span>, the eigenvalues of <span class="math inline">\(\mathbf{M}\)</span> do not change with time. The flow <span class="math inline">\(\dot{\mathbf{M}} = [\mathbf{M}, \mathbf{N}]\)</span> moves <span class="math inline">\(\mathbf{M}\)</span> around inside the set of matrices with fixed eigenvalues. In fact, the solution is always of the form <span class="math inline">\(\mathbf{M}(t) = \mathbf{S}(t)^{-1}\mathbf{M}(0)\mathbf{S}(t)\)</span> for some invertible <span class="math inline">\(\mathbf{S}(t)\)</span>: the matrix stays similar to its starting value. The same idea runs through physics: in quantum mechanics, an observable <span class="math inline">\(\mathbf{A}\)</span> evolves by <span class="math inline">\(\frac{\mathrm{d}\mathbf{A}}{\mathrm{d}t} = \frac{\mathrm{i}}{\hbar}[\mathbf{H}, \mathbf{A}]\)</span>, where <span class="math inline">\(\mathbf{H}\)</span> is the energy, so anything that commutes with the energy is conserved.</p>
+<h3 id="jacobis-formula">Jacobi’s formula</h3>
+<p>Part (ii), <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\ln\det\mathbf{M} = \operatorname{tr}\bigl(\mathbf{M}^{-1}\dot{\mathbf{M}}\bigr)\)</span>, holds for matrices of any size and is called <em>Jacobi’s formula</em>. A consequence: if <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{AM}\)</span> for a constant matrix <span class="math inline">\(\mathbf{A}\)</span>, then <span class="math inline">\(\det\mathbf{M}(t) = e^{t\operatorname{tr}\mathbf{A}}\det\mathbf{M}(0)\)</span>. In the study of differential equations this tells you how volumes in phase space grow or shrink; for the equations of classical mechanics the trace is zero and volume is preserved, a result known as <em>Liouville’s theorem</em>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Find what does not change</div>
+<p><em>When something evolves, look for quantities built from it that stay constant. They constrain the motion and often reveal its structure.</em></p>
+<p>Here the trace and determinant were conserved because the rate of change was a commutator. In mechanics, conserved quantities come from symmetries (Noether’s theorem), and finding them is often the first step in solving a problem.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Check the solution.</strong> Verify by differentiating that the matrix <span class="math inline">\(\mathbf{M}(t)\)</span> in Stage 4 satisfies <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span>.</p></li>
+<li><p><strong>Similarity.</strong> Show that if <span class="math inline">\(\mathbf{M}(t) = \mathbf{S}^{-1}\mathbf{M}_0\mathbf{S}\)</span>, where <span class="math inline">\(\mathbf{M}_0\)</span> is constant and <span class="math inline">\(\mathbf{S}(t)\)</span> satisfies <span class="math inline">\(\dot{\mathbf{S}} = \mathbf{SN}\)</span>, then <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span>. (<em>Hint:</em> <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{S}^{-1} = -\mathbf{S}^{-1}\dot{\mathbf{S}}\mathbf{S}^{-1}\)</span>.)</p></li>
+<li><p><strong>Volume growth.</strong> Let <span class="math inline">\(\mathbf{M}(t) = \begin{pmatrix} e^{2t} &amp; 0 \\ 0 &amp; e^{-t} \end{pmatrix}\)</span>. Find <span class="math inline">\(\mathbf{N}\)</span> with <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN}\)</span>, and check that <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\ln\det\mathbf{M} = \operatorname{tr}\mathbf{N}\)</span>.</p></li>
+<li><p><strong>Higher powers.</strong> Show directly that <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\operatorname{tr}(\mathbf{M}^k) = 0\)</span> for every positive integer <span class="math inline">\(k\)</span> when <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>P. G. Drazin &amp; R. S. Johnson, <em>Solitons: An Introduction</em></strong> (Cambridge University Press). The standard undergraduate introduction, including Lax pairs.</p></li>
+<li><p><strong>Thierry Dauxois &amp; Michel Peyrard, <em>Physics of Solitons</em></strong> (Cambridge University Press). Includes the story of Scott Russell’s wave.</p></li>
+<li><p><strong>Dwight Neuenschwander, <em>Emmy Noether’s Wonderful Theorem</em></strong> (Johns Hopkins University Press). How symmetries give conservation laws.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="hyperbolic-rotations.html">← 7.6 Hyperbolic Rotations and Relativity</a><a class="next" href="four-squares.html">→ 7.8 Four Squares</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

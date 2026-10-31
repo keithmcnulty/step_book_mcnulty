@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7.2 Stretching Without Turning — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 7 · Linear Algebra and Geometry</a>
+    <div class="src">STEP III · 1990 · Question 6</div>
+    <div class="sec-head"><span class="sec-num">7.2</span><h1>Stretching Without Turning</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-2-eigenvectors.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 7</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The transformation <span class="math inline">\(T\)</span> from <span class="math inline">\(\begin{pmatrix} x \\ y \end{pmatrix}\)</span> to <span class="math inline">\(\begin{pmatrix} X \\ Y \end{pmatrix}\)</span> is given by <span class="math display">\[\begin{pmatrix} X \\ Y \end{pmatrix} = \frac25\begin{pmatrix} 9 &amp; -2 \\ -2 &amp; 6 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix}.\]</span> Show that <span class="math inline">\(T\)</span> leaves the vector <span class="math inline">\(\begin{pmatrix} 1 \\ 2 \end{pmatrix}\)</span> unchanged in direction but multiplied by a scalar, and that <span class="math inline">\(\begin{pmatrix} 2 \\ -1 \end{pmatrix}\)</span> is similarly transformed.</p>
+<p>The circle <span class="math inline">\(C\)</span> whose equation is <span class="math inline">\(x^2 + y^2 = 1\)</span> transforms under <span class="math inline">\(T\)</span> to a curve <span class="math inline">\(E\)</span>. Show that <span class="math inline">\(E\)</span> has equation <span class="math display">\[8X^2 + 12XY + 17Y^2 = 80,\]</span> and state the area of the region bounded by <span class="math inline">\(E\)</span>. Show also that the greatest value of <span class="math inline">\(X\)</span> on <span class="math inline">\(E\)</span> is <span class="math inline">\(2\sqrt{17/5}\)</span>.</p>
+<p>Find the equation of the tangent to <span class="math inline">\(E\)</span> at the point which corresponds to the point <span class="math inline">\(\frac15(3, 4)\)</span> on <span class="math inline">\(C\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>A matrix transformation usually moves every vector to a new direction. But almost every matrix has a few special directions it does not turn at all, only stretching or shrinking along them. These are its <em>eigenvectors</em> (from the German <em>eigen</em>, “own” or “characteristic”), and the stretch factors are its <em>eigenvalues</em>. Once you know them, the transformation becomes transparent: in the right coordinates it is just a stretch along two axes.</p>
+<p>This question finds the eigenvectors of a particular matrix and uses them to understand what it does to a circle. Eigenvectors are one of the most useful ideas in all of applied mathematics. They describe the natural vibrations of a bridge, the principal axes of a spinning object, the energy levels of an atom, the most important directions in a cloud of data, and the ranking of web pages by Google’s original PageRank algorithm.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>What does it mean for <span class="math inline">\(T\)</span> to leave a vector “unchanged in direction but multiplied by a scalar”? Write it as an equation.</p>
+</div>
+<p>It means <span class="math inline">\(T\mathbf{v} = \lambda\mathbf{v}\)</span> for some number <span class="math inline">\(\lambda\)</span>: <span class="math inline">\(\mathbf{v}\)</span> is an eigenvector with eigenvalue <span class="math inline">\(\lambda\)</span>. Notice that the two vectors in the question, <span class="math inline">\((1, 2)\)</span> and <span class="math inline">\((2, -1)\)</span>, are perpendicular. That is not a coincidence: the matrix is <em>symmetric</em>, and symmetric matrices always have perpendicular eigenvectors.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-eigenvectors" class="stage"><span class="stage-n">Stage 1</span> The eigenvectors</h4>
+<p><span class="math display">\[T\begin{pmatrix} 1 \\ 2 \end{pmatrix} = \frac25\begin{pmatrix} 9 - 4 \\ -2 + 12 \end{pmatrix} = \frac25\begin{pmatrix} 5 \\ 10 \end{pmatrix} = 2\begin{pmatrix} 1 \\ 2 \end{pmatrix}, \qquad
+  T\begin{pmatrix} 2 \\ -1 \end{pmatrix} = \frac25\begin{pmatrix} 20 \\ -10 \end{pmatrix} = 4\begin{pmatrix} 2 \\ -1 \end{pmatrix}.\]</span> So <span class="math inline">\((1, 2)\)</span> is stretched by <span class="math inline">\(2\)</span> and <span class="math inline">\((2, -1)\)</span> by <span class="math inline">\(4\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-image-of-the-circle" class="stage"><span class="stage-n">Stage 2</span> The image of the circle</h4>
+<div class="askyourself">
+<p>To find the equation of <span class="math inline">\(E\)</span>, express <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in terms of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> (invert the matrix), and substitute into <span class="math inline">\(x^2 + y^2 = 1\)</span>.</p>
+</div>
+<p>The matrix <span class="math inline">\(\frac25\begin{pmatrix} 9 &amp; -2 \\ -2 &amp; 6 \end{pmatrix}\)</span> has determinant <span class="math inline">\(\frac{4}{25}(54 - 4) = 8\)</span>, and its inverse is <span class="math inline">\(\frac{1}{20}\begin{pmatrix} 6 &amp; 2 \\ 2 &amp; 9 \end{pmatrix}\)</span>. So <span class="math inline">\(x = \frac{6X + 2Y}{20}\)</span> and <span class="math inline">\(y = \frac{2X + 9Y}{20}\)</span>, and <span class="math inline">\(x^2 + y^2 = 1\)</span> becomes <span class="math display">\[(6X + 2Y)^2 + (2X + 9Y)^2 = 400 \quad\Longrightarrow\quad 40X^2 + 60XY + 85Y^2 = 400,\]</span> which, divided by <span class="math inline">\(5\)</span>, is <span class="math inline">\(8X^2 + 12XY + 17Y^2 = 80\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>What shape is <span class="math inline">\(E\)</span>, and what is its area? Use the eigenvectors.</p>
+</div>
+<p>The unit circle has radius <span class="math inline">\(1\)</span> in every direction. In the direction of <span class="math inline">\((2, -1)\)</span> it is stretched by <span class="math inline">\(4\)</span>, and in the perpendicular direction <span class="math inline">\((1, 2)\)</span> by <span class="math inline">\(2\)</span>. So <span class="math inline">\(E\)</span> is an ellipse with semi-axes <span class="math inline">\(4\)</span> and <span class="math inline">\(2\)</span>, along the eigenvector directions (Figure 7.2.1), and its area is <span class="math inline">\(\pi \times 4 \times 2 = 8\pi\)</span>. (Equivalently, any linear map multiplies areas by <span class="math inline">\(|\det T| = 8\)</span>, and the circle has area <span class="math inline">\(\pi\)</span>.)</p>
+<h4 id="stagemark3-the-greatest-value-of-x" class="stage"><span class="stage-n">Stage 3</span> The greatest value of <span class="math inline">\(X\)</span></h4>
+<div class="askyourself">
+<p>On <span class="math inline">\(C\)</span>, <span class="math inline">\(X = \frac25(9x - 2y)\)</span>. How large can <span class="math inline">\(9x - 2y\)</span> be when <span class="math inline">\(x^2 + y^2 = 1\)</span>?</p>
+</div>
+<p><span class="math inline">\(9x - 2y\)</span> is the dot product of <span class="math inline">\((9, -2)\)</span> with the unit vector <span class="math inline">\((x, y)\)</span>, so its largest value is <span class="math inline">\(|(9, -2)| = \sqrt{85}\)</span>, attained when <span class="math inline">\((x, y)\)</span> points along <span class="math inline">\((9, -2)\)</span>. Hence the greatest value of <span class="math inline">\(X\)</span> is <span class="math inline">\(\frac25\sqrt{85} = 2\sqrt{\frac{85}{25}} = 2\sqrt{\frac{17}{5}}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-a-tangent" class="stage"><span class="stage-n">Stage 4</span> A tangent</h4>
+<div class="pausebox">
+<p>The point <span class="math inline">\(\frac15(3, 4)\)</span> on <span class="math inline">\(C\)</span> has tangent line <span class="math inline">\(3x + 4y = 5\)</span>. A linear map sends tangent lines to tangent lines. Use this to find the tangent to <span class="math inline">\(E\)</span>.</p>
+</div>
+<p>Substituting <span class="math inline">\(x = \frac{6X + 2Y}{20}\)</span>, <span class="math inline">\(y = \frac{2X + 9Y}{20}\)</span> into <span class="math inline">\(3x + 4y = 5\)</span>: <span class="math display">\[\frac{3(6X + 2Y) + 4(2X + 9Y)}{20} = 5 \quad\Longrightarrow\quad 26X + 42Y = 100,\]</span> that is, <span class="math inline">\(13X + 21Y = 50\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>(Check: the point itself is <span class="math inline">\(T\bigl(\frac35, \frac45\bigr) = \bigl(\frac{38}{25}, \frac{36}{25}\bigr)\)</span>, and <span class="math inline">\(13 \cdot \frac{38}{25} + 21 \cdot \frac{36}{25} = \frac{494 + 756}{25} = 50\)</span>.)</p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-2-1.svg" alt="Figure 7.2.1"><figcaption><span class="fig-label">Figure 7.2.1</span> The unit circle <span class="math inline">\(C\)</span> (dashed) and its image <span class="math inline">\(E\)</span> under <span class="math inline">\(T\)</span>. Along the eigenvector <span class="math inline">\((2, -1)\)</span> the circle is stretched by a factor of <span class="math inline">\(4\)</span>; along the perpendicular eigenvector <span class="math inline">\((1, 2)\)</span>, by a factor of <span class="math inline">\(2\)</span>. So <span class="math inline">\(E\)</span> is an ellipse with semi-axes <span class="math inline">\(4\)</span> and <span class="math inline">\(2\)</span> along those directions, and area <span class="math inline">\(8\pi\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Eigenvectors are the natural axes.</strong> In the coordinates given by the eigenvectors, <span class="math inline">\(T\)</span> is just a stretch by <span class="math inline">\(4\)</span> and by <span class="math inline">\(2\)</span>, and its effect on a circle is obvious.</p></li>
+<li><p><strong>Determinants measure area.</strong> The area of <span class="math inline">\(E\)</span> is <span class="math inline">\(|\det T|\)</span> times the area of <span class="math inline">\(C\)</span>.</p></li>
+<li><p><strong>Linear maps preserve tangency.</strong> Transforming the circle’s tangent gave the ellipse’s tangent with almost no calculation.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">The spectral theorem</div>
+<p>Every real symmetric matrix has a full set of perpendicular eigenvectors, with real eigenvalues. This is the <em>spectral theorem</em>, one of the central results of a first linear algebra course. It says that every symmetric linear map is, in suitable perpendicular coordinates, just a stretch along each axis. Equivalently, every quadratic form like <span class="math inline">\(8X^2 + 12XY + 17Y^2\)</span> can be rotated into the form <span class="math inline">\(\lambda_1 u^2 + \lambda_2 v^2\)</span>, which is why every central conic is an ellipse or hyperbola with perpendicular axes (the <em>principal axis theorem</em>). The idea goes back to Cauchy in the 1820s, who used it to find the principal axes of quadric surfaces and of the stress in a solid body.</p>
+</div>
+<h3 id="eigenvectors-everywhere">Eigenvectors everywhere</h3>
+<p>Here are a few of the places eigenvectors appear.</p>
+<ul>
+<li><p><strong>Vibrations.</strong> A system of masses and springs vibrates in <em>normal modes</em>, patterns in which every part moves in step at a single frequency. These are eigenvectors of a matrix, and the frequencies come from the eigenvalues (Section 11.2).</p></li>
+<li><p><strong>Data.</strong> The directions in which a cloud of data points is most spread out are the eigenvectors of its covariance matrix. Finding them is <em>principal component analysis</em>, one of the basic tools of statistics and machine learning (Section 13.7).</p></li>
+<li><p><strong>Quantum mechanics.</strong> The possible results of measuring a quantity are the eigenvalues of a matrix (or operator), and the energy levels of an atom are eigenvalues.</p></li>
+<li><p><strong>Web search.</strong> Google’s PageRank, the original idea behind the search engine, ranks pages by the entries of the eigenvector, with eigenvalue <span class="math inline">\(1\)</span>, of a huge matrix describing the links between pages.</p></li>
+</ul>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Choose coordinates adapted to the transformation</div>
+<p><em>To understand a linear transformation, find the directions it does not rotate. In those coordinates it becomes simple.</em></p>
+<p>This is the same idea as choosing the Fermat point as origin in <a href="../ch05/fermat-point.html">Section 5.6</a>, or changing variables to simplify a map in <a href="../ch02/squaring-minus-two.html">Section 2.8</a>: the right coordinates make the structure obvious.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Finding eigenvalues.</strong> Show that the eigenvalues of <span class="math inline">\(\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span> are the roots of <span class="math inline">\(\lambda^2 - (a + d)\lambda + (ad - bc) = 0\)</span>, and check that the matrix in the question gives <span class="math inline">\(\lambda = 2\)</span> and <span class="math inline">\(4\)</span>.</p></li>
+<li><p><strong>Perpendicular eigenvectors.</strong> Show that if <span class="math inline">\(\mathbf{M}\)</span> is symmetric and <span class="math inline">\(\mathbf{Mu} = \lambda\mathbf{u}\)</span>, <span class="math inline">\(\mathbf{Mv} = \mu\mathbf{v}\)</span> with <span class="math inline">\(\lambda \neq \mu\)</span>, then <span class="math inline">\(\mathbf{u} \cdot \mathbf{v} = 0\)</span>. (<em>Hint:</em> compute <span class="math inline">\(\mathbf{v} \cdot \mathbf{Mu}\)</span> in two ways.)</p></li>
+<li><p><strong>A rotation.</strong> Show that the rotation matrix <span class="math inline">\(\begin{pmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{pmatrix}\)</span> has no real eigenvectors unless <span class="math inline">\(\theta\)</span> is a multiple of <span class="math inline">\(\pi\)</span>. What are its complex eigenvalues?</p></li>
+<li><p><strong>Powers.</strong> Using the eigenvectors, find <span class="math inline">\(T^n\begin{pmatrix} 1 \\ 0 \end{pmatrix}\)</span>. (<em>Hint:</em> write <span class="math inline">\((1, 0)\)</span> as a combination of <span class="math inline">\((1, 2)\)</span> and <span class="math inline">\((2, -1)\)</span>.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Gilbert Strang, <em>Introduction to Linear Algebra</em></strong> (Wellesley-Cambridge). Chapter 6 is an excellent introduction to eigenvalues and their applications.</p></li>
+<li><p><strong>Kurt Bryan &amp; Tanya Leise, “The $25<span>,</span>000<span>,</span>000<span>,</span>000 eigenvector: the linear algebra behind Google”</strong>, <em>SIAM Review</em> 48 (2006). Readable and freely available.</p></li>
+<li><p><strong>3Blue1Brown, <em>Essence of Linear Algebra</em></strong> (video series, free online). Beautiful animations of exactly the geometric ideas in this section.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="matrix-rules.html">← 7.1 Rules That Fail for Matrices</a><a class="next" href="determinant-axioms.html">→ 7.3 What Makes a Determinant</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

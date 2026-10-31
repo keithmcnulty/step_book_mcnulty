@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7.6 Hyperbolic Rotations and Relativity — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 7 · Linear Algebra and Geometry</a>
+    <div class="src">STEP III · 1991 · Question 6</div>
+    <div class="sec-head"><span class="sec-num">7.6</span><h1>Hyperbolic Rotations and Relativity</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-6-hyperbolic-rotations.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 7</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The transformation <span class="math inline">\(T\)</span> from <span class="math inline">\(\begin{pmatrix} x \\ y \end{pmatrix}\)</span> to <span class="math inline">\(\begin{pmatrix} x&#39; \\ y&#39; \end{pmatrix}\)</span> in two-dimensional space is given by <span class="math display">\[\begin{pmatrix} x&#39; \\ y&#39; \end{pmatrix} = \begin{pmatrix} \cosh u &amp; \sinh u \\ \sinh u &amp; \cosh u \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix},\]</span> where <span class="math inline">\(u\)</span> is a positive real constant. Show that the curve with equation <span class="math inline">\(x^2 - y^2 = 1\)</span> is transformed into itself. Find the equations of two straight lines through the origin which transform into themselves.</p>
+<p>A line, not necessarily through the origin, which has gradient <span class="math inline">\(\tanh v\)</span> transforms under <span class="math inline">\(T\)</span> into a line with gradient <span class="math inline">\(\tanh v&#39;\)</span>. Show that <span class="math inline">\(v&#39; = v + u\)</span>.</p>
+<p>The lines <span class="math inline">\(\ell_1\)</span> and <span class="math inline">\(\ell_2\)</span> with gradients <span class="math inline">\(\tanh v_1\)</span> and <span class="math inline">\(\tanh v_2\)</span> transform under <span class="math inline">\(T\)</span> into lines with gradients <span class="math inline">\(\tanh v_1&#39;\)</span> and <span class="math inline">\(\tanh v_2&#39;\)</span> respectively. Find the relation satisfied by <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span> that is necessary and sufficient for <span class="math inline">\(\ell_1\)</span> and <span class="math inline">\(\ell_2\)</span> to intersect at the same angle as their transforms.</p>
+<p>In the case when <span class="math inline">\(\ell_1\)</span> and <span class="math inline">\(\ell_2\)</span> meet at the origin, illustrate in a diagram the relation between <span class="math inline">\(\ell_1\)</span>, <span class="math inline">\(\ell_2\)</span> and their transforms.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>A rotation matrix <span class="math inline">\(\begin{pmatrix} \cos u &amp; -\sin u \\ \sin u &amp; \cos u \end{pmatrix}\)</span> moves points round the circle <span class="math inline">\(x^2 + y^2 = 1\)</span>, and rotating by <span class="math inline">\(u\)</span> then by <span class="math inline">\(w\)</span> is rotating by <span class="math inline">\(u + w\)</span>. Replace <span class="math inline">\(\cos\)</span> and <span class="math inline">\(\sin\)</span> by <span class="math inline">\(\cosh\)</span> and <span class="math inline">\(\sinh\)</span>, adjust a sign, and you get the matrix in this question. It moves points along the hyperbola <span class="math inline">\(x^2 - y^2 = 1\)</span> instead, and it too adds its “angles”. It is a <em>hyperbolic rotation</em>.</p>
+<p>This is not just a curiosity. With <span class="math inline">\(x\)</span> standing for time and <span class="math inline">\(y\)</span> for distance (in units where the speed of light is <span class="math inline">\(1\)</span>), the matrix is a <em>Lorentz boost</em>: the transformation, discovered in Einstein’s special relativity, between the measurements of two observers moving at constant velocity relative to each other. The “hyperbolic angle” <span class="math inline">\(u\)</span> is the <em>rapidity</em>, and the fact that rapidities add explains the strange velocity-addition law we met in <a href="../ch03/addition-laws.html">Section 3.8</a>.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>What identity do <span class="math inline">\(\cosh u\)</span> and <span class="math inline">\(\sinh u\)</span> satisfy, analogous to <span class="math inline">\(\cos^2u + \sin^2u = 1\)</span>? And what are the addition formulas for <span class="math inline">\(\cosh(u + v)\)</span> and <span class="math inline">\(\sinh(u + v)\)</span>?</p>
+</div>
+<p><span class="math inline">\(\cosh^2u - \sinh^2u = 1\)</span>, and <span class="math display">\[\begin{aligned}
+  \cosh(u + v) &amp;= \cosh u\cosh v + \sinh u\sinh v, \\
+  \sinh(u + v) &amp;= \sinh u\cosh v + \cosh u\sinh v.
+\end{aligned}\]</span> You can check these from the definitions <span class="math inline">\(\cosh u = \frac12(e^u + e^{-u})\)</span> and <span class="math inline">\(\sinh u = \frac12(e^u - e^{-u})\)</span>. The point <span class="math inline">\((\cosh v, \sinh v)\)</span> lies on the hyperbola <span class="math inline">\(x^2 - y^2 = 1\)</span>, just as <span class="math inline">\((\cos v, \sin v)\)</span> lies on the circle.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-hyperbola-is-invariant" class="stage"><span class="stage-n">Stage 1</span> The hyperbola is invariant</h4>
+<p><span class="math display">\[\begin{aligned}
+  x&#39;^2 - y&#39;^2 &amp;= (x\cosh u + y\sinh u)^2 - (x\sinh u + y\cosh u)^2 \\
+  &amp;= (x^2 - y^2)(\cosh^2u - \sinh^2u) = x^2 - y^2,
+\end{aligned}\]</span> since the cross terms <span class="math inline">\(2xy\cosh u\sinh u\)</span> cancel. So <span class="math inline">\(T\)</span> preserves <span class="math inline">\(x^2 - y^2\)</span>, and in particular maps the hyperbola <span class="math inline">\(x^2 - y^2 = 1\)</span> to itself.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>Which lines through the origin are mapped to themselves? (Look for eigenvectors.)</p>
+</div>
+<p><span class="math inline">\(T\begin{pmatrix} 1 \\ 1 \end{pmatrix} = (\cosh u + \sinh u)\begin{pmatrix} 1 \\ 1 \end{pmatrix} = e^u\begin{pmatrix} 1 \\ 1 \end{pmatrix}\)</span> and <span class="math inline">\(T\begin{pmatrix} 1 \\ -1 \end{pmatrix} = e^{-u}\begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span>. So the lines <span class="math inline">\(y = x\)</span> and <span class="math inline">\(y = -x\)</span> are each mapped to themselves: one is stretched by <span class="math inline">\(e^u\)</span>, the other shrunk by <span class="math inline">\(e^{-u}\)</span>. These are the asymptotes of the hyperbola.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-adding-hyperbolic-angles" class="stage"><span class="stage-n">Stage 2</span> Adding hyperbolic angles</h4>
+<p>A line with gradient <span class="math inline">\(\tanh v\)</span> has direction vector <span class="math inline">\((\cosh v, \sinh v)\)</span>. Its image has direction <span class="math display">\[T\begin{pmatrix} \cosh v \\ \sinh v \end{pmatrix} = \begin{pmatrix} \cosh u\cosh v + \sinh u\sinh v \\ \sinh u\cosh v + \cosh u\sinh v \end{pmatrix} = \begin{pmatrix} \cosh(u + v) \\ \sinh(u + v) \end{pmatrix},\]</span> which has gradient <span class="math inline">\(\tanh(u + v)\)</span>. A linear map sends parallel lines to parallel lines, so this holds whether or not the line passes through the origin. Hence <span class="math inline">\(v&#39; = v + u\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-when-are-angles-preserved" class="stage"><span class="stage-n">Stage 3</span> When are angles preserved?</h4>
+<div class="askyourself">
+<p>The angle <span class="math inline">\(\psi\)</span> between two lines with gradients <span class="math inline">\(m_1\)</span>, <span class="math inline">\(m_2\)</span> satisfies <span class="math inline">\(\tan\psi = \left|\frac{m_1 - m_2}{1 + m_1m_2}\right|\)</span>. Simplify this when <span class="math inline">\(m_i = \tanh v_i\)</span>. (<em>Hint:</em> put everything over <span class="math inline">\(\cosh v_1\cosh v_2\)</span>.)</p>
+</div>
+<p>Using <span class="math inline">\(\tanh v_1 - \tanh v_2 = \dfrac{\sinh(v_1 - v_2)}{\cosh v_1\cosh v_2}\)</span> and <span class="math inline">\(1 + \tanh v_1\tanh v_2 = \dfrac{\cosh(v_1 + v_2)}{\cosh v_1\cosh v_2}\)</span>, <span class="math display">\[\tan\psi = \left|\frac{\sinh(v_1 - v_2)}{\cosh(v_1 + v_2)}\right|.\]</span> After the transformation, <span class="math inline">\(v_1 - v_2\)</span> is unchanged and <span class="math inline">\(v_1 + v_2\)</span> becomes <span class="math inline">\(v_1 + v_2 + 2u\)</span>.</p>
+<div class="pausebox">
+<p>When is <span class="math inline">\(\cosh(v_1 + v_2) = \cosh(v_1 + v_2 + 2u)\)</span>?</p>
+</div>
+<p>Assuming the lines are not parallel (<span class="math inline">\(v_1 \neq v_2\)</span>), the angles are equal exactly when <span class="math inline">\(\cosh(v_1 + v_2) = \cosh(v_1 + v_2 + 2u)\)</span>. Since <span class="math inline">\(\cosh\)</span> is even and strictly increasing on <span class="math inline">\([0, \infty)\)</span>, this means <span class="math inline">\(v_1 + v_2 = \pm(v_1 + v_2 + 2u)\)</span>. The plus sign gives <span class="math inline">\(u = 0\)</span>, which is excluded, so <span class="math display">\[v_1 + v_2 = -u. \qed\]</span></p>
+<h4 id="stagemark4-the-picture" class="stage"><span class="stage-n">Stage 4</span> The picture</h4>
+<p>When <span class="math inline">\(v_1 + v_2 = -u\)</span>, the transformed angles are <span class="math inline">\(v_1&#39; = v_1 + u = -v_2\)</span> and <span class="math inline">\(v_2&#39; = v_2 + u = -v_1\)</span>. So the image of <span class="math inline">\(\ell_1\)</span> has gradient <span class="math inline">\(-\tanh v_2\)</span>: it is the reflection of <span class="math inline">\(\ell_2\)</span> in the <span class="math inline">\(x\)</span>-axis, and the image of <span class="math inline">\(\ell_2\)</span> is the reflection of <span class="math inline">\(\ell_1\)</span>. For lines through the origin, the transformation swaps the two lines and reflects them, which explains why the angle between them is unchanged (Figure 7.6.1).</p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-6-1.svg" alt="Figure 7.6.1"><figcaption><span class="fig-label">Figure 7.6.1</span> A hyperbolic rotation with <span class="math inline">\(u = 0.7\)</span> applied to lines <span class="math inline">\(\ell_1\)</span>, <span class="math inline">\(\ell_2\)</span> through the origin with <span class="math inline">\(v_1 = 0.3\)</span>, <span class="math inline">\(v_2 = -1.0\)</span>, so that <span class="math inline">\(v_1 + v_2 = -u\)</span>. The image of <span class="math inline">\(\ell_1\)</span> (dashed plum) is the mirror image of <span class="math inline">\(\ell_2\)</span>, and the image of <span class="math inline">\(\ell_2\)</span> (dashed amber) is the mirror image of <span class="math inline">\(\ell_1\)</span>, so the angle between the lines is preserved. The teal dots on the hyperbola are equally spaced in hyperbolic angle (<span class="math inline">\(v = 0, 0.5, 1, 1.5\)</span>); <span class="math inline">\(T\)</span> moves each one to the next point <span class="math inline">\(0.7\)</span> further along.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>An invariant quadratic form.</strong> <span class="math inline">\(T\)</span> preserves <span class="math inline">\(x^2 - y^2\)</span>, just as a rotation preserves <span class="math inline">\(x^2 + y^2\)</span>.</p></li>
+<li><p><strong>Eigenvectors are the asymptotes.</strong> The lines left invariant are <span class="math inline">\(y = \pm x\)</span>, stretched and shrunk by <span class="math inline">\(e^{\pm u}\)</span>.</p></li>
+<li><p><strong>Hyperbolic angles add.</strong> Parametrising directions by <span class="math inline">\(\tanh v\)</span> turned the action of <span class="math inline">\(T\)</span> into simple addition, <span class="math inline">\(v \mapsto v + u\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Special relativity</div>
+<p>In Einstein’s special relativity (1905), different observers moving at constant velocity relative to each other disagree about time and distance, but they all agree on the quantity <span class="math inline">\(t^2 - x^2\)</span> (with the speed of light <span class="math inline">\(c = 1\)</span>), the <em>spacetime interval</em>. The transformations preserving it are the <em>Lorentz transformations</em>, and in one space dimension they are exactly the matrices in this question, with <span class="math inline">\(x\)</span> as time and <span class="math inline">\(y\)</span> as distance. An observer moving with velocity <span class="math inline">\(v = \tanh u\)</span> uses coordinates related to ours by this matrix, with <span class="math inline">\(\cosh u = \frac{1}{\sqrt{1 - v^2}}\)</span>, the famous factor <span class="math inline">\(\gamma\)</span> of time dilation. Hermann Minkowski saw in 1908 that this makes spacetime a four-dimensional geometry with a “distance” that has a minus sign in it: “Henceforth space by itself, and time by itself, are doomed to fade away into mere shadows.”</p>
+</div>
+<h3 id="what-the-question-means-physically">What the question means physically</h3>
+<ul>
+<li><p><strong>The invariant lines</strong> <span class="math inline">\(y = \pm x\)</span> are the paths of light rays. They are the same for every observer: the speed of light is the same for everyone, the founding principle of relativity.</p></li>
+<li><p><strong>The hyperbola</strong> <span class="math inline">\(x^2 - y^2 = 1\)</span> is the set of events one unit of “proper time” from the origin, as measured by observers moving at all possible constant velocities.</p></li>
+<li><p><strong>Adding rapidities.</strong> A line of gradient <span class="math inline">\(\tanh v\)</span> through the origin is the path of an object moving at velocity <span class="math inline">\(\tanh v\)</span>. A boost by rapidity <span class="math inline">\(u\)</span> changes its velocity to <span class="math inline">\(\tanh(v + u) = \frac{\tanh v + \tanh u}{1 + \tanh v\tanh u}\)</span>, which is Einstein’s velocity-addition formula from <a href="../ch03/addition-laws.html">Section 3.8</a>. Velocities do not add; rapidities do.</p></li>
+</ul>
+<p>And in <a href="../ch05/poincare-disc.html">Section 5.8</a> we saw the same addition formula as the distance rule in the Poincaré disc: the set of possible velocities in relativity, measured with rapidity, is a hyperbolic space.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Find the right parametrisation</div>
+<p><em>Describe your objects by a parameter in which the transformation becomes simple.</em></p>
+<p>Describing directions by their gradient, <span class="math inline">\(T\)</span> acts by a messy formula; describing them by <span class="math inline">\(v\)</span> with gradient <span class="math inline">\(\tanh v\)</span>, it simply adds <span class="math inline">\(u\)</span>. The same idea made rotations simple with angles, and made the map <span class="math inline">\(x \mapsto x^2 - 2\)</span> simple in <a href="../ch02/squaring-minus-two.html">Section 2.8</a>.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Composing boosts.</strong> Show that <span class="math inline">\(T(u)T(w) = T(u + w)\)</span>, where <span class="math inline">\(T(u)\)</span> is the matrix in the question. What is <span class="math inline">\(T(u)^{-1}\)</span>?</p></li>
+<li><p><strong>Time dilation.</strong> A spaceship travels at <span class="math inline">\(0.8\)</span> times the speed of light. Find its rapidity <span class="math inline">\(u\)</span> and <span class="math inline">\(\cosh u\)</span>. If <span class="math inline">\(10\)</span> years pass on Earth, how much time passes on the ship? (Use <span class="math inline">\(t_{\text{ship}} = t_{\text{Earth}}/\cosh u\)</span>.)</p></li>
+<li><p><strong>Hyperbolic area.</strong> Show that the area enclosed by the hyperbola <span class="math inline">\(x^2 - y^2 = 1\)</span>, the <span class="math inline">\(x\)</span>-axis and the line from the origin to <span class="math inline">\((\cosh v, \sinh v)\)</span> is <span class="math inline">\(\frac v2\)</span>, just as the corresponding area for a circle is <span class="math inline">\(\frac\theta2\)</span>. Why must <span class="math inline">\(T\)</span> preserve such areas?</p></li>
+<li><p><strong>Squeeze.</strong> Change coordinates to <span class="math inline">\(p = x + y\)</span>, <span class="math inline">\(q = x - y\)</span>. Show that <span class="math inline">\(T\)</span> becomes <span class="math inline">\(p \mapsto e^up\)</span>, <span class="math inline">\(q \mapsto e^{-u}q\)</span>, and that the hyperbola becomes <span class="math inline">\(pq = 1\)</span>. Describe the transformation geometrically in these coordinates.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Edwin Taylor &amp; John Wheeler, <em>Spacetime Physics</em></strong> (W. H. Freeman). Special relativity with rapidity and spacetime diagrams, for students with A-level mathematics.</p></li>
+<li><p><strong>Tevian Dray, <em>The Geometry of Special Relativity</em></strong> (CRC Press). Relativity as hyperbolic trigonometry, in exactly the spirit of this section.</p></li>
+<li><p><strong>Albert Einstein, <em>Relativity: The Special and the General Theory</em></strong> (various editions). Einstein’s own popular account, still very readable.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="rotations-3d.html">← 7.5 Rotating in Three Dimensions</a><a class="next" href="lax-pairs.html">→ 7.7 Quantities That Never Change</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

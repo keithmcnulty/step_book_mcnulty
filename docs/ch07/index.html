@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 7: Linear Algebra and Geometry — Beyond STEP</title>
+<meta name="description" content="Matrices as objects in their own right: eigenvectors, determinants, rotations and invariants, ending with Euler&#x27;s formula.">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter</div>
+    <div class="ch-num">7</div>
+    <h1>Linear Algebra and Geometry</h1>
+    <p class="strap">A matrix is not a table of numbers. It is a transformation of space, and it has a life of its own.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Download the whole chapter</span><span class="dl-sub">PDF, typeset for print</span></span></a>
+  </div>
+  <h2 class="contents-head">In this chapter</h2>
+  <ol class="toc"><li><a class="toc-link" href="matrix-rules.html"><span class="toc-num">7.1</span>
+<span class="toc-title">Rules That Fail for Matrices</span>
+<span class="toc-src">STEP II 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-1-matrix-rules.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="eigenvectors.html"><span class="toc-num">7.2</span>
+<span class="toc-title">Stretching Without Turning</span>
+<span class="toc-src">STEP III 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-2-eigenvectors.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="determinant-axioms.html"><span class="toc-num">7.3</span>
+<span class="toc-title">What Makes a Determinant</span>
+<span class="toc-src">STEP II 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-3-determinant-axioms.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="finite-order.html"><span class="toc-num">7.4</span>
+<span class="toc-title">Matrices That Return to the Start</span>
+<span class="toc-src">STEP II 2020</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-4-finite-order.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="rotations-3d.html"><span class="toc-num">7.5</span>
+<span class="toc-title">Rotating in Three Dimensions</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-5-rotations-3d.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="hyperbolic-rotations.html"><span class="toc-num">7.6</span>
+<span class="toc-title">Hyperbolic Rotations and Relativity</span>
+<span class="toc-src">STEP III 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-6-hyperbolic-rotations.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="lax-pairs.html"><span class="toc-num">7.7</span>
+<span class="toc-title">Quantities That Never Change</span>
+<span class="toc-src">STEP III 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-7-lax-pairs.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="four-squares.html"><span class="toc-num">7.8</span>
+<span class="toc-title">Four Squares</span>
+<span class="toc-src">STEP III 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-8-four-squares.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="platonic-solids.html"><span class="toc-num">7.9</span>
+<span class="toc-title">Only Five Platonic Solids</span>
+<span class="toc-src">STEP III 1999</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-9-platonic-solids.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">Looking back: what we have learned</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">Chapter 7  \(\cdot\)  Introduction</div>
+    <h1 class="essay-title">Transformations of Space</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>We think basis-free, we write basis-free, but when the chips are down we close the office door and compute with matrices like fury.</p>
+<p class="who">— Irving Kaplansky, on his and Paul Halmos’s approach to linear algebra</p>
+</div>
+<p>At school, a matrix usually appears as a tool for solving simultaneous equations, or as a recipe for transforming points: multiply the matrix by a column vector and read off the new coordinates. Both are useful, but they hide what makes matrices one of the most important ideas in mathematics. A matrix is a <em>linear transformation</em>: a way of stretching, rotating, reflecting and shearing space, and matrices can be added, multiplied, raised to powers and differentiated, just like numbers. Except that they are not like numbers. Their multiplication depends on the order, they can multiply to zero, and they have hidden invariants (trace, determinant, eigenvalues) that capture their essential behaviour regardless of how they are written down.</p>
+<h3 id="why-linear-algebra-matters">Why linear algebra matters</h3>
+<p>Linear algebra is probably the most widely used branch of mathematics. Every computer graphics engine, from video games to film animation, is a machine for multiplying matrices: every rotation of a character, every camera angle, every perspective projection is a matrix. The search engines and recommendation systems of the internet are built on eigenvectors. Engineers find the vibration frequencies of bridges and buildings from eigenvalues; statisticians find the main patterns in data with them; quantum mechanics is written entirely in the language of linear algebra. And modern machine learning, at its core, is very large amounts of matrix multiplication.</p>
+<p>There is a reason for this ubiquity. Linear problems are the ones we can solve completely, and almost every non-linear problem looks linear if you zoom in close enough. That is the idea of calculus, and it means that linear algebra is the language in which the local behaviour of almost everything is described.</p>
+<h3 id="what-you-will-meet-at-university">What you will meet at university</h3>
+<p>Linear algebra is one of the two pillars of the first year, alongside analysis. You will meet <em>vector spaces</em> (sets where you can add and scale, of which the plane and three-dimensional space are just the first examples) and <em>linear maps</em> between them, and learn that matrices are simply linear maps written in coordinates. You will study determinants, eigenvalues and eigenvectors, and the <em>spectral theorem</em>, which says that symmetric matrices can be diagonalised by a rotation. Later courses use this everywhere: in differential equations (Chapter 8), in geometry (where rotations and reflections form groups), in the theory of <em>Lie groups</em>, which describe continuous symmetries, and in functional analysis, which is linear algebra in infinitely many dimensions.</p>
+<h3 id="the-questions-that-run-through-this-chapter">The questions that run through this chapter</h3>
+<div class="skillbox">
+<div class="box-title">Three big questions</div>
+<ol class="arabic">
+<li><p><strong>How are matrices like numbers, and how are they different?</strong> Which rules of arithmetic survive, and which fail?</p></li>
+<li><p><strong>What does a matrix really do?</strong> How can we see the geometry of a transformation, and which numbers capture it independently of coordinates?</p></li>
+<li><p><strong>What stays the same?</strong> Which quantities are preserved by transformations, or by motion, and what do they tell us?</p></li>
+</ol>
+</div>
+<p>The chapter starts with the rules of matrix algebra (<a href="../ch07/matrix-rules.html">Section 7.1</a>), then turns to the geometry of transformations: eigenvectors, determinants, matrices of finite order, rotations in three dimensions and the hyperbolic rotations of special relativity. It continues with conserved quantities of evolving matrices, the four-square identity from determinants, and ends with a counting argument, Euler’s formula, that classifies the Platonic solids.</p>
+<h3 id="ideas-in-this-chapter">Ideas in this chapter</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">7.1</td>
+<td style="text-align: left;">Rules that fail</td>
+<td style="text-align: left;">Non-commutativity; zero divisors</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.2</td>
+<td style="text-align: left;">Eigenvectors</td>
+<td style="text-align: left;">Directions a transformation does not rotate</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.3</td>
+<td style="text-align: left;">The determinant</td>
+<td style="text-align: left;">Characterised by multiplicativity; signed area</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.4</td>
+<td style="text-align: left;">Matrices of finite order</td>
+<td style="text-align: left;">Trace, determinant and Cayley–Hamilton</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.5</td>
+<td style="text-align: left;">Rotations in 3D</td>
+<td style="text-align: left;">Rodrigues’ formula from the cross product</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.6</td>
+<td style="text-align: left;">Lorentz boosts</td>
+<td style="text-align: left;">Hyperbolic angles add</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.7</td>
+<td style="text-align: left;">Conserved quantities</td>
+<td style="text-align: left;">The trace of a commutator is zero</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.8</td>
+<td style="text-align: left;">Four squares</td>
+<td style="text-align: left;">Multiplicative determinants</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.9</td>
+<td style="text-align: left;">Platonic solids</td>
+<td style="text-align: left;">Double counting and Euler’s formula</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-to-read-this-chapter">How to read this chapter</h3>
+<p>For every matrix in this chapter, draw what it does. Take the unit square, or the unit circle, or a few vectors, and sketch their images. A two-minute sketch will often show you the answer (an eigenvector, a counterexample, an invariant line) before you start calculating, and it will help you check the calculation afterwards.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="matrix-rules.html">→ Begin: 7.1 Rules That Fail for Matrices</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7.3 What Makes a Determinant — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 7 · Linear Algebra and Geometry</a>
+    <div class="src">STEP II · 2019 · Question 8</div>
+    <div class="sec-head"><span class="sec-num">7.3</span><h1>What Makes a Determinant</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-3-determinant-axioms.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 7</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The domain of the function <span class="math inline">\(\mathrm{f}\)</span> is the set of all <span class="math inline">\(2 \times 2\)</span> matrices and its range is the set of real numbers. Thus, if <span class="math inline">\(\mathbf{M}\)</span> is a <span class="math inline">\(2 \times 2\)</span> matrix, then <span class="math inline">\(\mathrm{f}(\mathbf{M}) \in \mathbb{R}\)</span>.</p>
+<p>The function <span class="math inline">\(\mathrm{f}\)</span> has the property that <span class="math inline">\(\mathrm{f}(\mathbf{MN}) = \mathrm{f}(\mathbf{M})\mathrm{f}(\mathbf{N})\)</span> for any <span class="math inline">\(2 \times 2\)</span> matrices <span class="math inline">\(\mathbf{M}\)</span> and <span class="math inline">\(\mathbf{N}\)</span>.</p>
+<ol class="roman">
+<li><p>You are given that there is a matrix <span class="math inline">\(\mathbf{M}\)</span> such that <span class="math inline">\(\mathrm{f}(\mathbf{M}) \neq 0\)</span>. Let <span class="math inline">\(\mathbf{I}\)</span> be the <span class="math inline">\(2 \times 2\)</span> identity matrix. By considering <span class="math inline">\(\mathrm{f}(\mathbf{MI})\)</span>, show that <span class="math inline">\(\mathrm{f}(\mathbf{I}) = 1\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathbf{J} = \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}\)</span>. You are given that <span class="math inline">\(\mathrm{f}(\mathbf{J}) \neq 1\)</span>. By considering <span class="math inline">\(\mathbf{J}^2\)</span>, evaluate <span class="math inline">\(\mathrm{f}(\mathbf{J})\)</span>.</p>
+<p>Using <span class="math inline">\(\mathbf{J}\)</span>, show that, for any real numbers <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(d\)</span>, <span class="math display">\[\mathrm{f}\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix} = -\mathrm{f}\begin{pmatrix} c &amp; d \\ a &amp; b \end{pmatrix} = \mathrm{f}\begin{pmatrix} d &amp; c \\ b &amp; a \end{pmatrix}.\]</span></p></li>
+<li><p>Let <span class="math inline">\(\mathbf{K} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; k \end{pmatrix}\)</span> where <span class="math inline">\(k \in \mathbb{R}\)</span>. Use <span class="math inline">\(\mathbf{K}\)</span> to show that, if the second row of the matrix <span class="math inline">\(\mathbf{A}\)</span> is a multiple of the first row, then <span class="math inline">\(\mathrm{f}(\mathbf{A}) = 0\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mathbf{P} = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\)</span>. By considering the matrices <span class="math inline">\(\mathbf{P}^2\)</span>, <span class="math inline">\(\mathbf{P}^{-1}\)</span>, and <span class="math inline">\(\mathbf{K}^{-1}\mathbf{PK}\)</span> for suitable values of <span class="math inline">\(k\)</span>, evaluate <span class="math inline">\(\mathrm{f}(\mathbf{P})\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>The determinant of a <span class="math inline">\(2 \times 2\)</span> matrix is <span class="math inline">\(ad - bc\)</span>. Where does that formula come from, and why is it so important? One answer is that it is the factor by which the matrix scales areas. Another, which this question explores, is that the determinant is essentially <em>the only</em> function on matrices that turns matrix multiplication into ordinary multiplication: <span class="math inline">\(\det(\mathbf{MN}) = \det\mathbf{M}\det\mathbf{N}\)</span>.</p>
+<p>The question gives you an unknown function <span class="math inline">\(\mathrm{f}\)</span> with that one property (plus two mild conditions to rule out trivial cases), and asks you to deduce, step by step, how it must behave. Like the derivations of <a href="../ch06/derivations.html">Section 6.5</a>, it is an exercise in pinning an object down by its properties alone. By the end, <span class="math inline">\(\mathrm{f}\)</span> has been forced to change sign when rows are swapped, vanish on singular matrices and equal <span class="math inline">\(1\)</span> on shears: exactly the behaviour of the determinant.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>What does each special matrix in the question do? Work out <span class="math inline">\(\mathbf{JM}\)</span>, <span class="math inline">\(\mathbf{MJ}\)</span>, <span class="math inline">\(\mathbf{KM}\)</span> and <span class="math inline">\(\mathbf{PM}\)</span> for a general <span class="math inline">\(\mathbf{M} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span>.</p>
+</div>
+<p><span class="math inline">\(\mathbf{JM}\)</span> swaps the rows of <span class="math inline">\(\mathbf{M}\)</span>; <span class="math inline">\(\mathbf{MJ}\)</span> swaps its columns. <span class="math inline">\(\mathbf{KM}\)</span> multiplies the second row by <span class="math inline">\(k\)</span>. <span class="math inline">\(\mathbf{PM}\)</span> adds the second row to the first. These are the <em>elementary row operations</em> of Gaussian elimination. Since <span class="math inline">\(\mathrm{f}\)</span> turns products into products, knowing <span class="math inline">\(\mathrm{f}\)</span> on these special matrices tells you how <span class="math inline">\(\mathrm{f}\)</span> responds to each row operation.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-identity" class="stage"><span class="stage-n">Stage 1</span> The identity</h4>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{M}) = \mathrm{f}(\mathbf{MI}) = \mathrm{f}(\mathbf{M})\,\mathrm{f}(\mathbf{I})\)</span>. Since <span class="math inline">\(\mathrm{f}(\mathbf{M}) \neq 0\)</span>, divide to get <span class="math inline">\(\mathrm{f}(\mathbf{I}) = 1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-swapping" class="stage"><span class="stage-n">Stage 2</span> Swapping</h4>
+<p><span class="math inline">\(\mathbf{J}^2 = \mathbf{I}\)</span>, so <span class="math inline">\(\mathrm{f}(\mathbf{J})^2 = \mathrm{f}(\mathbf{I}) = 1\)</span>, giving <span class="math inline">\(\mathrm{f}(\mathbf{J}) = \pm1\)</span>. Since <span class="math inline">\(\mathrm{f}(\mathbf{J}) \neq 1\)</span>, <span class="math inline">\(\mathrm{f}(\mathbf{J}) = -1\)</span>.</p>
+<p>Now <span class="math inline">\(\begin{pmatrix} c &amp; d \\ a &amp; b \end{pmatrix} = \mathbf{JM}\)</span>, so its value is <span class="math inline">\(\mathrm{f}(\mathbf{J})\mathrm{f}(\mathbf{M}) = -\mathrm{f}(\mathbf{M})\)</span>. And <span class="math inline">\(\begin{pmatrix} d &amp; c \\ b &amp; a \end{pmatrix} = \mathbf{JMJ}\)</span> (swap rows, then columns), so its value is <span class="math inline">\(\mathrm{f}(\mathbf{J})^2\mathrm{f}(\mathbf{M}) = \mathrm{f}(\mathbf{M})\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-dependent-rows" class="stage"><span class="stage-n">Stage 3</span> Dependent rows</h4>
+<div class="askyourself">
+<p>First consider a matrix <span class="math inline">\(\mathbf{B}\)</span> with two <em>equal</em> rows. What is <span class="math inline">\(\mathbf{JB}\)</span>? What does that say about <span class="math inline">\(\mathrm{f}(\mathbf{B})\)</span>?</p>
+</div>
+<p>If both rows of <span class="math inline">\(\mathbf{B}\)</span> are <span class="math inline">\((a, b)\)</span>, swapping them changes nothing: <span class="math inline">\(\mathbf{JB} = \mathbf{B}\)</span>. So <span class="math inline">\(\mathrm{f}(\mathbf{B}) = \mathrm{f}(\mathbf{J})\mathrm{f}(\mathbf{B}) = -\mathrm{f}(\mathbf{B})\)</span>, which forces <span class="math inline">\(\mathrm{f}(\mathbf{B}) = 0\)</span>.</p>
+<p>Now if <span class="math inline">\(\mathbf{A}\)</span> has rows <span class="math inline">\((a, b)\)</span> and <span class="math inline">\(k(a, b)\)</span>, then <span class="math inline">\(\mathbf{A} = \mathbf{KB}\)</span>, where <span class="math inline">\(\mathbf{B}\)</span> has both rows equal to <span class="math inline">\((a, b)\)</span>. So <span class="math inline">\(\mathrm{f}(\mathbf{A}) = \mathrm{f}(\mathbf{K})\mathrm{f}(\mathbf{B}) = 0\)</span>.<span class="qed" aria-label="end of proof">■</span> (This includes <span class="math inline">\(k = 0\)</span>, where the second row is zero.)</p>
+<h4 id="stagemark4-the-shear" class="stage"><span class="stage-n">Stage 4</span> The shear</h4>
+<div class="pausebox">
+<p>Compute <span class="math inline">\(\mathbf{P}^2\)</span> and <span class="math inline">\(\mathbf{K}^{-1}\mathbf{PK}\)</span>. Choose <span class="math inline">\(k\)</span> to make them equal. What does that give for <span class="math inline">\(\mathrm{f}(\mathbf{P})\)</span>?</p>
+</div>
+<p><span class="math inline">\(\mathbf{P}^2 = \begin{pmatrix} 1 &amp; 2 \\ 0 &amp; 1 \end{pmatrix}\)</span> and, for <span class="math inline">\(k \neq 0\)</span>, <span class="math display">\[\mathbf{K}^{-1}\mathbf{PK} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; \frac1k \end{pmatrix}\begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; k \end{pmatrix} = \begin{pmatrix} 1 &amp; k \\ 0 &amp; 1 \end{pmatrix}.\]</span> With <span class="math inline">\(k = 2\)</span>, <span class="math inline">\(\mathbf{K}^{-1}\mathbf{PK} = \mathbf{P}^2\)</span>. Taking <span class="math inline">\(\mathrm{f}\)</span> of both sides, and using <span class="math inline">\(\mathrm{f}(\mathbf{K}^{-1})\mathrm{f}(\mathbf{K}) = \mathrm{f}(\mathbf{I}) = 1\)</span>, <span class="math display">\[\mathrm{f}(\mathbf{P}) = \mathrm{f}(\mathbf{P})^2,\]</span> so <span class="math inline">\(\mathrm{f}(\mathbf{P}) = 0\)</span> or <span class="math inline">\(1\)</span>. But <span class="math inline">\(\mathbf{P}\)</span> is invertible, and <span class="math inline">\(\mathrm{f}(\mathbf{P})\mathrm{f}(\mathbf{P}^{-1}) = \mathrm{f}(\mathbf{I}) = 1\)</span>, so <span class="math inline">\(\mathrm{f}(\mathbf{P}) \neq 0\)</span>. Therefore <span class="math inline">\(\mathrm{f}(\mathbf{P}) = 1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Special elements reveal the function.</strong> Applying the multiplicative property to <span class="math inline">\(\mathbf{I}\)</span>, <span class="math inline">\(\mathbf{J}\)</span>, <span class="math inline">\(\mathbf{K}\)</span> and <span class="math inline">\(\mathbf{P}\)</span> gave the value of <span class="math inline">\(\mathrm{f}\)</span> on each, and its effect on each row operation.</p></li>
+<li><p><strong>An element equal to its own transform.</strong> A matrix with equal rows is unchanged by a row swap, which changes the sign of <span class="math inline">\(\mathrm{f}\)</span>; so <span class="math inline">\(\mathrm{f}\)</span> must be zero there.</p></li>
+<li><p><strong>Conjugation preserves <span class="math inline">\(\mathrm{f}\)</span>.</strong> <span class="math inline">\(\mathrm{f}(\mathbf{K}^{-1}\mathbf{PK}) = \mathrm{f}(\mathbf{P})\)</span>, a fact used again and again in algebra.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Every multiplicative function is a function of the determinant</div>
+<p>The question stops at <span class="math inline">\(\mathrm{f}(\mathbf{P}) = 1\)</span>, but the argument can be completed. Every invertible matrix is a product of elementary matrices (row swaps, row scalings and shears), and the question shows how <span class="math inline">\(\mathrm{f}\)</span> behaves on each. It follows that <span class="math inline">\(\mathrm{f}(\mathbf{M}) = \phi(\det\mathbf{M})\)</span> for some function <span class="math inline">\(\phi\)</span> of a single real number with <span class="math inline">\(\phi(xy) = \phi(x)\phi(y)\)</span>. The determinant itself is the case <span class="math inline">\(\phi(x) = x\)</span>, but <span class="math inline">\(\phi(x) = x^3\)</span>, or <span class="math inline">\(\phi(x) = |x|^{1/2}\,\mathrm{sign}(x)\)</span>, work too. In other words, <em>the determinant is the only fundamentally new multiplicative function on matrices</em>. In the language of group theory, the determinant captures everything about the group of invertible matrices that can be seen by a commutative group.</p>
+</div>
+<h3 id="the-determinant-as-area">The determinant as area</h3>
+<p>Geometrically, a <span class="math inline">\(2 \times 2\)</span> matrix sends the unit square to a parallelogram, and <span class="math inline">\(\det\mathbf{M}\)</span> is its <em>signed area</em>: positive if the orientation is preserved, negative if it is reversed (Figure 7.3.1). The multiplicative property then has an obvious meaning: doing two transformations in turn multiplies their area scale factors. A row swap reverses orientation, which is why <span class="math inline">\(\det\mathbf{J} = -1\)</span>; a shear slides the square into a parallelogram of the same area, which is why <span class="math inline">\(\det\mathbf{P} = 1\)</span>; and a matrix with dependent rows squashes the square flat, which is why its determinant is zero. Every step of the question has a picture.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-3-1.svg" alt="Figure 7.3.1"><figcaption><span class="fig-label">Figure 7.3.1</span> The determinant as signed area. The images of the two basis vectors (amber, plum) span a parallelogram. A shear preserves area; a swap of the basis vectors reverses orientation; dependent rows (or columns) collapse the square onto a line. Doing two transformations in turn multiplies the signed areas, which is the property <span class="math inline">\(\mathrm{f}(\mathbf{MN}) = \mathrm{f}(\mathbf{M})\mathrm{f}(\mathbf{N})\)</span>.</figcaption></figure>
+<h3 id="determinants-in-higher-dimensions">Determinants in higher dimensions</h3>
+<p>For <span class="math inline">\(n \times n\)</span> matrices the determinant is the signed volume scale factor, and it is characterised by three properties: it is linear in each row, it changes sign when two rows are swapped, and it equals <span class="math inline">\(1\)</span> on the identity. From these alone you can derive the familiar expansion formulas, and Gaussian elimination gives an efficient way to compute it. The determinant appears in the change-of-variables formula for multiple integrals (the <em>Jacobian</em>), in the formula for the inverse of a matrix, and, as we saw in <a href="../ch05/polygon-distances.html">Section 5.4</a>, in the discriminant of a polynomial.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Probe an unknown function with special inputs</div>
+<p><em>When a function is known only through a property, apply the property to the simplest special inputs you can think of, and see what it forces.</em></p>
+<p>Here the identity, a swap, a scaling and a shear were enough to determine almost everything. Choosing inputs that are their own squares, inverses or conjugates is particularly effective.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Other examples.</strong> Show that <span class="math inline">\(\mathrm{f}(\mathbf{M}) = (\det\mathbf{M})^3\)</span> satisfies all the conditions of the question, and that <span class="math inline">\(\mathrm{f}(\mathbf{M}) = |\det\mathbf{M}|\)</span> satisfies the multiplicative property but not <span class="math inline">\(\mathrm{f}(\mathbf{J}) \neq 1\)</span>.</p></li>
+<li><p><strong>Column operations.</strong> Show that <span class="math inline">\(\mathrm{f}\)</span> is also zero on any matrix whose second column is a multiple of the first.</p></li>
+<li><p><strong>Scalings.</strong> Let <span class="math inline">\(\mathbf{K}_k = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; k \end{pmatrix}\)</span>. Show that <span class="math inline">\(\mathrm{f}\begin{pmatrix} k &amp; 0 \\ 0 &amp; 1 \end{pmatrix} = \mathrm{f}(\mathbf{K}_k)\)</span>, and that <span class="math inline">\(\mathrm{f}(\mathbf{K}_k)\mathrm{f}(\mathbf{K}_l) = \mathrm{f}(\mathbf{K}_{kl})\)</span>.</p></li>
+<li><p><strong>Reduction to the determinant.</strong> <span class="hard">harder</span> Show that every invertible <span class="math inline">\(2 \times 2\)</span> matrix can be written as a product of matrices of the forms <span class="math inline">\(\mathbf{J}\)</span>, <span class="math inline">\(\mathbf{K}_k\)</span> and <span class="math inline">\(\begin{pmatrix} 1 &amp; t \\ 0 &amp; 1 \end{pmatrix}\)</span>. Deduce that <span class="math inline">\(\mathrm{f}(\mathbf{M})\)</span> depends only on <span class="math inline">\(\det\mathbf{M}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Sheldon Axler, <em>Linear Algebra Done Right</em></strong> (Springer; free online). Defines the determinant from its properties, in the spirit of this question.</p></li>
+<li><p><strong>Gilbert Strang, <em>Introduction to Linear Algebra</em></strong> (Wellesley-Cambridge). Chapter 5 develops determinants from three rules.</p></li>
+<li><p><strong>3Blue1Brown, “The determinant”</strong> (video, free online). The area interpretation, beautifully animated.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="eigenvectors.html">← 7.2 Stretching Without Turning</a><a class="next" href="finite-order.html">→ 7.4 Matrices That Return to the Start</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

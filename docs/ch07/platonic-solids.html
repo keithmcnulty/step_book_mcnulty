@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7.9 Only Five Platonic Solids — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 7 · Linear Algebra and Geometry</a>
+    <div class="src">STEP III · 1999 · Question 4</div>
+    <div class="sec-head"><span class="sec-num">7.9</span><h1>Only Five Platonic Solids</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-9-platonic-solids.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 7</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A polyhedron is a solid bounded by <span class="math inline">\(F\)</span> plane faces, which meet in <span class="math inline">\(E\)</span> edges and <span class="math inline">\(V\)</span> vertices. You may assume <em>Euler’s formula</em>, that <span class="math inline">\(V - E + F = 2\)</span>.</p>
+<p>In a regular polyhedron the faces are equal regular <span class="math inline">\(m\)</span>-sided polygons, <span class="math inline">\(n\)</span> of which meet at each vertex. Show that <span class="math display">\[F = \frac{4n}{h},\]</span> where <span class="math inline">\(h = 4 - (n - 2)(m - 2)\)</span>.</p>
+<p>By considering the possible values of <span class="math inline">\(h\)</span>, or otherwise, prove that there are only five regular polyhedra, and find <span class="math inline">\(V\)</span>, <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> for each.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>There are infinitely many regular polygons: triangles, squares, pentagons, and so on for every number of sides. You might expect infinitely many regular polyhedra too. There are exactly five: the tetrahedron, cube, octahedron, dodecahedron and icosahedron. Plato associated four of them with the elements (fire, earth, air, water) and the fifth with the cosmos; Euclid’s <em>Elements</em>, the most influential mathematics book ever written, ends with a proof that there are no others; Kepler built a model of the solar system from them.</p>
+<p>This question proves the classification in a few lines, from a single remarkable formula found by Euler in 1750: for any convex polyhedron, <span class="math inline">\(V - E + F = 2\)</span>. A formula about counting turns into a theorem about shapes, and the number <span class="math inline">\(2\)</span> turns out to be a fingerprint of the sphere.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Check Euler’s formula on a cube: how many vertices, edges and faces does it have? And on a square-based pyramid?</p>
+</div>
+<p>The cube has <span class="math inline">\(V = 8\)</span>, <span class="math inline">\(E = 12\)</span>, <span class="math inline">\(F = 6\)</span>, and <span class="math inline">\(8 - 12 + 6 = 2\)</span>. The square-based pyramid has <span class="math inline">\(5\)</span> vertices, <span class="math inline">\(8\)</span> edges and <span class="math inline">\(5\)</span> faces, and <span class="math inline">\(5 - 8 + 5 = 2\)</span>. The formula holds for any polyhedron without holes, however irregular.</p>
+<div class="askyourself">
+<p>In a regular polyhedron, each face has <span class="math inline">\(m\)</span> edges and each edge borders two faces. What equation does that give between <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>? Similarly, between <span class="math inline">\(E\)</span> and <span class="math inline">\(V\)</span>?</p>
+</div>
+<p>Counting edge–face incidences in two ways: each of the <span class="math inline">\(F\)</span> faces has <span class="math inline">\(m\)</span> edges, and each edge is counted twice (once for each of its two faces), so <span class="math inline">\(mF = 2E\)</span>. Similarly each vertex has <span class="math inline">\(n\)</span> edges and each edge has two ends, so <span class="math inline">\(nV = 2E\)</span>. This “count the same thing in two ways” trick is called <em>double counting</em>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-a-formula-for-f" class="stage"><span class="stage-n">Stage 1</span> A formula for <span class="math inline">\(F\)</span></h4>
+<p>From <span class="math inline">\(mF = 2E\)</span> and <span class="math inline">\(nV = 2E\)</span>, we have <span class="math inline">\(E = \frac{mF}{2}\)</span> and <span class="math inline">\(V = \frac{mF}{n}\)</span>. Substituting into Euler’s formula, <span class="math display">\[\frac{mF}{n} - \frac{mF}{2} + F = 2 \quad\Longrightarrow\quad F\,\frac{2m - mn + 2n}{2n} = 2 \quad\Longrightarrow\quad F = \frac{4n}{2m + 2n - mn}.\]</span> And <span class="math inline">\(4 - (n - 2)(m - 2) = 4 - (mn - 2m - 2n + 4) = 2m + 2n - mn = h\)</span>. So <span class="math inline">\(F = \frac{4n}{h}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-which-values-of-m-and-n-are-possible" class="stage"><span class="stage-n">Stage 2</span> Which values of <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> are possible?</h4>
+<div class="askyourself">
+<p>What is the smallest possible value of <span class="math inline">\(m\)</span> (sides of a face) and of <span class="math inline">\(n\)</span> (faces at a vertex)? And since <span class="math inline">\(F &gt; 0\)</span>, what sign must <span class="math inline">\(h\)</span> have?</p>
+</div>
+<p>A polygon needs at least <span class="math inline">\(3\)</span> sides, so <span class="math inline">\(m \geq 3\)</span>, and at least <span class="math inline">\(3\)</span> faces must meet at each vertex of a solid, so <span class="math inline">\(n \geq 3\)</span>. Since <span class="math inline">\(F &gt; 0\)</span>, we need <span class="math inline">\(h &gt; 0\)</span>, that is, <span class="math inline">\((n - 2)(m - 2) &lt; 4\)</span>. With both factors at least <span class="math inline">\(1\)</span>, the only possibilities for <span class="math inline">\((m - 2, n - 2)\)</span> are <span class="math inline">\((1, 1)\)</span>, <span class="math inline">\((1, 2)\)</span>, <span class="math inline">\((2, 1)\)</span>, <span class="math inline">\((1, 3)\)</span> and <span class="math inline">\((3, 1)\)</span>.</p>
+<div class="pausebox">
+<p>For each of the five possibilities, compute <span class="math inline">\(h\)</span>, then <span class="math inline">\(F\)</span>, then <span class="math inline">\(E = \frac{mF}{2}\)</span> and <span class="math inline">\(V = \frac{mF}{n}\)</span>. Identify each solid.</p>
+</div>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(m\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(h\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(E\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(V\)</span></th>
+<th style="text-align: left;">solid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: left;">tetrahedron</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(8\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(12\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: left;">octahedron</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(12\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(8\)</span></td>
+<td style="text-align: left;">cube</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(20\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(30\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(12\)</span></td>
+<td style="text-align: left;">icosahedron</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(12\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(30\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(20\)</span></td>
+<td style="text-align: left;">dodecahedron</td>
+</tr>
+</tbody>
+</table></div>
+<p>These are the only possibilities, so there are at most five regular polyhedra; and all five exist (Euclid shows how to construct each of them).<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Double counting.</strong> Counting edge–face and edge–vertex incidences in two ways gave <span class="math inline">\(mF = 2E\)</span> and <span class="math inline">\(nV = 2E\)</span>.</p></li>
+<li><p><strong>An inequality from positivity.</strong> The simple requirement <span class="math inline">\(F &gt; 0\)</span> cut infinitely many candidates down to five.</p></li>
+<li><p><strong>Existence is separate.</strong> The argument shows there are <em>at most</em> five; that each actually exists has to be checked by constructing it.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Euler’s formula and topology</div>
+<p>Euler stated <span class="math inline">\(V - E + F = 2\)</span> in 1750, but his proof had gaps, and the formula has a fascinating history of attempted proofs, counterexamples and repairs. A “picture frame” polyhedron, with a square hole through the middle, has <span class="math inline">\(V - E + F = 0\)</span>; a polyhedron made of two cubes joined at a vertex has <span class="math inline">\(V - E + F = 3\)</span>. Imre Lakatos turned this history into a famous book, <em>Proofs and Refutations</em>, about how mathematical concepts are sharpened by counterexamples. The resolution is that <span class="math inline">\(V - E + F\)</span> depends only on the <em>shape</em> of the surface in the loose sense of topology: it is <span class="math inline">\(2\)</span> for any surface that can be deformed into a sphere, <span class="math inline">\(0\)</span> for a torus (a doughnut), and <span class="math inline">\(2 - 2g\)</span> for a surface with <span class="math inline">\(g\)</span> holes. This number, the <em>Euler characteristic</em>, was one of the first ideas of topology, the study of properties unchanged by stretching and bending.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-7-9-1.svg" alt="Figure 7.9.1"><figcaption><span class="fig-label">Figure 7.9.1</span> The possible pairs <span class="math inline">\((m, n)\)</span> with <span class="math inline">\(m, n \geq 3\)</span>. Below the curve <span class="math inline">\((m - 2)(n - 2) = 4\)</span> (shaded) are the five Platonic solids (teal). On the curve are three tilings of the flat plane (plum squares): by triangles (<span class="math inline">\(m = 3\)</span>, <span class="math inline">\(n = 6\)</span>), squares (<span class="math inline">\(4, 4\)</span>) and hexagons (<span class="math inline">\(6, 3\)</span>). Every point above the curve (open circles) gives a regular tiling of the hyperbolic plane.</figcaption></figure>
+<h3 id="beyond-the-sphere">Beyond the sphere</h3>
+<p>What happens when <span class="math inline">\(h = 0\)</span> or <span class="math inline">\(h &lt; 0\)</span>? When <span class="math inline">\((m - 2)(n - 2) = 4\)</span>, there are three solutions, <span class="math inline">\((3, 6)\)</span>, <span class="math inline">\((4, 4)\)</span> and <span class="math inline">\((6, 3)\)</span>: six triangles, four squares or three hexagons meet at a point with angles adding up to exactly <span class="math inline">\(360^\circ\)</span>. These are the three regular tilings of the flat plane, the patterns of bathroom floors and honeycombs. And when <span class="math inline">\((m - 2)(n - 2) &gt; 4\)</span>, the angles at a vertex add up to <em>more</em> than <span class="math inline">\(360^\circ\)</span>, which is impossible in the flat plane but perfectly possible in the hyperbolic plane of <a href="../ch05/poincare-disc.html">Section 5.8</a>. There are infinitely many regular tilings of the hyperbolic plane, one for every point above the curve in Figure 7.9.1; Escher’s <em>Circle Limit</em> woodcuts are drawings of some of them. So the classification of Platonic solids is really the first case of a trichotomy (sphere, plane, hyperbolic plane) that runs through all of geometry.</p>
+<h3 id="symmetry-groups">Symmetry groups</h3>
+<p>The symmetries of the Platonic solids form groups: <span class="math inline">\(12\)</span> rotations for the tetrahedron, <span class="math inline">\(24\)</span> for the cube and octahedron (which are dual: swap faces and vertices, <span class="math inline">\(m \leftrightarrow n\)</span>), and <span class="math inline">\(60\)</span> for the dodecahedron and icosahedron. The icosahedral group of order <span class="math inline">\(60\)</span> is the “simple” group that, as we mentioned in <a href="../ch06/quartic.html">Section 6.4</a>, prevents the quintic from being solved by radicals. Felix Klein wrote a whole book, <em>Lectures on the Icosahedron</em> (1884), connecting the icosahedron to the solution of quintic equations.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Double counting</div>
+<p><em>Count the same collection in two different ways and equate the results.</em></p>
+<p>Here the collection was the set of (edge, face) pairs with the edge on the face. Double counting is one of the most powerful tools in combinatorics, and it reappears throughout Chapter 9.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Duality.</strong> Show that swapping <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> swaps <span class="math inline">\(V\)</span> and <span class="math inline">\(F\)</span> and leaves <span class="math inline">\(E\)</span> unchanged. Which pairs of Platonic solids are dual to each other? Which is self-dual?</p></li>
+<li><p><strong>A football.</strong> A traditional football is made of <span class="math inline">\(12\)</span> pentagons and <span class="math inline">\(20\)</span> hexagons, with three faces meeting at each vertex. Use double counting and Euler’s formula to check that <span class="math inline">\(V - E + F = 2\)</span>. Show more generally that any such polyhedron made of pentagons and hexagons, three at each vertex, has exactly <span class="math inline">\(12\)</span> pentagons.</p></li>
+<li><p><strong>A torus.</strong> Make a “picture frame” polyhedron (a square block with a square hole) and count <span class="math inline">\(V\)</span>, <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span>. Check that <span class="math inline">\(V - E + F = 0\)</span>.</p></li>
+<li><p><strong>Angles at a vertex.</strong> The interior angle of a regular <span class="math inline">\(m\)</span>-gon is <span class="math inline">\(180^\circ(1 - \frac2m)\)</span>. Show that <span class="math inline">\(n\)</span> of them fit round a vertex of a convex solid (total less than <span class="math inline">\(360^\circ\)</span>) exactly when <span class="math inline">\((m - 2)(n - 2) &lt; 4\)</span>, giving a second proof of the classification.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>David Richeson, <em>Euler’s Gem</em></strong> (Princeton University Press). The history of <span class="math inline">\(V - E + F = 2\)</span> and how it led to topology. Excellent for a sixth-former.</p></li>
+<li><p><strong>Imre Lakatos, <em>Proofs and Refutations</em></strong> (Cambridge University Press). A dialogue about Euler’s formula and the nature of proof.</p></li>
+<li><p><strong>H. S. M. Coxeter, <em>Regular Polytopes</em></strong> (Dover). The classic book on regular polyhedra and their higher-dimensional cousins.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="four-squares.html">← 7.8 Four Squares</a><a class="next" href="wrap-up.html">→ Looking back</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
