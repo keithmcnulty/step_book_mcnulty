@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.10 Always Able to Give Change — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 9 · Counting and Chance</a>
+    <div class="src">STEP I · 2011 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">9.10</span><h1>Always Able to Give Change</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-10-ballot.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 9</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>I am selling raffle tickets for £1 per ticket. In the queue for tickets, there are <span class="math inline">\(m\)</span> people each with a single £1 coin and <span class="math inline">\(n\)</span> people each with a single £2 coin. Each person in the queue wants to buy a single raffle ticket and each arrangement of people in the queue is equally likely to occur. Initially, I have no coins and a large supply of tickets. I stop selling tickets if I cannot give the required change.</p>
+<ol class="roman">
+<li><p>In the case <span class="math inline">\(n = 1\)</span> and <span class="math inline">\(m \geq 1\)</span>, find the probability that I am able to sell one ticket to each person in the queue.</p></li>
+<li><p>By considering the first three people in the queue, show that the probability that I am able to sell one ticket to each person in the queue in the case <span class="math inline">\(n = 2\)</span> and <span class="math inline">\(m \geq 2\)</span> is <span class="math inline">\(\dfrac{m - 1}{m + 1}\)</span>.</p></li>
+<li><p>Show that the probability that I am able to sell one ticket to each person in the queue in the case <span class="math inline">\(n = 3\)</span> and <span class="math inline">\(m \geq 3\)</span> is <span class="math inline">\(\dfrac{m - 2}{m + 1}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>The pattern is irresistible: <span class="math inline">\(\frac{m}{m+1}\)</span>, <span class="math inline">\(\frac{m-1}{m+1}\)</span>, <span class="math inline">\(\frac{m-2}{m+1}\)</span>. Surely, with <span class="math inline">\(n\)</span> people holding £2 coins, the answer is <span class="math inline">\(\frac{m - n + 1}{m + 1}\)</span>. It is, and the slickest proof is one of the most elegant ideas in combinatorics: the <em>reflection principle</em>. It turns a hard count (queues that never run out of change) into an easy one by reflecting part of a picture in a line.</p>
+<p>The same problem has many disguises: an election count in which the winner is never behind (Bertrand’s ballot problem of 1887), a gambler who never goes broke, brackets that match correctly. When <span class="math inline">\(m = n\)</span> the count gives the <em>Catalan numbers</em>, perhaps the most frequently occurring sequence in combinatorics after the binomial coefficients.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Each £1 customer gives you a coin; each £2 customer takes one away (as change). When do you get stuck?</p>
+</div>
+<p>Keep track of the number of £1 coins you hold. It goes up by <span class="math inline">\(1\)</span> for each £1 customer and down by <span class="math inline">\(1\)</span> for each £2 customer. You are stuck exactly when a £2 customer arrives and you hold no coins: the count would go to <span class="math inline">\(-1\)</span>. So you succeed if and only if, at every point in the queue, the number of £1 customers so far is at least the number of £2 customers so far.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-one-2-coin" class="stage"><span class="stage-n">Stage 1</span> One £2 coin</h4>
+<p>With <span class="math inline">\(n = 1\)</span>, you fail only if the £2 customer is first. The £2 customer is equally likely to be in any of the <span class="math inline">\(m + 1\)</span> positions, so <span class="math display">\[\mathrm{P}(\text{success}) = 1 - \frac{1}{m + 1} = \frac{m}{m + 1}. \qed\]</span></p>
+<h4 id="stagemark2-two-2-coins" class="stage"><span class="stage-n">Stage 2</span> Two £2 coins</h4>
+<div class="askyourself">
+<p>The first person must have a £1 coin. What can happen with the second person, and in each case, what situation are you left in?</p>
+</div>
+<p>The first person has a £1 coin with probability <span class="math inline">\(\frac{m}{m+2}\)</span>; otherwise you fail at once. Then you hold one coin, and the remaining queue has <span class="math inline">\(m - 1\)</span> £1 people and two £2 people.</p>
+<ul>
+<li><p>If the second person has a £1 coin (probability <span class="math inline">\(\frac{m-1}{m+1}\)</span>), you hold two coins, enough to change both £2 coins whenever they come. Success is certain.</p></li>
+<li><p>If the second person has a £2 coin (probability <span class="math inline">\(\frac{2}{m+1}\)</span>), you are back to no coins, with <span class="math inline">\(m - 1\)</span> £1 people and one £2 person left. By part (i) with <span class="math inline">\(m - 1\)</span> in place of <span class="math inline">\(m\)</span>, you succeed with probability <span class="math inline">\(\frac{m-1}{m}\)</span>.</p></li>
+</ul>
+<p>So <span class="math display">\[\mathrm{P}(\text{success}) = \frac{m}{m + 2}\Bigl(\frac{m - 1}{m + 1} + \frac{2}{m + 1}\cdot\frac{m - 1}{m}\Bigr) = \frac{m}{m + 2}\cdot\frac{m - 1}{m + 1}\cdot\frac{m + 2}{m} = \frac{m - 1}{m + 1}. \qed\]</span></p>
+<div class="pausebox">
+<p>Try the same approach for <span class="math inline">\(n = 3\)</span>. It works, but the cases multiply. Is there a way to count the successful queues all at once?</p>
+</div>
+<h4 id="stagemark3-queues-as-paths" class="stage"><span class="stage-n">Stage 3</span> Queues as paths</h4>
+<div class="askyourself">
+<p>Draw the number of coins you hold against the number of people served. What does a queue look like? What does a successful queue look like?</p>
+</div>
+<p>A queue is a path made of <span class="math inline">\(m\)</span> up-steps (£1) and <span class="math inline">\(n\)</span> down-steps (£2), starting at height <span class="math inline">\(0\)</span> and ending at height <span class="math inline">\(m - n\)</span>. There are <span class="math inline">\(\binom{m + n}{n}\)</span> such paths, all equally likely. A queue is successful exactly when its path never goes below <span class="math inline">\(0\)</span>. So we need to count the <em>bad</em> paths, those that touch height <span class="math inline">\(-1\)</span>.</p>
+<h4 id="stagemark4-the-reflection" class="stage"><span class="stage-n">Stage 4</span> The reflection</h4>
+<div class="askyourself">
+<p>Take a bad path. Find the first moment it touches <span class="math inline">\(-1\)</span>, and reflect the part of the path <em>before</em> that moment in the line <span class="math inline">\(y = -1\)</span>. Where does the new path start, and where does it end?</p>
+</div>
+<p>The reflected path starts at <span class="math inline">\(-2\)</span> (the mirror image of <span class="math inline">\(0\)</span> in the line <span class="math inline">\(y = -1\)</span>) and ends where the original did, at <span class="math inline">\(m - n\)</span> (Figure 9.10.1). Conversely, every path from <span class="math inline">\(-2\)</span> to <span class="math inline">\(m - n\)</span> must cross <span class="math inline">\(y = -1\)</span> somewhere (it starts below and ends above, since <span class="math inline">\(m \geq n\)</span>); reflecting it before its first visit gives back a bad path from <span class="math inline">\(0\)</span>. So bad paths from <span class="math inline">\(0\)</span> correspond exactly to <em>all</em> paths from <span class="math inline">\(-2\)</span> to <span class="math inline">\(m - n\)</span>.</p>
+<p>A path from <span class="math inline">\(-2\)</span> to <span class="math inline">\(m - n\)</span> in <span class="math inline">\(m + n\)</span> steps rises by <span class="math inline">\(m - n + 2\)</span>, so it has <span class="math inline">\(m + 1\)</span> up-steps and <span class="math inline">\(n - 1\)</span> down-steps: there are <span class="math inline">\(\binom{m + n}{n - 1}\)</span> of them. Hence <span class="math display">\[\mathrm{P}(\text{failure}) = \frac{\binom{m + n}{n - 1}}{\binom{m + n}{n}} = \frac{n!\,m!}{(n - 1)!\,(m + 1)!} = \frac{n}{m + 1},\]</span> and <span class="math display">\[\mathrm{P}(\text{success}) = 1 - \frac{n}{m + 1} = \frac{m - n + 1}{m + 1}.\]</span> With <span class="math inline">\(n = 3\)</span> this is <span class="math inline">\(\frac{m - 2}{m + 1}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-10-1.svg" alt="Figure 9.10.1"><figcaption><span class="fig-label">Figure 9.10.1</span> A queue with <span class="math inline">\(m = 4\)</span> £1 coins and <span class="math inline">\(n = 3\)</span> £2 coins, drawn as a path (teal). It first hits <span class="math inline">\(-1\)</span> at the third person (amber), when you cannot give change. Reflecting the path up to that point in the line <span class="math inline">\(y = -1\)</span> gives a path from <span class="math inline">\(-2\)</span> (plum, dashed) to the same end point. This matching between bad queues and paths starting at <span class="math inline">\(-2\)</span> is the reflection principle.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Find the right state.</strong> The only thing that mattered was the number of coins held, which turned the queue into a walk.</p></li>
+<li><p><strong>Condition on the first steps.</strong> Parts (i) and (ii) were done by asking what the first few people do, reducing to smaller cases.</p></li>
+<li><p><strong>Count the complement by a bijection.</strong> The bad paths were hard to count directly, but reflection matched them with a set that was easy to count.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="catalan-numbers">Catalan numbers</h3>
+<p>When <span class="math inline">\(m = n\)</span> (exactly enough £1 coins), the number of successful queues is <span class="math display">\[\binom{2n}{n} - \binom{2n}{n - 1} = \frac{1}{n + 1}\binom{2n}{n},\]</span> the <span class="math inline">\(n\)</span>th <em>Catalan number</em> <span class="math inline">\(C_n\)</span>: <span class="math inline">\(1, 1, 2, 5, 14, 42, 132, \ldots\)</span>. Richard Stanley’s book <em>Catalan Numbers</em> lists more than two hundred different things that they count. Among them: the number of ways to arrange <span class="math inline">\(n\)</span> pairs of brackets correctly (“<span class="math inline">\((())()\)</span>” is allowed, “<span class="math inline">\(())(()\)</span>” is not, by exactly the coin argument with “<span class="math inline">\((\)</span>” as £1 and “<span class="math inline">\()\)</span>” as £2), the number of ways to cut a polygon with <span class="math inline">\(n + 2\)</span> sides into triangles by non-crossing diagonals, and the number of ways to bracket a product of <span class="math inline">\(n + 1\)</span> factors.</p>
+<h3 id="random-walks">Random walks</h3>
+<p>Queues are random walks, and the reflection principle is one of the basic tools for studying them. It shows, for example, that a fair random walk starting at <span class="math inline">\(0\)</span> is certain to return to <span class="math inline">\(0\)</span> eventually, and that the probability that it stays strictly positive for the first <span class="math inline">\(2n\)</span> steps is <span class="math inline">\(\frac{1}{2}\binom{2n}{n}2^{-2n} \approx \frac{1}{2\sqrt{\pi n}}\)</span>. In continuous form, the same reflection argument applied to <em>Brownian motion</em> gives the distribution of its maximum. This is the basis of the pricing of certain financial options, whose payoff depends on whether a share price ever crosses a barrier.</p>
+<div class="historybox">
+<div class="box-title">Bertrand’s ballot problem</div>
+<p>In 1887 Joseph Bertrand asked: in an election where candidate <span class="math inline">\(A\)</span> receives <span class="math inline">\(a\)</span> votes and <span class="math inline">\(B\)</span> receives <span class="math inline">\(b &lt; a\)</span>, what is the probability that <span class="math inline">\(A\)</span> is strictly ahead throughout the count? The answer, <span class="math inline">\(\frac{a - b}{a + b}\)</span>, was proved in the same year by Désiré André, whose argument is usually remembered as the reflection principle (although historians have pointed out that André’s actual proof used a slightly different bijection). Our raffle problem is a variant in which ties are allowed: success means the £1 count never falls <em>below</em> the £2 count. One of the exercises deduces Bertrand’s answer from ours.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Bijective counting</div>
+<p><em>To count a set, find a one-to-one correspondence with a set you can count.</em></p>
+<p>Reflection matched bad queues with unrestricted paths from a different start. Bijections are the most satisfying proofs in combinatorics, because they explain <em>why</em> two numbers are equal rather than just showing that they are. At university you will meet bijective proofs throughout combinatorics, and the reflection principle again in the study of random walks and Brownian motion.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Three by cases.</strong> Prove part (iii) by conditioning on the first people in the queue, as in part (ii), to see how much work the reflection principle saves.</p></li>
+<li><p><strong>Bertrand’s ballot.</strong> In an election, <span class="math inline">\(A\)</span> gets <span class="math inline">\(a\)</span> votes and <span class="math inline">\(B\)</span> gets <span class="math inline">\(b &lt; a\)</span>. Show that the probability that <span class="math inline">\(A\)</span> is strictly ahead throughout the count is <span class="math inline">\(\frac{a - b}{a + b}\)</span>. (<em>Hint:</em> the first vote must be for <span class="math inline">\(A\)</span>; after that, <span class="math inline">\(A\)</span> must never fall behind <span class="math inline">\(B\)</span> by more than….)</p></li>
+<li><p><strong>Brackets.</strong> List the <span class="math inline">\(5\)</span> correct arrangements of three pairs of brackets, and the <span class="math inline">\(5\)</span> ways to cut a pentagon into triangles. Can you find a bijection between them?</p></li>
+<li><p><strong>A £5 note.</strong> A queue contains <span class="math inline">\(m\)</span> people with £1 coins and <span class="math inline">\(n\)</span> with £5 notes, for a ticket costing £1. Explain why the reflection principle no longer gives a simple answer. (This generalisation is much harder.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>William Feller, <em>An Introduction to Probability Theory and Its Applications</em>, Vol. 1</strong> (Wiley), Chapter III. The classic treatment of random walks and the reflection principle.</p></li>
+<li><p><strong>Richard Stanley, <em>Catalan Numbers</em></strong> (Cambridge University Press). Over two hundred interpretations, with exercises.</p></li>
+<li><p><strong>Marc Renault, “Lost (and found) in translation: André’s actual method and its application to the generalized ballot problem”</strong>, <em>American Mathematical Monthly</em> 115 (2008). The history of the reflection principle.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="birthday.html">← 9.9 The Birthday Problem</a><a class="next" href="coupon-collector.html">→ 9.11 Collecting the Set</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

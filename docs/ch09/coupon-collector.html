@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.11 Collecting the Set — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 9 · Counting and Chance</a>
+    <div class="src">STEP II · 1994 · Question 13</div>
+    <div class="sec-head"><span class="sec-num">9.11</span><h1>Collecting the Set</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-11-coupon-collector.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 9</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The makers of Cruncho (‘The Cereal Which Cares’) are giving away a series of cards depicting <span class="math inline">\(n\)</span> great mathematicians. Each packet of Cruncho contains one picture chosen at random. Show that when I have collected <span class="math inline">\(r\)</span> different cards the expected number of packets I must open to find a new card is <span class="math inline">\(n/(n - r)\)</span> where <span class="math inline">\(0 \leq r \leq n - 1\)</span>.</p>
+<p>Show by means of a diagram, or otherwise, that <span class="math display">\[\frac{1}{r + 1} \leq \int_r^{r+1}\frac{1}{x}\,\mathrm{d}x \leq \frac{1}{r}\]</span> and deduce that <span class="math display">\[\sum_{r=2}^{n}\frac1r \leq \ln n \leq \sum_{r=1}^{n-1}\frac1r\]</span> for all <span class="math inline">\(n \geq 2\)</span>.</p>
+<p>My children will give me no peace until we have the complete set of cards, but I am the only person in our household prepared to eat Cruncho and my spouse will only buy the stuff if I eat it. If <span class="math inline">\(n\)</span> is large, roughly how many packets must I expect to consume before we have the set?</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>A football sticker album has <span class="math inline">\(600\)</span> stickers to collect, sold one at a time at random. How many stickers should you expect to buy to fill the album? The first few hundred go quickly, since almost every sticker is new. But as the album fills, new stickers get rarer, and the very last one takes on average <span class="math inline">\(600\)</span> purchases on its own. The total comes to about <span class="math inline">\(4200\)</span>, seven times the size of the album.</p>
+<p>This is the <em>coupon collector’s problem</em>. Its answer combines two ideas: the waiting time for a success, and the harmonic series <span class="math inline">\(1 + \frac12 + \frac13 + \cdots\)</span>, which grows like <span class="math inline">\(\ln n\)</span>. You met the harmonic series diverging in <a href="../ch02/kempner.html">Section 2.3</a>; here its slow growth is exactly what you pay for completing a collection.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>If each packet independently gives a new card with probability <span class="math inline">\(p\)</span>, what is the expected number of packets you open up to and including the first new card?</p>
+</div>
+<p>The number of packets <span class="math inline">\(X\)</span> has a <em>geometric distribution</em>: <span class="math inline">\(\mathrm{P}(X = k) = (1 - p)^{k-1}p\)</span>. Its expectation is <span class="math inline">\(\frac1p\)</span>. (One quick way to see this: <span class="math inline">\(\mathrm{E}(X) = 1 + (1 - p)\mathrm{E}(X)\)</span>, since you open one packet, and with probability <span class="math inline">\(1 - p\)</span> you are back where you started.) If a new card turns up a third of the time, you expect to wait three packets.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-waiting-for-a-new-card" class="stage"><span class="stage-n">Stage 1</span> Waiting for a new card</h4>
+<p>With <span class="math inline">\(r\)</span> different cards already, a packet gives a new card with probability <span class="math inline">\(\frac{n - r}{n}\)</span>, independently of previous packets. So the expected number of packets until the next new card is <span class="math display">\[\frac{1}{(n - r)/n} = \frac{n}{n - r}. \qed\]</span></p>
+<h4 id="stagemark2-comparing-a-sum-with-an-integral" class="stage"><span class="stage-n">Stage 2</span> Comparing a sum with an integral</h4>
+<div class="askyourself">
+<p>On the interval <span class="math inline">\(r \leq x \leq r + 1\)</span>, between which two values does <span class="math inline">\(\frac1x\)</span> lie? What does that say about the area under the curve?</p>
+</div>
+<p>Since <span class="math inline">\(\frac1x\)</span> is decreasing, <span class="math inline">\(\frac{1}{r+1} \leq \frac1x \leq \frac1r\)</span> on <span class="math inline">\([r, r + 1]\)</span>. Integrating over an interval of length <span class="math inline">\(1\)</span> gives <span class="math display">\[\frac{1}{r + 1} \leq \int_r^{r+1}\frac{\mathrm{d}x}{x} \leq \frac1r. \qed\]</span> In pictures (Figure 9.11.1): the area under the curve is squeezed between a rectangle of height <span class="math inline">\(\frac{1}{r+1}\)</span> and one of height <span class="math inline">\(\frac1r\)</span>. Adding these from <span class="math inline">\(r = 1\)</span> to <span class="math inline">\(r = n - 1\)</span>, the integrals join up to <span class="math inline">\(\int_1^n\frac{\mathrm{d}x}{x} = \ln n\)</span>, and so <span class="math display">\[\frac12 + \frac13 + \cdots + \frac1n \leq \ln n \leq 1 + \frac12 + \cdots + \frac{1}{n - 1}. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-11-1.svg" alt="Figure 9.11.1"><figcaption><span class="fig-label">Figure 9.11.1</span> On each interval <span class="math inline">\([r, r + 1]\)</span> the area under <span class="math inline">\(y = 1/x\)</span> lies between the teal rectangle (height <span class="math inline">\(\frac{1}{r+1}\)</span>) and the larger plum one (height <span class="math inline">\(\frac1r\)</span>). Adding up, <span class="math inline">\(\ln n\)</span> lies between <span class="math inline">\(\frac12 + \cdots + \frac1n\)</span> and <span class="math inline">\(1 + \frac12 + \cdots + \frac{1}{n-1}\)</span>. The gaps between the curve and the plum rectangles add up to a finite total: Euler’s constant <span class="math inline">\(\gamma \approx 0.577\)</span>.</figcaption></figure>
+<h4 id="stagemark3-completing-the-set" class="stage"><span class="stage-n">Stage 3</span> Completing the set</h4>
+<div class="askyourself">
+<p>The total number of packets is the sum of the waiting times for the first card, the second new card, and so on. What is its expectation?</p>
+</div>
+<p>Let <span class="math inline">\(X_r\)</span> be the number of packets needed to go from <span class="math inline">\(r\)</span> different cards to <span class="math inline">\(r + 1\)</span>. The total is <span class="math inline">\(X_0 + X_1 + \cdots + X_{n-1}\)</span>, and since expectation adds, <span class="math display">\[\mathrm{E}(\text{total}) = \sum_{r=0}^{n-1}\frac{n}{n - r} = n\Bigl(\frac1n + \frac{1}{n - 1} + \cdots + 1\Bigr) = nH_n,\]</span> where <span class="math inline">\(H_n = 1 + \frac12 + \cdots + \frac1n\)</span> is the <span class="math inline">\(n\)</span>th <em>harmonic number</em>. From Stage 2, <span class="math inline">\(\ln n + \frac1n \leq H_n \leq \ln n + 1\)</span>, so <span class="math inline">\(H_n\)</span> is about <span class="math inline">\(\ln n\)</span> when <span class="math inline">\(n\)</span> is large, and I must expect to eat roughly <span class="math display">\[n\ln n \text{ packets}. \qed\]</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Break a long wait into stages.</strong> The total time split into <span class="math inline">\(n\)</span> waiting times, each of a simple geometric kind.</p></li>
+<li><p><strong>Expectation is additive.</strong> We never needed the distribution of the total, only the expectations of the pieces.</p></li>
+<li><p><strong>Compare sums with integrals.</strong> The diagram turned a sum we cannot evaluate into a logarithm, with error at most <span class="math inline">\(1\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="how-good-is-the-estimate">How good is the estimate?</h3>
+<p>The comparison can be sharpened. The shaded gaps between the curve and the upper rectangles in Figure 9.11.1 have a finite total area, so <span class="math inline">\(H_n - \ln n\)</span> tends to a limit, <span class="math display">\[\gamma = \lim_{n \to \infty}(H_n - \ln n) = 0.5772156649\ldots,\]</span> <em>Euler’s constant</em>. (Nobody knows whether <span class="math inline">\(\gamma\)</span> is rational.) So the expected number of packets is <span class="math inline">\(n\ln n + \gamma n + \frac12 + \cdots\)</span>. For the <span class="math inline">\(600\)</span>-sticker album, <span class="math inline">\(600 \times (\ln 600 + 0.577) \approx 4185\)</span>, which is the figure quoted in the hook.</p>
+<p>Where does the time go? The stages are very unequal. Collecting the first half of the set takes only about <span class="math inline">\(n\ln 2 \approx 0.69n\)</span> packets, while the last card alone takes <span class="math inline">\(n\)</span> on average. Most of the effort goes into the last few cards, which is why collectors swap duplicates.</p>
+<h3 id="concentration">Concentration</h3>
+<p>The expected value is only the start: how much does the total vary? The variance of the total is <span class="math inline">\(\sum n r/(n - r)^2\)</span>, which is about <span class="math inline">\(\frac{\pi^2}{6}n^2\)</span> (the sum <span class="math inline">\(\sum 1/k^2 = \pi^2/6\)</span> from <a href="../ch02/basel.html">Section 2.4</a> appears). So the standard deviation is about <span class="math inline">\(1.28n\)</span>, much smaller than the mean <span class="math inline">\(n\ln n\)</span> when <span class="math inline">\(n\)</span> is large: the total is <em>concentrated</em> around its mean. Paul Erdős and Alfréd Rényi showed in 1961 that, more precisely, the total minus <span class="math inline">\(n\ln n\)</span>, divided by <span class="math inline">\(n\)</span>, has a limiting distribution, the <em>Gumbel distribution</em>, which also describes the largest of many random quantities (Section 12.25).</p>
+<div class="historybox">
+<div class="box-title">Coupons everywhere</div>
+<p>The problem goes back to Abraham de Moivre (1712) and Laplace. It now appears in many disguises. How many random tests are needed to check every component of a system? How long until a random walk on a network has visited every node? How many times must a computer hash table be probed? In each case the answer involves <span class="math inline">\(n\ln n\)</span>. In biology, the same calculation estimates how many sequencing “reads” are needed to cover a whole genome.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Linearity of expectation</div>
+<p><em>The expectation of a sum is the sum of the expectations, whether or not the pieces are independent. Split a complicated random quantity into simple pieces.</em></p>
+<p>This is one of the most useful facts in probability. Here it reduced the coupon collector’s problem to <span class="math inline">\(n\)</span> geometric waits; in <a href="../ch09/derangements.html">Section 9.8</a> it gave the expected number of matches without any calculation. At university, the same idea powers the analysis of algorithms and the probabilistic method in combinatorics.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Half a set.</strong> Show that the expected number of packets to collect <span class="math inline">\(\frac n2\)</span> different cards (for even <span class="math inline">\(n\)</span>) is <span class="math inline">\(n(H_n - H_{n/2})\)</span>, and that this is about <span class="math inline">\(n\ln 2\)</span>.</p></li>
+<li><p><strong>Distinct cards.</strong> After opening <span class="math inline">\(k\)</span> packets, show that the expected number of different cards you have is <span class="math inline">\(n\bigl(1 - (1 - \frac1n)^k\bigr)\)</span>. (<em>Hint:</em> for each card, find the probability that you have it, and add.) Roughly how many packets give you <span class="math inline">\(95\%\)</span> of the set?</p></li>
+<li><p><strong>Two collectors.</strong> Two children collect the same set, sharing packets so that a duplicate for one may be new for the other. Show that the expected number of packets to complete both sets is about <span class="math inline">\(n(\ln n + \ln\ln n)\)</span>. (This is harder; first convince yourself that it is much less than <span class="math inline">\(2n\ln n\)</span>.)</p></li>
+<li><p><strong>A sharper bound.</strong> Use the trapezium rule picture instead of rectangles to show that <span class="math inline">\(H_n - \ln n\)</span> is decreasing, and that <span class="math inline">\(H_n - \ln n - \frac{1}{2n}\)</span> is increasing. Deduce <span class="math inline">\(0.5 &lt; \gamma &lt; 0.7\)</span> from small values of <span class="math inline">\(n\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; David Stirzaker, <em>One Thousand Exercises in Probability</em></strong> (Oxford University Press). Many variations on the coupon collector.</p></li>
+<li><p><strong>Julian Havil, <em>Gamma: Exploring Euler’s Constant</em></strong> (Princeton University Press). Everything about <span class="math inline">\(\gamma\)</span> and the harmonic series, at an accessible level.</p></li>
+<li><p><strong>Michael Mitzenmacher &amp; Eli Upfal, <em>Probability and Computing</em></strong> (Cambridge University Press). The coupon collector and its uses in computer science.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="ballot.html">← 9.10 Always Able to Give Change</a><a class="next" href="random-subsets.html">→ 9.12 Random Subsets</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

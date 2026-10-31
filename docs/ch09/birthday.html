@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.9 The Birthday Problem — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 9 · Counting and Chance</a>
+    <div class="src">STEP II · 2007 · Question 13</div>
+    <div class="sec-head"><span class="sec-num">9.9</span><h1>The Birthday Problem</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-9-birthday.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 9</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Given that <span class="math inline">\(0 &lt; r &lt; n\)</span> and <span class="math inline">\(r\)</span> is much smaller than <span class="math inline">\(n\)</span>, show that <span class="math inline">\(\dfrac{n - r}{n} \approx e^{-r/n}\)</span>.</p>
+<p>There are <span class="math inline">\(k\)</span> guests at a party. Assuming that there are exactly <span class="math inline">\(365\)</span> days in the year, and that the birthday of any guest is equally likely to fall on any of these days, show that the probability that there are at least two guests with the same birthday is approximately <span class="math inline">\(1 - e^{-k(k-1)/730}\)</span>.</p>
+<p>Using the approximation <span class="math inline">\(\frac{253}{365} \approx \ln 2\)</span>, find the smallest value of <span class="math inline">\(k\)</span> such that the probability that at least two guests share the same birthday is at least <span class="math inline">\(\frac12\)</span>.</p>
+<p>How many guests must there be at the party for the probability that at least one guest has the same birthday as the host to be at least <span class="math inline">\(\frac12\)</span>?</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>How many people do you need in a room for it to be more likely than not that two of them share a birthday? Most people guess somewhere around <span class="math inline">\(180\)</span>, half of <span class="math inline">\(365\)</span>. The answer is <span class="math inline">\(23\)</span>. In a class of thirty there is a <span class="math inline">\(70\%\)</span> chance of a shared birthday; at a party of fifty, <span class="math inline">\(97\%\)</span>.</p>
+<p>The surprise comes from confusing two different questions: “does someone share <em>my</em> birthday?” (which does need about <span class="math inline">\(253\)</span> people) and “do <em>any two people</em> share a birthday?”. With <span class="math inline">\(23\)</span> people there are <span class="math inline">\(\binom{23}{2} = 253\)</span> pairs, and each pair is a chance for a match. This question makes that intuition precise, and the same mathematics decides how secure the cryptography protecting your bank account is.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Why is it easier to calculate the probability that <em>no</em> two guests share a birthday? Line the guests up: what is the chance that the second avoids the first’s birthday? That the third avoids both?</p>
+</div>
+<p>“At least two share” covers many overlapping cases (two share, three share, two different pairs, …). Its complement, “all different”, is a single clean event. The second guest avoids the first’s birthday with probability <span class="math inline">\(\frac{364}{365}\)</span>; given that, the third avoids both with probability <span class="math inline">\(\frac{363}{365}\)</span>; and so on.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-a-useful-approximation" class="stage"><span class="stage-n">Stage 1</span> A useful approximation</h4>
+<div class="askyourself">
+<p>What is the tangent line to <span class="math inline">\(y = e^{-x}\)</span> at <span class="math inline">\(x = 0\)</span>?</p>
+</div>
+<p>Since <span class="math inline">\(e^{-x} = 1 - x + \frac{x^2}{2} - \cdots\)</span>, for small <span class="math inline">\(x\)</span> we have <span class="math inline">\(e^{-x} \approx 1 - x\)</span>. With <span class="math inline">\(x = r/n\)</span>, <span class="math display">\[\frac{n - r}{n} = 1 - \frac{r}{n} \approx e^{-r/n}. \qed\]</span> The error is about <span class="math inline">\(\frac{r^2}{2n^2}\)</span>, small when <span class="math inline">\(r\)</span> is much smaller than <span class="math inline">\(n\)</span>.</p>
+<h4 id="stagemark2-the-probability-of-a-shared-birthday" class="stage"><span class="stage-n">Stage 2</span> The probability of a shared birthday</h4>
+<p>The probability that all <span class="math inline">\(k\)</span> birthdays are different is <span class="math display">\[\frac{365}{365}\cdot\frac{364}{365}\cdot\frac{363}{365}\cdots\frac{365 - (k - 1)}{365} = \prod_{r=0}^{k-1}\frac{365 - r}{365}.\]</span> Using the approximation on each factor, and the fact that exponentials multiply by adding their exponents, <span class="math display">\[\prod_{r=0}^{k-1}e^{-r/365} = \exp\Bigl(-\frac{0 + 1 + \cdots + (k - 1)}{365}\Bigr) = \exp\Bigl(-\frac{k(k - 1)}{730}\Bigr).\]</span> So the probability of at least one shared birthday is approximately <span class="math inline">\(1 - e^{-k(k-1)/730}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>Look at the exponent: <span class="math inline">\(\frac{k(k-1)}{730} = \binom{k}{2}\Big/365\)</span>. What does that say in words?</p>
+</div>
+<p>It is the number of pairs of guests, times the probability <span class="math inline">\(\frac{1}{365}\)</span> that a given pair shares a birthday: the expected number of shared pairs. The approximation says the chance of <em>no</em> match is <span class="math inline">\(e^{-(\text{expected number of matches})}\)</span>, a hint of the Poisson distribution again, as in <a href="../ch09/derangements.html">Section 9.8</a>.</p>
+<h4 id="stagemark3-twenty-three" class="stage"><span class="stage-n">Stage 3</span> Twenty-three</h4>
+<p>We need <span class="math inline">\(1 - e^{-k(k-1)/730} \geq \frac12\)</span>, that is <span class="math inline">\(e^{-k(k-1)/730} \leq \frac12\)</span>, or <span class="math display">\[\frac{k(k - 1)}{730} \geq \ln 2 \approx \frac{253}{365}, \qquad\text{that is}\qquad k(k - 1) \geq 506.\]</span> Since <span class="math inline">\(22 \times 21 = 462\)</span> and <span class="math inline">\(23 \times 22 = 506\)</span>, the smallest value is <span class="math inline">\(k = 23\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>(The exact probability for <span class="math inline">\(23\)</span> guests is <span class="math inline">\(0.507\)</span>, and for <span class="math inline">\(22\)</span> guests <span class="math inline">\(0.476\)</span>, so the approximation gives the right answer.)</p>
+<h4 id="stagemark4-sharing-with-the-host" class="stage"><span class="stage-n">Stage 4</span> Sharing with the host</h4>
+<div class="askyourself">
+<p>For each guest, what is the probability of <em>not</em> sharing the host’s birthday? Are the guests independent of each other in this respect?</p>
+</div>
+<p>Each guest independently misses the host’s birthday with probability <span class="math inline">\(\frac{364}{365} \approx e^{-1/365}\)</span>. So the probability that none of <span class="math inline">\(k\)</span> guests shares it is <span class="math inline">\(\bigl(\frac{364}{365}\bigr)^k \approx e^{-k/365}\)</span>, and we need <span class="math display">\[e^{-k/365} \leq \tfrac12, \qquad\text{that is}\qquad k \geq 365\ln 2 \approx 253.\]</span> So there must be <span class="math inline">\(253\)</span> guests.<span class="qed" aria-label="end of proof">■</span></p>
+<p>The contrast is the whole point: <span class="math inline">\(253\)</span> guests to match one particular person, but only <span class="math inline">\(23\)</span> for some pair to match, because <span class="math inline">\(23\)</span> people make <span class="math inline">\(253\)</span> pairs.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-9-1.svg" alt="Figure 9.9.1"><figcaption><span class="fig-label">Figure 9.9.1</span> The probability that at least two of <span class="math inline">\(k\)</span> people share a birthday: exact values (teal) and the approximation <span class="math inline">\(1 - e^{-k(k-1)/730}\)</span> (plum, dashed). The two are very close, and both pass <span class="math inline">\(\frac12\)</span> between <span class="math inline">\(k = 22\)</span> and <span class="math inline">\(k = 23\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Use the complement.</strong> “All different” was a single product; “at least one match” was a mess.</p></li>
+<li><p><strong>Linearise, then exponentiate.</strong> Replacing each factor <span class="math inline">\(1 - x\)</span> by <span class="math inline">\(e^{-x}\)</span> turned a product into a sum.</p></li>
+<li><p><strong>Count pairs.</strong> The exponent was the number of pairs times the chance that a pair matches. The square in <span class="math inline">\(k(k-1)\)</span> is the whole explanation of the paradox.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-square-root-law">The square-root law</h3>
+<p>With <span class="math inline">\(n\)</span> equally likely days instead of <span class="math inline">\(365\)</span>, the same argument gives <span class="math display">\[\mathrm{P}(\text{some match among } k) \approx 1 - e^{-k^2/(2n)},\]</span> so matches become likely once <span class="math inline">\(k\)</span> is around <span class="math inline">\(\sqrt{n}\)</span>, not <span class="math inline">\(n\)</span>. More precisely, the probability reaches <span class="math inline">\(\frac12\)</span> at <span class="math inline">\(k \approx 1.18\sqrt{n}\)</span>, and the expected number of people you need to meet before the first repeat is about <span class="math inline">\(\sqrt{\pi n/2}\)</span> (for <span class="math inline">\(n = 365\)</span>, about <span class="math inline">\(24.6\)</span>). This <em>square-root law</em> is the reason coincidences are so common: in any large collection of events, some pair is likely to match in some way, even though any particular match is unlikely.</p>
+<h3 id="birthday-attacks">Birthday attacks</h3>
+<p>Computers check that a file has not been tampered with by computing a <em>hash</em>: a fingerprint of, say, <span class="math inline">\(n = 2^{128}\)</span> possible values. A forger who wants two documents with the same hash (a harmless contract and a fraudulent one) does not need to try <span class="math inline">\(2^{128}\)</span> documents. By the birthday argument, generating about <span class="math inline">\(\sqrt{2^{128}} = 2^{64}\)</span> variants of each will probably produce a match. This <em>birthday attack</em> is why modern hash functions use <span class="math inline">\(256\)</span> bits or more: half the bits are lost to the square-root law. Similar calculations decide how long random identifiers must be so that two computers never accidentally choose the same one.</p>
+<div class="historybox">
+<div class="box-title">Who first asked?</div>
+<p>The birthday problem is usually credited to Richard von Mises, who discussed it in 1939, though it circulated earlier. Harold Davenport is also said to have known it earlier, and not to have published it because it seemed too simple. As Warren Weaver told the story, he liked to demonstrate it at dinners of army officers during the Second World War: he bet that two of the twenty-two people present shared a birthday, and lost, until a waitress revealed that she shared her birthday with one of the officers.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Calculate the complement; approximate carefully</div>
+<p><em>When “at least one” is complicated, find the probability of “none”. When a product is awkward, approximate each factor by an exponential and add the exponents.</em></p>
+<p>Both moves are standard at university. The second, <span class="math inline">\(1 - x \approx e^{-x}\)</span>, is the start of the theory of Poisson approximation and of the asymptotic methods used to estimate quantities too complicated to calculate exactly.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The first repeat.</strong> (From STEP II, 2014.) A random number generator produces integers from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>, independently and equally likely. Let <span class="math inline">\(X\)</span> be the position of the first repeat. Find <span class="math inline">\(\mathrm{P}(X = r)\)</span> for <span class="math inline">\(2 \leq r \leq n + 1\)</span>, and deduce that <span class="math display">\[\frac1n + \Bigl(1 - \frac1n\Bigr)\frac2n + \Bigl(1 - \frac1n\Bigr)\Bigl(1 - \frac2n\Bigr)\frac3n + \cdots = 1.\]</span> Show that <span class="math inline">\(\mathrm{E}(Y) = \sum_{k=1}^{N}\mathrm{P}(Y \geq k)\)</span> for any random variable taking values <span class="math inline">\(1, \ldots, N\)</span>, and hence that <span class="math display">\[\Bigl(1 - \frac{1^2}{n}\Bigr) + \Bigl(1 - \frac1n\Bigr)\Bigl(1 - \frac{2^2}{n}\Bigr) + \Bigl(1 - \frac1n\Bigr)\Bigl(1 - \frac2n\Bigr)\Bigl(1 - \frac{3^2}{n}\Bigr) + \cdots = 0.\]</span></p></li>
+<li><p><strong>Three in common.</strong> Roughly how many people are needed for a better-than-even chance that some <em>three</em> share a birthday? (<em>Hint:</em> the expected number of triples sharing a birthday is <span class="math inline">\(\binom{k}{3}/365^2\)</span>. Set this to about <span class="math inline">\(\ln 2\)</span>.) The true answer is <span class="math inline">\(88\)</span>.</p></li>
+<li><p><strong>Near misses.</strong> How many people are needed for an even chance that two have birthdays on the same day or on adjacent days?</p></li>
+<li><p><strong>Uneven birthdays.</strong> Real birthdays are not uniform. Show that if the days have probabilities <span class="math inline">\(p_1, \ldots, p_{365}\)</span>, the chance that two people share a birthday is <span class="math inline">\(\sum p_i^2\)</span>, and that this is smallest when all <span class="math inline">\(p_i\)</span> are equal. (So non-uniformity only makes matches more likely.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>William Feller, <em>An Introduction to Probability Theory and Its Applications</em>, Vol. 1</strong> (Wiley), Chapter II. The birthday problem and its approximations.</p></li>
+<li><p><strong>Persi Diaconis &amp; Frederick Mosteller, “Methods for studying coincidences”</strong>, <em>Journal of the American Statistical Association</em> 84 (1989). Why coincidences are common; very readable.</p></li>
+<li><p><strong>David Hand, <em>The Improbability Principle</em></strong> (Bantam). The square-root law and other reasons why unlikely things happen all the time.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="derangements.html">← 9.8 Nobody Gets Their Own Shirt</a><a class="next" href="ballot.html">→ 9.10 Always Able to Give Change</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

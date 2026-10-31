@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.12 Random Subsets — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 9 · Counting and Chance</a>
+    <div class="src">STEP III · 2019 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">9.12</span><h1>Random Subsets</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-12-random-subsets.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 9</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The set <span class="math inline">\(S\)</span> is the set of all integers from <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span>. The set <span class="math inline">\(T\)</span> is the set of all distinct subsets of <span class="math inline">\(S\)</span>, including the empty set <span class="math inline">\(\varnothing\)</span> and <span class="math inline">\(S\)</span> itself. Show that <span class="math inline">\(T\)</span> contains exactly <span class="math inline">\(2^n\)</span> sets.</p>
+<p>The sets <span class="math inline">\(A_1, A_2, \ldots, A_m\)</span>, which are not necessarily distinct, are chosen randomly and independently from <span class="math inline">\(T\)</span>, and for each <span class="math inline">\(k\)</span> (<span class="math inline">\(1 \leq k \leq m\)</span>), the set <span class="math inline">\(A_k\)</span> is equally likely to be any of the sets in <span class="math inline">\(T\)</span>.</p>
+<ol class="roman">
+<li><p>Write down the value of <span class="math inline">\(\mathrm{P}(1 \in A_1)\)</span>.</p></li>
+<li><p>By considering each integer separately, show that <span class="math inline">\(\mathrm{P}(A_1 \cap A_2 = \varnothing) = \bigl(\frac34\bigr)^n\)</span>. Find <span class="math inline">\(\mathrm{P}(A_1 \cap A_2 \cap A_3 = \varnothing)\)</span> and <span class="math inline">\(\mathrm{P}(A_1 \cap A_2 \cap \cdots \cap A_m = \varnothing)\)</span>.</p></li>
+<li><p>Find <span class="math inline">\(\mathrm{P}(A_1 \subseteq A_2)\)</span>, <span class="math inline">\(\mathrm{P}(A_1 \subseteq A_2 \subseteq A_3)\)</span> and <span class="math inline">\(\mathrm{P}(A_1 \subseteq A_2 \subseteq \cdots \subseteq A_m)\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Choose two subsets of <span class="math inline">\(\{1, 2, \ldots, 100\}\)</span> completely at random. How likely is it that they have no element in common? Your intuition may say “quite likely: most pairs of sets are different”. In fact the probability is <span class="math inline">\(\bigl(\frac34\bigr)^{100}\)</span>, about <span class="math inline">\(3 \times 10^{-13}\)</span>. Random sets are big (about half of everything) and so they almost always overlap.</p>
+<p>The question is short, and its one idea is powerful: do not think about the sets as a whole; think about one element at a time. A random subset is just <span class="math inline">\(n\)</span> independent coin tosses, one for each element, and every question about random subsets becomes a question about those tosses.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>How can you describe a subset of <span class="math inline">\(\{1, \ldots, n\}\)</span> by a sequence of <span class="math inline">\(n\)</span> answers to yes/no questions?</p>
+</div>
+<p>For each element <span class="math inline">\(i\)</span>, answer the question “is <span class="math inline">\(i\)</span> in the set?”. The subset determines the answers, and the answers determine the subset. There are <span class="math inline">\(2\)</span> choices for each element, so <span class="math inline">\(2^n\)</span> subsets in all. Choosing a subset uniformly at random is the same as answering each question by tossing a fair coin, independently.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-one-element" class="stage"><span class="stage-n">Stage 1</span> One element</h4>
+<p>By the coin-tossing description, <span class="math inline">\(\mathrm{P}(1 \in A_1) = \frac12\)</span>. Indeed, exactly half of the <span class="math inline">\(2^n\)</span> subsets contain <span class="math inline">\(1\)</span>: pair each subset that does not contain <span class="math inline">\(1\)</span> with the one obtained by adding <span class="math inline">\(1\)</span>.</p>
+<h4 id="stagemark2-disjoint-sets" class="stage"><span class="stage-n">Stage 2</span> Disjoint sets</h4>
+<div class="askyourself">
+<p>For <span class="math inline">\(A_1 \cap A_2 = \varnothing\)</span>, what must be true of each element <span class="math inline">\(i\)</span>? What is the probability of that, for one element? Why can you multiply over the elements?</p>
+</div>
+<p><span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> are disjoint exactly when no element is in both. For a single element <span class="math inline">\(i\)</span>, there are four equally likely possibilities: in neither set, in <span class="math inline">\(A_1\)</span> only, in <span class="math inline">\(A_2\)</span> only, in both (Figure 9.12.1, left). Only the last is forbidden, so the probability that <span class="math inline">\(i\)</span> is not in both is <span class="math inline">\(\frac34\)</span>. Different elements are decided by different, independent coin tosses, so <span class="math display">\[\mathrm{P}(A_1 \cap A_2 = \varnothing) = \Bigl(\frac34\Bigr)^n. \qed\]</span> For three sets, element <span class="math inline">\(i\)</span> is in all three with probability <span class="math inline">\(\frac18\)</span>, so <span class="math inline">\(\mathrm{P}(A_1 \cap A_2 \cap A_3 = \varnothing) = \bigl(\frac78\bigr)^n\)</span>. In general, <span class="math display">\[\mathrm{P}(A_1 \cap \cdots \cap A_m = \varnothing) = \Bigl(1 - \frac{1}{2^m}\Bigr)^n. \qed\]</span></p>
+<h4 id="stagemark3-subsets" class="stage"><span class="stage-n">Stage 3</span> Subsets</h4>
+<div class="askyourself">
+<p>For <span class="math inline">\(A_1 \subseteq A_2\)</span>, which of the four possibilities for an element is forbidden?</p>
+</div>
+<p><span class="math inline">\(A_1 \subseteq A_2\)</span> fails exactly when some element is in <span class="math inline">\(A_1\)</span> but not in <span class="math inline">\(A_2\)</span>. Again one pattern out of four is forbidden, so <span class="math display">\[\mathrm{P}(A_1 \subseteq A_2) = \Bigl(\frac34\Bigr)^n,\]</span> the same as for disjointness. That is not a coincidence: <span class="math inline">\(A_1 \subseteq A_2\)</span> exactly when <span class="math inline">\(A_1\)</span> is disjoint from the complement of <span class="math inline">\(A_2\)</span>, and the complement of a random set is another random set.</p>
+<div class="askyourself">
+<p>For <span class="math inline">\(A_1 \subseteq A_2 \subseteq A_3\)</span>, which of the <span class="math inline">\(8\)</span> patterns of membership (in or out of each set) are allowed for an element?</p>
+</div>
+<p>Going along the chain <span class="math inline">\(A_1, A_2, A_3\)</span>, once an element is in, it must stay in. So the allowed patterns are “out, out, out”, “out, out, in”, “out, in, in” and “in, in, in”: <span class="math inline">\(4\)</span> out of <span class="math inline">\(8\)</span> (Figure 9.12.1, right). Hence <span class="math inline">\(\mathrm{P}(A_1 \subseteq A_2 \subseteq A_3) = \bigl(\frac48\bigr)^n = \bigl(\frac12\bigr)^n\)</span>.</p>
+<p>For a chain of <span class="math inline">\(m\)</span> sets, an allowed pattern is determined by the first set the element enters (one of <span class="math inline">\(A_1, \ldots, A_m\)</span>, or never), so <span class="math inline">\(m + 1\)</span> of the <span class="math inline">\(2^m\)</span> patterns are allowed: <span class="math display">\[\mathrm{P}(A_1 \subseteq A_2 \subseteq \cdots \subseteq A_m) = \Bigl(\frac{m + 1}{2^m}\Bigr)^n. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-12-1.svg" alt="Figure 9.12.1"><figcaption><span class="fig-label">Figure 9.12.1</span> Left: an element of <span class="math inline">\(S\)</span> can be in one of four places relative to <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span>, each with probability <span class="math inline">\(\frac14\)</span>. Disjointness forbids “both” (amber); <span class="math inline">\(A_1 \subseteq A_2\)</span> forbids “only <span class="math inline">\(A_1\)</span>”. Right: the eight patterns of membership of <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, <span class="math inline">\(A_3\)</span> (filled circle means “in”). The chain <span class="math inline">\(A_1 \subseteq A_2 \subseteq A_3\)</span> allows only the four boxed patterns, in which an element, once in, stays in.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Decompose by elements.</strong> Each set-level condition (disjoint, subset, chain) was a condition on each element separately.</p></li>
+<li><p><strong>Independence across elements.</strong> Because the elements are decided by independent coin tosses, the probabilities multiply.</p></li>
+<li><p><strong>Count patterns.</strong> Each answer was (allowed patterns <span class="math inline">\(\div\)</span> all patterns)<span class="math inline">\(^n\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="counting-without-probability">Counting without probability</h3>
+<p>Multiplying by the number of choices turns each probability into a count. The number of ordered pairs <span class="math inline">\((A_1, A_2)\)</span> with <span class="math inline">\(A_1 \subseteq A_2\)</span> is <span class="math inline">\(4^n \times \bigl(\frac34\bigr)^n = 3^n\)</span>. You can also count these pairs directly: choose the size <span class="math inline">\(k\)</span> of <span class="math inline">\(A_2\)</span>, then <span class="math inline">\(A_2\)</span> itself in <span class="math inline">\(\binom nk\)</span> ways, then <span class="math inline">\(A_1\)</span> as any of its <span class="math inline">\(2^k\)</span> subsets. So <span class="math display">\[\sum_{k=0}^{n}\binom{n}{k}2^k = 3^n,\]</span> which is the binomial theorem for <span class="math inline">\((1 + 2)^n\)</span>. Counting the same thing in two ways, once by elements and once by sizes, proves an identity: this is the method of <em>double counting</em>, which you met with the Platonic solids in <a href="../ch07/platonic-solids.html">Section 7.9</a>. Similarly, the number of chains <span class="math inline">\(A_1 \subseteq \cdots \subseteq A_m\)</span> is <span class="math inline">\((m + 1)^n\)</span>.</p>
+<h3 id="the-lattice-of-subsets">The lattice of subsets</h3>
+<p>The subsets of <span class="math inline">\(\{1, \ldots, n\}\)</span>, ordered by inclusion, form a structure called the <em>Boolean lattice</em>, which can be pictured as an <span class="math inline">\(n\)</span>-dimensional cube: each subset is a corner, labelled by its sequence of yes/no answers, and moving along an edge adds or removes one element. Chains are paths going upwards. Deep results describe how large families of subsets can be, given conditions on them. <em>Sperner’s theorem</em> (1928) says that the largest family in which no set contains another has <span class="math inline">\(\binom{n}{\lfloor n/2\rfloor}\)</span> sets; the <em>Erdős–Ko–Rado theorem</em> (1961) says how many <span class="math inline">\(k\)</span>-element sets can be chosen so that every two overlap. Both are standard in a first course on combinatorics, and the coin-tossing view of subsets gives some of the slickest proofs.</p>
+<div class="historybox">
+<div class="box-title">Boole’s algebra</div>
+<p>George Boole’s <em>The Laws of Thought</em> (1854) treated logical statements as sets and “and”, “or” and “not” as intersection, union and complement. Encoding a set as a string of yes/no answers is exactly how a computer represents it: a subset of <span class="math inline">\(\{1, \ldots, 64\}\)</span> is a single <span class="math inline">\(64\)</span>-bit number, and intersection is the “bitwise AND” instruction. The method of this question, one element (one bit) at a time, is how such operations are analysed.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Think one element at a time</div>
+<p><em>When objects are built from independent choices for each element, a condition that applies to every element separately has probability equal to a product.</em></p>
+<p>The method turned a question about <span class="math inline">\(2^n\)</span> subsets into a question about <span class="math inline">\(4\)</span> or <span class="math inline">\(8\)</span> patterns. At university it reappears in combinatorics (generating functions for sets and multisets), in probability (independent coordinates) and in computer science (bitwise reasoning).</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Covering.</strong> Find <span class="math inline">\(\mathrm{P}(A_1 \cup A_2 = S)\)</span> and <span class="math inline">\(\mathrm{P}(A_1 \cup A_2 \cup \cdots \cup A_m = S)\)</span>.</p></li>
+<li><p><strong>Same size.</strong> Show that <span class="math inline">\(\mathrm{P}(|A_1| = |A_2|) = \binom{2n}{n}\big/4^n\)</span>. (<em>Hint:</em> <span class="math inline">\(|A_1| = |A_2|\)</span> exactly when <span class="math inline">\(|A_1| + |S \setminus A_2| = n\)</span>.) Show that this is about <span class="math inline">\(1/\sqrt{\pi n}\)</span> for large <span class="math inline">\(n\)</span>.</p></li>
+<li><p><strong>Partitions into three.</strong> Show that the number of ordered pairs of disjoint subsets <span class="math inline">\((A, B)\)</span> of <span class="math inline">\(S\)</span> is <span class="math inline">\(3^n\)</span>, and find the number of unordered pairs <span class="math inline">\(\{A, B\}\)</span> of disjoint subsets.</p></li>
+<li><p><strong>Sperner for small <span class="math inline">\(n\)</span>.</strong> For <span class="math inline">\(n = 3\)</span> and <span class="math inline">\(n = 4\)</span>, find the largest family of subsets of <span class="math inline">\(\{1, \ldots, n\}\)</span> in which no set contains another.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Miklós Bóna, <em>A Walk Through Combinatorics</em></strong> (World Scientific), the chapters on subsets and partially ordered sets.</p></li>
+<li><p><strong>Béla Bollobás, <em>Combinatorics: Set Systems, Hypergraphs, Families of Vectors and Combinatorial Probability</em></strong> (Cambridge University Press). A short, elegant book on families of subsets, from Sperner’s theorem onwards.</p></li>
+<li><p><strong>Peter Cameron, <em>Combinatorics: Topics, Techniques, Algorithms</em></strong> (Cambridge University Press). A first course with a strong emphasis on counting in two ways.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="coupon-collector.html">← 9.11 Collecting the Set</a><a class="next" href="loaded-dice.html">→ 9.13 Loaded Dice</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

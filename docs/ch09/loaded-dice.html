@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.13 Loaded Dice — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 9 · Counting and Chance</a>
+    <div class="src">STEP I · 1999 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">9.13</span><h1>Loaded Dice</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-13-loaded-dice.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 9</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Prove that if <span class="math inline">\(x &gt; 0\)</span> then <span class="math inline">\(x + x^{-1} \geq 2\)</span>.</p>
+<p>I have a pair of six-faced dice, each with faces numbered from <span class="math inline">\(1\)</span> to <span class="math inline">\(6\)</span>. The probability of throwing <span class="math inline">\(i\)</span> with the first die is <span class="math inline">\(q_i\)</span> and the probability of throwing <span class="math inline">\(j\)</span> with the second die is <span class="math inline">\(r_j\)</span> (<span class="math inline">\(1 \leq i, j \leq 6\)</span>). The two dice are thrown independently and the sum noted. By considering the probabilities of throwing <span class="math inline">\(2\)</span>, <span class="math inline">\(12\)</span> and <span class="math inline">\(7\)</span>, show the sums <span class="math inline">\(2, 3, \ldots, 12\)</span> are not equally likely.</p></li>
+<li><p>The first die described above is thrown twice and the two numbers on the die noted. Is it possible to find values of <span class="math inline">\(q_j\)</span> so that the probability that the numbers are the same is less than <span class="math inline">\(1/36\)</span>?</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>With two fair dice, a total of <span class="math inline">\(7\)</span> is six times as likely as a total of <span class="math inline">\(2\)</span>. Board-game designers sometimes wish it were otherwise: could you load the dice (weight them so that some faces come up more often) so that every total from <span class="math inline">\(2\)</span> to <span class="math inline">\(12\)</span> has the same chance, <span class="math inline">\(\frac{1}{11}\)</span>? You can choose the twelve probabilities freely, so there seems to be plenty of room.</p>
+<p>The answer is no, and the proof is a gem: it uses only three of the eleven totals and the inequality <span class="math inline">\(x + \frac1x \geq 2\)</span>. It is a model of how to prove that something is <em>impossible</em>, which is often harder, and more interesting, than showing that something can be done.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>How would you prove <span class="math inline">\(x + \frac1x \geq 2\)</span> for <span class="math inline">\(x &gt; 0\)</span>? When is there equality?</p>
+</div>
+<p>Multiply by <span class="math inline">\(x &gt; 0\)</span>: the inequality becomes <span class="math inline">\(x^2 + 1 \geq 2x\)</span>, that is <span class="math inline">\((x - 1)^2 \geq 0\)</span>, which is true. Equality holds only when <span class="math inline">\(x = 1\)</span>. (Alternatively, <span class="math inline">\(x + \frac1x - 2 = \bigl(\sqrt x - \frac{1}{\sqrt x}\bigr)^2\)</span>.) This is the AM–GM inequality in its simplest form: the average of <span class="math inline">\(x\)</span> and <span class="math inline">\(\frac1x\)</span> is at least their geometric mean, <span class="math inline">\(1\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-extreme-totals" class="stage"><span class="stage-n">Stage 1</span> The extreme totals</h4>
+<div class="askyourself">
+<p>In how many ways can you throw a total of <span class="math inline">\(2\)</span>? A total of <span class="math inline">\(12\)</span>? Write their probabilities in terms of the <span class="math inline">\(q_i\)</span> and <span class="math inline">\(r_j\)</span>.</p>
+</div>
+<p>A total of <span class="math inline">\(2\)</span> needs <span class="math inline">\(1\)</span> on both dice, and <span class="math inline">\(12\)</span> needs <span class="math inline">\(6\)</span> on both, so <span class="math inline">\(\mathrm{P}(2) = q_1r_1\)</span> and <span class="math inline">\(\mathrm{P}(12) = q_6r_6\)</span>.</p>
+<p>Suppose, for contradiction, that all eleven totals are equally likely, each with probability <span class="math inline">\(\frac{1}{11}\)</span>. Then <span class="math display">\[q_1r_1 = \frac{1}{11}, \qquad q_6r_6 = \frac{1}{11}.\]</span> In particular, all four of <span class="math inline">\(q_1\)</span>, <span class="math inline">\(r_1\)</span>, <span class="math inline">\(q_6\)</span>, <span class="math inline">\(r_6\)</span> are positive.</p>
+<h4 id="stagemark2-the-middle-total" class="stage"><span class="stage-n">Stage 2</span> The middle total</h4>
+<div class="askyourself">
+<p>A total of <span class="math inline">\(7\)</span> can be made in six ways. Which two of them involve only the faces <span class="math inline">\(1\)</span> and <span class="math inline">\(6\)</span>? Write their probabilities using the equations above.</p>
+</div>
+<p>The total <span class="math inline">\(7\)</span> includes the outcomes (<span class="math inline">\(1\)</span>, <span class="math inline">\(6\)</span>) and (<span class="math inline">\(6\)</span>, <span class="math inline">\(1\)</span>), so <span class="math display">\[\mathrm{P}(7) \geq q_1r_6 + q_6r_1.\]</span> Now use the equations of Stage 1 to bring in a ratio. Since <span class="math inline">\(q_1 = \frac{1}{11r_1}\)</span> and <span class="math inline">\(q_6 = \frac{1}{11r_6}\)</span>, <span class="math display">\[q_1r_6 + q_6r_1 = \frac{1}{11}\Bigl(\frac{r_6}{r_1} + \frac{r_1}{r_6}\Bigr) \geq \frac{1}{11} \times 2 = \frac{2}{11},\]</span> using <span class="math inline">\(x + \frac1x \geq 2\)</span> with <span class="math inline">\(x = r_6/r_1 &gt; 0\)</span>. So <span class="math inline">\(\mathrm{P}(7) \geq \frac{2}{11}\)</span>, contradicting <span class="math inline">\(\mathrm{P}(7) = \frac{1}{11}\)</span>. The totals cannot all be equally likely.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>Look at what made the proof work. Making <span class="math inline">\(2\)</span> and <span class="math inline">\(12\)</span> as likely as <span class="math inline">\(7\)</span> forces the <span class="math inline">\(1\)</span>s and <span class="math inline">\(6\)</span>s to be fairly likely, and then the “mixed” outcomes (<span class="math inline">\(1\)</span>, <span class="math inline">\(6\)</span>) and (<span class="math inline">\(6\)</span>, <span class="math inline">\(1\)</span>) alone make <span class="math inline">\(7\)</span> too likely. Figure 9.13.1 shows the cells involved.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-9-13-1.svg" alt="Figure 9.13.1"><figcaption><span class="fig-label">Figure 9.13.1</span> The <span class="math inline">\(36\)</span> outcomes of two dice, labelled by their totals. The proof uses only the four corner cells. The product of the two amber probabilities equals the product of the two dark teal ones, <span class="math inline">\(q_1r_1q_6r_6 = q_1r_6 \cdot q_6r_1\)</span>, and by AM–GM the sum of the teal pair is at least twice the geometric mean of the amber pair.</figcaption></figure>
+<h4 id="stagemark3-two-throws-of-one-die" class="stage"><span class="stage-n">Stage 3</span> Two throws of one die</h4>
+<div class="askyourself">
+<p>If one die is thrown twice, what is the probability that the two numbers are the same, in terms of the <span class="math inline">\(q_j\)</span>? What is it for a fair die?</p>
+</div>
+<p>The two throws agree with probability <span class="math inline">\(q_1^2 + q_2^2 + \cdots + q_6^2\)</span>. For a fair die this is <span class="math inline">\(6 \times \frac{1}{36} = \frac16\)</span>, which is already much bigger than <span class="math inline">\(\frac{1}{36}\)</span>.</p>
+<div class="askyourself">
+<p>Can loading make <span class="math inline">\(\sum q_j^2\)</span> smaller than <span class="math inline">\(\frac16\)</span>? You know that <span class="math inline">\(\sum q_j = 1\)</span>.</p>
+</div>
+<p>Write <span class="math inline">\(q_j = \frac16 + e_j\)</span>, where the deviations <span class="math inline">\(e_j\)</span> add to zero. Then <span class="math display">\[\sum q_j^2 = \sum\Bigl(\frac{1}{36} + \frac{e_j}{3} + e_j^2\Bigr) = \frac16 + \frac13\sum e_j + \sum e_j^2 = \frac16 + \sum e_j^2 \geq \frac16.\]</span> So the probability of a repeat is always at least <span class="math inline">\(\frac16\)</span>, with equality only for a fair die. It certainly cannot be less than <span class="math inline">\(\frac{1}{36}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Proof by contradiction.</strong> We assumed all totals equally likely and derived an impossibility.</p></li>
+<li><p><strong>Use only what you need.</strong> Of the eleven equations, three were enough. Choosing the right ones was the key step.</p></li>
+<li><p><strong>Inequalities prove impossibility.</strong> AM–GM in part (i), and “a sum of squares is non-negative” in part (ii), ruled out whole families of possibilities at once.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="a-proof-with-polynomials">A proof with polynomials</h3>
+<p>Here is a completely different proof, using the generating functions of <a href="../ch09/strange-dice.html">Section 9.6</a>. Let <span class="math inline">\(Q(x) = q_1x + \cdots + q_6x^6\)</span> and <span class="math inline">\(R(x) = r_1x + \cdots + r_6x^6\)</span>. If all totals had probability <span class="math inline">\(\frac{1}{11}\)</span>, then <span class="math display">\[Q(x)R(x) = \frac{x^2 + x^3 + \cdots + x^{12}}{11} = \frac{x^2}{11}\bigl(1 + x + \cdots + x^{10}\bigr).\]</span> Now <span class="math inline">\(Q(x)/x\)</span> is a polynomial of degree <span class="math inline">\(5\)</span> with real coefficients, and every real polynomial of odd degree has a real root (its graph goes from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span>, or the other way). So the left side has a real non-zero root. But <span class="math inline">\(1 + x + \cdots + x^{10} = \frac{x^{11} - 1}{x - 1}\)</span>, whose roots are the <span class="math inline">\(11\)</span>th roots of unity other than <span class="math inline">\(1\)</span>, none of which is real. Contradiction. The same argument shows that no loading of two <span class="math inline">\(n\)</span>-sided dice can make the totals equally likely whenever <span class="math inline">\(n - 1\)</span> is odd, that is, for <span class="math inline">\(n\)</span> even. (For odd <span class="math inline">\(n\)</span> the polynomial argument needs more work, but the AM–GM proof above works for every <span class="math inline">\(n \geq 2\)</span>.)</p>
+<h3 id="collision-probability">Collision probability</h3>
+<p>The quantity <span class="math inline">\(\sum q_j^2\)</span> in part (ii), the chance that two independent draws agree, is called the <em>collision probability</em> of a distribution. Part (ii) shows that it is smallest for the uniform distribution. It measures how concentrated a distribution is: in ecology, <span class="math inline">\(\sum q_j^2\)</span> is Simpson’s index of diversity, where <span class="math inline">\(q_j\)</span> is the proportion of species <span class="math inline">\(j\)</span> in a habitat; in economics, it is the Herfindahl index of market concentration; in cryptography, it measures how guessable a password distribution is. And it explains the remark at the end of <a href="../ch09/birthday.html">Section 9.9</a>: unequal birthday probabilities can only make shared birthdays more likely.</p>
+<div class="historybox">
+<div class="box-title">Impossibility proofs</div>
+<p>Some of the most famous results in mathematics say that something cannot be done: no fraction squares to <span class="math inline">\(2\)</span>; no ruler-and-compass construction trisects every angle; no formula in radicals solves every quintic; no algorithm decides every mathematical statement. Each changed its subject, because to prove that <em>no</em> method works, you must understand the whole space of methods. The loaded dice problem is a miniature: to rule out every loading, we needed an invariant property (the AM–GM inequality) that every loading must obey.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Prove impossibility by contradiction and inequality</div>
+<p><em>To show that no choice of parameters works, assume one does, pick out the few conditions that clash, and use an inequality to show they cannot all hold.</em></p>
+<p>At university, contradiction combined with inequalities is the standard way to prove that objects do not exist, in analysis, in combinatorics and in optimisation, where inequalities like AM–GM and Cauchy–Schwarz set limits on what can be achieved.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Cauchy–Schwarz.</strong> Use the Cauchy–Schwarz inequality, <span class="math inline">\(\bigl(\sum a_jb_j\bigr)^2 \leq \sum a_j^2\sum b_j^2\)</span>, with <span class="math inline">\(a_j = q_j\)</span> and <span class="math inline">\(b_j = 1\)</span>, to give a one-line proof of part (ii).</p></li>
+<li><p><strong>Two different dice.</strong> If two <em>different</em> loaded dice are each thrown once, can the probability that they show the same number be less than <span class="math inline">\(\frac16\)</span>? Can it be <span class="math inline">\(0\)</span>?</p></li>
+<li><p><strong>Uniform totals with other faces.</strong> Show that two dice <em>can</em> give equally likely totals if their faces are numbered differently: try one die numbered <span class="math inline">\(0, 1, 2, 3, 4, 5\)</span> and the other <span class="math inline">\(0, 6, 12, 18, 24, 30\)</span>. What totals arise? Why does this not contradict the question?</p></li>
+<li><p><strong>Three dice.</strong> Can three loaded six-sided dice, with faces <span class="math inline">\(1\)</span> to <span class="math inline">\(6\)</span>, make all totals from <span class="math inline">\(3\)</span> to <span class="math inline">\(18\)</span> equally likely? (<em>Hint:</em> use the totals <span class="math inline">\(3\)</span>, <span class="math inline">\(8\)</span>, <span class="math inline">\(13\)</span> and <span class="math inline">\(18\)</span>, and AM–GM for six numbers. Why does the polynomial proof fail this time?)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>J. Michael Steele, <em>The Cauchy–Schwarz Master Class</em></strong> (Cambridge University Press). A beautiful introduction to inequalities, starting from AM–GM.</p></li>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <em>Probability: An Introduction</em></strong> (Oxford University Press). Generating functions and their use in proofs like the one above.</p></li>
+<li><p><strong>Ian Stewart, <em>Galois Theory</em></strong> (CRC Press), the opening chapters. The most famous impossibility proof of all, for the quintic.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="random-subsets.html">← 9.12 Random Subsets</a><a class="next" href="wrap-up.html">→ Looking back</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

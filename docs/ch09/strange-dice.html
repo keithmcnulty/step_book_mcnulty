@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.6 Strange Dice — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 9 · Counting and Chance</a>
+    <div class="src">STEP I · 1993 · Question 1</div>
+    <div class="sec-head"><span class="sec-num">9.6</span><h1>Strange Dice</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-6-strange-dice.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 9</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>I have two dice whose faces are all painted different colours. I number the faces of one of them <span class="math inline">\(1, 2, 2, 3, 3, 6\)</span> and the other <span class="math inline">\(1, 3, 3, 4, 5, 6\)</span>. I can now throw a total of <span class="math inline">\(3\)</span> in two different ways using the two number <span class="math inline">\(2\)</span>’s on the first die once each. Show that there are seven different ways of throwing a total of <span class="math inline">\(6\)</span>.</p>
+<p>I now renumber the dice (again only using integers in the range <span class="math inline">\(1\)</span> to <span class="math inline">\(6\)</span>) with the results shown in the following table.</p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Total shown by the two dice</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Different ways of obtaining the total</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table></div>
+<p>Find how I have numbered the dice explaining your reasoning.</p>
+<p>[You will only get high marks if the examiner can follow your argument.]</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Is there any other way to number two six-sided dice, with positive whole numbers, so that every total from <span class="math inline">\(2\)</span> to <span class="math inline">\(12\)</span> comes up exactly as often as with ordinary dice? In 1978 Martin Gardner announced in <em>Scientific American</em> that there is exactly one: a die numbered <span class="math inline">\(1, 2, 2, 3, 3, 4\)</span> and a die numbered <span class="math inline">\(1, 3, 4, 5, 6, 8\)</span>. They had been discovered by Colonel George Sicherman, and are now sold as <em>Sicherman dice</em>. A game of Monopoly played with them would be indistinguishable from an ordinary one.</p>
+<p>This question is a warm-up: deduce how two dice are numbered from the table of totals. The systematic way to do it, and the proof that Sicherman’s dice are the only strange pair, both come from turning each die into a polynomial.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>If the first die has <span class="math inline">\(p_i\)</span> faces showing <span class="math inline">\(i\)</span> and the second has <span class="math inline">\(q_j\)</span> faces showing <span class="math inline">\(j\)</span>, how many ways are there to throw a total of <span class="math inline">\(t\)</span>?</p>
+</div>
+<p>The number of ways is <span class="math inline">\(\sum_i p_iq_{t-i}\)</span>: choose the number <span class="math inline">\(i\)</span> on the first die, then the second must show <span class="math inline">\(t - i\)</span>. For the first pair of dice, a total of <span class="math inline">\(6\)</span> comes from <span class="math inline">\(1 + 5\)</span> (in <span class="math inline">\(1 \times 1\)</span> way), <span class="math inline">\(2 + 4\)</span> (<span class="math inline">\(2 \times 1\)</span>), <span class="math inline">\(3 + 3\)</span> (<span class="math inline">\(2 \times 2\)</span>), and nothing else, since the first die has no <span class="math inline">\(4\)</span> or <span class="math inline">\(5\)</span> and the second has no <span class="math inline">\(0\)</span>. That is <span class="math inline">\(1 + 2 + 4 = 7\)</span> ways.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-extremes" class="stage"><span class="stage-n">Stage 1</span> The extremes</h4>
+<p>Call the dice <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, and write <span class="math inline">\(a_i\)</span>, <span class="math inline">\(b_i\)</span> for the number of faces of each showing <span class="math inline">\(i\)</span>.</p>
+<div class="askyourself">
+<p>There is no way to throw <span class="math inline">\(2\)</span>, nor <span class="math inline">\(12\)</span>. What does that say about the <span class="math inline">\(1\)</span>s and the <span class="math inline">\(6\)</span>s? There <em>are</em> two ways to throw <span class="math inline">\(3\)</span>. Which die has the <span class="math inline">\(1\)</span>s?</p>
+</div>
+<p>No total of <span class="math inline">\(2\)</span> means <span class="math inline">\(a_1b_1 = 0\)</span>: at most one die has any <span class="math inline">\(1\)</span>s. A total of <span class="math inline">\(3\)</span> can only be <span class="math inline">\(1 + 2\)</span> or <span class="math inline">\(2 + 1\)</span>, and there are two ways, so some die does have a <span class="math inline">\(1\)</span>; call it <span class="math inline">\(A\)</span>, so <span class="math inline">\(b_1 = 0\)</span>. Then <span class="math display">\[\text{total } 3: \quad a_1b_2 = 2, \qquad\text{so } (a_1, b_2) = (2, 1) \text{ or } (1, 2).\]</span> Similarly, no total of <span class="math inline">\(12\)</span> means <span class="math inline">\(a_6b_6 = 0\)</span>.</p>
+<h4 id="stagemark2-working-upwards" class="stage"><span class="stage-n">Stage 2</span> Working upwards</h4>
+<div class="askyourself">
+<p>Write down the equation for a total of <span class="math inline">\(4\)</span>, remembering <span class="math inline">\(b_1 = 0\)</span>. What does it say in each of the two cases?</p>
+</div>
+<p>A total of <span class="math inline">\(4\)</span> is <span class="math inline">\(1 + 3\)</span> or <span class="math inline">\(2 + 2\)</span> (and <span class="math inline">\(3 + 1\)</span> is impossible as <span class="math inline">\(b_1 = 0\)</span>), so <span class="math inline">\(a_1b_3 + a_2b_2 = 1\)</span>.</p>
+<ul>
+<li><p><strong>Case (a)</strong>, <span class="math inline">\(a_1 = 2\)</span>, <span class="math inline">\(b_2 = 1\)</span>: <span class="math inline">\(2b_3 + a_2 = 1\)</span>, so <span class="math inline">\(b_3 = 0\)</span> and <span class="math inline">\(a_2 = 1\)</span>.</p></li>
+<li><p><strong>Case (b)</strong>, <span class="math inline">\(a_1 = 1\)</span>, <span class="math inline">\(b_2 = 2\)</span>: <span class="math inline">\(b_3 + 2a_2 = 1\)</span>, so <span class="math inline">\(a_2 = 0\)</span> and <span class="math inline">\(b_3 = 1\)</span>.</p></li>
+</ul>
+<p>Total <span class="math inline">\(5\)</span>: <span class="math inline">\(a_1b_4 + a_2b_3 + a_3b_2 = 1\)</span>.</p>
+<ul>
+<li><p>Case (a): <span class="math inline">\(2b_4 + 0 + a_3 = 1\)</span>, so <span class="math inline">\(b_4 = 0\)</span>, <span class="math inline">\(a_3 = 1\)</span>. So far <span class="math inline">\(A\)</span> has <span class="math inline">\(1, 1, 2, 3\)</span> and <span class="math inline">\(B\)</span> has <span class="math inline">\(2\)</span>; <span class="math inline">\(B\)</span>’s other five faces are <span class="math inline">\(5\)</span>s and <span class="math inline">\(6\)</span>s.</p></li>
+<li><p>Case (b): <span class="math inline">\(b_4 + 0 + 2a_3 = 1\)</span>, so <span class="math inline">\(a_3 = 0\)</span>, <span class="math inline">\(b_4 = 1\)</span>. So far <span class="math inline">\(A\)</span> has <span class="math inline">\(1\)</span> and <span class="math inline">\(B\)</span> has <span class="math inline">\(2, 2, 3, 4\)</span>; <span class="math inline">\(A\)</span>’s other five faces are from <span class="math inline">\(4, 5, 6\)</span>, and <span class="math inline">\(B\)</span>’s other two from <span class="math inline">\(5, 6\)</span>.</p></li>
+</ul>
+<h4 id="stagemark3-case-a-fails" class="stage"><span class="stage-n">Stage 3</span> Case (a) fails</h4>
+<div class="askyourself">
+<p>In case (a), write down the equation for a total of <span class="math inline">\(7\)</span>, and use <span class="math inline">\(b_5 + b_6 = 5\)</span>.</p>
+</div>
+<p>Total <span class="math inline">\(7\)</span>: <span class="math inline">\(a_1b_6 + a_2b_5 + a_3b_4 + a_4b_3 + a_5b_2 = 2b_6 + b_5 + 0 + 0 + a_5 = 3\)</span>. With <span class="math inline">\(b_6 = 5 - b_5\)</span> this says <span class="math inline">\(10 - b_5 + a_5 = 3\)</span>, so <span class="math inline">\(b_5 = 7 + a_5 \geq 7\)</span>. But <span class="math inline">\(B\)</span> only has six faces. Case (a) is impossible.</p>
+<h4 id="stagemark4-case-b-succeeds" class="stage"><span class="stage-n">Stage 4</span> Case (b) succeeds</h4>
+<div class="askyourself">
+<p>In case (b), use the totals <span class="math inline">\(6\)</span> and <span class="math inline">\(11\)</span>, and the fact that <span class="math inline">\(a_6b_6 = 0\)</span>.</p>
+</div>
+<p>Total <span class="math inline">\(6\)</span>: <span class="math inline">\(a_1b_5 + a_4b_2 = b_5 + 2a_4 = 4\)</span> (the other products involve <span class="math inline">\(a_2 = a_3 = 0\)</span> or <span class="math inline">\(b_1 = 0\)</span>). Since <span class="math inline">\(b_5 \leq 2\)</span> and <span class="math inline">\(b_5 = 4 - 2a_4\)</span> is even, either <span class="math inline">\(b_5 = 0, a_4 = 2\)</span> or <span class="math inline">\(b_5 = 2, a_4 = 1\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(b_5 = 0\)</span> then <span class="math inline">\(B\)</span> is <span class="math inline">\(2, 2, 3, 4, 6, 6\)</span>, so <span class="math inline">\(a_6 = 0\)</span> and <span class="math inline">\(A\)</span> is <span class="math inline">\(1, 4, 4, 5, 5, 5\)</span>. But then total <span class="math inline">\(7\)</span> has <span class="math inline">\(a_1b_6 + a_4b_3 + a_5b_2 = 2 + 2 + 6 = 10\)</span> ways, not <span class="math inline">\(3\)</span>.</p></li>
+<li><p>If <span class="math inline">\(b_5 = 2\)</span> then <span class="math inline">\(B\)</span> is <span class="math inline">\(2, 2, 3, 4, 5, 5\)</span>, with <span class="math inline">\(b_6 = 0\)</span>, and <span class="math inline">\(A\)</span> is <span class="math inline">\(1, 4\)</span> and four faces from <span class="math inline">\(5\)</span> and <span class="math inline">\(6\)</span>. Total <span class="math inline">\(11\)</span>: <span class="math inline">\(a_6b_5 = 2a_6 = 6\)</span>, so <span class="math inline">\(a_6 = 3\)</span> and <span class="math inline">\(a_5 = 1\)</span>.</p></li>
+</ul>
+<p>The only possibility is <span class="math display">\[A:\ 1, 4, 5, 6, 6, 6, \qquad B:\ 2, 2, 3, 4, 5, 5.\]</span> Finally we must check that these dice give the whole table, since we have used only some of the totals. Multiplying out (or using the polynomials below) confirms every entry.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Start at the extremes.</strong> The smallest and largest totals involve only one or two products, so they give the strongest information.</p></li>
+<li><p><strong>Split into cases and kill them.</strong> Each total cut the possibilities down, until only one case survived.</p></li>
+<li><p><strong>Check sufficiency.</strong> The deduction showed what the dice <em>must</em> be; a final check showed that they work.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="dice-as-polynomials">Dice as polynomials</h3>
+<p>Write each die as a polynomial, with one term <span class="math inline">\(x^i\)</span> for each face showing <span class="math inline">\(i\)</span>. An ordinary die is <span class="math inline">\(x + x^2 + x^3 + x^4 + x^5 + x^6\)</span>, and the dice in the question are <span class="math display">\[A(x) = x + x^4 + x^5 + 3x^6, \qquad B(x) = 2x^2 + x^3 + x^4 + 2x^5.\]</span> Multiplying, each pair of faces contributes <span class="math inline">\(x^ix^j = x^{i+j}\)</span>, so the coefficient of <span class="math inline">\(x^t\)</span> in <span class="math inline">\(A(x)B(x)\)</span> is the number of ways to throw a total of <span class="math inline">\(t\)</span>. This is the generating function idea of <a href="../ch09/generating-functions.html">Section 9.4</a> once more: the table of totals is just the product <span class="math inline">\(A(x)B(x)\)</span>, and our case-by-case deduction was a way of factorising it.</p>
+<h3 id="sichermans-dice">Sicherman’s dice</h3>
+<p>For two ordinary dice the product is <span class="math inline">\((x + x^2 + \cdots + x^6)^2\)</span>. Any pair of dice with the same totals must have polynomials <span class="math inline">\(P(x)\)</span>, <span class="math inline">\(Q(x)\)</span> with <span class="math inline">\(P(x)Q(x) = (x + \cdots + x^6)^2\)</span>. Now factorise: <span class="math display">\[x + x^2 + \cdots + x^6 = x(1 + x)(1 + x + x^2)(1 - x + x^2),\]</span> and these factors cannot be broken down further (into polynomials with integer coefficients). So each of <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> must be built from the factors <span class="math inline">\(x\)</span>, <span class="math inline">\(1 + x\)</span>, <span class="math inline">\(1 + x + x^2\)</span>, <span class="math inline">\(1 - x + x^2\)</span>, each appearing twice in total. Three conditions narrow the choice:</p>
+<ul>
+<li><p>each die has <span class="math inline">\(6\)</span> faces, so <span class="math inline">\(P(1) = Q(1) = 6\)</span>; the factors take the values <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(1\)</span> at <span class="math inline">\(x = 1\)</span>, so each die gets one <span class="math inline">\(1 + x\)</span> and one <span class="math inline">\(1 + x + x^2\)</span>;</p></li>
+<li><p>no face shows <span class="math inline">\(0\)</span>, so <span class="math inline">\(P(0) = Q(0) = 0\)</span>: each die gets one factor <span class="math inline">\(x\)</span>;</p></li>
+<li><p>the only freedom left is how the two copies of <span class="math inline">\(1 - x + x^2\)</span> are shared. One each gives ordinary dice. Both on one die gives <span class="math display">\[\begin{aligned}
+    x(1 + x)(1 + x + x^2) &amp;= x + 2x^2 + 2x^3 + x^4, \\
+    x(1 + x)(1 + x + x^2)(1 - x + x^2)^2 &amp;= x + x^3 + x^4 + x^5 + x^6 + x^8.
+  
+\end{aligned}\]</span></p></li>
+</ul>
+<p>These are Sicherman’s dice, <span class="math inline">\(1, 2, 2, 3, 3, 4\)</span> and <span class="math inline">\(1, 3, 4, 5, 6, 8\)</span> (Figure 9.6.1), and the argument proves they are the only alternative. The key fact is that polynomials, like integers, factorise uniquely into irreducibles: number theory and combinatorics meet.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-6-1.svg" alt="Figure 9.6.1"><figcaption><span class="fig-label">Figure 9.6.1</span> Sicherman’s dice. Thrown together, they give every total from <span class="math inline">\(2\)</span> to <span class="math inline">\(12\)</span> with exactly the same frequency as two ordinary dice (right): one way to throw <span class="math inline">\(2\)</span>, two ways to throw <span class="math inline">\(3\)</span>, and so on up to six ways to throw <span class="math inline">\(7\)</span>.</figcaption></figure>
+<div class="historybox">
+<div class="box-title">Probability generating functions</div>
+<p>In probability the same idea appears as the <em>probability generating function</em>: a random variable <span class="math inline">\(X\)</span> taking values <span class="math inline">\(0, 1, 2, \ldots\)</span> has <span class="math inline">\(\mathrm{G}(t) = \mathrm{E}(t^X) = \sum \mathrm{P}(X = k)t^k\)</span>, and for independent <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, <span class="math inline">\(\mathrm{E}(t^{X+Y}) = \mathrm{E}(t^X)\mathrm{E}(t^Y)\)</span>. Sums of independent random variables correspond to products of generating functions. STEP III 2003 Q14 (in the exercises) finds Sicherman’s dice this way, and <a href="../ch09/loaded-dice.html">Section 9.13</a> uses a related argument to show that no loading of two dice can make all totals equally likely.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Encode a counting problem as a polynomial</div>
+<p><em>When objects combine by adding their values, represent each one as a polynomial in <span class="math inline">\(x\)</span>. Combining becomes multiplying, and questions about the combinations become questions about factorisation.</em></p>
+<p>Here a question about dice turned into the unique factorisation of polynomials. At university, such encodings are everywhere: in combinatorics, in probability, and in algebra, where polynomials are studied in their own right as a ring with arithmetic like that of the integers.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Tetrahedral dice.</strong> (From STEP III, 2003.) Standard four-faced dice are labelled <span class="math inline">\(1, 2, 3, 4\)</span>. Find all the ways in which two four-faced dice can be labelled with positive integers so that every total has the same probability as for two standard four-faced dice. (<em>Hint:</em> <span class="math inline">\(x + x^2 + x^3 + x^4 = x(1 + x)(1 + x^2)\)</span>.)</p></li>
+<li><p><strong>Checking the table.</strong> Multiply out <span class="math inline">\((x + x^4 + x^5 + 3x^6)(2x^2 + x^3 + x^4 + 2x^5)\)</span> and check it against the table in the question.</p></li>
+<li><p><strong>Three dice.</strong> Are there three six-sided dice, not all standard, labelled with positive integers, whose totals have the same distribution as three standard dice? (<em>Hint:</em> the factors of <span class="math inline">\((x + \cdots + x^6)^3\)</span> now include three copies of <span class="math inline">\(1 - x + x^2\)</span>.)</p></li>
+<li><p><strong>A coin and an octahedron.</strong> An eight-sided die labelled <span class="math inline">\(1, \ldots, 8\)</span> and a two-sided “die” (a coin) labelled <span class="math inline">\(1, 2\)</span>: can they be relabelled differently with the same totals?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Martin Gardner, <em>Penrose Tiles to Trapdoor Ciphers</em></strong> (Mathematical Association of America). Includes the column on Sicherman dice.</p></li>
+<li><p><strong>Joseph Gallian &amp; David Rusin, “Cyclotomic polynomials and nonstandard dice”</strong>, <em>Discrete Mathematics</em> 27 (1979). The general theory, for dice with any number of faces.</p></li>
+<li><p><strong>Herbert Wilf, <em>generatingfunctionology</em></strong> (free online), Chapter 1.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="making-change.html">← 9.5 Making Change</a><a class="next" href="equal-power-sums.html">→ 9.7 Equal Sums of Powers</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

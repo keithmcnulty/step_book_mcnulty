@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.8 Nobody Gets Their Own Shirt — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 9 · Counting and Chance</a>
+    <div class="src">STEP II · 2016 · Question 12</div>
+    <div class="sec-head"><span class="sec-num">9.8</span><h1>Nobody Gets Their Own Shirt</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-8-derangements.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 9</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Starting with the result <span class="math inline">\(\mathrm{P}(A \cup B) = \mathrm{P}(A) + \mathrm{P}(B) - \mathrm{P}(A \cap B)\)</span>, prove that <span class="math display">\[\mathrm{P}(A \cup B \cup C) = \mathrm{P}(A) + \mathrm{P}(B) + \mathrm{P}(C) - \mathrm{P}(A \cap B) - \mathrm{P}(B \cap C) - \mathrm{P}(C \cap A) + \mathrm{P}(A \cap B \cap C).\]</span> Write down, without proof, the corresponding result for four events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span>.</p>
+<p>A pack of <span class="math inline">\(n\)</span> cards, numbered <span class="math inline">\(1, 2, \ldots, n\)</span>, is shuffled and laid out in a row. The result of the shuffle is that each card is equally likely to be in any position in the row. Let <span class="math inline">\(E_i\)</span> be the event that the card bearing the number <span class="math inline">\(i\)</span> is in the <span class="math inline">\(i\)</span>th position in the row. Write down the following probabilities:</p>
+<ol class="roman">
+<li><p><span class="math inline">\(\mathrm{P}(E_i)\)</span>;</p></li>
+<li><p><span class="math inline">\(\mathrm{P}(E_i \cap E_j)\)</span>, where <span class="math inline">\(i \neq j\)</span>;</p></li>
+<li><p><span class="math inline">\(\mathrm{P}(E_i \cap E_j \cap E_k)\)</span>, where <span class="math inline">\(i \neq j\)</span>, <span class="math inline">\(j \neq k\)</span> and <span class="math inline">\(k \neq i\)</span>.</p></li>
+</ol>
+<p>Hence show that the probability that at least one card is in the same position as the number it bears is <span class="math display">\[1 - \frac{1}{2!} + \frac{1}{3!} - \cdots + (-1)^{n+1}\frac{1}{n!}.\]</span> Find the probability that exactly one card is in the same position as the number it bears.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>A football team of eleven players changes in a hurry and grabs shirts at random. What is the chance that nobody ends up in their own shirt? Now suppose it is a squad of fifty, or a crowd of a million. Does the chance go up, because there are more people to get it wrong? Or down, because there are more people who might get it right by luck? Remarkably, it hardly changes at all: from five people onwards, the chance is within half a per cent of <span class="math inline">\(1/e \approx 0.368\)</span>.</p>
+<p>This is the oldest problem in combinatorial probability, posed by Pierre de Montmort in 1708 as the <em>problème des rencontres</em>. The question solves it with the <em>inclusion–exclusion principle</em>, a tool for counting things that overlap, and the answer is one of the most unexpected appearances of <span class="math inline">\(e\)</span> in mathematics.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="pausebox">
+<p>Try <span class="math inline">\(n = 3\)</span>: list all six orders of cards <span class="math inline">\(1, 2, 3\)</span> and count how many have no card in its own place. Then try <span class="math inline">\(n = 4\)</span>, if you are patient (there are <span class="math inline">\(24\)</span> orders).</p>
+</div>
+<p>For <span class="math inline">\(n = 3\)</span> only <span class="math inline">\(231\)</span> and <span class="math inline">\(312\)</span> have no card in its place, so the probability is <span class="math inline">\(\frac26 = \frac13\)</span>. For <span class="math inline">\(n = 4\)</span> there are <span class="math inline">\(9\)</span> such orders out of <span class="math inline">\(24\)</span>, giving <span class="math inline">\(\frac38 = 0.375\)</span>. An arrangement with no fixed card is called a <em>derangement</em>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-inclusionexclusion-for-three-events" class="stage"><span class="stage-n">Stage 1</span> Inclusion–exclusion for three events</h4>
+<div class="askyourself">
+<p>How can you write <span class="math inline">\(A \cup B \cup C\)</span> as a union of two events, so that the two-event formula applies?</p>
+</div>
+<p>Treat <span class="math inline">\(A \cup B\)</span> as a single event and apply the formula to it and <span class="math inline">\(C\)</span>: <span class="math display">\[\mathrm{P}(A \cup B \cup C) = \mathrm{P}(A \cup B) + \mathrm{P}(C) - \mathrm{P}\bigl((A \cup B) \cap C\bigr).\]</span> Now <span class="math inline">\((A \cup B) \cap C = (A \cap C) \cup (B \cap C)\)</span>, and applying the formula once more, <span class="math inline">\(\mathrm{P}\bigl((A \cap C) \cup (B \cap C)\bigr) = \mathrm{P}(A \cap C) + \mathrm{P}(B \cap C) - \mathrm{P}(A \cap B \cap C)\)</span>. Expanding <span class="math inline">\(\mathrm{P}(A \cup B)\)</span> too and collecting terms gives the result.<span class="qed" aria-label="end of proof">■</span></p>
+<p>For four events the pattern continues: add the four single probabilities, subtract the six pairwise intersections, add the four triple intersections, and subtract <span class="math inline">\(\mathrm{P}(A \cap B \cap C \cap D)\)</span>.</p>
+<h4 id="stagemark2-the-probabilities" class="stage"><span class="stage-n">Stage 2</span> The probabilities</h4>
+<div class="askyourself">
+<p>If card <span class="math inline">\(i\)</span> is in position <span class="math inline">\(i\)</span>, how many ways are there to arrange the rest? And if cards <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are both fixed?</p>
+</div>
+<p>There are <span class="math inline">\(n!\)</span> equally likely orders. If card <span class="math inline">\(i\)</span> is fixed in position <span class="math inline">\(i\)</span>, the other <span class="math inline">\(n - 1\)</span> cards can be in any order: <span class="math inline">\((n - 1)!\)</span> ways. So <span class="math display">\[\mathrm{P}(E_i) = \frac{(n - 1)!}{n!} = \frac{1}{n}, \qquad \mathrm{P}(E_i \cap E_j) = \frac{(n - 2)!}{n!} = \frac{1}{n(n - 1)}, \qquad \mathrm{P}(E_i \cap E_j \cap E_k) = \frac{1}{n(n - 1)(n - 2)}.\]</span> In general, the probability that <span class="math inline">\(k\)</span> specified cards are all in their own positions is <span class="math inline">\(\frac{(n - k)!}{n!}\)</span>.</p>
+<h4 id="stagemark3-adding-it-up" class="stage"><span class="stage-n">Stage 3</span> Adding it up</h4>
+<div class="askyourself">
+<p>In the inclusion–exclusion formula for <span class="math inline">\(\mathrm{P}(E_1 \cup \cdots \cup E_n)\)</span>, how many terms are there involving intersections of <span class="math inline">\(k\)</span> events, and what is their total?</p>
+</div>
+<p>There are <span class="math inline">\(\binom{n}{k}\)</span> ways to choose <span class="math inline">\(k\)</span> of the events, and each intersection has probability <span class="math inline">\(\frac{(n - k)!}{n!}\)</span>. So the <span class="math inline">\(k\)</span>-fold terms add up to <span class="math display">\[\binom{n}{k}\frac{(n - k)!}{n!} = \frac{n!}{k!\,(n - k)!}\cdot\frac{(n - k)!}{n!} = \frac{1}{k!}.\]</span> Everything except the <span class="math inline">\(k!\)</span> cancels. With alternating signs, <span class="math display">\[\mathrm{P}(\text{at least one card in its place}) = 1 - \frac{1}{2!} + \frac{1}{3!} - \cdots + (-1)^{n+1}\frac{1}{n!}. \qed\]</span> So the probability of a derangement is <span class="math display">\[d_n = 1 - 1 + \frac{1}{2!} - \frac{1}{3!} + \cdots + (-1)^n\frac{1}{n!} = \sum_{k=0}^{n}\frac{(-1)^k}{k!}.\]</span></p>
+<h4 id="stagemark4-exactly-one" class="stage"><span class="stage-n">Stage 4</span> Exactly one</h4>
+<div class="askyourself">
+<p>For exactly one card to be in place, which card is it, and what must the others do?</p>
+</div>
+<p>Choose which card is in its place (<span class="math inline">\(n\)</span> ways). The probability that card <span class="math inline">\(i\)</span> is in place is <span class="math inline">\(\frac1n\)</span>, and given that, the other <span class="math inline">\(n - 1\)</span> cards must form a derangement among themselves, which has probability <span class="math inline">\(d_{n-1}\)</span>. So <span class="math display">\[\mathrm{P}(\text{exactly one}) = n \cdot \frac{1}{n} \cdot d_{n-1} = \sum_{k=0}^{n-1}\frac{(-1)^k}{k!}. \qed\]</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Overcount, then correct.</strong> Adding the <span class="math inline">\(\mathrm{P}(E_i)\)</span> counts arrangements with two fixed cards twice; subtracting the pairs corrects this but goes too far for triples; and so on.</p></li>
+<li><p><strong>Symmetry makes the terms equal.</strong> Every <span class="math inline">\(k\)</span>-fold intersection has the same probability, so each layer of the formula is one number times a binomial coefficient.</p></li>
+<li><p><strong>Reduce to a smaller case.</strong> “Exactly one” became a derangement of <span class="math inline">\(n - 1\)</span> cards.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="where-e-comes-from">Where <span class="math inline">\(e\)</span> comes from</h3>
+<p>The series <span class="math inline">\(\sum (-1)^k/k!\)</span> is the exponential series <span class="math inline">\(e^x = \sum x^k/k!\)</span> at <span class="math inline">\(x = -1\)</span>. So as <span class="math inline">\(n \to \infty\)</span>, <span class="math display">\[d_n \to e^{-1} \approx 0.3679,\]</span> and the probability of exactly one match tends to the same limit. The convergence is extraordinarily fast (Figure 9.8.1): the error in stopping at <span class="math inline">\(1/n!\)</span> is less than <span class="math inline">\(1/(n + 1)!\)</span>, so already for <span class="math inline">\(n = 7\)</span> the answer agrees with <span class="math inline">\(1/e\)</span> to four decimal places. In fact the number of derangements of <span class="math inline">\(n\)</span> objects, <span class="math inline">\(n!\,d_n\)</span>, is exactly the nearest integer to <span class="math inline">\(n!/e\)</span>.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-8-1.svg" alt="Figure 9.8.1"><figcaption><span class="fig-label">Figure 9.8.1</span> The probability that a random shuffle of <span class="math inline">\(n\)</span> cards leaves no card in its own place. It alternates above and below <span class="math inline">\(1/e\)</span>, and from <span class="math inline">\(n = 6\)</span> onwards it is indistinguishable from <span class="math inline">\(1/e\)</span> on this scale.</figcaption></figure>
+<h3 id="the-number-of-matches-is-poisson">The number of matches is Poisson</h3>
+<p>More is true. Let <span class="math inline">\(N\)</span> be the number of cards in their own place. Then <span class="math inline">\(\mathrm{P}(N = k) \to \frac{e^{-1}}{k!}\)</span> for each <span class="math inline">\(k\)</span>: the number of matches has, in the limit, the <em>Poisson distribution</em> with mean <span class="math inline">\(1\)</span>. You can see why the mean is <span class="math inline">\(1\)</span> without any calculation: <span class="math inline">\(N\)</span> is the sum of the indicators of <span class="math inline">\(E_1, \ldots, E_n\)</span>, each with expectation <span class="math inline">\(\frac1n\)</span>, and expectation adds even though the events are not independent. STEP III 2004 Q12 (in the exercises) shows that the variance is <span class="math inline">\(1\)</span> too. The Poisson distribution appears whenever there are many unlikely events that are nearly independent; derangements are a classic example, and the subject of Section 12.11 in Chapter 12.</p>
+<div class="historybox">
+<div class="box-title">Montmort’s game of <em>treize</em></div>
+<p>Pierre Rémond de Montmort, a French nobleman, studied games of chance in his <em>Essay d’analyse sur les jeux de hazard</em> (1708). In the game of <em>treize</em> (thirteen), a player deals thirteen cards, calling out “one, two, three, …” and wins if the card dealt ever matches the number called. Montmort found the probability of winning, and in correspondence with Nicolaus Bernoulli the general formula was established by 1713. Euler rediscovered it in 1753. The inclusion–exclusion principle was later formalised by Abraham de Moivre and, in its general form, by James Joseph Sylvester in the nineteenth century.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Inclusion–exclusion</div>
+<p><em>To count a union of overlapping sets, add the sizes of the sets, subtract the pairwise overlaps, add the triple overlaps, and so on.</em></p>
+<p>It is most powerful when symmetry makes all the overlaps of each size equal, as here. At university it appears in combinatorics, in probability and in number theory, where it counts integers not divisible by any of a list of primes, and leads to Euler’s totient function and the Möbius function.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Shirts.</strong> (From STEP III, 2004.) A team of <span class="math inline">\(m\)</span> players put on <span class="math inline">\(m\)</span> numbered shirts at random. Let <span class="math inline">\(C_i = 1\)</span> if player <span class="math inline">\(i\)</span> wears shirt <span class="math inline">\(i\)</span>, and <span class="math inline">\(0\)</span> otherwise. Find <span class="math inline">\(\mathrm{E}(C_1)\)</span>, <span class="math inline">\(\mathrm{Var}(C_1)\)</span> and <span class="math inline">\(\mathrm{Cov}(C_1, C_2)\)</span>, and show that <span class="math inline">\(N = C_1 + \cdots + C_m\)</span> has <span class="math inline">\(\mathrm{E}(N) = \mathrm{Var}(N) = 1\)</span>. For <span class="math inline">\(m = 4\)</span>, compare <span class="math inline">\(\mathrm{P}(N = 0)\)</span> with the Poisson approximation <span class="math inline">\(e^{-1}\)</span>.</p></li>
+<li><p><strong>A recurrence.</strong> Let <span class="math inline">\(D_n\)</span> be the number of derangements of <span class="math inline">\(n\)</span> objects. By considering where card <span class="math inline">\(1\)</span> goes, and whether the card in that position goes to position <span class="math inline">\(1\)</span>, show that <span class="math inline">\(D_n = (n - 1)(D_{n-1} + D_{n-2})\)</span>. Check it against <span class="math inline">\(D_3 = 2\)</span>, <span class="math inline">\(D_4 = 9\)</span>.</p></li>
+<li><p><strong>Exactly <span class="math inline">\(k\)</span>.</strong> Show that the probability that exactly <span class="math inline">\(k\)</span> cards are in their own places is <span class="math inline">\(\frac{1}{k!}d_{n-k}\)</span>, and that it tends to <span class="math inline">\(\frac{e^{-1}}{k!}\)</span>.</p></li>
+<li><p><strong>Coprime integers.</strong> Use inclusion–exclusion to count the integers from <span class="math inline">\(1\)</span> to <span class="math inline">\(30\)</span> divisible by none of <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> and <span class="math inline">\(5\)</span>. How does your answer relate to <span class="math inline">\(30\bigl(1 - \frac12\bigr)\bigl(1 - \frac13\bigr)\bigl(1 - \frac15\bigr)\)</span>?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <em>Probability: An Introduction</em></strong> (Oxford University Press). A first-year text that covers inclusion–exclusion and the matching problem.</p></li>
+<li><p><strong>William Feller, <em>An Introduction to Probability Theory and Its Applications</em>, Vol. 1</strong> (Wiley), Chapter IV. A classic, with many variations on the matching problem.</p></li>
+<li><p><strong>Miklós Bóna, <em>A Walk Through Combinatorics</em></strong> (World Scientific), the chapter on inclusion–exclusion.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="equal-power-sums.html">← 9.7 Equal Sums of Powers</a><a class="next" href="birthday.html">→ 9.9 The Birthday Problem</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

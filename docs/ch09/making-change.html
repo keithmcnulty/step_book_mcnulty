@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.5 Making Change — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 9 · Counting and Chance</a>
+    <div class="src">STEP I · 1997 · Question 1</div>
+    <div class="sec-head"><span class="sec-num">9.5</span><h1>Making Change</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-5-making-change.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 9</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Show that you can make up <span class="math inline">\(10\)</span> pence in eleven ways using <span class="math inline">\(10\)</span>p, <span class="math inline">\(5\)</span>p, <span class="math inline">\(2\)</span>p and <span class="math inline">\(1\)</span>p coins.</p>
+<p>In how many ways can you make up <span class="math inline">\(20\)</span> pence using <span class="math inline">\(20\)</span>p, <span class="math inline">\(10\)</span>p, <span class="math inline">\(5\)</span>p, <span class="math inline">\(2\)</span>p and <span class="math inline">\(1\)</span>p coins?</p>
+<p>[You are reminded that no credit will be given for unexplained answers.]</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>This looks like the easiest question in the book: just list the possibilities. But listing gets out of hand very quickly. There are <span class="math inline">\(41\)</span> ways to make <span class="math inline">\(20\)</span>p, <span class="math inline">\(451\)</span> ways to make <span class="math inline">\(50\)</span>p, and <span class="math inline">\(4563\)</span> ways to make £1 from the coins in a British pocket. The question is really asking for a <em>system</em>, a way to organise the count so that nothing is missed and nothing counted twice.</p>
+<p>Behind the system is a beautiful piece of mathematics. Each coin corresponds to a geometric series, the number of ways to make <span class="math inline">\(n\)</span> pence is a coefficient in their product, and the same idea, applied to all whole numbers at once, gives Euler’s theory of <em>partitions</em>, one of the deepest topics in number theory.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>How many ways are there to make <span class="math inline">\(n\)</span> pence using only <span class="math inline">\(2\)</span>p and <span class="math inline">\(1\)</span>p coins? Why does the answer depend only on how many <span class="math inline">\(2\)</span>p coins you use?</p>
+</div>
+<p>Once the number of <span class="math inline">\(2\)</span>p coins is chosen, the rest must be <span class="math inline">\(1\)</span>p coins, so there is exactly one way for each possible number of <span class="math inline">\(2\)</span>p coins: <span class="math inline">\(0, 1, \ldots, \lfloor n/2\rfloor\)</span>. That gives <span class="math inline">\(\lfloor n/2\rfloor + 1\)</span> ways. Call this <span class="math inline">\(a(n)\)</span>. For example, <span class="math inline">\(a(10) = 6\)</span> and <span class="math inline">\(a(5) = 3\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-ten-pence" class="stage"><span class="stage-n">Stage 1</span> Ten pence</h4>
+<div class="askyourself">
+<p>Organise the count by the largest coins. How many <span class="math inline">\(10\)</span>p coins can you use? Given that, how many <span class="math inline">\(5\)</span>p coins?</p>
+</div>
+<ul>
+<li><p>One <span class="math inline">\(10\)</span>p coin: <span class="math inline">\(1\)</span> way.</p></li>
+<li><p>No <span class="math inline">\(10\)</span>p, two <span class="math inline">\(5\)</span>p: <span class="math inline">\(1\)</span> way.</p></li>
+<li><p>No <span class="math inline">\(10\)</span>p, one <span class="math inline">\(5\)</span>p: the other <span class="math inline">\(5\)</span>p is made from <span class="math inline">\(2\)</span>p and <span class="math inline">\(1\)</span>p, in <span class="math inline">\(a(5) = 3\)</span> ways.</p></li>
+<li><p>No <span class="math inline">\(10\)</span>p or <span class="math inline">\(5\)</span>p: <span class="math inline">\(10\)</span>p from <span class="math inline">\(2\)</span>p and <span class="math inline">\(1\)</span>p, in <span class="math inline">\(a(10) = 6\)</span> ways.</p></li>
+</ul>
+<p>The total is <span class="math inline">\(1 + 1 + 3 + 6 = 11\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-building-up-layer-by-layer" class="stage"><span class="stage-n">Stage 2</span> Building up layer by layer</h4>
+<div class="askyourself">
+<p>Let <span class="math inline">\(b(n)\)</span> be the number of ways to make <span class="math inline">\(n\)</span> pence from <span class="math inline">\(5\)</span>p, <span class="math inline">\(2\)</span>p and <span class="math inline">\(1\)</span>p coins. How can you express <span class="math inline">\(b(n)\)</span> using the function <span class="math inline">\(a\)</span>?</p>
+</div>
+<p>Choose the number <span class="math inline">\(k\)</span> of <span class="math inline">\(5\)</span>p coins; the remaining <span class="math inline">\(n - 5k\)</span> pence are made from <span class="math inline">\(2\)</span>p and <span class="math inline">\(1\)</span>p coins. So <span class="math display">\[b(n) = a(n) + a(n - 5) + a(n - 10) + \cdots.\]</span> This gives</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(5\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(10\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(15\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(20\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(a(n)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(8\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(11\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(b(n) = a(n) + b(n - 5)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(10\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(18\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(29\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>Similarly, let <span class="math inline">\(c(n)\)</span> count ways using <span class="math inline">\(10\)</span>p coins as well; then <span class="math inline">\(c(n) = b(n) + b(n - 10) + \cdots\)</span>, so <span class="math inline">\(c(10) = 10 + 1 = 11\)</span> (agreeing with Stage 1) and <span class="math inline">\(c(20) = b(20) + b(10) + b(0) = 29 + 10 + 1 = 40\)</span>.</p>
+<h4 id="stagemark3-twenty-pence" class="stage"><span class="stage-n">Stage 3</span> Twenty pence</h4>
+<p>Finally the <span class="math inline">\(20\)</span>p coin: either we use it (one way) or we do not (<span class="math inline">\(c(20)\)</span> ways). So there are <span class="math display">\[40 + 1 = 41 \text{ ways}. \qed\]</span></p>
+<div class="pausebox">
+<p>Notice the structure: each new coin adds a layer, and each layer is a sum of the previous layer at spacings of the new coin’s value. Can you see how a computer would carry out this calculation for £1, or £100?</p>
+</div>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Organise by the largest part.</strong> Fixing the number of the largest coins first made the count systematic.</p></li>
+<li><p><strong>Build a table.</strong> Each new coin added a row computed from the row before. This is <em>dynamic programming</em>, the standard way computers count such things.</p></li>
+<li><p><strong>Check against a known case.</strong> The table reproduced the <span class="math inline">\(11\)</span> ways for <span class="math inline">\(10\)</span>p.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="coins-as-geometric-series">Coins as geometric series</h3>
+<p>Here is the idea that turns this into algebra. The number of <span class="math inline">\(5\)</span>p coins used can be <span class="math inline">\(0, 1, 2, \ldots\)</span>, contributing <span class="math inline">\(0, 5, 10, \ldots\)</span> pence. Record this as the series <span class="math display">\[1 + x^5 + x^{10} + x^{15} + \cdots = \frac{1}{1 - x^5}.\]</span> Do the same for each coin and multiply: <span class="math display">\[\frac{1}{(1 - x)(1 - x^2)(1 - x^5)(1 - x^{10})(1 - x^{20})} = \sum_n w(n)x^n.\]</span> When the brackets are multiplied out, each term <span class="math inline">\(x^n\)</span> arises from choosing one term from each bracket, that is, a number of each coin, with total value <span class="math inline">\(n\)</span>. So <span class="math inline">\(w(n)\)</span>, the coefficient of <span class="math inline">\(x^n\)</span>, is exactly the number of ways to make <span class="math inline">\(n\)</span> pence. The table in Stage 2 was simply multiplying out this product one bracket at a time. This is the generating function idea of <a href="../ch09/generating-functions.html">Section 9.4</a>, and multiplication is where it shows its power: products of generating functions count combinations of choices.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-5-1.svg" alt="Figure 9.5.1"><figcaption><span class="fig-label">Figure 9.5.1</span> The number of ways to make <span class="math inline">\(n\)</span> pence from <span class="math inline">\(1\)</span>p, <span class="math inline">\(2\)</span>p, <span class="math inline">\(5\)</span>p, <span class="math inline">\(10\)</span>p, <span class="math inline">\(20\)</span>p and <span class="math inline">\(50\)</span>p coins. The jumps at multiples of <span class="math inline">\(5\)</span> and <span class="math inline">\(10\)</span> show where a new coin first becomes usable. With six coins the count grows roughly like <span class="math inline">\(n^5\)</span>: in general, like a polynomial of degree one less than the number of coins.</figcaption></figure>
+<h3 id="partitions">Partitions</h3>
+<p>What if every whole number is allowed as a coin? Then the number of ways to write <span class="math inline">\(n\)</span> as a sum of positive integers, ignoring order, is the <em>partition number</em> <span class="math inline">\(p(n)\)</span>. For example <span class="math inline">\(p(4) = 5\)</span>, since <span class="math inline">\(4 = 3 + 1 = 2 + 2 = 2 + 1 + 1 = 1 + 1 + 1 + 1\)</span>. Euler saw in 1748 that <span class="math display">\[\sum_{n \geq 0}p(n)x^n = \frac{1}{(1 - x)(1 - x^2)(1 - x^3)(1 - x^4)\cdots},\]</span> and used it to discover remarkable identities. One of them: the number of ways to write <span class="math inline">\(n\)</span> as a sum of <em>distinct</em> parts equals the number of ways to write it as a sum of <em>odd</em> parts. (The proof is a single line of algebra with generating functions: try it in the exercises.)</p>
+<div class="historybox">
+<div class="box-title">Hardy, Ramanujan and <span class="math inline">\(p(200)\)</span></div>
+<p>The partition numbers grow fast: <span class="math inline">\(p(10) = 42\)</span>, <span class="math inline">\(p(100) = 190\,569\,292\)</span>. In 1918 G. H. Hardy and Srinivasa Ramanujan found an astonishing formula for <span class="math inline">\(p(n)\)</span>, an infinite series whose first term is <span class="math display">\[p(n) \approx \frac{1}{4n\sqrt3}\,e^{\pi\sqrt{2n/3}}.\]</span> To test it, Percy MacMahon computed <span class="math inline">\(p(200) = 3\,972\,999\,029\,388\)</span> by hand, using Euler’s identities. The first few terms of Hardy and Ramanujan’s series gave the right answer to within a fraction of one. Ramanujan also discovered that <span class="math inline">\(p(5n + 4)\)</span> is always divisible by <span class="math inline">\(5\)</span>, <span class="math inline">\(p(7n + 5)\)</span> by <span class="math inline">\(7\)</span>, and <span class="math inline">\(p(11n + 6)\)</span> by <span class="math inline">\(11\)</span>. Explaining why there are no more such patterns took until the twenty-first century.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Count via coefficients</div>
+<p><em>When an object is built from independent choices, each choice is a factor, and the number of objects of total size <span class="math inline">\(n\)</span> is the coefficient of <span class="math inline">\(x^n\)</span> in the product.</em></p>
+<p>This turns counting into algebra. At university it is the basis of enumerative combinatorics, and it is how probability generating functions handle sums of independent random variables.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Two kinds of six.</strong> (From STEP II, 2012.) Show that the coefficient of <span class="math inline">\(x^{24}\)</span> in <span class="math inline">\((1 - x^6)^{-2}(1 - x^3)^{-1}\)</span> is <span class="math inline">\(15\)</span>, and find the coefficient of <span class="math inline">\(x^n\)</span> in general. Then show that the coefficient of <span class="math inline">\(x^{24}\)</span> in <span class="math inline">\((1 - x^6)^{-2}(1 - x^3)^{-1}(1 - x)^{-1}\)</span> is <span class="math inline">\(55\)</span>, and find the coefficients of <span class="math inline">\(x^{25}\)</span> and <span class="math inline">\(x^{66}\)</span>. Describe a coin-counting problem that these coefficients answer.</p></li>
+<li><p><strong>Distinct and odd.</strong> Show that <span class="math inline">\((1 + x)(1 + x^2)(1 + x^3)\cdots\)</span> is the generating function for partitions into distinct parts. Use <span class="math inline">\(1 + x^k = \frac{1 - x^{2k}}{1 - x^k}\)</span> to show that it equals <span class="math inline">\(\frac{1}{(1 - x)(1 - x^3)(1 - x^5)\cdots}\)</span>, and deduce Euler’s theorem. Check it for <span class="math inline">\(n = 6\)</span>.</p></li>
+<li><p><strong>A formula.</strong> Show that the number of ways to make <span class="math inline">\(n\)</span> pence using only <span class="math inline">\(1\)</span>p, <span class="math inline">\(2\)</span>p and <span class="math inline">\(5\)</span>p coins is the nearest integer to <span class="math inline">\(\frac{(n + 4)^2}{20}\)</span>. (Check it first for small <span class="math inline">\(n\)</span>.)</p></li>
+<li><p><strong>Order matters.</strong> In how many ways can you make <span class="math inline">\(n\)</span> pence by putting <span class="math inline">\(1\)</span>p and <span class="math inline">\(2\)</span>p coins into a slot one at a time, if the order matters? (You have met this sequence before.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>George Andrews &amp; Kimmo Eriksson, <em>Integer Partitions</em></strong> (Cambridge University Press). A short, readable introduction for undergraduates.</p></li>
+<li><p><strong>George Pólya, “On picture-writing”</strong>, <em>American Mathematical Monthly</em> 63 (1956). Pólya’s classic explanation of generating functions using the problem of changing a dollar (there are <span class="math inline">\(292\)</span> ways).</p></li>
+<li><p><strong>Robert Kanigel, <em>The Man Who Knew Infinity</em></strong> (Abacus). The life of Ramanujan, and his partnership with Hardy.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="generating-functions.html">← 9.4 Sequences as Functions</a><a class="next" href="strange-dice.html">→ 9.6 Strange Dice</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

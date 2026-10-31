@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.7 Equal Sums of Powers — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 9 · Counting and Chance</a>
+    <div class="src">STEP I · 1992 · Question 5</div>
+    <div class="sec-head"><span class="sec-num">9.7</span><h1>Equal Sums of Powers</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-7-equal-power-sums.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 9</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Let <span class="math inline">\(\mathrm{p}_0(x) = (1 - x)(1 - x^2)(1 - x^4)\)</span>. Show that <span class="math inline">\((1 - x)^3\)</span> is a factor of <span class="math inline">\(\mathrm{p}_0(x)\)</span>. If <span class="math inline">\(\mathrm{p}_1(x) = x\mathrm{p}_0&#39;(x)\)</span> show, by considering factors of the polynomials involved, that <span class="math inline">\(\mathrm{p}_0&#39;(1) = 0\)</span> and <span class="math inline">\(\mathrm{p}_1&#39;(1) = 0\)</span>.</p>
+<p>By writing <span class="math inline">\(\mathrm{p}_0(x)\)</span> in the form <span class="math display">\[\mathrm{p}_0(x) = c_0 + c_1x + c_2x^2 + c_3x^3 + c_4x^4 + c_5x^5 + c_6x^6 + c_7x^7,\]</span> deduce that <span class="math display">\[\begin{aligned}
+  1 + 2 + 4 + 7 &amp;= 3 + 5 + 6 \\
+  1^2 + 2^2 + 4^2 + 7^2 &amp;= 3^2 + 5^2 + 6^2.
+\end{aligned}\]</span> Show that we can write the integers <span class="math inline">\(1, 2, \ldots, 15\)</span> in some order as <span class="math inline">\(a_1, a_2, \ldots, a_{15}\)</span> in such a way that <span class="math display">\[a_1^r + a_2^r + \cdots + a_8^r = a_9^r + a_{10}^r + \cdots + a_{15}^r\]</span> for <span class="math inline">\(r = 1, 2, 3\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Split the numbers <span class="math inline">\(1\)</span> to <span class="math inline">\(16\)</span> into two teams of eight: <span class="math display">\[\{1, 4, 6, 7, 10, 11, 13, 16\} \quad\text{and}\quad \{2, 3, 5, 8, 9, 12, 14, 15\}.\]</span> Each team sums to <span class="math inline">\(68\)</span>. The sums of their squares are both <span class="math inline">\(748\)</span>. The sums of their cubes are both <span class="math inline">\(9248\)</span>. It is hard to believe this could be anything but a fluke, yet it is the third step of a pattern that goes on for ever: split <span class="math inline">\(1\)</span> to <span class="math inline">\(32\)</span> the right way and the fourth powers agree as well.</p>
+<p>The split was found by Eugène Prouhet in 1851, and the rule behind it, the <em>Thue–Morse sequence</em>, turns up in an astonishing range of places: in number theory, in the theory of computation, in chess, and in the fairest way to take turns. This question uncovers it through a polynomial and its derivatives.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>If a polynomial <span class="math inline">\(\mathrm{p}(x) = \sum c_kx^k\)</span> has <span class="math inline">\(\mathrm{p}(1) = 0\)</span>, what does that say about the coefficients? What about <span class="math inline">\(\mathrm{p}&#39;(1) = 0\)</span>?</p>
+</div>
+<p><span class="math inline">\(\mathrm{p}(1) = \sum c_k\)</span>, so <span class="math inline">\(\mathrm{p}(1) = 0\)</span> says the coefficients add to zero. And <span class="math inline">\(\mathrm{p}&#39;(x) = \sum kc_kx^{k-1}\)</span>, so <span class="math inline">\(\mathrm{p}&#39;(1) = \sum kc_k\)</span>. If the coefficients are all <span class="math inline">\(\pm1\)</span>, these say that the positions of the <span class="math inline">\(+1\)</span>s and the <span class="math inline">\(-1\)</span>s are equal in number, and have equal sums.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-a-triple-root" class="stage"><span class="stage-n">Stage 1</span> A triple root</h4>
+<div class="askyourself">
+<p>Factorise <span class="math inline">\(1 - x^2\)</span> and <span class="math inline">\(1 - x^4\)</span>. How many factors of <span class="math inline">\(1 - x\)</span> appear?</p>
+</div>
+<p>Since <span class="math inline">\(1 - x^2 = (1 - x)(1 + x)\)</span> and <span class="math inline">\(1 - x^4 = (1 - x)(1 + x)(1 + x^2)\)</span>, <span class="math display">\[\mathrm{p}_0(x) = (1 - x)^3(1 + x)^2(1 + x^2),\]</span> so <span class="math inline">\((1 - x)^3\)</span> is a factor.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-derivatives-at-1" class="stage"><span class="stage-n">Stage 2</span> Derivatives at <span class="math inline">\(1\)</span></h4>
+<div class="askyourself">
+<p>If <span class="math inline">\((1 - x)^3\)</span> divides <span class="math inline">\(\mathrm{p}_0\)</span>, what power of <span class="math inline">\((1 - x)\)</span> divides <span class="math inline">\(\mathrm{p}_0&#39;\)</span>? And then <span class="math inline">\(\mathrm{p}_1 = x\mathrm{p}_0&#39;\)</span> and <span class="math inline">\(\mathrm{p}_1&#39;\)</span>?</p>
+</div>
+<p>Write <span class="math inline">\(\mathrm{p}_0(x) = (1 - x)^3\mathrm{q}(x)\)</span>. By the product rule, <span class="math inline">\(\mathrm{p}_0&#39;(x) = -3(1 - x)^2\mathrm{q}(x) + (1 - x)^3\mathrm{q}&#39;(x)\)</span>, which has <span class="math inline">\((1 - x)^2\)</span> as a factor. So <span class="math inline">\(\mathrm{p}_0&#39;(1) = 0\)</span>. Then <span class="math inline">\(\mathrm{p}_1(x) = x\mathrm{p}_0&#39;(x)\)</span> also has <span class="math inline">\((1 - x)^2\)</span> as a factor, and the same argument shows <span class="math inline">\(\mathrm{p}_1&#39;\)</span> has <span class="math inline">\((1 - x)\)</span> as a factor, so <span class="math inline">\(\mathrm{p}_1&#39;(1) = 0\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-reading-off-the-coefficients" class="stage"><span class="stage-n">Stage 3</span> Reading off the coefficients</h4>
+<p>Multiplying out, <span class="math inline">\((1 - x)(1 - x^2) = 1 - x - x^2 + x^3\)</span>, and then <span class="math display">\[\mathrm{p}_0(x) = 1 - x - x^2 + x^3 - x^4 + x^5 + x^6 - x^7.\]</span></p>
+<div class="askyourself">
+<p>What are <span class="math inline">\(\mathrm{p}_0&#39;(1)\)</span> and <span class="math inline">\(\mathrm{p}_1&#39;(1)\)</span> in terms of the coefficients <span class="math inline">\(c_k\)</span>?</p>
+</div>
+<p>Since <span class="math inline">\(\mathrm{p}_1(x) = x\mathrm{p}_0&#39;(x) = \sum kc_kx^k\)</span>, we have <span class="math inline">\(\mathrm{p}_1&#39;(1) = \sum k^2c_k\)</span>. The coefficient is <span class="math inline">\(+1\)</span> at <span class="math inline">\(k = 0, 3, 5, 6\)</span> and <span class="math inline">\(-1\)</span> at <span class="math inline">\(k = 1, 2, 4, 7\)</span>. So <span class="math inline">\(\mathrm{p}_0&#39;(1) = 0\)</span> and <span class="math inline">\(\mathrm{p}_1&#39;(1) = 0\)</span> say <span class="math display">\[\begin{aligned}
+  0 + 3 + 5 + 6 &amp;= 1 + 2 + 4 + 7 \quad (= 14), \\
+  0^2 + 3^2 + 5^2 + 6^2 &amp;= 1^2 + 2^2 + 4^2 + 7^2 \quad (= 70),
+\end{aligned}\]</span> which, dropping the <span class="math inline">\(0\)</span>, are the identities required.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-one-more-factor" class="stage"><span class="stage-n">Stage 4</span> One more factor</h4>
+<div class="pausebox">
+<p>To make the cubes balance too, we need a fourth factor of <span class="math inline">\((1 - x)\)</span>. Which polynomial should replace <span class="math inline">\(\mathrm{p}_0\)</span>?</p>
+</div>
+<p>Take <span class="math inline">\(\mathrm{P}(x) = (1 - x)(1 - x^2)(1 - x^4)(1 - x^8)\)</span>, which has <span class="math inline">\((1 - x)^4\)</span> as a factor. Its coefficients are <span class="math inline">\(\mathrm{p}_0(x) - x^8\mathrm{p}_0(x)\)</span>: the pattern of signs for <span class="math inline">\(0\)</span> to <span class="math inline">\(7\)</span>, followed by the same pattern reversed in sign for <span class="math inline">\(8\)</span> to <span class="math inline">\(15\)</span>: <span class="math display">\[\begin{array}{l*{16}{c}}
+  k &amp; 0 &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 &amp; 10 &amp; 11 &amp; 12 &amp; 13 &amp; 14 &amp; 15 \\
+  c_k &amp; + &amp; - &amp; - &amp; + &amp; - &amp; + &amp; + &amp; - &amp; - &amp; + &amp; + &amp; - &amp; + &amp; - &amp; - &amp; +
+  \end{array}\]</span> The argument of Stage 2, applied one more time, shows that <span class="math inline">\(\sum c_k k^r = 0\)</span> for <span class="math inline">\(r = 0, 1, 2, 3\)</span>. Take the <span class="math inline">\(+\)</span> positions <span class="math inline">\(\{0, 3, 5, 6, 9, 10, 12, 15\}\)</span> and the <span class="math inline">\(-\)</span> positions <span class="math inline">\(\{1, 2, 4, 7, 8, 11, 13, 14\}\)</span>. For <span class="math inline">\(r = 1, 2, 3\)</span>, the term from <span class="math inline">\(0\)</span> is zero, so it can be dropped. So the order <span class="math display">\[a_1, \ldots, a_8 = 1, 2, 4, 7, 8, 11, 13, 14, \qquad a_9, \ldots, a_{15} = 3, 5, 6, 9, 10, 12, 15\]</span> works: both halves sum to <span class="math inline">\(60\)</span>, their squares to <span class="math inline">\(620\)</span>, and their cubes to <span class="math inline">\(7200\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Derivatives detect repeated roots.</strong> A factor <span class="math inline">\((1 - x)^m\)</span> forces the first <span class="math inline">\(m - 1\)</span> derivatives to vanish at <span class="math inline">\(x = 1\)</span>.</p></li>
+<li><p><strong>Multiplying by <span class="math inline">\(x\)</span> before differentiating</strong> turned <span class="math inline">\(\sum kc_k\)</span> into <span class="math inline">\(\sum k^2c_k\)</span>, and so on to higher powers.</p></li>
+<li><p><strong>Doubling.</strong> Each extra factor <span class="math inline">\((1 - x^{2^m})\)</span> doubled the length and added one more power that balances.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-thuemorse-sequence">The Thue–Morse sequence</h3>
+<p>The signs of the coefficients of <span class="math inline">\((1 - x)(1 - x^2)(1 - x^4)(1 - x^8)\cdots\)</span> form the <em>Thue–Morse sequence</em>. Writing <span class="math inline">\(0\)</span> for <span class="math inline">\(+\)</span> and <span class="math inline">\(1\)</span> for <span class="math inline">\(-\)</span>: <span class="math display">\[0\,1\,1\,0\;1\,0\,0\,1\;1\,0\,0\,1\;0\,1\,1\,0\;\ldots\]</span> There are three equivalent descriptions.</p>
+<ul>
+<li><p><strong>Doubling:</strong> start with <span class="math inline">\(0\)</span>, and repeatedly append the complement (swap <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s) of what you have: <span class="math inline">\(0 \to 01 \to 0110 \to 01101001 \to \cdots\)</span>.</p></li>
+<li><p><strong>Binary digits:</strong> the <span class="math inline">\(k\)</span>th term is <span class="math inline">\(0\)</span> if <span class="math inline">\(k\)</span> has an even number of <span class="math inline">\(1\)</span>s when written in binary, and <span class="math inline">\(1\)</span> if odd. (This is why the sign of <span class="math inline">\(x^k\)</span> is <span class="math inline">\((-1)^{\text{number of 1s in } k}\)</span>: to make <span class="math inline">\(x^k\)</span> from the product, you choose the factors <span class="math inline">\(x^{2^m}\)</span> that make up <span class="math inline">\(k\)</span> in binary, and each brings a minus sign.)</p></li>
+<li><p><strong>Polynomial:</strong> the coefficients of <span class="math inline">\(\prod_m (1 - x^{2^m})\)</span>, as in the question.</p></li>
+</ul>
+<p>Splitting <span class="math inline">\(0, 1, \ldots, 2^{N} - 1\)</span> by the Thue–Morse sequence gives two sets whose <span class="math inline">\(r\)</span>th powers have equal sums for every <span class="math inline">\(r &lt; N\)</span> (Figure 9.7.1). This is the <em>Prouhet–Tarry–Escott problem</em>: find two different sets of integers with equal sums of <span class="math inline">\(r\)</span>th powers for <span class="math inline">\(r = 1, \ldots, k\)</span>. Prouhet’s solution uses <span class="math inline">\(2^{k+1}\)</span> numbers; it is a famous open problem to find out how few numbers are really needed.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-7-1.svg" alt="Figure 9.7.1"><figcaption><span class="fig-label">Figure 9.7.1</span> The numbers <span class="math inline">\(1\)</span> to <span class="math inline">\(16\)</span> split by the Thue–Morse sequence. The two sets have equal sums, equal sums of squares and equal sums of cubes, but not equal sums of fourth powers; for that you need <span class="math inline">\(1\)</span> to <span class="math inline">\(32\)</span>. Reading the colours left to right gives the pattern teal–plum–plum–teal, plum–teal–teal–plum, ….</figcaption></figure>
+<h3 id="the-fairest-way-to-take-turns">The fairest way to take turns</h3>
+<p>Two children take turns choosing sweets from a pile, best first. If they alternate <span class="math inline">\(ABABAB\ldots\)</span>, then <span class="math inline">\(A\)</span> always gets the better sweet of each pair, a systematic advantage. The order <span class="math inline">\(ABBA\)</span> is fairer, and <span class="math inline">\(ABBABAAB\)</span> fairer still: this is the Thue–Morse sequence, and the balanced power sums are exactly the reason. If the sweets have values given by a smooth function of their position, expanding that function as a polynomial shows that the Thue–Morse order cancels its leading terms. The same idea has been proposed for penalty shoot-outs in football (the “<span class="math inline">\(ABBA\)</span>” order trialled by football’s rule-makers from 2017) and is used for the order of serving in tennis tie-breaks.</p>
+<div class="historybox">
+<div class="box-title">Thue, Morse and Euwe</div>
+<p>The sequence has been discovered many times. Prouhet used it in 1851. Axel Thue rediscovered it in 1912 while studying sequences without repetitive patterns: it never contains the same block three times in a row (it is “cube-free”). Marston Morse found it again in 1921 in the study of geodesics on surfaces. And the chess world champion Max Euwe used it in 1929 to show that the rule then in force for drawing a game by repetition did not prevent infinitely long games. Today it is a central example in the theory of <em>automatic sequences</em>, sequences computed by simple machines reading the binary digits of <span class="math inline">\(n\)</span>.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Encode a combinatorial property in a polynomial</div>
+<p><em>Balanced sums of powers are about where the <span class="math inline">\(+\)</span> and <span class="math inline">\(-\)</span> signs fall. A polynomial with those signs as coefficients turns the property into a statement about roots.</em></p>
+<p>The question never asks you to search: a repeated root at <span class="math inline">\(x = 1\)</span> does all the work. Using algebra to produce combinatorial objects, rather than finding them by trial, is a recurring idea in university combinatorics.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Shifting.</strong> (From STEP II, 2025.) Suppose <span class="math inline">\(\sum a_k = \sum b_k\)</span> and <span class="math inline">\(\sum a_k^2 = \sum b_k^2\)</span> for two lists of the same length <span class="math inline">\(m\)</span>. Show that <span class="math inline">\(\sum a_k^3 + \sum (c + b_k)^3 = \sum b_k^3 + \sum (c + a_k)^3\)</span> for every <span class="math inline">\(c\)</span>. Use this, starting from a balanced split of <span class="math inline">\(\{1, \ldots, 8\}\)</span>, to find a split of <span class="math inline">\(\{1, \ldots, 16\}\)</span> in which the cubes balance as well.</p></li>
+<li><p><strong>Squares of squares.</strong> (Also from STEP II, 2025.) The sets <span class="math inline">\(\{1, 3, 4, 5, 9, 11\}\)</span> and <span class="math inline">\(\{2, 6, 7, 8, 10\}\)</span> have equal sums and equal sums of squares. Split <span class="math inline">\(\{n^2, (n + 1)^2, \ldots, (n + 11)^2\}\)</span> into two sets with equal sums, for every positive integer <span class="math inline">\(n\)</span>. (<em>Hint:</em> add <span class="math inline">\(0\)</span> to the second set.)</p></li>
+<li><p><strong>Translation invariance.</strong> Show that if two sets of numbers have equal sums of <span class="math inline">\(r\)</span>th powers for <span class="math inline">\(r = 0, 1, \ldots, k\)</span>, then so do the sets obtained by adding the same number <span class="math inline">\(c\)</span> to every element. Why does this mean that the question’s sets <span class="math inline">\(\{1, \ldots, 15\}\)</span> could equally be replaced by any <span class="math inline">\(16\)</span> consecutive integers?</p></li>
+<li><p><strong>Fair sweets.</strong> Sweets have values <span class="math inline">\(1, \frac12, \frac13, \ldots, \frac18\)</span>. Compare the totals <span class="math inline">\(A\)</span> gets with the orders <span class="math inline">\(ABABABAB\)</span> and <span class="math inline">\(ABBABAAB\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Jean-Paul Allouche &amp; Jeffrey Shallit, “The ubiquitous Prouhet–Thue–Morse sequence”</strong>, in <em>Sequences and Their Applications</em> (Springer, 1999). A survey of the sequence’s many appearances; free online.</p></li>
+<li><p><strong>Matt Parker, <em>Things to Make and Do in the Fourth Dimension</em></strong> (Penguin). Includes equal power sums and other number curiosities.</p></li>
+<li><p><strong>Joshua Cooper &amp; Aaron Dutle, “Greedy Galois games”</strong>, <em>American Mathematical Monthly</em> 120 (2013). Fair turn-taking and Thue–Morse.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="strange-dice.html">← 9.6 Strange Dice</a><a class="next" href="derangements.html">→ 9.8 Nobody Gets Their Own Shirt</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

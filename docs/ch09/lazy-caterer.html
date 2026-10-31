@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.1 Lines Cutting the Plane — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 9 · Counting and Chance</a>
+    <div class="src">STEP II · 1990 · Question 4</div>
+    <div class="sec-head"><span class="sec-num">9.1</span><h1>Lines Cutting the Plane</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-1-lazy-caterer.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 9</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A plane contains <span class="math inline">\(n\)</span> distinct given lines, no two of which are parallel, and no three of which intersect at a point. By first considering the cases <span class="math inline">\(n = 1, 2, 3\)</span> and <span class="math inline">\(4\)</span>, provide and justify, by induction or otherwise, a formula for the number of line segments (including the infinite segments).</p>
+<p>Prove also that the plane is divided into <span class="math inline">\(\frac12(n^2 + n + 2)\)</span> regions (including those extending to infinity).</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>How many pieces can you cut a pizza into with <span class="math inline">\(n\)</span> straight cuts, if the pieces need not be the same size? One cut gives <span class="math inline">\(2\)</span>, two cuts give <span class="math inline">\(4\)</span>, three cuts give <span class="math inline">\(7\)</span> (not <span class="math inline">\(8\)</span>: try it), four give <span class="math inline">\(11\)</span>. The sequence <span class="math inline">\(1, 2, 4, 7, 11, 16, \ldots\)</span> is known as the <em>lazy caterer’s sequence</em>, and this question asks for its formula.</p>
+<p>The question is a first lesson in a technique that runs through all of combinatorics: do not try to count everything at once. Instead, ask what changes when you add one more object. And the answer turns out to be a special case of Euler’s formula <span class="math inline">\(V - E + F = 2\)</span>, which you met with the Platonic solids in <a href="../ch07/platonic-solids.html">Section 7.9</a>.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="pausebox">
+<p>Draw the cases <span class="math inline">\(n = 1, 2, 3, 4\)</span> carefully, keeping the lines in general position (no two parallel, no three through a point). Count the segments and the regions in each case. Can you guess the patterns?</p>
+</div>
+<p>You should find:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(3\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(4\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">segments</td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(9\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(16\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">regions</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(7\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(11\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>The segments look like <span class="math inline">\(n^2\)</span>. The regions go up by <span class="math inline">\(1, 2, 3, 4\)</span>: the differences are the natural numbers.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-counting-segments" class="stage"><span class="stage-n">Stage 1</span> Counting segments</h4>
+<div class="askyourself">
+<p>Concentrate on one line. How many of the other lines cross it, and into how many pieces do they cut it?</p>
+</div>
+<p>Each line is crossed by each of the other <span class="math inline">\(n - 1\)</span> lines (none is parallel to it), and at <span class="math inline">\(n - 1\)</span> different points (no three lines meet at a point). Those <span class="math inline">\(n - 1\)</span> points cut the line into <span class="math inline">\(n\)</span> segments: two infinite ones at the ends, and <span class="math inline">\(n - 2\)</span> finite ones between. With <span class="math inline">\(n\)</span> lines, there are <span class="math display">\[n \times n = n^2 \text{ segments}. \qed\]</span> This is a direct count, with no induction needed: we counted segments line by line.</p>
+<h4 id="stagemark2-what-happens-when-we-add-a-line" class="stage"><span class="stage-n">Stage 2</span> What happens when we add a line?</h4>
+<div class="askyourself">
+<p>Suppose <span class="math inline">\(n - 1\)</span> lines are drawn, and you add the <span class="math inline">\(n\)</span>th. It is cut into <span class="math inline">\(n\)</span> segments by the others. What does each segment do to the region it passes through?</p>
+</div>
+<p>As the new line is drawn, each of its <span class="math inline">\(n\)</span> segments runs through one of the existing regions and splits it into two (Figure 9.1.1). Different segments lie in different regions, because to pass from one region to another the line must cross an existing line. So adding the <span class="math inline">\(n\)</span>th line increases the number of regions by exactly <span class="math inline">\(n\)</span>: <span class="math display">\[R(n) = R(n - 1) + n.\]</span></p>
+<h4 id="stagemark3-solving-the-recurrence" class="stage"><span class="stage-n">Stage 3</span> Solving the recurrence</h4>
+<p>Starting from <span class="math inline">\(R(0) = 1\)</span> (no lines, one region), <span class="math display">\[R(n) = 1 + (1 + 2 + \cdots + n) = 1 + \frac{n(n + 1)}{2} = \frac{n^2 + n + 2}{2}.\]</span> To present this as an induction: the formula holds for <span class="math inline">\(n = 1\)</span>, since <span class="math inline">\(\frac12(1 + 1 + 2) = 2\)</span>; and if <span class="math inline">\(R(n - 1) = \frac12\bigl((n - 1)^2 + (n - 1) + 2\bigr) = \frac12(n^2 - n + 2)\)</span>, then <span class="math inline">\(R(n) = \frac12(n^2 - n + 2) + n = \frac12(n^2 + n + 2)\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-1-1.svg" alt="Figure 9.1.1"><figcaption><span class="fig-label">Figure 9.1.1</span> Three lines (teal) divide the plane into <span class="math inline">\(7\)</span> regions. The fourth line (plum) is crossed by the other three at the amber points, which cut it into four segments, numbered <span class="math inline">\(1\)</span> to <span class="math inline">\(4\)</span>. Each segment splits one region into two, so the fourth line adds <span class="math inline">\(4\)</span> regions, giving <span class="math inline">\(11\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Count one piece at a time.</strong> Segments were counted line by line; regions were counted by what one new line adds.</p></li>
+<li><p><strong>Turn a geometric step into a recurrence.</strong> The observation “each new segment splits one region” became <span class="math inline">\(R(n) = R(n - 1) + n\)</span>.</p></li>
+<li><p><strong>General position matters.</strong> Parallel lines, or three lines through a point, would give fewer regions. Find where each assumption was used.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="eulers-formula-in-disguise">Euler’s formula in disguise</h3>
+<p>Here is a second proof, which explains the answer rather than just deriving it. Think of the arrangement of lines as a map: the crossing points are <em>vertices</em>, the segments are <em>edges</em> and the regions are <em>faces</em>. There are <span class="math inline">\(V = \binom{n}{2}\)</span> vertices (one for each pair of lines) and <span class="math inline">\(E = n^2\)</span> edges. The infinite segments have only one end, so add a single extra vertex “at infinity” where they all meet; now the picture is a map drawn on a sphere (imagine the plane wrapped round a ball, with infinity at the top). Euler’s formula <span class="math inline">\(V - E + F = 2\)</span> from <a href="../ch07/platonic-solids.html">Section 7.9</a> gives <span class="math display">\[\Bigl(\binom{n}{2} + 1\Bigr) - n^2 + F = 2, \qquad\text{so}\qquad F = n^2 - \frac{n(n - 1)}{2} + 1 = \frac{n^2 + n + 2}{2}.\]</span> The same number, from a completely different direction. The regions also split neatly into types: <span class="math inline">\(2n\)</span> of them are unbounded (one between each pair of neighbouring infinite rays), and the remaining <span class="math inline">\(\frac12(n^2 + n + 2) - 2n = \binom{n - 1}{2}\)</span> are bounded.</p>
+<h3 id="binomial-coefficients-and-higher-dimensions">Binomial coefficients and higher dimensions</h3>
+<p>The formula can be written as <span class="math display">\[R(n) = \binom{n}{0} + \binom{n}{1} + \binom{n}{2},\]</span> and this is not a coincidence. Turn the picture so that no line is horizontal. A region that is bounded below has a lowest point, which must be a crossing, and each crossing is the lowest point of exactly one region (the one directly above it): that gives <span class="math inline">\(\binom{n}{2}\)</span> regions, one for each pair of lines. Every other region stretches down for ever, and so meets a horizontal line drawn far below all the crossings; the <span class="math inline">\(n\)</span> lines cut that horizontal line into <span class="math inline">\(n + 1\)</span> intervals, one in each such region. In total, <span class="math inline">\(\binom{n}{2} + n + 1\)</span>. In three dimensions, <span class="math inline">\(n\)</span> planes in general position cut space into <span class="math display">\[\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \binom{n}{3} = \frac{n^3 + 5n + 6}{6}\]</span> pieces (the <em>cake numbers</em> <span class="math inline">\(1, 2, 4, 8, 15, 26, \ldots\)</span>), and the pattern continues in every dimension. The proof is the same induction: a new plane is cut by the others into regions arranged like lines in a plane, and each of those regions splits a piece of space in two.</p>
+<div class="historybox">
+<div class="box-title">Steiner and the arrangement of hyperplanes</div>
+<p>The formula for regions cut by lines and planes was found by Jakob Steiner in 1826. Today it is the starting point of the theory of <em>hyperplane arrangements</em>, which counts the regions formed by arbitrary collections of lines, planes and their higher-dimensional analogues, including non-general ones. A remarkable 1975 theorem of Thomas Zaslavsky counts the regions of any arrangement using a polynomial that encodes which hyperplanes meet. The same ideas appear in machine learning: a neural network built from “ReLU” units cuts its input space into regions by hyperplanes, and the number of regions measures how complicated a function it can represent.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Ask what changes when you add one more</div>
+<p><em>To count a configuration of <span class="math inline">\(n\)</span> objects, compare it with the configuration of <span class="math inline">\(n - 1\)</span>. The change is often much easier to count than the whole.</em></p>
+<p>This is induction used as a tool for discovery, not just for proof. It is one of the most common moves in combinatorics, and it turns a geometric question into a recurrence relation that can be solved.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Circles.</strong> Show that <span class="math inline">\(n\)</span> circles, each pair meeting in two points and no three through a point, divide the plane into <span class="math inline">\(n^2 - n + 2\)</span> regions.</p></li>
+<li><p><strong>Parallel lines.</strong> If the <span class="math inline">\(n\)</span> lines include <span class="math inline">\(k\)</span> that are all parallel to each other (and otherwise general position), how many regions are there?</p></li>
+<li><p><strong>Cake numbers.</strong> Prove by induction that <span class="math inline">\(n\)</span> planes in general position divide space into <span class="math inline">\(\frac16(n^3 + 5n + 6)\)</span> regions.</p></li>
+<li><p><strong>A pattern that breaks.</strong> Put <span class="math inline">\(n\)</span> points on a circle and join every pair with a chord, with no three chords through one point inside the circle. For <span class="math inline">\(n = 1, 2, 3, 4, 5\)</span> you get <span class="math inline">\(1, 2, 4, 8, 16\)</span> regions. Count the regions for <span class="math inline">\(n = 6\)</span>. (<em>Hint:</em> use Euler’s formula; each set of four points gives one crossing.) Show that the number is <span class="math inline">\(1 + \binom{n}{2} + \binom{n}{4}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Ronald Graham, Donald Knuth &amp; Oren Patashnik, <em>Concrete Mathematics</em></strong> (Addison-Wesley), Chapter 1. Starts with exactly this problem, and the “pizza” and “zig” variants.</p></li>
+<li><p><strong>Miklós Bóna, <em>A Walk Through Combinatorics</em></strong> (World Scientific). A friendly first course, with chapters on induction, graphs and Euler’s formula.</p></li>
+<li><p><strong>Richard Guy, “The strong law of small numbers”</strong>, <em>American Mathematical Monthly</em> 95 (1988). Many patterns that look obvious and turn out to be false, including the circle problem in the exercises.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← Chapter introduction</a><a class="next" href="ramsey.html">→ 9.2 Ramsey&#x27;s Theorem in Miniature</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

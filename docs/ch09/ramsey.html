@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.2 Ramsey&#x27;s Theorem in Miniature — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 9 · Counting and Chance</a>
+    <div class="src">STEP I · 1989 · Question 4</div>
+    <div class="sec-head"><span class="sec-num">9.2</span><h1>Ramsey&#x27;s Theorem in Miniature</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-2-ramsey.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 9</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Six points <span class="math inline">\(A, B, C, D, E\)</span> and <span class="math inline">\(F\)</span> lie in three dimensional space and are in general positions, that is, no three are collinear and no four lie on a plane. All possible line segments joining pairs of points are drawn and coloured either gold or silver. Prove that there is a triangle whose edges are entirely of one colour. [<strong>Hint</strong>: consider segments radiating from <span class="math inline">\(A\)</span>.]</p>
+<p>Give a sketch showing that the result is false for five points in general positions.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>At any party of six people, there are either three who all know each other or three who are all strangers to each other. This is guaranteed, whoever the six people are. With five people it is not guaranteed. This little fact is the first case of <em>Ramsey’s theorem</em>, and it captures a principle that runs through modern combinatorics: <em>complete disorder is impossible</em>. Any sufficiently large structure, however it is coloured or arranged, must contain a highly ordered piece.</p>
+<p>The proof takes four lines. But the obvious next question (how many people guarantee four mutual friends or four mutual strangers? Five?) leads to some of the hardest open problems in mathematics.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The six points matter only through which pairs are joined by which colour: the geometry is a distraction. How many segments are there, and how many leave each point?</p>
+</div>
+<p>There are <span class="math inline">\(\binom{6}{2} = 15\)</span> segments, and <span class="math inline">\(5\)</span> leave each point. (The general-position condition just makes sure every three points form a genuine triangle. The problem is really about the <em>complete graph</em> on six vertices, <span class="math inline">\(K_6\)</span>, with its edges coloured in two colours.)</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-five-segments-two-colours" class="stage"><span class="stage-n">Stage 1</span> Five segments, two colours</h4>
+<div class="askyourself">
+<p>Five segments leave <span class="math inline">\(A\)</span>, each gold or silver. What can you say for certain about their colours?</p>
+</div>
+<p>At least three of them have the same colour. If at most two were gold and at most two silver, there would be at most four segments. This is the <em>pigeonhole principle</em>: five objects in two boxes put at least three in one box. Say (swapping the names of the colours if necessary) that <span class="math inline">\(AB\)</span>, <span class="math inline">\(AC\)</span> and <span class="math inline">\(AD\)</span> are all gold.</p>
+<h4 id="stagemark2-look-at-the-far-ends" class="stage"><span class="stage-n">Stage 2</span> Look at the far ends</h4>
+<div class="askyourself">
+<p>Now look at the triangle <span class="math inline">\(BCD\)</span>. What happens if any one of its sides is gold? What if none of them is?</p>
+</div>
+<p>If any side of triangle <span class="math inline">\(BCD\)</span> is gold, say <span class="math inline">\(BC\)</span>, then <span class="math inline">\(ABC\)</span> has all three sides gold: <span class="math inline">\(AB\)</span>, <span class="math inline">\(AC\)</span> and <span class="math inline">\(BC\)</span>. If no side of <span class="math inline">\(BCD\)</span> is gold, then <span class="math inline">\(BC\)</span>, <span class="math inline">\(CD\)</span> and <span class="math inline">\(DB\)</span> are all silver, and <span class="math inline">\(BCD\)</span> is a silver triangle. Either way there is a one-colour triangle (Figure 9.2.1, right).<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-five-points-are-not-enough" class="stage"><span class="stage-n">Stage 3</span> Five points are not enough</h4>
+<div class="askyourself">
+<p>With five points, each point has only four segments. How might you colour them so that each point has exactly two of each colour?</p>
+</div>
+<p>Place the five points as a regular pentagon (lifting them slightly off a plane if you want general position). Colour the five sides of the pentagon gold and the five diagonals silver (Figure 9.2.1, left). The gold edges form a five-cycle, which contains no triangle; the silver edges form a pentagram, which is also a five-cycle and contains no triangle. So there is no one-colour triangle.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-2-1.svg" alt="Figure 9.2.1"><figcaption><span class="fig-label">Figure 9.2.1</span> Left: five points with the pentagon gold (solid) and the pentagram silver (dashed) have no one-colour triangle. Right: with six points, three of the five segments from <span class="math inline">\(A\)</span> share a colour, say gold to <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>, <span class="math inline">\(D\)</span>. The triangle <span class="math inline">\(BCD\)</span> (plum) then decides: one gold side makes a gold triangle with <span class="math inline">\(A\)</span>, and no gold side makes <span class="math inline">\(BCD\)</span> a silver triangle.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Strip away the irrelevant.</strong> The points in space became a coloured graph; only the colours of the edges mattered.</p></li>
+<li><p><strong>Pigeonhole.</strong> Five edges and two colours forced three of one colour.</p></li>
+<li><p><strong>Case analysis on the right object.</strong> Once three gold edges were found, the triangle at their far ends settled everything.</p></li>
+<li><p><strong>Sharpness.</strong> The pentagon shows the number six cannot be lowered. A good theorem comes with an example showing it is best possible.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="ramsey-numbers">Ramsey numbers</h3>
+<p>The <em>Ramsey number</em> <span class="math inline">\(R(s, t)\)</span> is the smallest <span class="math inline">\(N\)</span> such that every colouring of the edges of <span class="math inline">\(K_N\)</span> in gold and silver contains either a gold <span class="math inline">\(K_s\)</span> (a set of <span class="math inline">\(s\)</span> points with all edges between them gold) or a silver <span class="math inline">\(K_t\)</span>. The question has shown that <span class="math inline">\(R(3, 3) = 6\)</span>: six points always work, and the pentagon shows five do not.</p>
+<p>Frank Ramsey proved in 1928 that these numbers always exist: for every <span class="math inline">\(s\)</span> and <span class="math inline">\(t\)</span> there is some <span class="math inline">\(N\)</span> that works. The proof is an induction that generalises the argument above, and shows <span class="math inline">\(R(s, t) \leq R(s - 1, t) + R(s, t - 1)\)</span>. But exact values are extraordinarily hard to find: <span class="math display">\[R(3, 3) = 6, \qquad R(4, 4) = 18, \qquad 43 \leq R(5, 5) \leq 46.\]</span> The value of <span class="math inline">\(R(4, 4)\)</span> was found in 1955. Despite enormous computer searches, <span class="math inline">\(R(5, 5)\)</span> is still unknown; the upper bound of <span class="math inline">\(46\)</span> was proved only in 2024. A computer cannot simply check every colouring of <span class="math inline">\(K_{43}\)</span>: there are <span class="math inline">\(2^{903}\)</span> of them, far more than the number of atoms in the universe.</p>
+<div class="historybox">
+<div class="box-title">Erdős and the aliens</div>
+<p>Paul Erdős, who did more than anyone to develop Ramsey theory, liked to tell this story. Suppose aliens invade the Earth and threaten to destroy it unless we tell them the value of <span class="math inline">\(R(5, 5)\)</span>. We should marshal all our computers and mathematicians, and we might find it. But if they asked for <span class="math inline">\(R(6, 6)\)</span>, we should try to destroy the aliens. Erdős also proved, in 1947, that <span class="math inline">\(R(k, k) &gt; 2^{k/2}\)</span>, using a startling method: he showed that a <em>randomly</em> coloured graph on fewer than <span class="math inline">\(2^{k/2}\)</span> points has a positive probability of containing no one-colour <span class="math inline">\(K_k\)</span>, so a good colouring must exist, even though nobody knows how to construct one. This <em>probabilistic method</em> is now one of the most powerful tools in combinatorics.</p>
+</div>
+<h3 id="order-from-chaos">Order from chaos</h3>
+<p>Ramsey’s theorem has many relatives, all expressing the same idea: large enough structures cannot avoid order. <em>Van der Waerden’s theorem</em> says that if the whole numbers are coloured with finitely many colours, there are arbitrarily long arithmetic progressions of one colour. The <em>Erdős–Szekeres theorem</em> says that any sequence of <span class="math inline">\(n^2 + 1\)</span> distinct numbers contains an increasing or a decreasing subsequence of length <span class="math inline">\(n + 1\)</span>. And Ramsey himself was interested in a question of logic: he proved his theorem as a lemma in a paper on deciding the truth of logical statements.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">The pigeonhole principle</div>
+<p><em>If more than <span class="math inline">\(kn\)</span> objects are placed in <span class="math inline">\(n\)</span> boxes, some box contains more than <span class="math inline">\(k\)</span> objects.</em></p>
+<p>The principle is obvious, but using it well is an art: the skill is in choosing what the objects and boxes should be. Here they were the five edges at one point and the two colours. At university, pigeonhole arguments appear in number theory (approximating irrationals by fractions), in analysis (the Bolzano–Weierstrass theorem) and throughout combinatorics.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>At least two.</strong> Show that in any two-colouring of <span class="math inline">\(K_6\)</span> there are in fact at least <em>two</em> one-colour triangles. (<em>Hint:</em> count the “bichromatic angles”: pairs of edges of different colours at a common vertex. A point with <span class="math inline">\(g\)</span> gold and <span class="math inline">\(5 - g\)</span> silver edges is at the apex of <span class="math inline">\(g(5 - g) \leq 6\)</span> such angles. Each triangle that is not one-colour contains exactly two.)</p></li>
+<li><p><strong>Three colours.</strong> If the edges of <span class="math inline">\(K_{17}\)</span> are coloured in three colours, show that there is a one-colour triangle. (<em>Hint:</em> one point has at least six edges of one colour.)</p></li>
+<li><p><strong>Three or four.</strong> Show that <span class="math inline">\(R(3, 4) \leq 10\)</span>: in any gold/silver colouring of <span class="math inline">\(K_{10}\)</span> there is a gold triangle or a silver <span class="math inline">\(K_4\)</span>. (<em>Hint:</em> a point has either at least <span class="math inline">\(4\)</span> gold edges or at least <span class="math inline">\(6\)</span> silver edges.) In fact <span class="math inline">\(R(3, 4) = 9\)</span>.</p></li>
+<li><p><strong>Monotone subsequences.</strong> Prove the Erdős–Szekeres theorem for <span class="math inline">\(n = 2\)</span>: any sequence of <span class="math inline">\(5\)</span> distinct numbers contains an increasing or decreasing subsequence of length <span class="math inline">\(3\)</span>. Find a sequence of <span class="math inline">\(4\)</span> with neither.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Miklós Bóna, <em>A Walk Through Combinatorics</em></strong> (World Scientific), the chapters on the pigeonhole principle and Ramsey theory.</p></li>
+<li><p><strong>Ronald Graham &amp; Joel Spencer, “Ramsey theory”</strong>, <em>Scientific American</em> (July 1990). A popular introduction by two leading researchers.</p></li>
+<li><p><strong>Noga Alon &amp; Joel Spencer, <em>The Probabilistic Method</em></strong> (Wiley). The standard book on Erdős’s method; the first chapter is accessible.</p></li>
+<li><p><strong>Paul Hoffman, <em>The Man Who Loved Only Numbers</em></strong> (Fourth Estate). A biography of Erdős.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="lazy-caterer.html">← 9.1 Lines Cutting the Plane</a><a class="next" href="fence-posts.html">→ 9.3 Colouring Fence Posts</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

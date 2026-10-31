@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 9: Counting and Chance — Beyond STEP</title>
+<meta name="description" content="Pure combinatorics and generating functions, followed by classical counting problems from the probability papers.">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter</div>
+    <div class="ch-num">9</div>
+    <h1>Counting and Chance</h1>
+    <p class="strap">Counting is the oldest mathematics there is. Doing it cleverly is still one of the hardest.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Download the whole chapter</span><span class="dl-sub">PDF, typeset for print</span></span></a>
+  </div>
+  <h2 class="contents-head">In this chapter</h2>
+  <ol class="toc"><li><a class="toc-link" href="lazy-caterer.html"><span class="toc-num">9.1</span>
+<span class="toc-title">Lines Cutting the Plane</span>
+<span class="toc-src">STEP II 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-1-lazy-caterer.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="ramsey.html"><span class="toc-num">9.2</span>
+<span class="toc-title">Ramsey&#x27;s Theorem in Miniature</span>
+<span class="toc-src">STEP I 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-2-ramsey.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="fence-posts.html"><span class="toc-num">9.3</span>
+<span class="toc-title">Colouring Fence Posts</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-3-fence-posts.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="generating-functions.html"><span class="toc-num">9.4</span>
+<span class="toc-title">Sequences as Functions</span>
+<span class="toc-src">STEP I 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-4-generating-functions.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="making-change.html"><span class="toc-num">9.5</span>
+<span class="toc-title">Making Change</span>
+<span class="toc-src">STEP I 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-5-making-change.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="strange-dice.html"><span class="toc-num">9.6</span>
+<span class="toc-title">Strange Dice</span>
+<span class="toc-src">STEP I 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-6-strange-dice.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="equal-power-sums.html"><span class="toc-num">9.7</span>
+<span class="toc-title">Equal Sums of Powers</span>
+<span class="toc-src">STEP I 1992</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-7-equal-power-sums.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="derangements.html"><span class="toc-num">9.8</span>
+<span class="toc-title">Nobody Gets Their Own Shirt</span>
+<span class="toc-src">STEP II 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-8-derangements.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="birthday.html"><span class="toc-num">9.9</span>
+<span class="toc-title">The Birthday Problem</span>
+<span class="toc-src">STEP II 2007</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-9-birthday.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="ballot.html"><span class="toc-num">9.10</span>
+<span class="toc-title">Always Able to Give Change</span>
+<span class="toc-src">STEP I 2011</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-10-ballot.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="coupon-collector.html"><span class="toc-num">9.11</span>
+<span class="toc-title">Collecting the Set</span>
+<span class="toc-src">STEP II 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-11-coupon-collector.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="random-subsets.html"><span class="toc-num">9.12</span>
+<span class="toc-title">Random Subsets</span>
+<span class="toc-src">STEP III 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-12-random-subsets.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="loaded-dice.html"><span class="toc-num">9.13</span>
+<span class="toc-title">Loaded Dice</span>
+<span class="toc-src">STEP I 1999</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-13-loaded-dice.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">Looking back: what we have learned</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">Chapter 9  \(\cdot\)  Introduction</div>
+    <h1 class="essay-title">The Art of Counting</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>Combinatorics is the slums of topology.</p>
+<p class="who">— J. H. C. Whitehead, in the 1950s. It is not a view anyone holds today.</p>
+</div>
+<p>Everyone can count. But ask how many ways there are to make £1 from coins, or to seat ten people so that nobody sits in their own place, or to colour a map with four colours, and simple counting quickly breaks down. There are too many cases to list, and the cases overlap. <em>Combinatorics</em>, the mathematics of counting and arrangement, is the art of organising such problems so that they can be solved without listing.</p>
+<p>For a long time, combinatorics was regarded as a collection of clever tricks rather than a serious subject, as Whitehead’s remark suggests. That changed in the second half of the twentieth century, driven partly by computer science, where counting the steps an algorithm takes is a combinatorial problem, and partly by the discovery of deep connections with algebra, geometry and probability. Today it is one of the most active areas of mathematics. In 2022 June Huh was awarded a Fields Medal, the highest honour in mathematics, partly for proving a 1968 conjecture about the chromatic polynomials of <a href="../ch09/fence-posts.html">Section 9.3</a>, using ideas from algebraic geometry.</p>
+<h3 id="why-counting-matters">Why counting matters</h3>
+<p>Probability, in its simplest form, is counting: when all outcomes are equally likely, the probability of an event is the number of favourable outcomes divided by the total. So every question about cards, dice and lotteries is a counting problem, and the second half of this chapter is drawn from the probability papers for exactly this reason. But counting also matters well beyond games. Computer scientists count the operations an algorithm needs, and the ways it might fail. Chemists count the possible structures of molecules. Biologists count the ways a strand of DNA can fold. Cryptographers count the keys an attacker must try, and, as <a href="../ch09/birthday.html">Section 9.9</a> shows, how many are needed before two of something coincide.</p>
+<h3 id="what-you-will-meet-at-university">What you will meet at university</h3>
+<p>Most universities offer a first- or second-year course in combinatorics or discrete mathematics, and its themes are the themes of this chapter. You will learn the basic counting principles (the product rule, bijections, inclusion–exclusion, the pigeonhole principle), and how to set up and solve recurrence relations. You will meet <em>generating functions</em>, which turn sequences into functions and counting into algebra. You will study graphs, from colourings to Ramsey theory, and partially ordered sets such as the lattice of subsets. And probability courses will use the same tools, together with linearity of expectation, to analyse random structures. Further on, combinatorics connects with algebra (symmetric functions, representation theory), with number theory (partitions, additive combinatorics) and with computer science (the analysis of algorithms, complexity theory).</p>
+<h3 id="the-questions-that-run-through-this-chapter">The questions that run through this chapter</h3>
+<div class="skillbox">
+<div class="box-title">Three big questions</div>
+<ol class="arabic">
+<li><p><strong>How do you count without listing?</strong> What structures (recurrences, bijections, generating functions) let you count huge collections exactly?</p></li>
+<li><p><strong>When must something happen?</strong> When does size alone force a pattern, a coincidence or a match?</p></li>
+<li><p><strong>How do counting and probability help each other?</strong> When is a probability best found by counting, and when is a count best found by probability?</p></li>
+</ol>
+</div>
+<p>The chapter has two halves. The first seven sections come from the pure papers. They begin with recurrences (lines cutting the plane, colouring fence posts) and the pigeonhole principle (Ramsey’s theorem), then develop generating functions and use them to count coins, design strange dice and split numbers into teams with equal power sums. The last six sections are classic counting problems from the probability papers: derangements and the appearance of <span class="math inline">\(1/e\)</span>, the birthday problem, the ballot problem and its reflection principle, the coupon collector, random subsets, and the impossibility of loading dice so that every total is equally likely.</p>
+<h3 id="ideas-in-this-chapter">Ideas in this chapter</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">9.1</td>
+<td style="text-align: left;">Regions of the plane</td>
+<td style="text-align: left;">What changes when you add one more</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.2</td>
+<td style="text-align: left;">Ramsey theory</td>
+<td style="text-align: left;">The pigeonhole principle</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.3</td>
+<td style="text-align: left;">Graph colouring</td>
+<td style="text-align: left;">Coupled recurrences; chromatic polynomials</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.4</td>
+<td style="text-align: left;">Generating functions</td>
+<td style="text-align: left;">A sequence becomes a function</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.5</td>
+<td style="text-align: left;">Partitions</td>
+<td style="text-align: left;">Counting via coefficients</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.6</td>
+<td style="text-align: left;">Sicherman dice</td>
+<td style="text-align: left;">Factorising polynomials</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.7</td>
+<td style="text-align: left;">Thue–Morse</td>
+<td style="text-align: left;">Repeated roots give balanced sums</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.8</td>
+<td style="text-align: left;">Derangements</td>
+<td style="text-align: left;">Inclusion–exclusion; <span class="math inline">\(1/e\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.9</td>
+<td style="text-align: left;">Coincidences</td>
+<td style="text-align: left;">Complements; the square-root law</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.10</td>
+<td style="text-align: left;">The ballot problem</td>
+<td style="text-align: left;">The reflection principle</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.11</td>
+<td style="text-align: left;">Coupon collector</td>
+<td style="text-align: left;">Linearity of expectation; <span class="math inline">\(n\ln n\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.12</td>
+<td style="text-align: left;">Random subsets</td>
+<td style="text-align: left;">One element at a time</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.13</td>
+<td style="text-align: left;">Loaded dice</td>
+<td style="text-align: left;">Impossibility by AM–GM</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-to-read-this-chapter">How to read this chapter</h3>
+<p>Always start with small cases. Draw three lines, list the six orders of three cards, count the ways to make <span class="math inline">\(5\)</span>p. Small cases give you data to guess from, and they check your formulas at the end. But do not trust a pattern until you have a reason for it: <a href="../ch09/lazy-caterer.html">Section 9.1</a> includes a famous sequence, <span class="math inline">\(1, 2, 4, 8, 16, \ldots\)</span>, whose next term is <span class="math inline">\(31\)</span>.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="lazy-caterer.html">→ Begin: 9.1 Lines Cutting the Plane</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9.3 Colouring Fence Posts — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 9 · Counting and Chance</a>
+    <div class="src">STEP II · 1995 · Question 2</div>
+    <div class="sec-head"><span class="sec-num">9.3</span><h1>Colouring Fence Posts</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-3-fence-posts.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 9</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>I have <span class="math inline">\(n\)</span> fence posts placed in a line and, as part of my spouse’s birthday celebrations, I wish to paint them using three different colours red, white and blue in such a way that no adjacent fence posts have the same colours. (This allows the possibility of using fewer than three colours as well as exactly three.) Let <span class="math inline">\(r_n\)</span> be the number of ways (possibly zero) that I can paint them if I paint the first and the last post red and let <span class="math inline">\(s_n\)</span> be the number of ways that I can paint them if I paint the first post red but the last post either of the other two colours. Explain why <span class="math inline">\(r_{n+1} = s_n\)</span> and find <span class="math inline">\(r_n + s_n\)</span>. Hence find the value of <span class="math inline">\(r_{n+1} + r_n\)</span> for all <span class="math inline">\(n \geq 1\)</span>.</p>
+<p>Prove, by induction, that <span class="math display">\[r_n = \frac{2^{n-1} + 2(-1)^{n-1}}{3}.\]</span> Find the number of ways of painting <span class="math inline">\(n\)</span> fence posts (where <span class="math inline">\(n \geq 3\)</span>) placed in a circle using three different colours in such a way that no adjacent fence posts have the same colours.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Painting posts in a line is easy: <span class="math inline">\(3\)</span> choices for the first, then <span class="math inline">\(2\)</span> for each of the rest (anything but the colour of the previous post), giving <span class="math inline">\(3 \times 2^{n-1}\)</span>. Bend the line into a circle and it becomes surprisingly awkward, because the last post now has to differ from the first as well as from its neighbour, and whether that rules out one colour or none depends on everything that came before.</p>
+<p>The question gets round this with a classic trick: split the count into cases according to the colour of the last post, and find how the cases feed into each other. The answer, <span class="math inline">\(2^n + 2(-1)^n\)</span>, is the first example of a <em>chromatic polynomial</em>, part of the mathematics behind the four colour theorem.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="pausebox">
+<p>Count the ways to paint <span class="math inline">\(3\)</span> posts in a circle, and <span class="math inline">\(4\)</span>. Does <span class="math inline">\(3 \times 2^{n-1}\)</span> overcount, and by how much?</p>
+</div>
+<p>Three posts in a circle are all adjacent to each other, so they need three different colours: <span class="math inline">\(3! = 6\)</span> ways. Four posts in a circle: <span class="math inline">\(18\)</span> ways (you can check this at the end). Compare <span class="math inline">\(3 \times 2^2 = 12\)</span> and <span class="math inline">\(3 \times 2^3 = 24\)</span> for the line: the circle loses the colourings in which the last post matches the first.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-two-kinds-of-colouring" class="stage"><span class="stage-n">Stage 1</span> Two kinds of colouring</h4>
+<div class="askyourself">
+<p>Take a colouring of <span class="math inline">\(n + 1\)</span> posts with the first and last red. Remove the last post. What can you say about the colouring of the first <span class="math inline">\(n\)</span> posts that remains?</p>
+</div>
+<p>Post <span class="math inline">\(n\)</span> is next to post <span class="math inline">\(n + 1\)</span>, which is red, so post <span class="math inline">\(n\)</span> is not red. Removing post <span class="math inline">\(n + 1\)</span> leaves a colouring of <span class="math inline">\(n\)</span> posts with the first red and the last not red: one of the <span class="math inline">\(s_n\)</span> colourings. Conversely, any of the <span class="math inline">\(s_n\)</span> colourings can be extended in exactly one way, by painting post <span class="math inline">\(n + 1\)</span> red. So the two sets correspond exactly, and <span class="math inline">\(r_{n+1} = s_n\)</span>.</p>
+<div class="askyourself">
+<p>What is <span class="math inline">\(r_n + s_n\)</span>?</p>
+</div>
+<p>Every colouring with the first post red has its last post either red or not, so <span class="math inline">\(r_n + s_n\)</span> counts all colourings of <span class="math inline">\(n\)</span> posts with the first red. After the first post, each post has <span class="math inline">\(2\)</span> choices, so <span class="math inline">\(r_n + s_n = 2^{n-1}\)</span>. Hence <span class="math display">\[r_{n+1} + r_n = s_n + r_n = 2^{n-1}. \qed\]</span></p>
+<h4 id="stagemark2-the-formula-by-induction" class="stage"><span class="stage-n">Stage 2</span> The formula by induction</h4>
+<p>For <span class="math inline">\(n = 1\)</span> there is one post, painted red, so <span class="math inline">\(r_1 = 1\)</span>, and the formula gives <span class="math inline">\(\frac13(1 + 2) = 1\)</span>. Suppose the formula holds for <span class="math inline">\(r_n\)</span>. Then <span class="math display">\[r_{n+1} = 2^{n-1} - r_n = 2^{n-1} - \frac{2^{n-1} + 2(-1)^{n-1}}{3} = \frac{2 \cdot 2^{n-1} - 2(-1)^{n-1}}{3} = \frac{2^n + 2(-1)^n}{3},\]</span> which is the formula for <span class="math inline">\(r_{n+1}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>Where did the formula come from? The recurrence <span class="math inline">\(r_{n+1} + r_n = 2^{n-1}\)</span> is like a differential equation: a “particular solution” <span class="math inline">\(c \cdot 2^n\)</span> plus a “complementary function” <span class="math inline">\(A(-1)^n\)</span> that solves <span class="math inline">\(r_{n+1} + r_n = 0\)</span>. Find <span class="math inline">\(c\)</span> and <span class="math inline">\(A\)</span>.</p>
+</div>
+<h4 id="stagemark3-the-circle" class="stage"><span class="stage-n">Stage 3</span> The circle</h4>
+<div class="askyourself">
+<p>In a circle of <span class="math inline">\(n\)</span> posts, fix the colour of post <span class="math inline">\(1\)</span>, say red. Now cut the circle between post <span class="math inline">\(n\)</span> and post <span class="math inline">\(1\)</span>, and straighten it into a line. Which of the line colourings correspond to valid circle colourings?</p>
+</div>
+<p>Straightened out, the circle becomes a line of <span class="math inline">\(n\)</span> posts starting with red, in which the last post must also differ from post <span class="math inline">\(1\)</span>: the last post is not red. These are exactly the <span class="math inline">\(s_n\)</span> colourings. Post <span class="math inline">\(1\)</span> can be any of <span class="math inline">\(3\)</span> colours, so the number of circle colourings is <span class="math display">\[3s_n = 3(2^{n-1} - r_n) = 3 \cdot 2^{n-1} - 2^{n-1} - 2(-1)^{n-1} = 2^n + 2(-1)^n. \qed\]</span> Check: <span class="math inline">\(n = 3\)</span> gives <span class="math inline">\(8 - 2 = 6\)</span>, and <span class="math inline">\(n = 4\)</span> gives <span class="math inline">\(16 + 2 = 18\)</span>.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-3-1.svg" alt="Figure 9.3.1"><figcaption><span class="fig-label">Figure 9.3.1</span> Left: in a line, each post after the first just has to differ from its predecessor. Right: in a circle, the last post must also differ from post <span class="math inline">\(1\)</span>. Cutting the circle at the dashed line turns a circle colouring into a line colouring whose first and last posts differ: one of the <span class="math inline">\(s_n\)</span> colourings counted in the question.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Split into cases that feed each other.</strong> Recording whether the last post was red gave two sequences, <span class="math inline">\(r_n\)</span> and <span class="math inline">\(s_n\)</span>, linked by simple recurrences.</p></li>
+<li><p><strong>Bijections.</strong> <span class="math inline">\(r_{n+1} = s_n\)</span> was proved by matching colourings one-to-one, not by calculation.</p></li>
+<li><p><strong>Cut the circle.</strong> A cyclic problem became a linear one with a condition on the ends.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="chromatic-polynomials">Chromatic polynomials</h3>
+<p>The posts and their adjacencies form a <em>graph</em>: a path for the line, a cycle for the circle. A <em>proper colouring</em> gives adjacent vertices different colours. The number of proper colourings with <span class="math inline">\(k\)</span> colours is a polynomial in <span class="math inline">\(k\)</span>, the <em>chromatic polynomial</em> of the graph, introduced by George Birkhoff in 1912. Repeating the question’s argument with <span class="math inline">\(k\)</span> colours gives <span class="math display">\[\text{path: } k(k - 1)^{n-1}, \qquad \text{cycle: } (k - 1)^n + (-1)^n(k - 1).\]</span> With <span class="math inline">\(k = 3\)</span> the cycle formula is <span class="math inline">\(2^n + 2(-1)^n\)</span>. Birkhoff hoped to prove the four colour theorem (every map can be coloured with four colours so that neighbouring countries differ) by showing that the chromatic polynomial of every map’s graph is positive at <span class="math inline">\(k = 4\)</span>. That approach never succeeded; the theorem was finally proved in 1976 by Kenneth Appel and Wolfgang Haken, with extensive computer help. Chromatic polynomials remain an active field, with surprising connections to statistical physics, where they appear as the <em>Potts model</em> of magnetism.</p>
+<h3 id="the-same-count-by-matrices">The same count by matrices</h3>
+<p>There is another way to see the answer, using linear algebra from Chapter 7. Let <span class="math inline">\(\mathbf{M}\)</span> be the <span class="math inline">\(3 \times 3\)</span> matrix with <span class="math inline">\(0\)</span> on the diagonal and <span class="math inline">\(1\)</span> elsewhere: entry <span class="math inline">\((i, j)\)</span> is <span class="math inline">\(1\)</span> when colour <span class="math inline">\(j\)</span> may follow colour <span class="math inline">\(i\)</span>. Then entry <span class="math inline">\((i, j)\)</span> of <span class="math inline">\(\mathbf{M}^{n-1}\)</span> counts line colourings that start with colour <span class="math inline">\(i\)</span> and end with colour <span class="math inline">\(j\)</span>, so <span class="math inline">\(r_n\)</span> is a diagonal entry of <span class="math inline">\(\mathbf{M}^{n-1}\)</span>. A circle colouring is a sequence that returns to its start after <span class="math inline">\(n\)</span> steps, so the number of circle colourings is the <em>trace</em> of <span class="math inline">\(\mathbf{M}^n\)</span>. Since <span class="math inline">\(\mathbf{M} = \mathbf{J} - \mathbf{I}\)</span>, where every entry of <span class="math inline">\(\mathbf{J}\)</span> is <span class="math inline">\(1\)</span>, the eigenvalues of <span class="math inline">\(\mathbf{M}\)</span> are <span class="math inline">\(3 - 1 = 2\)</span> (eigenvector <span class="math inline">\((1, 1, 1)\)</span>) and <span class="math inline">\(-1\)</span> (twice), and the trace of <span class="math inline">\(\mathbf{M}^n\)</span> is the sum of the <span class="math inline">\(n\)</span>th powers of the eigenvalues: <span class="math display">\[\operatorname{tr}\mathbf{M}^n = 2^n + (-1)^n + (-1)^n = 2^n + 2(-1)^n.\]</span> This <em>transfer matrix</em> method is used throughout combinatorics and statistical physics to count arrangements built up one step at a time.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Set up coupled recurrences</div>
+<p><em>When one sequence will not satisfy a simple recurrence on its own, record a little extra information (here, the colour of the last post) and find recurrences linking the cases.</em></p>
+<p>This is the idea of a <em>state</em>: keep track of exactly what you need to know to continue, and nothing more. It is the basis of dynamic programming in computer science, of Markov chains in probability (Section 12.16), and of the transfer matrix method.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong><span class="math inline">\(k\)</span> colours.</strong> Repeat the question with <span class="math inline">\(k\)</span> colours. Show that <span class="math inline">\(r_{n+1} = s_n\)</span> still holds and that <span class="math inline">\(r_{n+1} + r_n = (k-1)^{n-1}\)</span>, find <span class="math inline">\(r_n\)</span>, and deduce the chromatic polynomial of the cycle, <span class="math inline">\((k - 1)^n + (-1)^n(k - 1)\)</span>.</p></li>
+<li><p><strong>No two reds together.</strong> How many ways are there to paint <span class="math inline">\(n\)</span> posts in a line red or white, with no two adjacent posts red? (You should find the Fibonacci numbers.)</p></li>
+<li><p><strong>A wheel.</strong> Add a central post adjacent to every post of the circle (a “wheel”). How many ways are there to colour it with <span class="math inline">\(4\)</span> colours? (<em>Hint:</em> the centre uses one colour, and the circle must use the other three.)</p></li>
+<li><p><strong>Necklaces.</strong> If two colourings of the circle count as the same when one is a rotation of the other, how many different colourings are there for <span class="math inline">\(n = 4\)</span>? For <span class="math inline">\(n = 5\)</span>? (This is the start of <em>Burnside’s lemma</em>.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Robin Wilson, <em>Introduction to Graph Theory</em></strong> (Pearson). The standard first course; covers colourings and the four colour problem.</p></li>
+<li><p><strong>Robin Wilson, <em>Four Colours Suffice</em></strong> (Penguin). The story of the four colour theorem, for a general reader.</p></li>
+<li><p><strong>Herbert Wilf, <em>generatingfunctionology</em></strong> (free online). Recurrences and how to solve them, including the transfer matrix method.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="ramsey.html">← 9.2 Ramsey&#x27;s Theorem in Miniature</a><a class="next" href="generating-functions.html">→ 9.4 Sequences as Functions</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
