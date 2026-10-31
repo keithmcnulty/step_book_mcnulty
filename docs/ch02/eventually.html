@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.1 What &quot;Eventually&quot; Means — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 2 · Sequences, Series and Convergence</a>
+    <div class="src">STEP III · 2015 · Question 2</div>
+    <div class="sec-head"><span class="sec-num">2.1</span><h1>What &quot;Eventually&quot; Means</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-1-eventually.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 2</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>If <span class="math inline">\(s_1, s_2, s_3, \ldots\)</span> and <span class="math inline">\(t_1, t_2, t_3, \ldots\)</span> are sequences of positive numbers, we write <span class="math display">\[(s_n) \leq (t_n)\]</span> to mean</p>
+<p>“there exists a positive integer <span class="math inline">\(m\)</span> such that <span class="math inline">\(s_n \leq t_n\)</span> whenever <span class="math inline">\(n \geq m\)</span>”.</p>
+<p>Determine whether each of the following statements is true or false. In the case of a true statement, you should give a proof which includes an explicit determination of an appropriate <span class="math inline">\(m\)</span>; in the case of a false statement, you should give a counterexample.</p>
+<ol class="roman">
+<li><p><span class="math inline">\((1000n) \leq (n^2)\)</span>.</p></li>
+<li><p>If it is not the case that <span class="math inline">\((s_n) \leq (t_n)\)</span>, then it is the case that <span class="math inline">\((t_n) \leq (s_n)\)</span>.</p></li>
+<li><p>If <span class="math inline">\((s_n) \leq (t_n)\)</span> and <span class="math inline">\((t_n) \leq (u_n)\)</span>, then <span class="math inline">\((s_n) \leq (u_n)\)</span>.</p></li>
+<li><p><span class="math inline">\((n^2) \leq (2^n)\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Almost every statement in a first university analysis course has the same shape: <em>there exists</em> something such that <em>for all</em> somethings, a condition holds. “The sequence tends to <span class="math inline">\(L\)</span>” means: for every tolerance <span class="math inline">\(\varepsilon &gt; 0\)</span> <em>there exists</em> a point <span class="math inline">\(N\)</span> such that <em>for all</em> <span class="math inline">\(n \geq N\)</span>, <span class="math inline">\(|a_n - L| &lt; \varepsilon\)</span>. Students who are fluent with this shape find analysis exciting. Students who aren’t find it baffling.</p>
+<p>This question is a gentle, beautifully designed introduction to that way of speaking. It defines one new idea, “eventually smaller than”, and asks four true-or-false questions about it. One of the four is false, and the reason it is false is exactly the trap that catches most first-year students when they first try to <em>negate</em> a statement with quantifiers in it.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>Read the definition slowly. <span class="math inline">\((s_n) \leq (t_n)\)</span> does not say that <span class="math inline">\(s_n \leq t_n\)</span> for every <span class="math inline">\(n\)</span>. It says that <em>from some point onwards</em> it is true. The first few terms don’t matter at all: you can change a million terms at the start of either sequence without affecting whether <span class="math inline">\((s_n) \leq (t_n)\)</span>.</p>
+<div class="askyourself">
+<p>The definition contains the phrase “there exists a positive integer <span class="math inline">\(m\)</span>”. To prove that <span class="math inline">\((s_n) \leq (t_n)\)</span>, what exactly do you have to produce? To prove that it is <em>false</em>, what do you have to show?</p>
+</div>
+<p>To prove it, you must <em>produce</em> a suitable <span class="math inline">\(m\)</span> and then show that <em>every</em> <span class="math inline">\(n \geq m\)</span> works. To disprove it, you must show that <em>no</em> <span class="math inline">\(m\)</span> works: whatever <span class="math inline">\(m\)</span> someone proposes, there is some <span class="math inline">\(n \geq m\)</span> with <span class="math inline">\(s_n &gt; t_n\)</span>. Keep that second version in mind for part (ii).</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-a-linear-function-against-a-quadratic" class="stage"><span class="stage-n">Stage 1</span> A linear function against a quadratic</h4>
+<p>Part (i) asks whether <span class="math inline">\(1000n \leq n^2\)</span> eventually. Since <span class="math inline">\(n &gt; 0\)</span>, this is the same as <span class="math inline">\(1000 \leq n\)</span>. So <span class="math inline">\(m = 1000\)</span> works: for every <span class="math inline">\(n \geq 1000\)</span>, <span class="math inline">\(n^2 = n \cdot n \geq 1000 n\)</span>. The statement is <strong>true</strong>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>It doesn’t matter that <span class="math inline">\(1000n\)</span> is far bigger than <span class="math inline">\(n^2\)</span> for the first <span class="math inline">\(999\)</span> terms. “Eventually” ignores any finite number of terms.</p>
+<h4 id="stagemark2-is-eventually-smaller-like-ordinary-smaller" class="stage"><span class="stage-n">Stage 2</span> Is “eventually smaller” like ordinary “smaller”?</h4>
+<p>For ordinary numbers, if it is not the case that <span class="math inline">\(a \leq b\)</span>, then <span class="math inline">\(b &lt; a\)</span>, so certainly <span class="math inline">\(b \leq a\)</span>. Part (ii) asks whether the same is true for our new relation.</p>
+<div class="askyourself">
+<p>What does “it is <em>not</em> the case that <span class="math inline">\((s_n) \leq (t_n)\)</span>” actually mean? Write it out in full, without the word “not” in front.</p>
+</div>
+<p>The statement “there exists <span class="math inline">\(m\)</span> such that for all <span class="math inline">\(n \geq m\)</span>, <span class="math inline">\(s_n \leq t_n\)</span>” is false precisely when</p>
+<p>for every <span class="math inline">\(m\)</span> there is some <span class="math inline">\(n \geq m\)</span> with <span class="math inline">\(s_n &gt; t_n\)</span>.</p>
+<p>In other words, <span class="math inline">\(s_n &gt; t_n\)</span> happens <em>infinitely often</em>. That is much weaker than “<span class="math inline">\(s_n &gt; t_n\)</span> from some point on”. The sequences could keep swapping places.</p>
+<div class="pausebox">
+<p>Find two sequences of positive numbers that swap places for ever, so that neither is eventually smaller than the other.</p>
+</div>
+<p>Take <span class="math inline">\(s_n = 2 + (-1)^n\)</span>, so <span class="math inline">\(s_n = 1, 3, 1, 3, \ldots\)</span>, and <span class="math inline">\(t_n = 2\)</span> for all <span class="math inline">\(n\)</span>. For every <span class="math inline">\(m\)</span> there is an even <span class="math inline">\(n \geq m\)</span> with <span class="math inline">\(s_n = 3 &gt; 2 = t_n\)</span>, so it is not the case that <span class="math inline">\((s_n) \leq (t_n)\)</span>. But equally, for every <span class="math inline">\(m\)</span> there is an odd <span class="math inline">\(n \geq m\)</span> with <span class="math inline">\(t_n = 2 &gt; 1 = s_n\)</span>, so it is not the case that <span class="math inline">\((t_n) \leq (s_n)\)</span> either. The statement is <strong>false</strong>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-chaining" class="stage"><span class="stage-n">Stage 3</span> Chaining</h4>
+<div class="askyourself">
+<p>In part (iii) you are given two values of <span class="math inline">\(m\)</span>, one for each hypothesis. They might be different. Which one should you use for the conclusion?</p>
+</div>
+<p>Suppose <span class="math inline">\(s_n \leq t_n\)</span> for all <span class="math inline">\(n \geq m_1\)</span> and <span class="math inline">\(t_n \leq u_n\)</span> for all <span class="math inline">\(n \geq m_2\)</span>. If <span class="math inline">\(n \geq \max(m_1, m_2)\)</span>, both inequalities hold, so <span class="math inline">\(s_n \leq t_n \leq u_n\)</span>. So <span class="math inline">\(m = \max(m_1, m_2)\)</span> works, and the statement is <strong>true</strong>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Taking the larger of two thresholds is a move you will make hundreds of times in analysis. It is how you prove, for example, that the sum of two convergent sequences converges.</p>
+<h4 id="stagemark4-a-quadratic-against-an-exponential" class="stage"><span class="stage-n">Stage 4</span> A quadratic against an exponential</h4>
+<p>Try a few values first:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(n^2\)</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">49</td>
+<td style="text-align: center;">64</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(2^n\)</span></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">256</td>
+</tr>
+</tbody>
+</table></div>
+<p>So <span class="math inline">\(n^2 \leq 2^n\)</span> at <span class="math inline">\(n = 1, 2\)</span>, fails at <span class="math inline">\(n = 3\)</span>, and then seems to hold from <span class="math inline">\(n = 4\)</span> onwards (Figure 2.1.1). The natural guess is <span class="math inline">\(m = 4\)</span>.</p>
+<div class="askyourself">
+<p>To prove <span class="math inline">\(n^2 \leq 2^n\)</span> for all <span class="math inline">\(n \geq 4\)</span> by induction, you need to get from <span class="math inline">\(n^2 \leq 2^n\)</span> to <span class="math inline">\((n+1)^2 \leq 2^{n+1} = 2 \cdot 2^n\)</span>. What inequality between <span class="math inline">\((n+1)^2\)</span> and <span class="math inline">\(n^2\)</span> would make that step work?</p>
+</div>
+<p>It would be enough to know that <span class="math inline">\((n+1)^2 \leq 2n^2\)</span>, because then <span class="math inline">\((n+1)^2 \leq 2n^2 \leq 2 \cdot 2^n\)</span>. Now <span class="math inline">\(2n^2 - (n+1)^2 = n^2 - 2n - 1 = (n-1)^2 - 2\)</span>, which is positive when <span class="math inline">\(n \geq 3\)</span>. So:</p>
+<ul>
+<li><p><em>Base case:</em> <span class="math inline">\(4^2 = 16 = 2^4\)</span>.</p></li>
+<li><p><em>Inductive step:</em> if <span class="math inline">\(n \geq 4\)</span> and <span class="math inline">\(n^2 \leq 2^n\)</span>, then <span class="math inline">\((n+1)^2 \leq 2n^2 \leq 2^{n+1}\)</span>.</p></li>
+</ul>
+<p>Hence <span class="math inline">\(n^2 \leq 2^n\)</span> for all <span class="math inline">\(n \geq 4\)</span>, and the statement is <strong>true</strong> with <span class="math inline">\(m = 4\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-2-1-1.svg" alt="Figure 2.1.1"><figcaption><span class="fig-label">Figure 2.1.1</span> <span class="math inline">\(n^2\)</span> (plum circles) against <span class="math inline">\(2^n\)</span> (amber squares). The two sequences cross twice in the first few terms, but from <span class="math inline">\(n = 4\)</span> onwards <span class="math inline">\(2^n\)</span> stays ahead for ever. That is exactly what <span class="math inline">\((n^2) \leq (2^n)\)</span> means, with <span class="math inline">\(m = 4\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Proving “there exists” means producing.</strong> In parts (i), (iii) and (iv) the proof consisted of naming <span class="math inline">\(m\)</span> and checking it.</p></li>
+<li><p><strong>Negating swaps the quantifiers.</strong> “Not (there exists <span class="math inline">\(m\)</span>, for all <span class="math inline">\(n \geq m\)</span>, <span class="math inline">\(P\)</span>)” becomes “for all <span class="math inline">\(m\)</span>, there exists <span class="math inline">\(n \geq m\)</span>, not <span class="math inline">\(P\)</span>”. Getting this right is what part (ii) tests.</p></li>
+<li><p><strong>A new relation need not behave like an old one.</strong> “Eventually smaller than” is transitive, like <span class="math inline">\(\leq\)</span>, but unlike <span class="math inline">\(\leq\)</span> it does not compare every pair of sequences.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">The language of analysis</div>
+<p>For about 150 years after Newton and Leibniz, mathematicians used limits and infinitesimals brilliantly but could not say exactly what they meant. Bishop Berkeley mocked infinitesimals in 1734 as “the ghosts of departed quantities”, and he had a point. The repair came in the nineteenth century, when Augustin-Louis Cauchy and then Karl Weierstrass replaced vague talk of “becoming infinitely close” with statements built from “for every” and “there exists”. The modern definition <span class="math display">\[a_n \to L \iff \text{for every } \varepsilon &gt; 0 \text{ there exists } N \text{ such that } |a_n - L| &lt; \varepsilon \text{ for all } n \geq N\]</span> has exactly the shape of this question’s definition, with one extra quantifier at the front. It is the first thing you will meet in a university analysis course.</p>
+</div>
+<h3 id="orders-of-growth">Orders of growth</h3>
+<p>Part (iv) is one small piece of a famous ladder. For any fixed <span class="math inline">\(k &gt; 0\)</span> and <span class="math inline">\(c &gt; 1\)</span>, <span class="math display">\[(\ln n) \leq (n^k), \qquad (n^k) \leq (c^n), \qquad (c^n) \leq (n!), \qquad (n!) \leq (n^n),\]</span> and in fact each sequence is not just eventually smaller than the next but eventually smaller than <em>any constant multiple</em> of it. G. H. Hardy wrote a whole book, <em>Orders of Infinity</em> (1910), about this kind of comparison. Today it is the everyday language of computer science, where “this algorithm takes <span class="math inline">\(O(n^2)\)</span> steps” means that the number of steps is eventually at most a constant times <span class="math inline">\(n^2\)</span>. The difference between <span class="math inline">\(n^2\)</span> and <span class="math inline">\(2^n\)</span> is the difference between a program that finishes and one that will not finish before the Sun burns out.</p>
+<h3 id="orders-that-are-not-total">Orders that are not total</h3>
+<p>Part (ii) shows that “eventually smaller” is not a <em>total order</em>: some pairs of sequences cannot be compared at all. Relations like this, transitive but not comparing everything, are called <em>preorders</em> or <em>partial orders</em>, and they turn up everywhere: divisibility of integers, inclusion of sets, and “is a subgroup of” are all examples. Recognising which properties a relation has, and which it doesn’t, is part of the training of a mathematician.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Handling quantifiers</div>
+<p><em>To prove “there exists <span class="math inline">\(m\)</span> such that for all <span class="math inline">\(n \geq m\)</span>…”, name <span class="math inline">\(m\)</span> and then check every <span class="math inline">\(n\)</span>. To disprove it, show that for every <span class="math inline">\(m\)</span> some <span class="math inline">\(n \geq m\)</span> fails.</em></p>
+<p>When a statement has several quantifiers, write it out in full before trying to prove or disprove it, and negate it by working from the left: each “for all” becomes “there exists”, each “there exists” becomes “for all”, and the condition at the end is negated.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The 1986 warm-up.</strong> (From STEP III, 1986.) Show by using the binomial expansion that <span class="math inline">\((1+x)^n &gt; nx\)</span> whenever <span class="math inline">\(x \geq 0\)</span> and <span class="math inline">\(n\)</span> is a positive integer. Deduce that if <span class="math inline">\(y &gt; 1\)</span> then, given any number <span class="math inline">\(K\)</span>, an integer <span class="math inline">\(N\)</span> can be found such that <span class="math inline">\(y^n &gt; K\)</span> for all <span class="math inline">\(n \geq N\)</span>. Show further that if <span class="math inline">\(y &gt; 1\)</span> then, given any <span class="math inline">\(K\)</span>, an integer <span class="math inline">\(N\)</span> can be found such that <span class="math inline">\(y^n / n &gt; K\)</span> for all <span class="math inline">\(n \geq N\)</span>. (<em>Hint for the last part:</em> use the next term of the binomial expansion.)</p></li>
+<li><p><strong>Both ways round.</strong> Prove that if <span class="math inline">\((s_n) \leq (t_n)\)</span> and <span class="math inline">\((t_n) \leq (s_n)\)</span>, then <span class="math inline">\(s_n = t_n\)</span> for all sufficiently large <span class="math inline">\(n\)</span>.</p></li>
+<li><p><strong>Racing to infinity.</strong> Find two <em>increasing</em> sequences of positive numbers, both tending to infinity, neither of which is eventually smaller than the other.</p></li>
+<li><p><strong>Up the ladder.</strong> Show that <span class="math inline">\((2^n) \leq (n!)\)</span>, giving an explicit <span class="math inline">\(m\)</span>. Then show that <span class="math inline">\((n^{10}) \leq (2^n)\)</span> and find the smallest <span class="math inline">\(m\)</span> that works. (A spreadsheet helps for the second part; the answer is surprisingly large.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Lara Alcock, <em>How to Study for a Mathematics Degree</em></strong> (Oxford University Press). Chapter 3 is about exactly this kind of logical language and why new undergraduates find it hard.</p></li>
+<li><p><strong>Lara Alcock, <em>How to Think About Analysis</em></strong> (Oxford University Press). A friendly guide to the definitions of first-year analysis.</p></li>
+<li><p><strong>Daniel Velleman, <em>How to Prove It</em></strong> (Cambridge University Press). A systematic introduction to logic, quantifiers and proof.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← Chapter introduction</a><a class="next" href="golden-limit.html">→ 2.2 The Golden Ratio as a Limit</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

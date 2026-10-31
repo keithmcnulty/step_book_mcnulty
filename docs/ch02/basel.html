@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.4 π²/6 — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 2 · Sequences, Series and Convergence</a>
+    <div class="src">STEP III · 2018 · Question 7</div>
+    <div class="sec-head"><span class="sec-num">2.4</span><h1>\(\pi\)\(^2\)/6</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-4-basel.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 2</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Use De Moivre’s theorem to show that, if <span class="math inline">\(\sin\theta \neq 0\)</span>, then <span class="math display">\[\frac{(\cot\theta + \mathrm{i})^{2n+1} - (\cot\theta - \mathrm{i})^{2n+1}}{2\mathrm{i}} = \frac{\sin(2n+1)\theta}{\sin^{2n+1}\theta},\]</span> for any positive integer <span class="math inline">\(n\)</span>.</p>
+<p>Deduce that the solutions of the equation <span class="math display">\[\binom{2n+1}{1} x^n - \binom{2n+1}{3} x^{n-1} + \cdots + (-1)^n = 0\]</span> are <span class="math display">\[x = \cot^2\left( \frac{m\pi}{2n+1} \right)\]</span> where <span class="math inline">\(m = 1, 2, \ldots, n\)</span>.</p></li>
+<li><p>Hence show that <span class="math display">\[\sum_{m=1}^{n} \cot^2\left( \frac{m\pi}{2n+1} \right) = \frac{n(2n-1)}{3}.\]</span></p></li>
+<li><p>Given that <span class="math inline">\(0 &lt; \sin\theta &lt; \theta &lt; \tan\theta\)</span> for <span class="math inline">\(0 &lt; \theta &lt; \frac12\pi\)</span>, show that <span class="math display">\[\cot^2\theta &lt; \frac{1}{\theta^2} &lt; 1 + \cot^2\theta.\]</span> Hence show that <span class="math display">\[\sum_{m=1}^{\infty} \frac{1}{m^2} = \frac{\pi^2}{6}.\]</span></p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>In 1650 Pietro Mengoli asked a simple question: what is <span class="math display">\[1 + \frac14 + \frac19 + \frac1{16} + \frac1{25} + \cdots\, ?\]</span> The terms shrink fast enough for the sum to converge (<a href="../ch02/kempner.html">Section 2.3</a> showed it is at most <span class="math inline">\(2\)</span>), but nobody could find its value. The Bernoulli brothers tried and failed; Jacob Bernoulli publicly begged for help. The problem became known as the <em>Basel problem</em>, after the Bernoullis’ home city.</p>
+<p>In 1734 the young Leonhard Euler solved it, and the answer made him famous: the sum is <span class="math inline">\(\pi^2/6\)</span>. Why on earth should <span class="math inline">\(\pi\)</span>, a number about circles, appear in a sum of reciprocal squares? This question gives a complete, rigorous proof using nothing beyond A-level: De Moivre’s theorem, the sum of the roots of a polynomial, and a squeeze.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>The overall plan is worth seeing before the details.</p>
+<ul>
+<li><p>Part (i) builds a polynomial whose roots are the numbers <span class="math inline">\(\cot^2\bigl(\frac{m\pi}{2n+1}\bigr)\)</span>.</p></li>
+<li><p>Part (ii) adds up those roots without knowing them individually, using the coefficients.</p></li>
+<li><p>Part (iii) uses the fact that <span class="math inline">\(\cot\theta \approx 1/\theta\)</span> for small <span class="math inline">\(\theta\)</span> to turn a sum of <span class="math inline">\(\cot^2\)</span> values into a sum of <span class="math inline">\(1/m^2\)</span> values, and squeezes.</p></li>
+</ul>
+<div class="askyourself">
+<p>If a polynomial <span class="math inline">\(a_n x^n + a_{n-1} x^{n-1} + \cdots + a_0\)</span> has roots <span class="math inline">\(r_1, \ldots, r_n\)</span>, what is <span class="math inline">\(r_1 + \cdots + r_n\)</span> in terms of the coefficients?</p>
+</div>
+<p>It is <span class="math inline">\(-a_{n-1}/a_n\)</span>. That fact is the engine of part (ii).</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-de-moivre" class="stage"><span class="stage-n">Stage 1</span> De Moivre</h4>
+<div class="askyourself">
+<p>Write <span class="math inline">\(\cot\theta + \mathrm{i}\)</span> as a single fraction. What do you notice about the numerator?</p>
+</div>
+<p><span class="math inline">\(\cot\theta + \mathrm{i} = \dfrac{\cos\theta + \mathrm{i}\sin\theta}{\sin\theta}\)</span>, and similarly <span class="math inline">\(\cot\theta - \mathrm{i} = \dfrac{\cos\theta - \mathrm{i}\sin\theta}{\sin\theta}\)</span>. By De Moivre’s theorem, <span class="math display">\[(\cot\theta \pm \mathrm{i})^{2n+1} = \frac{\cos(2n+1)\theta \pm \mathrm{i}\sin(2n+1)\theta}{\sin^{2n+1}\theta}.\]</span> Subtracting, the cosines cancel and the sines double, and dividing by <span class="math inline">\(2\mathrm{i}\)</span> gives <span class="math display">\[\frac{\sin(2n+1)\theta}{\sin^{2n+1}\theta}. \qed\]</span></p>
+<h4 id="stagemark2-the-polynomial" class="stage"><span class="stage-n">Stage 2</span> The polynomial</h4>
+<p>Now expand the left-hand side with the binomial theorem instead. Write <span class="math inline">\(c = \cot\theta\)</span> and <span class="math inline">\(N = 2n + 1\)</span>.</p>
+<div class="askyourself">
+<p>In <span class="math inline">\((c + \mathrm{i})^N - (c - \mathrm{i})^N\)</span>, which terms of the two binomial expansions cancel, and which double?</p>
+</div>
+<p>The term containing <span class="math inline">\(\mathrm{i}^j\)</span> appears with a <span class="math inline">\(+\)</span> sign in the first expansion and with <span class="math inline">\((-1)^j\)</span> in the second. So terms with even <span class="math inline">\(j\)</span> cancel and terms with odd <span class="math inline">\(j\)</span> double: <span class="math display">\[(c + \mathrm{i})^N - (c - \mathrm{i})^N = 2 \sum_{j \text{ odd}} \binom{N}{j} c^{N-j}\, \mathrm{i}^j.\]</span> With <span class="math inline">\(j = 2k + 1\)</span>, <span class="math inline">\(\mathrm{i}^j = \mathrm{i}\,(-1)^k\)</span> and <span class="math inline">\(c^{N-j} = c^{2n-2k} = (c^2)^{n-k}\)</span>. Dividing by <span class="math inline">\(2\mathrm{i}\)</span>, <span class="math display">\[\frac{\sin(2n+1)\theta}{\sin^{2n+1}\theta} = \binom{2n+1}{1} x^n - \binom{2n+1}{3} x^{n-1} + \cdots + (-1)^n,\]</span> where <span class="math inline">\(x = \cot^2\theta\)</span>.</p>
+<div class="pausebox">
+<p>For which <span class="math inline">\(\theta\)</span> is the left-hand side zero? Use this to find <span class="math inline">\(n\)</span> different roots of the polynomial.</p>
+</div>
+<p>The left-hand side is zero when <span class="math inline">\(\sin(2n+1)\theta = 0\)</span> but <span class="math inline">\(\sin\theta \neq 0\)</span>, for instance when <span class="math inline">\(\theta = \frac{m\pi}{2n+1}\)</span> for <span class="math inline">\(m = 1, 2, \ldots, n\)</span>. These angles all lie strictly between <span class="math inline">\(0\)</span> and <span class="math inline">\(\frac\pi2\)</span>, where <span class="math inline">\(\cot\)</span> is positive and strictly decreasing, so the <span class="math inline">\(n\)</span> values <span class="math inline">\(\cot^2\bigl(\frac{m\pi}{2n+1}\bigr)\)</span> are all different. A polynomial of degree <span class="math inline">\(n\)</span> has at most <span class="math inline">\(n\)</span> roots, so these are <em>all</em> of them.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-adding-the-roots" class="stage"><span class="stage-n">Stage 3</span> Adding the roots</h4>
+<p>The sum of the roots is <span class="math inline">\(-(\text{coefficient of } x^{n-1}) / (\text{coefficient of } x^n)\)</span>: <span class="math display">\[\sum_{m=1}^{n} \cot^2\left( \frac{m\pi}{2n+1} \right) = \frac{\binom{2n+1}{3}}{\binom{2n+1}{1}} = \frac{(2n+1)(2n)(2n-1)}{6\,(2n+1)} = \frac{n(2n-1)}{3}. \qed\]</span> Check with <span class="math inline">\(n = 1\)</span>: <span class="math inline">\(\cot^2(\pi/3) = \frac13\)</span>, and <span class="math inline">\(\frac{1 \times 1}{3} = \frac13\)</span>.</p>
+<h4 id="stagemark4-the-squeeze" class="stage"><span class="stage-n">Stage 4</span> The squeeze</h4>
+<p>From <span class="math inline">\(0 &lt; \sin\theta &lt; \theta &lt; \tan\theta\)</span>, take reciprocals (which reverses the inequalities) and square: <span class="math display">\[\cot^2\theta &lt; \frac{1}{\theta^2} &lt; \frac{1}{\sin^2\theta} = 1 + \cot^2\theta.\]</span></p>
+<div class="askyourself">
+<p>Put <span class="math inline">\(\theta = \frac{m\pi}{2n+1}\)</span> and add up over <span class="math inline">\(m = 1, \ldots, n\)</span>. What do the two outer sums become? What does the middle sum have to do with <span class="math inline">\(\sum 1/m^2\)</span>?</p>
+</div>
+<p>The middle sum is <span class="math inline">\(\displaystyle\sum_{m=1}^{n} \frac{(2n+1)^2}{m^2 \pi^2}\)</span>. By part (ii) the left sum is <span class="math inline">\(\frac{n(2n-1)}{3}\)</span>, and the right sum is <span class="math inline">\(n + \frac{n(2n-1)}{3} = \frac{2n(n+1)}{3}\)</span>. Multiplying through by <span class="math inline">\(\frac{\pi^2}{(2n+1)^2}\)</span>: <span class="math display">\[\frac{\pi^2}{3} \cdot \frac{n(2n-1)}{(2n+1)^2} \;&lt;\; \sum_{m=1}^{n} \frac{1}{m^2} \;&lt;\; \frac{\pi^2}{3} \cdot \frac{2n(n+1)}{(2n+1)^2}.\]</span> As <span class="math inline">\(n \to \infty\)</span>, both <span class="math inline">\(\frac{n(2n-1)}{(2n+1)^2}\)</span> and <span class="math inline">\(\frac{2n(n+1)}{(2n+1)^2}\)</span> tend to <span class="math inline">\(\frac24 = \frac12\)</span> (divide top and bottom by <span class="math inline">\(n^2\)</span>). So both bounds tend to <span class="math inline">\(\frac{\pi^2}{6}\)</span>, and the partial sums, trapped between them, must tend to <span class="math inline">\(\frac{\pi^2}{6}\)</span> too (Figure 2.4.1).<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-2-4-1.svg" alt="Figure 2.4.1"><figcaption><span class="fig-label">Figure 2.4.1</span> The squeeze in part (iii). The partial sums of <span class="math inline">\(\sum 1/m^2\)</span> (teal points) are trapped between the lower bound (plum) and the upper bound (amber), and both bounds tend to <span class="math inline">\(\pi^2/6 \approx 1.645\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Information from coefficients.</strong> We never found the roots <span class="math inline">\(\cot^2(m\pi/(2n+1))\)</span> in any simpler form, but we added them up exactly.</p></li>
+<li><p><strong>Approximate, then squeeze.</strong> <span class="math inline">\(\cot\theta\)</span> is only approximately <span class="math inline">\(1/\theta\)</span>, but the error was controlled by exact inequalities in both directions.</p></li>
+<li><p><strong>Finite to infinite.</strong> Every step until the last concerned finite sums. The infinite sum appeared only when we let <span class="math inline">\(n \to \infty\)</span> in an inequality, which is the safe way to handle infinity.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Euler’s bold argument</div>
+<p>Euler’s own 1734 argument was not rigorous by modern standards, but it was dazzling. A polynomial with roots <span class="math inline">\(\pm a, \pm b, \pm c, \ldots\)</span> and value <span class="math inline">\(1\)</span> at <span class="math inline">\(0\)</span> factorises as <span class="math inline">\((1 - x^2/a^2)(1 - x^2/b^2)\cdots\)</span>. The function <span class="math inline">\(\frac{\sin x}{x}\)</span> has value <span class="math inline">\(1\)</span> at <span class="math inline">\(0\)</span> and roots <span class="math inline">\(\pm\pi, \pm 2\pi, \pm 3\pi, \ldots\)</span>, so, treating it as an “infinite polynomial”, Euler wrote <span class="math display">\[\frac{\sin x}{x} = \left(1 - \frac{x^2}{\pi^2}\right)\left(1 - \frac{x^2}{4\pi^2}\right)\left(1 - \frac{x^2}{9\pi^2}\right)\cdots.\]</span> The coefficient of <span class="math inline">\(x^2\)</span> on the right is <span class="math inline">\(-\frac{1}{\pi^2}\bigl(1 + \frac14 + \frac19 + \cdots\bigr)\)</span>, while from the Maclaurin series <span class="math inline">\(\frac{\sin x}{x} = 1 - \frac{x^2}{6} + \cdots\)</span> it is <span class="math inline">\(-\frac16\)</span>. Comparing gives <span class="math inline">\(\pi^2/6\)</span>. Our STEP proof is the finite, rigorous version of the same idea: a polynomial whose roots are tied to multiples of <span class="math inline">\(\pi\)</span>, and its second coefficient.</p>
+</div>
+<h3 id="beyond-reciprocal-squares">Beyond reciprocal squares</h3>
+<p>Euler went on to find <span class="math inline">\(\sum 1/m^4 = \pi^4/90\)</span>, <span class="math inline">\(\sum 1/m^6 = \pi^6/945\)</span>, and in general <span class="math inline">\(\sum 1/m^{2k}\)</span> is a rational multiple of <span class="math inline">\(\pi^{2k}\)</span>, involving the <em>Bernoulli numbers</em>. The odd powers are a different story: as we saw in <a href="../ch02/kempner.html">Section 2.3</a>, nobody knows a formula for <span class="math inline">\(\sum 1/m^3\)</span>. These sums are the values <span class="math inline">\(\zeta(2), \zeta(4), \ldots\)</span> of the Riemann zeta function, whose behaviour for complex arguments controls the distribution of the primes (<a href="../ch01/prime-distribution.html">Section 1.2</a>).</p>
+<h3 id="where-you-will-see-it-again">Where you will see it again</h3>
+<p>At university you will meet at least three more proofs of <span class="math inline">\(\zeta(2) = \pi^2/6\)</span>: one from <em>Fourier series</em> (writing a function as a sum of sines and cosines), one from a double integral, and one from complex analysis. And the number turns up in probability: the chance that two randomly chosen whole numbers have no common factor is <span class="math inline">\(6/\pi^2 \approx 0.61\)</span>. (A prime <span class="math inline">\(p\)</span> divides both with probability <span class="math inline">\(1/p^2\)</span>, so the chance that no prime divides both is <span class="math inline">\(\prod_p (1 - 1/p^2)\)</span>, and Euler showed this product equals <span class="math inline">\(1/\zeta(2)\)</span>.) A different appearance of <span class="math inline">\(\pi\)</span> in a probability limit is the subject of Section 12.23.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">The squeeze, and symmetric functions of roots</div>
+<p><em>To find a limit, trap the quantity between two simpler expressions with the same limit.</em></p>
+<p>And when you need the sum (or product) of some awkward numbers, try to find a polynomial they are the roots of: the coefficients will give you symmetric combinations of them for free.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The 1992 version.</strong> (From STEP III, 1992.) Using the polynomial from part (i), show that <span class="math display">\[\sum_{k=1}^{n} \tan^2\left( \frac{k\pi}{2n+1} \right) = n(2n+1) \quad\text{and}\quad \sum_{k=1}^{n} \mathrm{cosec}^2\left( \frac{k\pi}{2n+1} \right) = \frac{2n(n+1)}{3}.\]</span> (<em>Hint for the first:</em> the numbers <span class="math inline">\(\tan^2\)</span> are the reciprocals of the roots. What polynomial has roots <span class="math inline">\(1/r_i\)</span>?)</p></li>
+<li><p><strong>Odd squares.</strong> Deduce from <span class="math inline">\(\sum 1/m^2 = \pi^2/6\)</span> that <span class="math inline">\(1 + \frac19 + \frac1{25} + \frac1{49} + \cdots = \frac{\pi^2}{8}\)</span>.</p></li>
+<li><p><strong>Fourth powers.</strong> <span class="hard">harder</span> Use <span class="math inline">\(\sum r_i^2 = (\sum r_i)^2 - 2\sum_{i&lt;j} r_i r_j\)</span> and the coefficients of the polynomial to find <span class="math inline">\(\sum_{m=1}^{n} \cot^4\bigl(\frac{m\pi}{2n+1}\bigr)\)</span>, and adapt the squeeze to prove <span class="math inline">\(\sum 1/m^4 = \pi^4/90\)</span>.</p></li>
+<li><p><strong>How fast?</strong> Using the lower bound in part (iii), show that <span class="math inline">\(\frac{\pi^2}{6} - \sum_{m=1}^{n} \frac{1}{m^2} &lt; \frac{\pi^2}{4n}\)</span>. How large an <span class="math inline">\(n\)</span> does this guarantee is enough for the partial sum to be within <span class="math inline">\(0.001\)</span> of <span class="math inline">\(\pi^2/6\)</span>? Compare with the true error, which is close to <span class="math inline">\(1/n\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>William Dunham, <em>Euler: The Master of Us All</em></strong> (Mathematical Association of America). Chapter 3 tells the story of the Basel problem with the mathematics in full.</p></li>
+<li><p><strong>Aigner &amp; Ziegler, <em>Proofs from THE BOOK</em></strong>, Chapter 9, “Three times <span class="math inline">\(\pi^2/6\)</span>”. Includes the proof in this section.</p></li>
+<li><p><strong>Paul Nahin, <em>Dr. Euler’s Fabulous Formula</em></strong> (Princeton University Press). Complex numbers, Fourier series and sums like this one.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="kempner.html">← 2.3 A Divergent Series and Its Convergent Cousin</a><a class="next" href="viete.html">→ 2.5 Viète&#x27;s Product</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

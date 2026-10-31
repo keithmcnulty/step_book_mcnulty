@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.8 Squaring and Subtracting Two — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 2 · Sequences, Series and Convergence</a>
+    <div class="src">STEP III · 2021 · Question 8</div>
+    <div class="sec-head"><span class="sec-num">2.8</span><h1>Squaring and Subtracting Two</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-8-squaring-minus-two.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 2</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A sequence <span class="math inline">\(x_1, x_2, \ldots\)</span> of real numbers is defined by <span class="math inline">\(x_{n+1} = x_n^2 - 2\)</span> for <span class="math inline">\(n \geq 1\)</span> and <span class="math inline">\(x_1 = a\)</span>.</p>
+<ol class="roman">
+<li><p>Show that if <span class="math inline">\(a &gt; 2\)</span> then <span class="math inline">\(x_n \geq 2 + 4^{n-1}(a - 2)\)</span>.</p></li>
+<li><p>Show also that <span class="math inline">\(x_n \to \infty\)</span> as <span class="math inline">\(n \to \infty\)</span> if and only if <span class="math inline">\(|a| &gt; 2\)</span>.</p></li>
+<li><p>When <span class="math inline">\(a &gt; 2\)</span>, a second sequence <span class="math inline">\(y_1, y_2, \ldots\)</span> is defined by <span class="math display">\[y_n = \frac{A x_1 x_2 \cdots x_n}{x_{n+1}},\]</span> where <span class="math inline">\(A\)</span> is a positive constant and <span class="math inline">\(n \geq 1\)</span>.</p>
+<p>Prove that, for a certain value of <span class="math inline">\(a\)</span>, with <span class="math inline">\(a &gt; 2\)</span>, which you should find in terms of <span class="math inline">\(A\)</span>, <span class="math display">\[y_n = \frac{\sqrt{x_{n+1}^2 - 4}}{x_{n+1}}\]</span> for all <span class="math inline">\(n \geq 1\)</span>.</p>
+<p>Determine whether, for this value of <span class="math inline">\(a\)</span>, the second sequence converges.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>“Square it and subtract two” is about the simplest rule you could use to generate a sequence. Yet it divides the real line into two worlds. Start outside <span class="math inline">\([-2, 2]\)</span> and the numbers explode to infinity, faster than exponentially. Start inside and they stay trapped for ever, wandering in a way that is, in a precise sense, completely unpredictable: one of the simplest examples of <em>chaos</em>.</p>
+<p>The same rule, carried out with very large whole numbers, is the engine of the Lucas–Lehmer test, the method used to find every one of the largest known prime numbers. This question explores the escaping side of the story and finds a hidden formula that makes the sequence completely solvable.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>Try some starting values. With <span class="math inline">\(a = 3\)</span>: <span class="math inline">\(3, 7, 47, 2207, \ldots\)</span> With <span class="math inline">\(a = 1\)</span>: <span class="math inline">\(1, -1, -1, -1, \ldots\)</span> With <span class="math inline">\(a = 0\)</span>: <span class="math inline">\(0, -2, 2, 2, 2, \ldots\)</span> With <span class="math inline">\(a = 0.3\)</span>: <span class="math inline">\(0.3, -1.91, 1.648, 0.716, -1.487, 0.211, \ldots\)</span></p>
+<div class="askyourself">
+<p>Why can a number in <span class="math inline">\([-2, 2]\)</span> never escape? What is the largest and smallest that <span class="math inline">\(x^2 - 2\)</span> can be when <span class="math inline">\(-2 \leq x \leq 2\)</span>?</p>
+</div>
+<p>If <span class="math inline">\(-2 \leq x \leq 2\)</span> then <span class="math inline">\(0 \leq x^2 \leq 4\)</span>, so <span class="math inline">\(-2 \leq x^2 - 2 \leq 2\)</span>. The interval <span class="math inline">\([-2, 2]\)</span> is mapped into itself. That will be half of part (ii).</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-escaping" class="stage"><span class="stage-n">Stage 1</span> Escaping</h4>
+<div class="askyourself">
+<p>Part (i) has a <span class="math inline">\(4^{n-1}\)</span> in it, suggesting that the distance above <span class="math inline">\(2\)</span> at least quadruples at each step. Write <span class="math inline">\(x_n = 2 + d\)</span>. What is <span class="math inline">\(x_{n+1}\)</span> in terms of <span class="math inline">\(d\)</span>?</p>
+</div>
+<p><span class="math inline">\(x_{n+1} = (2 + d)^2 - 2 = 2 + 4d + d^2\)</span>. So if <span class="math inline">\(d \geq 0\)</span>, the new distance above <span class="math inline">\(2\)</span> is <span class="math inline">\(4d + d^2 \geq 4d\)</span>.</p>
+<p>Now induct. When <span class="math inline">\(n = 1\)</span>, <span class="math inline">\(x_1 = a = 2 + 4^0(a - 2)\)</span>. If <span class="math inline">\(x_n \geq 2 + 4^{n-1}(a - 2)\)</span>, then <span class="math inline">\(d = x_n - 2 \geq 4^{n-1}(a - 2) \geq 0\)</span>, so <span class="math display">\[x_{n+1} - 2 \geq 4d \geq 4^n (a - 2). \qed\]</span></p>
+<h4 id="stagemark2-escape-if-and-only-if-a-2" class="stage"><span class="stage-n">Stage 2</span> Escape if and only if <span class="math inline">\(|a| &gt; 2\)</span></h4>
+<div class="askyourself">
+<p>“If and only if” means two separate proofs. Which direction does part (i) almost give you, and what is missing?</p>
+</div>
+<p><em>If <span class="math inline">\(|a| &gt; 2\)</span>:</em> when <span class="math inline">\(a &gt; 2\)</span>, part (i) gives <span class="math inline">\(x_n \geq 2 + 4^{n-1}(a - 2) \to \infty\)</span>. When <span class="math inline">\(a &lt; -2\)</span>, the first step fixes the sign: <span class="math inline">\(x_2 = a^2 - 2 &gt; 4 - 2 = 2\)</span>, and the sequence from <span class="math inline">\(x_2\)</span> onwards is the same sequence started at <span class="math inline">\(x_2 &gt; 2\)</span>, so it tends to infinity.</p>
+<p><em>Only if:</em> if <span class="math inline">\(|a| \leq 2\)</span>, then <span class="math inline">\(a \in [-2, 2]\)</span>, and by the observation above every term stays in <span class="math inline">\([-2, 2]\)</span>. A bounded sequence cannot tend to infinity.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-a-hidden-formula" class="stage"><span class="stage-n">Stage 3</span> A hidden formula</h4>
+<p>Part (iii) looks forbidding. Before attempting it, it is worth finding a formula for <span class="math inline">\(x_n\)</span>.</p>
+<div class="askyourself">
+<p>If <span class="math inline">\(a &gt; 2\)</span>, there is a number <span class="math inline">\(t &gt; 1\)</span> with <span class="math inline">\(a = t + \dfrac1t\)</span>. (Why?) What are <span class="math inline">\(x_2\)</span> and <span class="math inline">\(x_3\)</span> in terms of <span class="math inline">\(t\)</span>?</p>
+</div>
+<p>The function <span class="math inline">\(t + 1/t\)</span> increases from <span class="math inline">\(2\)</span> to <span class="math inline">\(\infty\)</span> as <span class="math inline">\(t\)</span> goes from <span class="math inline">\(1\)</span> to <span class="math inline">\(\infty\)</span>, so every <span class="math inline">\(a &gt; 2\)</span> can be written this way. Then <span class="math display">\[x_2 = \left(t + \frac1t\right)^2 - 2 = t^2 + \frac{1}{t^2}, \qquad x_3 = \left(t^2 + \frac1{t^2}\right)^2 - 2 = t^4 + \frac1{t^4},\]</span> and by induction <span class="math display">\[x_n = t^{2^{n-1}} + t^{-2^{n-1}}.\]</span> Squaring and subtracting <span class="math inline">\(2\)</span> simply doubles the exponent. Now the question becomes manageable.</p>
+<h4 id="stagemark4-the-product-telescopes" class="stage"><span class="stage-n">Stage 4</span> The product telescopes</h4>
+<div class="askyourself">
+<p>What is <span class="math inline">\(\left(t - \frac1t\right)\left(t + \frac1t\right)\)</span>? What happens if you multiply the result by <span class="math inline">\(t^2 + \frac1{t^2}\)</span>?</p>
+</div>
+<p><span class="math inline">\(\left(t - \frac1t\right)\left(t + \frac1t\right) = t^2 - \frac1{t^2}\)</span>, and then <span class="math inline">\(\left(t^2 - \frac1{t^2}\right)\left(t^2 + \frac1{t^2}\right) = t^4 - \frac1{t^4}\)</span>, and so on: each factor <span class="math inline">\(x_k\)</span> doubles the exponent in a difference of two powers. So <span class="math display">\[\left(t - \frac1t\right) x_1 x_2 \cdots x_n = t^{2^n} - t^{-2^n}.\]</span></p>
+<div class="pausebox">
+<p>Compute <span class="math inline">\(x_{n+1}^2 - 4\)</span> in terms of <span class="math inline">\(t\)</span>, and compare with the product.</p>
+</div>
+<p><span class="math display">\[x_{n+1}^2 - 4 = \left(t^{2^n} + t^{-2^n}\right)^2 - 4 = \left(t^{2^n} - t^{-2^n}\right)^2.\]</span> Since <span class="math inline">\(t &gt; 1\)</span>, <span class="math inline">\(t^{2^n} - t^{-2^n} &gt; 0\)</span>, so <span class="math inline">\(\sqrt{x_{n+1}^2 - 4} = t^{2^n} - t^{-2^n} = \left(t - \frac1t\right) x_1 x_2 \cdots x_n\)</span>. Therefore <span class="math display">\[\frac{\sqrt{x_{n+1}^2 - 4}}{x_{n+1}} = \frac{\left(t - \frac1t\right) x_1 \cdots x_n}{x_{n+1}},\]</span> which is <span class="math inline">\(y_n\)</span> for every <span class="math inline">\(n\)</span> exactly when <span class="math inline">\(A = t - \frac1t\)</span>. Finally, <span class="math inline">\(\left(t - \frac1t\right)^2 = \left(t + \frac1t\right)^2 - 4 = a^2 - 4\)</span>, so the condition is <span class="math inline">\(A = \sqrt{a^2 - 4}\)</span>, that is, <span class="math display">\[a = \sqrt{A^2 + 4}.\]</span> (This is greater than <span class="math inline">\(2\)</span>, as required, because <span class="math inline">\(A &gt; 0\)</span>.)<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark5-does-y_n-converge" class="stage"><span class="stage-n">Stage 5</span> Does <span class="math inline">\(y_n\)</span> converge?</h4>
+<p>With this value of <span class="math inline">\(a\)</span>, <span class="math display">\[y_n = \frac{\sqrt{x_{n+1}^2 - 4}}{x_{n+1}} = \sqrt{1 - \frac{4}{x_{n+1}^2}}.\]</span> Since <span class="math inline">\(x_{n+1} \to \infty\)</span> by part (ii), <span class="math inline">\(\frac{4}{x_{n+1}^2} \to 0\)</span> and <span class="math inline">\(y_n \to 1\)</span>. The sequence converges, to <span class="math inline">\(1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>So the infinite product <span class="math inline">\(x_1 x_2 x_3 \cdots\)</span> grows at exactly the same rate as <span class="math inline">\(x_{n+1}/A\)</span>: we have found the precise growth rate of a product of rapidly growing terms.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>An invariant region.</strong> <span class="math inline">\([-2, 2]\)</span> is mapped into itself, and that one fact settles half of part (ii).</p></li>
+<li><p><strong>A substitution that linearises.</strong> Writing <span class="math inline">\(a = t + 1/t\)</span> turned “square and subtract <span class="math inline">\(2\)</span>” into “double the exponent”. Messy nonlinear behaviour became simple.</p></li>
+<li><p><strong>Telescoping again.</strong> As with the products in <a href="../ch02/viete.html">Section 2.5</a>, a product of many factors collapsed because each factor fitted with the next.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Order and chaos</div>
+<p>What happens inside <span class="math inline">\([-2, 2]\)</span>? There, <span class="math inline">\(a = t + 1/t\)</span> fails (it needs <span class="math inline">\(|a| \geq 2\)</span>), but the trigonometric version works: write <span class="math inline">\(a = 2\cos\theta\)</span>. Then <span class="math inline">\(x_2 = 4\cos^2\theta - 2 = 2\cos 2\theta\)</span>, and in general <span class="math display">\[x_n = 2\cos\bigl(2^{n-1}\theta\bigr).\]</span> So inside the interval the map simply <em>doubles an angle</em>. That sounds harmless, but doubling an angle is chaotic. Write <span class="math inline">\(\theta/\pi\)</span> in binary: doubling shifts the binary point one place to the right, throwing away the leading digit. After <span class="math inline">\(50\)</span> steps, <span class="math inline">\(x_n\)</span> depends on the <span class="math inline">\(51\)</span>st binary digit of <span class="math inline">\(\theta/\pi\)</span>, so an error in the starting value of <span class="math inline">\(10^{-15}\)</span> (the precision of a typical computer) makes the answer after <span class="math inline">\(50\)</span> steps completely unreliable. This sensitive dependence on initial conditions is the hallmark of chaos, illustrated in Figure 2.8.1. The map <span class="math inline">\(x \mapsto x^2 - 2\)</span> is equivalent, by a change of variable, to the famous logistic map <span class="math inline">\(x \mapsto 4x(1 - x)\)</span>, which we meet again in Section 8.7.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-2-8-1.svg" alt="Figure 2.8.1"><figcaption><span class="fig-label">Figure 2.8.1</span> Cobweb diagrams for <span class="math inline">\(x_{n+1} = x_n^2 - 2\)</span>. Starting at <span class="math inline">\(0.3\)</span> (plum), the orbit stays in the shaded square <span class="math inline">\([-2,2]^2\)</span> for ever, wandering chaotically. Starting just outside, at <span class="math inline">\(2.05\)</span> (amber), it escapes: <span class="math inline">\(2.05, 2.20, 2.85, 6.13, \ldots\)</span></figcaption></figure>
+<h3 id="finding-the-largest-primes">Finding the largest primes</h3>
+<p>A <em>Mersenne number</em> is <span class="math inline">\(M_p = 2^p - 1\)</span>. In 1876 Édouard Lucas found, and in 1930 Derrick Lehmer completed, a remarkable test for whether <span class="math inline">\(M_p\)</span> is prime (for <span class="math inline">\(p\)</span> an odd prime): start with <span class="math inline">\(s_0 = 4\)</span> and repeatedly square and subtract <span class="math inline">\(2\)</span>, reducing modulo <span class="math inline">\(M_p\)</span> each time. Then <span class="math display">\[M_p \text{ is prime} \iff s_{p-2} \equiv 0 \pmod{M_p}.\]</span> For <span class="math inline">\(M_7 = 127\)</span>: <span class="math inline">\(s = 4, 14, 194 \equiv 67, 67^2 - 2 \equiv 42, 42^2 - 2 \equiv 111, 111^2 - 2 \equiv 0\)</span>, so <span class="math inline">\(127\)</span> is prime. The connection with this question is the substitution: <span class="math inline">\(4 = t + 1/t\)</span> with <span class="math inline">\(t = 2 + \sqrt3\)</span>, so <span class="math inline">\(s_k = (2+\sqrt3)^{2^k} + (2-\sqrt3)^{2^k}\)</span>, and the proof of the test uses arithmetic with numbers of the form <span class="math inline">\(a + b\sqrt3\)</span>, rather like the Gaussian integers of <a href="../ch01/two-squares.html">Section 1.6</a>. Because each step needs only one squaring, the test is extremely fast, and the largest known primes are all Mersenne primes. As of the time of writing the record is <span class="math inline">\(2^{136279841} - 1\)</span>, a number with more than <span class="math inline">\(41\)</span> million digits, found in 2024.</p>
+<h3 id="the-mandelbrot-set">The Mandelbrot set</h3>
+<p>Replace <span class="math inline">\(-2\)</span> by any constant <span class="math inline">\(c\)</span> and allow complex numbers: <span class="math inline">\(z \mapsto z^2 + c\)</span>. The set of <span class="math inline">\(c\)</span> for which the orbit of <span class="math inline">\(0\)</span> stays bounded is the <em>Mandelbrot set</em>. Our map has <span class="math inline">\(c = -2\)</span>, the leftmost point of the Mandelbrot set, and the set of starting values whose orbits stay bounded (its <em>Julia set</em>) is exactly the interval <span class="math inline">\([-2, 2]\)</span> that we found in part (ii). For almost every other <span class="math inline">\(c\)</span>, that set is a fractal.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Change variables to make a map simple</div>
+<p><em>If an iteration looks complicated, look for a substitution that turns it into something simple, like doubling or adding a constant.</em></p>
+<p>Here <span class="math inline">\(x = t + 1/t\)</span> and <span class="math inline">\(x = 2\cos\theta\)</span> turned <span class="math inline">\(x \mapsto x^2 - 2\)</span> into doubling. In the theory of dynamical systems this is called a <em>conjugacy</em>, and finding one is often the key to understanding a system completely.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Inside the interval.</strong> Prove that if <span class="math inline">\(a = 2\cos\theta\)</span> then <span class="math inline">\(x_n = 2\cos(2^{n-1}\theta)\)</span>. Find all values of <span class="math inline">\(a\)</span> for which <span class="math inline">\(x_3 = a\)</span> but <span class="math inline">\(x_2 \neq a\)</span>. (<em>Hint:</em> you want <span class="math inline">\(4\theta \equiv \pm\theta\)</span>, modulo <span class="math inline">\(2\pi\)</span>.)</p></li>
+<li><p><strong>Lucas–Lehmer by hand.</strong> Use the test to show that <span class="math inline">\(M_5 = 31\)</span> is prime and that <span class="math inline">\(M_{11} = 2047\)</span> is not. (For <span class="math inline">\(M_{11}\)</span> you will need nine steps; a calculator helps. Check your conclusion by factorising <span class="math inline">\(2047\)</span>.)</p></li>
+<li><p><strong>An explicit example.</strong> Take <span class="math inline">\(A = \frac{3}{2}\)</span>. Find <span class="math inline">\(a\)</span> and <span class="math inline">\(t\)</span>, and check the formula <span class="math inline">\(y_1 = \sqrt{x_2^2 - 4}/x_2\)</span> numerically.</p></li>
+<li><p><strong>A sum that telescopes.</strong> <span class="hard">harder</span> With <span class="math inline">\(a = t + 1/t\)</span> and <span class="math inline">\(t &gt; 1\)</span>, show that <span class="math display">\[\frac{1}{x_1 x_2 \cdots x_n} = \frac{t - t^{-1}}{t^{2^n} - t^{-2^n}}.\]</span> Using the identity <span class="math inline">\(\dfrac{1}{z - 1} - \dfrac{1}{z^2 - 1} = \dfrac{z}{z^2 - 1}\)</span> with <span class="math inline">\(z = t^{2^n}\)</span>, deduce that <span class="math display">\[\frac{1}{x_1} + \frac{1}{x_1 x_2} + \frac{1}{x_1 x_2 x_3} + \cdots = \frac1t.\]</span> Check this numerically when <span class="math inline">\(a = 3\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Ian Stewart, <em>Does God Play Dice?</em></strong> (Penguin). The classic popular account of chaos, including the logistic map.</p></li>
+<li><p><strong>Steven Strogatz, <em>Nonlinear Dynamics and Chaos</em></strong> (CRC Press). The standard undergraduate introduction; Chapter 10 is about one-dimensional maps like this one.</p></li>
+<li><p><strong>Marcus du Sautoy, <em>The Music of the Primes</em></strong> (Fourth Estate). Includes the story of the hunt for Mersenne primes.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="newton-speed.html">← 2.7 Six Digits or Six Hundred</a><a class="next" href="e-approximations.html">→ 2.9 Fractions That Close In on e</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

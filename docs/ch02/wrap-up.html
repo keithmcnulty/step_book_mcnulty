@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 2 wrap-up — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 2 · Sequences, Series and Convergence</a>
+    <div class="sec-head"><h1>What We Have Learned</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <article class="prose">
+<p>We began with Zeno, and with three questions about infinite processes: what it means for them to have an answer, how to prove that they do, and how fast they get there. Nine STEP questions later, here is how far we have come.</p>
+<h3 id="what-does-it-mean-for-an-infinite-process-to-have-an-answer">1. What does it mean for an infinite process to have an answer?</h3>
+<p>In <a href="../ch02/eventually.html">Section 2.1</a> we learned the language. A statement about the long-run behaviour of a sequence has the shape “there exists a point <span class="math inline">\(m\)</span> such that for all <span class="math inline">\(n \geq m\)</span>…”. Proving it means producing <span class="math inline">\(m\)</span>; disproving it means showing that every proposed <span class="math inline">\(m\)</span> fails. The definition of a limit adds one more quantifier at the front, “for every tolerance <span class="math inline">\(\varepsilon &gt; 0\)</span>”, and with that, Zeno’s paradox dissolves: <span class="math inline">\(\frac12 + \frac14 + \cdots + \frac{1}{2^n}\)</span> is within any tolerance you like of <span class="math inline">\(1\)</span> from some point on, and that is all that “the sum is <span class="math inline">\(1\)</span>” means.</p>
+<p>The language also guards against nonsense. The quick “let <span class="math inline">\(x\)</span> equal the infinite expression” argument gave the right answer for the golden ratio in <a href="../ch02/golden-limit.html">Section 2.2</a>, but only because we could separately prove that the limit existed. The same argument applied to <span class="math inline">\(1 - 1 + 1 - \cdots\)</span> gives an answer that means nothing.</p>
+<h3 id="how-can-we-prove-convergence-without-knowing-the-limit">2. How can we prove convergence without knowing the limit?</h3>
+<p>Most of the chapter’s sections used one of a handful of tools.</p>
+<ul>
+<li><p><strong>Monotone and bounded.</strong> An increasing sequence that is bounded above must converge (<a href="../ch02/golden-limit.html">Section 2.2</a>, <a href="../ch02/agm.html">Section 2.6</a>). The same applies to partial sums of positive terms (<a href="../ch02/kempner.html">Section 2.3</a>). At university you will see that this is really a statement about the real numbers themselves: it is the property of <em>completeness</em>.</p></li>
+<li><p><strong>Comparison.</strong> A series of positive terms converges if it is smaller than one that converges, and diverges if it is bigger than one that diverges. Grouping terms into blocks made the comparison easy, and showed that the harmonic series diverges while Kempner’s thinned-out version converges (<a href="../ch02/kempner.html">Section 2.3</a>).</p></li>
+<li><p><strong>The squeeze.</strong> Trap the quantity between two simpler ones with the same limit. This is how we proved <span class="math inline">\(\sum 1/m^2 = \pi^2/6\)</span> (<a href="../ch02/basel.html">Section 2.4</a>) and evaluated the AGM integral rigorously (<a href="../ch02/agm.html">Section 2.6</a>).</p></li>
+<li><p><strong>Exact formulas for finite stages.</strong> In <a href="../ch02/viete.html">Section 2.5</a> and <a href="../ch02/squaring-minus-two.html">Section 2.8</a> we found exact expressions after <span class="math inline">\(n\)</span> steps, by telescoping, and let <span class="math inline">\(n \to \infty\)</span> only at the very end.</p></li>
+</ul>
+<p>Once a limit is known to exist, it can often be found by “letting <span class="math inline">\(n \to \infty\)</span>” in a recurrence, as with <span class="math inline">\(L = (2L+1)/(L+1)\)</span> for the golden ratio. But the order matters: existence first, value second.</p>
+<h3 id="how-fast">3. How fast?</h3>
+<p>Here the chapter held some surprises. Viète’s product (<a href="../ch02/viete.html">Section 2.5</a>) gains about <span class="math inline">\(0.6\)</span> of a decimal digit per factor. The simple recipe for <span class="math inline">\(\sqrt2\)</span> in <a href="../ch02/newton-speed.html">Section 2.7</a> gains about <span class="math inline">\(0.8\)</span> digits per step. Newton’s method and the AGM (<a href="../ch02/agm.html">Section 2.6</a>) <em>double</em> the number of correct digits at each step: ten steps of Newton’s method give more than <span class="math inline">\(700\)</span> digits of <span class="math inline">\(\sqrt2\)</span>. The difference is the shape of the error recurrence: “new error <span class="math inline">\(\approx\)</span> constant <span class="math inline">\(\times\)</span> old error” (linear) against “new error <span class="math inline">\(\approx\)</span> constant <span class="math inline">\(\times\)</span> (old error)<span class="math inline">\(^2\)</span>” (quadratic). And in <a href="../ch02/squaring-minus-two.html">Section 2.8</a> we saw the opposite extreme: starting just above <span class="math inline">\(2\)</span>, the map <span class="math inline">\(x \mapsto x^2 - 2\)</span> pushes numbers away faster than exponentially, while inside <span class="math inline">\([-2,2]\)</span> it amplifies tiny errors until all predictability is lost.</p>
+<p>Speed also matters for theory. The integrals in <a href="../ch02/e-approximations.html">Section 2.9</a> produce fractions approaching <span class="math inline">\(e\)</span> so quickly that they prove <span class="math inline">\(e\)</span> is irrational: no fraction <span class="math inline">\(p/q\)</span> could be approached that fast by other fractions.</p>
+<h3 id="a-toolkit-for-analysis">4. A toolkit for analysis</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Where you used it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Producing and negating quantifiers</td>
+<td style="text-align: left;">“Eventually” (2.1)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Monotone bounded sequences</td>
+<td style="text-align: left;">Golden ratio (2.2); AGM (2.6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Comparison and condensation</td>
+<td style="text-align: left;">Harmonic and Kempner series (2.3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Squeezing</td>
+<td style="text-align: left;"><span class="math inline">\(\pi^2/6\)</span> (2.4); the AGM integral (2.6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Symmetric functions of roots</td>
+<td style="text-align: left;">Sum of <span class="math inline">\(\cot^2\)</span> values (2.4)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Telescoping sums and products</td>
+<td style="text-align: left;">Viète (2.5); <span class="math inline">\(x^2 - 2\)</span> (2.8)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Invariants</td>
+<td style="text-align: left;">The AGM integral (2.6)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Error recurrences</td>
+<td style="text-align: left;">Linear and quadratic convergence (2.7)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Changing variables to simplify a map</td>
+<td style="text-align: left;"><span class="math inline">\(a = t + 1/t\)</span>, <span class="math inline">\(a = 2\cos\theta\)</span> (2.8)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Small but non-zero integer combinations</td>
+<td style="text-align: left;">Approximating <span class="math inline">\(e\)</span> (2.9)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Notice how many of these tools came with a “theorem you may use” attached. STEP often hands you the monotone convergence theorem, or tells you to assume that limits exist. At university you will prove those theorems from the axioms of the real numbers, and you will be expected to notice for yourself when an argument quietly assumes a limit exists. When you read a solution, it is a very good habit to ask: <em>where exactly was a limit taken, and was it justified?</em></p>
+<h3 id="where-next">Where next</h3>
+<p>The ideas of this chapter run through the rest of the book.</p>
+<ul>
+<li><p>Fixed points and cobweb diagrams return in Section 8.7, where a chaotic map turns out to have an exact solution.</p></li>
+<li><p>The harmonic numbers <span class="math inline">\(1 + \frac12 + \cdots + \frac1n\)</span> appear in probability in Section 9.11 and in mechanics in Section 11.12.</p></li>
+<li><p>Another appearance of <span class="math inline">\(\pi\)</span> in a limit, from probability, is in Section 12.23.</p></li>
+<li><p>The careful attitude to limits is the theme of Chapter 3, which opens with Section 3.1: arguments that look right but aren’t.</p></li>
+</ul>
+<div class="skillbox">
+<div class="box-title">If you want to go further before university</div>
+<ul>
+<li><p><strong>Lara Alcock, <em>How to Think About Analysis</em></strong>: what first-year analysis is like, and how to cope with it.</p></li>
+<li><p><strong>David Bressoud, <em>A Radical Approach to Real Analysis</em></strong>: analysis taught through its history, starting from the puzzles that forced mathematicians to be careful.</p></li>
+<li><p><strong>Tom Körner, <em>Calculus for the Ambitious</em></strong> (Cambridge University Press): written by a Cambridge analyst for exactly the readers of this book.</p></li>
+<li><p><strong>Julian Havil, <em>Gamma</em></strong> and <strong>William Dunham, <em>Euler: The Master of Us All</em></strong>: the stories behind many of the series in this chapter.</p></li>
+</ul>
+</div>
+<p>Zeno thought infinity made motion impossible. Mathematicians took two thousand years to answer him, and the answer turned out to be one of the most powerful ideas ever found: a way of making precise statements about processes that never end. You now know the first few words of that language. Analysis is where you will learn to speak it fluently.</p>
+
+  </article>
+  <nav class="pager"><a class="prev" href="e-approximations.html">← 2.9 Fractions That Close In on e</a><a class="next" href="index.html">→ Back to Chapter 2</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

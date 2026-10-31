@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.5 Viète&#x27;s Product — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 2 · Sequences, Series and Convergence</a>
+    <div class="src">STEP III · 2022 · Question 4</div>
+    <div class="sec-head"><span class="sec-num">2.5</span><h1>Viète&#x27;s Product</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-5-viete.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 2</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p><em>You may assume that all infinite sums and products in this question converge.</em></p>
+<ol class="roman">
+<li><p>Prove by induction that for all positive integers <span class="math inline">\(n\)</span>, <span class="math display">\[\sinh x = 2^n \cosh\left(\frac{x}{2}\right) \cosh\left(\frac{x}{4}\right) \cdots \cosh\left(\frac{x}{2^n}\right) \sinh\left(\frac{x}{2^n}\right)\]</span> and deduce that, for <span class="math inline">\(x \neq 0\)</span>, <span class="math display">\[\frac{\sinh x}{x} \cdot \frac{\;\dfrac{x}{2^n}\;}{\sinh\left(\dfrac{x}{2^n}\right)} = \cosh\left(\frac{x}{2}\right) \cosh\left(\frac{x}{4}\right) \cdots \cosh\left(\frac{x}{2^n}\right).\]</span></p></li>
+<li><p>You are given that the Maclaurin series for <span class="math inline">\(\sinh x\)</span> is <span class="math display">\[\sinh x = \sum_{r=0}^{\infty} \frac{x^{2r+1}}{(2r+1)!}.\]</span> Use this result to show that, as <span class="math inline">\(y\)</span> tends to <span class="math inline">\(0\)</span>, <span class="math inline">\(\dfrac{y}{\sinh y}\)</span> tends to <span class="math inline">\(1\)</span>.</p>
+<p>Deduce that, for <span class="math inline">\(x \neq 0\)</span>, <span class="math display">\[\frac{\sinh x}{x} = \cosh\left(\frac{x}{2}\right) \cosh\left(\frac{x}{4}\right) \cdots \cosh\left(\frac{x}{2^n}\right) \cdots.\]</span></p></li>
+<li><p>Let <span class="math inline">\(x = \ln 2\)</span>. Evaluate <span class="math inline">\(\cosh\left(\dfrac{x}{2}\right)\)</span> and show that <span class="math display">\[\cosh\left(\frac{x}{4}\right) = \frac{1 + 2^{\frac12}}{2 \times 2^{\frac14}}.\]</span> Use part (ii) to show that <span class="math display">\[\frac{1}{\ln 2} = \frac{1 + 2^{\frac12}}{2} \times \frac{1 + 2^{\frac14}}{2} \times \frac{1 + 2^{\frac18}}{2} \cdots.\]</span></p></li>
+<li><p>Show that <span class="math display">\[\frac{2}{\pi} = \frac{\sqrt2}{2} \times \frac{\sqrt{2 + \sqrt2}}{2} \times \frac{\sqrt{2 + \sqrt{2 + \sqrt2}}}{2} \cdots.\]</span></p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>The last line of this question is one of the most beautiful formulas in mathematics, and one of the oldest of its kind. It was published in 1593 by the French lawyer and mathematician François Viète, and it was the first time anyone had written <span class="math inline">\(\pi\)</span> <em>exactly</em> as the result of an infinite process. Before Viète, <span class="math inline">\(\pi\)</span> could only be approximated; after him, it could be defined by a formula that, carried on for ever, gives every digit.</p>
+<p>The formula looks mysterious: where could nested square roots of <span class="math inline">\(2\)</span> come from? The question reveals that it comes from repeatedly using the double-angle formula, and it gets a second, less famous formula, for <span class="math inline">\(\ln 2\)</span>, from the same machinery along the way.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>What is the double-angle formula for <span class="math inline">\(\sinh\)</span>? (If you are not sure, write <span class="math inline">\(\sinh 2y\)</span> and <span class="math inline">\(\sinh y \cosh y\)</span> in terms of exponentials and compare.)</p>
+</div>
+<p><span class="math inline">\(\sinh 2y = 2\sinh y\cosh y\)</span>, exactly like <span class="math inline">\(\sin 2y = 2\sin y\cos y\)</span>. That one identity, used over and over, drives the whole question. The question works with hyperbolic functions until the last part, where we will switch to ordinary trigonometry.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-halving-repeatedly" class="stage"><span class="stage-n">Stage 1</span> Halving repeatedly</h4>
+<p>The case <span class="math inline">\(n = 1\)</span> is just the double-angle formula with <span class="math inline">\(y = x/2\)</span>: <span class="math display">\[\sinh x = 2\cosh\left(\frac{x}{2}\right)\sinh\left(\frac{x}{2}\right).\]</span></p>
+<div class="askyourself">
+<p>Suppose the formula holds for <span class="math inline">\(n\)</span>. The last factor is <span class="math inline">\(\sinh(x/2^n)\)</span>. How can you rewrite it to get the formula for <span class="math inline">\(n + 1\)</span>?</p>
+</div>
+<p>Apply the double-angle formula to it: <span class="math inline">\(\sinh(x/2^n) = 2\cosh(x/2^{n+1})\sinh(x/2^{n+1})\)</span>. Substituting, <span class="math display">\[\sinh x = 2^{n+1}\cosh\left(\frac{x}{2}\right)\cdots\cosh\left(\frac{x}{2^n}\right)\cosh\left(\frac{x}{2^{n+1}}\right)\sinh\left(\frac{x}{2^{n+1}}\right),\]</span> which is the formula for <span class="math inline">\(n + 1\)</span>. By induction it holds for all <span class="math inline">\(n\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>For the deduction, divide both sides by <span class="math inline">\(x\)</span>, and then multiply both sides by <span class="math inline">\(\dfrac{x/2^n}{\sinh(x/2^n)}\)</span>. On the right, <span class="math inline">\(2^n \sinh(x/2^n) \cdot \dfrac{x/2^n}{x\,\sinh(x/2^n)} = 1\)</span>, leaving just the product of cosh terms.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-limit" class="stage"><span class="stage-n">Stage 2</span> The limit</h4>
+<p>From the series, for <span class="math inline">\(y \neq 0\)</span>, <span class="math display">\[\frac{\sinh y}{y} = 1 + \frac{y^2}{3!} + \frac{y^4}{5!} + \cdots,\]</span> which tends to <span class="math inline">\(1\)</span> as <span class="math inline">\(y \to 0\)</span>, so its reciprocal <span class="math inline">\(y/\sinh y\)</span> also tends to <span class="math inline">\(1\)</span>. (If you want more care: every factorial in the tail <span class="math inline">\(\frac{y^2}{3!} + \frac{y^4}{5!} + \cdots\)</span> is at least <span class="math inline">\(6\)</span>, so for <span class="math inline">\(0 &lt; |y| &lt; 1\)</span> the tail is at most <span class="math inline">\(\frac{1}{6}\bigl(y^2 + y^4 + \cdots\bigr) = \frac{y^2}{6(1-y^2)}\)</span>, which tends to <span class="math inline">\(0\)</span>.)</p>
+<p>Now let <span class="math inline">\(n \to \infty\)</span> in part (i), with <span class="math inline">\(x\)</span> fixed. Then <span class="math inline">\(y = x/2^n \to 0\)</span>, so the left-hand side tends to <span class="math inline">\(\dfrac{\sinh x}{x} \times 1\)</span>. The right-hand side is the partial product, which therefore tends to <span class="math inline">\(\dfrac{\sinh x}{x}\)</span>. That is what the infinite product means.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-a-formula-for-ln-2" class="stage"><span class="stage-n">Stage 3</span> A formula for <span class="math inline">\(\ln 2\)</span></h4>
+<p>With <span class="math inline">\(x = \ln 2\)</span>, <span class="math inline">\(e^{x/2} = \sqrt2\)</span>, so <span class="math display">\[\cosh\left(\frac{x}{2}\right) = \frac{2^{1/2} + 2^{-1/2}}{2} = \frac{2 + 1}{2\sqrt2} = \frac{3}{2\sqrt2}.\]</span> Similarly <span class="math inline">\(e^{x/4} = 2^{1/4}\)</span>, so <span class="math inline">\(\cosh(x/4) = \dfrac{2^{1/4} + 2^{-1/4}}{2}\)</span>, and multiplying top and bottom by <span class="math inline">\(2^{1/4}\)</span> gives <span class="math inline">\(\dfrac{2^{1/2} + 1}{2 \times 2^{1/4}}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>What is the general pattern for <span class="math inline">\(\cosh(x/2^k)\)</span>? What happens when you multiply all the denominators <span class="math inline">\(2 \times 2^{1/2^k}\)</span> together?</p>
+</div>
+<p>The same calculation gives, for every <span class="math inline">\(k \geq 1\)</span>, <span class="math display">\[\cosh\left(\frac{x}{2^k}\right) = \frac{1 + 2^{1/2^{k-1}}}{2} \times 2^{-1/2^k}.\]</span> (For <span class="math inline">\(k = 1\)</span> this is <span class="math inline">\(\frac{1 + 2}{2} \times 2^{-1/2} = \frac{3}{2\sqrt2}\)</span>, as before.) Multiplying over <span class="math inline">\(k = 1, 2, 3, \ldots\)</span>, the powers of <span class="math inline">\(2\)</span> combine to <span class="math inline">\(2^{-(1/2 + 1/4 + 1/8 + \cdots)} = 2^{-1}\)</span>, and the first fraction is <span class="math inline">\(\frac{1+2}{2} = \frac32\)</span>. So the infinite product is <span class="math display">\[\frac32 \times \frac12 \times \frac{1 + 2^{1/2}}{2} \times \frac{1 + 2^{1/4}}{2} \times \frac{1 + 2^{1/8}}{2} \cdots.\]</span> On the other side, <span class="math inline">\(\sinh(\ln 2) = \frac{2 - \frac12}{2} = \frac34\)</span>, so <span class="math inline">\(\dfrac{\sinh x}{x} = \dfrac{3}{4\ln 2}\)</span>. The factor <span class="math inline">\(\frac34\)</span> cancels from both sides, leaving <span class="math display">\[\frac{1}{\ln 2} = \frac{1 + 2^{1/2}}{2} \times \frac{1 + 2^{1/4}}{2} \times \frac{1 + 2^{1/8}}{2} \cdots. \qed\]</span></p>
+<h4 id="stagemark4-viètes-formula" class="stage"><span class="stage-n">Stage 4</span> Viète’s formula</h4>
+<div class="askyourself">
+<p>Part (iv) has <span class="math inline">\(\pi\)</span> in it, so it must come from ordinary trigonometry, not hyperbolic functions. Does everything in parts (i) and (ii) still work with <span class="math inline">\(\sin\)</span> and <span class="math inline">\(\cos\)</span> in place of <span class="math inline">\(\sinh\)</span> and <span class="math inline">\(\cosh\)</span>?</p>
+</div>
+<p>It does. The induction used only the double-angle formula, and <span class="math inline">\(\sin 2y = 2\sin y\cos y\)</span>. The limit used only <span class="math inline">\(\frac{\sin y}{y} \to 1\)</span> as <span class="math inline">\(y \to 0\)</span>, which follows from <span class="math inline">\(\sin y = y - \frac{y^3}{3!} + \cdots\)</span> in the same way. So for <span class="math inline">\(x \neq 0\)</span> (and <span class="math inline">\(x\)</span> not a multiple of <span class="math inline">\(\pi\)</span>, so that no factor is zero along the way), <span class="math display">\[\frac{\sin x}{x} = \cos\left(\frac{x}{2}\right)\cos\left(\frac{x}{4}\right)\cos\left(\frac{x}{8}\right)\cdots.\]</span></p>
+<div class="pausebox">
+<p>Choose <span class="math inline">\(x\)</span> so that the left-hand side is <span class="math inline">\(2/\pi\)</span>, and work out the first few factors. The half-angle formula <span class="math inline">\(\cos\frac{\theta}{2} = \sqrt{\frac{1 + \cos\theta}{2}}\)</span> (for <span class="math inline">\(0 \leq \theta \leq \pi\)</span>) will be useful.</p>
+</div>
+<p>Take <span class="math inline">\(x = \frac{\pi}{2}\)</span>. Then <span class="math inline">\(\frac{\sin x}{x} = \frac{1}{\pi/2} = \frac{2}{\pi}\)</span>, and the factors are <span class="math inline">\(\cos\frac\pi4, \cos\frac\pi8, \cos\frac{\pi}{16}, \ldots\)</span>. The first is <span class="math inline">\(\cos\frac\pi4 = \frac{\sqrt2}{2}\)</span>. If a factor is <span class="math inline">\(\cos\theta = \frac{c}{2}\)</span>, the half-angle formula makes the next one <span class="math display">\[\cos\frac{\theta}{2} = \sqrt{\frac{1 + c/2}{2}} = \frac{\sqrt{2 + c}}{2}.\]</span> So the numerators go <span class="math inline">\(\sqrt2\)</span>, <span class="math inline">\(\sqrt{2 + \sqrt2}\)</span>, <span class="math inline">\(\sqrt{2 + \sqrt{2 + \sqrt2}}\)</span>, …, each obtained by adding <span class="math inline">\(2\)</span> to the previous one and taking the square root. That is Viète’s formula.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Telescoping a product.</strong> The identity in part (i) is a product that collapses, just as some sums telescope.</p></li>
+<li><p><strong>Finite identity first, limit second.</strong> As in <a href="../ch02/basel.html">Section 2.4</a>, every step was exact for finite <span class="math inline">\(n\)</span>, and the only limit needed was the very simple <span class="math inline">\(\frac{\sin y}{y} \to 1\)</span>.</p></li>
+<li><p><strong>Hyperbolic and circular functions are twins.</strong> The same proof worked for both, because both satisfy the same double-angle formula and the same small-angle limit. This is no coincidence: <span class="math inline">\(\cosh(\mathrm{i}x) = \cos x\)</span>, as you will see in Section 5.7.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Archimedes’ polygons</div>
+<p>Viète’s formula has a geometric meaning that goes back to Archimedes. A regular polygon with <span class="math inline">\(2^n\)</span> sides inscribed in a circle of radius <span class="math inline">\(1\)</span> has area <span class="math inline">\(A_n = 2^{n-1}\sin\frac{2\pi}{2^n}\)</span>. Doubling the number of sides multiplies the area by <span class="math display">\[\frac{A_{n+1}}{A_n} = \frac{2^n \sin(\pi/2^n)}{2^{n-1}\cdot 2\sin(\pi/2^n)\cos(\pi/2^n)} = \frac{1}{\cos(\pi/2^n)}.\]</span> Starting from the square (<span class="math inline">\(A_2 = 2\)</span>) and doubling for ever, the area tends to the area of the circle, <span class="math inline">\(\pi\)</span>. So <span class="math inline">\(\pi = 2 \div \bigl(\cos\frac\pi4 \cos\frac\pi8 \cos\frac{\pi}{16}\cdots\bigr)\)</span>, which is Viète’s formula. Each factor in the product is the ratio of the areas of two successive polygons in Figure 2.5.1.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-2-5-1.svg" alt="Figure 2.5.1"><figcaption><span class="fig-label">Figure 2.5.1</span> Regular polygons with <span class="math inline">\(4\)</span>, <span class="math inline">\(8\)</span> and <span class="math inline">\(16\)</span> sides inscribed in a circle of radius <span class="math inline">\(1\)</span>. Each doubling of the number of sides divides the area by one more factor of Viète’s product, and the areas increase towards <span class="math inline">\(\pi\)</span>.</figcaption></figure>
+<h3 id="infinite-products">Infinite products</h3>
+<p>Viète’s product was the first infinite product in mathematics. Others followed: John Wallis found <span class="math inline">\(\frac{\pi}{2} = \frac{2}{1}\cdot\frac{2}{3}\cdot\frac{4}{3}\cdot\frac{4}{5}\cdot\frac{6}{5}\cdot\frac{6}{7}\cdots\)</span> in 1655, and Euler’s product for <span class="math inline">\(\frac{\sin x}{x}\)</span> appeared in <a href="../ch02/basel.html">Section 2.4</a>. At university you will learn when an infinite product converges. Roughly, <span class="math inline">\(\prod(1 + a_n)\)</span> with small positive <span class="math inline">\(a_n\)</span> behaves like <span class="math inline">\(\sum a_n\)</span>, because <span class="math inline">\(\ln(1 + a_n) \approx a_n\)</span>. Here <span class="math inline">\(1 - \cos(\pi/2^n) \approx \frac12(\pi/2^n)^2\)</span>, which shrinks by a factor of <span class="math inline">\(4\)</span> each time, so the product converges quickly.</p>
+<h3 id="how-quickly">How quickly?</h3>
+<p>After <span class="math inline">\(n\)</span> factors the partial product equals <span class="math inline">\(\dfrac{1}{2^n\sin(\pi/2^{n+1})}\)</span> exactly, and its error is about <span class="math inline">\(\frac{\pi^2}{6 \cdot 4^{n+1}}\)</span> times <span class="math inline">\(\frac2\pi\)</span>. Each new factor makes the answer about <span class="math inline">\(4\)</span> times more accurate, gaining about <span class="math inline">\(0.6\)</span> of a decimal digit. Ten factors give <span class="math inline">\(2/\pi\)</span> correct to six decimal places. That is good, but nothing like as fast as the methods of <a href="../ch02/agm.html">Section 2.6</a>, which double the number of correct digits at each step.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Iterating an identity</div>
+<p><em>An identity that relates <span class="math inline">\(f(x)\)</span> to <span class="math inline">\(f(x/2)\)</span> can be applied again and again; the result, after a limit, is often an infinite sum or product.</em></p>
+<p>Look for the “remainder” term after <span class="math inline">\(n\)</span> steps (here <span class="math inline">\(2^n\sinh(x/2^n)\)</span>) and find its limit separately. This pattern appears all over analysis, from infinite products to the construction of fractals.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The 1990 version.</strong> (From STEP I, 1990.) Show directly, using only the double-angle formula for <span class="math inline">\(\sin\)</span>, that <span class="math display">\[\cos\left(\frac{\alpha}{2}\right)\cos\left(\frac{\alpha}{4}\right)\cdots\cos\left(\frac{\alpha}{2^n}\right) = \frac{\sin\alpha}{2^n\sin(\alpha/2^n)},\]</span> and deduce Viète’s formula in the form <span class="math inline">\(\dfrac\pi2 = \dfrac{1}{\sqrt{\frac12}\,\sqrt{\frac12 + \frac12\sqrt{\frac12}}\cdots}\)</span>.</p></li>
+<li><p><strong>Another angle.</strong> Use <span class="math inline">\(x = \frac{\pi}{3}\)</span> in the product for <span class="math inline">\(\frac{\sin x}{x}\)</span> to write <span class="math inline">\(\frac{3\sqrt3}{2\pi}\)</span> as an infinite product, and simplify the first two factors.</p></li>
+<li><p><strong>How many factors?</strong> Use a calculator to find how many factors of Viète’s product are needed to give <span class="math inline">\(\pi\)</span> correct to <span class="math inline">\(4\)</span> decimal places. Explain why each extra factor gains about <span class="math inline">\(0.6\)</span> of a digit.</p></li>
+<li><p><strong>A formula for <span class="math inline">\(\ln 3\)</span>.</strong> Repeat part (iii) with <span class="math inline">\(x = \ln 3\)</span> to write <span class="math inline">\(\frac{1}{\ln 3}\)</span> as an infinite product. Check numerically that the first five factors give <span class="math inline">\(\frac{1}{\ln 3}\)</span> to two decimal places.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Petr Beckmann, <em>A History of <span class="math inline">\(\pi\)</span></em></strong> (St Martin’s Press). Archimedes, Viète, Wallis and the rest, told with gusto.</p></li>
+<li><p><strong>Jonathan Borwein &amp; Peter Borwein, <em>Pi and the AGM</em></strong> (Wiley). The serious mathematics of computing <span class="math inline">\(\pi\)</span>, including the method of <a href="../ch02/agm.html">Section 2.6</a>. Chapter 1 is accessible with this chapter behind you.</p></li>
+<li><p><strong>Eli Maor, <em>Trigonometric Delights</em></strong> (Princeton University Press). Contains a chapter on Viète and his product.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="basel.html">← 2.4 π²/6</a><a class="next" href="agm.html">→ 2.6 The Arithmetic–Geometric Mean</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

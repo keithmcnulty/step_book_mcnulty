@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.7 Six Digits or Six Hundred — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 2 · Sequences, Series and Convergence</a>
+    <div class="src">STEP II · 2023 · Question 5</div>
+    <div class="sec-head"><span class="sec-num">2.7</span><h1>Six Digits or Six Hundred</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-7-newton-speed.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 2</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>The sequence <span class="math inline">\(x_n\)</span> for <span class="math inline">\(n = 0, 1, 2, \ldots\)</span> is defined by <span class="math inline">\(x_0 = 1\)</span> and by <span class="math display">\[x_{n+1} = \frac{x_n + 2}{x_n + 1}\]</span> for <span class="math inline">\(n \geq 0\)</span>.</p>
+<ol class="alpha">
+<li><p>Explain briefly why <span class="math inline">\(x_n \geq 1\)</span> for all <span class="math inline">\(n\)</span>.</p></li>
+<li><p>Show that <span class="math inline">\(x_{n+1}^2 - 2\)</span> and <span class="math inline">\(x_n^2 - 2\)</span> have opposite sign, and that <span class="math display">\[\bigl|x_{n+1}^2 - 2\bigr| \leq \tfrac14 \bigl|x_n^2 - 2\bigr|.\]</span></p></li>
+<li><p>Show that <span class="math display">\[2 - 10^{-6} \leq x_{10}^2 \leq 2.\]</span></p></li>
+</ol></li>
+<li><p>The sequence <span class="math inline">\(y_n\)</span> for <span class="math inline">\(n = 0, 1, 2, \ldots\)</span> is defined by <span class="math inline">\(y_0 = 1\)</span> and by <span class="math display">\[y_{n+1} = \frac{y_n^2 + 2}{2y_n}\]</span> for <span class="math inline">\(n \geq 0\)</span>.</p>
+<ol class="alpha">
+<li><p>Show that, for <span class="math inline">\(n \geq 0\)</span>, <span class="math display">\[y_{n+1} - \sqrt2 = \frac{\bigl(y_n - \sqrt2\bigr)^2}{2y_n}\]</span> and deduce that <span class="math inline">\(y_n \geq 1\)</span> for <span class="math inline">\(n \geq 0\)</span>.</p></li>
+<li><p>Show that <span class="math display">\[y_n - \sqrt2 \leq 2\left( \frac{\sqrt2 - 1}{2} \right)^{2^n}\]</span> for <span class="math inline">\(n \geq 1\)</span>.</p></li>
+<li><p>Using the fact that <span class="math inline">\(\sqrt2 - 1 &lt; \frac12\)</span>, or otherwise, show that <span class="math display">\[\sqrt2 \leq y_{10} \leq \sqrt2 + 10^{-600}.\]</span></p></li>
+</ol></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Two simple recipes for approximating <span class="math inline">\(\sqrt2\)</span>, both starting from <span class="math inline">\(1\)</span>, both using nothing but addition, multiplication and division. After ten steps, the first is correct to about <span class="math inline">\(8\)</span> decimal places. The second is correct to more than <span class="math inline">\(700\)</span>.</p>
+<p>The difference is not that the second recipe is cleverer about <span class="math inline">\(\sqrt2\)</span>. It is a difference in the <em>shape</em> of the error: in the first, each step multiplies the error by a fixed fraction; in the second, each step <em>squares</em> it. The question makes this precise, and in doing so introduces one of the central ideas of numerical analysis, the subject that underlies every calculator, every weather forecast and every engineering simulation.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>Compute a few terms of each sequence as fractions. <span class="math display">\[x_n: \quad 1,\; \frac32,\; \frac75,\; \frac{17}{12},\; \frac{41}{29},\; \frac{99}{70},\; \ldots \qquad
+  y_n: \quad 1,\; \frac32,\; \frac{17}{12},\; \frac{577}{408},\; \frac{665857}{470832},\; \ldots\]</span></p>
+<div class="askyourself">
+<p>Do you notice anything about the two lists? (Look at which fractions appear in both.)</p>
+</div>
+<p>Every <span class="math inline">\(y_n\)</span> appears in the <span class="math inline">\(x\)</span> list, but further and further along: <span class="math inline">\(y_2 = x_3\)</span>, <span class="math inline">\(y_3 = x_7\)</span>, and in general <span class="math inline">\(y_n = x_{2^n - 1}\)</span>. The second recipe is skipping ahead exponentially fast through the same sequence of approximations. Keep this in mind; we will explain it at the end.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-first-recipe-stays-at-least-1" class="stage"><span class="stage-n">Stage 1</span> The first recipe stays at least 1</h4>
+<p>We can write <span class="math inline">\(x_{n+1} = 1 + \dfrac{1}{x_n + 1}\)</span>. If <span class="math inline">\(x_n \geq 1\)</span> then <span class="math inline">\(x_n + 1 &gt; 0\)</span>, so <span class="math inline">\(x_{n+1} &gt; 1\)</span>. Since <span class="math inline">\(x_0 = 1\)</span>, induction gives <span class="math inline">\(x_n \geq 1\)</span> for all <span class="math inline">\(n\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-error-in-the-first-recipe" class="stage"><span class="stage-n">Stage 2</span> The error in the first recipe</h4>
+<div class="askyourself">
+<p>The question measures the error by <span class="math inline">\(x_n^2 - 2\)</span> rather than <span class="math inline">\(x_n - \sqrt2\)</span>. Write <span class="math inline">\(x_{n+1}^2 - 2\)</span> as a single fraction in terms of <span class="math inline">\(x_n\)</span>. What do you notice about the numerator?</p>
+</div>
+<p><span class="math display">\[x_{n+1}^2 - 2 = \frac{(x_n + 2)^2 - 2(x_n + 1)^2}{(x_n + 1)^2} = \frac{x_n^2 + 4x_n + 4 - 2x_n^2 - 4x_n - 2}{(x_n + 1)^2} = \frac{2 - x_n^2}{(x_n + 1)^2}.\]</span> The numerator is exactly <span class="math inline">\(-(x_n^2 - 2)\)</span>. So <span class="math inline">\(x_{n+1}^2 - 2\)</span> and <span class="math inline">\(x_n^2 - 2\)</span> have opposite signs (the approximations alternate either side of <span class="math inline">\(\sqrt2\)</span>), and since <span class="math inline">\(x_n \geq 1\)</span> makes <span class="math inline">\((x_n + 1)^2 \geq 4\)</span>, <span class="math display">\[\bigl|x_{n+1}^2 - 2\bigr| = \frac{|x_n^2 - 2|}{(x_n + 1)^2} \leq \frac14\bigl|x_n^2 - 2\bigr|. \qed\]</span></p>
+<h4 id="stagemark3-ten-steps" class="stage"><span class="stage-n">Stage 3</span> Ten steps</h4>
+<p>Applying this ten times, <span class="math inline">\(|x_{10}^2 - 2| \leq 4^{-10}|x_0^2 - 2| = 4^{-10} = \frac{1}{1048576} &lt; 10^{-6}\)</span>. For the sign: <span class="math inline">\(x_0^2 - 2 = -1 &lt; 0\)</span>, and the sign alternates, so <span class="math inline">\(x_n^2 - 2 &lt; 0\)</span> for every even <span class="math inline">\(n\)</span>. So <span class="math inline">\(x_{10}^2 &lt; 2\)</span>, and together these give <span class="math inline">\(2 - 10^{-6} \leq x_{10}^2 \leq 2\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>The error in <span class="math inline">\(x_n^2\)</span> is multiplied by at most <span class="math inline">\(\frac14\)</span> at each step. That is called <em>linear convergence</em>: a fixed number of extra correct digits per step (here at least <span class="math inline">\(\log_{10} 4 \approx 0.6\)</span>; in fact closer to <span class="math inline">\(0.77\)</span>).</p>
+<h4 id="stagemark4-the-error-in-the-second-recipe" class="stage"><span class="stage-n">Stage 4</span> The error in the second recipe</h4>
+<div class="askyourself">
+<p>Write <span class="math inline">\(y_{n+1} - \sqrt2\)</span> as a single fraction. The numerator should remind you of a perfect square.</p>
+</div>
+<p><span class="math display">\[y_{n+1} - \sqrt2 = \frac{y_n^2 + 2 - 2\sqrt2\, y_n}{2y_n} = \frac{\bigl(y_n - \sqrt2\bigr)^2}{2y_n}. \qed\]</span> If <span class="math inline">\(y_n &gt; 0\)</span>, the right-hand side is non-negative, so <span class="math inline">\(y_{n+1} \geq \sqrt2 &gt; 1\)</span>. Since <span class="math inline">\(y_0 = 1\)</span>, induction gives <span class="math inline">\(y_n \geq 1\)</span> for all <span class="math inline">\(n\)</span>.<span class="qed" aria-label="end of proof">■</span> (In fact <span class="math inline">\(y_n \geq \sqrt2\)</span> for all <span class="math inline">\(n \geq 1\)</span>: after the first step, the second recipe always approaches <span class="math inline">\(\sqrt2\)</span> from above.)</p>
+<h4 id="stagemark5-squaring-the-error" class="stage"><span class="stage-n">Stage 5</span> Squaring the error</h4>
+<p>Write <span class="math inline">\(e_n = y_n - \sqrt2\)</span>, so <span class="math inline">\(e_n \geq 0\)</span> for <span class="math inline">\(n \geq 1\)</span>, and <span class="math inline">\(e_{n+1} = \dfrac{e_n^2}{2y_n} \leq \dfrac{e_n^2}{2}\)</span> because <span class="math inline">\(y_n \geq 1\)</span>.</p>
+<div class="pausebox">
+<p>Prove by induction that <span class="math inline">\(e_n \leq 2r^{2^n}\)</span> for <span class="math inline">\(n \geq 1\)</span>, where <span class="math inline">\(r = \frac{\sqrt2 - 1}{2}\)</span>. Check the base case carefully.</p>
+</div>
+<p><em>Base case:</em> <span class="math inline">\(e_1 = \dfrac{(1 - \sqrt2)^2}{2 \cdot 1} = \dfrac{(\sqrt2 - 1)^2}{2}\)</span>, while <span class="math inline">\(2r^2 = 2 \cdot \dfrac{(\sqrt2 - 1)^2}{4} = \dfrac{(\sqrt2 - 1)^2}{2}\)</span>. They are equal, so the base case holds (exactly).</p>
+<p><em>Inductive step:</em> if <span class="math inline">\(e_n \leq 2r^{2^n}\)</span> then <span class="math display">\[e_{n+1} \leq \frac{e_n^2}{2} \leq \frac{4r^{2^{n+1}}}{2} = 2r^{2^{n+1}}. \qed\]</span></p>
+<h4 id="stagemark6-six-hundred-digits" class="stage"><span class="stage-n">Stage 6</span> Six hundred digits</h4>
+<p>Since <span class="math inline">\(\sqrt2 - 1 &lt; \frac12\)</span>, we have <span class="math inline">\(r &lt; \frac14\)</span>, so <span class="math display">\[0 \leq y_{10} - \sqrt2 \leq 2 \left(\frac14\right)^{2^{10}} = 2 \cdot 2^{-2048} = 2^{-2047}.\]</span> Now <span class="math inline">\(2^{10} = 1024 &gt; 10^3\)</span>, so <span class="math inline">\(2^{-2047} &lt; 2^{-2040} = (2^{10})^{-204} &lt; 10^{-612}\)</span>, which is certainly less than <span class="math inline">\(10^{-600}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Find the error recurrence.</strong> Both parts worked by writing the new error as an exact function of the old error. Everything else followed.</p></li>
+<li><p><strong>Linear versus quadratic.</strong> “New error <span class="math inline">\(\leq\)</span> constant <span class="math inline">\(\times\)</span> old error” gives a fixed number of extra digits per step. “New error <span class="math inline">\(\leq\)</span> constant <span class="math inline">\(\times\)</span> (old error)<span class="math inline">\(^2\)</span>” doubles the number of correct digits per step (Figure 2.7.1).</p></li>
+<li><p><strong>Squared quantities control signs.</strong> In part (ii) the error after one step is a square divided by something positive, so it can never be negative: the iteration approaches from above.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Newton’s method</div>
+<p>The second recipe is <em>Newton’s method</em> applied to <span class="math inline">\(f(y) = y^2 - 2\)</span>. Newton’s method finds a root of <span class="math inline">\(f\)</span> by repeatedly replacing a guess <span class="math inline">\(y\)</span> by the point where the tangent at <span class="math inline">\(y\)</span> crosses the axis: <span class="math display">\[y_{\text{new}} = y - \frac{f(y)}{f&#39;(y)} = y - \frac{y^2 - 2}{2y} = \frac{y^2 + 2}{2y}.\]</span> Near a simple root <span class="math inline">\(\alpha\)</span>, a Taylor expansion shows that the new error is approximately <span class="math inline">\(\frac{f&#39;&#39;(\alpha)}{2f&#39;(\alpha)} \times (\text{old error})^2\)</span>, which is why Newton’s method converges quadratically. This particular case, “average <span class="math inline">\(y\)</span> and <span class="math inline">\(2/y\)</span>”, was known to the Babylonians; a clay tablet from around 1700 BC, now called YBC 7289, gives <span class="math inline">\(\sqrt2\)</span> in base <span class="math inline">\(60\)</span> with an error of less than one part in a million.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-2-7-1.svg" alt="Figure 2.7.1"><figcaption><span class="fig-label">Figure 2.7.1</span> The number of correct decimal digits of <span class="math inline">\(\sqrt2\)</span> after <span class="math inline">\(n\)</span> steps of each recipe. The linear recipe gains about <span class="math inline">\(0.77\)</span> digits per step; Newton’s method roughly doubles its number of correct digits at every step, reaching about <span class="math inline">\(780\)</span> digits by <span class="math inline">\(n = 10\)</span>.</figcaption></figure>
+<h3 id="fixed-points-and-their-speed">Fixed points and their speed</h3>
+<p>Both recipes have the form <span class="math inline">\(u_{n+1} = g(u_n)\)</span> with <span class="math inline">\(g(\sqrt2) = \sqrt2\)</span>, so <span class="math inline">\(\sqrt2\)</span> is a <em>fixed point</em>, as in the cobweb diagram of <a href="../ch02/golden-limit.html">Section 2.2</a>. Near a fixed point <span class="math inline">\(\alpha\)</span>, the error is multiplied by about <span class="math inline">\(g&#39;(\alpha)\)</span> at each step. For the first recipe, <span class="math inline">\(g(x) = \frac{x+2}{x+1}\)</span> and <span class="math inline">\(g&#39;(\sqrt2) = -\frac{1}{(\sqrt2+1)^2} = -(3 - 2\sqrt2) \approx -0.17\)</span>: the minus sign explains the alternating signs and <span class="math inline">\(0.17\)</span> explains the <span class="math inline">\(0.77\)</span> digits per step (<span class="math inline">\(\log_{10}(1/0.17) \approx 0.77\)</span>). For Newton’s method <span class="math inline">\(g&#39;(\alpha) = 0\)</span>, so the linear term vanishes and the error is controlled by the next term, the square. Designing iterations with <span class="math inline">\(g&#39;(\alpha) = 0\)</span> is the art of fast numerical methods.</p>
+<h3 id="why-the-same-fractions-appear">Why the same fractions appear</h3>
+<p>The fractions <span class="math inline">\(x_n = p_n/q_n\)</span> satisfy <span class="math inline">\(p_{n+1} = p_n + 2q_n\)</span> and <span class="math inline">\(q_{n+1} = p_n + q_n\)</span>, and <span class="math inline">\(p_n^2 - 2q_n^2 = \pm 1\)</span>, alternating. These are the solutions of <em>Pell’s equation</em> <span class="math inline">\(p^2 - 2q^2 = \pm1\)</span>, and they are the convergents of the continued fraction <span class="math inline">\(\sqrt2 = [1; 2, 2, 2, \ldots]\)</span>. They come from powers of <span class="math inline">\(1 + \sqrt2\)</span>: <span class="math inline">\(p_n + q_n\sqrt2 = (1 + \sqrt2)^{n+1}\)</span>. Newton’s step <em>squares</em> <span class="math inline">\(p + q\sqrt2\)</span> (try it: <span class="math inline">\((p + q\sqrt2)^2 = p^2 + 2q^2 + 2pq\sqrt2\)</span>, and <span class="math inline">\(\frac{p^2 + 2q^2}{2pq}\)</span> is exactly Newton’s formula applied to <span class="math inline">\(p/q\)</span>). Squaring doubles the exponent, which is why <span class="math inline">\(y_n = x_{2^n - 1}\)</span>. The same pattern of “squaring” drives the iteration in <a href="../ch02/squaring-minus-two.html">Section 2.8</a>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Analyse the error, not the answer</div>
+<p><em>To understand how an approximation behaves, write down how the error at one step depends on the error at the step before.</em></p>
+<p>This is the starting point of numerical analysis. The answer itself (<span class="math inline">\(\sqrt2\)</span>) is the same for both recipes; what differs, and what matters in practice, is how the error evolves.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Pell’s equation.</strong> Show that if <span class="math inline">\(y_n = p/q\)</span> in lowest terms with <span class="math inline">\(p^2 - 2q^2 = 1\)</span>, then <span class="math inline">\(y_{n+1} = \dfrac{p^2 + 2q^2}{2pq}\)</span> also satisfies this equation. Check that <span class="math inline">\(577^2 - 2 \times 408^2 = 1\)</span>.</p></li>
+<li><p><strong>Cube roots.</strong> Write down Newton’s method for <span class="math inline">\(f(y) = y^3 - 2\)</span>, and show that the new error is <span class="math inline">\(\dfrac{(y_n - \alpha)^2 (2y_n + \alpha)}{3y_n^2}\)</span>, where <span class="math inline">\(\alpha = \sqrt[3]2\)</span>. Deduce that if <span class="math inline">\(y_n &gt; \alpha\)</span> then the new error is at most <span class="math inline">\(\frac{1}{\alpha}\)</span> times the square of the old error. (<em>Hint:</em> use <span class="math inline">\(\alpha^3 = 2\)</span>.)</p></li>
+<li><p><strong>Division without dividing.</strong> Show that Newton’s method for <span class="math inline">\(f(y) = \frac1y - a\)</span> gives <span class="math inline">\(y_{n+1} = y_n(2 - a y_n)\)</span>, which needs no division. If <span class="math inline">\(e_n = 1 - a y_n\)</span>, show that <span class="math inline">\(e_{n+1} = e_n^2\)</span>. (Computer processors use iterations like this to divide.)</p></li>
+<li><p><strong>When Newton fails.</strong> Apply Newton’s method to <span class="math inline">\(f(y) = y^{1/3}\)</span>, whose only root is <span class="math inline">\(0\)</span>. Show that each step doubles the distance from the root, whatever you start with. Which hypothesis of the error formula fails?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Endre Süli &amp; David Mayers, <em>An Introduction to Numerical Analysis</em></strong> (Cambridge University Press). The standard undergraduate text; Chapter 1 covers fixed-point iteration and Newton’s method.</p></li>
+<li><p><strong>Nick Higham (ed.), <em>The Princeton Companion to Applied Mathematics</em></strong> (Princeton University Press). Short articles on Newton’s method and numerical analysis, written by experts for a wide audience.</p></li>
+<li><p><strong>David Fowler &amp; Eleanor Robson, “Square root approximations in Old Babylonian mathematics: YBC 7289 in context”</strong>, <em>Historia Mathematica</em> 25 (1998).</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="agm.html">← 2.6 The Arithmetic–Geometric Mean</a><a class="next" href="squaring-minus-two.html">→ 2.8 Squaring and Subtracting Two</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

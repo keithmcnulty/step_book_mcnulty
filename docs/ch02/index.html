@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 2: Sequences, Series and Convergence — Beyond STEP</title>
+<meta name="description" content="What a limit really is, then famous infinite sums and products, then how fast things converge.">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter</div>
+    <div class="ch-num">2</div>
+    <h1>Sequences, Series and Convergence</h1>
+    <p class="strap">Infinity is where mathematics gets interesting, and where it is easiest to go wrong.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Download the whole chapter</span><span class="dl-sub">PDF, typeset for print</span></span></a>
+  </div>
+  <h2 class="contents-head">In this chapter</h2>
+  <ol class="toc"><li><a class="toc-link" href="eventually.html"><span class="toc-num">2.1</span>
+<span class="toc-title">What &quot;Eventually&quot; Means</span>
+<span class="toc-src">STEP III 2015</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-1-eventually.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="golden-limit.html"><span class="toc-num">2.2</span>
+<span class="toc-title">The Golden Ratio as a Limit</span>
+<span class="toc-src">STEP II 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-2-golden-limit.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="kempner.html"><span class="toc-num">2.3</span>
+<span class="toc-title">A Divergent Series and Its Convergent Cousin</span>
+<span class="toc-src">STEP III 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-3-kempner.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="basel.html"><span class="toc-num">2.4</span>
+<span class="toc-title">\(\pi\)\(^2\)/6</span>
+<span class="toc-src">STEP III 2018</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-4-basel.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="viete.html"><span class="toc-num">2.5</span>
+<span class="toc-title">Viète&#x27;s Product</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-5-viete.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="agm.html"><span class="toc-num">2.6</span>
+<span class="toc-title">The Arithmetic–Geometric Mean</span>
+<span class="toc-src">STEP II 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-6-agm.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="newton-speed.html"><span class="toc-num">2.7</span>
+<span class="toc-title">Six Digits or Six Hundred</span>
+<span class="toc-src">STEP II 2023</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-7-newton-speed.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="squaring-minus-two.html"><span class="toc-num">2.8</span>
+<span class="toc-title">Squaring and Subtracting Two</span>
+<span class="toc-src">STEP III 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-8-squaring-minus-two.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="e-approximations.html"><span class="toc-num">2.9</span>
+<span class="toc-title">Fractions That Close In on e</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-9-e-approximations.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">Looking back: what we have learned</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">Chapter 2  \(\cdot\)  Introduction</div>
+    <h1 class="essay-title">Taming the Infinite</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>The infinite! No other question has ever moved so profoundly the spirit of man.</p>
+<p class="who">— David Hilbert</p>
+</div>
+<p>Two and a half thousand years ago, Zeno of Elea argued that motion is impossible. To walk across a room you must first walk half way, then half of what remains, then half of that, and so on for ever: infinitely many tasks, which surely cannot be completed in a finite time. Everyone knew Zeno was wrong, since people do cross rooms, but for a very long time nobody could say exactly <em>why</em> he was wrong. The answer is that the infinite sum <span class="math inline">\(\frac12 + \frac14 + \frac18 + \cdots\)</span> has a finite value, <span class="math inline">\(1\)</span>. But what does it even <em>mean</em> for infinitely many numbers to add up to something?</p>
+<p>That question sat at the heart of mathematics for two thousand years. Newton and Leibniz built calculus on top of it in the seventeenth century without ever quite answering it, and their followers produced wonderful results alongside some spectacular nonsense. Euler, the greatest calculator of all time, happily wrote <span class="math inline">\(1 - 1 + 1 - 1 + \cdots = \frac12\)</span>. Others “proved” contradictory things about the same infinite series. It took until the nineteenth century, and the work of Cauchy, Weierstrass and others, before mathematicians had definitions precise enough to tell the true results from the false ones. Those definitions are the subject of this chapter.</p>
+<h3 id="why-it-matters">Why it matters</h3>
+<p>Almost every number you will ever compute with is the limit of something. Your calculator does not know <span class="math inline">\(\sqrt2\)</span> or <span class="math inline">\(\pi\)</span> or <span class="math inline">\(e\)</span>: it knows recipes that get closer and closer to them, and it stops when it is close enough. Understanding <em>how fast</em> a recipe gets close is the difference between an algorithm that runs in a millisecond and one that never finishes. The same ideas underlie the computer simulations used to forecast weather, design aircraft and price financial products. And on the purest side, the study of limits leads to some of the most beautiful formulas in mathematics: in this chapter you will prove that <span class="math display">\[1 + \frac14 + \frac19 + \frac1{16} + \cdots = \frac{\pi^2}{6},\]</span> a result that made Euler famous and that still seems almost magical.</p>
+<h3 id="what-you-will-meet-at-university">What you will meet at university</h3>
+<p>At almost every university, <em>Analysis</em> is one of the very first courses you take, and for many students it is the biggest shock. In school mathematics you learn to calculate limits; in Analysis you learn to <em>prove</em> things about them, starting from precise definitions. You will define what it means for a sequence to converge, using the phrases “for every <span class="math inline">\(\varepsilon &gt; 0\)</span>” and “there exists <span class="math inline">\(N\)</span>” that appear in <a href="../ch02/eventually.html">Section 2.1</a>. You will prove that every bounded increasing sequence converges, and discover that this depends on a property of the real numbers, <em>completeness</em>, that the rational numbers do not have. You will study tests for the convergence of series, and then use the same ideas to give rigorous meaning to continuity, differentiation and integration.</p>
+<p>Later courses build on this foundation in many directions. <em>Numerical analysis</em> asks how quickly approximations converge and how to make them faster (<a href="../ch02/newton-speed.html">Section 2.7</a>, <a href="../ch02/agm.html">Section 2.6</a>). <em>Dynamical systems</em> studies what happens when you apply a rule over and over, sometimes reaching a limit and sometimes producing chaos (<a href="../ch02/golden-limit.html">Section 2.2</a>, <a href="../ch02/squaring-minus-two.html">Section 2.8</a>). <em>Complex analysis</em> explains why <span class="math inline">\(\pi\)</span> appears in so many infinite sums and products (<a href="../ch02/basel.html">Section 2.4</a>, <a href="../ch02/viete.html">Section 2.5</a>). And <em>analytic number theory</em> uses limits to answer questions about whole numbers, as in <a href="../ch02/e-approximations.html">Section 2.9</a>.</p>
+<h3 id="the-questions-that-run-through-this-chapter">The questions that run through this chapter</h3>
+<div class="skillbox">
+<div class="box-title">Three big questions</div>
+<ol class="arabic">
+<li><p><strong>What does it mean for an infinite process to have an answer?</strong> How do we say precisely that a sequence “gets close to” a limit, or that an infinite sum “adds up to” a number?</p></li>
+<li><p><strong>How can we prove that something converges without knowing what it converges to?</strong> And once we know a limit exists, how do we find it?</p></li>
+<li><p><strong>How fast?</strong> Two processes can have the same limit but approach it at wildly different speeds. Why, and how do we measure it?</p></li>
+</ol>
+</div>
+<p>The first section (<a href="../ch02/eventually.html">Section 2.1</a>) is about language: the precise way mathematicians talk about “eventually”. The next five sections are about famous limits: the golden ratio as a continued fraction, a divergent series with a convergent cousin, <span class="math inline">\(\pi^2/6\)</span>, Viète’s product for <span class="math inline">\(2/\pi\)</span>, and Gauss’s arithmetic–geometric mean. The last three are about speed and structure: linear versus quadratic convergence, an iteration that either explodes or wanders chaotically, and a family of integrals that close in on <span class="math inline">\(e\)</span>.</p>
+<h3 id="tools-for-convergence">Tools for convergence</h3>
+<p>You will meet a small number of tools again and again, each in a different setting.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2.1</td>
+<td style="text-align: left;">“Eventually smaller”</td>
+<td style="text-align: left;">Quantifiers: producing <span class="math inline">\(m\)</span>, negating statements</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.2</td>
+<td style="text-align: left;">The golden ratio</td>
+<td style="text-align: left;">Monotone bounded subsequences</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.3</td>
+<td style="text-align: left;">Harmonic and Kempner series</td>
+<td style="text-align: left;">Comparison by blocks</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.4</td>
+<td style="text-align: left;"><span class="math inline">\(\pi^2/6\)</span></td>
+<td style="text-align: left;">Roots of a polynomial, then a squeeze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.5</td>
+<td style="text-align: left;">Viète’s product</td>
+<td style="text-align: left;">Telescoping, then one simple limit</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.6</td>
+<td style="text-align: left;">The AGM</td>
+<td style="text-align: left;">Two sequences squeezing together; an invariant</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.7</td>
+<td style="text-align: left;">Approximating <span class="math inline">\(\sqrt2\)</span></td>
+<td style="text-align: left;">Error recurrences: linear and quadratic</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.8</td>
+<td style="text-align: left;"><span class="math inline">\(x \mapsto x^2 - 2\)</span></td>
+<td style="text-align: left;">A substitution that makes the map simple</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.9</td>
+<td style="text-align: left;">Fractions for <span class="math inline">\(e\)</span></td>
+<td style="text-align: left;">Integrals that are small but not zero</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-to-read-this-chapter">How to read this chapter</h3>
+<p>As in Chapter 1, each section starts with a STEP question exactly as set. Try it before reading on. This chapter’s questions often tell you which tool to use (“by considering…”, “you may use the theorem…”); as you work through them, notice how often the same few tools reappear, because at university you will have to choose them yourself.</p>
+<p>Several of the questions ask you to assume that limits exist, or that infinite sums and products converge. Where that happens, the section explains what would be needed to prove it. Being aware of the gap between “it obviously works” and “I can prove it works” is the first step towards thinking like an analyst.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="eventually.html">→ Begin: 2.1 What &quot;Eventually&quot; Means</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

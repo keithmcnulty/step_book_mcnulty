@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.2 The Golden Ratio as a Limit — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 2 · Sequences, Series and Convergence</a>
+    <div class="src">STEP II · 2013 · Question 6</div>
+    <div class="sec-head"><span class="sec-num">2.2</span><h1>The Golden Ratio as a Limit</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-2-golden-limit.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 2</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>In this question, the following theorem may be used.</p>
+<p><em>Let <span class="math inline">\(u_1, u_2, \ldots\)</span> be a sequence of (real) numbers. If the sequence is bounded above (that is, <span class="math inline">\(u_n \leq b\)</span> for all <span class="math inline">\(n\)</span>, where <span class="math inline">\(b\)</span> is some fixed number) and increasing (that is, <span class="math inline">\(u_n \geq u_{n-1}\)</span> for all <span class="math inline">\(n\)</span>), then the sequence tends to a limit (that is, converges).</em></p>
+<p>The sequence <span class="math inline">\(u_1, u_2, \ldots\)</span> is defined by <span class="math inline">\(u_1 = 1\)</span> and <span class="math display">\[u_{n+1} = 1 + \frac{1}{u_n} \qquad (n \geq 1). \tag{$*$}\]</span></p>
+<ol class="roman">
+<li><p>Show that, for <span class="math inline">\(n \geq 3\)</span>, <span class="math display">\[u_{n+2} - u_n = \frac{u_n - u_{n-2}}{(1 + u_n)(1 + u_{n-2})}.\]</span></p></li>
+<li><p>Prove, by induction or otherwise, that <span class="math inline">\(1 \leq u_n \leq 2\)</span> for all <span class="math inline">\(n\)</span>.</p></li>
+<li><p>Show that the sequence <span class="math inline">\(u_1, u_3, u_5, \ldots\)</span> tends to a limit, and that the sequence <span class="math inline">\(u_2, u_4, u_6, \ldots\)</span> tends to a limit. Find these limits and deduce that the sequence <span class="math inline">\(u_1, u_2, u_3, \ldots\)</span> tends to a limit.</p>
+<p>Would this conclusion change if the sequence were defined by <span class="math inline">\((*)\)</span> and <span class="math inline">\(u_1 = 3\)</span>?</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Write down the expression <span class="math display">\[1 + \cfrac{1}{1 + \cfrac{1}{1 + \cfrac{1}{1 + \cdots}}}\]</span> and ask what it equals. A quick answer: call it <span class="math inline">\(x\)</span>; the part under the first fraction line is <span class="math inline">\(x\)</span> again, so <span class="math inline">\(x = 1 + 1/x\)</span>, which gives <span class="math inline">\(x^2 = x + 1\)</span> and <span class="math inline">\(x = \frac{1 + \sqrt5}{2}\)</span>, the golden ratio <span class="math inline">\(\varphi\)</span>.</p>
+<p>But is that argument valid? It assumes the infinite expression <em>means</em> something, that the process of building it up settles down to a single number. The same trick applied to <span class="math inline">\(1 - 1 + 1 - 1 + \cdots\)</span> (“call it <span class="math inline">\(S\)</span>; then <span class="math inline">\(S = 1 - S\)</span>, so <span class="math inline">\(S = \frac12\)</span>”) produces nonsense. This question shows how to do the job properly, using the only tool a STEP candidate has for proving convergence without knowing the limit in advance: <em>monotone sequences</em>.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>Compute some terms. With <span class="math inline">\(u_1 = 1\)</span>: <span class="math display">\[1,\quad 2,\quad \tfrac32,\quad \tfrac53,\quad \tfrac85,\quad \tfrac{13}{8},\quad \tfrac{21}{13},\quad \tfrac{34}{21},\quad \ldots\]</span></p>
+<div class="askyourself">
+<p>Do you recognise the numerators and denominators? And look at the decimals: <span class="math inline">\(1, 2, 1.5, 1.667, 1.6, 1.625, 1.615, \ldots\)</span>. Is the sequence increasing? Decreasing?</p>
+</div>
+<p>They are ratios of consecutive Fibonacci numbers. The sequence is neither increasing nor decreasing: it zig-zags, overshooting and undershooting. So the theorem we are given, which is about increasing sequences, cannot be applied to the whole sequence. But the odd-numbered terms <span class="math inline">\(1, 1.5, 1.6, 1.615, \ldots\)</span> seem to go up, and the even-numbered terms <span class="math inline">\(2, 1.667, 1.625, \ldots\)</span> seem to go down. That is the plan of the question.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-comparing-terms-two-apart" class="stage"><span class="stage-n">Stage 1</span> Comparing terms two apart</h4>
+<p>Part (i) compares <span class="math inline">\(u_{n+2}\)</span> with <span class="math inline">\(u_n\)</span>, two steps apart. The natural first move is to use <span class="math inline">\((*)\)</span> to write each of them in terms of the term before.</p>
+<div class="askyourself">
+<p>Using <span class="math inline">\((*)\)</span> twice, write <span class="math inline">\(u_{n+2} - u_n\)</span> in terms of <span class="math inline">\(u_{n+1} - u_{n-1}\)</span>, and then <span class="math inline">\(u_{n+1} - u_{n-1}\)</span> in terms of <span class="math inline">\(u_n - u_{n-2}\)</span>.</p>
+</div>
+<p>From <span class="math inline">\((*)\)</span>, <span class="math display">\[u_{n+2} - u_n = \frac{1}{u_{n+1}} - \frac{1}{u_{n-1}} = -\frac{u_{n+1} - u_{n-1}}{u_{n+1} u_{n-1}},\]</span> and in the same way <span class="math inline">\(u_{n+1} - u_{n-1} = -\dfrac{u_n - u_{n-2}}{u_n u_{n-2}}\)</span>. Putting these together, the two minus signs cancel: <span class="math display">\[u_{n+2} - u_n = \frac{u_n - u_{n-2}}{u_{n+1} u_n \cdot u_{n-1} u_{n-2}}.\]</span> Finally, <span class="math inline">\((*)\)</span> says <span class="math inline">\(u_{n+1} u_n = u_n + 1\)</span> and <span class="math inline">\(u_{n-1} u_{n-2} = u_{n-2} + 1\)</span>, which gives the required formula. (We need <span class="math inline">\(n \geq 3\)</span> so that <span class="math inline">\(u_{n-2}\)</span> exists.)<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-a-trap" class="stage"><span class="stage-n">Stage 2</span> A trap</h4>
+<div class="pausebox">
+<p>Prove that <span class="math inline">\(1 \leq u_n \leq 2\)</span> for all <span class="math inline">\(n\)</span>.</p>
+</div>
+<p>It is true for <span class="math inline">\(u_1 = 1\)</span>. If <span class="math inline">\(1 \leq u_n \leq 2\)</span>, then <span class="math inline">\(\frac12 \leq \frac{1}{u_n} \leq 1\)</span>, so <span class="math inline">\(\frac32 \leq u_{n+1} \leq 2\)</span>, which is certainly between <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>. By induction, <span class="math inline">\(1 \leq u_n \leq 2\)</span> for all <span class="math inline">\(n\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>In particular every <span class="math inline">\(u_n\)</span> is positive, so the denominator <span class="math inline">\((1 + u_n)(1 + u_{n-2})\)</span> in part (i) is positive.</p>
+<h4 id="stagemark3-two-monotone-subsequences" class="stage"><span class="stage-n">Stage 3</span> Two monotone subsequences</h4>
+<div class="askyourself">
+<p>The formula in part (i) says that <span class="math inline">\(u_{n+2} - u_n\)</span> is a positive multiple of <span class="math inline">\(u_n - u_{n-2}\)</span>. What does that tell you about the signs of <span class="math inline">\(u_3 - u_1\)</span>, <span class="math inline">\(u_5 - u_3\)</span>, <span class="math inline">\(u_7 - u_5\)</span>, …?</p>
+</div>
+<p>They all have the same sign! Since <span class="math inline">\(u_3 - u_1 = \frac32 - 1 &gt; 0\)</span>, part (i) and induction give <span class="math inline">\(u_5 &gt; u_3\)</span>, <span class="math inline">\(u_7 &gt; u_5\)</span>, and so on: the odd terms are increasing. They are bounded above by <span class="math inline">\(2\)</span>, so by the theorem they tend to a limit; call it <span class="math inline">\(L\)</span>.</p>
+<p>Similarly <span class="math inline">\(u_4 - u_2 = \frac53 - 2 &lt; 0\)</span>, so the even terms are decreasing. They are bounded <em>below</em> by <span class="math inline">\(1\)</span>. The theorem is stated for increasing sequences, but <span class="math inline">\(-u_2, -u_4, -u_6, \ldots\)</span> is increasing and bounded above by <span class="math inline">\(-1\)</span>, so it converges, and therefore so do the even terms; call their limit <span class="math inline">\(M\)</span>.</p>
+<h4 id="stagemark4-finding-the-limits" class="stage"><span class="stage-n">Stage 4</span> Finding the limits</h4>
+<div class="askyourself">
+<p>To find <span class="math inline">\(L\)</span>, you need an equation relating <span class="math inline">\(u_{n+2}\)</span> to <span class="math inline">\(u_n\)</span> directly. Can you get one from <span class="math inline">\((*)\)</span>?</p>
+</div>
+<p>Applying <span class="math inline">\((*)\)</span> twice, <span class="math display">\[u_{n+2} = 1 + \frac{1}{u_{n+1}} = 1 + \frac{1}{1 + 1/u_n} = 1 + \frac{u_n}{u_n + 1} = \frac{2u_n + 1}{u_n + 1}.\]</span> Letting <span class="math inline">\(n \to \infty\)</span> through odd values, both <span class="math inline">\(u_n\)</span> and <span class="math inline">\(u_{n+2}\)</span> tend to <span class="math inline">\(L\)</span>, so <span class="math display">\[L = \frac{2L + 1}{L + 1} \quad\Longrightarrow\quad L^2 + L = 2L + 1 \quad\Longrightarrow\quad L^2 - L - 1 = 0.\]</span> The roots are <span class="math inline">\(\frac{1 \pm \sqrt5}{2}\)</span>, and since <span class="math inline">\(L \geq 1\)</span> we must have <span class="math inline">\(L = \frac{1 + \sqrt5}{2} = \varphi\)</span>. Exactly the same argument through even values gives <span class="math inline">\(M = \varphi\)</span>.</p>
+<div class="askyourself">
+<p>The odd terms tend to <span class="math inline">\(\varphi\)</span> and the even terms tend to <span class="math inline">\(\varphi\)</span>. Why does this mean that the whole sequence tends to <span class="math inline">\(\varphi\)</span>?</p>
+</div>
+<p>Intuitively, every term is either odd-numbered or even-numbered, and both kinds are getting close to <span class="math inline">\(\varphi\)</span>. Precisely: given any tolerance <span class="math inline">\(\varepsilon &gt; 0\)</span>, the odd terms are within <span class="math inline">\(\varepsilon\)</span> of <span class="math inline">\(\varphi\)</span> from some point <span class="math inline">\(N_1\)</span> onwards, and the even terms from some point <span class="math inline">\(N_2\)</span> onwards. So <em>all</em> terms are within <span class="math inline">\(\varepsilon\)</span> of <span class="math inline">\(\varphi\)</span> from <span class="math inline">\(\max(N_1, N_2)\)</span> onwards, which is what convergence means. (This is the “take the larger threshold” move from <a href="../ch02/eventually.html">Section 2.1</a>.)</p>
+<h4 id="stagemark5-starting-somewhere-else" class="stage"><span class="stage-n">Stage 5</span> Starting somewhere else</h4>
+<p>With <span class="math inline">\(u_1 = 3\)</span> the sequence is <span class="math display">\[3,\quad \tfrac43,\quad \tfrac74,\quad \tfrac{11}{7},\quad \tfrac{18}{11},\quad \tfrac{29}{18},\quad \ldots\]</span> Now <span class="math inline">\(u_1 = 3\)</span> is outside <span class="math inline">\([1, 2]\)</span>, so the induction in part (ii) does not start. But <span class="math inline">\(u_2 = \frac43\)</span> is inside, and the induction works from there: <span class="math inline">\(1 \leq u_n \leq 2\)</span> for all <span class="math inline">\(n \geq 2\)</span>. Part (i) only ever uses terms from <span class="math inline">\(u_{n-2}\)</span> onwards and only needs them to be positive, which they all are. This time <span class="math inline">\(u_3 - u_1 = \frac74 - 3 &lt; 0\)</span> and <span class="math inline">\(u_4 - u_2 = \frac{11}{7} - \frac43 &gt; 0\)</span>, so the odd terms decrease and the even terms increase: the roles are swapped, but each subsequence is still monotone and bounded. The limits satisfy the same equation, and both are positive, so both are <span class="math inline">\(\varphi\)</span>. The conclusion does <strong>not</strong> change.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>When a sequence isn’t monotone, look for monotone pieces.</strong> Splitting into odd and even terms turned a zig-zag into two well-behaved sequences.</p></li>
+<li><p><strong>Prove convergence first, find the limit second.</strong> The equation <span class="math inline">\(L = (2L+1)/(L+1)\)</span> is only legitimate once we know <span class="math inline">\(L\)</span> exists. That is exactly the step the quick argument in the hook skipped.</p></li>
+<li><p><strong>Check which root.</strong> The limit equation had two solutions; the bounds from part (ii) told us which one was right.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Cobwebs and fixed points</div>
+<p>Every sequence defined by <span class="math inline">\(u_{n+1} = f(u_n)\)</span> can be drawn as a <em>cobweb diagram</em> (Figure 2.2.1). Plot <span class="math inline">\(y = f(x)\)</span> and <span class="math inline">\(y = x\)</span>. Start at <span class="math inline">\(u_1\)</span> on the <span class="math inline">\(x\)</span>-axis, go vertically to the curve (height <span class="math inline">\(u_2 = f(u_1)\)</span>), then horizontally to the line <span class="math inline">\(y = x\)</span> (which moves you to <span class="math inline">\(x = u_2\)</span>), then vertically to the curve again, and so on. Here <span class="math inline">\(f(x) = 1 + 1/x\)</span> is decreasing, which is why the path spirals inwards, alternately overshooting and undershooting, towards the point where the curve crosses the line: the <em>fixed point</em> <span class="math inline">\(\varphi\)</span>, where <span class="math inline">\(f(\varphi) = \varphi\)</span>.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-2-2-1.svg" alt="Figure 2.2.1"><figcaption><span class="fig-label">Figure 2.2.1</span> A cobweb diagram for <span class="math inline">\(u_{n+1} = 1 + 1/u_n\)</span> starting from <span class="math inline">\(u_1 = 1\)</span>. The path goes up to the curve and across to the line <span class="math inline">\(y = x\)</span>, over and over. Because the curve slopes downwards, the path spirals in towards the fixed point <span class="math inline">\(\varphi \approx 1.618\)</span>, alternating sides: that is the zig-zag of odd and even terms.</figcaption></figure>
+<h3 id="how-fast-and-why">How fast, and why</h3>
+<p>Where does the factor <span class="math inline">\((1 + u_n)(1 + u_{n-2})\)</span> in part (i) come from? Near the fixed point, <span class="math inline">\(u_{n+1} - \varphi = f(u_n) - f(\varphi) \approx f&#39;(\varphi)(u_n - \varphi)\)</span>, and <span class="math inline">\(f&#39;(\varphi) = -1/\varphi^2 \approx -0.38\)</span>. So each step multiplies the error by about <span class="math inline">\(-0.38\)</span>: the sign flips (zig-zag) and the size shrinks (convergence). Two steps multiply it by <span class="math inline">\(1/\varphi^4 \approx 0.146\)</span>, which is what <span class="math inline">\(1/\bigl((1+u_n)(1+u_{n-2})\bigr)\)</span> tends to. At university this becomes the <em>contraction mapping theorem</em>: if <span class="math inline">\(|f&#39;| \leq k &lt; 1\)</span> near a fixed point, iteration converges to it, with the error shrinking at least geometrically. It is one of the most useful theorems in mathematics, and it is how you prove that differential equations have solutions (Chapter 8). In <a href="../ch02/squaring-minus-two.html">Section 2.8</a> we will meet a map whose fixed points are <em>not</em> attracting, with very different results.</p>
+<h3 id="the-most-irrational-number">The most irrational number</h3>
+<p>The terms <span class="math inline">\(u_n = F_{n+1}/F_n\)</span> are the best possible fractional approximations to <span class="math inline">\(\varphi\)</span> for their size, but “best” is not very good: <span class="math inline">\(\varphi\)</span> is harder to approximate by fractions than any other number. The reason is visible in its continued fraction <span class="math inline">\([1; 1, 1, 1, \ldots]\)</span>: large entries in a continued fraction mean very good approximations (think of <span class="math inline">\(\pi = [3; 7, 15, 1, 292, \ldots]\)</span> and the excellent <span class="math inline">\(\frac{355}{113}\)</span>), and <span class="math inline">\(\varphi\)</span> has the smallest possible entries all the way. Adolf Hurwitz proved in 1891 that every irrational <span class="math inline">\(x\)</span> has infinitely many fractions with <span class="math inline">\(|x - p/q| &lt; 1/(\sqrt5\, q^2)\)</span>, and that <span class="math inline">\(\sqrt5\)</span> cannot be improved, precisely because of <span class="math inline">\(\varphi\)</span>. This “maximal irrationality” is the reason the golden angle appears in the spiral patterns of sunflower seeds.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Monotone and bounded implies convergent</div>
+<p><em>To show a sequence converges without knowing its limit, find a monotone, bounded sequence, or split the sequence into monotone, bounded pieces.</em></p>
+<p>Only once you know a limit exists may you find it by “letting <span class="math inline">\(n \to \infty\)</span>” in the recurrence. At university this theorem is a consequence of the <em>completeness</em> of the real numbers, the property that distinguishes <span class="math inline">\(\mathbb{R}\)</span> from <span class="math inline">\(\mathbb{Q}\)</span>, and you will see it proved from the axioms.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Fibonacci inside.</strong> Prove that <span class="math inline">\(u_n = F_{n+1}/F_n\)</span>, where <span class="math inline">\(F_1 = F_2 = 1\)</span> and <span class="math inline">\(F_{n+1} = F_n + F_{n-1}\)</span>.</p></li>
+<li><p><strong>The error shrinks.</strong> Show that <span class="math inline">\(u_{n+1} - \varphi = -\dfrac{u_n - \varphi}{\varphi\, u_n}\)</span>, and deduce that <span class="math inline">\(|u_n - \varphi| \leq \varphi^{-(n-1)}\)</span> for all <span class="math inline">\(n\)</span>. (Use <span class="math inline">\(\varphi^2 = \varphi + 1\)</span>, and <span class="math inline">\(u_n \geq 1\)</span>.)</p></li>
+<li><p><strong>Breaking the sequence.</strong> Show that if <span class="math inline">\(u_1 = \frac{1 - \sqrt5}{2}\)</span> then the sequence is constant. Find all the starting values <span class="math inline">\(u_1\)</span> for which some <span class="math inline">\(u_n = 0\)</span>, so that the sequence cannot continue. (<em>Hint:</em> work backwards from <span class="math inline">\(u_n = 0\)</span>.)</p></li>
+<li><p><strong>A cousin for <span class="math inline">\(\sqrt2\)</span>.</strong> Let <span class="math inline">\(v_1 = 1\)</span> and <span class="math inline">\(v_{n+1} = 1 + \dfrac{1}{1 + v_n}\)</span>. Adapt the method of this question to show that <span class="math inline">\(v_n \to \sqrt2\)</span>, and write <span class="math inline">\(\sqrt2\)</span> as a continued fraction.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Mario Livio, <em>The Golden Ratio</em></strong> (Broadway). The history of <span class="math inline">\(\varphi\)</span>, separating the genuine mathematics from the many myths.</p></li>
+<li><p><strong>C. D. Olds, <em>Continued Fractions</em></strong> (Mathematical Association of America). A short, very readable introduction aimed at strong school students.</p></li>
+<li><p><strong>J. C. Burkill, <em>A First Course in Mathematical Analysis</em></strong> (Cambridge University Press). Rigorous treatment of monotone sequences and completeness, with many exercises.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="eventually.html">← 2.1 What &quot;Eventually&quot; Means</a><a class="next" href="kempner.html">→ 2.3 A Divergent Series and Its Convergent Cousin</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

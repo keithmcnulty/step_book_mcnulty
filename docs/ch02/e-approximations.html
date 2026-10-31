@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.9 Fractions That Close In on e — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 2 · Sequences, Series and Convergence</a>
+    <div class="src">STEP II · 2021 · Question 8</div>
+    <div class="sec-head"><span class="sec-num">2.9</span><h1>Fractions That Close In on e</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-9-e-approximations.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 2</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Show that, for <span class="math inline">\(n = 2, 3, 4, \ldots\)</span>, <span class="math display">\[\frac{\mathrm{d}^2}{\mathrm{d}t^2}\Bigl(t^n(1-t)^n\Bigr) = n t^{n-2}(1-t)^{n-2}\Bigl[(n-1) - 2(2n-1)t(1-t)\Bigr].\]</span></p></li>
+<li><p>The sequence <span class="math inline">\(T_0, T_1, \ldots\)</span> is defined by <span class="math display">\[T_n = \int_0^1 \frac{t^n(1-t)^n}{n!}\,\mathrm{e}^t\,\mathrm{d}t.\]</span> Show that, for <span class="math inline">\(n \geq 2\)</span>, <span class="math display">\[T_n = T_{n-2} - 2(2n-1)T_{n-1}.\]</span></p></li>
+<li><p>Evaluate <span class="math inline">\(T_0\)</span> and <span class="math inline">\(T_1\)</span> and deduce that, for <span class="math inline">\(n \geq 0\)</span>, <span class="math inline">\(T_n\)</span> can be written in the form <span class="math display">\[T_n = a_n + b_n\mathrm{e},\]</span> where <span class="math inline">\(a_n\)</span> and <span class="math inline">\(b_n\)</span> are integers (which you should not attempt to evaluate).</p></li>
+<li><p>Show that <span class="math inline">\(0 &lt; T_n &lt; \dfrac{\mathrm{e}}{n!}\)</span> for <span class="math inline">\(n \geq 0\)</span>. Given that <span class="math inline">\(b_n\)</span> is non-zero for all <span class="math inline">\(n\)</span>, deduce that <span class="math inline">\(\dfrac{-a_n}{b_n}\)</span> tends to <span class="math inline">\(\mathrm{e}\)</span> as <span class="math inline">\(n\)</span> tends to infinity.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>How would you find good fractions approximating <span class="math inline">\(e\)</span>? You could truncate the series <span class="math inline">\(1 + 1 + \frac12 + \frac16 + \cdots\)</span>, but the fractions you get are not especially good for the size of their denominators. This question does something much cleverer. It builds a family of integrals, each of which is a small number of the form “integer <span class="math inline">\(+\)</span> integer <span class="math inline">\(\times\, e\)</span>”. If <span class="math inline">\(a + be\)</span> is tiny, then <span class="math inline">\(e\)</span> is very close to <span class="math inline">\(-a/b\)</span>, and the integrals hand us a sequence of excellent fractions: <span class="math inline">\(\frac{19}{7}\)</span>, <span class="math inline">\(\frac{193}{71}\)</span>, <span class="math inline">\(\frac{2721}{1001}\)</span>, …</p>
+<p>The same trick, integrals that are simultaneously small and of the form “integer combination of the number you care about”, is behind some of the deepest irrationality proofs in mathematics, including Hermite’s proof that <span class="math inline">\(e\)</span> is transcendental and Apéry’s proof that <span class="math inline">\(\zeta(3)\)</span> is irrational.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>Look at the integrand <span class="math inline">\(\frac{t^n(1-t)^n}{n!}e^t\)</span> on <span class="math inline">\([0, 1]\)</span>.</p>
+<div class="askyourself">
+<p>What is the largest value of <span class="math inline">\(t(1-t)\)</span> on <span class="math inline">\([0, 1]\)</span>? What does that tell you about the size of <span class="math inline">\(T_n\)</span> as <span class="math inline">\(n\)</span> grows?</p>
+</div>
+<p>The maximum of <span class="math inline">\(t(1-t)\)</span> is <span class="math inline">\(\frac14\)</span>, at <span class="math inline">\(t = \frac12\)</span>. So the integrand is at most <span class="math inline">\(\frac{e}{4^n n!}\)</span>, which shrinks extraordinarily fast (Figure 2.9.1). That smallness is half the story. The other half, that <span class="math inline">\(T_n\)</span> has the special form <span class="math inline">\(a_n + b_n e\)</span>, comes from integrating by parts.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-differentiating-twice" class="stage"><span class="stage-n">Stage 1</span> Differentiating twice</h4>
+<p>Let <span class="math inline">\(p(t) = t^n(1-t)^n\)</span>. By the product rule, <span class="math display">\[p&#39;(t) = n t^{n-1}(1-t)^n - n t^n(1-t)^{n-1} = n t^{n-1}(1-t)^{n-1}(1 - 2t).\]</span></p>
+<div class="askyourself">
+<p>Differentiate again. You will get two terms; take out the common factor <span class="math inline">\(n t^{n-2}(1-t)^{n-2}\)</span>. To match the required form, you need to rewrite <span class="math inline">\((1 - 2t)^2\)</span> in terms of <span class="math inline">\(t(1-t)\)</span>. How?</p>
+</div>
+<p>Differentiating <span class="math inline">\(n\,[t(1-t)]^{n-1}(1 - 2t)\)</span> by the product rule (note that <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}[t(1-t)] = 1 - 2t\)</span>): <span class="math display">\[\begin{aligned}
+  p&#39;&#39;(t) &amp;= n(n-1)[t(1-t)]^{n-2}(1-2t)^2 - 2n[t(1-t)]^{n-1} \\
+  &amp;= n t^{n-2}(1-t)^{n-2}\Bigl[(n-1)(1-2t)^2 - 2t(1-t)\Bigr].
+\end{aligned}\]</span> Now <span class="math inline">\((1 - 2t)^2 = 1 - 4t + 4t^2 = 1 - 4t(1-t)\)</span>, so the bracket is <span class="math inline">\((n-1) - 4(n-1)t(1-t) - 2t(1-t) = (n-1) - 2(2n-1)t(1-t)\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-integrating-by-parts-twice" class="stage"><span class="stage-n">Stage 2</span> Integrating by parts twice</h4>
+<div class="askyourself">
+<p><span class="math inline">\(p(t)\)</span> is zero at both <span class="math inline">\(t = 0\)</span> and <span class="math inline">\(t = 1\)</span>. What about <span class="math inline">\(p&#39;(t)\)</span>, for <span class="math inline">\(n \geq 2\)</span>? Why does that matter when you integrate <span class="math inline">\(p(t)e^t\)</span> by parts?</p>
+</div>
+<p>For <span class="math inline">\(n \geq 2\)</span>, <span class="math inline">\(p&#39;(t)\)</span> contains the factor <span class="math inline">\(t^{n-1}(1-t)^{n-1}\)</span>, so it also vanishes at both ends. Integrating by parts twice, every boundary term is zero: <span class="math display">\[\int_0^1 p\, e^t\,\mathrm{d}t = \Bigl[p\,e^t\Bigr]_0^1 - \int_0^1 p&#39;\, e^t\,\mathrm{d}t = -\Bigl[p&#39;\,e^t\Bigr]_0^1 + \int_0^1 p&#39;&#39;\, e^t\,\mathrm{d}t = \int_0^1 p&#39;&#39;\, e^t\,\mathrm{d}t.\]</span> From Stage 1, <span class="math inline">\(p&#39;&#39;(t) = n(n-1)\,t^{n-2}(1-t)^{n-2} - 2n(2n-1)\,t^{n-1}(1-t)^{n-1}\)</span>. Divide by <span class="math inline">\(n!\)</span>: <span class="math display">\[\frac{p&#39;&#39;(t)}{n!} = \frac{t^{n-2}(1-t)^{n-2}}{(n-2)!} - 2(2n-1)\frac{t^{n-1}(1-t)^{n-1}}{(n-1)!}.\]</span> Multiplying by <span class="math inline">\(e^t\)</span> and integrating gives <span class="math inline">\(T_n = T_{n-2} - 2(2n-1)T_{n-1}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-the-integer-structure" class="stage"><span class="stage-n">Stage 3</span> The integer structure</h4>
+<p><span class="math inline">\(T_0 = \int_0^1 e^t\,\mathrm{d}t = e - 1\)</span>. For <span class="math inline">\(T_1 = \int_0^1 (t - t^2)e^t\,\mathrm{d}t\)</span>, integration by parts gives <span class="math inline">\(\int_0^1 t e^t\,\mathrm{d}t = 1\)</span> and <span class="math inline">\(\int_0^1 t^2 e^t\,\mathrm{d}t = e - 2\)</span>, so <span class="math inline">\(T_1 = 1 - (e - 2) = 3 - e\)</span>.</p>
+<div class="askyourself">
+<p><span class="math inline">\(T_0 = -1 + 1 \cdot e\)</span> and <span class="math inline">\(T_1 = 3 + (-1)\cdot e\)</span>. Why must every <span class="math inline">\(T_n\)</span> have the form <span class="math inline">\(a_n + b_n e\)</span> with integer <span class="math inline">\(a_n\)</span>, <span class="math inline">\(b_n\)</span>?</p>
+</div>
+<p>By strong induction: if <span class="math inline">\(T_{n-2} = a_{n-2} + b_{n-2}e\)</span> and <span class="math inline">\(T_{n-1} = a_{n-1} + b_{n-1}e\)</span> with integer coefficients, then <span class="math display">\[T_n = \bigl(a_{n-2} - 2(2n-1)a_{n-1}\bigr) + \bigl(b_{n-2} - 2(2n-1)b_{n-1}\bigr)e,\]</span> and the new coefficients are integers too.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-small-and-therefore-informative" class="stage"><span class="stage-n">Stage 4</span> Small, and therefore informative</h4>
+<p>For <span class="math inline">\(0 &lt; t &lt; 1\)</span>, the integrand is positive, and <span class="math inline">\(t^n(1-t)^n \leq 1\)</span> and <span class="math inline">\(e^t &lt; e\)</span>. So <span class="math display">\[0 &lt; T_n &lt; \int_0^1 \frac{e}{n!}\,\mathrm{d}t = \frac{e}{n!}.\]</span></p>
+<div class="pausebox">
+<p>Divide <span class="math inline">\(0 &lt; a_n + b_n e &lt; \dfrac{e}{n!}\)</span> by <span class="math inline">\(|b_n|\)</span>. What does that say about the distance between <span class="math inline">\(e\)</span> and <span class="math inline">\(-a_n/b_n\)</span>?</p>
+</div>
+<p>Dividing by <span class="math inline">\(|b_n|\)</span>, which is a positive integer and so at least <span class="math inline">\(1\)</span>, <span class="math display">\[\left| e - \left(\frac{-a_n}{b_n}\right) \right| = \frac{|a_n + b_n e|}{|b_n|} &lt; \frac{e}{n!\,|b_n|} \leq \frac{e}{n!}.\]</span> The right-hand side tends to <span class="math inline">\(0\)</span>, so <span class="math inline">\(-a_n/b_n \to e\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Here are the first few, computed from the recurrence:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5</th>
+<th style="text-align: right;">6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(-a_n/b_n\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{19}{7}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{193}{71}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{2721}{1001}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{49171}{18089}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{1084483}{398959}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">error</td>
+<td style="text-align: right;"><span class="math inline">\(4 \times 10^{-3}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3 \times 10^{-5}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1 \times 10^{-7}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3 \times 10^{-10}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(5 \times 10^{-13}\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>The fraction <span class="math inline">\(\frac{2721}{1001}\)</span> is correct to <span class="math inline">\(6\)</span> decimal places with only a four-digit denominator.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-2-9-1.svg" alt="Figure 2.9.1"><figcaption><span class="fig-label">Figure 2.9.1</span> The integrands <span class="math inline">\(\frac{t^n(1-t)^n}{n!}e^t\)</span> for <span class="math inline">\(n = 1, 2, 3\)</span>. Each is positive on <span class="math inline">\((0, 1)\)</span>, so each <span class="math inline">\(T_n\)</span> is positive; and they shrink so quickly that by <span class="math inline">\(n = 3\)</span> the curve is barely visible. Positive but tiny is exactly what the argument needs.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Integration by parts as a recurrence machine.</strong> Because the polynomial and its derivative vanished at both ends, integrating by parts gave a clean recurrence with no boundary terms.</p></li>
+<li><p><strong>Structure and size together.</strong> The recurrence showed <span class="math inline">\(T_n\)</span> has the form <span class="math inline">\(a_n + b_n e\)</span>; the bound showed it is small. Neither alone says anything about approximating <span class="math inline">\(e\)</span>.</p></li>
+<li><p><strong>Don’t compute what you don’t need.</strong> The question told us not to evaluate <span class="math inline">\(a_n\)</span> and <span class="math inline">\(b_n\)</span>, and the argument never needed them; it needed only that they were integers.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Another proof that <span class="math inline">\(e\)</span> is irrational</div>
+<p>The question stops just short of a famous theorem. Suppose <span class="math inline">\(e = p/q\)</span> with <span class="math inline">\(p, q\)</span> positive integers. Then <span class="math display">\[q\,T_n = q a_n + b_n p\]</span> is an <em>integer</em>. But <span class="math inline">\(0 &lt; q\,T_n &lt; \dfrac{qe}{n!}\)</span>, and for large <span class="math inline">\(n\)</span> the right-hand side is less than <span class="math inline">\(1\)</span>. So <span class="math inline">\(q T_n\)</span> would be an integer strictly between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, which is impossible. Hence <span class="math inline">\(e\)</span> is irrational. This is the “trap an integer between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>” idea from <a href="../ch01/e-irrational.html">Section 1.4</a>, delivered by integrals instead of series. Integrals of exactly this kind, with polynomials like <span class="math inline">\(t^n(1-t)^n\)</span>, were used by Charles Hermite in 1873 to prove that <span class="math inline">\(e\)</span> is <em>transcendental</em>: it is not a root of any polynomial with integer coefficients.</p>
+</div>
+<h3 id="continued-fractions">Continued fractions</h3>
+<p>The fractions in the table are not just good; they are among the <em>best possible</em>. The continued fraction of <span class="math inline">\(e\)</span>, found by Euler, has a beautiful pattern: <span class="math display">\[e = [2; 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, \ldots],\]</span> and its convergents are <span class="math inline">\(2, 3, \frac83, \frac{11}{4}, \frac{19}{7}, \frac{87}{32}, \frac{106}{39}, \frac{193}{71}, \ldots, \frac{2721}{1001}, \ldots\)</span>. Our <span class="math inline">\(-a_n/b_n\)</span> are exactly every third convergent. No fraction with a smaller denominator gets closer to <span class="math inline">\(e\)</span>. Euler’s pattern was itself the first proof that <span class="math inline">\(e\)</span> is irrational, since only rational numbers have finite continued fractions.</p>
+<h3 id="apérys-miracle">Apéry’s miracle</h3>
+<p>In 1978 Roger Apéry announced a proof that <span class="math inline">\(\zeta(3) = 1 + \frac18 + \frac1{27} + \cdots\)</span> is irrational, a question that had been open since Euler (see <a href="../ch02/kempner.html">Section 2.3</a>). His proof was so unexpected that the audience at first did not believe it. A year later Frits Beukers found a short version using integrals of the form <span class="math display">\[\int_0^1\!\!\int_0^1 \frac{-\ln(xy)}{1 - xy}\, P_n(x) P_n(y)\,\mathrm{d}x\,\mathrm{d}y,\]</span> where <span class="math inline">\(P_n\)</span> is built from <span class="math inline">\(\frac{\mathrm{d}^n}{\mathrm{d}x^n}\bigl(x^n(1-x)^n\bigr)\)</span>. These integrals are small, positive, and of the form “integer <span class="math inline">\(+\)</span> integer <span class="math inline">\(\times\, \zeta(3)\)</span>”, divided by a controlled denominator: exactly the strategy of this question. Whether <span class="math inline">\(\zeta(5)\)</span>, or <span class="math inline">\(e + \pi\)</span>, is irrational is still unknown.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Small but not zero</div>
+<p><em>If a quantity is known to be an integer combination of some numbers, and also known to be small but not zero, it carries information: about approximations, and sometimes about irrationality.</em></p>
+<p>The pattern is “structure from algebra, size from analysis”. It recurs throughout number theory, and it is one of the places where analysis and algebra meet most fruitfully.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Run the recurrence.</strong> Compute <span class="math inline">\(a_n\)</span> and <span class="math inline">\(b_n\)</span> for <span class="math inline">\(n = 2, 3, 4\)</span> from the recurrence and check the fractions in the table. Show that the signs of <span class="math inline">\(b_n\)</span> alternate.</p></li>
+<li><p><strong>A sharper bound.</strong> Show that <span class="math inline">\(0 &lt; T_n &lt; \dfrac{e}{4^n\, n!}\)</span>. How much does this improve the error estimate for <span class="math inline">\(-a_n/b_n\)</span>?</p></li>
+<li><p><strong>The irrationality proof.</strong> Write out the argument in the box above carefully. Where exactly do you use that <span class="math inline">\(T_n &gt; 0\)</span>?</p></li>
+<li><p><strong>A different weight.</strong> <span class="hard">harder</span> Repeat the question with <span class="math inline">\(e^t\)</span> replaced by <span class="math inline">\(e^{2t}\)</span> (so <span class="math inline">\(U_n = \int_0^1 \frac{t^n(1-t)^n}{n!}e^{2t}\,\mathrm{d}t\)</span>). Find a recurrence for <span class="math inline">\(U_n\)</span>, show that <span class="math inline">\(U_n\)</span> is a combination of <span class="math inline">\(1\)</span> and <span class="math inline">\(e^2\)</span> with rational coefficients, and investigate whether the argument still proves that <span class="math inline">\(e^2\)</span> is irrational. (Compare <a href="../ch01/e-irrational.html">Section 1.4</a>.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Ivan Niven, <em>Irrational Numbers</em></strong> (Mathematical Association of America). The classic short book on irrationality proofs, including Hermite’s method.</p></li>
+<li><p><strong>Alfred van der Poorten, “A proof that Euler missed”</strong>, <em>The Mathematical Intelligencer</em> 1 (1979). A lively account of Apéry’s proof and its reception.</p></li>
+<li><p><strong>Julian Havil, <em>The Irrationals</em></strong> (Princeton University Press). A history of irrational numbers, written for a general mathematical reader.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="squaring-minus-two.html">← 2.8 Squaring and Subtracting Two</a><a class="next" href="wrap-up.html">→ Looking back</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

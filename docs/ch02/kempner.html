@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.3 A Divergent Series and Its Convergent Cousin — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 2 · Sequences, Series and Convergence</a>
+    <div class="src">STEP III · 2014 · Question 8</div>
+    <div class="sec-head"><span class="sec-num">2.3</span><h1>A Divergent Series and Its Convergent Cousin</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-3-kempner.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 2</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The numbers <span class="math inline">\(f(r)\)</span> satisfy <span class="math inline">\(f(r) &gt; f(r+1)\)</span> for <span class="math inline">\(r = 1, 2, \ldots\)</span>. Show that, for any non-negative integer <span class="math inline">\(n\)</span>, <span class="math display">\[k^n(k-1)\, f(k^{n+1}) \leq \sum_{r=k^n}^{k^{n+1}-1} f(r) \leq k^n(k-1)\, f(k^n),\]</span> where <span class="math inline">\(k\)</span> is an integer greater than <span class="math inline">\(1\)</span>.</p>
+<ol class="roman">
+<li><p>By taking <span class="math inline">\(f(r) = 1/r\)</span>, show that <span class="math display">\[\frac{N+1}{2} \leq \sum_{r=1}^{2^{N+1}-1} \frac1r \leq N+1.\]</span> Deduce that the sum <span class="math inline">\(\sum\limits_{r=1}^{\infty} \frac1r\)</span> does not converge.</p></li>
+<li><p>By taking <span class="math inline">\(f(r) = 1/r^3\)</span>, show that <span class="math display">\[\sum_{r=1}^{\infty} \frac{1}{r^3} \leq 1\tfrac13.\]</span></p></li>
+<li><p>Let <span class="math inline">\(S(n)\)</span> be the set of positive integers less than <span class="math inline">\(n\)</span> which do not have a <span class="math inline">\(2\)</span> in their decimal representation and let <span class="math inline">\(\sigma(n)\)</span> be the sum of the reciprocals of the numbers in <span class="math inline">\(S(n)\)</span>, so for example <span class="math inline">\(\sigma(5) = 1 + \frac13 + \frac14\)</span>. Show that <span class="math inline">\(S(1000)\)</span> contains <span class="math inline">\(9^3 - 1\)</span> distinct numbers.</p>
+<p>Show that <span class="math inline">\(\sigma(n) &lt; 80\)</span> for all <span class="math inline">\(n\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>The harmonic series <span class="math inline">\(1 + \frac12 + \frac13 + \frac14 + \cdots\)</span> is the most famous example of a sum whose terms shrink to zero but which nevertheless grows without limit. It grows absurdly slowly: you need more than <span class="math inline">\(12{,}000\)</span> terms to pass <span class="math inline">\(10\)</span>, and about <span class="math inline">\(1.5 \times 10^{43}\)</span> terms to pass <span class="math inline">\(100\)</span>. But it does pass every number eventually.</p>
+<p>Now throw away every term whose denominator contains the digit <span class="math inline">\(2\)</span>: out go <span class="math inline">\(\frac12\)</span>, <span class="math inline">\(\frac1{12}\)</span>, <span class="math inline">\(\frac1{20}\)</span> to <span class="math inline">\(\frac1{29}\)</span>, <span class="math inline">\(\frac1{32}\)</span>, and so on. You might expect that removing a tenth or so of the terms would make little difference to a sum that is infinite anyway. Instead, what is left adds up to less than <span class="math inline">\(80\)</span>. This surprising fact was proved by A. J. Kempner in 1914, and the question walks you to it with one beautifully simple idea: chop the sum into blocks.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The first inequality is about the block of terms from <span class="math inline">\(r = k^n\)</span> to <span class="math inline">\(r = k^{n+1} - 1\)</span>. With <span class="math inline">\(k = 2\)</span> and <span class="math inline">\(n = 3\)</span>, which terms are these, and how many of them are there?</p>
+</div>
+<p>They are <span class="math inline">\(f(8), f(9), \ldots, f(15)\)</span>: eight terms. In general the block runs from <span class="math inline">\(k^n\)</span> to <span class="math inline">\(k^{n+1} - 1\)</span>, so it has <span class="math inline">\(k^{n+1} - k^n = k^n(k-1)\)</span> terms. The inequality says the block sum lies between (number of terms) <span class="math inline">\(\times\)</span> (smallest possible term) and (number of terms) <span class="math inline">\(\times\)</span> (largest term).</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-bounding-a-block" class="stage"><span class="stage-n">Stage 1</span> Bounding a block</h4>
+<p>Since <span class="math inline">\(f\)</span> is decreasing, every term in the block satisfies <span class="math display">\[f(k^{n+1}) &lt; f(k^{n+1} - 1) \leq f(r) \leq f(k^n) \qquad (k^n \leq r \leq k^{n+1} - 1).\]</span> Adding up the <span class="math inline">\(k^n(k-1)\)</span> terms gives the inequality.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-harmonic-series" class="stage"><span class="stage-n">Stage 2</span> The harmonic series</h4>
+<div class="askyourself">
+<p>With <span class="math inline">\(k = 2\)</span> and <span class="math inline">\(f(r) = 1/r\)</span>, what are the two bounds for the block from <span class="math inline">\(2^n\)</span> to <span class="math inline">\(2^{n+1} - 1\)</span>?</p>
+</div>
+<p>The lower bound is <span class="math inline">\(2^n \cdot \frac{1}{2^{n+1}} = \frac12\)</span> and the upper bound is <span class="math inline">\(2^n \cdot \frac{1}{2^n} = 1\)</span>. So <em>every</em> block, however far out, contributes between <span class="math inline">\(\frac12\)</span> and <span class="math inline">\(1\)</span> (Figure 2.3.1). The blocks for <span class="math inline">\(n = 0, 1, \ldots, N\)</span> fit together exactly to make the sum from <span class="math inline">\(r = 1\)</span> to <span class="math inline">\(r = 2^{N+1} - 1\)</span>, so adding <span class="math inline">\(N + 1\)</span> blocks gives <span class="math display">\[\frac{N+1}{2} \leq \sum_{r=1}^{2^{N+1}-1} \frac1r \leq N + 1.\]</span> As <span class="math inline">\(N \to \infty\)</span> the left-hand side grows without bound, so the partial sums are unbounded and the series diverges.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-2-3-1.svg" alt="Figure 2.3.1"><figcaption><span class="fig-label">Figure 2.3.1</span> The harmonic series cut into blocks of <span class="math inline">\(1, 2, 4, 8, \ldots\)</span> terms. Every block sum lies between <span class="math inline">\(\frac12\)</span> and <span class="math inline">\(1\)</span> (amber, dashed), and in fact the block sums settle down towards <span class="math inline">\(\ln 2 \approx 0.693\)</span> (plum). Infinitely many blocks, each worth at least <span class="math inline">\(\frac12\)</span>, cannot have a finite total.</figcaption></figure>
+<h4 id="stagemark3-the-sum-of-reciprocal-cubes" class="stage"><span class="stage-n">Stage 3</span> The sum of reciprocal cubes</h4>
+<p>Now take <span class="math inline">\(f(r) = 1/r^3\)</span>, still with <span class="math inline">\(k = 2\)</span>. The upper bound for block <span class="math inline">\(n\)</span> is <span class="math display">\[2^n \cdot \frac{1}{(2^n)^3} = \frac{1}{4^n}.\]</span> The blocks for <span class="math inline">\(n = 0, 1, 2, \ldots\)</span> cover every positive integer exactly once, so <span class="math display">\[\sum_{r=1}^{\infty} \frac{1}{r^3} \leq \sum_{n=0}^{\infty} \frac{1}{4^n} = \frac{1}{1 - \frac14} = \frac43 = 1\tfrac13. \qed\]</span> (Strictly, this shows every partial sum is at most <span class="math inline">\(\frac43\)</span>; an increasing sequence that is bounded above converges, so the infinite sum exists and is at most <span class="math inline">\(\frac43\)</span>. The true value is <span class="math inline">\(1.2020\ldots\)</span>)</p>
+<h4 id="stagemark4-counting-numbers-without-a-2" class="stage"><span class="stage-n">Stage 4</span> Counting numbers without a 2</h4>
+<div class="askyourself">
+<p>How many whole numbers from <span class="math inline">\(0\)</span> to <span class="math inline">\(999\)</span> can you write using only the digits <span class="math inline">\(0, 1, 3, 4, 5, 6, 7, 8, 9\)</span>, if you allow leading zeros (so <span class="math inline">\(7\)</span> is written <span class="math inline">\(007\)</span>)?</p>
+</div>
+<p>Each of the three digit positions has <span class="math inline">\(9\)</span> choices, so there are <span class="math inline">\(9^3\)</span> such strings. They correspond exactly to the numbers from <span class="math inline">\(0\)</span> to <span class="math inline">\(999\)</span> with no <span class="math inline">\(2\)</span>, and removing <span class="math inline">\(0\)</span> (which is not positive) leaves <span class="math inline">\(9^3 - 1 = 728\)</span> numbers in <span class="math inline">\(S(1000)\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark5-kempners-series" class="stage"><span class="stage-n">Stage 5</span> Kempner’s series</h4>
+<p>The block idea now works with blocks defined by the <em>number of digits</em>, which is the same as using <span class="math inline">\(k = 10\)</span>.</p>
+<div class="pausebox">
+<p>How many <span class="math inline">\(d\)</span>-digit numbers have no <span class="math inline">\(2\)</span> in them? And what is the smallest a <span class="math inline">\(d\)</span>-digit number can be?</p>
+</div>
+<p>The first digit can be any of <span class="math inline">\(1, 3, 4, \ldots, 9\)</span> (eight choices: not <span class="math inline">\(0\)</span>, not <span class="math inline">\(2\)</span>), and each of the remaining <span class="math inline">\(d - 1\)</span> digits has nine choices. So there are <span class="math inline">\(8 \times 9^{d-1}\)</span> such numbers, and each one is at least <span class="math inline">\(10^{d-1}\)</span>. So the <span class="math inline">\(d\)</span>-digit numbers in <span class="math inline">\(S(n)\)</span> contribute at most <span class="math display">\[8 \times 9^{d-1} \times \frac{1}{10^{d-1}} = 8 \left( \frac{9}{10} \right)^{d-1}\]</span> to <span class="math inline">\(\sigma(n)\)</span>. Adding over all digit lengths <span class="math inline">\(d = 1, 2, 3, \ldots\)</span>, <span class="math display">\[\sigma(n) \leq \sum_{d=1}^{\infty} 8 \left( \frac{9}{10} \right)^{d-1} = \frac{8}{1 - \frac{9}{10}} = 80.\]</span> For the strict inequality, notice that most of the bounds are far from sharp (for instance <span class="math inline">\(\frac13 &lt; 1\)</span>, while we have bounded every one-digit term by <span class="math inline">\(1\)</span>), so <span class="math inline">\(\sigma(n) &lt; 80\)</span> for all <span class="math inline">\(n\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Group the terms.</strong> Neither sum is easy term by term. Grouped into blocks of the right size, each was compared with a geometric series.</p></li>
+<li><p><strong>The right blocks depend on the problem.</strong> Powers of <span class="math inline">\(2\)</span> suited <span class="math inline">\(1/r\)</span> and <span class="math inline">\(1/r^3\)</span>; powers of <span class="math inline">\(10\)</span> suited a question about decimal digits.</p></li>
+<li><p><strong>Bounded and increasing.</strong> Both convergence proofs rested on the same principle as <a href="../ch02/golden-limit.html">Section 2.2</a>: partial sums of positive terms increase, so a bound is all you need.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">The condensation test</div>
+<p>The first inequality in the question is the heart of <em>Cauchy’s condensation test</em>: if <span class="math inline">\(f\)</span> is positive and decreasing, then <span class="math display">\[\sum_{r=1}^{\infty} f(r) \text{ converges} \iff \sum_{n=0}^{\infty} 2^n f(2^n) \text{ converges.}\]</span> It turns hard series into easy ones. Applied to <span class="math inline">\(f(r) = 1/r^p\)</span>, it gives <span class="math inline">\(\sum 2^n \cdot 2^{-np} = \sum (2^{1-p})^n\)</span>, a geometric series that converges exactly when <span class="math inline">\(p &gt; 1\)</span>. Applied to <span class="math inline">\(1/(r \ln r)\)</span> it shows that even this diverges, and to <span class="math inline">\(1/(r (\ln r)^2)\)</span> that this converges. The argument goes back to Nicole Oresme, who proved the harmonic series diverges in about 1350 by exactly the blocks of Figure 2.3.1.</p>
+</div>
+<h3 id="how-slowly-the-harmonic-series-diverges">How slowly the harmonic series diverges</h3>
+<p>Figure 2.3.1 suggests that each block contributes about <span class="math inline">\(\ln 2\)</span>, so the sum of the first <span class="math inline">\(N\)</span> terms should be roughly <span class="math inline">\(\log_2 N \times \ln 2 = \ln N\)</span>. In fact <span class="math display">\[1 + \frac12 + \cdots + \frac1N = \ln N + \gamma + \text{(something tending to $0$)},\]</span> where <span class="math inline">\(\gamma = 0.5772\ldots\)</span> is the Euler–Mascheroni constant. Nobody knows whether <span class="math inline">\(\gamma\)</span> is rational. You will prove the formula with integrals in first-year analysis, and the harmonic numbers turn up again in Section 9.11 and in Section 11.12.</p>
+<h3 id="most-numbers-contain-a-2">Most numbers contain a 2</h3>
+<p>Why does Kempner’s series converge? Because “numbers without a 2” are very rare among large numbers: of the numbers below <span class="math inline">\(10^d\)</span>, the proportion with no <span class="math inline">\(2\)</span> is at most <span class="math inline">\((0.9)^d\)</span>, which tends to <span class="math inline">\(0\)</span>. Among <span class="math inline">\(100\)</span>-digit numbers, fewer than <span class="math inline">\(0.003\%\)</span> avoid the digit <span class="math inline">\(2\)</span>. So we are not removing a tenth of the terms, but almost all of them. Our bound of <span class="math inline">\(80\)</span> is generous: in 1979 Robert Baillie used an accelerated method to compute the sum to many decimal places, and it is about <span class="math inline">\(19.257\)</span>.</p>
+<h3 id="sums-of-reciprocal-powers">Sums of reciprocal powers</h3>
+<p>The sum in part (ii) is <span class="math inline">\(\zeta(3)\)</span>, a value of the Riemann zeta function we met in <a href="../ch01/prime-distribution.html">Section 1.2</a>. In <a href="../ch02/basel.html">Section 2.4</a> we will find <span class="math inline">\(\zeta(2) = \pi^2/6\)</span> exactly, and Euler found a formula for <span class="math inline">\(\zeta(4), \zeta(6), \ldots\)</span>. But nobody has found a formula for <span class="math inline">\(\zeta(3)\)</span>. In 1978 Roger Apéry stunned the mathematical world by proving that <span class="math inline">\(\zeta(3)\)</span> is irrational, using integrals not unlike the ones in <a href="../ch02/e-approximations.html">Section 2.9</a>. Whether <span class="math inline">\(\zeta(5)\)</span> is irrational is still unknown.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Comparison by blocks</div>
+<p><em>To decide whether a series of positive terms converges, group the terms into blocks on which they are roughly constant, and compare each block with a simple series.</em></p>
+<p>Comparison tests are the bread and butter of first-year analysis. The skill is choosing the comparison: here, blocks of size <span class="math inline">\(2^n\)</span> or <span class="math inline">\(10^d\)</span> in which the terms change by at most a fixed factor.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Feel the slowness.</strong> Using <span class="math inline">\(\sum_{r \leq N} 1/r \approx \ln N + 0.5772\)</span>, estimate how many terms of the harmonic series you need to pass <span class="math inline">\(10\)</span>, and to pass <span class="math inline">\(100\)</span>.</p></li>
+<li><p><strong>The test in action.</strong> Use the method of part (i) with <span class="math inline">\(f(r) = 1/r^2\)</span> to show that <span class="math inline">\(\sum 1/r^2 \leq 2\)</span>. Then improve the bound by treating the first term separately.</p></li>
+<li><p><strong>Between convergence and divergence.</strong> Use the block inequality with <span class="math inline">\(k = 2\)</span> to show that <span class="math inline">\(\sum_{r \geq 2} \dfrac{1}{r \ln r}\)</span> diverges and <span class="math inline">\(\sum_{r \geq 2} \dfrac{1}{r (\ln r)^2}\)</span> converges.</p></li>
+<li><p><strong>Excluding more.</strong> <span class="hard">harder</span> Show that the sum of the reciprocals of the positive integers with no <span class="math inline">\(2\)</span> <em>and</em> no <span class="math inline">\(7\)</span> in their decimal representation is less than <span class="math inline">\(35\)</span>. (Can you see where <span class="math inline">\(35\)</span> comes from?)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Julian Havil, <em>Gamma: Exploring Euler’s Constant</em></strong> (Princeton University Press). The harmonic series, <span class="math inline">\(\gamma\)</span> and much more, written for a strong school student.</p></li>
+<li><p><strong>Mary Hart, <em>Guide to Analysis</em></strong> (Palgrave). A concise first-year text with a clear chapter on series and comparison tests.</p></li>
+<li><p><strong>Robert Baillie, “Sums of reciprocals of integers missing a given digit”</strong>, <em>American Mathematical Monthly</em> 86 (1979). A short paper you can read with this section behind you.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="golden-limit.html">← 2.2 The Golden Ratio as a Limit</a><a class="next" href="basel.html">→ 2.4 π²/6</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
