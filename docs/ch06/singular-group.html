@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6.8 A Group of Singular Matrices — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 6 · Algebra and Structure</a>
+    <div class="src">STEP III · 1996 · Question 6</div>
+    <div class="sec-head"><span class="sec-num">6.8</span><h1>A Group of Singular Matrices</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-8-singular-group.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 6</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Let <span class="math inline">\(S\)</span> be the set of matrices of the form <span class="math display">\[\begin{pmatrix} a &amp; a \\ a &amp; a \end{pmatrix},\]</span> where <span class="math inline">\(a\)</span> is any real non-zero number. Show that <span class="math inline">\(S\)</span> is closed under matrix multiplication and, further, that <span class="math inline">\(S\)</span> is a group under matrix multiplication.</p></li>
+<li><p>Let <span class="math inline">\(G\)</span> be a set of <span class="math inline">\(n \times n\)</span> matrices which is a group under matrix multiplication, with identity element <span class="math inline">\(\mathbf{E}\)</span>. By considering equations of the form <span class="math inline">\(\mathbf{BC} = \mathbf{D}\)</span> for suitable elements <span class="math inline">\(\mathbf{B}\)</span>, <span class="math inline">\(\mathbf{C}\)</span> and <span class="math inline">\(\mathbf{D}\)</span> of <span class="math inline">\(G\)</span>, show that if a given element <span class="math inline">\(\mathbf{A}\)</span> of <span class="math inline">\(G\)</span> is a singular matrix (i.e. <span class="math inline">\(\det\mathbf{A} = 0\)</span>), then all elements of <span class="math inline">\(G\)</span> are singular. Give, with justification, an example of such a group of singular matrices in the case <span class="math inline">\(n = 3\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Every student learns that a matrix with zero determinant has no inverse. So a group of matrices, in which every element has an inverse, surely cannot contain any singular matrices?</p>
+<p>It can. The catch is in the word “inverse”. In a group, the inverse of <span class="math inline">\(\mathbf{A}\)</span> is the element that combines with <span class="math inline">\(\mathbf{A}\)</span> to give the <em>group’s</em> identity, and nothing says the group’s identity has to be the identity matrix <span class="math inline">\(\mathbf{I}\)</span>. This question builds a group in which every matrix is singular, and the identity element is a matrix with determinant zero. It is a lesson in reading definitions literally, and in the difference between an abstract structure and the familiar example you first met it in.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>For the definition of a group, see <a href="../ch06/subgroup-unions.html">Section 6.6</a>.</p>
+<div class="askyourself">
+<p>In part (i), the identity matrix <span class="math inline">\(\mathbf{I}\)</span> is not of the form <span class="math inline">\(\begin{pmatrix} a &amp; a \\ a &amp; a \end{pmatrix}\)</span>. So what could the identity element of <span class="math inline">\(S\)</span> be?</p>
+</div>
+<p>It must be some matrix <span class="math inline">\(\mathbf{E}\)</span> in <span class="math inline">\(S\)</span> with <span class="math inline">\(\mathbf{E}\mathbf{X} = \mathbf{X}\mathbf{E} = \mathbf{X}\)</span> for every <span class="math inline">\(\mathbf{X}\)</span> in <span class="math inline">\(S\)</span>. That is a condition only on how <span class="math inline">\(\mathbf{E}\)</span> acts on matrices of this special form, not on all matrices. Find it by solving the equation.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-closure" class="stage"><span class="stage-n">Stage 1</span> Closure</h4>
+<p>Write <span class="math inline">\(\mathbf{M}_a\)</span> for the matrix with all four entries equal to <span class="math inline">\(a\)</span>. Then <span class="math display">\[\mathbf{M}_a\mathbf{M}_b = \begin{pmatrix} a &amp; a \\ a &amp; a \end{pmatrix}\begin{pmatrix} b &amp; b \\ b &amp; b \end{pmatrix} = \begin{pmatrix} 2ab &amp; 2ab \\ 2ab &amp; 2ab \end{pmatrix} = \mathbf{M}_{2ab},\]</span> and <span class="math inline">\(2ab \neq 0\)</span> when <span class="math inline">\(a, b \neq 0\)</span>. So <span class="math inline">\(S\)</span> is closed.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-group-axioms" class="stage"><span class="stage-n">Stage 2</span> The group axioms</h4>
+<div class="askyourself">
+<p>Matrix multiplication is associative. For the identity, solve <span class="math inline">\(\mathbf{M}_e\mathbf{M}_a = \mathbf{M}_a\)</span>. For inverses, solve <span class="math inline">\(\mathbf{M}_a\mathbf{M}_b = \mathbf{M}_e\)</span>.</p>
+</div>
+<p><em>Associativity</em> is inherited from matrix multiplication. <em>Identity:</em> <span class="math inline">\(\mathbf{M}_e\mathbf{M}_a = \mathbf{M}_{2ea} = \mathbf{M}_a\)</span> for all <span class="math inline">\(a\)</span> exactly when <span class="math inline">\(e = \frac12\)</span>; by the symmetry of the formula, <span class="math inline">\(\mathbf{M}_a\mathbf{M}_{1/2} = \mathbf{M}_a\)</span> too. So <span class="math display">\[\mathbf{E} = \begin{pmatrix} \frac12 &amp; \frac12 \\ \frac12 &amp; \frac12 \end{pmatrix}\]</span> is the identity of <span class="math inline">\(S\)</span>. <em>Inverses:</em> <span class="math inline">\(\mathbf{M}_a\mathbf{M}_b = \mathbf{M}_{2ab} = \mathbf{M}_{1/2}\)</span> when <span class="math inline">\(b = \frac{1}{4a}\)</span>, which is non-zero, so <span class="math inline">\(\mathbf{M}_{1/(4a)}\)</span> is the inverse of <span class="math inline">\(\mathbf{M}_a\)</span> in <span class="math inline">\(S\)</span>. So <span class="math inline">\(S\)</span> is a group.<span class="qed" aria-label="end of proof">■</span> Every element has determinant <span class="math inline">\(a^2 - a^2 = 0\)</span>.</p>
+<h4 id="stagemark3-singularity-spreads" class="stage"><span class="stage-n">Stage 3</span> Singularity spreads</h4>
+<div class="pausebox">
+<p>Suppose <span class="math inline">\(\mathbf{A} \in G\)</span> is singular, and let <span class="math inline">\(\mathbf{B}\)</span> be any element of <span class="math inline">\(G\)</span>. Write <span class="math inline">\(\mathbf{B}\)</span> as a product involving <span class="math inline">\(\mathbf{A}\)</span>, and take determinants.</p>
+</div>
+<p>Let <span class="math inline">\(\mathbf{A}^{-1}\)</span> denote the inverse of <span class="math inline">\(\mathbf{A}\)</span> <em>in the group</em> <span class="math inline">\(G\)</span> (not necessarily a matrix inverse). Then <span class="math inline">\(\mathbf{C} = \mathbf{A}^{-1}\mathbf{B}\)</span> is in <span class="math inline">\(G\)</span>, and <span class="math display">\[\mathbf{A}\mathbf{C} = \mathbf{A}\mathbf{A}^{-1}\mathbf{B} = \mathbf{E}\mathbf{B} = \mathbf{B}.\]</span> Taking determinants, <span class="math inline">\(\det\mathbf{B} = \det\mathbf{A}\,\det\mathbf{C} = 0\)</span>. So every element of <span class="math inline">\(G\)</span> is singular.<span class="qed" aria-label="end of proof">■</span> In particular, if one element of a matrix group is invertible as a matrix, all are; a matrix group is either entirely invertible or entirely singular.</p>
+<h4 id="stagemark4-a-3-times-3-example" class="stage"><span class="stage-n">Stage 4</span> A <span class="math inline">\(3 \times 3\)</span> example</h4>
+<div class="askyourself">
+<p>Can you generalise part (i) to <span class="math inline">\(3 \times 3\)</span> matrices? Or find something even simpler, using a matrix that “ignores” two of the three coordinates?</p>
+</div>
+<p>Take <span class="math display">\[G = \left\{\begin{pmatrix} a &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix} : a \neq 0\right\}.\]</span> The product of the matrices with corner entries <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> is the one with corner entry <span class="math inline">\(ab\)</span>, so <span class="math inline">\(G\)</span> is closed; multiplication is associative; the identity is the matrix with corner entry <span class="math inline">\(1\)</span>; the inverse of the one with corner <span class="math inline">\(a\)</span> is the one with corner <span class="math inline">\(\frac1a\)</span>. So <span class="math inline">\(G\)</span> is a group, and every element has determinant <span class="math inline">\(0\)</span>.<span class="qed" aria-label="end of proof">■</span> (Another example: the <span class="math inline">\(3 \times 3\)</span> matrices with all nine entries equal to <span class="math inline">\(a \neq 0\)</span>, whose identity has all entries <span class="math inline">\(\frac13\)</span>.)</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Read definitions literally.</strong> A group’s identity is whatever element acts as an identity <em>within the group</em>; it need not be the familiar identity.</p></li>
+<li><p><strong>Solve for the structure.</strong> The identity and inverses in <span class="math inline">\(S\)</span> were found by solving equations, not by guessing.</p></li>
+<li><p><strong>Determinants are multiplicative.</strong> That one property showed that singularity spreads from one element to all of them.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Idempotents and hidden invertibility</div>
+<p>The identity <span class="math inline">\(\mathbf{E}\)</span> of any matrix group satisfies <span class="math inline">\(\mathbf{E}^2 = \mathbf{E}\)</span>: it is <em>idempotent</em>. Geometrically, an idempotent matrix is a <em>projection</em>: it maps every vector onto a subspace and leaves the vectors in that subspace alone. In part (i), <span class="math inline">\(\mathbf{E}\)</span> projects the plane onto the line <span class="math inline">\(y = x\)</span>, and every matrix <span class="math inline">\(\mathbf{M}_a\)</span> first projects onto that line and then stretches along it by the factor <span class="math inline">\(2a\)</span> (Figure 6.8.1). On the line, the group acts by invertible stretches; it simply ignores the direction perpendicular to it. So <span class="math inline">\(S\)</span> is really the group of non-zero real numbers under multiplication (via <span class="math inline">\(\mathbf{M}_a \mapsto 2a\)</span>), living on a line inside the plane. This is true in general: every group of matrices is, after a change of basis, a group of invertible matrices acting on the image of its identity element, padded with zeros.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-8-1.svg" alt="Figure 6.8.1"><figcaption><span class="fig-label">Figure 6.8.1</span> What the matrices in part (i) do. The identity element <span class="math inline">\(\mathbf{E}\)</span> projects every vector <span class="math inline">\(\mathbf{v}\)</span> onto the line <span class="math inline">\(y = x\)</span> (amber, dashed). Each <span class="math inline">\(\mathbf{M}_a\)</span> does the same projection and then stretches along the line by the factor <span class="math inline">\(2a\)</span> (plum; here <span class="math inline">\(2a = \frac{16}{9}\)</span>). On the line itself, the group acts by ordinary invertible scaling.</figcaption></figure>
+<h3 id="abstract-and-concrete">Abstract and concrete</h3>
+<p>The first groups people studied were concrete: permutations, symmetries, invertible matrices. The abstract definition (a set with an operation satisfying three axioms) was distilled from them. This question shows the value of the abstract view: <span class="math inline">\(S\)</span> and the group of non-zero reals under multiplication are <em>isomorphic</em>, the same group in different clothing, even though one consists of singular matrices and the other of numbers. Recognising when two different-looking structures are “the same” is one of the central skills of algebra, and the notion of isomorphism is how mathematicians make that precise.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Question hidden assumptions about familiar objects</div>
+<p><em>When a familiar object appears in an abstract definition, check which of its familiar properties the definition actually requires.</em></p>
+<p>“The identity of a group of matrices is <span class="math inline">\(\mathbf{I}\)</span>” sounds obvious but is not part of the definition, and dropping it led to a genuinely new example. Questioning assumptions like this is how many new mathematical structures are found.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>An isomorphism.</strong> Show that the map <span class="math inline">\(\mathbf{M}_a \mapsto 2a\)</span> is a one-to-one correspondence from <span class="math inline">\(S\)</span> to the non-zero reals that turns matrix multiplication into multiplication of numbers.</p></li>
+<li><p><strong>Not a group.</strong> Show that the set of matrices <span class="math inline">\(\begin{pmatrix} a &amp; b \\ 0 &amp; 0 \end{pmatrix}\)</span> with <span class="math inline">\(a \neq 0\)</span> is closed under multiplication but is not a group. (<em>Hint:</em> look for an identity element. Is there a left identity? A right identity?)</p></li>
+<li><p><strong>Idempotents.</strong> Find all <span class="math inline">\(2 \times 2\)</span> real matrices <span class="math inline">\(\mathbf{E}\)</span> with <span class="math inline">\(\mathbf{E}^2 = \mathbf{E}\)</span>. Describe them geometrically.</p></li>
+<li><p><strong>All entries equal.</strong> Show that the <span class="math inline">\(n \times n\)</span> matrices with all entries equal to <span class="math inline">\(a \neq 0\)</span> form a group under multiplication, and find its identity element.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>M. A. Armstrong, <em>Groups and Symmetry</em></strong> (Springer). Matrix groups and isomorphisms, with many geometric examples.</p></li>
+<li><p><strong>Gilbert Strang, <em>Introduction to Linear Algebra</em></strong> (Wellesley-Cambridge). Projections and idempotent matrices, clearly explained.</p></li>
+<li><p><strong>Joseph Gallian, <em>Contemporary Abstract Algebra</em></strong> (CRC Press). A friendly first course with many examples of unusual groups.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="quaternions.html">← 6.7 The Quaternion Group</a><a class="next" href="wrap-up.html">→ Looking back</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

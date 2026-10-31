@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6.4 Solving the Quartic — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 6 · Algebra and Structure</a>
+    <div class="src">STEP III · 2017 · Question 3</div>
+    <div class="sec-head"><span class="sec-num">6.4</span><h1>Solving the Quartic</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-4-quartic.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 6</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Let <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\delta\)</span> be the roots of the quartic equation <span class="math display">\[x^4 + px^3 + qx^2 + rx + s = 0.\]</span> You are given that, for any such equation, <span class="math inline">\(\alpha\beta + \gamma\delta\)</span>, <span class="math inline">\(\alpha\gamma + \beta\delta\)</span> and <span class="math inline">\(\alpha\delta + \beta\gamma\)</span> satisfy a cubic equation of the form <span class="math display">\[y^3 + Ay^2 + (pr - 4s)y + (4qs - p^2s - r^2) = 0.\]</span> Determine <span class="math inline">\(A\)</span>.</p>
+<p>Now consider the quartic equation given by <span class="math inline">\(p = 0\)</span>, <span class="math inline">\(q = 3\)</span>, <span class="math inline">\(r = -6\)</span> and <span class="math inline">\(s = 10\)</span>.</p>
+<ol class="roman">
+<li><p>Find the value of <span class="math inline">\(\alpha\beta + \gamma\delta\)</span>, given that it is the largest root of the corresponding cubic equation.</p></li>
+<li><p>Hence, using the values of <span class="math inline">\(q\)</span> and <span class="math inline">\(s\)</span>, find the value of <span class="math inline">\((\alpha + \beta)(\gamma + \delta)\)</span> and the value of <span class="math inline">\(\alpha\beta\)</span> given that <span class="math inline">\(\alpha\beta &gt; \gamma\delta\)</span>.</p></li>
+<li><p>Using these results, and the values of <span class="math inline">\(p\)</span> and <span class="math inline">\(r\)</span>, solve the quartic equation.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Every student learns the formula for solving quadratic equations. Formulas for cubics and quartics exist too; they were found in sixteenth-century Italy amid secret contests and bitter disputes over priority. Gerolamo Cardano published both in his <em>Ars Magna</em> of 1545, the cubic from Niccolò Tartaglia (who had sworn him to secrecy) and the quartic from his own student Lodovico Ferrari. Then, for nearly three hundred years, mathematicians searched in vain for a formula for the quintic.</p>
+<p>This question shows the trick that solves the quartic, and it is a trick with a deep meaning. Out of the four roots, form three new quantities by pairing the roots up in the three possible ways. Those three quantities satisfy a cubic, which you can solve, and from them the original roots follow. The question <em>why</em> this works, why four roots can be reduced to three quantities but five roots cannot be similarly reduced, is what led Galois to invent group theory.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>How many ways are there to split four objects <span class="math inline">\(\alpha, \beta, \gamma, \delta\)</span> into two pairs?</p>
+</div>
+<p>Three: <span class="math inline">\(\{\alpha\beta, \gamma\delta\}\)</span>, <span class="math inline">\(\{\alpha\gamma, \beta\delta\}\)</span> and <span class="math inline">\(\{\alpha\delta, \beta\gamma\}\)</span> (Figure 6.4.1). The three quantities in the question, <span class="math inline">\(\alpha\beta + \gamma\delta\)</span> and so on, correspond to these three pairings. Any rearrangement of the four roots just shuffles the three pairings among themselves, so any symmetric expression in the three quantities is a symmetric expression in the four roots, and can be written in terms of <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span>, <span class="math inline">\(r\)</span>, <span class="math inline">\(s\)</span>. That is why they satisfy a cubic whose coefficients involve only <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span>, <span class="math inline">\(r\)</span>, <span class="math inline">\(s\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-missing-coefficient" class="stage"><span class="stage-n">Stage 1</span> The missing coefficient</h4>
+<div class="askyourself">
+<p>In a cubic <span class="math inline">\(y^3 + Ay^2 + By + C = 0\)</span>, what is the sum of the roots in terms of <span class="math inline">\(A\)</span>? And what is <span class="math inline">\((\alpha\beta + \gamma\delta) + (\alpha\gamma + \beta\delta) + (\alpha\delta + \beta\gamma)\)</span> in terms of the quartic’s coefficients?</p>
+</div>
+<p>The sum of the roots of the cubic is <span class="math inline">\(-A\)</span>. The sum of the three quantities is the sum of all six products of pairs of <span class="math inline">\(\alpha, \beta, \gamma, \delta\)</span>, which for the quartic <span class="math inline">\(x^4 + px^3 + qx^2 + rx + s\)</span> is <span class="math inline">\(q\)</span>. So <span class="math inline">\(A = -q\)</span>.</p>
+<h4 id="stagemark2-the-specific-cubic" class="stage"><span class="stage-n">Stage 2</span> The specific cubic</h4>
+<p>With <span class="math inline">\(p = 0\)</span>, <span class="math inline">\(q = 3\)</span>, <span class="math inline">\(r = -6\)</span>, <span class="math inline">\(s = 10\)</span>, the cubic is <span class="math display">\[y^3 - 3y^2 + (0 - 40)y + (120 - 0 - 36) = y^3 - 3y^2 - 40y + 84 = 0.\]</span></p>
+<div class="askyourself">
+<p>Try small divisors of <span class="math inline">\(84\)</span>.</p>
+</div>
+<p><span class="math inline">\(y = 2\)</span> gives <span class="math inline">\(8 - 12 - 80 + 84 = 0\)</span>. Dividing, <span class="math inline">\(y^3 - 3y^2 - 40y + 84 = (y - 2)(y^2 - y - 42) = (y - 2)(y - 7)(y + 6)\)</span>. The largest root is <span class="math inline">\(7\)</span>, so <span class="math inline">\(\alpha\beta + \gamma\delta = 7\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-pairs-of-roots" class="stage"><span class="stage-n">Stage 3</span> Pairs of roots</h4>
+<p><span class="math inline">\((\alpha + \beta)(\gamma + \delta) = \alpha\gamma + \alpha\delta + \beta\gamma + \beta\delta\)</span>, which is the sum of all six pair-products minus <span class="math inline">\(\alpha\beta + \gamma\delta\)</span>, that is, <span class="math inline">\(q - 7 = 3 - 7 = -4\)</span>.</p>
+<p>Also <span class="math inline">\(\alpha\beta \cdot \gamma\delta = \alpha\beta\gamma\delta = s = 10\)</span>. So <span class="math inline">\(\alpha\beta\)</span> and <span class="math inline">\(\gamma\delta\)</span> have sum <span class="math inline">\(7\)</span> and product <span class="math inline">\(10\)</span>: they are the roots of <span class="math inline">\(t^2 - 7t + 10 = (t - 2)(t - 5)\)</span>. With <span class="math inline">\(\alpha\beta &gt; \gamma\delta\)</span>, <span class="math inline">\(\alpha\beta = 5\)</span> and <span class="math inline">\(\gamma\delta = 2\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-solving-the-quartic" class="stage"><span class="stage-n">Stage 4</span> Solving the quartic</h4>
+<div class="pausebox">
+<p>Find <span class="math inline">\(\alpha + \beta\)</span> and <span class="math inline">\(\gamma + \delta\)</span>. You know their sum (from <span class="math inline">\(p\)</span>) and their product (from Stage 3); to decide which is which, use <span class="math inline">\(r\)</span>.</p>
+</div>
+<p><span class="math inline">\(\alpha + \beta + \gamma + \delta = -p = 0\)</span> and <span class="math inline">\((\alpha + \beta)(\gamma + \delta) = -4\)</span>, so <span class="math inline">\(\{\alpha + \beta, \gamma + \delta\} = \{2, -2\}\)</span>. The coefficient <span class="math inline">\(r\)</span> gives the sum of the four triple products: <span class="math inline">\(\alpha\beta\gamma + \alpha\beta\delta + \alpha\gamma\delta + \beta\gamma\delta = -r = 6\)</span>. This can be written as <span class="math inline">\(\alpha\beta(\gamma + \delta) + \gamma\delta(\alpha + \beta) = 5(\gamma + \delta) + 2(\alpha + \beta)\)</span>. If <span class="math inline">\(\alpha + \beta = 2\)</span> this is <span class="math inline">\(-10 + 4 = -6\)</span>; if <span class="math inline">\(\alpha + \beta = -2\)</span> it is <span class="math inline">\(10 - 4 = 6\)</span>. So <span class="math inline">\(\alpha + \beta = -2\)</span> and <span class="math inline">\(\gamma + \delta = 2\)</span>.</p>
+<p>Now <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> are the roots of <span class="math inline">\(t^2 + 2t + 5 = 0\)</span>, giving <span class="math inline">\(-1 \pm 2\mathrm{i}\)</span>; and <span class="math inline">\(\gamma\)</span>, <span class="math inline">\(\delta\)</span> are the roots of <span class="math inline">\(t^2 - 2t + 2 = 0\)</span>, giving <span class="math inline">\(1 \pm \mathrm{i}\)</span>. The four roots are <span class="math display">\[x = -1 \pm 2\mathrm{i}, \qquad x = 1 \pm \mathrm{i}. \qed\]</span> Check: <span class="math inline">\((x^2 + 2x + 5)(x^2 - 2x + 2) = x^4 + 3x^2 - 6x + 10\)</span>.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Symmetric functions.</strong> Every step used the relations between roots and coefficients: sums and products of roots.</p></li>
+<li><p><strong>Reduce the degree.</strong> A quartic problem became a cubic (the <em>resolvent cubic</em>), and then two quadratics.</p></li>
+<li><p><strong>Use every piece of information.</strong> <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> gave the sums and products; <span class="math inline">\(s\)</span> split <span class="math inline">\(\alpha\beta\)</span> from <span class="math inline">\(\gamma\delta\)</span>; <span class="math inline">\(r\)</span> decided which pair went with which sum.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Why the trick works: permutations of roots</div>
+<p>In 1770 Joseph-Louis Lagrange asked why the methods for cubics and quartics work, and found the answer in the <em>permutations</em> of the roots. There are <span class="math inline">\(24\)</span> ways to rearrange four roots. Under all of them, the three quantities <span class="math inline">\(y_1 = \alpha\beta + \gamma\delta\)</span>, <span class="math inline">\(y_2 = \alpha\gamma + \beta\delta\)</span>, <span class="math inline">\(y_3 = \alpha\delta + \beta\gamma\)</span> are merely shuffled among themselves: each rearrangement of the four roots induces a rearrangement of the three pairings (Figure 6.4.1). So they satisfy a polynomial of degree <span class="math inline">\(3\)</span> with coefficients symmetric in the roots. In modern language, there is a group homomorphism from the symmetric group <span class="math inline">\(S_4\)</span> (all <span class="math inline">\(24\)</span> permutations) onto <span class="math inline">\(S_3\)</span> (the <span class="math inline">\(6\)</span> permutations of the pairings), and that is why a quartic can be reduced to a cubic.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-4-1.svg" alt="Figure 6.4.1"><figcaption><span class="fig-label">Figure 6.4.1</span> The three ways to split four roots into two pairs, and the corresponding roots of the resolvent cubic. Any rearrangement of <span class="math inline">\(\alpha, \beta, \gamma, \delta\)</span> permutes these three pictures among themselves, which is why the three quantities satisfy a cubic with coefficients expressible in terms of the quartic’s.</figcaption></figure>
+<h3 id="the-quintic">The quintic</h3>
+<p>For five roots, Lagrange looked for a similar quantity taking only a few values under permutations of the roots, and could not find one that helped. In 1799 Paolo Ruffini, and in 1824 Niels Henrik Abel (completing the proof), showed that there is no general formula for the roots of a quintic using only arithmetic and radicals. A few years later Évariste Galois explained exactly which polynomials can be solved by radicals: those whose <em>group of symmetries of the roots</em> can be broken down in a particular way into simpler pieces. The symmetric group <span class="math inline">\(S_4\)</span> can be (via <span class="math inline">\(S_3\)</span> and smaller groups), but <span class="math inline">\(S_5\)</span> cannot, because it contains a “simple” piece of size <span class="math inline">\(60\)</span> that cannot be broken down further. Galois wrote up his theory in a hurry the night before he was killed in a duel in 1832, at the age of twenty. It is now one of the jewels of a mathematics degree, usually met in the third year.</p>
+<h3 id="solving-cubics">Solving cubics</h3>
+<p>The cubic itself can be solved by a similar trick: write a depressed cubic <span class="math inline">\(x^3 - 3px + q\)</span> as a combination of two perfect cubes, which reduces it to a quadratic. That is the method of the 2011 question in the exercises, and it is equivalent to Cardano’s formula. When the cubic has three real roots, the formula still requires complex numbers along the way, the phenomenon that forced mathematicians to take complex numbers seriously (see the introduction to Chapter 5).</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Symmetry reduces complexity</div>
+<p><em>If some quantities built from the roots are only permuted among themselves when the roots are permuted, they satisfy a polynomial of lower degree whose coefficients you can compute.</em></p>
+<p>This is the seed of Galois theory: understand an equation by understanding the symmetries of its roots.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Check the cubic.</strong> Verify that <span class="math inline">\(y_1y_2 + y_2y_3 + y_3y_1 = pr - 4s\)</span>, where <span class="math inline">\(y_1 = \alpha\beta + \gamma\delta\)</span> etc. (Expand and use <span class="math inline">\(\sum\alpha = -p\)</span>, <span class="math inline">\(\sum\alpha\beta\gamma = -r\)</span>, <span class="math inline">\(\alpha\beta\gamma\delta = s\)</span>.)</p></li>
+<li><p><strong>The cubic as a sum of cubes.</strong> (From STEP III, 2011.) Show that if <span class="math inline">\(q^2 \neq 4p^3\)</span> then <span class="math inline">\(x^3 - 3px + q = a(x - \alpha)^3 + b(x - \beta)^3\)</span>, where <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> are the roots of <span class="math inline">\(pt^2 - qt + p^2 = 0\)</span>. Hence show that one root of <span class="math inline">\(x^3 - 24x + 48 = 0\)</span> is <span class="math inline">\(x = \dfrac{2(2 - 2^{1/3})}{1 - 2^{1/3}}\)</span>, and check this numerically.</p></li>
+<li><p><strong>Another quartic.</strong> Use the method of this section to solve <span class="math inline">\(x^4 - 4x^3 + 7x^2 - 6x + 2 = 0\)</span>. (One root of the resolvent cubic is a small integer.)</p></li>
+<li><p><strong>Counting permutations.</strong> Of the <span class="math inline">\(24\)</span> permutations of <span class="math inline">\(\alpha, \beta, \gamma, \delta\)</span>, find all those that send the pairing <span class="math inline">\(\{\alpha\beta, \gamma\delta\}\)</span> to itself. Show that there are <span class="math inline">\(8\)</span> of them. (They form a subgroup of <span class="math inline">\(S_4\)</span>.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Mario Livio, <em>The Equation That Couldn’t Be Solved</em></strong> (Simon &amp; Schuster). The story of the quintic and the birth of group theory, for a general reader.</p></li>
+<li><p><strong>Ian Stewart, <em>Why Beauty Is Truth: A History of Symmetry</em></strong> (Basic Books). From Babylonian equations to Galois and beyond.</p></li>
+<li><p><strong>Ian Stewart, <em>Galois Theory</em></strong> (CRC Press). The undergraduate text, with a historical introduction covering exactly this material.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="field-extensions.html">← 6.3 A Polynomial for √2 + √3 + √5</a><a class="next" href="derivations.html">→ 6.5 Differentiation from Axioms</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

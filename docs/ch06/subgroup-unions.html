@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6.6 Unions of Subgroups — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 6 · Algebra and Structure</a>
+    <div class="src">STEP II · 1988 · Question 9</div>
+    <div class="sec-head"><span class="sec-num">6.6</span><h1>Unions of Subgroups</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-6-subgroup-unions.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 6</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Give a careful argument to show that, if <span class="math inline">\(G_1\)</span> and <span class="math inline">\(G_2\)</span> are subgroups of a finite group <span class="math inline">\(G\)</span> such that every element of <span class="math inline">\(G\)</span> is either in <span class="math inline">\(G_1\)</span> or in <span class="math inline">\(G_2\)</span>, then either <span class="math inline">\(G_1 = G\)</span> or <span class="math inline">\(G_2 = G\)</span>.</p>
+<p>Give an example of a group <span class="math inline">\(H\)</span> which has three subgroups <span class="math inline">\(H_1\)</span>, <span class="math inline">\(H_2\)</span> and <span class="math inline">\(H_3\)</span> such that every element of <span class="math inline">\(H\)</span> is either in <span class="math inline">\(H_1\)</span>, <span class="math inline">\(H_2\)</span> or <span class="math inline">\(H_3\)</span> and <span class="math inline">\(H_1 \neq H\)</span>, <span class="math inline">\(H_2 \neq H\)</span>, <span class="math inline">\(H_3 \neq H\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>This is one of the shortest questions in the book, and one of the most characteristic of university mathematics. It is about <em>groups</em>, the mathematical language of symmetry, and it asks something that sounds like a puzzle: can a group be covered by two smaller groups sitting inside it? The answer is no, and the proof is three lines long. But three smaller groups can do it, which is a surprise.</p>
+<p>Group theory was on the STEP syllabus until 2019 and is now a staple of the first year at university. This question needs only the definitions, which are given below, and it is a perfect first taste of how group theorists think: a short, clever argument that uses nothing but the axioms.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>A <em>group</em> is a set <span class="math inline">\(G\)</span> with an operation (written as multiplication, <span class="math inline">\(ab\)</span>) such that:</p>
+<ul>
+<li><p>the operation is <em>associative</em>: <span class="math inline">\((ab)c = a(bc)\)</span>;</p></li>
+<li><p>there is an <em>identity</em> element <span class="math inline">\(e\)</span> with <span class="math inline">\(ea = ae = a\)</span> for every <span class="math inline">\(a\)</span>;</p></li>
+<li><p>every <span class="math inline">\(a\)</span> has an <em>inverse</em> <span class="math inline">\(a^{-1}\)</span> with <span class="math inline">\(aa^{-1} = a^{-1}a = e\)</span>.</p></li>
+</ul>
+<p>Examples: the whole numbers under addition; the non-zero real numbers under multiplication; the rotations of a square under composition. A <em>subgroup</em> is a subset <span class="math inline">\(K\)</span> of <span class="math inline">\(G\)</span> that is a group in its own right under the same operation: it contains <span class="math inline">\(e\)</span>, and if <span class="math inline">\(a, b \in K\)</span> then <span class="math inline">\(ab \in K\)</span> and <span class="math inline">\(a^{-1} \in K\)</span>.</p>
+<div class="askyourself">
+<p>If <span class="math inline">\(K\)</span> is a subgroup and <span class="math inline">\(a \in K\)</span>, but <span class="math inline">\(b \notin K\)</span>, can <span class="math inline">\(ab\)</span> be in <span class="math inline">\(K\)</span>?</p>
+</div>
+<p>No. If <span class="math inline">\(ab \in K\)</span>, then <span class="math inline">\(b = a^{-1}(ab)\)</span> would be a product of two elements of <span class="math inline">\(K\)</span>, and so in <span class="math inline">\(K\)</span>. This tiny observation is the whole proof.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-two-subgroups-cannot-cover" class="stage"><span class="stage-n">Stage 1</span> Two subgroups cannot cover</h4>
+<p>Suppose, for a contradiction, that <span class="math inline">\(G = G_1 \cup G_2\)</span> but neither <span class="math inline">\(G_1\)</span> nor <span class="math inline">\(G_2\)</span> is all of <span class="math inline">\(G\)</span>.</p>
+<div class="askyourself">
+<p>Since <span class="math inline">\(G_1 \neq G\)</span>, there is an element not in <span class="math inline">\(G_1\)</span>. Where must it be? Similarly for <span class="math inline">\(G_2\)</span>. Now multiply the two elements together.</p>
+</div>
+<p>Choose <span class="math inline">\(a \in G\)</span> with <span class="math inline">\(a \notin G_1\)</span>; since every element is in <span class="math inline">\(G_1\)</span> or <span class="math inline">\(G_2\)</span>, <span class="math inline">\(a \in G_2\)</span>. Choose <span class="math inline">\(b \in G\)</span> with <span class="math inline">\(b \notin G_2\)</span>; then <span class="math inline">\(b \in G_1\)</span>. Consider the product <span class="math inline">\(ab\)</span>. It lies in <span class="math inline">\(G_1\)</span> or in <span class="math inline">\(G_2\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(ab \in G_1\)</span>: since <span class="math inline">\(b \in G_1\)</span>, <span class="math inline">\(a = (ab)b^{-1} \in G_1\)</span>. Contradiction.</p></li>
+<li><p>If <span class="math inline">\(ab \in G_2\)</span>: since <span class="math inline">\(a \in G_2\)</span>, <span class="math inline">\(b = a^{-1}(ab) \in G_2\)</span>. Contradiction.</p></li>
+</ul>
+<p>Either way we reach a contradiction, so <span class="math inline">\(G_1 = G\)</span> or <span class="math inline">\(G_2 = G\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Notice that we never used the fact that <span class="math inline">\(G\)</span> is finite. The result holds for every group.</p>
+<h4 id="stagemark2-three-subgroups-can" class="stage"><span class="stage-n">Stage 2</span> Three subgroups can</h4>
+<div class="pausebox">
+<p>Find a group that is the union of three subgroups, none of them the whole group. (<em>Hint:</em> try a small group in which every element is its own inverse.)</p>
+</div>
+<p>Take the <em>Klein four-group</em> <span class="math inline">\(V = \{e, a, b, c\}\)</span>, with the rules <span class="math inline">\(a^2 = b^2 = c^2 = e\)</span> and <span class="math inline">\(ab = ba = c\)</span>, <span class="math inline">\(bc = cb = a\)</span>, <span class="math inline">\(ca = ac = b\)</span>. (Concretely: the four symmetries of a non-square rectangle, namely doing nothing, rotating by <span class="math inline">\(180^\circ\)</span>, and reflecting in either axis. Or the pairs <span class="math inline">\((x, y)\)</span> of bits <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span> under addition modulo <span class="math inline">\(2\)</span>.) Its three subgroups <span class="math display">\[H_1 = \{e, a\}, \qquad H_2 = \{e, b\}, \qquad H_3 = \{e, c\}\]</span> each have two elements, none is the whole group, and together they contain every element of <span class="math inline">\(V\)</span> (Figure 6.6.1).<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-6-6-1.svg" alt="Figure 6.6.1"><figcaption><span class="fig-label">Figure 6.6.1</span> The Klein four-group <span class="math inline">\(\{e, a, b, c\}\)</span> is the union of its three subgroups of order <span class="math inline">\(2\)</span>, which overlap only in the identity <span class="math inline">\(e\)</span>. By the first part of the question, no group can be the union of just two proper subgroups.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Pick witnesses and combine them.</strong> The proof chose an element outside each subgroup and multiplied them. This “take one from each and combine” move is extremely common in algebra.</p></li>
+<li><p><strong>Closure is powerful.</strong> The only property of subgroups used was that they are closed under multiplication and inverses.</p></li>
+<li><p><strong>Check the hypotheses you need.</strong> Finiteness was given but not used. Noticing that a hypothesis is unnecessary is part of understanding a proof.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">The language of symmetry</div>
+<p>Groups arose in the nineteenth century from several directions at once: Galois’s study of permutations of the roots of polynomials (<a href="../ch06/quartic.html">Section 6.4</a>), Cauchy’s work on permutations, and the study of symmetries in geometry and crystallography. The abstract definition above, in which a group is anything satisfying the three axioms, was settled by the end of the century. Its power is generality: a theorem proved from the axioms, like the one in this question, holds simultaneously for groups of numbers, of matrices, of symmetries and of permutations. Today groups are everywhere: in particle physics (the standard model is built on symmetry groups), in chemistry (molecular symmetry determines spectra), in cryptography (elliptic curve groups, <a href="../ch01/tangents-cubic.html">Section 1.9</a>) and in the solution of Rubik’s cube.</p>
+</div>
+<h3 id="how-many-subgroups-does-it-take">How many subgroups does it take?</h3>
+<p>The question suggests a natural problem: what is the smallest number of proper subgroups whose union is the whole group? It is never <span class="math inline">\(2\)</span>, by the question. In 1926 Gaetano Scorza showed that a group is the union of three proper subgroups exactly when it has the Klein four-group as a “quotient”. In 1994 J. H. E. Cohn studied the general problem and conjectured several results, and in 1997 M. J. Tomkinson proved that there is no group for which this smallest number is seven, although every number from <span class="math inline">\(3\)</span> to <span class="math inline">\(6\)</span> occurs. Questions like this, simple to state and surprisingly subtle, are typical of group theory.</p>
+<h3 id="vector-spaces">Vector spaces</h3>
+<p>A similar argument shows that a vector space over the real numbers (such as the plane, or three-dimensional space) can never be the union of finitely many proper subspaces: a plane is not the union of finitely many lines through the origin. But over a finite field it can be: the plane over the field with two elements, which is just the Klein four-group again, is the union of its three lines.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Argue from the axioms</div>
+<p><em>In abstract algebra, you often know nothing about the objects except the axioms they satisfy. The proof must use only those axioms.</em></p>
+<p>This forces arguments to be short and clean, like the one here, and it makes them universally applicable. It takes some getting used to, and it is one of the most distinctive experiences of a first-year algebra course.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Check the group.</strong> Write out the multiplication table of the Klein four-group and check the group axioms. Show that it is not the same as the group <span class="math inline">\(\{1, \mathrm{i}, -1, -\mathrm{i}\}\)</span> under multiplication. (<em>Hint:</em> which elements are their own inverses?)</p></li>
+<li><p><strong>Cyclic groups.</strong> A group is <em>cyclic</em> if every element is a power of a single element <span class="math inline">\(g\)</span>. Show that a cyclic group is never the union of proper subgroups, however many. (<em>Hint:</em> which subgroup contains <span class="math inline">\(g\)</span>?)</p></li>
+<li><p><strong>The whole numbers.</strong> Show directly that <span class="math inline">\((\mathbb{Z}, +)\)</span> is not the union of the subgroups <span class="math inline">\(2\mathbb{Z}\)</span> (even numbers) and <span class="math inline">\(3\mathbb{Z}\)</span> (multiples of <span class="math inline">\(3\)</span>). Is it the union of any two proper subgroups?</p></li>
+<li><p><strong>Lines in the plane.</strong> <span class="hard">harder</span> Show that the plane <span class="math inline">\(\mathbb{R}^2\)</span> is not the union of finitely many lines through the origin. (<em>Hint:</em> each line contains at most one point of the parabola <span class="math inline">\(y = x^2\)</span> other than the origin.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>M. A. Armstrong, <em>Groups and Symmetry</em></strong> (Springer). A beautifully illustrated first course, driven by geometric examples.</p></li>
+<li><p><strong>Nathan Carter, <em>Visual Group Theory</em></strong> (Mathematical Association of America). Groups through pictures, ideal before university.</p></li>
+<li><p><strong>Peter Neumann, Gabrielle Stoy &amp; Edward Thompson, <em>Groups and Geometry</em></strong> (Oxford University Press). A classic Oxford first-year text.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="derivations.html">← 6.5 Differentiation from Axioms</a><a class="next" href="quaternions.html">→ 6.7 The Quaternion Group</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

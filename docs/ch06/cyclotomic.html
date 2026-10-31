@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6.1 Polynomials Whose Roots Are Roots of Unity — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 6 · Algebra and Structure</a>
+    <div class="src">STEP III · 2010 · Question 3</div>
+    <div class="sec-head"><span class="sec-num">6.1</span><h1>Polynomials Whose Roots Are Roots of Unity</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-1-cyclotomic.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 6</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>For any given positive integer <span class="math inline">\(n\)</span>, a number <span class="math inline">\(a\)</span> (which may be complex) is said to be a <em>primitive <span class="math inline">\(n\)</span>th root of unity</em> if <span class="math inline">\(a^n = 1\)</span> and there is no integer <span class="math inline">\(m\)</span> such that <span class="math inline">\(0 &lt; m &lt; n\)</span> and <span class="math inline">\(a^m = 1\)</span>. Write down the two primitive 4th roots of unity.</p>
+<p>Let <span class="math inline">\(\mathrm{C}_n(x)\)</span> be the polynomial such that the roots of the equation <span class="math inline">\(\mathrm{C}_n(x) = 0\)</span> are the primitive <span class="math inline">\(n\)</span>th roots of unity, the coefficient of the highest power of <span class="math inline">\(x\)</span> is one and the equation has no repeated roots. Show that <span class="math inline">\(\mathrm{C}_4(x) = x^2 + 1\)</span>.</p>
+<ol class="roman">
+<li><p>Find <span class="math inline">\(\mathrm{C}_1(x)\)</span>, <span class="math inline">\(\mathrm{C}_2(x)\)</span>, <span class="math inline">\(\mathrm{C}_3(x)\)</span>, <span class="math inline">\(\mathrm{C}_5(x)\)</span> and <span class="math inline">\(\mathrm{C}_6(x)\)</span>, giving your answers as unfactorised polynomials.</p></li>
+<li><p>Find the value of <span class="math inline">\(n\)</span> for which <span class="math inline">\(\mathrm{C}_n(x) = x^4 + 1\)</span>.</p></li>
+<li><p>Given that <span class="math inline">\(p\)</span> is prime, find an expression for <span class="math inline">\(\mathrm{C}_p(x)\)</span>, giving your answer as an unfactorised polynomial.</p></li>
+<li><p>Prove that there are no positive integers <span class="math inline">\(q\)</span>, <span class="math inline">\(r\)</span> and <span class="math inline">\(s\)</span> such that <span class="math inline">\(\mathrm{C}_q(x) \equiv \mathrm{C}_r(x)\,\mathrm{C}_s(x)\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>The <span class="math inline">\(n\)</span>th roots of unity, the solutions of <span class="math inline">\(z^n = 1\)</span>, sit at the vertices of a regular <span class="math inline">\(n\)</span>-gon. But they are not all alike. Among the <span class="math inline">\(12\)</span>th roots of unity, for instance, <span class="math inline">\(1\)</span> is already a first root of unity, <span class="math inline">\(-1\)</span> is a square root of unity, <span class="math inline">\(\mathrm{i}\)</span> is a fourth root, and only four of the twelve, the <em>primitive</em> ones, need all twelve steps to get back to <span class="math inline">\(1\)</span>.</p>
+<p>Sorting the roots of unity by the number of steps they need, and building a polynomial from each class, produces the <em>cyclotomic polynomials</em> (“circle-dividing”, from the Greek). They are the basic building blocks of <span class="math inline">\(z^n - 1\)</span>, in the same way that primes are the building blocks of whole numbers, and they lie behind Gauss’s construction of the regular <span class="math inline">\(17\)</span>-gon (<a href="../ch06/gauss-17gon.html">Section 6.2</a>), the roots-of-unity filter (<a href="../ch05/roots-filter.html">Section 5.2</a>) and a good deal of modern number theory.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Every <span class="math inline">\(n\)</span>th root of unity satisfies <span class="math inline">\(z^n = 1\)</span>. But the smallest positive power that gives <span class="math inline">\(1\)</span> might be less than <span class="math inline">\(n\)</span>. For each of the four 4th roots of unity, <span class="math inline">\(1\)</span>, <span class="math inline">\(\mathrm{i}\)</span>, <span class="math inline">\(-1\)</span>, <span class="math inline">\(-\mathrm{i}\)</span>, what is that smallest power?</p>
+</div>
+<p><span class="math inline">\(1^1 = 1\)</span>, <span class="math inline">\((-1)^2 = 1\)</span>, and <span class="math inline">\(\mathrm{i}^4 = (-\mathrm{i})^4 = 1\)</span> with no smaller power working. So the smallest powers are <span class="math inline">\(1\)</span>, <span class="math inline">\(4\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(4\)</span>. This smallest power is called the <em>order</em> of the root of unity, and the primitive <span class="math inline">\(n\)</span>th roots of unity are exactly those of order <span class="math inline">\(n\)</span>. The key fact for the whole question is that <em>every root of unity has exactly one order</em>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-first-few" class="stage"><span class="stage-n">Stage 1</span> The first few</h4>
+<p>The primitive 4th roots are <span class="math inline">\(\mathrm{i}\)</span> and <span class="math inline">\(-\mathrm{i}\)</span>, so <span class="math inline">\(\mathrm{C}_4(x) = (x - \mathrm{i})(x + \mathrm{i}) = x^2 + 1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>Which roots of unity have order <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(5\)</span> and <span class="math inline">\(6\)</span>? (Draw the <span class="math inline">\(6\)</span>th roots of unity and sort them by order.)</p>
+</div>
+<p>Order <span class="math inline">\(1\)</span>: just <span class="math inline">\(1\)</span>, so <span class="math inline">\(\mathrm{C}_1(x) = x - 1\)</span>. Order <span class="math inline">\(2\)</span>: just <span class="math inline">\(-1\)</span>, so <span class="math inline">\(\mathrm{C}_2(x) = x + 1\)</span>.</p>
+<p>Order <span class="math inline">\(3\)</span>: the cube roots of unity other than <span class="math inline">\(1\)</span>, that is, the roots of <span class="math inline">\(\frac{x^3 - 1}{x - 1}\)</span>. So <span class="math inline">\(\mathrm{C}_3(x) = x^2 + x + 1\)</span>.</p>
+<p>Order <span class="math inline">\(5\)</span>: the fifth roots other than <span class="math inline">\(1\)</span>, which are the roots of <span class="math inline">\(\frac{x^5 - 1}{x - 1}\)</span>, so <span class="math inline">\(\mathrm{C}_5(x) = x^4 + x^3 + x^2 + x + 1\)</span>.</p>
+<p>Order <span class="math inline">\(6\)</span>: of the sixth roots <span class="math inline">\(e^{k\pi\mathrm{i}/3}\)</span>, <span class="math inline">\(k = 0, \ldots, 5\)</span>, those with <span class="math inline">\(k = 0\)</span>, <span class="math inline">\(3\)</span> have orders <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, and <span class="math inline">\(k = 2\)</span>, <span class="math inline">\(4\)</span> have order <span class="math inline">\(3\)</span>. That leaves <span class="math inline">\(e^{\pm\pi\mathrm{i}/3}\)</span>, so <span class="math display">\[\mathrm{C}_6(x) = (x - e^{\mathrm{i}\pi/3})(x - e^{-\mathrm{i}\pi/3}) = x^2 - 2x\cos\tfrac\pi3 + 1 = x^2 - x + 1. \qed\]</span></p>
+<h4 id="stagemark2-which-n-gives-x4-1" class="stage"><span class="stage-n">Stage 2</span> Which <span class="math inline">\(n\)</span> gives <span class="math inline">\(x^4 + 1\)</span>?</h4>
+<p>The roots of <span class="math inline">\(x^4 + 1 = 0\)</span> satisfy <span class="math inline">\(x^4 = -1\)</span>, so <span class="math inline">\(x^8 = 1\)</span> but <span class="math inline">\(x^4 \neq 1\)</span>. Their order divides <span class="math inline">\(8\)</span> but not <span class="math inline">\(4\)</span>, so it is <span class="math inline">\(8\)</span>. Conversely, a root of order <span class="math inline">\(8\)</span> satisfies <span class="math inline">\(x^8 = 1\)</span>, <span class="math inline">\(x^4 \neq 1\)</span>, so <span class="math inline">\(x^4 = -1\)</span>. There are four primitive <span class="math inline">\(8\)</span>th roots and four roots of <span class="math inline">\(x^4 + 1\)</span>, so <span class="math inline">\(n = 8\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-primes" class="stage"><span class="stage-n">Stage 3</span> Primes</h4>
+<p>If <span class="math inline">\(p\)</span> is prime, the order of a <span class="math inline">\(p\)</span>th root of unity divides <span class="math inline">\(p\)</span>, so it is <span class="math inline">\(1\)</span> or <span class="math inline">\(p\)</span>. Every <span class="math inline">\(p\)</span>th root except <span class="math inline">\(1\)</span> is therefore primitive, and <span class="math display">\[\mathrm{C}_p(x) = \frac{x^p - 1}{x - 1} = x^{p-1} + x^{p-2} + \cdots + x + 1. \qed\]</span></p>
+<h4 id="stagemark4-no-cyclotomic-polynomial-is-a-product-of-two-others" class="stage"><span class="stage-n">Stage 4</span> No cyclotomic polynomial is a product of two others</h4>
+<div class="pausebox">
+<p>Suppose <span class="math inline">\(\mathrm{C}_q = \mathrm{C}_r\mathrm{C}_s\)</span>. Take a root of <span class="math inline">\(\mathrm{C}_r\)</span>. What is its order? What does the identity say about its order? What does that force?</p>
+</div>
+<p>Every root of <span class="math inline">\(\mathrm{C}_r\)</span> (there is at least one, since <span class="math inline">\(e^{2\pi\mathrm{i}/r}\)</span> is primitive) is a root of <span class="math inline">\(\mathrm{C}_r\mathrm{C}_s = \mathrm{C}_q\)</span>, so it has order <span class="math inline">\(q\)</span>. But it also has order <span class="math inline">\(r\)</span>, and a root of unity has only one order, so <span class="math inline">\(r = q\)</span>. Then <span class="math inline">\(\mathrm{C}_q = \mathrm{C}_q\,\mathrm{C}_s\)</span>, and since <span class="math inline">\(\mathrm{C}_q\)</span> is not the zero polynomial, <span class="math inline">\(\mathrm{C}_s = 1\)</span>. That is impossible, because <span class="math inline">\(\mathrm{C}_s\)</span> has at least one root, <span class="math inline">\(e^{2\pi\mathrm{i}/s}\)</span>. So no such <span class="math inline">\(q\)</span>, <span class="math inline">\(r\)</span>, <span class="math inline">\(s\)</span> exist.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Sort by order.</strong> Every root of unity has a unique order, and grouping by order splits the roots of <span class="math inline">\(z^n - 1\)</span> into disjoint classes.</p></li>
+<li><p><strong>Define a polynomial by its roots.</strong> Each <span class="math inline">\(\mathrm{C}_n\)</span> was pinned down by saying exactly which numbers are its roots.</p></li>
+<li><p><strong>Uniqueness gives impossibility.</strong> Part (iv) needed only one idea: a root cannot have two different orders.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Factorising <span class="math inline">\(x^n - 1\)</span></div>
+<p>Every <span class="math inline">\(n\)</span>th root of unity has some order <span class="math inline">\(d\)</span> that divides <span class="math inline">\(n\)</span>, and every <span class="math inline">\(d\)</span>th root of unity of order <span class="math inline">\(d\)</span> is an <span class="math inline">\(n\)</span>th root of unity when <span class="math inline">\(d \mid n\)</span>. So the roots of <span class="math inline">\(x^n - 1\)</span> split into classes by order, giving <span class="math display">\[x^n - 1 = \prod_{d \mid n}\mathrm{C}_d(x).\]</span> For example <span class="math inline">\(x^6 - 1 = \mathrm{C}_1\mathrm{C}_2\mathrm{C}_3\mathrm{C}_6 = (x - 1)(x + 1)(x^2 + x + 1)(x^2 - x + 1)\)</span>. Figure 6.1.1 shows the twelve <span class="math inline">\(12\)</span>th roots of unity sorted in this way. The number of primitive <span class="math inline">\(n\)</span>th roots, which is the degree of <span class="math inline">\(\mathrm{C}_n\)</span>, is the number of <span class="math inline">\(k\)</span> between <span class="math inline">\(1\)</span> and <span class="math inline">\(n\)</span> with no common factor with <span class="math inline">\(n\)</span>: <em>Euler’s totient function</em> <span class="math inline">\(\varphi(n)\)</span>. Comparing degrees gives the identity <span class="math inline">\(\sum_{d \mid n}\varphi(d) = n\)</span>.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-1-1.svg" alt="Figure 6.1.1"><figcaption><span class="fig-label">Figure 6.1.1</span> The twelve <span class="math inline">\(12\)</span>th roots of unity, coloured by order. The four primitive <span class="math inline">\(12\)</span>th roots (ringed) are the roots of <span class="math inline">\(\mathrm{C}_{12}\)</span>. Together the classes give <span class="math inline">\(x^{12} - 1 = \mathrm{C}_1\mathrm{C}_2\mathrm{C}_3\mathrm{C}_4\mathrm{C}_6\mathrm{C}_{12}\)</span>, with degrees <span class="math inline">\(1 + 1 + 2 + 2 + 2 + 4 = 12\)</span>.</figcaption></figure>
+<h3 id="integer-coefficients-and-a-surprise">Integer coefficients, and a surprise</h3>
+<p>It is not obvious from the definition, but every cyclotomic polynomial has <em>integer</em> coefficients. (Use the factorisation of <span class="math inline">\(x^n - 1\)</span> and induction: <span class="math inline">\(\mathrm{C}_n\)</span> is <span class="math inline">\(x^n - 1\)</span> divided by a product of earlier cyclotomic polynomials, and long division of integer polynomials by monic integer polynomials keeps the coefficients integers.) For a long time all known examples had coefficients <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span> and <span class="math inline">\(-1\)</span>. The first exception is <span class="math inline">\(\mathrm{C}_{105}\)</span>, which contains the term <span class="math inline">\(-2x^7\)</span>, found by Migotti in 1883; <span class="math inline">\(105 = 3 \times 5 \times 7\)</span> is the smallest number with three distinct odd prime factors. In fact the coefficients of cyclotomic polynomials can be made as large as you like.</p>
+<h3 id="irreducibility">Irreducibility</h3>
+<p>Part (iv) shows that no cyclotomic polynomial is a product of two others. Something much stronger is true: <span class="math inline">\(\mathrm{C}_n\)</span> cannot be factorised at all into polynomials with rational coefficients of lower degree. Gauss proved this for prime <span class="math inline">\(n\)</span> (it follows from <em>Eisenstein’s criterion</em>, which you will meet in a first algebra course), and Kronecker and Dedekind for general <span class="math inline">\(n\)</span>. This <em>irreducibility</em> is what makes the cyclotomic polynomials the “primes” among polynomials related to roots of unity, and it is the starting point for the Galois theory of roots of unity.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Classify, then build</div>
+<p><em>Sort the objects in a problem into classes with a single, well-defined invariant, and build structure class by class.</em></p>
+<p>Here the invariant was the order of a root of unity. Because each root has exactly one order, the classes do not overlap, and <span class="math inline">\(x^n - 1\)</span> splits as a product over them. The same pattern (a unique invariant giving a disjoint decomposition) underlies prime factorisation and the classification of finite abelian groups.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Check the factorisation.</strong> Verify that <span class="math inline">\((x - 1)(x + 1)(x^2 + x + 1)(x^2 - x + 1) = x^6 - 1\)</span>, and that <span class="math inline">\(x^{12} - 1\)</span> factorises as in Figure 6.1.1.</p></li>
+<li><p><strong>Twice a prime.</strong> Show that if <span class="math inline">\(p\)</span> is an odd prime then <span class="math inline">\(\mathrm{C}_{2p}(x) = \mathrm{C}_p(-x)\)</span>. Check this for <span class="math inline">\(p = 3\)</span>.</p></li>
+<li><p><strong>Totients.</strong> Show that <span class="math inline">\(\varphi(p^k) = p^k - p^{k-1}\)</span> for a prime <span class="math inline">\(p\)</span>, and that <span class="math inline">\(\mathrm{C}_{p^k}(x) = \mathrm{C}_p\bigl(x^{p^{k-1}}\bigr)\)</span>. Use this to find <span class="math inline">\(\mathrm{C}_9\)</span>.</p></li>
+<li><p><strong>A longer one.</strong> <span class="hard">harder</span> Using <span class="math inline">\(x^{15} - 1 = \mathrm{C}_1\mathrm{C}_3\mathrm{C}_5\mathrm{C}_{15}\)</span>, show that <span class="math inline">\(\mathrm{C}_{15}(x) = x^8 - x^7 + x^5 - x^4 + x^3 - x + 1\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Ian Stewart, <em>Galois Theory</em></strong> (CRC Press). The standard undergraduate introduction; cyclotomic polynomials and the regular polygon appear early.</p></li>
+<li><p><strong>Harold Davenport, <em>The Higher Arithmetic</em></strong> (Cambridge University Press). Includes roots of unity and their arithmetic.</p></li>
+<li><p><strong>Marcus du Sautoy, <em>Finding Moonshine</em></strong> (Fourth Estate). A popular account of symmetry and group theory, including the story of Galois.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← Chapter introduction</a><a class="next" href="gauss-17gon.html">→ 6.2 Gauss&#x27;s 17-gon</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

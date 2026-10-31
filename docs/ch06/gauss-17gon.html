@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6.2 Gauss&#x27;s 17-gon — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 6 · Algebra and Structure</a>
+    <div class="src">STEP II · 1991 · Question 4</div>
+    <div class="sec-head"><span class="sec-num">6.2</span><h1>Gauss&#x27;s 17-gon</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-2-gauss-17gon.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 6</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Let <span class="math inline">\(y = \cos\phi + \cos 2\phi\)</span>, where <span class="math inline">\(\phi = \dfrac{2\pi}{5}\)</span>. Verify by direct substitution that <span class="math inline">\(y\)</span> satisfies the quadratic equation <span class="math inline">\(2y^2 = 3y + 2\)</span> and deduce that the value of <span class="math inline">\(y\)</span> is <span class="math inline">\(-\frac12\)</span>.</p>
+<p>Let <span class="math inline">\(\theta = \dfrac{2\pi}{17}\)</span>. Show that <span class="math display">\[\sum_{k=0}^{16}\cos k\theta = 0.\]</span> If <span class="math inline">\(z = \cos\theta + \cos 2\theta + \cos 4\theta + \cos 8\theta\)</span>, show that the value of <span class="math inline">\(z\)</span> is <span class="math inline">\(-(1 - \sqrt{17})/4\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>On 30 March 1796, an eighteen-year-old student at Göttingen made the first entry in a mathematical diary he would keep for the rest of his life. He had discovered how to construct a regular <span class="math inline">\(17\)</span>-sided polygon with ruler and compasses. The Greeks had known how to construct regular polygons with <span class="math inline">\(3\)</span>, <span class="math inline">\(4\)</span>, <span class="math inline">\(5\)</span> and <span class="math inline">\(15\)</span> sides, and doubles of these, and for two thousand years nobody had added a single new one. Carl Friedrich Gauss later said that this discovery decided him to become a mathematician rather than a philologist, and he is said to have asked for a <span class="math inline">\(17\)</span>-gon to be carved on his tombstone.</p>
+<p>The heart of the construction is the second half of this question: the sum of four particular cosines equals <span class="math inline">\(\frac{\sqrt{17} - 1}{4}\)</span>, a number involving only a square root. Lengths built from square roots can be constructed with ruler and compasses, and with three more steps of the same kind Gauss could construct <span class="math inline">\(\cos\frac{2\pi}{17}\)</span> itself.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Why does the first part, about <span class="math inline">\(\cos\frac{2\pi}{5}\)</span>, appear in a question about the <span class="math inline">\(17\)</span>-gon?</p>
+</div>
+<p>It is a warm-up, using the same idea on a smaller polygon. For the pentagon, the sum <span class="math inline">\(\cos\phi + \cos 2\phi\)</span> satisfies a quadratic with rational coefficients, so it can be found by solving a quadratic. For the <span class="math inline">\(17\)</span>-gon, the sum <span class="math inline">\(z\)</span> of four cosines will turn out to satisfy a quadratic too. The trick in both cases is to multiply cosines together and use <span class="math inline">\(\cos A\cos B = \frac12\bigl(\cos(A + B) + \cos(A - B)\bigr)\)</span> to turn products back into sums of cosines of the same angles.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-pentagon" class="stage"><span class="stage-n">Stage 1</span> The pentagon</h4>
+<div class="askyourself">
+<p>Expand <span class="math inline">\(y^2 = (\cos\phi + \cos 2\phi)^2\)</span>, turn each product into a sum, and use <span class="math inline">\(5\phi = 2\pi\)</span> to reduce angles like <span class="math inline">\(3\phi\)</span> and <span class="math inline">\(4\phi\)</span>.</p>
+</div>
+<p><span class="math display">\[y^2 = \cos^2\phi + 2\cos\phi\cos2\phi + \cos^2 2\phi = \tfrac12(1 + \cos 2\phi) + (\cos 3\phi + \cos\phi) + \tfrac12(1 + \cos 4\phi).\]</span> Since <span class="math inline">\(5\phi = 2\pi\)</span>, <span class="math inline">\(\cos 3\phi = \cos(2\pi - 2\phi) = \cos 2\phi\)</span> and <span class="math inline">\(\cos 4\phi = \cos\phi\)</span>. So <span class="math display">\[y^2 = 1 + \tfrac12(\cos\phi + \cos2\phi) + (\cos\phi + \cos 2\phi) = 1 + \tfrac32 y,\]</span> that is, <span class="math inline">\(2y^2 = 3y + 2\)</span>.<span class="qed" aria-label="end of proof">■</span> The roots of <span class="math inline">\(2y^2 - 3y - 2 = (2y + 1)(y - 2) = 0\)</span> are <span class="math inline">\(y = 2\)</span> and <span class="math inline">\(y = -\frac12\)</span>. But <span class="math inline">\(y = 2\)</span> would need both cosines to equal <span class="math inline">\(1\)</span>, which they do not, so <span class="math inline">\(y = -\frac12\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-seventeenth-roots-of-unity-sum-to-zero" class="stage"><span class="stage-n">Stage 2</span> The seventeenth roots of unity sum to zero</h4>
+<p><span class="math inline">\(\sum_{k=0}^{16}\cos k\theta\)</span> is the real part of <span class="math inline">\(\sum_{k=0}^{16}\omega^k\)</span>, where <span class="math inline">\(\omega = e^{\mathrm{i}\theta}\)</span> is a primitive <span class="math inline">\(17\)</span>th root of unity. That geometric series is <span class="math inline">\(\frac{\omega^{17} - 1}{\omega - 1} = 0\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>So <span class="math inline">\(\sum_{k=1}^{16}\cos k\theta = -1\)</span>. Since <span class="math inline">\(\cos(17 - k)\theta = \cos k\theta\)</span>, the terms pair up, and <span class="math display">\[\sum_{k=1}^{8}\cos k\theta = -\tfrac12.\]</span></p>
+<h4 id="stagemark3-splitting-the-cosines-into-two-groups" class="stage"><span class="stage-n">Stage 3</span> Splitting the cosines into two groups</h4>
+<div class="askyourself">
+<p>Let <span class="math inline">\(z = \cos\theta + \cos2\theta + \cos4\theta + \cos8\theta\)</span>, and let <span class="math inline">\(z&#39;\)</span> be the sum of the other four cosines, <span class="math inline">\(\cos3\theta + \cos5\theta + \cos6\theta + \cos7\theta\)</span>. What is <span class="math inline">\(z + z&#39;\)</span>?</p>
+</div>
+<p>By Stage 2, <span class="math inline">\(z + z&#39; = -\frac12\)</span>. If we can also find <span class="math inline">\(zz&#39;\)</span>, then <span class="math inline">\(z\)</span> and <span class="math inline">\(z&#39;\)</span> are the roots of a quadratic.</p>
+<div class="pausebox">
+<p>Compute <span class="math inline">\(zz&#39;\)</span>. Expand it as <span class="math inline">\(16\)</span> products <span class="math inline">\(\cos a\theta\cos b\theta\)</span>, turn each into a sum of two cosines, and count how often each of <span class="math inline">\(\cos\theta, \cos2\theta, \ldots, \cos8\theta\)</span> appears. (Reduce angles using <span class="math inline">\(\cos k\theta = \cos(17 - k)\theta\)</span> and <span class="math inline">\(\cos(-k\theta) = \cos k\theta\)</span>.)</p>
+</div>
+<p>Each product gives <span class="math inline">\(\cos a\theta\cos b\theta = \frac12\bigl(\cos(a + b)\theta + \cos(a - b)\theta\bigr)\)</span>, so <span class="math inline">\(zz&#39;\)</span> is <span class="math inline">\(\frac12\)</span> times a sum of <span class="math inline">\(32\)</span> cosines. Working through the <span class="math inline">\(16\)</span> pairs with <span class="math inline">\(a \in \{1, 2, 4, 8\}\)</span> and <span class="math inline">\(b \in \{3, 5, 6, 7\}\)</span>: for example <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(b = 3\)</span> gives <span class="math inline">\(\cos4\theta\)</span> and <span class="math inline">\(\cos2\theta\)</span>; <span class="math inline">\(a = 8\)</span>, <span class="math inline">\(b = 7\)</span> gives <span class="math inline">\(\cos15\theta = \cos2\theta\)</span> and <span class="math inline">\(\cos\theta\)</span>. Carrying this out for all sixteen pairs, each of <span class="math inline">\(\cos\theta, \ldots, \cos8\theta\)</span> appears exactly four times. Therefore <span class="math display">\[zz&#39; = \tfrac12 \times 4 \times \sum_{k=1}^{8}\cos k\theta = 2 \times \left(-\tfrac12\right) = -1.\]</span></p>
+<h4 id="stagemark4-the-quadratic" class="stage"><span class="stage-n">Stage 4</span> The quadratic</h4>
+<p>So <span class="math inline">\(z\)</span> and <span class="math inline">\(z&#39;\)</span> are the roots of <span class="math inline">\(t^2 + \frac12 t - 1 = 0\)</span>, that is, <span class="math inline">\(4t^2 + 2t - 4 = 0\)</span>, with roots <span class="math inline">\(t = \frac{-1 \pm \sqrt{17}}{4}\)</span>. Which is <span class="math inline">\(z\)</span>? Numerically <span class="math inline">\(\cos\theta \approx 0.932\)</span>, <span class="math inline">\(\cos2\theta \approx 0.739\)</span>, <span class="math inline">\(\cos4\theta \approx 0.092\)</span> and <span class="math inline">\(\cos8\theta \approx -0.983\)</span>, so <span class="math inline">\(z \approx 0.78 &gt; 0\)</span>. Hence <span class="math display">\[z = \frac{-1 + \sqrt{17}}{4} = -\frac{1 - \sqrt{17}}{4}. \qed\]</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Products to sums.</strong> The product formula for cosines turned <span class="math inline">\(y^2\)</span> and <span class="math inline">\(zz&#39;\)</span> into sums of the same cosines, so the algebra closed up.</p></li>
+<li><p><strong>Sum and product give a quadratic.</strong> Knowing <span class="math inline">\(z + z&#39;\)</span> and <span class="math inline">\(zz&#39;\)</span> is the same as knowing the quadratic with roots <span class="math inline">\(z\)</span> and <span class="math inline">\(z&#39;\)</span>.</p></li>
+<li><p><strong>The right split matters.</strong> Splitting the eight cosines into <span class="math inline">\(\{1, 2, 4, 8\}\)</span> and <span class="math inline">\(\{3, 5, 6, 7\}\)</span> made every index appear equally often in <span class="math inline">\(zz&#39;\)</span>. A random split would not work.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Gauss periods</div>
+<p>Why <span class="math inline">\(\{1, 2, 4, 8\}\)</span>? Modulo <span class="math inline">\(17\)</span>, the powers <span class="math inline">\(3^0, 3^1, 3^2, \ldots\)</span> of <span class="math inline">\(3\)</span> run through all the non-zero residues: <span class="math display">\[1, 3, 9, 10, 13, 5, 15, 11, 16, 14, 8, 7, 4, 12, 2, 6.\]</span> Taking every other one, <span class="math inline">\(3^0, 3^2, 3^4, \ldots\)</span>, gives <span class="math inline">\(1\)</span>, <span class="math inline">\(9\)</span>, <span class="math inline">\(13\)</span>, <span class="math inline">\(15\)</span>, <span class="math inline">\(16\)</span>, <span class="math inline">\(8\)</span>, <span class="math inline">\(4\)</span>, <span class="math inline">\(2\)</span>, which are <span class="math inline">\(\pm1\)</span>, <span class="math inline">\(\pm2\)</span>, <span class="math inline">\(\pm4\)</span>, <span class="math inline">\(\pm8\)</span> modulo <span class="math inline">\(17\)</span>: exactly the angles in <span class="math inline">\(z\)</span>. The other half gives <span class="math inline">\(\pm3, \pm5, \pm6, \pm7\)</span>, the angles in <span class="math inline">\(z&#39;\)</span>. Gauss called the sums of <span class="math inline">\(\omega^k\)</span> over such classes <em>periods</em>. Because <span class="math inline">\(17 - 1 = 16 = 2^4\)</span>, the residues can be halved four times, and at each stage the periods satisfy quadratic equations whose coefficients involve the periods of the previous stage. Four quadratics, so four square roots, lead from the rational numbers down to <span class="math inline">\(\cos\frac{2\pi}{17}\)</span>: <span class="math display">\[\begin{gathered}
+  \cos\tfrac{2\pi}{17} = \tfrac{1}{16}\Bigl(-1 + \sqrt{17} + \sqrt{34 - 2\sqrt{17}} \\
+  {} + 2\sqrt{17 + 3\sqrt{17} - \sqrt{34 - 2\sqrt{17}} - 2\sqrt{34 + 2\sqrt{17}}}\Bigr).
+\end{gathered}\]</span> Every step involves only square roots, and square roots can be constructed with ruler and compasses (using similar triangles or a semicircle), so the <span class="math inline">\(17\)</span>-gon is constructible.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-2-1.svg" alt="Figure 6.2.1"><figcaption><span class="fig-label">Figure 6.2.1</span> The vertices of the regular <span class="math inline">\(17\)</span>-gon, split into Gauss’s two periods. The teal vertices are at angles <span class="math inline">\(\pm1, \pm2, \pm4, \pm8\)</span> (in units of <span class="math inline">\(\frac{2\pi}{17}\)</span>), and the sum of their <span class="math inline">\(x\)</span>-coordinates is <span class="math inline">\(2z = \frac{-1 + \sqrt{17}}{2}\)</span>; the amber vertices give <span class="math inline">\(2z&#39; = \frac{-1 - \sqrt{17}}{2}\)</span>.</figcaption></figure>
+<h3 id="which-polygons-can-be-constructed">Which polygons can be constructed?</h3>
+<p>Gauss claimed, and Pierre Wantzel proved in 1837, that a regular <span class="math inline">\(n\)</span>-gon can be constructed with ruler and compasses exactly when <span class="math inline">\(n\)</span> is a power of <span class="math inline">\(2\)</span> times a product of distinct <em>Fermat primes</em>, primes of the form <span class="math inline">\(2^{2^m} + 1\)</span>. The known Fermat primes are <span class="math inline">\(3\)</span>, <span class="math inline">\(5\)</span>, <span class="math inline">\(17\)</span>, <span class="math inline">\(257\)</span> and <span class="math inline">\(65537\)</span>, the Fermat numbers of <a href="../ch01/fermat-numbers.html">Section 1.1</a>. (Fermat guessed that all such numbers are prime, but Euler showed that <span class="math inline">\(2^{32} + 1\)</span> is divisible by <span class="math inline">\(641\)</span>, and no further Fermat primes have ever been found.) So the <span class="math inline">\(257\)</span>-gon and the <span class="math inline">\(65537\)</span>-gon are constructible; in the nineteenth century Johann Hermes spent about ten years working out the construction of the <span class="math inline">\(65537\)</span>-gon, and his manuscript is kept at Göttingen. The <span class="math inline">\(7\)</span>-gon and <span class="math inline">\(11\)</span>-gon are not constructible, because <span class="math inline">\(7\)</span> and <span class="math inline">\(11\)</span> are not Fermat primes (<span class="math inline">\(7 - 1 = 6\)</span> and <span class="math inline">\(11 - 1 = 10\)</span> are not powers of <span class="math inline">\(2\)</span>), and neither is the <span class="math inline">\(9\)</span>-gon, because <span class="math inline">\(9 = 3^2\)</span> repeats the Fermat prime <span class="math inline">\(3\)</span>. Wantzel’s proof uses the theory of field degrees from <a href="../ch06/field-extensions.html">Section 6.3</a>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Find a quadratic by computing sum and product</div>
+<p><em>To find a quantity, pair it with a natural partner, compute their sum and their product, and solve the resulting quadratic.</em></p>
+<p>The art is in choosing the partner so that both sum and product can be computed. Here the partner came from the symmetry of the residues modulo <span class="math inline">\(17\)</span>, and repeating the idea four times gave Gauss his construction.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The heptagon.</strong> (From STEP II, 1995.) Let <span class="math inline">\(\alpha = e^{2\pi\mathrm{i}/7}\)</span>. Show that <span class="math inline">\(\eta = \alpha + \alpha^2 + \alpha^4\)</span> and <span class="math inline">\(\eta&#39; = \alpha^3 + \alpha^5 + \alpha^6\)</span> satisfy <span class="math inline">\(\eta + \eta&#39; = -1\)</span> and <span class="math inline">\(\eta\eta&#39; = 2\)</span>. Deduce that <span class="math inline">\(\cos\frac{2\pi}{7} + \cos\frac{4\pi}{7} + \cos\frac{8\pi}{7} = -\frac12\)</span>, and that <span class="math inline">\(\sin\frac{2\pi}{7} + \sin\frac{4\pi}{7} + \sin\frac{8\pi}{7} = \frac{\sqrt7}{2}\)</span>, explaining how you decide the sign.</p></li>
+<li><p><strong>The pentagon.</strong> Show that <span class="math inline">\(\cos\frac{2\pi}{5} = \frac{\sqrt5 - 1}{4}\)</span>, and use it to describe a ruler-and-compasses construction of a regular pentagon.</p></li>
+<li><p><strong>The other period.</strong> Check numerically that <span class="math inline">\(z&#39; = \cos3\theta + \cos5\theta + \cos6\theta + \cos7\theta = \frac{-1 - \sqrt{17}}{4}\)</span>.</p></li>
+<li><p><strong>Generators.</strong> Show that the powers of <span class="math inline">\(3\)</span> modulo <span class="math inline">\(17\)</span> give every non-zero residue, but the powers of <span class="math inline">\(2\)</span> do not. Which residues do the powers of <span class="math inline">\(2\)</span> give?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Ian Stewart, <em>Galois Theory</em></strong> (CRC Press). Chapter on ruler-and-compass constructions and the regular <span class="math inline">\(17\)</span>-gon.</p></li>
+<li><p><strong>Richard Courant &amp; Herbert Robbins, <em>What Is Mathematics?</em></strong> (Oxford University Press). Chapter 3 is a beautiful elementary account of constructions, including the <span class="math inline">\(17\)</span>-gon.</p></li>
+<li><p><strong>Daniel Kehlmann, <em>Measuring the World</em></strong> (Quercus). A comic novel about Gauss and Alexander von Humboldt, for light relief.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="cyclotomic.html">← 6.1 Polynomials Whose Roots Are Roots of Unity</a><a class="next" href="field-extensions.html">→ 6.3 A Polynomial for √2 + √3 + √5</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

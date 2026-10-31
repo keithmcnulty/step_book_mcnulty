@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 6 wrap-up — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 6 · Algebra and Structure</a>
+    <div class="sec-head"><h1>What We Have Learned</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <article class="prose">
+<p>We began with the shift in algebra from solving equations to studying structures, and with three questions: what can be built from what, why the formulas for equations work, and what is gained by abstraction. Here is what the chapter’s eight questions showed.</p>
+<h3 id="what-can-be-built-from-what">1. What can be built from what?</h3>
+<p>In <a href="../ch06/field-extensions.html">Section 6.3</a> we eliminated radicals one at a time to find polynomials satisfied by <span class="math inline">\(\sqrt2 + \sqrt3\)</span>, <span class="math inline">\(\sqrt2 + \sqrt3 + \sqrt5\)</span> and <span class="math inline">\(\sqrt[3]2 + \sqrt[3]3\)</span>, of degrees <span class="math inline">\(4\)</span>, <span class="math inline">\(8\)</span> and <span class="math inline">\(9\)</span>. Those degrees are invariants: the degree of the field a number generates. Because degrees multiply up a tower of fields, numbers reachable by square roots have degrees that are powers of <span class="math inline">\(2\)</span>. That single fact proves that the cube cannot be doubled (<span class="math inline">\(\sqrt[3]2\)</span> has degree <span class="math inline">\(3\)</span>) and that a <span class="math inline">\(60^\circ\)</span> angle cannot be trisected.</p>
+<p>In the other direction, <a href="../ch06/gauss-17gon.html">Section 6.2</a> showed how something <em>can</em> be built. Splitting the <span class="math inline">\(17\)</span>th roots of unity into Gauss’s periods, the sum <span class="math inline">\(\cos\frac{2\pi}{17} + \cos\frac{4\pi}{17} + \cos\frac{8\pi}{17} + \cos\frac{16\pi}{17}\)</span> satisfied a quadratic, with root <span class="math inline">\(\frac{-1 + \sqrt{17}}{4}\)</span>; three more quadratics lead to <span class="math inline">\(\cos\frac{2\pi}{17}\)</span>, and so to the construction of the regular <span class="math inline">\(17\)</span>-gon. Underneath both sections were the cyclotomic polynomials of <a href="../ch06/cyclotomic.html">Section 6.1</a>, the building blocks of <span class="math inline">\(x^n - 1\)</span>, obtained by sorting the roots of unity by their order.</p>
+<h3 id="why-do-the-formulas-for-equations-work">2. Why do the formulas for equations work?</h3>
+<p><a href="../ch06/quartic.html">Section 6.4</a> showed the secret of the quartic: from four roots, form the three quantities <span class="math inline">\(\alpha\beta + \gamma\delta\)</span>, <span class="math inline">\(\alpha\gamma + \beta\delta\)</span>, <span class="math inline">\(\alpha\delta + \beta\gamma\)</span>, one for each way of pairing the roots. Any rearrangement of the roots merely shuffles these three, so they satisfy a cubic whose coefficients are known. Solving the cubic, then two quadratics, gave the roots. Lagrange saw that this works because of how permutations of four objects act on the three pairings; Galois saw that it fails for five roots because the group of permutations of five objects contains a piece that cannot be broken down. The formulas are shadows of group structure.</p>
+<h3 id="what-is-gained-by-abstraction">3. What is gained by abstraction?</h3>
+<p>The last four sections described objects by the rules they obey.</p>
+<ul>
+<li><p>In <a href="../ch06/derivations.html">Section 6.5</a>, four rules (additivity, the product rule, constants, <span class="math inline">\(\lozenge x = 1\)</span>) forced an operation to be differentiation, with no limits in sight. The same rules power automatic differentiation in modern software.</p></li>
+<li><p>In <a href="../ch06/subgroup-unions.html">Section 6.6</a>, a three-line argument from the group axioms showed that no group is the union of two proper subgroups, for every group at once.</p></li>
+<li><p>In <a href="../ch06/quaternions.html">Section 6.7</a>, a strange operation on pairs of complex numbers turned out to be Hamilton’s quaternion multiplication, and representing it by matrices made associativity automatic.</p></li>
+<li><p>In <a href="../ch06/singular-group.html">Section 6.8</a>, reading the definition of a group literally produced a group of singular matrices whose identity is not the identity matrix, and which is “really” the group of non-zero real numbers in disguise.</p></li>
+</ul>
+<p>In each case, the abstract view explained something that calculation alone would have obscured.</p>
+<h3 id="a-toolkit-for-algebra">4. A toolkit for algebra</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Where you used it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Classifying by a unique invariant</td>
+<td style="text-align: left;">Roots of unity by order (6.1)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sum and product give a quadratic</td>
+<td style="text-align: left;">Gauss periods (6.2); the quartic (6.4)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Product-to-sum formulas</td>
+<td style="text-align: left;">The <span class="math inline">\(17\)</span>-gon (6.2)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eliminating radicals</td>
+<td style="text-align: left;">Minimal polynomials (6.3)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Degrees and the tower law</td>
+<td style="text-align: left;">Impossibility of constructions (6.3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Symmetric functions of roots</td>
+<td style="text-align: left;">The resolvent cubic (6.4)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Determining an operation by its axioms</td>
+<td style="text-align: left;">Derivations (6.5)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Arguing from group axioms</td>
+<td style="text-align: left;">Unions of subgroups (6.6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Matrix representations</td>
+<td style="text-align: left;">Quaternions (6.7)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Isomorphism</td>
+<td style="text-align: left;">Singular matrix groups (6.8)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="where-next">Where next</h3>
+<ul>
+<li><p>Quaternions lead to Lagrange’s four-square theorem in Section 7.8.</p></li>
+<li><p>Matrices as algebraic objects, with their own rules, are the subject of Chapter 7.</p></li>
+<li><p>The arithmetic of number systems like the Gaussian integers, where factorisation can fail, was the theme of <a href="../ch01/factorisation-fails.html">Section 1.7</a>.</p></li>
+</ul>
+<div class="skillbox">
+<div class="box-title">If you want to go further before university</div>
+<ul>
+<li><p><strong>Mario Livio, <em>The Equation That Couldn’t Be Solved</em></strong>: the quintic, Galois and the birth of group theory.</p></li>
+<li><p><strong>Nathan Carter, <em>Visual Group Theory</em></strong>: groups through pictures, the ideal first look.</p></li>
+<li><p><strong>M. A. Armstrong, <em>Groups and Symmetry</em></strong>: a first university course, built on geometry.</p></li>
+<li><p><strong>Ian Stewart, <em>Galois Theory</em></strong>: for when you are ready for the full story.</p></li>
+</ul>
+</div>
+<p>Galois died at twenty, after a duel, leaving a few dozen pages that took the mathematical world decades to understand. What he saw was that an equation’s deepest secrets are not in its coefficients but in the symmetries of its solutions. That insight, giving the same name to different things and studying the structure they share, now runs through all of mathematics. You have seen it at work in polynomials, polygons, quaternions and matrices; at university you will see it almost everywhere.</p>
+
+  </article>
+  <nav class="pager"><a class="prev" href="singular-group.html">← 6.8 A Group of Singular Matrices</a><a class="next" href="index.html">→ Back to Chapter 6</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

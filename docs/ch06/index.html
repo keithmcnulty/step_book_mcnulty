@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 6: Algebra and Structure — Beyond STEP</title>
+<meta name="description" content="Roots of unity and polynomials lead towards Galois theory; the chapter closes with three group-theory questions.">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter</div>
+    <div class="ch-num">6</div>
+    <h1>Algebra and Structure</h1>
+    <p class="strap">Behind every clever trick in algebra there is a structure, and understanding the structure is worth more than any number of tricks.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Download the whole chapter</span><span class="dl-sub">PDF, typeset for print</span></span></a>
+  </div>
+  <h2 class="contents-head">In this chapter</h2>
+  <ol class="toc"><li><a class="toc-link" href="cyclotomic.html"><span class="toc-num">6.1</span>
+<span class="toc-title">Polynomials Whose Roots Are Roots of Unity</span>
+<span class="toc-src">STEP III 2010</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-1-cyclotomic.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="gauss-17gon.html"><span class="toc-num">6.2</span>
+<span class="toc-title">Gauss&#x27;s 17-gon</span>
+<span class="toc-src">STEP II 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-2-gauss-17gon.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="field-extensions.html"><span class="toc-num">6.3</span>
+<span class="toc-title">A Polynomial for \(\sqrt2 + \sqrt3 + \sqrt5\)</span>
+<span class="toc-src">STEP II 2023</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-3-field-extensions.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="quartic.html"><span class="toc-num">6.4</span>
+<span class="toc-title">Solving the Quartic</span>
+<span class="toc-src">STEP III 2017</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-4-quartic.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="derivations.html"><span class="toc-num">6.5</span>
+<span class="toc-title">Differentiation from Axioms</span>
+<span class="toc-src">STEP II 1992</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-5-derivations.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="subgroup-unions.html"><span class="toc-num">6.6</span>
+<span class="toc-title">Unions of Subgroups</span>
+<span class="toc-src">STEP II 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-6-subgroup-unions.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="quaternions.html"><span class="toc-num">6.7</span>
+<span class="toc-title">The Quaternion Group</span>
+<span class="toc-src">STEP III 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-7-quaternions.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="singular-group.html"><span class="toc-num">6.8</span>
+<span class="toc-title">A Group of Singular Matrices</span>
+<span class="toc-src">STEP III 1996</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-8-singular-group.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">Looking back: what we have learned</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">Chapter 6  \(\cdot\)  Introduction</div>
+    <h1 class="essay-title">From Equations to Structures</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>Mathematics is the art of giving the same name to different things.</p>
+<p class="who">— Henri Poincaré</p>
+</div>
+<p>For most of its history, algebra meant solving equations. The Babylonians solved quadratics four thousand years ago; Italian mathematicians of the sixteenth century solved cubics and quartics; and then, for nearly three hundred years, the quintic resisted every attempt. The resolution, when it came in the 1820s and 1830s, changed algebra completely. Niels Henrik Abel proved that no general formula for the quintic exists, and Évariste Galois explained exactly which equations can be solved, by studying not the equations themselves but the <em>symmetries of their roots</em>. To do so he had to invent a new kind of mathematical object: the group.</p>
+<p>That shift, from computing answers to studying structures, is the subject of this chapter. Instead of asking “what is the solution?”, modern algebra asks “what kind of object is this, and what operations does it support?” The answers turn out to explain why the old tricks worked, and to settle questions that tricks alone never could.</p>
+<h3 id="why-structure-matters">Why structure matters</h3>
+<p>Here are three ancient problems that resisted all attempts for two thousand years: with ruler and compasses, double the volume of a cube; trisect an arbitrary angle; construct a regular <span class="math inline">\(7\)</span>-sided polygon. None of them can be done, and the proofs, found in the nineteenth century, are not clever constructions but arguments about structure: about the <em>degree</em> of the field of numbers that ruler and compasses can reach (<a href="../ch06/field-extensions.html">Section 6.3</a>). The same theory explains why the regular <span class="math inline">\(17\)</span>-gon <em>can</em> be constructed (<a href="../ch06/gauss-17gon.html">Section 6.2</a>), and why the quartic can be solved but the quintic cannot (<a href="../ch06/quartic.html">Section 6.4</a>).</p>
+<p>Structures also travel. The axioms for a group are satisfied by the symmetries of a crystal, the permutations of the roots of a polynomial, the rotations of three-dimensional space, the moves of Rubik’s cube and the points of an elliptic curve. A theorem proved once from the axioms holds in all of them. That economy, giving “the same name to different things” as Poincaré put it, is what makes abstract algebra so powerful.</p>
+<h3 id="what-you-will-meet-at-university">What you will meet at university</h3>
+<p>In the first year you will meet <em>groups</em> (sets with an operation satisfying three axioms) and, usually, <em>rings</em> and <em>fields</em> (sets with addition and multiplication). You will prove Lagrange’s theorem, that the size of a subgroup divides the size of the group, and meet permutations, symmetry groups and matrix groups. In the second and third years these lead to <em>Galois theory</em>, which connects fields and groups and answers the classical questions about equations and constructions; to <em>representation theory</em>, which studies groups through matrices; and to <em>algebraic number theory</em>, where the ideas of <a href="../ch01/factorisation-fails.html">Section 1.7</a> are put on a firm footing. The last three sections of this chapter are about groups. Groups are no longer on the STEP syllabus (they were removed in 2019), but the questions are self-contained and each section gives the definitions it needs.</p>
+<h3 id="the-questions-that-run-through-this-chapter">The questions that run through this chapter</h3>
+<div class="skillbox">
+<div class="box-title">Three big questions</div>
+<ol class="arabic">
+<li><p><strong>What can be built from what?</strong> Which numbers can be reached from the rationals by square roots, or by solving equations, and how do we prove something cannot be reached?</p></li>
+<li><p><strong>Why do the formulas for equations work?</strong> What is the hidden reason that quadratics, cubics and quartics have formulas, and what changes at degree five?</p></li>
+<li><p><strong>What is gained by abstraction?</strong> What happens when we describe objects only by the rules they obey?</p></li>
+</ol>
+</div>
+<h3 id="ideas-in-this-chapter">Ideas in this chapter</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">6.1</td>
+<td style="text-align: left;">Cyclotomic polynomials</td>
+<td style="text-align: left;">Classify roots of unity by order</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6.2</td>
+<td style="text-align: left;">The regular <span class="math inline">\(17\)</span>-gon</td>
+<td style="text-align: left;">Gauss periods: sums and products give quadratics</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6.3</td>
+<td style="text-align: left;">Minimal polynomials</td>
+<td style="text-align: left;">Eliminate radicals; degrees multiply</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6.4</td>
+<td style="text-align: left;">Solving the quartic</td>
+<td style="text-align: left;">Symmetric functions; the resolvent cubic</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6.5</td>
+<td style="text-align: left;">Differentiation from axioms</td>
+<td style="text-align: left;">An operation determined by its rules</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6.6</td>
+<td style="text-align: left;">Unions of subgroups</td>
+<td style="text-align: left;">Arguing from the group axioms</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6.7</td>
+<td style="text-align: left;">The quaternion group</td>
+<td style="text-align: left;">Representing an operation by matrices</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6.8</td>
+<td style="text-align: left;">A group of singular matrices</td>
+<td style="text-align: left;">Reading definitions literally</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-to-read-this-chapter">How to read this chapter</h3>
+<p>Many of these questions can be done by brute force: expand everything, compare coefficients, check every case. Do that first if you need to. Then look back and ask what made the brute force work, and whether there is a structural reason behind it. The structural reason is usually shorter, always more illuminating, and it is what you will need when the brute force becomes impossible.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="cyclotomic.html">→ Begin: 6.1 Polynomials Whose Roots Are Roots of Unity</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

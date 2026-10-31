@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6.3 A Polynomial for √2 + √3 + √5 — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 6 · Algebra and Structure</a>
+    <div class="src">STEP II · 2023 · Question 4</div>
+    <div class="sec-head"><span class="sec-num">6.3</span><h1>A Polynomial for \(\sqrt2 + \sqrt3 + \sqrt5\)</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-3-field-extensions.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 6</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Show that, if <span class="math inline">\(\bigl(x - \sqrt2\bigr)^2 = 3\)</span>, then <span class="math inline">\(x^4 - 10x^2 + 1 = 0\)</span>.</p>
+<p>Deduce that, if <span class="math inline">\(\mathrm{f}(x) = x^4 - 10x^2 + 1\)</span>, then <span class="math inline">\(\mathrm{f}\bigl(\sqrt2 + \sqrt3\bigr) = 0\)</span>.</p></li>
+<li><p>Find a polynomial <span class="math inline">\(\mathrm{g}\)</span> of degree <span class="math inline">\(8\)</span> with integer coefficients such that <span class="math inline">\(\mathrm{g}\bigl(\sqrt2 + \sqrt3 + \sqrt5\bigr) = 0\)</span>. Write your answer in a form without brackets.</p></li>
+<li><p>Let <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> be the three roots of <span class="math inline">\(t^3 - 3t + 1 = 0\)</span>.</p>
+<p>Find a polynomial <span class="math inline">\(\mathrm{h}\)</span> of degree <span class="math inline">\(6\)</span> with integer coefficients such that <span class="math inline">\(\mathrm{h}\bigl(a + \sqrt2\bigr) = 0\)</span>, <span class="math inline">\(\mathrm{h}\bigl(b + \sqrt2\bigr) = 0\)</span> and <span class="math inline">\(\mathrm{h}\bigl(c + \sqrt2\bigr) = 0\)</span>. Write your answer in a form without brackets.</p></li>
+<li><p>Find a polynomial <span class="math inline">\(\mathrm{k}\)</span> with integer coefficients such that <span class="math inline">\(\mathrm{k}\bigl(\sqrt[3]2 + \sqrt[3]3\bigr) = 0\)</span>. Write your answer in a form without brackets.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p><span class="math inline">\(\sqrt2\)</span> is a root of <span class="math inline">\(x^2 - 2\)</span>, a polynomial with integer coefficients. So is <span class="math inline">\(\sqrt3\)</span>, of <span class="math inline">\(x^2 - 3\)</span>. Is <span class="math inline">\(\sqrt2 + \sqrt3\)</span> also the root of some polynomial with integer coefficients? What about <span class="math inline">\(\sqrt2 + \sqrt3 + \sqrt5\)</span>, or <span class="math inline">\(\sqrt[3]2 + \sqrt[3]3\)</span>?</p>
+<p>Numbers that are roots of polynomials with integer coefficients are called <em>algebraic</em>, and this question shows, by hands-on elimination, that sums of algebraic numbers are algebraic. The degrees that come out, <span class="math inline">\(4\)</span>, <span class="math inline">\(8\)</span>, <span class="math inline">\(6\)</span>, <span class="math inline">\(9\)</span>, are not accidents. They measure how “complicated” each number is, and that measurement, the <em>degree of a field extension</em>, is what finally settled the ancient Greek problems of doubling the cube and trisecting the angle.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>To find a polynomial with <span class="math inline">\(\sqrt2\)</span> as a root, you square <span class="math inline">\(x = \sqrt2\)</span> to get rid of the square root. How might you get rid of two different square roots, one at a time?</p>
+</div>
+<p>Isolate one square root and square, which removes it; then isolate the other and square again. Each squaring may double the degree. That is the whole strategy of the question: eliminate the radicals one at a time.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-two-square-roots" class="stage"><span class="stage-n">Stage 1</span> Two square roots</h4>
+<p>If <span class="math inline">\((x - \sqrt2)^2 = 3\)</span>, then <span class="math inline">\(x^2 - 2\sqrt2\,x + 2 = 3\)</span>, so <span class="math inline">\(x^2 - 1 = 2\sqrt2\,x\)</span>. Squaring removes the remaining square root: <span class="math inline">\((x^2 - 1)^2 = 8x^2\)</span>, that is, <span class="math display">\[x^4 - 10x^2 + 1 = 0. \qed\]</span> And <span class="math inline">\(x = \sqrt2 + \sqrt3\)</span> satisfies <span class="math inline">\((x - \sqrt2)^2 = (\sqrt3)^2 = 3\)</span>, so <span class="math inline">\(\mathrm{f}(\sqrt2 + \sqrt3) = 0\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-three-square-roots" class="stage"><span class="stage-n">Stage 2</span> Three square roots</h4>
+<div class="askyourself">
+<p>Let <span class="math inline">\(x = \sqrt2 + \sqrt3 + \sqrt5\)</span>, so <span class="math inline">\(x - \sqrt5 = \sqrt2 + \sqrt3\)</span> is a root of <span class="math inline">\(\mathrm{f}\)</span>. Write <span class="math inline">\(\mathrm{f}(x - \sqrt5) = 0\)</span> in the form <span class="math inline">\(P(x) + \sqrt5\,Q(x) = 0\)</span>. How do you then eliminate <span class="math inline">\(\sqrt5\)</span>?</p>
+</div>
+<p>Expand using <span class="math inline">\((x - \sqrt5)^2 = x^2 + 5 - 2\sqrt5 x\)</span> and <span class="math inline">\((x - \sqrt5)^4 = \bigl(x^2 + 5 - 2\sqrt5x\bigr)^2 = x^4 + 30x^2 + 25 - 4\sqrt5\,x(x^2 + 5)\)</span>: <span class="math display">\[\mathrm{f}(x - \sqrt5) = \bigl(x^4 + 30x^2 + 25\bigr) - 4\sqrt5\,x(x^2 + 5) - 10\bigl(x^2 + 5\bigr) + 20\sqrt5\,x + 1.\]</span> Collecting, <span class="math inline">\(P(x) = x^4 + 20x^2 - 24\)</span> and <span class="math inline">\(Q(x) = -4x^3 - 20x + 20x = -4x^3\)</span>. So <span class="math inline">\(x^4 + 20x^2 - 24 = 4\sqrt5\,x^3\)</span>. Squaring, <span class="math display">\[\bigl(x^4 + 20x^2 - 24\bigr)^2 = 80x^6,\]</span> and expanding gives <span class="math display">\[\mathrm{g}(x) = x^8 - 40x^6 + 352x^4 - 960x^2 + 576. \qed\]</span> (Check: <span class="math inline">\((x^4 + 20x^2 - 24)^2 = x^8 + 40x^6 + 352x^4 - 960x^2 + 576\)</span>, using <span class="math inline">\(400 - 48 = 352\)</span>, and subtracting <span class="math inline">\(80x^6\)</span> gives <span class="math inline">\(\mathrm{g}\)</span>.)</p>
+<h4 id="stagemark3-a-cubic-and-a-square-root" class="stage"><span class="stage-n">Stage 3</span> A cubic and a square root</h4>
+<div class="askyourself">
+<p>If <span class="math inline">\(x = a + \sqrt2\)</span>, then <span class="math inline">\(x - \sqrt2\)</span> is a root of <span class="math inline">\(t^3 - 3t + 1\)</span>. Substitute, separate the terms with and without <span class="math inline">\(\sqrt2\)</span>, and square.</p>
+</div>
+<p><span class="math inline">\((x - \sqrt2)^3 = x^3 - 3\sqrt2\,x^2 + 6x - 2\sqrt2\)</span>, so <span class="math display">\[(x - \sqrt2)^3 - 3(x - \sqrt2) + 1 = \bigl(x^3 + 3x + 1\bigr) - \sqrt2\bigl(3x^2 - 1\bigr) = 0.\]</span> Hence <span class="math inline">\((x^3 + 3x + 1)^2 = 2(3x^2 - 1)^2\)</span>. Expanding, <span class="math inline">\(x^6 + 6x^4 + 2x^3 + 9x^2 + 6x + 1 = 18x^4 - 12x^2 + 2\)</span>, so <span class="math display">\[\mathrm{h}(x) = x^6 - 12x^4 + 2x^3 + 21x^2 + 6x - 1. \qed\]</span> The same argument works for <span class="math inline">\(b + \sqrt2\)</span> and <span class="math inline">\(c + \sqrt2\)</span>, since only the fact that <span class="math inline">\(a\)</span> is a root of <span class="math inline">\(t^3 - 3t + 1\)</span> was used. (The other three roots of <span class="math inline">\(\mathrm{h}\)</span> are <span class="math inline">\(a - \sqrt2\)</span>, <span class="math inline">\(b - \sqrt2\)</span> and <span class="math inline">\(c - \sqrt2\)</span>, which came in when we squared.)</p>
+<h4 id="stagemark4-two-cube-roots" class="stage"><span class="stage-n">Stage 4</span> Two cube roots</h4>
+<div class="pausebox">
+<p>Let <span class="math inline">\(x = \sqrt[3]2 + \sqrt[3]3\)</span>. Cube both sides. Can you write the result in terms of <span class="math inline">\(x\)</span> and a single cube root?</p>
+</div>
+<p>Using <span class="math inline">\((u + v)^3 = u^3 + v^3 + 3uv(u + v)\)</span> with <span class="math inline">\(u = \sqrt[3]2\)</span>, <span class="math inline">\(v = \sqrt[3]3\)</span>: <span class="math display">\[x^3 = 2 + 3 + 3\sqrt[3]6\,x, \qquad\text{so}\qquad x^3 - 5 = 3\sqrt[3]6\,x.\]</span> Cubing again removes the last cube root: <span class="math inline">\((x^3 - 5)^3 = 27 \cdot 6\,x^3 = 162x^3\)</span>. Expanding <span class="math inline">\((x^3 - 5)^3 = x^9 - 15x^6 + 75x^3 - 125\)</span>, <span class="math display">\[\mathrm{k}(x) = x^9 - 15x^6 - 87x^3 - 125. \qed\]</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Eliminate one radical at a time.</strong> Isolate a radical, raise to the appropriate power, and repeat.</p></li>
+<li><p><strong>Separate rational and irrational parts.</strong> Writing an expression as <span class="math inline">\(P + \sqrt5\,Q\)</span> and then using <span class="math inline">\(P^2 = 5Q^2\)</span> is the key move.</p></li>
+<li><p><strong>Squaring adds extra roots.</strong> Each squaring brings in “conjugate” roots, such as <span class="math inline">\(a - \sqrt2\)</span> alongside <span class="math inline">\(a + \sqrt2\)</span>. The final polynomial has all of them as roots.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Fields and their degrees</div>
+<p>The set <span class="math inline">\(\mathbb{Q}(\sqrt2)\)</span> of all numbers <span class="math inline">\(p + q\sqrt2\)</span> with <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> rational is closed under addition, subtraction, multiplication and division (by non-zero numbers): it is a <em>field</em>. It is a two-dimensional “vector space” over <span class="math inline">\(\mathbb{Q}\)</span>, with basis <span class="math inline">\(1, \sqrt2\)</span>, so we say it has <em>degree</em> <span class="math inline">\(2\)</span> over <span class="math inline">\(\mathbb{Q}\)</span>. Adjoining <span class="math inline">\(\sqrt3\)</span> gives <span class="math inline">\(\mathbb{Q}(\sqrt2, \sqrt3)\)</span>, with basis <span class="math inline">\(1, \sqrt2, \sqrt3, \sqrt6\)</span> and degree <span class="math inline">\(4\)</span>; adjoining <span class="math inline">\(\sqrt5\)</span> as well gives degree <span class="math inline">\(8\)</span> (Figure 6.3.1). The <em>tower law</em> says degrees multiply up a tower of fields. The degree of the field generated by a number equals the degree of its <em>minimal polynomial</em>, the lowest-degree polynomial with rational coefficients that it satisfies. One can show that the polynomials <span class="math inline">\(\mathrm{f}\)</span> and <span class="math inline">\(\mathrm{g}\)</span> in this question are minimal, so <span class="math inline">\(\sqrt2 + \sqrt3\)</span> has degree <span class="math inline">\(4\)</span> and <span class="math inline">\(\sqrt2 + \sqrt3 + \sqrt5\)</span> has degree <span class="math inline">\(8\)</span>: in fact the single number <span class="math inline">\(\sqrt2 + \sqrt3 + \sqrt5\)</span> generates the whole degree-<span class="math inline">\(8\)</span> field.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-3-1.svg" alt="Figure 6.3.1"><figcaption><span class="fig-label">Figure 6.3.1</span> Towers of fields. Right: each square root doubles the degree, giving <span class="math inline">\(2 \times 2 \times 2 = 8\)</span>, the degree of <span class="math inline">\(\mathrm{g}\)</span>. Left: each cube root triples it, giving <span class="math inline">\(3 \times 3 = 9\)</span>, the degree of <span class="math inline">\(\mathrm{k}\)</span>. Degrees multiply up a tower; this <em>tower law</em> is the key to the impossibility proofs for ruler-and-compass constructions.</figcaption></figure>
+<h3 id="doubling-the-cube">Doubling the cube</h3>
+<p>Ruler-and-compass constructions can only produce lengths obtained from rational numbers by repeatedly solving linear and quadratic equations. Each such step gives a field extension of degree <span class="math inline">\(1\)</span> or <span class="math inline">\(2\)</span>, so by the tower law every constructible length lies in a field of degree a power of <span class="math inline">\(2\)</span>, and has degree a power of <span class="math inline">\(2\)</span> itself. But <span class="math inline">\(\sqrt[3]2\)</span> has minimal polynomial <span class="math inline">\(x^3 - 2\)</span>, of degree <span class="math inline">\(3\)</span>. Since <span class="math inline">\(3\)</span> is not a power of <span class="math inline">\(2\)</span>, <span class="math inline">\(\sqrt[3]2\)</span> is not constructible, and the Delian problem of doubling the volume of a cube with ruler and compasses, posed around 430 BC, is impossible. Pierre Wantzel proved this in 1837, together with the impossibility of trisecting a general angle and the classification of constructible polygons (<a href="../ch06/gauss-17gon.html">Section 6.2</a>). Two thousand years of attempts were ended by an argument about degrees.</p>
+<h3 id="algebraic-numbers-form-a-field">Algebraic numbers form a field</h3>
+<p>The method of this question shows, in examples, that sums of algebraic numbers are algebraic. In general this is proved with linear algebra: if <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> have degrees <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span>, then all the numbers <span class="math inline">\(\alpha^i\beta^j\)</span> (with <span class="math inline">\(i &lt; m\)</span>, <span class="math inline">\(j &lt; n\)</span>) span a space of dimension at most <span class="math inline">\(mn\)</span>, and the <span class="math inline">\(mn + 1\)</span> powers <span class="math inline">\(1, \alpha + \beta, (\alpha + \beta)^2, \ldots\)</span> must be linearly dependent, which gives a polynomial of degree at most <span class="math inline">\(mn\)</span>. Our degrees <span class="math inline">\(4 = 2 \times 2\)</span>, <span class="math inline">\(6 = 3 \times 2\)</span> and <span class="math inline">\(9 = 3 \times 3\)</span> fit this pattern exactly. Numbers that are <em>not</em> algebraic are called <em>transcendental</em>; <span class="math inline">\(e\)</span> and <span class="math inline">\(\pi\)</span> are examples (Hermite, 1873, and Lindemann, 1882), and Lindemann’s theorem that <span class="math inline">\(\pi\)</span> is transcendental proved that squaring the circle is impossible too.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Eliminate, then measure</div>
+<p><em>To find a polynomial satisfied by an expression in radicals, remove the radicals one at a time by isolating and raising to a power.</em></p>
+<p>Then ask what the degree tells you. The degree of the minimal polynomial is an invariant of the number, and comparing degrees is one of the most powerful ways to prove that something is impossible.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A primitive element.</strong> Let <span class="math inline">\(y = \sqrt2 + \sqrt3\)</span>. Show that <span class="math inline">\(y^3 = 11\sqrt2 + 9\sqrt3\)</span>, and deduce that <span class="math inline">\(\sqrt2 = \frac12(y^3 - 9y)\)</span>. Hence every number <span class="math inline">\(p + q\sqrt2 + r\sqrt3 + s\sqrt6\)</span> can be written as a polynomial in <span class="math inline">\(y\)</span>.</p></li>
+<li><p><strong>Mixed roots.</strong> Find a polynomial of degree <span class="math inline">\(6\)</span> with integer coefficients that has <span class="math inline">\(\sqrt2 + \sqrt[3]3\)</span> as a root.</p></li>
+<li><p><strong>Irreducibility.</strong> Show that <span class="math inline">\(x^4 - 10x^2 + 1\)</span> has no rational roots and cannot be written as a product of two quadratics with integer coefficients. (<em>Hint:</em> try <span class="math inline">\((x^2 + ax + b)(x^2 - ax + c)\)</span>.) Deduce that <span class="math inline">\(\sqrt2 + \sqrt3\)</span> has degree <span class="math inline">\(4\)</span>.</p></li>
+<li><p><strong>Trisection.</strong> Show that <span class="math inline">\(\cos 3\theta = 4\cos^3\theta - 3\cos\theta\)</span>, and deduce that <span class="math inline">\(\cos 20^\circ\)</span> is a root of <span class="math inline">\(8x^3 - 6x - 1 = 0\)</span>. Assuming this cubic has no rational roots (check this), explain why a <span class="math inline">\(60^\circ\)</span> angle cannot be trisected with ruler and compasses.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Ian Stewart, <em>Galois Theory</em></strong> (CRC Press). Field extensions, the tower law and the classical construction problems, written for undergraduates.</p></li>
+<li><p><strong>Richard Courant &amp; Herbert Robbins, <em>What Is Mathematics?</em></strong> (Oxford University Press). Chapter 3 proves the impossibility of the Greek problems with no prerequisites.</p></li>
+<li><p><strong>Robin Hartshorne, <em>Geometry: Euclid and Beyond</em></strong> (Springer). Ruler-and-compass constructions treated with modern algebra.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="gauss-17gon.html">← 6.2 Gauss&#x27;s 17-gon</a><a class="next" href="quartic.html">→ 6.4 Solving the Quartic</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
