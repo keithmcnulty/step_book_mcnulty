@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11.10 A Ball That Comes Back Towards You — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 11 · Oscillations, Rotation and Moving Frames</a>
+    <div class="src">STEP II · 2019 · Question 9</div>
+    <div class="sec-head"><span class="sec-num">11.10</span><h1>A Ball That Comes Back Towards You</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-11-10-coming-back.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-11-oscillations-rotation-and-moving-frames.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 11</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A particle <span class="math inline">\(P\)</span> is projected from a point <span class="math inline">\(O\)</span> on horizontal ground with speed <span class="math inline">\(u\)</span> and angle of projection <span class="math inline">\(\alpha\)</span>, where <span class="math inline">\(0 &lt; \alpha &lt; \frac12\pi\)</span>.</p>
+<ol class="roman">
+<li><p>Show that if <span class="math inline">\(\sin\alpha &lt; \frac{2\sqrt2}{3}\)</span>, then the distance <span class="math inline">\(OP\)</span> is increasing throughout the flight.</p>
+<p>Show also that if <span class="math inline">\(\sin\alpha &gt; \frac{2\sqrt2}{3}\)</span>, then <span class="math inline">\(OP\)</span> will be decreasing at some time before the particle lands.</p></li>
+<li><p>At the same time as <span class="math inline">\(P\)</span> is projected, a particle <span class="math inline">\(Q\)</span> is projected horizontally from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(v\)</span> along the ground in the opposite direction from the trajectory of <span class="math inline">\(P\)</span>. The ground is smooth. Show that if <span class="math display">\[2\sqrt2\,v &gt; (\sin\alpha - 2\sqrt2\cos\alpha)u,\]</span> then <span class="math inline">\(QP\)</span> is increasing throughout the flight of <span class="math inline">\(P\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Throw a ball forwards and it moves away from you until it lands. Obviously. Throw it straight up and it comes back. Somewhere in between, something must change: there must be angles at which the ball moves away, then comes <em>closer</em>, then moves away again before landing. This question finds the exact threshold, <span class="math inline">\(\sin\alpha = \frac{2\sqrt2}{3}\)</span>, or about <span class="math inline">\(70.5^\circ\)</span>.</p>
+<p>The result is a nice example of a common situation in mathematics: a quantity everyone assumes is monotonic, which is not. It also shows a standard technique, used constantly at university: to find out whether a distance is increasing, differentiate its <em>square</em>, which avoids square roots.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Why is it easier to work with <span class="math inline">\(OP^2\)</span> than with <span class="math inline">\(OP\)</span>? Is “<span class="math inline">\(OP\)</span> is increasing” the same as “<span class="math inline">\(OP^2\)</span> is increasing”?</p>
+</div>
+<p><span class="math inline">\(OP^2 = x^2 + y^2\)</span> is a polynomial in <span class="math inline">\(t\)</span>, while <span class="math inline">\(OP\)</span> involves a square root. Since <span class="math inline">\(OP \geq 0\)</span>, and squaring is increasing on non-negative numbers, <span class="math inline">\(OP\)</span> increases exactly when <span class="math inline">\(OP^2\)</span> does.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-squared-distance" class="stage"><span class="stage-n">Stage 1</span> The squared distance</h4>
+<p>With <span class="math inline">\(x = ut\cos\alpha\)</span> and <span class="math inline">\(y = ut\sin\alpha - \frac12gt^2\)</span>, <span class="math display">\[OP^2 = u^2t^2\cos^2\alpha + u^2t^2\sin^2\alpha - ugt^3\sin\alpha + \tfrac14g^2t^4 = u^2t^2 - ugt^3\sin\alpha + \tfrac14g^2t^4.\]</span></p>
+<div class="askyourself">
+<p>Differentiate with respect to <span class="math inline">\(t\)</span>. After taking out a factor of <span class="math inline">\(t\)</span>, what is left? When is it positive for all <span class="math inline">\(t\)</span>?</p>
+</div>
+<p><span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}t}OP^2 = 2u^2t - 3ugt^2\sin\alpha + g^2t^3 = t\bigl(g^2t^2 - 3ug\sin\alpha\,t + 2u^2\bigr).\]</span> For <span class="math inline">\(t &gt; 0\)</span>, the sign is that of the quadratic <span class="math inline">\(g^2t^2 - 3ug\sin\alpha\,t + 2u^2\)</span>. This quadratic has positive leading coefficient, so it is positive for every <span class="math inline">\(t\)</span> if its discriminant is negative: <span class="math display">\[9u^2g^2\sin^2\alpha - 8u^2g^2 &lt; 0 \quad\Longleftrightarrow\quad \sin^2\alpha &lt; \frac89 \quad\Longleftrightarrow\quad \sin\alpha &lt; \frac{2\sqrt2}{3}.\]</span> In that case <span class="math inline">\(OP\)</span> is increasing throughout the flight.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-steeper-throws" class="stage"><span class="stage-n">Stage 2</span> Steeper throws</h4>
+<div class="askyourself">
+<p>If <span class="math inline">\(\sin\alpha &gt; \frac{2\sqrt2}{3}\)</span>, the quadratic has two real roots. Are they positive? Is the smaller one before the particle lands?</p>
+</div>
+<p>The roots have sum <span class="math inline">\(\frac{3u\sin\alpha}{g} &gt; 0\)</span> and product <span class="math inline">\(\frac{2u^2}{g^2} &gt; 0\)</span>, so both are positive, and between them the quadratic, and so <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}OP^2\)</span>, is negative. The particle lands at <span class="math inline">\(T = \frac{2u\sin\alpha}{g}\)</span>. The smaller root is <span class="math display">\[t_1 = \frac{u}{2g}\bigl(3\sin\alpha - \sqrt{9\sin^2\alpha - 8}\bigr) &lt; \frac{u}{2g}\cdot3\sin\alpha &lt; \frac{2u\sin\alpha}{g} = T.\]</span> So just after <span class="math inline">\(t_1\)</span> (and before landing) <span class="math inline">\(OP\)</span> is decreasing.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-11-10-1.svg" alt="Figure 11.10.1"><figcaption><span class="fig-label">Figure 11.10.1</span> Distance from the thrower against time, until landing, for three angles. At <span class="math inline">\(60^\circ\)</span> (teal) it always increases. At the critical angle <span class="math inline">\(\arcsin\frac{2\sqrt2}{3} \approx 70.5^\circ\)</span> (amber) it pauses for an instant. At <span class="math inline">\(80^\circ\)</span> (plum) the ball moves away, comes back towards the thrower for a while, and moves away again just before landing.</figcaption></figure>
+<h4 id="stagemark3-a-moving-observer" class="stage"><span class="stage-n">Stage 3</span> A moving observer</h4>
+<div class="askyourself">
+<p><span class="math inline">\(Q\)</span> moves away from <span class="math inline">\(O\)</span> along the ground in the opposite direction, at speed <span class="math inline">\(v\)</span>. Measured from <span class="math inline">\(Q\)</span>, the horizontal separation is <span class="math inline">\(x + vt\)</span>. What does that do to the calculation?</p>
+</div>
+<p>The separation <span class="math inline">\(QP\)</span> has horizontal component <span class="math inline">\((u\cos\alpha + v)t\)</span> and vertical component <span class="math inline">\(ut\sin\alpha - \frac12gt^2\)</span>. So <span class="math display">\[QP^2 = \bigl((u\cos\alpha + v)^2 + u^2\sin^2\alpha\bigr)t^2 - ugt^3\sin\alpha + \tfrac14g^2t^4,\]</span> the same as before with <span class="math inline">\(u^2\)</span> replaced by <span class="math inline">\(w^2 = (u\cos\alpha + v)^2 + u^2\sin^2\alpha\)</span> in the first term. The derivative is <span class="math inline">\(t\bigl(g^2t^2 - 3ug\sin\alpha\,t + 2w^2\bigr)\)</span>, and the condition for it to be positive for all <span class="math inline">\(t &gt; 0\)</span> is <span class="math display">\[9u^2\sin^2\alpha &lt; 8w^2 \quad\Longleftrightarrow\quad u^2\sin^2\alpha &lt; 8(u\cos\alpha + v)^2,\]</span> after cancelling <span class="math inline">\(8u^2\sin^2\alpha\)</span> from both sides. Taking square roots (both <span class="math inline">\(u\sin\alpha\)</span> and <span class="math inline">\(u\cos\alpha + v\)</span> are positive), this is <span class="math inline">\(u\sin\alpha &lt; 2\sqrt2(u\cos\alpha + v)\)</span>, which rearranges to <span class="math display">\[2\sqrt2\,v &gt; (\sin\alpha - 2\sqrt2\cos\alpha)u. \qed\]</span> (This is sufficient for <span class="math inline">\(QP\)</span> to increase throughout the flight, since the derivative is then positive for all <span class="math inline">\(t &gt; 0\)</span>.)</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Differentiate the square.</strong> Squared distances are polynomials, and their derivatives have the same sign as the derivative of the distance.</p></li>
+<li><p><strong>A quadratic that is always positive.</strong> The condition “increasing for all time” became a discriminant condition.</p></li>
+<li><p><strong>A new problem as an old one.</strong> The moving observer only changed one coefficient, so the earlier analysis applied directly.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="a-geometric-view">A geometric view</h3>
+<p><span class="math inline">\(OP\)</span> decreases exactly when the velocity of <span class="math inline">\(P\)</span> points “inwards”, making an obtuse angle with the vector <span class="math inline">\(\overrightarrow{OP}\)</span>, that is, when <span class="math inline">\(\overrightarrow{OP}\cdot\mathbf{v} &lt; 0\)</span>. For a steep throw, near the top of the flight the particle is high above and slightly in front of the thrower, moving almost horizontally away, but starting to fall; once the downward part of its velocity outweighs the outward part, relative to the direction of <span class="math inline">\(\overrightarrow{OP}\)</span>, it comes closer. For shallow throws the particle is always far enough in front that its velocity never points back towards <span class="math inline">\(O\)</span>. The critical case is when the velocity is perpendicular to <span class="math inline">\(\overrightarrow{OP}\)</span> at exactly one instant, the moment when the distance pauses in Figure 11.10.1.</p>
+<h3 id="monotonicity-is-not-automatic">Monotonicity is not automatic</h3>
+<p>Many quantities that “obviously” increase do not. The distance of the Moon from the Earth oscillates; the distance between two cars on a winding road can decrease even when one is always ahead; the population of a predator can fall while its prey multiplies. Proving that a quantity is monotonic usually means showing that a derivative has a fixed sign, and the technique here (reduce to a polynomial, then check its roots or discriminant) is the standard way to do it. In analysis, monotonicity is often the key to proving convergence: a bounded monotonic sequence converges, as you saw in Chapter 2.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Check monotonicity through a derivative</div>
+<p><em>To decide whether a quantity always increases, differentiate it (or a convenient function of it, such as its square) and ask whether the derivative can change sign.</em></p>
+<p>At university, sign arguments of this kind are used to prove inequalities, to locate maxima and minima, and to study the stability of solutions of differential equations, where a quantity that always decreases (as in <a href="../ch08/bounding-without-solving.html">Section 8.2</a>) proves that a system settles down.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>How close?</strong> For <span class="math inline">\(\alpha = 80^\circ\)</span>, find the times at which <span class="math inline">\(OP\)</span> has its local maximum and minimum, and the distances there, in units of <span class="math inline">\(u^2/g\)</span>.</p></li>
+<li><p><strong>On a slope.</strong> Repeat part (i) for a ball thrown up a plane inclined at angle <span class="math inline">\(\beta\)</span> to the horizontal, landing on the plane. Does the critical angle (measured from the plane) change?</p></li>
+<li><p><strong>With air resistance.</strong> Suppose the ball also experiences a resistance proportional to its velocity. Without calculating, would you expect the critical angle to be larger or smaller than <span class="math inline">\(70.5^\circ\)</span>? Why?</p></li>
+<li><p><strong>Throwing from a height.</strong> If the ball is thrown from the top of a cliff and lands far below, show that <span class="math inline">\(OP\)</span> eventually increases for any angle, and find whether there are angles for which it decreases at some stage.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>James Walker, <em>The Flying Circus of Physics</em></strong> (Wiley). Hundreds of surprising everyday physics puzzles.</p></li>
+<li><p><strong>David Morin, <em>Introduction to Classical Mechanics</em></strong> (Cambridge University Press), Chapter 3, on projectiles, with several counter-intuitive problems.</p></li>
+<li><p><strong>J. M. Steele, <em>The Cauchy–Schwarz Master Class</em></strong> (Cambridge University Press). The art of proving that one thing is always bigger than another.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="safety-parabola.html">← 11.9 The Safety Parabola</a><a class="next" href="fielders.html">→ 11.11 How Fielders Catch</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

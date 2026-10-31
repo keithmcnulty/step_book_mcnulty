@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11.8 Tilted Equilibria — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 11 · Oscillations, Rotation and Moving Frames</a>
+    <div class="src">STEP III · 2025 · Question 9</div>
+    <div class="sec-head"><span class="sec-num">11.8</span><h1>Tilted Equilibria</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-11-8-tilted-equilibria.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-11-oscillations-rotation-and-moving-frames.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 11</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>In this question, <span class="math inline">\(n \geq 2\)</span>.</p>
+<ol class="roman">
+<li><p>A solid, of uniform density, is formed by rotating through <span class="math inline">\(360^\circ\)</span> about the <span class="math inline">\(y\)</span>-axis the region bounded by the part of the curve <span class="math inline">\(r^{n-1}y = r^n - x^n\)</span> with <span class="math inline">\(0 \leq x \leq r\)</span>, and the <span class="math inline">\(x\)</span>- and <span class="math inline">\(y\)</span>-axes. Show that the <span class="math inline">\(y\)</span>-coordinate of the centre of mass of this solid is <span class="math inline">\(\dfrac{nr}{2(n + 1)}\)</span>.</p></li>
+<li><p>Show that the normal to the curve <span class="math inline">\(r^{n-1}y = r^n - x^n\)</span> at the point <span class="math inline">\(\bigl(rp, r(1 - p^n)\bigr)\)</span>, where <span class="math inline">\(0 &lt; p \leq 1\)</span>, meets the <span class="math inline">\(y\)</span>-axis at <span class="math inline">\((0, Y)\)</span>, where <span class="math inline">\(Y = r\Bigl(1 - p^n - \dfrac{1}{np^{n-2}}\Bigr)\)</span>.</p>
+<p>In the case <span class="math inline">\(n = 4\)</span>, show that the greatest value of <span class="math inline">\(Y\)</span> is <span class="math inline">\(\frac14r\)</span>.</p></li>
+<li><p>A solid is formed by rotating through <span class="math inline">\(360^\circ\)</span> about the <span class="math inline">\(y\)</span>-axis the region bounded by the curves <span class="math inline">\(r^3y = r^4 - x^4\)</span> and <span class="math inline">\(ry = -(r^2 - x^2)\)</span>, both for <span class="math inline">\(0 \leq x \leq r\)</span>. <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are the points <span class="math inline">\((0, -r)\)</span> and <span class="math inline">\((0, r)\)</span>, respectively, on the surface of the solid.</p>
+<p>Show that the solid can rest in equilibrium on a horizontal surface with the vector <span class="math inline">\(\overrightarrow{AB}\)</span> at three different, non-zero, angles to the upward vertical. You should not attempt to find these angles.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Put a rugby ball on a table and it settles on its side; stand it on its end and, with great care, it balances there too, but the slightest nudge topples it. Every rigid body resting on a table has a set of equilibrium positions, some stable and some unstable, and which ones exist depends only on its shape and its centre of mass. How many can a body have? How few?</p>
+<p>This question builds a solid, shaped like a spinning top with a domed upper half and a pointed lower half, and shows that besides resting upright or upside down it can rest at three different tilts. The key idea is a single geometric condition: a body rests on a point of its surface exactly when the normal to the surface at that point passes through the centre of mass. Behind it lies a recent discovery: a convex shape, the Gömböc, with only one stable and one unstable position.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>A solid rests on a table, touching at a single point <span class="math inline">\(X\)</span> of its curved surface. The forces on it are its weight (acting at the centre of mass <span class="math inline">\(G\)</span>) and the reaction at <span class="math inline">\(X\)</span>. When are these in equilibrium?</p>
+</div>
+<p>The table is tangent to the surface at <span class="math inline">\(X\)</span>, and the reaction acts at <span class="math inline">\(X\)</span>, perpendicular to the table: along the normal to the surface. The weight acts vertically through <span class="math inline">\(G\)</span>. Two forces balance only if they act along the same line, so the vertical through <span class="math inline">\(X\)</span>, which is the normal at <span class="math inline">\(X\)</span>, must pass through <span class="math inline">\(G\)</span>. So: <em>the body can rest touching at <span class="math inline">\(X\)</span> exactly when the normal at <span class="math inline">\(X\)</span> passes through <span class="math inline">\(G\)</span>.</em></p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-centre-of-mass" class="stage"><span class="stage-n">Stage 1</span> The centre of mass</h4>
+<div class="askyourself">
+<p>Slice the solid into thin cylindrical shells of radius <span class="math inline">\(x\)</span>, thickness <span class="math inline">\(\delta x\)</span> and height <span class="math inline">\(y\)</span>. What is the volume of a shell, and where is its centre of mass?</p>
+</div>
+<p>With <span class="math inline">\(y = \frac{r^n - x^n}{r^{n-1}}\)</span>, a shell has volume <span class="math inline">\(2\pi xy\,\delta x\)</span> and its centre of mass at height <span class="math inline">\(\frac y2\)</span>. So <span class="math display">\[V = \int_0^r 2\pi xy\,\mathrm{d}x = \frac{2\pi}{r^{n-1}}\Bigl(\frac{r^{n+2}}{2} - \frac{r^{n+2}}{n + 2}\Bigr) = \frac{n\pi r^3}{n + 2},\]</span> and the moment about the base is <span class="math display">\[\begin{aligned}
+  \int_0^r 2\pi x\cdot\frac{y^2}{2}\,\mathrm{d}x &amp;= \frac{\pi}{r^{2n-2}}\int_0^r x(r^n - x^n)^2\,\mathrm{d}x \\
+  &amp;= \pi r^4\Bigl(\frac12 - \frac{2}{n + 2} + \frac{1}{2n + 2}\Bigr) = \frac{n^2\pi r^4}{2(n + 1)(n + 2)}.
+\end{aligned}\]</span> (The bracket simplifies because <span class="math inline">\((n + 1)(n + 2) - 4(n + 1) + (n + 2) = n^2\)</span>.) Dividing, <span class="math display">\[\bar y = \frac{nr}{2(n + 1)}. \qed\]</span> For <span class="math inline">\(n = 2\)</span> (a paraboloid) this is <span class="math inline">\(\frac r3\)</span>, the familiar result; as <span class="math inline">\(n \to \infty\)</span> the solid becomes a cylinder and <span class="math inline">\(\bar y \to \frac r2\)</span>.</p>
+<h4 id="stagemark2-where-normals-meet-the-axis" class="stage"><span class="stage-n">Stage 2</span> Where normals meet the axis</h4>
+<p>The gradient of the curve at <span class="math inline">\(x = rp\)</span> is <span class="math inline">\(-\frac{nx^{n-1}}{r^{n-1}} = -np^{n-1}\)</span>, so the normal has gradient <span class="math inline">\(\frac{1}{np^{n-1}}\)</span>. Moving along the normal from <span class="math inline">\(\bigl(rp, r(1 - p^n)\bigr)\)</span> to the <span class="math inline">\(y\)</span>-axis, <span class="math inline">\(x\)</span> decreases by <span class="math inline">\(rp\)</span> and <span class="math inline">\(y\)</span> by <span class="math inline">\(\frac{rp}{np^{n-1}} = \frac{r}{np^{n-2}}\)</span>. So <span class="math display">\[Y = r\Bigl(1 - p^n - \frac{1}{np^{n-2}}\Bigr). \qed\]</span></p>
+<div class="askyourself">
+<p>For <span class="math inline">\(n = 4\)</span>, <span class="math inline">\(Y = r\bigl(1 - p^4 - \frac{1}{4p^2}\bigr)\)</span>. Where is it greatest? What happens as <span class="math inline">\(p \to 0\)</span>, and at <span class="math inline">\(p = 1\)</span>?</p>
+</div>
+<p><span class="math inline">\(\frac{\mathrm{d}Y}{\mathrm{d}p} = r\bigl(-4p^3 + \frac{1}{2p^3}\bigr) = 0\)</span> when <span class="math inline">\(p^6 = \frac18\)</span>, that is <span class="math inline">\(p^2 = \frac12\)</span>. Then <span class="math inline">\(Y = r\bigl(1 - \frac14 - \frac12\bigr) = \frac14r\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>As <span class="math inline">\(p \to 0\)</span>, <span class="math inline">\(Y \to -\infty\)</span> (near the top the dome is very flat, and its normals are almost vertical, meeting the axis far below); at <span class="math inline">\(p = 1\)</span>, <span class="math inline">\(Y = -\frac14r\)</span>. So as <span class="math inline">\(p\)</span> runs from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>, <span class="math inline">\(Y\)</span> rises from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(\frac14r\)</span> and falls back to <span class="math inline">\(-\frac14r\)</span>.</p>
+<h4 id="stagemark3-the-spinning-top" class="stage"><span class="stage-n">Stage 3</span> The spinning top</h4>
+<div class="askyourself">
+<p>The solid in part (iii) is a dome (<span class="math inline">\(n = 4\)</span>) on top of an upside-down paraboloid (<span class="math inline">\(n = 2\)</span>). Where is its centre of mass?</p>
+</div>
+<p>From Stage 1, the dome has volume <span class="math inline">\(\frac{2\pi r^3}{3}\)</span> and centre of mass at <span class="math inline">\(\frac{2r}{5}\)</span>; the paraboloid has volume <span class="math inline">\(\frac{\pi r^3}{2}\)</span> and, being upside down, centre of mass at <span class="math inline">\(-\frac r3\)</span>. So <span class="math display">\[\bar y = \frac{\frac23\cdot\frac25 - \frac12\cdot\frac13}{\frac23 + \frac12}\,r = \frac{\frac{4}{15} - \frac16}{\frac76}\,r = \frac{3r}{35}.\]</span> <span class="math inline">\(G\)</span> is at <span class="math inline">\(\bigl(0, \frac{3r}{35}\bigr)\)</span>, slightly above the widest point.</p>
+<h4 id="stagemark4-counting-equilibria" class="stage"><span class="stage-n">Stage 4</span> Counting equilibria</h4>
+<div class="askyourself">
+<p>A tilted equilibrium needs a point (not <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span>) whose normal passes through <span class="math inline">\(G\)</span>. On each part of the surface, how many points have normals meeting the axis at height <span class="math inline">\(\frac{3r}{35}\)</span>?</p>
+</div>
+<p><em>The dome.</em> Its normals meet the axis at heights <span class="math inline">\(Y\)</span> which rise from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(\frac14r\)</span> and fall to <span class="math inline">\(-\frac14r\)</span>. Since <span class="math inline">\(-\frac14r &lt; \frac{3r}{35} &lt; \frac14r\)</span>, by the intermediate value theorem the value <span class="math inline">\(\frac{3r}{35}\)</span> is taken once on the rising part and once on the falling part: two points.</p>
+<p><em>The pointed base.</em> By part (ii) with <span class="math inline">\(n = 2\)</span>, reflected in the <span class="math inline">\(x\)</span>-axis, the normal at the point with parameter <span class="math inline">\(p\)</span> meets the axis at <span class="math inline">\(-r\bigl(1 - p^2 - \frac12\bigr) = r\bigl(p^2 - \frac12\bigr)\)</span>, which increases from <span class="math inline">\(-\frac12r\)</span> to <span class="math inline">\(\frac12r\)</span>. It equals <span class="math inline">\(\frac{3r}{35}\)</span> exactly once, at <span class="math inline">\(p^2 = \frac{41}{70}\)</span>.</p>
+<p>Each of these three points gives an equilibrium, and the three normals make different angles with the axis, so <span class="math inline">\(\overrightarrow{AB}\)</span> makes three different non-zero angles with the vertical (Figure 11.8.1).<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-11-8-1.svg" alt="Figure 11.8.1"><figcaption><span class="fig-label">Figure 11.8.1</span> Cross-section of the solid of part (iii), with its centre of mass <span class="math inline">\(G\)</span> (amber). At each of the three marked points the normal to the surface passes through <span class="math inline">\(G\)</span>, so the solid can rest on that point. Two of these equilibria are stable (the surface is locally nearest to <span class="math inline">\(G\)</span> there) and one is unstable (locally furthest).</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Turn a physical condition into geometry.</strong> Equilibrium became “the normal passes through <span class="math inline">\(G\)</span>”.</p></li>
+<li><p><strong>Existence without solving.</strong> We never found the angles. The intermediate value theorem, with the shape of the function <span class="math inline">\(Y(p)\)</span>, showed how many there are.</p></li>
+<li><p><strong>Reuse a general result.</strong> Part (ii) for general <span class="math inline">\(n\)</span> handled both pieces of the surface in part (iii).</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="equilibria-as-critical-points">Equilibria as critical points</h3>
+<p>When the solid rests on the point <span class="math inline">\(X\)</span>, the height of <span class="math inline">\(G\)</span> above the table is the distance from <span class="math inline">\(G\)</span> to the tangent plane at <span class="math inline">\(X\)</span>, which for a convex body is <span class="math inline">\(|GX|\)</span> when <span class="math inline">\(GX\)</span> is along the normal. In general, the equilibria are the <em>critical points</em> of the distance from <span class="math inline">\(G\)</span> to the surface: a point <span class="math inline">\(X\)</span> where <span class="math inline">\(|GX|\)</span> is stationary is exactly a point whose normal passes through <span class="math inline">\(G\)</span>. Stable equilibria are local minima of this distance (<span class="math inline">\(G\)</span> as low as possible), and unstable ones are local maxima or saddle points.</p>
+<p>Going round the cross-section from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>, the distance from <span class="math inline">\(G\)</span> is: large at <span class="math inline">\(A\)</span> (a maximum: balanced on its point, unstable), smaller at the tilted point on the base (a minimum, stable), larger at the rim, smaller at the lower tilted point of the dome (stable), larger at the upper one (unstable), and smaller at <span class="math inline">\(B\)</span> (stable: resting on the top of the dome). Minima and maxima must alternate, as the figure shows. (In fact there is one more equilibrium that the question does not count: the solid can balance, unstably, on its sharp rim, where the surface has no single normal.)</p>
+<h3 id="the-gömböc">The Gömböc</h3>
+<p>How few equilibria can a convex body have? Any body has at least one stable and one unstable position: the nearest and furthest points of the surface from <span class="math inline">\(G\)</span>. A two-dimensional convex shape of uniform density always has at least four (two minima and two maxima of distance, alternating). In 1995 Vladimir Arnold asked whether a three-dimensional convex body of uniform density could have just two: one stable, one unstable. In 2006 Gábor Domokos and Péter Várkonyi constructed one, the <em>Gömböc</em>: put it down in any position, and it rolls and rocks until it reaches its single stable position. Domokos later noticed that some tortoises have shells close to this shape, which helps them right themselves when turned over.</p>
+<div class="historybox">
+<div class="box-title">Archimedes and floating bodies</div>
+<p>The study of the stability of bodies goes back to Archimedes, who in <em>On Floating Bodies</em> analysed when a floating paraboloid (a model of a ship’s hull) is stable upright and when it capsizes, in terms of its shape and density. His answer, worked out with geometry alone, involves exactly the kind of centre-of-mass and normal calculations used here. Naval architects still use his ideas, in the form of the <em>metacentre</em>: a ship is stable if the point where the vertical through the centre of buoyancy meets the ship’s axis lies above the centre of mass.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Potential energy landscapes</div>
+<p><em>Equilibria are the stationary points of potential energy, and stable equilibria are its minima. Count stationary points instead of solving for them.</em></p>
+<p>Here the potential energy was proportional to the height of <span class="math inline">\(G\)</span>, the distance from <span class="math inline">\(G\)</span> to the surface. At university this viewpoint runs through mechanics, chemistry (molecules settle into minima of energy) and topology, where <em>Morse theory</em> shows that the numbers of minima, maxima and saddles of any function on a surface are constrained by the surface’s shape.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A self-righting toy.</strong> (From STEP II, 1996.) A toy is made of a solid cone of height <span class="math inline">\(\lambda a\)</span> fixed to a solid hemisphere of radius <span class="math inline">\(a\)</span> along their common circular face. Show that if <span class="math inline">\(\lambda &lt; \sqrt3\)</span> the toy returns upright when placed with its hemisphere on a table, but that if <span class="math inline">\(\lambda &gt; \sqrt3\)</span> it may overbalance. (<em>Hint:</em> where must <span class="math inline">\(G\)</span> be relative to the centre of the hemisphere?) Show that if it is placed with the cone touching the table, it stays there whatever <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p><strong>A sphere.</strong> For a uniform solid sphere, every normal passes through the centre. What does that say about its equilibria? What if the sphere’s centre of mass is displaced slightly from its centre?</p></li>
+<li><p><strong>An ellipse.</strong> Show that an elliptical disc rolling in its own plane on a line has exactly four equilibria, and identify which are stable.</p></li>
+<li><p><strong>Two paraboloids.</strong> Replace the dome in part (iii) by a paraboloid <span class="math inline">\(ry = r^2 - x^2\)</span>, so that the solid is symmetric about the <span class="math inline">\(x\)</span>-axis. Show that <span class="math inline">\(G\)</span> is at the origin, find the tilted equilibria, and explain why they come in pairs with equal tilts.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Péter Várkonyi &amp; Gábor Domokos, “Static equilibria of rigid bodies: dice, pebbles, and the Poincaré–Hopf theorem”</strong>, <em>Journal of Nonlinear Science</em> 16 (2006). The Gömböc paper.</p></li>
+<li><p><strong>Daniel Kleppner &amp; Robert Kolenkow, <em>An Introduction to Mechanics</em></strong> (Cambridge University Press), on equilibrium and stability.</p></li>
+<li><p><strong>Chris Rorres, “Completing Book II of Archimedes’s <em>On Floating Bodies</em>”</strong>, <em>Mathematical Intelligencer</em> 26 (2004). Archimedes’ stability analysis, with modern pictures.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="simpsons-rod.html">← 11.7 Simpson&#x27;s Rule in a Rod</a><a class="next" href="safety-parabola.html">→ 11.9 The Safety Parabola</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

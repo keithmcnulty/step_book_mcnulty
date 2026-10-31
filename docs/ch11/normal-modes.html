@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11.2 Normal Modes — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 11 · Oscillations, Rotation and Moving Frames</a>
+    <div class="src">STEP III · 2014 · Question 10</div>
+    <div class="sec-head"><span class="sec-num">11.2</span><h1>Normal Modes</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-11-2-normal-modes.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-11-oscillations-rotation-and-moving-frames.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 11</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Two particles <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, of equal mass <span class="math inline">\(m\)</span>, lie on a smooth horizontal table and are connected by a light elastic spring of natural length <span class="math inline">\(a\)</span> and modulus of elasticity <span class="math inline">\(\lambda\)</span>. Two more springs, identical to the first, connect <span class="math inline">\(X\)</span> to a point <span class="math inline">\(P\)</span> on the table and <span class="math inline">\(Y\)</span> to a point <span class="math inline">\(Q\)</span> on the table. The distance between <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> is <span class="math inline">\(3a\)</span>.</p>
+<p>Initially, the particles are held so that <span class="math inline">\(XP = a\)</span>, <span class="math inline">\(YQ = \frac12a\)</span>, and <span class="math inline">\(PXYQ\)</span> is a straight line. The particles are then released.</p>
+<p>At time <span class="math inline">\(t\)</span>, the particle <span class="math inline">\(X\)</span> is a distance <span class="math inline">\(a + x\)</span> from <span class="math inline">\(P\)</span> and the particle <span class="math inline">\(Y\)</span> is a distance <span class="math inline">\(a + y\)</span> from <span class="math inline">\(Q\)</span>. Show that <span class="math display">\[m\frac{\mathrm{d}^2x}{\mathrm{d}t^2} = -\frac{\lambda}{a}(2x + y)\]</span> and find a similar expression involving <span class="math inline">\(\dfrac{\mathrm{d}^2y}{\mathrm{d}t^2}\)</span>. Deduce that <span class="math display">\[x - y = A\cos\omega t + B\sin\omega t\]</span> where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are constants to be determined and <span class="math inline">\(ma\omega^2 = \lambda\)</span>. Find a similar expression for <span class="math inline">\(x + y\)</span>.</p>
+<p>Show that <span class="math inline">\(Y\)</span> will never return to its initial position.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>One mass on a spring bounces up and down in a simple, regular way. Join two masses with springs and the motion looks complicated: each mass jerks about irregularly, energy sloshing from one to the other. But hidden inside the complication are two perfectly simple motions, the <em>normal modes</em>, in which the masses move together or exactly opposite, each mode oscillating at its own frequency. Every motion of the system is a combination of the two.</p>
+<p>This question finds the normal modes of two masses between three springs, and then proves something striking: started from rest with one mass displaced, the system <em>never</em> returns to its starting position. The reason is that the ratio of the two frequencies is <span class="math inline">\(\sqrt3\)</span>, and <span class="math inline">\(\sqrt3\)</span> is irrational.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>With <span class="math inline">\(X\)</span> at distance <span class="math inline">\(a + x\)</span> from <span class="math inline">\(P\)</span> and <span class="math inline">\(Y\)</span> at distance <span class="math inline">\(a + y\)</span> from <span class="math inline">\(Q\)</span>, how long is the middle spring <span class="math inline">\(XY\)</span>? Which springs are stretched and which compressed when <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are positive?</p>
+</div>
+<p>The three lengths add up to <span class="math inline">\(3a\)</span>, so <span class="math inline">\(XY = 3a - (a + x) - (a + y) = a - x - y\)</span>. When <span class="math inline">\(x, y &gt; 0\)</span>, the outer springs are stretched (by <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>) and the middle one is compressed (by <span class="math inline">\(x + y\)</span>).</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-equations-of-motion" class="stage"><span class="stage-n">Stage 1</span> The equations of motion</h4>
+<p>Measure <span class="math inline">\(x\)</span> in the direction from <span class="math inline">\(P\)</span> towards <span class="math inline">\(Q\)</span>. The spring <span class="math inline">\(PX\)</span> has extension <span class="math inline">\(x\)</span>, so its tension <span class="math inline">\(\frac{\lambda x}{a}\)</span> pulls <span class="math inline">\(X\)</span> back towards <span class="math inline">\(P\)</span>. The spring <span class="math inline">\(XY\)</span> has extension <span class="math inline">\(-(x + y)\)</span>, so its tension <span class="math inline">\(-\frac{\lambda(x + y)}{a}\)</span> pulls <span class="math inline">\(X\)</span> towards <span class="math inline">\(Y\)</span> (a negative tension is a push). So <span class="math display">\[m\ddot x = -\frac{\lambda x}{a} - \frac{\lambda(x + y)}{a} = -\frac{\lambda}{a}(2x + y). \qed\]</span> By symmetry (swap the roles of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span>), <span class="math display">\[m\ddot y = -\frac{\lambda}{a}(2y + x).\]</span></p>
+<h4 id="stagemark2-decoupling" class="stage"><span class="stage-n">Stage 2</span> Decoupling</h4>
+<div class="askyourself">
+<p>Each equation involves both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Which combinations of the two equations involve only one combination of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>?</p>
+</div>
+<p>Subtracting and adding, <span class="math display">\[m(\ddot x - \ddot y) = -\frac{\lambda}{a}(x - y), \qquad m(\ddot x + \ddot y) = -\frac{3\lambda}{a}(x + y).\]</span> Each is the equation of simple harmonic motion: <span class="math inline">\(x - y\)</span> oscillates with <span class="math inline">\(\omega^2 = \frac{\lambda}{ma}\)</span>, and <span class="math inline">\(x + y\)</span> with <span class="math inline">\(3\omega^2\)</span>.</p>
+<h4 id="stagemark3-the-initial-conditions" class="stage"><span class="stage-n">Stage 3</span> The initial conditions</h4>
+<p>Initially <span class="math inline">\(XP = a\)</span> and <span class="math inline">\(YQ = \frac12a\)</span>, so <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(y = -\frac12a\)</span>, and both particles are at rest. So <span class="math inline">\(x - y = \frac12a\)</span> and <span class="math inline">\(x + y = -\frac12a\)</span> at <span class="math inline">\(t = 0\)</span>, with zero rates of change, giving <span class="math display">\[x - y = \tfrac12a\cos\omega t, \qquad x + y = -\tfrac12a\cos\sqrt3\,\omega t.\]</span> So <span class="math inline">\(A = \frac12a\)</span> and <span class="math inline">\(B = 0\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-never-returning" class="stage"><span class="stage-n">Stage 4</span> Never returning</h4>
+<div class="askyourself">
+<p>Write <span class="math inline">\(y\)</span> in terms of <span class="math inline">\(t\)</span>. For <span class="math inline">\(Y\)</span> to be back at its initial position, <span class="math inline">\(y = -\frac12a\)</span>. What must both cosines be?</p>
+</div>
+<p>Subtracting, <span class="math inline">\(y = \frac12\bigl((x + y) - (x - y)\bigr) = -\frac14a\bigl(\cos\sqrt3\,\omega t + \cos\omega t\bigr)\)</span>. For <span class="math inline">\(y = -\frac12a\)</span> we need <span class="math inline">\(\cos\sqrt3\,\omega t + \cos\omega t = 2\)</span>, and since each cosine is at most <span class="math inline">\(1\)</span>, both must equal <span class="math inline">\(1\)</span>: <span class="math display">\[\omega t = 2\pi k, \qquad \sqrt3\,\omega t = 2\pi j\]</span> for integers <span class="math inline">\(k\)</span> and <span class="math inline">\(j\)</span>. For <span class="math inline">\(t &gt; 0\)</span>, <span class="math inline">\(k \geq 1\)</span>, and dividing, <span class="math inline">\(\sqrt3 = \frac jk\)</span>, which is impossible because <span class="math inline">\(\sqrt3\)</span> is irrational. So <span class="math inline">\(Y\)</span> never returns to its initial position.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-11-2-1.svg" alt="Figure 11.2.1"><figcaption><span class="fig-label">Figure 11.2.1</span> The displacement <span class="math inline">\(y\)</span> of the particle <span class="math inline">\(Y\)</span>. It is the sum of two oscillations whose frequencies are in the ratio <span class="math inline">\(\sqrt3 : 1\)</span>, so the pattern never repeats. <span class="math inline">\(Y\)</span> comes close to its starting position (dashed) again and again, for instance near <span class="math inline">\(\omega t \approx 25\)</span> (where <span class="math inline">\(\omega t \approx 8\pi\)</span> and <span class="math inline">\(\sqrt3\,\omega t \approx 14\pi\)</span>), but never reaches it exactly.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Find the combinations that decouple.</strong> <span class="math inline">\(x - y\)</span> and <span class="math inline">\(x + y\)</span> each satisfied an equation of their own.</p></li>
+<li><p><strong>Symmetry suggests them.</strong> The system is symmetric under swapping the two sides, so symmetric and antisymmetric combinations are natural.</p></li>
+<li><p><strong>Irrationality has physical consequences.</strong> The motion is not periodic because a frequency ratio is irrational.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="normal-modes-are-eigenvectors">Normal modes are eigenvectors</h3>
+<p>Write the equations as a matrix equation: <span class="math display">\[m\begin{pmatrix}\ddot x \\ \ddot y\end{pmatrix} = -\frac{\lambda}{a}\begin{pmatrix}2 &amp; 1 \\ 1 &amp; 2\end{pmatrix}\begin{pmatrix}x \\ y\end{pmatrix}.\]</span> The combinations that decouple are the eigenvectors of the matrix: <span class="math inline">\((1, -1)\)</span> with eigenvalue <span class="math inline">\(1\)</span>, and <span class="math inline">\((1, 1)\)</span> with eigenvalue <span class="math inline">\(3\)</span> (<a href="../ch07/eigenvectors.html">Section 7.2</a>). In the first mode, <span class="math inline">\(x = -y\)</span>: both particles move the same way along the line (remember that <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are measured from opposite ends), and the middle spring keeps its length. In the second, <span class="math inline">\(x = y\)</span>: they move in opposite directions, squeezing and stretching the middle spring, which makes the frequency higher. The squares of the frequencies are the eigenvalues, multiplied by <span class="math inline">\(\frac{\lambda}{ma}\)</span>.</p>
+<p>This works for any number of masses and springs. A system of <span class="math inline">\(N\)</span> coupled oscillators has <span class="math inline">\(N\)</span> normal modes, given by the eigenvectors of a symmetric matrix, and the spectral theorem guarantees that they always exist and are perpendicular. Molecules vibrate in normal modes, which is how chemists identify them by the infrared light they absorb. Buildings and bridges have normal modes, which engineers must keep away from the frequencies of wind and earthquakes. And as the number of masses tends to infinity, the normal modes become the harmonics of a vibrating string, the starting point of Fourier analysis.</p>
+<h3 id="coming-close-without-arriving">Coming close without arriving</h3>
+<p>Although <span class="math inline">\(Y\)</span> never returns exactly, it comes as close as you like. The reason is a theorem of Kronecker: if <span class="math inline">\(\alpha\)</span> is irrational, the multiples <span class="math inline">\(\alpha, 2\alpha, 3\alpha, \ldots\)</span>, taken modulo <span class="math inline">\(1\)</span>, come arbitrarily close to every number in <span class="math inline">\([0, 1]\)</span>. So we can find times when <span class="math inline">\(\omega t\)</span> is a multiple of <span class="math inline">\(2\pi\)</span> and <span class="math inline">\(\sqrt3\,\omega t\)</span> is within any tolerance of one. The motion is <em>quasi-periodic</em>: it winds round a torus (one angle for each mode) without ever closing up. The same distinction, between rational and irrational frequency ratios, is at the heart of the KAM theorem on the stability of the solar system.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Change variables to decouple equations</div>
+<p><em>When equations are coupled, look for combinations of the variables that evolve independently. In linear problems, these are the eigenvectors.</em></p>
+<p>This is the same idea as the centre of mass and relative coordinates of <a href="../ch10/two-body.html">Section 10.6</a>. At university it becomes diagonalisation: choose a basis in which the matrix is diagonal, and a system of coupled equations falls apart into independent ones.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Energy.</strong> Show that the total energy <span class="math inline">\(\frac12m(\dot x^2 + \dot y^2) + \frac{\lambda}{2a}\bigl(x^2 + y^2 + (x + y)^2\bigr)\)</span> is constant, and that it splits into a sum of two terms, one for each normal mode, each of which is separately constant.</p></li>
+<li><p><strong>Pure modes.</strong> How should the particles be started so that the motion is periodic, with period <span class="math inline">\(\frac{2\pi}{\omega}\)</span>? With period <span class="math inline">\(\frac{2\pi}{\sqrt3\,\omega}\)</span>?</p></li>
+<li><p><strong>A stiffer middle spring.</strong> If the middle spring has modulus <span class="math inline">\(\mu\)</span> instead of <span class="math inline">\(\lambda\)</span>, find the two normal-mode frequencies. For which values of <span class="math inline">\(\mu/\lambda\)</span> is every motion periodic?</p></li>
+<li><p><strong>Three masses.</strong> Three equal masses are connected in a line by four identical springs between two fixed points. Find the matrix and its eigenvalues (<span class="math inline">\(2 - \sqrt2\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(2 + \sqrt2\)</span>), and describe the three normal modes.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>A. P. French, <em>Vibrations and Waves</em></strong> (MIT Introductory Physics Series), Chapter 5, on coupled oscillators and normal modes.</p></li>
+<li><p><strong>Gilbert Strang, <em>Introduction to Linear Algebra</em></strong> (Wellesley-Cambridge), the chapter on eigenvalues, which includes springs and masses as a main example.</p></li>
+<li><p><strong>Steven Strogatz, <em>Nonlinear Dynamics and Chaos</em></strong> (CRC Press), Chapter 8, on quasi-periodic motion on a torus.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="resonance.html">← 11.1 Resonance</a><a class="next" href="real-pendulum.html">→ 11.3 The Real Pendulum</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

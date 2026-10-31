@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11.12 The Ant on the Rubber Rope — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 11 · Oscillations, Rotation and Moving Frames</a>
+    <div class="src">STEP II · 2018 · Question 10</div>
+    <div class="sec-head"><span class="sec-num">11.12</span><h1>The Ant on the Rubber Rope</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-11-12-rubber-rope.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-11-oscillations-rotation-and-moving-frames.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 11</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A uniform elastic string lies on a smooth horizontal table. One end of the string is attached to a fixed peg, and the other end is pulled at constant speed <span class="math inline">\(u\)</span>. At time <span class="math inline">\(t = 0\)</span>, the string is taut and its length is <span class="math inline">\(a\)</span>. Obtain an expression for the speed, at time <span class="math inline">\(t\)</span>, of the point on the string which is a distance <span class="math inline">\(x\)</span> from the peg at time <span class="math inline">\(t\)</span>.</p>
+<p>An ant walks along the string starting at <span class="math inline">\(t = 0\)</span> at the peg. The ant walks at constant speed <span class="math inline">\(v\)</span> along the string (so that its speed relative to the peg is the sum of <span class="math inline">\(v\)</span> and the speed of the point on the string beneath the ant). At time <span class="math inline">\(t\)</span>, the ant is a distance <span class="math inline">\(x\)</span> from the peg. Write down a first order differential equation for <span class="math inline">\(x\)</span>, and verify that <span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}t}\Bigl(\frac{x}{a + ut}\Bigr) = \frac{v}{a + ut}.\]</span> Show that the time <span class="math inline">\(T\)</span> taken for the ant to reach the end of the string is given by <span class="math display">\[uT = a(e^k - 1),\]</span> where <span class="math inline">\(k = u/v\)</span>.</p>
+<p>On reaching the end of the string, the ant turns round and walks back to the peg. Find in terms of <span class="math inline">\(T\)</span> and <span class="math inline">\(k\)</span> the time taken for the journey back.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>An ant sets off along a rubber rope one kilometre long, walking at one centimetre per second. Every second, the rope is stretched uniformly by another kilometre. The far end races away at a thousand metres per second, a hundred thousand times faster than the ant. Does the ant ever reach the end?</p>
+<p>Astonishingly, yes. The stretching carries the ant along with it, and although the ant’s progress as a <em>fraction</em> of the rope shrinks, the fractions add up like the harmonic series, which diverges (<a href="../ch02/kempner.html">Section 2.3</a>). The ant arrives, though only after a time that dwarfs the age of the universe. This question solves the continuous version exactly, and finds that the time grows exponentially with the ratio of the speeds.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The string is stretched uniformly: every piece is stretched by the same factor. At time <span class="math inline">\(t\)</span> its length is <span class="math inline">\(a + ut\)</span>. If the point at distance <span class="math inline">\(x\)</span> from the peg is a fraction <span class="math inline">\(\frac{x}{a + ut}\)</span> of the way along, how fast does it move?</p>
+</div>
+<p>Each point on the string keeps the same fraction <span class="math inline">\(f\)</span> of the length, so its distance from the peg is <span class="math inline">\(f(a + ut)\)</span>, and its speed is <span class="math inline">\(fu = \frac{ux}{a + ut}\)</span>. Points near the peg barely move; the far end moves at <span class="math inline">\(u\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-ants-equation" class="stage"><span class="stage-n">Stage 1</span> The ant’s equation</h4>
+<p>The ant moves at <span class="math inline">\(v\)</span> relative to the string, plus the speed of the string beneath it: <span class="math display">\[\frac{\mathrm{d}x}{\mathrm{d}t} = v + \frac{ux}{a + ut}.\]</span></p>
+<div class="askyourself">
+<p>Differentiate <span class="math inline">\(\frac{x}{a + ut}\)</span> by the quotient rule and use the equation for <span class="math inline">\(\dot x\)</span>.</p>
+</div>
+<p><span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}t}\Bigl(\frac{x}{a + ut}\Bigr) = \frac{\dot x}{a + ut} - \frac{ux}{(a + ut)^2} = \frac{1}{a + ut}\Bigl(v + \frac{ux}{a + ut}\Bigr) - \frac{ux}{(a + ut)^2} = \frac{v}{a + ut}. \qed\]</span> The fraction of the string the ant has covered increases at the rate <span class="math inline">\(\frac{v}{a + ut}\)</span>: its own speed divided by the current length. The stretching drops out completely, because it does not change anyone’s fraction.</p>
+<h4 id="stagemark2-reaching-the-end" class="stage"><span class="stage-n">Stage 2</span> Reaching the end</h4>
+<div class="askyourself">
+<p>Integrate from <span class="math inline">\(0\)</span> to <span class="math inline">\(t\)</span>. When does the fraction reach <span class="math inline">\(1\)</span>?</p>
+</div>
+<p>The ant starts at the peg, so <span class="math display">\[\frac{x}{a + ut} = \int_0^t\frac{v\,\mathrm{d}s}{a + us} = \frac vu\ln\frac{a + ut}{a}.\]</span> The ant reaches the end when the fraction is <span class="math inline">\(1\)</span>: <span class="math inline">\(\ln\frac{a + uT}{a} = \frac uv = k\)</span>, so <span class="math inline">\(a + uT = ae^k\)</span>, that is <span class="math display">\[uT = a(e^k - 1). \qed\]</span> The logarithm grows without limit, so the ant always arrives, however fast the rope is stretched.</p>
+<h4 id="stagemark3-the-way-back" class="stage"><span class="stage-n">Stage 3</span> The way back</h4>
+<div class="askyourself">
+<p>Walking back, the ant’s speed relative to the string is <span class="math inline">\(-v\)</span>. What is the rate of change of its fraction now? It starts at fraction <span class="math inline">\(1\)</span> at time <span class="math inline">\(T\)</span>.</p>
+</div>
+<p>The same calculation with <span class="math inline">\(-v\)</span> gives <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\bigl(\frac{x}{a + ut}\bigr) = -\frac{v}{a + ut}\)</span>, so <span class="math display">\[\frac{x}{a + ut} = 1 - \frac vu\ln\frac{a + ut}{a + uT}.\]</span> The fraction reaches <span class="math inline">\(0\)</span> when <span class="math inline">\(a + ut = (a + uT)e^k\)</span>. Since <span class="math inline">\(a + uT = ae^k\)</span>, the return time is <span class="math display">\[t - T = \frac{(a + uT)(e^k - 1)}{u} = \frac{ae^k\cdot uT/a}{u} = Te^k. \qed\]</span> The journey back takes <span class="math inline">\(e^k\)</span> times as long as the journey out: by the time the ant turns round, the string is <span class="math inline">\(e^k\)</span> times longer than at the start.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-11-12-1.svg" alt="Figure 11.12.1"><figcaption><span class="fig-label">Figure 11.12.1</span> The ant (teal) walking along a rope whose end (plum) moves at twice the ant’s walking speed (<span class="math inline">\(k = 2\)</span>). The ant is carried along by the stretching, and its distance from the peg grows faster and faster. It reaches the end at <span class="math inline">\(T = e^2 - 1 \approx 6.39\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Use the right variable.</strong> The fraction of the rope covered was the natural quantity: the stretching does not change it.</p></li>
+<li><p><strong>Integrating factor in disguise.</strong> Multiplying by <span class="math inline">\(\frac{1}{a + ut}\)</span> turned a linear differential equation into an exact derivative.</p></li>
+<li><p><strong>Divergence beats speed.</strong> The fraction grew like a logarithm, which is unbounded, so the ant always arrives.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-harmonic-series-version">The harmonic series version</h3>
+<p>The puzzle is usually told with discrete stretches. A rope is <span class="math inline">\(1\)</span> km long; the ant walks <span class="math inline">\(1\)</span> cm in the first second; then the rope is stretched by <span class="math inline">\(1\)</span> km; then the ant walks another centimetre, and so on. In the <span class="math inline">\(n\)</span>th second, the ant covers <span class="math inline">\(1\)</span> cm of a rope <span class="math inline">\(n\)</span> km long: a fraction <span class="math inline">\(\frac{1}{100\,000\,n}\)</span>. Stretching does not change its fraction, so after <span class="math inline">\(N\)</span> seconds it has covered <span class="math display">\[\frac{1}{100\,000}\Bigl(1 + \frac12 + \frac13 + \cdots + \frac1N\Bigr) \approx \frac{\ln N + 0.577}{100\,000}\]</span> of the rope. It arrives when <span class="math inline">\(H_N \approx 100\,000\)</span>, after about <span class="math inline">\(e^{100\,000}\)</span> seconds, a number with over <span class="math inline">\(43\,000\)</span> digits. (For comparison, the universe is about <span class="math inline">\(4 \times 10^{17}\)</span> seconds old.) Our continuous answer agrees: <span class="math inline">\(k = \frac uv = 100\,000\)</span>, and <span class="math inline">\(T \approx \frac aue^k\)</span>.</p>
+<h3 id="light-in-an-expanding-universe">Light in an expanding universe</h3>
+<p>The ant on the rope is a model of light crossing an expanding universe. Distant galaxies recede from us, carried by the expansion of space itself, and light from them travels towards us at speed <span class="math inline">\(c\)</span> <em>through</em> the expanding space, as the ant walks along the stretching rope. Whether light from a distant galaxy ever reaches us depends on how the expansion rate changes with time. In a universe expanding at a steady rate, like the rope, light always arrives eventually. In a universe whose expansion accelerates, as ours appears to, there are galaxies whose light will never reach us: there is a <em>cosmic event horizon</em>. The analogue for the ant is a rope stretched exponentially, so that the end’s speed grows in proportion to the length (try it in the exercises).</p>
+<div class="historybox">
+<div class="box-title">Gardner’s ant</div>
+<p>The puzzle seems to have been invented by the French mathematician Denys Wilquin in 1972, as a worm on an elastic band, and was popularised by Martin Gardner in his <em>Scientific American</em> column and in his book <em>Time Travel and Other Mathematical Bewilderments</em>. It is one of the best-known examples of a result that contradicts intuition and is nevertheless easy to prove, and it is a favourite illustration of the divergence of the harmonic series.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Find the quantity the complication does not affect</div>
+<p><em>When part of a problem changes everything (here, the stretching), look for a quantity it leaves alone.</em></p>
+<p>Stretching changes every distance but no fraction. Working with the fraction removed the stretching from the problem. At university, this idea appears as <em>comoving coordinates</em> in cosmology and fluid mechanics, and more generally as the search for invariants under a transformation.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Halfway.</strong> When is the ant halfway along the rope? Is that before or after time <span class="math inline">\(\frac T2\)</span>?</p></li>
+<li><p><strong>Exponential stretching.</strong> Suppose instead the rope’s length is <span class="math inline">\(ae^{\lambda t}\)</span>. Show that the ant reaches the end only if <span class="math inline">\(v &gt; \lambda a\)</span>. (This is the cosmic event horizon.)</p></li>
+<li><p><strong>An accelerating rope.</strong> If the length is <span class="math inline">\(a + \frac12bt^2\)</span>, does the ant always arrive?</p></li>
+<li><p><strong>The discrete puzzle.</strong> In the discrete version, how many seconds does the ant need to cover <span class="math inline">\(1\%\)</span> of the rope? Use <span class="math inline">\(H_N \approx \ln N + 0.577\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Martin Gardner, <em>Time Travel and Other Mathematical Bewilderments</em></strong> (W. H. Freeman). Includes the ant on the rubber rope.</p></li>
+<li><p><strong>Julian Havil, <em>Gamma: Exploring Euler’s Constant</em></strong> (Princeton University Press). The harmonic series, and the ant.</p></li>
+<li><p><strong>Barbara Ryden, <em>Introduction to Cosmology</em></strong> (Cambridge University Press). Expanding space, horizons and comoving coordinates, at undergraduate level.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="fielders.html">← 11.11 How Fielders Catch</a><a class="next" href="snowplough.html">→ 11.13 The Snowplough Problem</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

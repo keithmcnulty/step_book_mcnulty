@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11.14 Parabola, Not Catenary — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 11 · Oscillations, Rotation and Moving Frames</a>
+    <div class="src">STEP I · 1991 · Question 10</div>
+    <div class="sec-head"><span class="sec-num">11.14</span><h1>Parabola, Not Catenary</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-11-14-bridge-parabola.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-11-oscillations-rotation-and-moving-frames.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 11</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<figure class="steppic"><img src="../assets/fig/pic-11-14-1.svg" alt="Diagram"></figure>
+<p>The above diagram represents a suspension bridge. A heavy uniform horizontal roadway is attached by vertical struts to a light flexible chain at points <span class="math inline">\(A_1 = (x_1, y_1)\)</span>, <span class="math inline">\(A_2 = (x_2, y_2), \ldots, A_{2n+1} = (x_{2n+1}, y_{2n+1})\)</span>, where the coordinates are referred to horizontal and vertically upward axes <span class="math inline">\(Ox\)</span>, <span class="math inline">\(Oy\)</span>. The chain is fixed to external supports at points <span class="math display">\[A_0 = (x_0, y_0) \quad\text{and}\quad A_{2n+2} = (x_{2n+2}, y_{2n+2})\]</span> at the same height. The weight of the chain and struts may be neglected. Each strut carries the same weight <span class="math inline">\(w\)</span>. The horizontal spacing <span class="math inline">\(h\)</span> between <span class="math inline">\(A_i\)</span> and <span class="math inline">\(A_{i+1}\)</span> (for <span class="math inline">\(0 \leq i \leq 2n + 1\)</span>) is constant. Write down equations satisfied by the tensions <span class="math inline">\(T_i\)</span> in the portion <span class="math inline">\(A_{i-1}A_i\)</span> of the chain for <span class="math inline">\(1 \leq i \leq n + 1\)</span>. Hence or otherwise show that <span class="math display">\[\frac{h}{y_n - y_{n+1}} = \frac{3h}{y_{n-1} - y_n} = \cdots = \frac{(2n + 1)h}{y_0 - y_1}.\]</span> Verify that the points <span class="math inline">\(A_0, A_1, \ldots, A_{2n+1}, A_{2n+2}\)</span> lie on a parabola.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Hold a chain by its two ends and it hangs in a curve called the <em>catenary</em> (from the Latin for chain). Galileo thought it was a parabola; it is not, as the teenage Huygens showed in 1646. But hang a heavy roadway from the chain by evenly spaced struts, as in a suspension bridge, and the chain <em>does</em> form a parabola. The difference is in how the weight is spread: along the curved chain itself for the catenary, evenly along the horizontal for the bridge.</p>
+<p>This question proves the parabola with nothing more than resolving forces at each joint. The key is that the horizontal component of tension is the same all the way along, so each segment’s slope is proportional to the weight it supports. The result is a beautiful pattern: the drops between successive joints go up in the odd numbers <span class="math inline">\(1, 3, 5, 7, \ldots\)</span>, whose partial sums are the perfect squares.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>At each joint <span class="math inline">\(A_i\)</span>, three forces act: the tensions in the two neighbouring segments, and the weight <span class="math inline">\(w\)</span> hanging from the strut. Which component of tension can the weight not affect?</p>
+</div>
+<p>The weight is vertical, so at each joint the horizontal components of the two tensions must balance. So the horizontal component of tension, <span class="math inline">\(H\)</span> say, is the same in every segment of the chain.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-equations-at-each-joint" class="stage"><span class="stage-n">Stage 1</span> The equations at each joint</h4>
+<p>Let segment <span class="math inline">\(A_{i-1}A_i\)</span> make angle <span class="math inline">\(\phi_i\)</span> below the horizontal (going from <span class="math inline">\(A_{i-1}\)</span> towards the middle), so its tension <span class="math inline">\(T_i\)</span> has horizontal component <span class="math inline">\(T_i\cos\phi_i\)</span> and vertical component <span class="math inline">\(T_i\sin\phi_i\)</span>. Resolving at <span class="math inline">\(A_i\)</span> for <span class="math inline">\(1 \leq i \leq n\)</span>: <span class="math display">\[T_i\cos\phi_i = T_{i+1}\cos\phi_{i+1} = H, \qquad T_i\sin\phi_i - T_{i+1}\sin\phi_{i+1} = w.\]</span> (The segment on the outer side pulls up and out with the larger vertical component; the inner segment pulls in and slightly down; the difference supports the strut.)</p>
+<div class="askyourself">
+<p>What happens at the middle joint <span class="math inline">\(A_{n+1}\)</span>? Use the symmetry of the bridge.</p>
+</div>
+<p>By symmetry, the two segments meeting at <span class="math inline">\(A_{n+1}\)</span> are mirror images, so each supports half of its strut: <span class="math inline">\(T_{n+1}\sin\phi_{n+1} = \frac12w\)</span>.</p>
+<h4 id="stagemark2-slopes-from-weights" class="stage"><span class="stage-n">Stage 2</span> Slopes from weights</h4>
+<p>Working outwards from the middle, the vertical components are <span class="math display">\[T_{n+1}\sin\phi_{n+1} = \tfrac12w, \quad T_n\sin\phi_n = \tfrac32w, \quad\ldots,\quad T_1\sin\phi_1 = \tfrac{2n+1}{2}w.\]</span> Dividing each by <span class="math inline">\(H\)</span>, the slopes are <span class="math inline">\(\tan\phi_i = \frac{(2(n + 1 - i) + 1)w}{2H}\)</span>. The slope of segment <span class="math inline">\(A_{i-1}A_i\)</span> is also <span class="math inline">\(\frac{y_{i-1} - y_i}{h}\)</span>, so <span class="math display">\[\frac{y_n - y_{n+1}}{h} = \frac{w}{2H}, \qquad \frac{y_{n-1} - y_n}{h} = \frac{3w}{2H}, \qquad\ldots,\qquad \frac{y_0 - y_1}{h} = \frac{(2n + 1)w}{2H}.\]</span> Inverting and multiplying by the odd numbers, each of <span class="math inline">\(\frac{h}{y_n - y_{n+1}}\)</span>, <span class="math inline">\(\frac{3h}{y_{n-1} - y_n}\)</span>, …, <span class="math inline">\(\frac{(2n + 1)h}{y_0 - y_1}\)</span> equals <span class="math inline">\(\frac{2H}{w}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-the-parabola" class="stage"><span class="stage-n">Stage 3</span> The parabola</h4>
+<div class="askyourself">
+<p>Let <span class="math inline">\(j\)</span> count joints outwards from the middle, so that <span class="math inline">\(A_{n+1-j}\)</span> is at horizontal distance <span class="math inline">\(jh\)</span> from <span class="math inline">\(A_{n+1}\)</span>. How far is it above <span class="math inline">\(A_{n+1}\)</span>?</p>
+</div>
+<p>Adding the drops, with <span class="math inline">\(c = \frac{wh}{2H}\)</span>: <span class="math display">\[y_{n+1-j} - y_{n+1} = c\bigl(1 + 3 + 5 + \cdots + (2j - 1)\bigr) = cj^2.\]</span> With <span class="math inline">\(x\)</span> measured from the middle, <span class="math inline">\(x = jh\)</span>, so the height above the lowest joint is <span class="math inline">\(\frac{c}{h^2}x^2 = \frac{w}{2Hh}x^2\)</span>. By symmetry the same holds on the other side, and the supports (<span class="math inline">\(j = n + 1\)</span>) fit the same formula. So all the points lie on the parabola <span class="math display">\[y = y_{n+1} + \frac{w}{2Hh}(x - x_{n+1})^2. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-11-14-1.svg" alt="Figure 11.14.1"><figcaption><span class="fig-label">Figure 11.14.1</span> A chain carrying equal loads at equal horizontal spacings (teal). Its joints lie on a parabola (plum), and the drops between successive joints, from the middle outwards, are in the ratio <span class="math inline">\(1 : 3 : 5 : 7\)</span>. A free chain under its own weight, with the same ends and lowest point, would hang in a catenary (amber, dashed), which is flatter at the bottom and steeper near the supports.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Find what is constant.</strong> With only vertical loads, the horizontal tension is the same everywhere.</p></li>
+<li><p><strong>Accumulate from the middle.</strong> Each segment supports all the weight between it and the middle, so the vertical components grow in steps of <span class="math inline">\(w\)</span>.</p></li>
+<li><p><strong>Odd numbers sum to squares.</strong> <span class="math inline">\(1 + 3 + \cdots + (2j - 1) = j^2\)</span> turned a list of slopes into a parabola.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="parabola-or-catenary">Parabola or catenary?</h3>
+<p>The continuous version of the argument explains both curves. For a chain <span class="math inline">\(y(x)\)</span> under constant horizontal tension <span class="math inline">\(H\)</span>, the vertical component of tension is <span class="math inline">\(Hy&#39;\)</span>, and over a short stretch it changes by the load carried there: <span class="math inline">\(H\,\mathrm{d}y&#39; = \mathrm{d}W\)</span>.</p>
+<ul>
+<li><p>If the load is spread evenly <em>horizontally</em> (a heavy roadway, weight <span class="math inline">\(\rho\)</span> per unit length of road), then <span class="math inline">\(Hy&#39;&#39; = \rho\)</span>, so <span class="math inline">\(y\)</span> is a quadratic: a parabola.</p></li>
+<li><p>If the load is the chain’s own weight, spread evenly <em>along the chain</em> (<span class="math inline">\(\rho\)</span> per unit length of chain), then <span class="math inline">\(Hy&#39;&#39; = \rho\sqrt{1 + y&#39;^2}\)</span>, whose solution is the catenary <span class="math inline">\(y = c\cosh\frac xc\)</span>, with <span class="math inline">\(c = H/\rho\)</span>.</p></li>
+</ul>
+<p>Near the bottom, where the chain is nearly horizontal, the two are almost the same; they differ near the supports, where the chain is steep and a given horizontal distance contains more chain. Real suspension bridges, whose deck is much heavier than their cables, are very close to parabolas.</p>
+<h3 id="upside-down-chains-and-arches">Upside-down chains and arches</h3>
+<p>A chain is in pure tension; turn its shape upside down and you have an arch in pure compression, with no tendency to bend. Robert Hooke published this in 1675 as an anagram, which decoded reads: “As hangs the flexible line, so but inverted will stand the rigid arch.” Christopher Wren and Hooke used the idea for the dome of St Paul’s Cathedral, and Antoni Gaudí designed the Sagrada Família in Barcelona by hanging weighted strings from the ceiling and photographing them upside down. The Gateway Arch in St Louis is a (weighted) inverted catenary.</p>
+<div class="historybox">
+<div class="box-title">The catenary challenge</div>
+<p>In 1690 Jakob Bernoulli challenged mathematicians to find the shape of a hanging chain. Within a year, solutions were published by his brother Johann, by Leibniz and by Huygens. Johann Bernoulli later recalled with glee that his brother, who had set the problem, had failed to solve it. The catenary was one of the first triumphs of the new calculus, and it led to the hyperbolic functions <span class="math inline">\(\cosh\)</span> and <span class="math inline">\(\sinh\)</span>, studied systematically by Vincenzo Riccati and Johann Heinrich Lambert in the eighteenth century.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Resolve forces at every joint</div>
+<p><em>For a structure made of joints and straight members, balance forces at each joint. Constant components and accumulating loads often reveal the shape.</em></p>
+<p>At university this becomes the analysis of trusses and frameworks in engineering, and, in the continuous limit, the differential equations of cables, beams and membranes. The step from a discrete chain to a continuous one is the same move from sums to integrals seen in <a href="../ch10/rockets.html">Section 10.3</a>.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>An even number of struts.</strong> Repeat the question with <span class="math inline">\(2n\)</span> struts, so that the lowest point of the chain is a horizontal segment in the middle. Do the joints still lie on a parabola?</p></li>
+<li><p><strong>The tension.</strong> Find the greatest tension in the chain, in terms of <span class="math inline">\(H\)</span>, <span class="math inline">\(w\)</span> and <span class="math inline">\(n\)</span>. Where is it?</p></li>
+<li><p><strong>The catenary.</strong> Verify that <span class="math inline">\(y = c\cosh\frac xc\)</span> satisfies <span class="math inline">\(y&#39;&#39; = \frac1c\sqrt{1 + y&#39;^2}\)</span>. Show that the length of the catenary from <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = X\)</span> is <span class="math inline">\(c\sinh\frac Xc\)</span>.</p></li>
+<li><p><strong>Galileo’s error.</strong> A chain of length <span class="math inline">\(2L\)</span> hangs between two supports at distance <span class="math inline">\(2d\)</span> apart. For <span class="math inline">\(L\)</span> only slightly larger than <span class="math inline">\(d\)</span>, show that the sag of the catenary is approximately the same as that of a parabola. Why did Galileo’s experiments not reveal the difference?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>E. H. Lockwood, <em>A Book of Curves</em></strong> (Cambridge University Press). The catenary, the parabola and their relatives.</p></li>
+<li><p><strong>Jacques Heyman, <em>The Stone Skeleton</em></strong> (Cambridge University Press). How masonry arches and domes stand up, from Hooke’s chain onwards.</p></li>
+<li><p><strong>David Billington, <em>The Tower and the Bridge</em></strong> (Princeton University Press). The art and engineering of bridges.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="snowplough.html">← 11.13 The Snowplough Problem</a><a class="next" href="wrap-up.html">→ Looking back</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

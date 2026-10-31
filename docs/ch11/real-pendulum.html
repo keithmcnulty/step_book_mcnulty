@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11.3 The Real Pendulum — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 11 · Oscillations, Rotation and Moving Frames</a>
+    <div class="src">STEP III · 1998 · Question 11</div>
+    <div class="sec-head"><span class="sec-num">11.3</span><h1>The Real Pendulum</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-11-3-real-pendulum.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-11-oscillations-rotation-and-moving-frames.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 11</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Consider a simple pendulum of length <span class="math inline">\(l\)</span> and angular displacement <span class="math inline">\(\theta\)</span>, which is <strong>not</strong> assumed to be small. Show that <span class="math display">\[\frac12l\Bigl(\frac{\mathrm{d}\theta}{\mathrm{d}t}\Bigr)^2 = g(\cos\theta - \cos\gamma),\]</span> where <span class="math inline">\(\gamma\)</span> is the maximum value of <span class="math inline">\(\theta\)</span>. Show also that the period <span class="math inline">\(P\)</span> is given by <span class="math display">\[P = 2\sqrt{\frac lg}\int_0^\gamma\bigl(\sin^2(\gamma/2) - \sin^2(\theta/2)\bigr)^{-\frac12}\,\mathrm{d}\theta.\]</span> By using the substitution <span class="math inline">\(\sin(\theta/2) = \sin(\gamma/2)\sin\phi\)</span>, and then finding an approximate expression for the integrand using the binomial expansion, show that for small values of <span class="math inline">\(\gamma\)</span> the period is approximately <span class="math display">\[2\pi\sqrt{\frac lg}\Bigl(1 + \frac{\gamma^2}{16}\Bigr).\]</span></p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Every physics student learns that a pendulum’s period is <span class="math inline">\(2\pi\sqrt{l/g}\)</span>, independent of the size of the swing. Galileo believed this, supposedly after timing a swinging lamp in Pisa cathedral against his pulse, and it is the reason pendulum clocks work. But it is not quite true. The formula comes from the approximation <span class="math inline">\(\sin\theta \approx \theta\)</span>, and a pendulum swinging through a wide arc takes longer. At <span class="math inline">\(90^\circ\)</span> the period is <span class="math inline">\(18\%\)</span> longer; a pendulum released from almost upside down can take as long as you like.</p>
+<p>This question finds the exact period as an integral, and then the first correction for moderate swings. The integral cannot be evaluated in elementary functions: it is an <em>elliptic integral</em>, and the story of how such integrals were tamed runs from Gauss’s arithmetic–geometric mean to the theory of elliptic curves.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The bob moves on a circle of radius <span class="math inline">\(l\)</span>. What are its speed and its height (relative to the lowest point) in terms of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\dot\theta\)</span>?</p>
+</div>
+<p>The speed is <span class="math inline">\(l\dot\theta\)</span>, and the height above the lowest point is <span class="math inline">\(l(1 - \cos\theta)\)</span>. Since the string does no work (its tension is always perpendicular to the motion), energy is conserved.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-energy" class="stage"><span class="stage-n">Stage 1</span> Energy</h4>
+<p>At the extreme angle <span class="math inline">\(\gamma\)</span> the bob is momentarily at rest. Conservation of energy gives <span class="math display">\[\tfrac12ml^2\dot\theta^2 + mgl(1 - \cos\theta) = mgl(1 - \cos\gamma),\]</span> and dividing by <span class="math inline">\(ml\)</span>, <span class="math inline">\(\frac12l\dot\theta^2 = g(\cos\theta - \cos\gamma)\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-period-as-an-integral" class="stage"><span class="stage-n">Stage 2</span> The period as an integral</h4>
+<div class="askyourself">
+<p>How can you write <span class="math inline">\(\cos\theta - \cos\gamma\)</span> in terms of half-angles? And how much of the period is spent going from <span class="math inline">\(\theta = 0\)</span> to <span class="math inline">\(\theta = \gamma\)</span>?</p>
+</div>
+<p>Using <span class="math inline">\(\cos\theta = 1 - 2\sin^2\frac\theta2\)</span>, we have <span class="math inline">\(\cos\theta - \cos\gamma = 2\bigl(\sin^2\frac\gamma2 - \sin^2\frac\theta2\bigr)\)</span>, so <span class="math display">\[\dot\theta = 2\sqrt{\frac gl}\,\Bigl(\sin^2\frac\gamma2 - \sin^2\frac\theta2\Bigr)^{1/2}.\]</span> By symmetry the swing from <span class="math inline">\(0\)</span> to <span class="math inline">\(\gamma\)</span> takes a quarter of the period, so <span class="math display">\[P = 4\int_0^\gamma\frac{\mathrm{d}\theta}{\dot\theta} = 2\sqrt{\frac lg}\int_0^\gamma\Bigl(\sin^2\frac\gamma2 - \sin^2\frac\theta2\Bigr)^{-1/2}\mathrm{d}\theta. \qed\]</span></p>
+<h4 id="stagemark3-removing-the-singularity" class="stage"><span class="stage-n">Stage 3</span> Removing the singularity</h4>
+<div class="askyourself">
+<p>The integrand becomes infinite at <span class="math inline">\(\theta = \gamma\)</span>. Write <span class="math inline">\(k = \sin\frac\gamma2\)</span> and substitute <span class="math inline">\(\sin\frac\theta2 = k\sin\phi\)</span>. What range of <span class="math inline">\(\phi\)</span> corresponds to <span class="math inline">\(0 \leq \theta \leq \gamma\)</span>? What happens to the integrand?</p>
+</div>
+<p>As <span class="math inline">\(\theta\)</span> goes from <span class="math inline">\(0\)</span> to <span class="math inline">\(\gamma\)</span>, <span class="math inline">\(\phi\)</span> goes from <span class="math inline">\(0\)</span> to <span class="math inline">\(\frac\pi2\)</span>. Differentiating, <span class="math inline">\(\frac12\cos\frac\theta2\,\mathrm{d}\theta = k\cos\phi\,\mathrm{d}\phi\)</span>, so <span class="math display">\[\mathrm{d}\theta = \frac{2k\cos\phi\,\mathrm{d}\phi}{\cos\frac\theta2} = \frac{2k\cos\phi\,\mathrm{d}\phi}{\sqrt{1 - k^2\sin^2\phi}}.\]</span> Meanwhile <span class="math inline">\(\sin^2\frac\gamma2 - \sin^2\frac\theta2 = k^2(1 - \sin^2\phi) = k^2\cos^2\phi\)</span>. The awkward factors cancel: <span class="math display">\[P = 2\sqrt{\frac lg}\int_0^{\pi/2}\frac{1}{k\cos\phi}\cdot\frac{2k\cos\phi}{\sqrt{1 - k^2\sin^2\phi}}\,\mathrm{d}\phi = 4\sqrt{\frac lg}\int_0^{\pi/2}\frac{\mathrm{d}\phi}{\sqrt{1 - k^2\sin^2\phi}}.\]</span> The new integrand is perfectly well behaved, since <span class="math inline">\(k &lt; 1\)</span>.</p>
+<h4 id="stagemark4-the-first-correction" class="stage"><span class="stage-n">Stage 4</span> The first correction</h4>
+<div class="askyourself">
+<p>For small <span class="math inline">\(k\)</span>, expand <span class="math inline">\((1 - k^2\sin^2\phi)^{-1/2}\)</span> by the binomial theorem. What is <span class="math inline">\(\int_0^{\pi/2}\sin^2\phi\,\mathrm{d}\phi\)</span>?</p>
+</div>
+<p>To first order, <span class="math inline">\((1 - k^2\sin^2\phi)^{-1/2} \approx 1 + \frac12k^2\sin^2\phi\)</span>, and <span class="math inline">\(\int_0^{\pi/2}\sin^2\phi\,\mathrm{d}\phi = \frac\pi4\)</span>. So <span class="math display">\[P \approx 4\sqrt{\frac lg}\Bigl(\frac\pi2 + \frac{k^2}{2}\cdot\frac\pi4\Bigr) = 2\pi\sqrt{\frac lg}\Bigl(1 + \frac{k^2}{4}\Bigr).\]</span> For small <span class="math inline">\(\gamma\)</span>, <span class="math inline">\(k = \sin\frac\gamma2 \approx \frac\gamma2\)</span>, so <span class="math inline">\(k^2 \approx \frac{\gamma^2}{4}\)</span> and <span class="math display">\[P \approx 2\pi\sqrt{\frac lg}\Bigl(1 + \frac{\gamma^2}{16}\Bigr). \qed\]</span> For a swing of <span class="math inline">\(20^\circ\)</span> (<span class="math inline">\(\gamma \approx 0.35\)</span>) the correction is less than <span class="math inline">\(1\%\)</span>; at <span class="math inline">\(60^\circ\)</span> it is about <span class="math inline">\(7\%\)</span> (Figure 11.3.1).</p>
+<figure class="stepfig"><img src="../assets/fig/fig-11-3-1.svg" alt="Figure 11.3.1"><figcaption><span class="fig-label">Figure 11.3.1</span> The exact period of a pendulum (teal), relative to the small-angle value, against its amplitude, compared with the approximation <span class="math inline">\(1 + \gamma^2/16\)</span> (plum, dashed). The approximation is excellent up to about <span class="math inline">\(60^\circ\)</span>. As <span class="math inline">\(\gamma \to 180^\circ\)</span> the true period tends to infinity: a pendulum balanced upside down takes for ever to fall.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Energy gives a first integral.</strong> A second-order equation became a first-order one, and the period became an integral.</p></li>
+<li><p><strong>A substitution tames a singularity.</strong> The integrand blew up at the turning point; the substitution <span class="math inline">\(\sin\frac\theta2 = k\sin\phi\)</span> removed the problem.</p></li>
+<li><p><strong>Exact first, then approximate.</strong> We found an exact formula and expanded it, which also tells us how good the approximation is.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="elliptic-integrals">Elliptic integrals</h3>
+<p>The integral <span class="math display">\[K(k) = \int_0^{\pi/2}\frac{\mathrm{d}\phi}{\sqrt{1 - k^2\sin^2\phi}}\]</span> is the <em>complete elliptic integral of the first kind</em>, so called because a close relative gives the perimeter of an ellipse. The exact period is <span class="math inline">\(P = 4\sqrt{l/g}\,K\bigl(\sin\frac\gamma2\bigr)\)</span>. Expanding the integrand fully and integrating term by term using the Wallis integrals <span class="math inline">\(\int_0^{\pi/2}\sin^{2n}\phi\,\mathrm{d}\phi\)</span> of <a href="../ch04/wallis-beta.html">Section 4.4</a>, one finds <span class="math display">\[P = 2\pi\sqrt{\frac lg}\Bigl(1 + \bigl(\tfrac12\bigr)^2k^2 + \bigl(\tfrac{1\cdot3}{2\cdot4}\bigr)^2k^4 + \bigl(\tfrac{1\cdot3\cdot5}{2\cdot4\cdot6}\bigr)^2k^6 + \cdots\Bigr).\]</span> No finite combination of familiar functions gives <span class="math inline">\(K(k)\)</span>; it is a genuinely new function.</p>
+<h3 id="gausss-remarkable-formula">Gauss’s remarkable formula</h3>
+<p>There is a far better way to compute <span class="math inline">\(K\)</span>. In <a href="../ch02/agm.html">Section 2.6</a> you met the <em>arithmetic–geometric mean</em>: start with <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, and repeatedly replace them by their arithmetic and geometric means. Gauss discovered in 1799 that <span class="math display">\[K(k) = \frac{\pi}{2\,\mathrm{AGM}\bigl(1, \sqrt{1 - k^2}\bigr)},\]</span> so the period of a pendulum with amplitude <span class="math inline">\(\gamma\)</span> is exactly <span class="math display">\[P = \frac{2\pi\sqrt{l/g}}{\mathrm{AGM}\bigl(1, \cos\frac\gamma2\bigr)}.\]</span> The AGM converges so fast that three or four steps give the period to ten significant figures; the values in Figure 11.3.1 were computed this way. Gauss wrote in his diary that this discovery “opens an entirely new field of analysis”, and he was right: inverting elliptic integrals led Abel and Jacobi to <em>elliptic functions</em>, and those led to <em>elliptic curves</em>, which are now central to number theory (they were the key to the proof of Fermat’s Last Theorem) and to the cryptography that secures the internet.</p>
+<div class="historybox">
+<div class="box-title">Galileo’s lamp and Huygens’s clock</div>
+<p>Galileo’s claim that a pendulum’s period does not depend on its amplitude, made around 1602, was a good approximation for the small swings he studied. Christiaan Huygens realised that it was not exact, and in 1659 found the curve along which the period really is independent of amplitude: the cycloid, the subject of <a href="../ch11/tautochrone.html">Section 11.4</a>. His pendulum clocks, made from 1656 onwards, improved timekeeping from errors of about a quarter of an hour a day to about fifteen seconds. Marine chronometers, which solved the problem of finding longitude at sea, later abandoned the pendulum altogether, but pendulum clocks remained the most accurate timekeepers in the world until the 1920s.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">From an exact integral to a series approximation</div>
+<p><em>When a quantity is given by an integral that cannot be evaluated, transform it into a well-behaved form, then expand the integrand and integrate term by term.</em></p>
+<p>This is how physicists find corrections to idealised results, and it is the start of <em>perturbation theory</em>. At university you will learn when term-by-term integration is justified (uniform convergence), and how to estimate the error made by stopping.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A tethered particle.</strong> (From STEP III, 2015.) A particle of mass <span class="math inline">\(m\)</span> on a smooth horizontal rail is attached to a peg at distance <span class="math inline">\(a\)</span> from the rail by an elastic string of natural length <span class="math inline">\(a\)</span> and modulus <span class="math inline">\(\lambda\)</span>. Starting with the string just taut, it is given speed <span class="math inline">\(v\)</span> along the rail. Show that <span class="math inline">\(\dot x^2 = v^2 - k^2\bigl(\sqrt{x^2 + a^2} - a\bigr)^2\)</span>, where <span class="math inline">\(k^2 = \frac{\lambda}{ma}\)</span>, find the greatest displacement, and show that for <span class="math inline">\(v \ll ka\)</span> the period is approximately <span class="math inline">\(\sqrt{\frac{32a}{kv}}\int_0^1\frac{\mathrm{d}u}{\sqrt{1 - u^4}}\)</span>. Why does the period now <em>depend</em> on <span class="math inline">\(v\)</span>, even for small oscillations?</p></li>
+<li><p><strong>The next term.</strong> Carry the binomial expansion one term further and show that <span class="math inline">\(P \approx 2\pi\sqrt{\frac lg}\bigl(1 + \frac{\gamma^2}{16} + \frac{11\gamma^4}{3072}\bigr)\)</span>.</p></li>
+<li><p><strong>The AGM by hand.</strong> Use three steps of the AGM to estimate the period of a pendulum with amplitude <span class="math inline">\(90^\circ\)</span>, and compare with the value <span class="math inline">\(1.1803\)</span> in the figure.</p></li>
+<li><p><strong>Clocks.</strong> A pendulum clock is regulated to keep perfect time with an amplitude of <span class="math inline">\(4^\circ\)</span>. If its amplitude increases to <span class="math inline">\(5^\circ\)</span>, how many seconds a day does it lose?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>David Morin, <em>Introduction to Classical Mechanics</em></strong> (Cambridge University Press), Chapter 4, which treats the large-amplitude pendulum.</p></li>
+<li><p><strong>Jonathan Borwein &amp; Peter Borwein, <em>Pi and the AGM</em></strong> (Wiley). Gauss’s discovery and its uses, including the fastest ways to compute <span class="math inline">\(\pi\)</span>.</p></li>
+<li><p><strong>Dava Sobel, <em>Longitude</em></strong> (Fourth Estate). The story of timekeeping at sea, beyond the pendulum.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="normal-modes.html">← 11.2 Normal Modes</a><a class="next" href="tautochrone.html">→ 11.4 The Tautochrone</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

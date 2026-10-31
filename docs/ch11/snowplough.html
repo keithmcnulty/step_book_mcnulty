@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11.13 The Snowplough Problem — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 11 · Oscillations, Rotation and Moving Frames</a>
+    <div class="src">STEP III · Specimen paper · Question 11</div>
+    <div class="sec-head"><span class="sec-num">11.13</span><h1>The Snowplough Problem</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-11-13-snowplough.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-11-oscillations-rotation-and-moving-frames.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 11</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Two identical snowploughs plough the same stretch of road in the same direction. The first starts at time <span class="math inline">\(t = 0\)</span> when the depth of snow is <span class="math inline">\(h\)</span> metres, and the second starts from the same point <span class="math inline">\(T\)</span> seconds later. Snow falls so that the depth of snow increases at a constant rate of <span class="math inline">\(k\)</span> m s<span class="math inline">\(^{-1}\)</span>. It may be assumed that each snowplough moves at a speed equal to <span class="math inline">\(k/(\alpha z)\)</span> m s<span class="math inline">\(^{-1}\)</span> with <span class="math inline">\(\alpha\)</span> a constant, where <span class="math inline">\(z\)</span> is the depth of snow it is ploughing, and that it clears all the snow.</p>
+<ol class="roman">
+<li><p>Show that the time taken for the first snowplough to travel <span class="math inline">\(x\)</span> metres is <span class="math display">\[(e^{\alpha x} - 1)\frac hk \text{ seconds}.\]</span></p></li>
+<li><p>Show that at time <span class="math inline">\(t &gt; T\)</span>, the second snowplough has moved <span class="math inline">\(y\)</span> metres, where <span class="math inline">\(t\)</span> satisfies <span class="math display">\[\frac1\alpha\frac{\mathrm{d}t}{\mathrm{d}y} = t - \bigl(e^{\alpha y} - 1\bigr)\frac hk.\]</span> Verify that the required solution of this equation is <span class="math display">\[t = \bigl(e^{\alpha y} - 1\bigr)\frac hk + \Bigl(T - \frac{\alpha hy}{k}\Bigr)e^{\alpha y}\]</span> and deduce that the snowploughs collide when they have moved a distance <span class="math inline">\(kT/(\alpha h)\)</span> metres.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Snow is falling steadily. A snowplough sets off down a road, slowing down as the snow it meets gets deeper. A second plough follows a little later along the cleared road. It meets only the snow that has fallen since the first plough passed, which is shallower, so it travels faster, and eventually it catches up. When?</p>
+<p>This is a version of a famous problem published by Ralph Agnew in 1942, which became one of the best-known puzzles in differential equations. Its charm is that the second plough’s speed depends on <em>when the first plough passed each point</em>, so the solution to part (i) feeds into the equation for part (ii). And the equation is cleverest when written “upside down”, with time as a function of distance.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The first plough meets snow of depth <span class="math inline">\(h + kt\)</span> at time <span class="math inline">\(t\)</span>. What is its speed? Is it easier to find <span class="math inline">\(x\)</span> as a function of <span class="math inline">\(t\)</span>, or <span class="math inline">\(t\)</span> as a function of <span class="math inline">\(x\)</span>?</p>
+</div>
+<p>Its speed is <span class="math inline">\(\frac{\mathrm{d}x}{\mathrm{d}t} = \frac{k}{\alpha(h + kt)}\)</span>. This separates neatly. Turning it over, <span class="math inline">\(\frac{\mathrm{d}t}{\mathrm{d}x} = \frac{\alpha(h + kt)}{k}\)</span>, which is a simple linear equation for <span class="math inline">\(t\)</span> as a function of <span class="math inline">\(x\)</span>. Either way works for the first plough; for the second, the upside-down form is essential.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-first-plough" class="stage"><span class="stage-n">Stage 1</span> The first plough</h4>
+<p>From <span class="math inline">\(\frac{\mathrm{d}t}{\mathrm{d}x} = \alpha\bigl(\frac hk + t\bigr)\)</span>, the quantity <span class="math inline">\(\frac hk + t\)</span> grows exponentially in <span class="math inline">\(x\)</span>: <span class="math inline">\(\frac hk + t = Ce^{\alpha x}\)</span>. At <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(t = 0\)</span>, so <span class="math inline">\(C = \frac hk\)</span> and <span class="math display">\[t_1(x) = \frac hk\bigl(e^{\alpha x} - 1\bigr). \qed\]</span> The first plough slows down exponentially: equal distances take exponentially increasing times.</p>
+<h4 id="stagemark2-the-second-ploughs-equation" class="stage"><span class="stage-n">Stage 2</span> The second plough’s equation</h4>
+<div class="askyourself">
+<p>The second plough reaches position <span class="math inline">\(y\)</span> at time <span class="math inline">\(t\)</span>. How deep is the snow there? (What was the depth just after the first plough passed?)</p>
+</div>
+<p>The first plough cleared all the snow at position <span class="math inline">\(y\)</span> at time <span class="math inline">\(t_1(y)\)</span>. Since then, snow has accumulated at rate <span class="math inline">\(k\)</span>, so the depth at time <span class="math inline">\(t\)</span> is <span class="math inline">\(z = k\bigl(t - t_1(y)\bigr)\)</span>. The second plough’s speed is therefore <span class="math display">\[\frac{\mathrm{d}y}{\mathrm{d}t} = \frac{k}{\alpha k\bigl(t - t_1(y)\bigr)} = \frac{1}{\alpha\bigl(t - t_1(y)\bigr)},\]</span> and turning it over, <span class="math display">\[\frac1\alpha\frac{\mathrm{d}t}{\mathrm{d}y} = t - \frac hk\bigl(e^{\alpha y} - 1\bigr). \qed\]</span></p>
+<h4 id="stagemark3-solving" class="stage"><span class="stage-n">Stage 3</span> Solving</h4>
+<div class="askyourself">
+<p>This is linear in <span class="math inline">\(t\)</span>: <span class="math inline">\(\frac{\mathrm{d}t}{\mathrm{d}y} - \alpha t = -\frac{\alpha h}{k}(e^{\alpha y} - 1)\)</span>. What integrating factor works? What is the starting condition?</p>
+</div>
+<p>Multiplying by <span class="math inline">\(e^{-\alpha y}\)</span>, <span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}y}\bigl(te^{-\alpha y}\bigr) = -\frac{\alpha h}{k}\bigl(1 - e^{-\alpha y}\bigr), \qquad te^{-\alpha y} = -\frac{\alpha h}{k}y - \frac hke^{-\alpha y} + C.\]</span> The second plough starts at <span class="math inline">\(y = 0\)</span> at <span class="math inline">\(t = T\)</span>, so <span class="math inline">\(T = -\frac hk + C\)</span>, giving <span class="math inline">\(C = T + \frac hk\)</span>. Multiplying back by <span class="math inline">\(e^{\alpha y}\)</span> and rearranging, <span class="math display">\[t_2(y) = \frac hk\bigl(e^{\alpha y} - 1\bigr) + \Bigl(T - \frac{\alpha hy}{k}\Bigr)e^{\alpha y}. \qed\]</span> (To verify, as the question asks: differentiate and substitute; the terms combine to <span class="math inline">\(\alpha\bigl(t - t_1(y)\bigr)\)</span>.)</p>
+<h4 id="stagemark4-the-collision" class="stage"><span class="stage-n">Stage 4</span> The collision</h4>
+<div class="askyourself">
+<p>The ploughs collide when both reach the same point at the same time. Compare <span class="math inline">\(t_2(y)\)</span> with <span class="math inline">\(t_1(y)\)</span>.</p>
+</div>
+<p>The difference is <span class="math inline">\(t_2(y) - t_1(y) = \bigl(T - \frac{\alpha hy}{k}\bigr)e^{\alpha y}\)</span>, the time gap between the two ploughs at position <span class="math inline">\(y\)</span>. It shrinks to zero when <span class="math display">\[y = \frac{kT}{\alpha h}. \qed\]</span> At that point the second plough reaches the first: the snow in front of it has zero depth, and in the model its speed becomes infinite (Figure 11.13.1).</p>
+<figure class="stepfig"><img src="../assets/fig/fig-11-13-1.svg" alt="Figure 11.13.1"><figcaption><span class="fig-label">Figure 11.13.1</span> Distance against time for the two ploughs, with <span class="math inline">\(T = \frac hk\)</span> (so the second starts once the snow depth has doubled). The first plough (teal) slows as the snow deepens. The second (plum) starts later on a partly cleared road and speeds up as it closes the gap, meeting the first at distance <span class="math inline">\(\frac{kT}{\alpha h} = \frac1\alpha\)</span>, at time <span class="math inline">\((e - 1)\frac hk\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Turn the equation upside down.</strong> With <span class="math inline">\(t\)</span> as a function of position, both equations were linear.</p></li>
+<li><p><strong>One solution feeds the next.</strong> The first plough’s timetable <span class="math inline">\(t_1(y)\)</span> appeared in the second plough’s equation.</p></li>
+<li><p><strong>Compare, do not solve twice.</strong> The collision condition came from the difference <span class="math inline">\(t_2 - t_1\)</span>, which had a simple factor.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="agnews-snowplough">Agnew’s snowplough</h3>
+<p>In Ralph Palmer Agnew’s version, from his 1942 textbook <em>Differential Equations</em>, it starts snowing heavily and steadily one morning; a snowplough sets out at noon and covers <span class="math inline">\(2\)</span> miles in the first hour and <span class="math inline">\(1\)</span> mile in the second; when did it start snowing? The plough’s speed is inversely proportional to the depth, which is proportional to the time since the snow started. The answer (an exercise below) involves the golden ratio: it started snowing about <span class="math inline">\(37\)</span> minutes before noon. Versions with two ploughs, like this question, followed.</p>
+<h3 id="information-that-travels">Information that travels</h3>
+<p>The second plough’s motion depends on the history recorded in the road: the time at which each point was last cleared. This is a simple example of a system with <em>memory</em>, in which the state at one place depends on what happened there earlier. Traffic flow, the motion of glaciers and the spreading of a forest fire all have this character, and their mathematics, the theory of first-order partial differential equations and their <em>characteristics</em>, is a standard second-year topic. The idea of writing time as a function of position (“when does the front arrive here?”) is exactly the method of <em>arrival times</em> used for such problems.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Choose the independent variable</div>
+<p><em>A differential equation may be much simpler with the roles of the variables reversed. If the rate depends on the time at which something happened at a place, write time as a function of place.</em></p>
+<p>Both equations here became linear when written for <span class="math inline">\(t(y)\)</span>. At university, the freedom to choose which variable is independent (and to change it when convenient) is used constantly, from the hodograph method in fluid mechanics to the use of arc length as a parameter in geometry.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Agnew’s problem.</strong> Snow starts falling at a steady rate at an unknown time before noon. A snowplough whose speed is inversely proportional to the depth starts at noon and goes <span class="math inline">\(2\)</span> miles in the first hour and <span class="math inline">\(1\)</span> mile in the second. Show that if it started snowing <span class="math inline">\(t_0\)</span> hours before noon, then <span class="math inline">\(\bigl(1 + \frac{2}{t_0}\bigr)^2 = \bigl(1 + \frac{1}{t_0}\bigr)^3\)</span>, deduce that <span class="math inline">\(\frac{1}{t_0}\)</span> is the golden ratio, and find when it started snowing.</p></li>
+<li><p><strong>Verification.</strong> Verify by differentiation that <span class="math inline">\(t_2(y)\)</span> satisfies the differential equation of part (ii).</p></li>
+<li><p><strong>The time gap.</strong> Show that the time gap <span class="math inline">\(t_2(y) - t_1(y)\)</span> first increases and then decreases to zero, and find where it is greatest. Interpret this.</p></li>
+<li><p><strong>Three ploughs.</strong> A third plough starts at time <span class="math inline">\(2T\)</span>. Write down the equation for its motion. Does it catch the second plough before or after the second catches the first?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Ralph Palmer Agnew, <em>Differential Equations</em></strong> (McGraw-Hill, 1942). The original snowplough problem.</p></li>
+<li><p><strong>George Simmons, <em>Differential Equations with Applications and Historical Notes</em></strong> (CRC Press), which discusses the snowplough problem among many others.</p></li>
+<li><p><strong>Richard Haberman, <em>Mathematical Models</em></strong> (SIAM). Traffic flow and characteristics, at an accessible level.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="rubber-rope.html">← 11.12 The Ant on the Rubber Rope</a><a class="next" href="bridge-parabola.html">→ 11.14 Parabola, Not Catenary</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

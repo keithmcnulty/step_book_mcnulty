@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11.7 Simpson&#x27;s Rule in a Rod — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 11 · Oscillations, Rotation and Moving Frames</a>
+    <div class="src">STEP II · 1989 · Question 13</div>
+    <div class="sec-head"><span class="sec-num">11.7</span><h1>Simpson&#x27;s Rule in a Rod</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-11-7-simpsons-rod.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-11-oscillations-rotation-and-moving-frames.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 11</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A body of mass <span class="math inline">\(m\)</span> and centre of mass <span class="math inline">\(O\)</span> is said to be <em>dynamically equivalent</em> to a system of particles of total mass <span class="math inline">\(m\)</span> and centre of mass <span class="math inline">\(O\)</span> if the moment of inertia of the system of particles is the same as the moment of inertia of the body, about any axis through <span class="math inline">\(O\)</span>. Show that this implies that the moment of inertia of the system of particles is the same as that of the body about <em>any</em> axis.</p>
+<p>Show that a uniform rod of length <span class="math inline">\(2a\)</span> and mass <span class="math inline">\(m\)</span> is dynamically equivalent to a suitable system of three particles, one at each end of the rod, and one at the midpoint.</p>
+<p>Use this result to deduce that a uniform rectangular lamina of mass <span class="math inline">\(M\)</span> is dynamically equivalent to a system consisting of particles each of mass <span class="math inline">\(\frac{1}{36}M\)</span> at the corners, particles each of mass <span class="math inline">\(\frac19M\)</span> at the midpoint of each side, and a particle of mass <span class="math inline">\(\frac49M\)</span> at the centre. Hence find the moment of inertia of a square lamina, of side <span class="math inline">\(2a\)</span> and mass <span class="math inline">\(M\)</span>, about one of its diagonals.</p>
+<p>The mass per unit length of a thin rod of mass <span class="math inline">\(m\)</span> is proportional to the distance from one end of the rod, and a dynamically equivalent system consists of one particle at each end of the rod and one at the midpoint. Write down a set of equations which determines these masses, and show that, in fact, only two particles are required.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>How does a uniform rod respond to being pushed and spun? It turns out that, for every purpose in mechanics, a rod behaves exactly like three point masses: one-sixth of its mass at each end and two-thirds at the middle. Nothing you can do to the rod (push it, spin it about any axis) distinguishes it from the three particles.</p>
+<p>The numbers <span class="math inline">\(\frac16\)</span>, <span class="math inline">\(\frac23\)</span>, <span class="math inline">\(\frac16\)</span> may look familiar. They are the weights in <em>Simpson’s rule</em>, <span class="math inline">\(\int_{-a}^{a}f \approx 2a\bigl(\frac16f(-a) + \frac23f(0) + \frac16f(a)\bigr)\)</span>, the numerical integration method you may have met at A level. This is no coincidence: a dynamically equivalent system and a numerical integration rule are solving the same problem.</p>
+<div class="skillbox">
+<div class="box-title">A note on the syllabus</div>
+<p>Moments of inertia were removed from the STEP specification in 2019. The moment of inertia of a body about an axis is <span class="math inline">\(\sum m_id_i^2\)</span>, the sum of each mass times the square of its distance from the axis (an integral for a continuous body). A uniform rod of mass <span class="math inline">\(m\)</span> and length <span class="math inline">\(2a\)</span> has moment of inertia <span class="math inline">\(\frac13ma^2\)</span> about a perpendicular axis through its centre. The <em>parallel axis theorem</em> says that the moment of inertia about any axis is the moment about the parallel axis through the centre of mass plus <span class="math inline">\(md^2\)</span>, where <span class="math inline">\(d\)</span> is the distance between the axes.</p>
+</div>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Two systems have the same mass, the same centre of mass, and the same moment of inertia about every axis through it. Why does the parallel axis theorem then give the same moment of inertia about every other axis too?</p>
+</div>
+<p>For any axis, both moments of inertia equal (moment about the parallel axis through <span class="math inline">\(O\)</span>) <span class="math inline">\(+ md^2\)</span>. The first terms agree by assumption, and <span class="math inline">\(m\)</span> and <span class="math inline">\(d\)</span> are the same for both systems.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-rod" class="stage"><span class="stage-n">Stage 1</span> The rod</h4>
+<div class="askyourself">
+<p>Put masses <span class="math inline">\(p\)</span> at each end and <span class="math inline">\(q\)</span> at the middle. By symmetry the centre of mass is right. What do the total mass and the moment of inertia about a perpendicular axis through the centre require?</p>
+</div>
+<p>We need <span class="math inline">\(2p + q = m\)</span>, and the moment of inertia about a perpendicular axis through the middle must be <span class="math inline">\(\frac13ma^2\)</span>: <span class="math inline">\(2pa^2 = \frac13ma^2\)</span>. So <span class="math inline">\(p = \frac16m\)</span> and <span class="math inline">\(q = \frac23m\)</span>.</p>
+<div class="askyourself">
+<p>Does this work for <em>every</em> axis through the centre, not just the perpendicular one?</p>
+</div>
+<p>For an axis through the centre at angle <span class="math inline">\(\psi\)</span> to the rod, a point at distance <span class="math inline">\(r\)</span> along the rod is at distance <span class="math inline">\(r\sin\psi\)</span> from the axis. So every moment of inertia (rod or particles) is <span class="math inline">\(\sin^2\psi\)</span> times the value for the perpendicular axis, and the two agree for all <span class="math inline">\(\psi\)</span>. (Axes not in a plane containing the rod work the same way: only the distance of each point from the axis matters, and for points on a line through <span class="math inline">\(O\)</span> this is proportional to <span class="math inline">\(r\)</span>.) So the rod is dynamically equivalent to masses <span class="math inline">\(\frac16m\)</span>, <span class="math inline">\(\frac23m\)</span>, <span class="math inline">\(\frac16m\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-rectangle" class="stage"><span class="stage-n">Stage 2</span> The rectangle</h4>
+<div class="askyourself">
+<p>Cut the lamina into thin strips parallel to one side. Replace each strip by its three equivalent particles. What do you get, and what can you do next?</p>
+</div>
+<p>Each thin strip is a rod, equivalent to <span class="math inline">\(\frac16\)</span>, <span class="math inline">\(\frac23\)</span>, <span class="math inline">\(\frac16\)</span> of its mass on the left edge, the centre line and the right edge. Adding over all the strips, the lamina is equivalent to three uniform rods (along the left edge, the middle and the right edge) with masses <span class="math inline">\(\frac16M\)</span>, <span class="math inline">\(\frac23M\)</span>, <span class="math inline">\(\frac16M\)</span>. Now replace each of these rods by three particles in the same ratio. The mass at each point is a product of two fractions (Figure 11.7.1): <span class="math display">\[\text{corners: } \tfrac16 \cdot \tfrac16 = \tfrac{1}{36}, \qquad \text{edge midpoints: } \tfrac16 \cdot \tfrac23 = \tfrac19, \qquad \text{centre: } \tfrac23 \cdot \tfrac23 = \tfrac49,\]</span> all times <span class="math inline">\(M\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>(Strictly, each replacement must preserve the moment of inertia about every axis through the centre of the whole lamina, which it does: each replacement keeps the mass, the centre of mass and the moments of inertia about axes through the centre of mass of the piece, and the parallel axis theorem does the rest.)</p>
+<h4 id="stagemark3-the-square-about-its-diagonal" class="stage"><span class="stage-n">Stage 3</span> The square about its diagonal</h4>
+<p>For a square of side <span class="math inline">\(2a\)</span>, the diagonal passes through two corners and the centre, which contribute nothing. The other two corners are at distance <span class="math inline">\(\sqrt2a\)</span> from it, and the four edge midpoints at distance <span class="math inline">\(\frac{a}{\sqrt2}\)</span>. So <span class="math display">\[I = 2 \cdot \tfrac{1}{36}M \cdot 2a^2 + 4 \cdot \tfrac19M \cdot \tfrac{a^2}{2} = \tfrac19Ma^2 + \tfrac29Ma^2 = \tfrac13Ma^2. \qed\]</span> This is the same as the moment of inertia about an axis through the centre parallel to a side. (That is no accident: for a square, all axes through the centre in its plane give the same answer, by a symmetry argument in the exercises.)</p>
+<h4 id="stagemark4-a-non-uniform-rod" class="stage"><span class="stage-n">Stage 4</span> A non-uniform rod</h4>
+<div class="askyourself">
+<p>Let the rod have length <span class="math inline">\(L\)</span> and density <span class="math inline">\(\frac{2mx}{L^2}\)</span> at distance <span class="math inline">\(x\)</span> from one end. Put masses <span class="math inline">\(p_0\)</span>, <span class="math inline">\(p_1\)</span>, <span class="math inline">\(p_2\)</span> at <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(\frac L2\)</span>, <span class="math inline">\(L\)</span>. Matching the total mass, the centre of mass and the moment of inertia about the end gives three equations. What are they?</p>
+</div>
+<p>The rod has total mass <span class="math inline">\(m\)</span>, first moment <span class="math inline">\(\int_0^L x \cdot \frac{2mx}{L^2}\,\mathrm{d}x = \frac23mL\)</span> and second moment <span class="math inline">\(\int_0^L x^2\cdot\frac{2mx}{L^2}\,\mathrm{d}x = \frac12mL^2\)</span> about the light end. Matching these: <span class="math display">\[p_0 + p_1 + p_2 = m, \qquad \tfrac12Lp_1 + Lp_2 = \tfrac23mL, \qquad \tfrac14L^2p_1 + L^2p_2 = \tfrac12mL^2.\]</span> Subtracting the third (divided by <span class="math inline">\(L^2\)</span>) from the second (divided by <span class="math inline">\(L\)</span>) gives <span class="math inline">\(\frac14p_1 = \frac16m\)</span>, so <span class="math inline">\(p_1 = \frac23m\)</span>, then <span class="math inline">\(p_2 = \frac13m\)</span> and <span class="math inline">\(p_0 = 0\)</span>. Only two particles are needed: <span class="math inline">\(\frac23m\)</span> at the midpoint and <span class="math inline">\(\frac13m\)</span> at the heavy end.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-11-7-1.svg" alt="Figure 11.7.1"><figcaption><span class="fig-label">Figure 11.7.1</span> Left, top: a uniform rod is dynamically equivalent to masses <span class="math inline">\(\frac16\)</span>, <span class="math inline">\(\frac23\)</span>, <span class="math inline">\(\frac16\)</span> (as fractions of its mass) at its ends and centre, the weights of Simpson’s rule. Left, bottom: it is also equivalent to two halves at distance <span class="math inline">\(\frac{a}{\sqrt3}\)</span> from the centre, the nodes of two-point Gaussian integration. Right: a rectangular lamina is equivalent to nine masses, with areas of the dots proportional to the masses.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Match moments.</strong> Dynamical equivalence means matching the zeroth, first and second moments of the mass distribution.</p></li>
+<li><p><strong>Build up dimension by dimension.</strong> A rectangle is a rod of rods, so its weights are products.</p></li>
+<li><p><strong>Count equations and unknowns.</strong> Three moments to match, three unknown masses; and sometimes a solution happens to have a zero.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="simpsons-rule">Simpson’s rule</h3>
+<p>Matching moments of a mass distribution is the same problem as designing a numerical integration rule. A rule <span class="math inline">\(\int_{-a}^{a}f(x)\,\mathrm{d}x \approx w_0f(-a) + w_1f(0) + w_2f(a)\)</span> that is exact for <span class="math inline">\(f = 1, x, x^2\)</span> must satisfy <span class="math display">\[w_0 + w_1 + w_2 = 2a, \qquad -aw_0 + aw_2 = 0, \qquad a^2w_0 + a^2w_2 = \tfrac23a^3,\]</span> exactly the conditions for the rod (with <span class="math inline">\(f = 1, x, x^2\)</span> playing the roles of mass, first moment and moment of inertia). The solution is <span class="math inline">\(w = 2a(\frac16, \frac23, \frac16)\)</span>: Simpson’s rule. A bonus comes from symmetry: the rule is also exact for <span class="math inline">\(f = x^3\)</span>, since both sides vanish, so Simpson’s rule integrates cubics exactly, and its error for smooth functions is proportional to the fourth derivative. A rod therefore matches its three particles not just in mass, centre and moment of inertia, but in the third moment too.</p>
+<h3 id="gaussian-quadrature-and-the-inertia-tensor">Gaussian quadrature and the inertia tensor</h3>
+<p>If the positions as well as the masses are free, two particles suffice: half the mass at each of the points <span class="math inline">\(\pm\frac{a}{\sqrt3}\)</span>. Check: <span class="math inline">\(2 \cdot \frac12m \cdot \frac{a^2}{3} = \frac13ma^2\)</span>. This is the two-point <em>Gauss–Legendre rule</em>, <span class="math inline">\(\int_{-a}^{a}f \approx a\bigl(f(-\frac{a}{\sqrt3}) + f(\frac{a}{\sqrt3})\bigr)\)</span>, which is also exact for cubics. Carl Friedrich Gauss showed in 1814 that <span class="math inline">\(n\)</span> cleverly placed points can integrate polynomials of degree <span class="math inline">\(2n - 1\)</span> exactly, and Gaussian quadrature is now a standard method of numerical analysis.</p>
+<p>In mechanics, the moments of inertia of a body about all axes through its centre are encoded in a symmetric <span class="math inline">\(3 \times 3\)</span> matrix, the <em>inertia tensor</em>. Two bodies with the same mass, centre of mass and inertia tensor respond identically to all forces, which is why engineers can replace a complicated part by a few point masses in a simulation. The eigenvectors of the inertia tensor are the <em>principal axes</em>, the axes about which a body can spin steadily.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Replace a system by an equivalent one</div>
+<p><em>If two systems agree in every quantity that matters for the problem, replace the complicated one by the simple one.</em></p>
+<p>Here only three moments mattered, so a continuous rod could be replaced by three particles. At university, this idea appears as Gaussian quadrature, as multipole expansions in electromagnetism and gravitation (far away, only a few moments of a charge or mass distribution matter), and as the method of moments in statistics.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Simpson’s rule.</strong> Use Simpson’s rule with a single interval to estimate <span class="math inline">\(\int_0^1\frac{\mathrm{d}x}{1 + x^2}\)</span>, and compare with <span class="math inline">\(\frac\pi4\)</span>. Check that the rule is exact for <span class="math inline">\(\int_{-1}^{1}x^3\,\mathrm{d}x\)</span> and <span class="math inline">\(\int_{-1}^{1}x^2\,\mathrm{d}x\)</span> but not for <span class="math inline">\(\int_{-1}^{1}x^4\,\mathrm{d}x\)</span>.</p></li>
+<li><p><strong>All axes alike.</strong> Show that the moment of inertia of a square lamina about any axis through its centre in its plane is <span class="math inline">\(\frac13Ma^2\)</span>. (<em>Hint:</em> the nine equivalent particles are symmetric under rotation by <span class="math inline">\(90^\circ\)</span>; what does that say about a quadratic expression in <span class="math inline">\(\cos\psi\)</span> and <span class="math inline">\(\sin\psi\)</span>?)</p></li>
+<li><p><strong>A triangle.</strong> Show that a uniform triangular lamina of mass <span class="math inline">\(M\)</span> is dynamically equivalent to three particles of mass <span class="math inline">\(\frac13M\)</span> at the midpoints of its sides.</p></li>
+<li><p><strong>A solid cube.</strong> Find a dynamically equivalent system of <span class="math inline">\(27\)</span> particles for a uniform solid cube, and use it to find the moment of inertia of a cube of side <span class="math inline">\(2a\)</span> about an edge.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Daniel Kleppner &amp; Robert Kolenkow, <em>An Introduction to Mechanics</em></strong> (Cambridge University Press), the chapter on rigid bodies and moments of inertia.</p></li>
+<li><p><strong>Endre Süli &amp; David Mayers, <em>An Introduction to Numerical Analysis</em></strong> (Cambridge University Press), the chapters on numerical integration, including Simpson’s rule and Gaussian quadrature.</p></li>
+<li><p><strong>Philip Davis &amp; Philip Rabinowitz, <em>Methods of Numerical Integration</em></strong> (Dover). The classic reference.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="backspin.html">← 11.6 Backspin</a><a class="next" href="tilted-equilibria.html">→ 11.8 Tilted Equilibria</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
