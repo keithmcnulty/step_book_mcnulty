@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.3 22/7 Is Bigger Than π — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 4 · Calculus Done Properly</a>
+    <div class="src">STEP I · 1997 · Question 6</div>
+    <div class="sec-head"><span class="sec-num">4.3</span><h1>\(22/7\) Is Bigger Than \(\pi\)</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-3-twenty-two-sevenths.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 4</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Find constants <span class="math inline">\(a_0\)</span>, <span class="math inline">\(a_1\)</span>, <span class="math inline">\(a_2\)</span>, <span class="math inline">\(a_3\)</span>, <span class="math inline">\(a_4\)</span>, <span class="math inline">\(a_5\)</span>, <span class="math inline">\(a_6\)</span> and <span class="math inline">\(b\)</span> such that <span class="math display">\[x^4(1-x)^4 = (a_6x^6 + a_5x^5 + a_4x^4 + a_3x^3 + a_2x^2 + a_1x + a_0)(x^2 + 1) + b.\]</span> Hence, or otherwise, prove that <span class="math display">\[\int_0^1 \frac{x^4(1-x)^4}{1+x^2}\,\mathrm{d}x = \frac{22}{7} - \pi.\]</span> Evaluate <span class="math inline">\(\displaystyle\int_0^1 x^4(1-x)^4\,\mathrm{d}x\)</span> and deduce that <span class="math display">\[\frac{22}{7} &gt; \pi &gt; \frac{22}{7} - \frac{1}{630}.\]</span></p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Generations of students have been told that <span class="math inline">\(\pi\)</span> is “about <span class="math inline">\(\frac{22}{7}\)</span>”. It is a very good approximation: <span class="math inline">\(\frac{22}{7} = 3.142857\ldots\)</span> and <span class="math inline">\(\pi = 3.141592\ldots\)</span>. But is <span class="math inline">\(\frac{22}{7}\)</span> too big or too small? And can you <em>prove</em> it, without simply looking up the digits of <span class="math inline">\(\pi\)</span>, which someone else had to compute?</p>
+<p>This question gives one of the most elegant proofs in all of mathematics. A single integral of a positive function, which therefore must be positive, turns out to equal exactly <span class="math inline">\(\frac{22}{7} - \pi\)</span>. Positive integrand, positive integral, so <span class="math inline">\(\frac{22}{7} &gt; \pi\)</span>. The whole proof fits in a few lines, and it is so neat that it appears as a puzzle on mathematics T-shirts.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Why does <span class="math inline">\(\pi\)</span> come out of <span class="math inline">\(\int_0^1 \frac{\text{polynomial}}{1+x^2}\,\mathrm{d}x\)</span>? Which simple integral of this form gives <span class="math inline">\(\pi\)</span> on its own?</p>
+</div>
+<p><span class="math inline">\(\int_0^1 \frac{\mathrm{d}x}{1+x^2} = \arctan 1 = \frac\pi4\)</span>. When you divide a polynomial by <span class="math inline">\(1 + x^2\)</span>, you get a polynomial quotient (which integrates to a rational number) plus a constant remainder over <span class="math inline">\(1 + x^2\)</span> (which integrates to a rational multiple of <span class="math inline">\(\pi\)</span>). The first part of the question asks you to do exactly that division.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-polynomial-division" class="stage"><span class="stage-n">Stage 1</span> Polynomial division</h4>
+<p>First expand: <span class="math inline">\((1 - x)^4 = 1 - 4x + 6x^2 - 4x^3 + x^4\)</span>, so <span class="math display">\[x^4(1-x)^4 = x^8 - 4x^7 + 6x^6 - 4x^5 + x^4.\]</span></p>
+<div class="askyourself">
+<p>Divide by <span class="math inline">\(x^2 + 1\)</span>, either by long division or by comparing coefficients. What is the remainder?</p>
+</div>
+<p>Comparing coefficients in <span class="math inline">\((a_6x^6 + \cdots + a_0)(x^2 + 1) + b\)</span>, from the top: <span class="math inline">\(a_6 = 1\)</span>; <span class="math inline">\(a_5 = -4\)</span>; <span class="math inline">\(a_4 + a_6 = 6\)</span>, so <span class="math inline">\(a_4 = 5\)</span>; <span class="math inline">\(a_3 + a_5 = -4\)</span>, so <span class="math inline">\(a_3 = 0\)</span>; <span class="math inline">\(a_2 + a_4 = 1\)</span>, so <span class="math inline">\(a_2 = -4\)</span>; <span class="math inline">\(a_1 + a_3 = 0\)</span>, so <span class="math inline">\(a_1 = 0\)</span>; <span class="math inline">\(a_0 + a_2 = 0\)</span>, so <span class="math inline">\(a_0 = 4\)</span>; and finally <span class="math inline">\(a_1 = 0\)</span> (the coefficient of <span class="math inline">\(x\)</span>) and <span class="math inline">\(a_0 + b = 0\)</span>, so <span class="math inline">\(b = -4\)</span>. That is, <span class="math display">\[x^4(1-x)^4 = (x^6 - 4x^5 + 5x^4 - 4x^2 + 4)(x^2 + 1) - 4.\]</span></p>
+<h4 id="stagemark2-the-integral" class="stage"><span class="stage-n">Stage 2</span> The integral</h4>
+<p>Dividing by <span class="math inline">\(1 + x^2\)</span>, <span class="math display">\[\frac{x^4(1-x)^4}{1+x^2} = x^6 - 4x^5 + 5x^4 - 4x^2 + 4 - \frac{4}{1+x^2},\]</span> so <span class="math display">\[\int_0^1 \frac{x^4(1-x)^4}{1+x^2}\,\mathrm{d}x = \frac17 - \frac46 + \frac55 - \frac43 + 4 - 4\cdot\frac\pi4 = \frac17 - \frac23 + 1 - \frac43 + 4 - \pi.\]</span> Now <span class="math inline">\(-\frac23 - \frac43 = -2\)</span>, so the rational part is <span class="math inline">\(\frac17 + 3 = \frac{22}{7}\)</span>, and the integral is <span class="math inline">\(\frac{22}{7} - \pi\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-bounding-the-integral" class="stage"><span class="stage-n">Stage 3</span> Bounding the integral</h4>
+<div class="askyourself">
+<p>The integrand is positive on <span class="math inline">\((0, 1)\)</span>, so <span class="math inline">\(\frac{22}{7} &gt; \pi\)</span> at once. To get a lower bound for <span class="math inline">\(\pi\)</span> we need an <em>upper</em> bound for the integral. How big can <span class="math inline">\(\frac{1}{1+x^2}\)</span> be on <span class="math inline">\([0, 1]\)</span>?</p>
+</div>
+<p>On <span class="math inline">\([0, 1]\)</span>, <span class="math inline">\(1 \leq 1 + x^2 \leq 2\)</span>, so <span class="math display">\[\tfrac12 x^4(1-x)^4 \leq \frac{x^4(1-x)^4}{1+x^2} \leq x^4(1-x)^4,\]</span> with strict inequality except at the endpoints.</p>
+<div class="pausebox">
+<p>Evaluate <span class="math inline">\(\int_0^1 x^4(1-x)^4\,\mathrm{d}x\)</span>, and finish the proof.</p>
+</div>
+<p>Integrating the expansion term by term, <span class="math display">\[\int_0^1 x^4(1-x)^4\,\mathrm{d}x = \frac19 - \frac48 + \frac67 - \frac46 + \frac15 = \frac{1}{630}.\]</span> (Over the common denominator <span class="math inline">\(2520\)</span>: <span class="math inline">\(280 - 1260 + 2160 - 1680 + 504 = 4\)</span>, and <span class="math inline">\(\frac{4}{2520} = \frac{1}{630}\)</span>.) So <span class="math display">\[0 &lt; \frac{22}{7} - \pi &lt; \frac{1}{630},\]</span> which is <span class="math inline">\(\frac{22}{7} &gt; \pi &gt; \frac{22}{7} - \frac{1}{630}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Numerically, <span class="math inline">\(\frac{22}{7} - \frac{1}{630} = 3.14127\ldots\)</span>, so we have proved <span class="math inline">\(3.1412 &lt; \pi &lt; 3.1429\)</span>. Using the left-hand inequality as well, <span class="math inline">\(\frac{1}{1260} &lt; \frac{22}{7} - \pi\)</span>, which improves the upper bound to <span class="math inline">\(\pi &lt; 3.14207\)</span>.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-3-1.svg" alt="Figure 4.3.1"><figcaption><span class="fig-label">Figure 4.3.1</span> The integrand <span class="math inline">\(\frac{x^4(1-x)^4}{1+x^2}\)</span> (teal) is positive but tiny: its maximum is about <span class="math inline">\(0.003\)</span>. The shaded area is exactly <span class="math inline">\(\frac{22}{7} - \pi \approx 0.00126\)</span>. The integrand lies between <span class="math inline">\(\frac12 x^4(1-x)^4\)</span> (dotted) and <span class="math inline">\(x^4(1-x)^4\)</span> (dashed), whose areas are <span class="math inline">\(\frac{1}{1260}\)</span> and <span class="math inline">\(\frac{1}{630}\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Positivity proves inequalities.</strong> The integral of a positive function is positive. Once the integral was identified as <span class="math inline">\(\frac{22}{7} - \pi\)</span>, the inequality was immediate.</p></li>
+<li><p><strong>Small integrands, sharp bounds.</strong> The factor <span class="math inline">\(x^4(1-x)^4\)</span> is tiny on <span class="math inline">\([0, 1]\)</span> (at most <span class="math inline">\(\frac{1}{256}\)</span>), which makes the integral small and the bound sharp.</p></li>
+<li><p><strong>Rational plus a multiple of <span class="math inline">\(\pi\)</span>.</strong> As in <a href="../ch02/e-approximations.html">Section 2.9</a>, an integral of the form “rational number <span class="math inline">\(+\)</span> rational multiple of a constant” that is small gives a good rational approximation to the constant.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">A proof with a history</div>
+<p>Archimedes proved <span class="math inline">\(\frac{223}{71} &lt; \pi &lt; \frac{22}{7}\)</span> around 250 BC by computing the perimeters of <span class="math inline">\(96\)</span>-sided polygons inside and outside a circle (compare the polygons of <a href="../ch02/viete.html">Section 2.5</a>). The integral proof is much more recent. It was published by D. P. Dalzell in 1944, and became famous when it was set as a problem in the 1968 Putnam competition for American undergraduates. Its charm is that it needs no numerical work at all: the inequality <span class="math inline">\(\frac{22}{7} &gt; \pi\)</span> drops out of the fact that an integral of a positive function is positive.</p>
+</div>
+<h3 id="better-approximations-from-the-same-idea">Better approximations from the same idea</h3>
+<p>The method generalises. With <span class="math inline">\(x^8(1-x)^8\)</span> in place of <span class="math inline">\(x^4(1-x)^4\)</span>, the same division gives <span class="math display">\[\int_0^1 \frac{x^8(1-x)^8}{1+x^2}\,\mathrm{d}x = 4\pi - \frac{188684}{15015},\]</span> which proves <span class="math inline">\(\pi &gt; \frac{47171}{15015} = 3.1415917\ldots\)</span>, correct to six significant figures. In 2009 Stephen Lucas found families of integrals of this kind with non-negative integrands that prove inequalities for other famous approximations, including <span class="math inline">\(\frac{355}{113}\)</span>, which is correct to seven significant figures.</p>
+<h3 id="approximations-and-irrationality">Approximations and irrationality</h3>
+<p>Why does <span class="math inline">\(\pi\)</span> have such good fractional approximations as <span class="math inline">\(\frac{22}{7}\)</span> and <span class="math inline">\(\frac{355}{113}\)</span>? Every irrational number has infinitely many fractions <span class="math inline">\(\frac pq\)</span> within <span class="math inline">\(\frac{1}{q^2}\)</span> of it, and <span class="math inline">\(\pi\)</span> happens to have some exceptionally good ones early on, because its continued fraction <span class="math inline">\([3; 7, 15, 1, 292, \ldots]\)</span> contains the large entry <span class="math inline">\(292\)</span> (see <a href="../ch02/golden-limit.html">Section 2.2</a>). Integrals like the one in this question, made smaller and smaller, are the starting point for proofs that numbers <em>cannot</em> be approximated too well by fractions, and so are irrational: Ivan Niven’s famous one-page proof that <span class="math inline">\(\pi\)</span> is irrational (1947) uses integrals of <span class="math inline">\(\frac{x^n(1-x)^n}{n!}\sin(\pi x)\)</span>, the trigonometric cousins of those in <a href="../ch02/e-approximations.html">Section 2.9</a>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Encode the inequality as an integral of something positive</div>
+<p><em>To prove <span class="math inline">\(A &gt; B\)</span>, find a positive function whose integral is <span class="math inline">\(A - B\)</span>.</em></p>
+<p>This turns an inequality into an identity plus an obvious fact. It is one of the most useful tricks in analysis, and the same idea, with sums of squares instead of integrals, proved AM–GM in <a href="../ch03/am-gm-backwards.html">Section 3.2</a>.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Check the numbers.</strong> Compute <span class="math inline">\(\frac{22}{7} - \pi\)</span> to four significant figures and confirm that it lies between <span class="math inline">\(\frac{1}{1260}\)</span> and <span class="math inline">\(\frac{1}{630}\)</span>.</p></li>
+<li><p><strong>A Beta integral.</strong> Use the formula <span class="math inline">\(\int_0^1 x^n(1-x)^n\,\mathrm{d}x = \frac{(n!)^2}{(2n+1)!}\)</span> (proved in <a href="../ch04/wallis-beta.html">Section 4.4</a>) to check that <span class="math inline">\(\int_0^1 x^4(1-x)^4\,\mathrm{d}x = \frac{1}{630}\)</span>.</p></li>
+<li><p><strong>A lower approximation.</strong> Show that <span class="math display">\[\int_0^1 \frac{x(1-x)^2}{1+x^2}\,\mathrm{d}x = \frac\pi2 - \frac32 \quad\text{and}\quad \int_0^1 \frac{x^2(1-x)^4}{1+x^2}\,\mathrm{d}x = \pi - \frac{47}{15},\]</span> and deduce that <span class="math inline">\(\pi &gt; 3\)</span> and <span class="math inline">\(\pi &gt; \frac{47}{15}\)</span>. Why are these less accurate than <span class="math inline">\(\frac{22}{7}\)</span>?</p></li>
+<li><p><strong>Going further.</strong> <span class="hard">harder</span> Verify the identity for <span class="math inline">\(\int_0^1 \frac{x^8(1-x)^8}{1+x^2}\,\mathrm{d}x\)</span> given above. (A computer algebra system will do the division; the point is to see that the remainder is <span class="math inline">\(16\)</span>, giving <span class="math inline">\(4\pi\)</span>.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Petr Beckmann, <em>A History of <span class="math inline">\(\pi\)</span></em></strong> (St Martin’s Press). Archimedes’ polygon method in detail, and much else.</p></li>
+<li><p><strong>Stephen Lucas, “Approximations to <span class="math inline">\(\pi\)</span> derived from integrals with nonnegative integrands”</strong>, <em>American Mathematical Monthly</em> 116 (2009). Short and readable.</p></li>
+<li><p><strong>Ivan Niven, <em>Irrational Numbers</em></strong> (Mathematical Association of America). Includes Niven’s proof that <span class="math inline">\(\pi\)</span> is irrational.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="trig-from-integral.html">← 4.2 Building Trigonometry from an Integral</a><a class="next" href="wallis-beta.html">→ 4.4 Wallis, Beta and the Factorial of a Half</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

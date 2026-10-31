@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.8 Slicing a Spherical Loaf — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 4 · Calculus Done Properly</a>
+    <div class="src">STEP I · 2001 · Question 6</div>
+    <div class="sec-head"><span class="sec-num">4.8</span><h1>Slicing a Spherical Loaf</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-8-spherical-loaf.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 4</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A spherical loaf of bread is cut into parallel slices of equal thickness. Show that, after any number of the slices have been eaten, the area of crust remaining is proportional to the number of slices remaining.</p>
+<p>A European ruling decrees that a parallel-sliced spherical loaf can only be referred to as ‘crusty’ if the ratio of volume <span class="math inline">\(V\)</span> (in cubic metres) of bread remaining to area <span class="math inline">\(A\)</span> (in square metres) of crust remaining after any number of slices have been eaten satisfies <span class="math inline">\(V/A &lt; 1\)</span>. Show that the radius of a crusty parallel-sliced spherical loaf must be less than <span class="math inline">\(2\frac23\)</span> metres.</p>
+<p>[<em>The area <span class="math inline">\(A\)</span> and volume <span class="math inline">\(V\)</span> formed by rotating a curve in the <span class="math inline">\(x\)</span>–<span class="math inline">\(y\)</span> plane round the <span class="math inline">\(x\)</span>-axis from <span class="math inline">\(x = -a\)</span> to <span class="math inline">\(x = -a + t\)</span> are given by <span class="math display">\[A = 2\pi\int_{-a}^{-a+t} y\left(1 + \left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)^2\right)^{\frac12}\mathrm{d}x, \qquad V = \pi\int_{-a}^{-a+t} y^2\,\mathrm{d}x.\text{]}\]</span></em></p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Slice a spherical loaf into slices of equal thickness. The slices near the middle are fat discs with a thin band of crust round the edge. The slices near the ends are small caps that seem to be almost all crust. Surely the end slices have more crust?</p>
+<p>They don’t. Every slice has exactly the same area of crust, however near the middle or the end it is cut. The thin central band is wide in circumference but nearly vertical; the end cap is small in circumference but slopes steeply, so its crust is stretched over a larger width. The two effects cancel exactly. This is a theorem of Archimedes, and it was so dear to him that he asked for a sphere inside a cylinder to be carved on his tomb. The second part of the question is a lighter-hearted piece of regulation, but it rests on the same calculation.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The sphere of radius <span class="math inline">\(a\)</span> is obtained by rotating which curve about the <span class="math inline">\(x\)</span>-axis? What is <span class="math inline">\(\frac{\mathrm{d}y}{\mathrm{d}x}\)</span> for that curve?</p>
+</div>
+<p>Rotating the semicircle <span class="math inline">\(y = \sqrt{a^2 - x^2}\)</span>, <span class="math inline">\(-a \leq x \leq a\)</span>, gives the sphere. Then <span class="math inline">\(\frac{\mathrm{d}y}{\mathrm{d}x} = \frac{-x}{\sqrt{a^2 - x^2}} = -\frac xy\)</span>. Keep that in mind: the slope is steep near the ends (<span class="math inline">\(x \to \pm a\)</span>) and flat in the middle, which is exactly the effect described in the hook.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-crust-formula-simplifies" class="stage"><span class="stage-n">Stage 1</span> The crust formula simplifies</h4>
+<div class="askyourself">
+<p>Compute <span class="math inline">\(y\sqrt{1 + (y&#39;)^2}\)</span> for the semicircle. Something remarkable happens.</p>
+</div>
+<p>With <span class="math inline">\(y&#39; = -x/y\)</span>, <span class="math display">\[1 + (y&#39;)^2 = 1 + \frac{x^2}{y^2} = \frac{y^2 + x^2}{y^2} = \frac{a^2}{y^2},\]</span> so <span class="math inline">\(y\sqrt{1 + (y&#39;)^2} = y \cdot \frac{a}{y} = a\)</span>, a constant! The crust area between any two planes <span class="math inline">\(x = x_1\)</span> and <span class="math inline">\(x = x_2\)</span> is therefore <span class="math display">\[2\pi\int_{x_1}^{x_2} a\,\mathrm{d}x = 2\pi a(x_2 - x_1).\]</span> It depends only on the distance between the planes, not on where they are.</p>
+<h4 id="stagemark2-crust-is-proportional-to-slices" class="stage"><span class="stage-n">Stage 2</span> Crust is proportional to slices</h4>
+<p>If the loaf is cut into slices of thickness <span class="math inline">\(h\)</span>, each slice has crust area <span class="math inline">\(2\pi ah\)</span>, the same for all of them. Eat some slices, from one end, from both ends, or from anywhere, and the crust remaining is <span class="math inline">\(2\pi ah\)</span> times the number of slices remaining.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-the-crusty-condition" class="stage"><span class="stage-n">Stage 3</span> The crusty condition</h4>
+<p>Suppose the slices are eaten from the end <span class="math inline">\(x = a\)</span>, so what remains runs from <span class="math inline">\(x = -a\)</span> to <span class="math inline">\(x = -a + t\)</span> for some <span class="math inline">\(t\)</span> between <span class="math inline">\(0\)</span> and <span class="math inline">\(2a\)</span>.</p>
+<div class="askyourself">
+<p>Compute <span class="math inline">\(V\)</span> using the given formula. A substitution <span class="math inline">\(s = x + a\)</span> might make the algebra cleaner.</p>
+</div>
+<p>With <span class="math inline">\(s = x + a\)</span>, <span class="math inline">\(y^2 = a^2 - x^2 = a^2 - (s - a)^2 = 2as - s^2\)</span>, so <span class="math display">\[V = \pi\int_0^t (2as - s^2)\,\mathrm{d}s = \pi\left(at^2 - \frac{t^3}{3}\right), \qquad A = 2\pi at,\]</span> and <span class="math display">\[\frac{V}{A} = \frac{at^2 - t^3/3}{2at} = \frac t2 - \frac{t^2}{6a}.\]</span></p>
+<div class="pausebox">
+<p>The ruling requires <span class="math inline">\(V/A &lt; 1\)</span> <em>after any number of slices have been eaten</em>, that is, for every <span class="math inline">\(t\)</span> with <span class="math inline">\(0 &lt; t \leq 2a\)</span>. What is the largest value of <span class="math inline">\(\frac t2 - \frac{t^2}{6a}\)</span> on this range?</p>
+</div>
+<p>Differentiating with respect to <span class="math inline">\(t\)</span>: <span class="math inline">\(\frac12 - \frac{t}{3a} = 0\)</span> at <span class="math inline">\(t = \frac{3a}{2}\)</span>, which is inside the range <span class="math inline">\((0, 2a]\)</span>, and this is a maximum (the expression is a downward parabola in <span class="math inline">\(t\)</span>). The maximum value is <span class="math display">\[\frac{3a}{4} - \frac{9a^2/4}{6a} = \frac{3a}{4} - \frac{3a}{8} = \frac{3a}{8}.\]</span> So <span class="math inline">\(V/A &lt; 1\)</span> for every <span class="math inline">\(t\)</span> exactly when <span class="math inline">\(\frac{3a}{8} &lt; 1\)</span>, that is, <span class="math inline">\(a &lt; \frac83 = 2\frac23\)</span> metres.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Simplify before integrating.</strong> The integrand for the crust looked complicated but turned out to be constant. Always simplify an integrand before attacking it.</p></li>
+<li><p><strong>Read “for any” carefully.</strong> The condition had to hold after <em>any</em> number of slices, so we needed the maximum of <span class="math inline">\(V/A\)</span>, not its value for the whole loaf (which is <span class="math inline">\(\frac a3\)</span>).</p></li>
+<li><p><strong>A surprising answer from a simple calculation.</strong> The equal-crust property sounds implausible, but the calculation is two lines long.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Archimedes’ hat-box theorem</div>
+<p>Archimedes proved, in <em>On the Sphere and Cylinder</em>, that the area of the band of a sphere between two parallel planes equals the area of the band they cut from the cylinder that wraps around the sphere (Figure 4.8.1). Our calculation is this theorem: the cylinder of radius <span class="math inline">\(a\)</span> has crust area <span class="math inline">\(2\pi a\)</span> per unit length, and so does the sphere. Taking the whole sphere, its surface area equals that of the cylinder’s curved surface, <span class="math inline">\(2\pi a \times 2a = 4\pi a^2\)</span>. Archimedes regarded this, together with the fact that the sphere has two-thirds the volume of the cylinder, as his finest work. Cicero, visiting Syracuse in 75 BC, found the overgrown tomb by looking for the sphere and cylinder carved on it.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-4-8-1.svg" alt="Figure 4.8.1"><figcaption><span class="fig-label">Figure 4.8.1</span> Cross-section of a spherical loaf of radius <span class="math inline">\(a\)</span> inside its wrapping cylinder, cut into slices of equal thickness. The central slice (amber) has a short, nearly horizontal arc of crust far from the axis; the end slice (plum) has a long, steep arc close to the axis. When rotated about the <span class="math inline">\(x\)</span>-axis, both give exactly the same crust area as the corresponding band of the cylinder (teal): <span class="math inline">\(2\pi a\)</span> times the thickness.</figcaption></figure>
+<h3 id="maps-of-the-earth">Maps of the Earth</h3>
+<p>The hat-box theorem gives a way to draw a map of the Earth that preserves area. Project each point of the globe horizontally outwards onto the wrapping cylinder, then unroll the cylinder. Bands of the sphere map to bands of the cylinder of the same area, and the same is true for any region. This is <em>Lambert’s cylindrical equal-area projection</em> (1772). It distorts shapes badly near the poles, but areas are honest, unlike the familiar Mercator projection, which makes Greenland look as big as Africa (it is about fourteen times smaller). A famous theorem of Gauss, the <em>Theorema Egregium</em> (1827), shows that no map of a sphere can preserve both areas and shapes: every flat map of the Earth must distort something.</p>
+<h3 id="random-points-on-a-sphere">Random points on a sphere</h3>
+<p>Here is a practical consequence. To choose a point uniformly at random on a sphere, you might try choosing a latitude and longitude uniformly, but that crowds points near the poles. The hat-box theorem gives the right recipe: choose the height <span class="math inline">\(x\)</span> uniformly between <span class="math inline">\(-a\)</span> and <span class="math inline">\(a\)</span>, and the longitude uniformly between <span class="math inline">\(0\)</span> and <span class="math inline">\(2\pi\)</span>. Because area is proportional to height, this is exactly uniform. Computer simulations in physics and graphics use this method. (Remarkably, it works only in three dimensions: the corresponding statement for spheres in four or more dimensions is false.)</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Look for hidden simplicity</div>
+<p><em>When a calculation produces something unexpectedly simple, such as a constant, stop and ask why. There is usually a geometric reason, and finding it is where the real understanding lies.</em></p>
+<p>Here the integrand <span class="math inline">\(y\sqrt{1 + (y&#39;)^2}\)</span> was constant because steepness and distance from the axis exactly compensate each other on a sphere: that is Archimedes’ theorem.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The whole loaf.</strong> Show that for the whole uncut loaf, <span class="math inline">\(V/A = \frac a3\)</span>. Why is the condition in the question harder to satisfy than <span class="math inline">\(\frac a3 &lt; 1\)</span>?</p></li>
+<li><p><strong>The tropics.</strong> What fraction of the Earth’s surface lies between latitudes <span class="math inline">\(23.4^\circ\)</span> south and <span class="math inline">\(23.4^\circ\)</span> north? (Treat the Earth as a sphere. Since area is proportional to height, you only need <span class="math inline">\(\sin 23.4^\circ\)</span>.)</p></li>
+<li><p><strong>Other shapes.</strong> Show that for a loaf in the shape of a paraboloid (rotate <span class="math inline">\(y = \sqrt x\)</span> about the <span class="math inline">\(x\)</span>-axis), the crust per slice is <em>not</em> constant. For which curves <span class="math inline">\(y(x)\)</span> is <span class="math inline">\(y\sqrt{1 + (y&#39;)^2}\)</span> constant? (Solve the differential equation.)</p></li>
+<li><p><strong>Volumes.</strong> Use the volume formula to show that a sphere has two-thirds the volume of its wrapping cylinder, as Archimedes found.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Sherman Stein, <em>Archimedes: What Did He Do Besides Cry Eureka?</em></strong> (Mathematical Association of America). Archimedes’ mathematics explained for a modern reader.</p></li>
+<li><p><strong>Timothy Gowers, <em>Mathematics: A Very Short Introduction</em></strong> (Oxford University Press). The chapter on geometry introduces the geometry of curved surfaces.</p></li>
+<li><p><strong>John Snyder, <em>Flattening the Earth</em></strong> (University of Chicago Press). Two thousand years of map projections.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="variations.html">← 4.7 The Calculus of Variations</a><a class="next" href="holditch.html">→ 4.9 Holditch&#x27;s Theorem</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

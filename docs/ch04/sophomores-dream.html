@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.5 The Sophomore&#x27;s Dream — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 4 · Calculus Done Properly</a>
+    <div class="src">STEP III · 2009 · Question 8</div>
+    <div class="sec-head"><span class="sec-num">4.5</span><h1>The Sophomore&#x27;s Dream</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-5-sophomores-dream.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 4</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Let <span class="math inline">\(m\)</span> be a positive integer and let <span class="math inline">\(n\)</span> be a non-negative integer.</p>
+<ol class="roman">
+<li><p>Use the result <span class="math inline">\(\displaystyle\lim_{t\to\infty} e^{-mt}t^n = 0\)</span> to show that <span class="math display">\[\lim_{x \to 0} x^m(\ln x)^n = 0.\]</span> By writing <span class="math inline">\(x^x\)</span> as <span class="math inline">\(e^{x\ln x}\)</span> show that <span class="math display">\[\lim_{x \to 0} x^x = 1.\]</span></p></li>
+<li><p>Let <span class="math inline">\(\displaystyle I_n = \int_0^1 x^m(\ln x)^n\,\mathrm{d}x\)</span>. Show that <span class="math display">\[I_{n+1} = -\frac{n+1}{m+1}I_n\]</span> and hence evaluate <span class="math inline">\(I_n\)</span>.</p></li>
+<li><p>Show that <span class="math display">\[\int_0^1 x^x\,\mathrm{d}x = 1 - \left(\tfrac12\right)^2 + \left(\tfrac13\right)^3 - \left(\tfrac14\right)^4 + \cdots.\]</span></p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Every student learns, sooner or later, that <span class="math inline">\((a + b)^2 \neq a^2 + b^2\)</span>. The false version is jokingly called the “freshman’s dream”. This question proves something that looks just as much like a beginner’s mistake: <span class="math display">\[\int_0^1 x^x\,\mathrm{d}x = \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^n} = 1 - \frac{1}{2^2} + \frac{1}{3^3} - \frac{1}{4^4} + \cdots,\]</span> and its companion <span class="math inline">\(\int_0^1 x^{-x}\,\mathrm{d}x = \sum_{n=1}^\infty \frac{1}{n^n}\)</span>. An integral of <span class="math inline">\(x^x\)</span> turns into a sum of <span class="math inline">\(n^{-n}\)</span>: it seems too good to be true, which is why it is called the <em>sophomore’s dream</em>. But it is true, and Johann Bernoulli found it in 1697.</p>
+<p>The proof uses three ideas you will meet constantly at university: limits that compare exponentials with powers, reduction formulae, and expanding a function as a power series and integrating term by term.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The function <span class="math inline">\(x^x\)</span> is not defined at <span class="math inline">\(x = 0\)</span> by any formula you know (<span class="math inline">\(0^0\)</span> is ambiguous). How does it behave as <span class="math inline">\(x\)</span> approaches <span class="math inline">\(0\)</span> from above? Try <span class="math inline">\(x = 0.1\)</span>, <span class="math inline">\(0.01\)</span>, <span class="math inline">\(0.001\)</span> on a calculator.</p>
+</div>
+<p><span class="math inline">\(0.1^{0.1} \approx 0.794\)</span>, <span class="math inline">\(0.01^{0.01} \approx 0.955\)</span>, <span class="math inline">\(0.001^{0.001} \approx 0.993\)</span>. It seems to approach <span class="math inline">\(1\)</span>. Part (i) proves this, which tells us the integrand is well behaved near <span class="math inline">\(0\)</span> and the integral makes sense. The graph of <span class="math inline">\(x^x\)</span> on <span class="math inline">\((0, 1]\)</span> starts near <span class="math inline">\(1\)</span>, dips to a minimum and returns to <span class="math inline">\(1\)</span> at <span class="math inline">\(x = 1\)</span> (Figure 4.5.1).</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-powers-beat-logarithms" class="stage"><span class="stage-n">Stage 1</span> Powers beat logarithms</h4>
+<div class="askyourself">
+<p>As <span class="math inline">\(x \to 0^+\)</span>, <span class="math inline">\(\ln x \to -\infty\)</span>. What substitution turns <span class="math inline">\(x \to 0^+\)</span> into <span class="math inline">\(t \to \infty\)</span>, and turns <span class="math inline">\(x^m(\ln x)^n\)</span> into something like <span class="math inline">\(e^{-mt}t^n\)</span>?</p>
+</div>
+<p>Put <span class="math inline">\(x = e^{-t}\)</span>. As <span class="math inline">\(x \to 0^+\)</span>, <span class="math inline">\(t \to \infty\)</span>, and <span class="math inline">\(\ln x = -t\)</span>, so <span class="math display">\[x^m(\ln x)^n = e^{-mt}(-t)^n = (-1)^n e^{-mt}t^n \to 0.\]</span> In words: as <span class="math inline">\(x \to 0\)</span>, any positive power of <span class="math inline">\(x\)</span> goes to zero faster than any power of <span class="math inline">\(\ln x\)</span> blows up.<span class="qed" aria-label="end of proof">■</span></p>
+<p>With <span class="math inline">\(m = n = 1\)</span>, <span class="math inline">\(x\ln x \to 0\)</span>, and since the exponential function is continuous, <span class="math inline">\(x^x = e^{x\ln x} \to e^0 = 1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-a-reduction-formula" class="stage"><span class="stage-n">Stage 2</span> A reduction formula</h4>
+<div class="askyourself">
+<p>Integrate <span class="math inline">\(I_{n+1} = \int_0^1 x^m(\ln x)^{n+1}\,\mathrm{d}x\)</span> by parts. Which factor should you integrate? What happens to the boundary term at <span class="math inline">\(x = 0\)</span>?</p>
+</div>
+<p>Integrate <span class="math inline">\(x^m\)</span> and differentiate <span class="math inline">\((\ln x)^{n+1}\)</span>: <span class="math display">\[I_{n+1} = \left[\frac{x^{m+1}}{m+1}(\ln x)^{n+1}\right]_0^1 - \int_0^1 \frac{x^{m+1}}{m+1}\cdot\frac{(n+1)(\ln x)^n}{x}\,\mathrm{d}x.\]</span> At <span class="math inline">\(x = 1\)</span> the boundary term is <span class="math inline">\(0\)</span> because <span class="math inline">\(\ln 1 = 0\)</span>; as <span class="math inline">\(x \to 0\)</span> it tends to <span class="math inline">\(0\)</span> by part (i) (with <span class="math inline">\(m+1\)</span> and <span class="math inline">\(n+1\)</span>). The remaining integral is <span class="math inline">\(\frac{n+1}{m+1}I_n\)</span>, so <span class="math display">\[I_{n+1} = -\frac{n+1}{m+1}I_n. \qed\]</span> Starting from <span class="math inline">\(I_0 = \int_0^1 x^m\,\mathrm{d}x = \frac{1}{m+1}\)</span> and applying the formula <span class="math inline">\(n\)</span> times, <span class="math display">\[I_n = (-1)^n\frac{n!}{(m+1)^{n}}\cdot\frac{1}{m+1} = \frac{(-1)^n\,n!}{(m+1)^{n+1}}. \qed\]</span></p>
+<h4 id="stagemark3-the-series" class="stage"><span class="stage-n">Stage 3</span> The series</h4>
+<div class="askyourself">
+<p>Expand <span class="math inline">\(x^x = e^{x\ln x}\)</span> using the series for <span class="math inline">\(e^y\)</span>. What does each term look like? Which value of <span class="math inline">\(m\)</span> makes the integrals in part (ii) appear?</p>
+</div>
+<p>Since <span class="math inline">\(e^y = \sum_{n=0}^\infty \frac{y^n}{n!}\)</span> for every <span class="math inline">\(y\)</span>, <span class="math display">\[x^x = e^{x\ln x} = \sum_{n=0}^{\infty} \frac{x^n(\ln x)^n}{n!}.\]</span></p>
+<div class="pausebox">
+<p>Integrate term by term from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>, using part (ii) with <span class="math inline">\(m = n\)</span> (and treating <span class="math inline">\(n = 0\)</span> separately). What do you get?</p>
+</div>
+<p>The <span class="math inline">\(n = 0\)</span> term is <span class="math inline">\(1\)</span>, which integrates to <span class="math inline">\(1\)</span>. For <span class="math inline">\(n \geq 1\)</span>, part (ii) with <span class="math inline">\(m = n\)</span> gives <span class="math inline">\(\int_0^1 x^n(\ln x)^n\,\mathrm{d}x = \frac{(-1)^n\,n!}{(n+1)^{n+1}}\)</span>, so the <span class="math inline">\(n\)</span>th term contributes <span class="math inline">\(\frac{(-1)^n}{(n+1)^{n+1}}\)</span>. Adding up, <span class="math display">\[\int_0^1 x^x\,\mathrm{d}x = 1 - \frac{1}{2^2} + \frac{1}{3^3} - \frac{1}{4^4} + \cdots. \qed\]</span> (The <span class="math inline">\(n = 0\)</span> term fits the same pattern, <span class="math inline">\(\frac{1}{1^1}\)</span>.) The terms shrink extremely fast: seven terms give the value <span class="math inline">\(0.783430\ldots\)</span> to six decimal places.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-5-1.svg" alt="Figure 4.5.1"><figcaption><span class="fig-label">Figure 4.5.1</span> The graph of <span class="math inline">\(x^x\)</span> on <span class="math inline">\((0, 1]\)</span>. It tends to <span class="math inline">\(1\)</span> as <span class="math inline">\(x \to 0\)</span> (open circle), dips to a minimum of <span class="math inline">\(e^{-1/e} \approx 0.692\)</span> at <span class="math inline">\(x = \frac1e\)</span>, and returns to <span class="math inline">\(1\)</span> at <span class="math inline">\(x = 1\)</span>. The shaded area is <span class="math inline">\(\sum (-1)^{n+1}n^{-n} \approx 0.7834\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Substitute to compare growth rates.</strong> Putting <span class="math inline">\(x = e^{-t}\)</span> turned a limit at <span class="math inline">\(0\)</span> into a familiar limit at <span class="math inline">\(\infty\)</span>.</p></li>
+<li><p><strong>Boundary terms need checking.</strong> The reduction formula depended on the boundary term vanishing at <span class="math inline">\(x = 0\)</span>, which is where part (i) was used.</p></li>
+<li><p><strong>Series, then integrate.</strong> Expanding the integrand as a power series and integrating each term turned an integral with no elementary antiderivative into a rapidly convergent sum.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Swapping sums and integrals</div>
+<p>Stage 3 quietly swapped an infinite sum with an integral: <span class="math inline">\(\int \sum = \sum \int\)</span>. That is not always allowed. At university you will meet examples where it fails, and theorems that say when it is safe. The simplest says that it is safe when the series converges <em>uniformly</em>: the tail of the series can be made small at every <span class="math inline">\(x\)</span> simultaneously. Here, <span class="math inline">\(|x\ln x| \leq \frac1e\)</span> on <span class="math inline">\((0, 1]\)</span>, so the <span class="math inline">\(n\)</span>th term is at most <span class="math inline">\(\frac{e^{-n}}{n!}\)</span> in size, whatever <span class="math inline">\(x\)</span> is. The sum of these bounds converges, so the tails are uniformly small and the swap is justified. This argument is called the <em>Weierstrass M-test</em>, and it is one of the workhorses of analysis.</p>
+</div>
+<h3 id="why-the-dream-works">Why the “dream” works</h3>
+<p>The identity is special. It depends on the exact match between the powers in <span class="math inline">\(\frac{(x\ln x)^n}{n!}\)</span> and the integral <span class="math inline">\(\int_0^1 x^n(\ln x)^n\,\mathrm{d}x = \frac{(-1)^n n!}{(n+1)^{n+1}}\)</span>, where the <span class="math inline">\(n!\)</span> cancels perfectly. Underneath, this integral is a Gamma function in disguise: the substitution <span class="math inline">\(x = e^{-t/(n+1)}\)</span> turns it into <span class="math inline">\(\frac{(-1)^n}{(n+1)^{n+1}}\int_0^\infty t^n e^{-t}\,\mathrm{d}t = \frac{(-1)^n\,\Gamma(n+1)}{(n+1)^{n+1}}\)</span>, connecting with <a href="../ch04/wallis-beta.html">Section 4.4</a>.</p>
+<h3 id="the-name">The name</h3>
+<p>The name “sophomore’s dream” was coined by Jonathan Borwein and his co-authors in their 2004 book <em>Experimentation in Mathematics</em>, as a companion to the “freshman’s dream” <span class="math inline">\((a + b)^n = a^n + b^n\)</span> (which, curiously, is true in some number systems: in arithmetic modulo a prime <span class="math inline">\(p\)</span>, <span class="math inline">\((a + b)^p = a^p + b^p\)</span>, because all the middle binomial coefficients are divisible by <span class="math inline">\(p\)</span>). Borwein was a pioneer of <em>experimental mathematics</em>, in which computers are used to discover identities like this one, which are then proved by hand.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Expand and integrate term by term</div>
+<p><em>If an integrand has a power series whose terms you can integrate, integrate each term and add up the results.</em></p>
+<p>It is a powerful way to evaluate integrals that have no elementary antiderivative. Always ask whether swapping the sum and the integral is justified; usually it is, but you should know why.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The companion.</strong> Show that <span class="math inline">\(\displaystyle\int_0^1 x^{-x}\,\mathrm{d}x = \sum_{n=1}^{\infty}\frac{1}{n^n} \approx 1.2913\)</span>.</p></li>
+<li><p><strong>The minimum.</strong> Show that <span class="math inline">\(x^x\)</span> has its minimum on <span class="math inline">\((0, \infty)\)</span> at <span class="math inline">\(x = \frac1e\)</span>, with value <span class="math inline">\(e^{-1/e}\)</span>.</p></li>
+<li><p><strong>How many terms?</strong> For an alternating series with decreasing terms, the error after stopping is less than the first omitted term. How many terms of the series for <span class="math inline">\(\int_0^1 x^x\,\mathrm{d}x\)</span> are needed for six decimal places?</p></li>
+<li><p><strong>A cousin.</strong> Use the same method to show that <span class="math inline">\(\displaystyle\int_0^1 x^2\ln x\,\mathrm{d}x = -\frac19\)</span>, and that <span class="math inline">\(\displaystyle\int_0^1 \frac{\ln x}{1 - x}\,\mathrm{d}x = -\sum_{n=1}^\infty \frac{1}{n^2}\)</span>. (By <a href="../ch02/basel.html">Section 2.4</a>, this is <span class="math inline">\(-\frac{\pi^2}{6}\)</span>.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Jonathan Borwein, David Bailey &amp; Roland Girgensohn, <em>Experimentation in Mathematics</em></strong> (A. K. Peters). The source of the name, and many more identities discovered by computer.</p></li>
+<li><p><strong>William Dunham, <em>The Calculus Gallery</em></strong> (Princeton University Press). Masterpieces of analysis from Newton to Lebesgue, including Bernoulli’s work.</p></li>
+<li><p><strong>Mary Hart, <em>Guide to Analysis</em></strong> (Palgrave). Clear treatment of uniform convergence and when sums and integrals can be swapped.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="wallis-beta.html">← 4.4 Wallis, Beta and the Factorial of a Half</a><a class="next" href="no-formula.html">→ 4.6 Integrals With No Formula</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

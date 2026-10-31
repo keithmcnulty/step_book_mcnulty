@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.2 Building Trigonometry from an Integral — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 4 · Calculus Done Properly</a>
+    <div class="src">STEP III · 2017 · Question 6</div>
+    <div class="sec-head"><span class="sec-num">4.2</span><h1>Building Trigonometry from an Integral</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-2-trig-from-integral.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 4</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p><em>In this question, you are not permitted to use any properties of trigonometric functions or inverse trigonometric functions.</em></p>
+<p>The function <span class="math inline">\(\mathrm{T}\)</span> is defined for <span class="math inline">\(x &gt; 0\)</span> by <span class="math display">\[\mathrm{T}(x) = \int_0^x \frac{1}{1+u^2}\,\mathrm{d}u,\]</span> and <span class="math inline">\(\displaystyle\mathrm{T}_\infty = \int_0^\infty \frac{1}{1+u^2}\,\mathrm{d}u\)</span> (which has a finite value).</p>
+<ol class="roman">
+<li><p>By making an appropriate substitution in the integral for <span class="math inline">\(\mathrm{T}(x)\)</span>, show that <span class="math display">\[\mathrm{T}(x) = \mathrm{T}_\infty - \mathrm{T}(x^{-1}).\]</span></p></li>
+<li><p>Let <span class="math inline">\(v = \dfrac{u + a}{1 - au}\)</span>, where <span class="math inline">\(a\)</span> is a constant. Verify that, for <span class="math inline">\(u \neq a^{-1}\)</span>, <span class="math display">\[\frac{\mathrm{d}v}{\mathrm{d}u} = \frac{1 + v^2}{1 + u^2}.\]</span> Hence show that, for <span class="math inline">\(a &gt; 0\)</span> and <span class="math inline">\(x &lt; \dfrac1a\)</span>, <span class="math display">\[\mathrm{T}(x) = \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) - \mathrm{T}(a).\]</span> Deduce that <span class="math display">\[\mathrm{T}(x^{-1}) = 2\mathrm{T}_\infty - \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) - \mathrm{T}(a^{-1})\]</span> and hence that, for <span class="math inline">\(b &gt; 0\)</span> and <span class="math inline">\(y &gt; \dfrac1b\)</span>, <span class="math display">\[\mathrm{T}(y) = 2\mathrm{T}_\infty - \mathrm{T}\!\left(\frac{y + b}{by - 1}\right) - \mathrm{T}(b).\]</span></p></li>
+<li><p>Use the above results to show that <span class="math inline">\(\mathrm{T}(\sqrt3) = \frac23\mathrm{T}_\infty\)</span> and <span class="math inline">\(\mathrm{T}(\sqrt2 - 1) = \frac14\mathrm{T}_\infty\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>What is <span class="math inline">\(\pi\)</span>? At school it is the ratio of a circle’s circumference to its diameter, and <span class="math inline">\(\sin\)</span> and <span class="math inline">\(\cos\)</span> are defined by triangles. That is fine for geometry, but it leaves awkward questions. What exactly is “length” along a curve? Why does <span class="math inline">\(\sin x\)</span> have the Maclaurin series it does? How do we know the addition formulas hold for all angles, not just ones we can draw?</p>
+<p>This question shows a completely different way in. Forget triangles and circles. Start from a single integral, <span class="math inline">\(\mathrm{T}(x) = \int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span>, which needs nothing but the definition of the integral from <a href="../ch04/riemann.html">Section 4.1</a>. Define <span class="math inline">\(\pi\)</span> to be <span class="math inline">\(2\mathrm{T}_\infty\)</span>. Then, using only substitutions, prove that <span class="math inline">\(\mathrm{T}(\sqrt3) = \frac{\pi}{3}\)</span> and <span class="math inline">\(\mathrm{T}(\sqrt2 - 1) = \frac{\pi}{8}\)</span>, facts you know as <span class="math inline">\(\arctan\sqrt3 = 60^\circ\)</span> and <span class="math inline">\(\tan 22\tfrac12^\circ = \sqrt2 - 1\)</span>. Trigonometry rebuilt from nothing.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>You know, secretly, that <span class="math inline">\(\mathrm{T}(x) = \arctan x\)</span> and <span class="math inline">\(\mathrm{T}_\infty = \frac\pi2\)</span>. The question forbids you to use this, and that is the point: everything must come from the integral. But your secret knowledge is a useful guide.</p>
+<div class="askyourself">
+<p>Which trigonometric identities do parts (i) and (ii) correspond to? (Think of <span class="math inline">\(\arctan x + \arctan\frac1x\)</span>, and the formula for <span class="math inline">\(\tan(A + B)\)</span>.)</p>
+</div>
+<p>Part (i) is <span class="math inline">\(\arctan x + \arctan\frac1x = \frac\pi2\)</span>. Part (ii) is the addition formula <span class="math inline">\(\tan(A + B) = \frac{\tan A + \tan B}{1 - \tan A\tan B}\)</span> in disguise: with <span class="math inline">\(u = \tan A\)</span> and <span class="math inline">\(a = \tan B\)</span>, <span class="math inline">\(v = \tan(A + B)\)</span>. The question proves these identities from the integral, without any geometry.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-reflection-u-mapsto-1u" class="stage"><span class="stage-n">Stage 1</span> The reflection <span class="math inline">\(u \mapsto 1/u\)</span></h4>
+<p>Substitute <span class="math inline">\(u = 1/w\)</span> in <span class="math inline">\(\mathrm{T}(x)\)</span>. Then <span class="math inline">\(\mathrm{d}u = -\mathrm{d}w/w^2\)</span>, and <span class="math inline">\(\dfrac{1}{1 + u^2} = \dfrac{w^2}{w^2 + 1}\)</span>, so <span class="math display">\[\mathrm{T}(x) = \int_{\infty}^{1/x} \frac{w^2}{w^2 + 1}\cdot\left(-\frac{1}{w^2}\right)\mathrm{d}w = \int_{1/x}^{\infty} \frac{\mathrm{d}w}{1 + w^2} = \mathrm{T}_\infty - \mathrm{T}(x^{-1}). \qed\]</span> In other words, the area under <span class="math inline">\(\frac{1}{1+u^2}\)</span> from <span class="math inline">\(0\)</span> to <span class="math inline">\(x\)</span> equals the area from <span class="math inline">\(\frac1x\)</span> to <span class="math inline">\(\infty\)</span> (Figure 4.2.1).</p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-2-1.svg" alt="Figure 4.2.1"><figcaption><span class="fig-label">Figure 4.2.1</span> The substitution <span class="math inline">\(u = 1/w\)</span> shows that the two shaded areas under <span class="math inline">\(\frac{1}{1+u^2}\)</span> are equal: the area from <span class="math inline">\(0\)</span> to <span class="math inline">\(x\)</span> (teal) and the infinitely long area from <span class="math inline">\(\frac1x\)</span> onwards (amber). Here <span class="math inline">\(x = \frac12\)</span>.</figcaption></figure>
+<h4 id="stagemark2-the-addition-substitution" class="stage"><span class="stage-n">Stage 2</span> The addition substitution</h4>
+<div class="askyourself">
+<p>Differentiate <span class="math inline">\(v = \dfrac{u + a}{1 - au}\)</span> by the quotient rule. Then compute <span class="math inline">\(1 + v^2\)</span> as a single fraction and compare.</p>
+</div>
+<p><span class="math display">\[\begin{aligned}
+  \frac{\mathrm{d}v}{\mathrm{d}u} &amp;= \frac{(1 - au) + a(u + a)}{(1 - au)^2} = \frac{1 + a^2}{(1 - au)^2},
+ \\
+  1 + v^2 &amp;= \frac{(1 - au)^2 + (u + a)^2}{(1 - au)^2} = \frac{(1 + a^2)(1 + u^2)}{(1 - au)^2}.
+\end{aligned}\]</span> Dividing, <span class="math inline">\(\dfrac{1 + v^2}{1 + u^2} = \dfrac{1 + a^2}{(1 - au)^2} = \dfrac{\mathrm{d}v}{\mathrm{d}u}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>This says <span class="math inline">\(\dfrac{\mathrm{d}u}{1 + u^2} = \dfrac{\mathrm{d}v}{1 + v^2}\)</span>. So the substitution <span class="math inline">\(u \mapsto v\)</span> doesn’t change the integrand at all. What does it do to the limits of <span class="math inline">\(\mathrm{T}(x)\)</span>?</p>
+</div>
+<p>As <span class="math inline">\(u\)</span> runs from <span class="math inline">\(0\)</span> to <span class="math inline">\(x\)</span> (with <span class="math inline">\(x &lt; \frac1a\)</span>, so <span class="math inline">\(1 - au &gt; 0\)</span> throughout and <span class="math inline">\(v\)</span> is continuous and increasing), <span class="math inline">\(v\)</span> runs from <span class="math inline">\(a\)</span> to <span class="math inline">\(\frac{x + a}{1 - ax}\)</span>. So <span class="math display">\[\mathrm{T}(x) = \int_0^x \frac{\mathrm{d}u}{1 + u^2} = \int_a^{(x+a)/(1-ax)} \frac{\mathrm{d}v}{1 + v^2} = \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) - \mathrm{T}(a). \qed\]</span></p>
+<h4 id="stagemark3-two-more-identities" class="stage"><span class="stage-n">Stage 3</span> Two more identities</h4>
+<p>Combining with part (i), twice: <span class="math display">\[\mathrm{T}(x^{-1}) = \mathrm{T}_\infty - \mathrm{T}(x) = \mathrm{T}_\infty - \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) + \mathrm{T}(a) = 2\mathrm{T}_\infty - \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) - \mathrm{T}(a^{-1}). \qed\]</span> Now rename: put <span class="math inline">\(y = 1/x\)</span> and <span class="math inline">\(b = 1/a\)</span>. The condition <span class="math inline">\(x &lt; 1/a\)</span> becomes <span class="math inline">\(1/y &lt; b\)</span>, that is <span class="math inline">\(y &gt; 1/b\)</span>, and <span class="math display">\[\frac{x + a}{1 - ax} = \frac{1/y + 1/b}{1 - 1/(by)} = \frac{b + y}{by - 1}.\]</span> So <span class="math inline">\(\mathrm{T}(y) = 2\mathrm{T}_\infty - \mathrm{T}\!\left(\dfrac{y + b}{by - 1}\right) - \mathrm{T}(b)\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-special-values" class="stage"><span class="stage-n">Stage 4</span> Special values</h4>
+<div class="pausebox">
+<p>Choose <span class="math inline">\(y\)</span> and <span class="math inline">\(b\)</span> in the last identity so that the argument <span class="math inline">\(\frac{y + b}{by - 1}\)</span> equals <span class="math inline">\(y\)</span> itself. What do you get?</p>
+</div>
+<p>Take <span class="math inline">\(y = b = \sqrt3\)</span>: then <span class="math inline">\(y &gt; \frac1b\)</span>, and <span class="math inline">\(\dfrac{\sqrt3 + \sqrt3}{3 - 1} = \sqrt3\)</span>. The identity becomes <span class="math inline">\(\mathrm{T}(\sqrt3) = 2\mathrm{T}_\infty - 2\mathrm{T}(\sqrt3)\)</span>, so <span class="math display">\[\mathrm{T}(\sqrt3) = \tfrac23\mathrm{T}_\infty. \qed\]</span></p>
+<div class="askyourself">
+<p>For <span class="math inline">\(\sqrt2 - 1\)</span>, try the addition identity with <span class="math inline">\(x = a = \sqrt2 - 1\)</span>. What is <span class="math inline">\(\frac{2x}{1 - x^2}\)</span>? And what is <span class="math inline">\(\mathrm{T}(1)\)</span>?</p>
+</div>
+<p>With <span class="math inline">\(x = a = \sqrt2 - 1\)</span> (and <span class="math inline">\(x &lt; \frac1a\)</span> since <span class="math inline">\(x^2 = 3 - 2\sqrt2 &lt; 1\)</span>), the addition identity says <span class="math inline">\(2\mathrm{T}(x) = \mathrm{T}\!\left(\frac{2x}{1 - x^2}\right)\)</span>. Now <span class="math inline">\(1 - x^2 = 2\sqrt2 - 2 = 2(\sqrt2 - 1) = 2x\)</span>, so <span class="math inline">\(\frac{2x}{1 - x^2} = 1\)</span>, and <span class="math inline">\(2\mathrm{T}(\sqrt2 - 1) = \mathrm{T}(1)\)</span>. Finally, part (i) with <span class="math inline">\(x = 1\)</span> gives <span class="math inline">\(\mathrm{T}(1) = \mathrm{T}_\infty - \mathrm{T}(1)\)</span>, so <span class="math inline">\(\mathrm{T}(1) = \frac12\mathrm{T}_\infty\)</span>. Therefore <span class="math display">\[\mathrm{T}(\sqrt2 - 1) = \tfrac14\mathrm{T}_\infty. \qed\]</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Substitutions that preserve the integrand.</strong> Both key steps used substitutions under which <span class="math inline">\(\frac{\mathrm{d}u}{1+u^2}\)</span> is unchanged; only the limits moved. Such “symmetries” of an integral are powerful.</p></li>
+<li><p><strong>Fixed points.</strong> The value <span class="math inline">\(\mathrm{T}(\sqrt3)\)</span> came from choosing numbers that made an expression equal to itself, so an identity became an equation.</p></li>
+<li><p><strong>Definitions can come from analysis.</strong> We never used a triangle, yet we recovered <span class="math inline">\(\frac\pi3\)</span> and <span class="math inline">\(\frac\pi8\)</span> (with <span class="math inline">\(\pi\)</span> defined as <span class="math inline">\(2\mathrm{T}_\infty\)</span>).</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Building the elementary functions</div>
+<p>In a rigorous analysis course, the functions <span class="math inline">\(\exp\)</span>, <span class="math inline">\(\sin\)</span>, <span class="math inline">\(\cos\)</span> and <span class="math inline">\(\ln\)</span> cannot simply be assumed; they have to be <em>constructed</em>, and their properties proved. There are three standard approaches. You can define them by power series (<span class="math inline">\(\sin x = x - \frac{x^3}{3!} + \cdots\)</span>). You can define them as solutions of differential equations, as in the 1986 specimen question in the exercises (<span class="math inline">\(\mathrm{f}&#39; = \mathrm{f}\)</span>, <span class="math inline">\(\mathrm{f}(0) = 1\)</span> defines <span class="math inline">\(\exp\)</span>). Or you can define inverse functions by integrals, as here: <span class="math inline">\(\ln x = \int_1^x \frac{\mathrm{d}u}{u}\)</span> and <span class="math inline">\(\arctan x = \int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span>, and then define <span class="math inline">\(\pi = 2\int_0^\infty \frac{\mathrm{d}u}{1+u^2}\)</span>. Each approach has its strengths, and proving that they all give the same functions is a satisfying exercise. Compare the functional-equation approach of <a href="../ch03/addition-laws.html">Section 3.8</a>.</p>
+</div>
+<h3 id="beyond-the-circle-elliptic-integrals">Beyond the circle: elliptic integrals</h3>
+<p>The integral approach generalises in a way the triangle approach cannot. In 1718 Giulio Fagnano studied the arc length of the <em>lemniscate</em>, a figure-of-eight curve, which leads to <span class="math inline">\(\int_0^x \frac{\mathrm{d}u}{\sqrt{1 - u^4}}\)</span>, and found a substitution that doubles the arc, just as our substitution doubled <span class="math inline">\(\mathrm{T}\)</span>. Euler, reading Fagnano’s work in 1751, found a full addition formula, and this led eventually, through Abel and Jacobi, to the theory of <em>elliptic functions</em>: inverse functions of integrals like this one, which are to the lemniscate what <span class="math inline">\(\sin\)</span> and <span class="math inline">\(\cos\)</span> are to the circle. We met the same integral in Gauss’s work on the AGM (<a href="../ch02/agm.html">Section 2.6</a>). Elliptic functions are now central to number theory; the elliptic curves of <a href="../ch01/tangents-cubic.html">Section 1.9</a> are their geometric shadow.</p>
+<h3 id="computing-pi">Computing <span class="math inline">\(\pi\)</span></h3>
+<p>The addition identity is also the basis of the most famous formulas for computing <span class="math inline">\(\pi\)</span>. Repeatedly applying it shows, for instance, that <span class="math inline">\(\mathrm{T}(1) = 4\mathrm{T}(\frac15) - \mathrm{T}(\frac{1}{239})\)</span>, which is Machin’s formula of 1706; combined with the series <span class="math inline">\(\mathrm{T}(x) = x - \frac{x^3}{3} + \frac{x^5}{5} - \cdots\)</span>, it gave <span class="math inline">\(100\)</span> digits of <span class="math inline">\(\pi\)</span> and stayed the method of choice for two and a half centuries. That is the subject of Section 5.1.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Symmetries of an integral</div>
+<p><em>Look for substitutions that leave the integrand unchanged. They turn into identities for the function the integral defines.</em></p>
+<p>Here <span class="math inline">\(u \mapsto 1/u\)</span> and <span class="math inline">\(u \mapsto \frac{u+a}{1-au}\)</span> preserve <span class="math inline">\(\frac{\mathrm{d}u}{1+u^2}\)</span>, and they give the reflection and addition formulas. The same idea, applied to other integrals, underlies the theory of special functions.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The exponential and the cosine.</strong> (From the STEP II Specimen paper.) <em>Without using standard properties of exponential or trigonometric functions:</em> a function <span class="math inline">\(\mathrm{f}\)</span> satisfies <span class="math inline">\(\mathrm{f}&#39; = \mathrm{f}\)</span> with <span class="math inline">\(\mathrm{f}(0) = 1\)</span>. Show that <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}x}\bigl[\mathrm{f}(a - x)\mathrm{f}(x)\bigr] = 0\)</span> and deduce that <span class="math inline">\(\mathrm{f}(x)\mathrm{f}(y) = \mathrm{f}(x + y)\)</span>. Functions <span class="math inline">\(\mathrm{c}\)</span> and <span class="math inline">\(\mathrm{s}\)</span> satisfy <span class="math inline">\(\mathrm{c}&#39; = -\mathrm{s}\)</span>, <span class="math inline">\(\mathrm{s}&#39; = \mathrm{c}\)</span>, <span class="math inline">\(\mathrm{s}(0) = 0\)</span>, <span class="math inline">\(\mathrm{c}(0) = 1\)</span>. Show that <span class="math inline">\(\mathrm{c}(x + y) = \mathrm{c}(x)\mathrm{c}(y) - \mathrm{s}(x)\mathrm{s}(y)\)</span>. (<em>Hint:</em> fix <span class="math inline">\(y\)</span> and consider <span class="math inline">\(\mathrm{c}(x+y) - \mathrm{c}(x)\mathrm{c}(y) + \mathrm{s}(x)\mathrm{s}(y)\)</span> and a similar combination for <span class="math inline">\(\mathrm{s}\)</span>; show the sum of their squares is constant.)</p></li>
+<li><p><strong>The inverse sine.</strong> (From STEP III, 2007.) Let <span class="math inline">\(\mathrm{S}(x) = \int_0^x \frac{\mathrm{d}u}{\sqrt{1 - u^2}}\)</span>. Using <span class="math inline">\(y = \frac{u}{\sqrt{1 + u^2}}\)</span>, show that <span class="math inline">\(\mathrm{T}(x) = \mathrm{S}\!\left(\frac{x}{\sqrt{1 + x^2}}\right)\)</span> and deduce that <span class="math inline">\(\mathrm{S}\!\left(\frac{1}{\sqrt2}\right) = \frac12\mathrm{T}_\infty\)</span>.</p></li>
+<li><p><strong>An early Machin-type formula.</strong> Use the addition identity to show that <span class="math inline">\(\mathrm{T}(\frac12) + \mathrm{T}(\frac13) = \mathrm{T}(1) = \frac12\mathrm{T}_\infty\)</span>.</p></li>
+<li><p><strong><span class="math inline">\(\mathrm{T}_\infty\)</span> is finite.</strong> Show that <span class="math inline">\(\mathrm{T}(x) \leq 1 + \int_1^x \frac{\mathrm{d}u}{u^2} &lt; 2\)</span> for all <span class="math inline">\(x &gt; 0\)</span>, and deduce from the monotone convergence theorem (<a href="../ch02/golden-limit.html">Section 2.2</a>) that <span class="math inline">\(\mathrm{T}_\infty\)</span> exists.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Tom Körner, <em>Calculus for the Ambitious</em></strong> (Cambridge University Press). Builds the elementary functions rigorously, discussing the different approaches.</p></li>
+<li><p><strong>Walter Rudin, <em>Principles of Mathematical Analysis</em></strong> (McGraw-Hill). The famous “baby Rudin”; the prologue to Chapter 8 constructs <span class="math inline">\(\exp\)</span>, <span class="math inline">\(\sin\)</span> and <span class="math inline">\(\cos\)</span> from power series in a few elegant pages. Advanced.</p></li>
+<li><p><strong>Victor Prasolov &amp; Yuri Solovyev, <em>Elliptic Functions and Elliptic Integrals</em></strong> (American Mathematical Society). For where the lemniscate leads. Advanced.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="riemann.html">← 4.1 What Is an Integral?</a><a class="next" href="twenty-two-sevenths.html">→ 4.3 22/7 Is Bigger Than π</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

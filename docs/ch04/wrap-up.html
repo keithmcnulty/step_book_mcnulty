@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 4 wrap-up — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 4 · Calculus Done Properly</a>
+    <div class="sec-head"><h1>What We Have Learned</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <article class="prose">
+<p>We began by asking what an integral really is, what integrals can prove, and what to do when an integral has no formula. Here is how the chapter’s nine questions answered them.</p>
+<h3 id="what-is-an-integral-and-which-functions-have-one">1. What is an integral, and which functions have one?</h3>
+<p>In <a href="../ch04/riemann.html">Section 4.1</a> we defined the integral as the common limit of lower and upper sums of thin rectangles, and computed <span class="math inline">\(\int_0^a x^5\,\mathrm{d}x\)</span> from that definition alone. It took some work: telescoping sums of consecutive products, bounds on both sides, and a squeeze. That effort is the measure of how much the fundamental theorem of calculus gives you for free.</p>
+<p>The definition also told us that not every function is integrable. Dirichlet’s function, <span class="math inline">\(1\)</span> on the rationals and <span class="math inline">\(0\)</span> on the irrationals, has upper sums all equal to <span class="math inline">\(1\)</span> and lower sums all equal to <span class="math inline">\(0\)</span>. Problems like this one led Lebesgue to a more powerful theory of integration, which you will meet later at university.</p>
+<h3 id="what-can-integrals-prove">2. What can integrals prove?</h3>
+<p>Far more than areas.</p>
+<ul>
+<li><p><strong>Inequalities between numbers.</strong> An integral of a positive function equals <span class="math inline">\(\frac{22}{7} - \pi\)</span>, so <span class="math inline">\(\frac{22}{7} &gt; \pi\)</span> (<a href="../ch04/twenty-two-sevenths.html">Section 4.3</a>). The idea, “write <span class="math inline">\(A - B\)</span> as the integral of something positive”, is as useful as it is simple.</p></li>
+<li><p><strong>Infinite products and special values.</strong> Reduction formulae for <span class="math inline">\(\int \sin^n t\,\mathrm{d}t\)</span>, an invariant and a squeeze gave Wallis’s product, the constant in Stirling’s formula and <span class="math inline">\(\left(\frac12\right)! = \frac{\sqrt\pi}{2}\)</span> (<a href="../ch04/wallis-beta.html">Section 4.4</a>).</p></li>
+<li><p><strong>Infinite sums.</strong> Expanding <span class="math inline">\(x^x\)</span> as a power series and integrating term by term gave the sophomore’s dream (<a href="../ch04/sophomores-dream.html">Section 4.5</a>).</p></li>
+<li><p><strong>The foundations of trigonometry.</strong> Defining <span class="math inline">\(\mathrm{T}(x) = \int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span> and <span class="math inline">\(\pi = 2\mathrm{T}(\infty)\)</span>, substitutions alone produced the addition formula and special values like <span class="math inline">\(\mathrm{T}(\sqrt3) = \frac\pi3\)</span> (<a href="../ch04/trig-from-integral.html">Section 4.2</a>).</p></li>
+<li><p><strong>Geometry.</strong> An integrand that simplified to a constant revealed Archimedes’ hat-box theorem (<a href="../ch04/spherical-loaf.html">Section 4.8</a>), and an area formula written as an integral round the boundary proved Holditch’s astonishing theorem (<a href="../ch04/holditch.html">Section 4.9</a>).</p></li>
+<li><p><strong>Optimal functions.</strong> Completing the square inside an integral showed exactly when <span class="math inline">\(\int\bigl((y&#39;)^2 - a^2y^2\bigr)\)</span> must be non-negative, and the critical value <span class="math inline">\(\frac\pi2\)</span> turned out to be an eigenvalue (<a href="../ch04/variations.html">Section 4.7</a>).</p></li>
+</ul>
+<h3 id="what-can-we-do-when-there-is-no-formula">3. What can we do when there is no formula?</h3>
+<p>In <a href="../ch04/no-formula.html">Section 4.6</a> we proved that <span class="math inline">\(\int \frac{e^x}{x+1}\,\mathrm{d}x\)</span> cannot be written as a rational function times <span class="math inline">\(e^x\)</span>, and Liouville’s theory shows it has no elementary formula at all. The reason, seen through the lens of poles, is that the antiderivative must behave like a logarithm near <span class="math inline">\(x = -1\)</span>, which rational functions cannot do. Yet the integral exists perfectly well, and we can compute it: numerically, by series (as for <span class="math inline">\(\int x^x\)</span> in <a href="../ch04/sophomores-dream.html">Section 4.5</a>), or by giving it a name and studying it as a new function, as we did with the W function in <a href="../ch03/lambert-w.html">Section 3.9</a>.</p>
+<h3 id="a-toolkit-for-integration">4. A toolkit for integration</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Where you used it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Working from the definition</td>
+<td style="text-align: left;"><span class="math inline">\(\int_0^a x^5\)</span> from rectangles (4.1)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Telescoping sums</td>
+<td style="text-align: left;">Sums of consecutive products (4.1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Substitutions that preserve an integral</td>
+<td style="text-align: left;">Trigonometry from <span class="math inline">\(\int \frac{\mathrm{d}u}{1+u^2}\)</span> (4.2)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Polynomial division</td>
+<td style="text-align: left;"><span class="math inline">\(\frac{22}{7} - \pi\)</span> (4.3)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Positivity and bounding the integrand</td>
+<td style="text-align: left;"><span class="math inline">\(\pi &lt; \frac{22}{7}\)</span> (4.3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reduction formulae</td>
+<td style="text-align: left;"><span class="math inline">\(\int \sin^n t\)</span> (4.4); <span class="math inline">\(\int x^m(\ln x)^n\)</span> (4.5)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Invariants and squeezes</td>
+<td style="text-align: left;"><span class="math inline">\(nu_nu_{n-1} = \frac\pi2\)</span> (4.4)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Term-by-term integration</td>
+<td style="text-align: left;">The sophomore’s dream (4.5)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Factor and degree arguments</td>
+<td style="text-align: left;">No rational antiderivative (4.6)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Completing the square</td>
+<td style="text-align: left;">The calculus of variations (4.7)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Simplifying before integrating</td>
+<td style="text-align: left;">The spherical loaf (4.8)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Area as a boundary integral</td>
+<td style="text-align: left;">Holditch’s theorem (4.9)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="where-next">Where next</h3>
+<ul>
+<li><p>The Gamma and Beta functions of <a href="../ch04/wallis-beta.html">Section 4.4</a>, and the constant <span class="math inline">\(\sqrt{2\pi}\)</span> in Stirling’s formula, reappear in probability in Section 12.23.</p></li>
+<li><p>The eigenvalue problem of <a href="../ch04/variations.html">Section 4.7</a> becomes the quantum harmonic oscillator in Section 8.6.</p></li>
+<li><p>Machin’s formula, built from the addition identity of <a href="../ch04/trig-from-integral.html">Section 4.2</a>, is the subject of Section 5.1.</p></li>
+<li><p>Chapter 5 turns to complex numbers, which explain why so many of this chapter’s integrals involve <span class="math inline">\(\pi\)</span>.</p></li>
+</ul>
+<div class="skillbox">
+<div class="box-title">If you want to go further before university</div>
+<ul>
+<li><p><strong>Paul Nahin, <em>Inside Interesting Integrals</em></strong> (Springer): a feast of clever integrals and the tricks behind them.</p></li>
+<li><p><strong>William Dunham, <em>The Calculus Gallery</em></strong>: masterpieces of analysis from Newton to Lebesgue.</p></li>
+<li><p><strong>Michael Spivak, <em>Calculus</em></strong>: the definition of the integral and the fundamental theorem, done properly.</p></li>
+<li><p><strong>Sherman Stein, <em>Archimedes</em></strong>: for the ancient roots of integration.</p></li>
+</ul>
+</div>
+<p>Hermite recoiled from functions without derivatives, but integration has never had that problem: it is generous, accepting functions that differentiation cannot handle, and it keeps producing surprises. If a single theme runs through this chapter, it is that integrals are not just a technique for finding areas. They are a language for expressing and proving facts about numbers, functions and shapes, and you will be speaking it for the rest of your mathematical life.</p>
+
+  </article>
+  <nav class="pager"><a class="prev" href="holditch.html">← 4.9 Holditch&#x27;s Theorem</a><a class="next" href="index.html">→ Back to Chapter 4</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

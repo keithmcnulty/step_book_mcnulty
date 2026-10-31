@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.4 Wallis, Beta and the Factorial of a Half — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 4 · Calculus Done Properly</a>
+    <div class="src">STEP II · 1995 · Question 4</div>
+    <div class="sec-head"><span class="sec-num">4.4</span><h1>Wallis, Beta and the Factorial of a Half</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-4-wallis-beta.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 4</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Let <span class="math display">\[u_n = \int_0^{\frac12\pi} \sin^n t\,\mathrm{d}t\]</span> for each integer <span class="math inline">\(n \geq 0\)</span>. By integrating <span class="math display">\[\int_0^{\frac12\pi} \sin t\sin^{n-1}t\,\mathrm{d}t\]</span> by parts, or otherwise, obtain a formula connecting <span class="math inline">\(u_n\)</span> and <span class="math inline">\(u_{n-2}\)</span> when <span class="math inline">\(n \geq 2\)</span> and deduce that <span class="math display">\[nu_nu_{n-1} = (n-1)u_{n-1}u_{n-2}\]</span> for all <span class="math inline">\(n \geq 2\)</span>. Deduce that <span class="math display">\[nu_nu_{n-1} = \tfrac12\pi.\]</span> Sketch graphs of <span class="math inline">\(\sin^n t\)</span> and <span class="math inline">\(\sin^{n-1}t\)</span>, for <span class="math inline">\(0 \leq t \leq \frac12\pi\)</span>, on the same diagram and explain why <span class="math inline">\(0 &lt; u_n &lt; u_{n-1}\)</span>. By using the result of the previous paragraph show that <span class="math display">\[nu_n^2 &lt; \tfrac12\pi &lt; nu_{n-1}^2\]</span> for all <span class="math inline">\(n \geq 1\)</span>. Hence show that <span class="math display">\[\left(\frac{n}{n+1}\right)\tfrac12\pi &lt; nu_n^2 &lt; \tfrac12\pi\]</span> and deduce that <span class="math inline">\(nu_n^2 \to \frac12\pi\)</span> as <span class="math inline">\(n \to \infty\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>What is <span class="math inline">\(\left(\frac12\right)!\)</span>? The question sounds like nonsense: <span class="math inline">\(n!\)</span> means <span class="math inline">\(1 \times 2 \times \cdots \times n\)</span>, and you cannot multiply “half a number” of terms. Yet there is a natural answer, and it is <span class="math display">\[\left(\tfrac12\right)! = \frac{\sqrt\pi}{2}.\]</span> Where does <span class="math inline">\(\pi\)</span> come from? From integrals of powers of <span class="math inline">\(\sin t\)</span>, which this question studies. Along the way it proves one of the oldest and strangest formulas for <span class="math inline">\(\pi\)</span>, John Wallis’s infinite product of 1655, <span class="math display">\[\frac\pi2 = \frac21 \cdot \frac23 \cdot \frac43 \cdot \frac45 \cdot \frac65 \cdot \frac67 \cdots,\]</span> and it finds the hidden constant in Stirling’s formula for <span class="math inline">\(n!\)</span>, which every probabilist and statistician uses.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>What are <span class="math inline">\(u_0\)</span> and <span class="math inline">\(u_1\)</span>? And roughly what does the graph of <span class="math inline">\(\sin^n t\)</span> look like on <span class="math inline">\([0, \frac\pi2]\)</span> when <span class="math inline">\(n\)</span> is large?</p>
+</div>
+<p><span class="math inline">\(u_0 = \int_0^{\pi/2} 1\,\mathrm{d}t = \frac\pi2\)</span> and <span class="math inline">\(u_1 = \int_0^{\pi/2}\sin t\,\mathrm{d}t = 1\)</span>. For large <span class="math inline">\(n\)</span>, <span class="math inline">\(\sin^n t\)</span> is tiny except near <span class="math inline">\(t = \frac\pi2\)</span>, where <span class="math inline">\(\sin t\)</span> is close to <span class="math inline">\(1\)</span>: the graph becomes a narrow spike against the right-hand edge (Figure 4.4.1). So <span class="math inline">\(u_n\)</span> shrinks as <span class="math inline">\(n\)</span> grows. The question finds exactly how fast: like <span class="math inline">\(\sqrt{\pi/(2n)}\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-a-reduction-formula" class="stage"><span class="stage-n">Stage 1</span> A reduction formula</h4>
+<div class="askyourself">
+<p>Integrate <span class="math inline">\(\int \sin t \cdot \sin^{n-1}t\,\mathrm{d}t\)</span> by parts, integrating <span class="math inline">\(\sin t\)</span> and differentiating <span class="math inline">\(\sin^{n-1}t\)</span>. The new integrand contains <span class="math inline">\(\cos^2 t\)</span>; how can you get back to powers of <span class="math inline">\(\sin t\)</span>?</p>
+</div>
+<p>With <span class="math inline">\(\mathrm{d}v = \sin t\,\mathrm{d}t\)</span> (so <span class="math inline">\(v = -\cos t\)</span>) and <span class="math inline">\(w = \sin^{n-1}t\)</span> (so <span class="math inline">\(w&#39; = (n-1)\sin^{n-2}t\cos t\)</span>), <span class="math display">\[u_n = \Bigl[-\cos t\sin^{n-1}t\Bigr]_0^{\pi/2} + (n-1)\int_0^{\pi/2}\sin^{n-2}t\cos^2 t\,\mathrm{d}t.\]</span> The boundary term is zero for <span class="math inline">\(n \geq 2\)</span>. Writing <span class="math inline">\(\cos^2 t = 1 - \sin^2 t\)</span>, the integral is <span class="math inline">\(u_{n-2} - u_n\)</span>, so <span class="math inline">\(u_n = (n-1)(u_{n-2} - u_n)\)</span>, that is, <span class="math display">\[nu_n = (n-1)u_{n-2}. \qed\]</span> Multiplying both sides by <span class="math inline">\(u_{n-1}\)</span> gives <span class="math inline">\(nu_nu_{n-1} = (n-1)u_{n-1}u_{n-2}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-an-invariant" class="stage"><span class="stage-n">Stage 2</span> An invariant</h4>
+<div class="askyourself">
+<p>The relation says the quantity <span class="math inline">\(nu_nu_{n-1}\)</span> does not change when <span class="math inline">\(n\)</span> goes down by one. What is it equal to at <span class="math inline">\(n = 1\)</span>?</p>
+</div>
+<p>By repeated use, <span class="math inline">\(nu_nu_{n-1} = (n-1)u_{n-1}u_{n-2} = \cdots = 1 \cdot u_1u_0 = 1 \cdot 1 \cdot \frac\pi2\)</span>. So <span class="math inline">\(nu_nu_{n-1} = \frac12\pi\)</span> for all <span class="math inline">\(n \geq 1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-a-squeeze" class="stage"><span class="stage-n">Stage 3</span> A squeeze</h4>
+<p>For <span class="math inline">\(0 &lt; t &lt; \frac\pi2\)</span> we have <span class="math inline">\(0 &lt; \sin t &lt; 1\)</span>, so <span class="math inline">\(\sin^n t &lt; \sin^{n-1}t\)</span>: the graph of <span class="math inline">\(\sin^n t\)</span> lies below that of <span class="math inline">\(\sin^{n-1}t\)</span> except at the endpoints. Integrating, <span class="math inline">\(0 &lt; u_n &lt; u_{n-1}\)</span>.</p>
+<div class="pausebox">
+<p>Use <span class="math inline">\(u_n &lt; u_{n-1}\)</span> and <span class="math inline">\(nu_nu_{n-1} = \frac12\pi\)</span> to trap <span class="math inline">\(nu_n^2\)</span>.</p>
+</div>
+<p>Replacing <span class="math inline">\(u_{n-1}\)</span> by the smaller <span class="math inline">\(u_n\)</span> gives <span class="math inline">\(nu_n^2 &lt; nu_nu_{n-1} = \frac12\pi\)</span>. Replacing <span class="math inline">\(u_n\)</span> by the larger <span class="math inline">\(u_{n-1}\)</span> gives <span class="math inline">\(\frac12\pi = nu_nu_{n-1} &lt; nu_{n-1}^2\)</span>. So <span class="math inline">\(nu_n^2 &lt; \frac12\pi &lt; nu_{n-1}^2\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Applying the right-hand inequality with <span class="math inline">\(n + 1\)</span> in place of <span class="math inline">\(n\)</span>: <span class="math inline">\(\frac12\pi &lt; (n+1)u_n^2\)</span>, so <span class="math inline">\(nu_n^2 &gt; \frac{n}{n+1}\cdot\frac12\pi\)</span>. Together, <span class="math display">\[\left(\frac{n}{n+1}\right)\tfrac12\pi &lt; nu_n^2 &lt; \tfrac12\pi. \qed\]</span> Since <span class="math inline">\(\frac{n}{n+1} \to 1\)</span>, the squeeze gives <span class="math inline">\(nu_n^2 \to \frac12\pi\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-4-1.svg" alt="Figure 4.4.1"><figcaption><span class="fig-label">Figure 4.4.1</span> The graphs of <span class="math inline">\(\sin^n t\)</span> for <span class="math inline">\(n = 1, 2, 4, 16, 64\)</span>. As <span class="math inline">\(n\)</span> grows the area <span class="math inline">\(u_n\)</span> under the curve shrinks, concentrating near <span class="math inline">\(t = \frac\pi2\)</span>. The question shows that <span class="math inline">\(u_n \approx \sqrt{\pi/(2n)}\)</span>; for <span class="math inline">\(n = 64\)</span> that is about <span class="math inline">\(0.157\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Reduction formulae.</strong> Integration by parts turned <span class="math inline">\(u_n\)</span> into <span class="math inline">\(u_{n-2}\)</span>, so all the <span class="math inline">\(u_n\)</span> are determined by <span class="math inline">\(u_0\)</span> and <span class="math inline">\(u_1\)</span>.</p></li>
+<li><p><strong>Look for an invariant.</strong> The product <span class="math inline">\(nu_nu_{n-1}\)</span> stayed fixed, just as the integral did under the AGM step in <a href="../ch02/agm.html">Section 2.6</a>.</p></li>
+<li><p><strong>Monotonicity plus an invariant gives a squeeze.</strong> Knowing <span class="math inline">\(u_n &lt; u_{n-1}\)</span> and the exact value of <span class="math inline">\(nu_nu_{n-1}\)</span> trapped <span class="math inline">\(nu_n^2\)</span> between two quantities with the same limit.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Wallis’s product</div>
+<p>Running the reduction formula down to <span class="math inline">\(u_0\)</span> or <span class="math inline">\(u_1\)</span> gives explicit values: <span class="math display">\[u_{2m} = \frac{1 \cdot 3 \cdot 5 \cdots (2m-1)}{2 \cdot 4 \cdot 6 \cdots 2m}\cdot\frac\pi2, \qquad u_{2m+1} = \frac{2 \cdot 4 \cdot 6 \cdots 2m}{3 \cdot 5 \cdot 7 \cdots (2m+1)}.\]</span> The squeeze shows <span class="math inline">\(u_{2m}/u_{2m+1} \to 1\)</span>. Writing out that ratio and rearranging gives Wallis’s product, <span class="math display">\[\frac\pi2 = \lim_{m \to \infty} \frac{2 \cdot 2}{1 \cdot 3}\cdot\frac{4 \cdot 4}{3 \cdot 5}\cdots\frac{2m \cdot 2m}{(2m-1)(2m+1)}.\]</span> John Wallis found it in 1655 by a daring process of interpolation, guessing what <span class="math inline">\(\int_0^1 (1 - x^2)^{1/2}\,\mathrm{d}x\)</span> “should” be by fitting it into a table of integrals with whole-number exponents. It was one of the first infinite products in mathematics, after Viète’s (<a href="../ch02/viete.html">Section 2.5</a>), and the first to use only rational numbers.</p>
+</div>
+<h3 id="the-factorial-of-a-half">The factorial of a half</h3>
+<p>Wallis’s interpolation idea was made precise by Euler in 1729. He found a function, now called the <em>Gamma function</em>, <span class="math display">\[\Gamma(s) = \int_0^\infty t^{s-1}e^{-t}\,\mathrm{d}t,\]</span> which satisfies <span class="math inline">\(\Gamma(s + 1) = s\,\Gamma(s)\)</span> (integrate by parts) and <span class="math inline">\(\Gamma(n + 1) = n!\)</span> for whole numbers <span class="math inline">\(n\)</span>. It extends the factorial smoothly to all positive real numbers. The closely related <em>Beta function</em> <span class="math display">\[\mathrm{B}(p, q) = \int_0^1 x^{p-1}(1-x)^{q-1}\,\mathrm{d}x = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}\]</span> includes the integrals of <a href="../ch04/twenty-two-sevenths.html">Section 4.3</a> and <a href="../ch02/e-approximations.html">Section 2.9</a>, and, after the substitution <span class="math inline">\(x = \sin^2 t\)</span>, our <span class="math inline">\(u_n\)</span>. In particular, <span class="math inline">\(\int_0^1 x^{1/2}(1-x)^{1/2}\,\mathrm{d}x = \frac\pi8\)</span> (exercise 2), which gives <span class="math inline">\(\Gamma(\frac32)^2/\Gamma(3) = \frac\pi8\)</span>, that is, <span class="math inline">\(\left(\frac12\right)! = \Gamma(\frac32) = \frac{\sqrt\pi}{2}\)</span>. Equivalently, <span class="math inline">\(\Gamma(\frac12) = \sqrt\pi\)</span>, which is the same fact as the famous Gaussian integral <span class="math inline">\(\int_{-\infty}^\infty e^{-x^2}\,\mathrm{d}x = \sqrt\pi\)</span>, the reason <span class="math inline">\(\pi\)</span> appears in the formula for the normal distribution.</p>
+<h3 id="stirlings-formula">Stirling’s formula</h3>
+<p>Stirling’s formula says <span class="math inline">\(n! \approx \sqrt{2\pi n}\,(n/e)^n\)</span>. The <span class="math inline">\((n/e)^n\)</span> part is relatively easy to obtain, but the constant <span class="math inline">\(\sqrt{2\pi}\)</span> is harder, and the standard way to find it is exactly this question: the explicit values of <span class="math inline">\(u_{2m}\)</span> involve <span class="math inline">\((2m)!/(m!)^2\)</span>, and the limit <span class="math inline">\(nu_n^2 \to \frac\pi2\)</span> pins down the constant. A completely different route to the same constant, through probability, is in Section 12.23.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Recurrences from integrals</div>
+<p><em>Integration by parts often relates an integral with parameter <span class="math inline">\(n\)</span> to the same integral with a smaller parameter. That recurrence can then be solved, or analysed for its behaviour as <span class="math inline">\(n \to \infty\)</span>.</em></p>
+<p>Watch for quantities that the recurrence leaves unchanged, and for monotonicity in <span class="math inline">\(n\)</span>; together they often give limits without any explicit formula.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Wallis’s product.</strong> Using the explicit values of <span class="math inline">\(u_{2m}\)</span> and <span class="math inline">\(u_{2m+1}\)</span>, and <span class="math inline">\(u_{2m+1} &lt; u_{2m} &lt; u_{2m-1}\)</span>, prove Wallis’s product.</p></li>
+<li><p><strong>A Beta integral.</strong> (From STEP II, 2013.) Let <span class="math inline">\(I_n = \int_0^1 x^n(1-x)^n\,\mathrm{d}x\)</span>. Show by integration by parts and symmetry that <span class="math inline">\(I_n = \frac{n}{2(2n+1)}I_{n-1}\)</span>, and deduce that <span class="math inline">\(I_n = \frac{(n!)^2}{(2n+1)!}\)</span>. Use <span class="math inline">\(x = \sin^2\theta\)</span> to show that <span class="math inline">\(I_{1/2} = \frac\pi8\)</span>. What does the formula <span class="math inline">\(I_n = \frac{(n!)^2}{(2n+1)!}\)</span> suggest <span class="math inline">\(\left(\frac12\right)!\)</span> should be?</p></li>
+<li><p><strong>The Beta function.</strong> (From STEP III, 2025.) For <span class="math inline">\(p, q &gt; 0\)</span> let <span class="math inline">\(\mathrm{b}(p, q) = \int_0^1 x^{p-1}(1-x)^{q-1}\,\mathrm{d}x\)</span>. Show that <span class="math inline">\(\mathrm{b}(p, q) = \mathrm{b}(q, p)\)</span>, that <span class="math inline">\(\mathrm{b}(p+1, q) = \mathrm{b}(p, q) - \mathrm{b}(p, q+1)\)</span>, and, with the substitution <span class="math inline">\(x = \frac{t}{1+t}\)</span>, that <span class="math inline">\(\mathrm{b}(p, q) = \int_0^\infty \frac{t^{p-1}}{(1+t)^{p+q}}\,\mathrm{d}t\)</span>. Hence evaluate <span class="math inline">\(\displaystyle\int_0^\infty \frac{t^{3/2}}{(1+t)^6}\,\mathrm{d}t\)</span>. (The answer is <span class="math inline">\(\frac{3\pi}{256}\)</span>.)</p></li>
+<li><p><strong>Central binomial coefficients.</strong> <span class="hard">harder</span> Show that <span class="math inline">\(u_{2m} = \binom{2m}{m}\dfrac{\pi}{2^{2m+1}}\)</span>, and use <span class="math inline">\(nu_n^2 \to \frac\pi2\)</span> to deduce that <span class="math inline">\(\binom{2m}{m} \approx \dfrac{4^m}{\sqrt{\pi m}}\)</span> for large <span class="math inline">\(m\)</span>. Check this for <span class="math inline">\(m = 10\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Julian Havil, <em>Gamma</em></strong> (Princeton University Press). Includes the Gamma function and its history.</p></li>
+<li><p><strong>Philip J. Davis, “Leonhard Euler’s integral: a historical profile of the Gamma function”</strong>, <em>American Mathematical Monthly</em> 66 (1959). A classic, prize-winning article, readable with this section behind you.</p></li>
+<li><p><strong>Emil Artin, <em>The Gamma Function</em></strong> (Dover). A short, beautiful monograph for when you have done some analysis.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="twenty-two-sevenths.html">← 4.3 22/7 Is Bigger Than π</a><a class="next" href="sophomores-dream.html">→ 4.5 The Sophomore&#x27;s Dream</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

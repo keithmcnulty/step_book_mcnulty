@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.1 What Is an Integral? — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 4 · Calculus Done Properly</a>
+    <div class="src">STEP III · 1989 · Question 10</div>
+    <div class="sec-head"><span class="sec-num">4.1</span><h1>What Is an Integral?</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-1-riemann.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 4</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Prove that <span class="math display">\[\sum_{r=1}^{n} r(r+1)(r+2)(r+3)(r+4) = \tfrac16 n(n+1)(n+2)(n+3)(n+4)(n+5)\]</span> and deduce that <span class="math display">\[\sum_{r=1}^{n} r^5 &lt; \tfrac16 n(n+1)(n+2)(n+3)(n+4)(n+5).\]</span></p></li>
+<li><p>Prove that, if <span class="math inline">\(n &gt; 1\)</span>, <span class="math display">\[\sum_{r=0}^{n-1} r^5 &gt; \tfrac16 (n-5)(n-4)(n-3)(n-2)(n-1)n.\]</span></p></li>
+<li><p>Let <span class="math inline">\(\mathrm{f}\)</span> be an increasing function. If the limits <span class="math display">\[\lim_{n \to \infty} \sum_{r=0}^{n-1} \frac{a}{n}\,\mathrm{f}\!\left(\frac{ra}{n}\right) \qquad\text{and}\qquad \lim_{n \to \infty} \sum_{r=1}^{n} \frac{a}{n}\,\mathrm{f}\!\left(\frac{ra}{n}\right)\]</span> both exist and are equal, the definite integral <span class="math inline">\(\displaystyle\int_0^a \mathrm{f}(x)\,\mathrm{d}x\)</span> is defined to be their common value. Using this definition, prove that <span class="math display">\[\int_0^a x^5\,\mathrm{d}x = \tfrac16 a^6.\]</span></p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>You have been integrating for years. You know that <span class="math inline">\(\int_0^a x^5\,\mathrm{d}x = \frac16 a^6\)</span> because “integration is the reverse of differentiation”. But that is a theorem, not a definition. What <em>is</em> an integral?</p>
+<p>The honest answer is: an area, defined as a limit of sums of thin rectangles. This question asks you to compute an integral from that definition alone, with no antiderivatives, no fundamental theorem, nothing but adding up rectangles and taking a limit. It is harder than you might expect, which is exactly why the fundamental theorem of calculus, which makes it easy, is such a remarkable result.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The two sums in part (iii) are sums of areas of rectangles of width <span class="math inline">\(\frac an\)</span>. For an increasing function <span class="math inline">\(\mathrm{f}\)</span>, which sum is an underestimate of the area under the curve, and which an overestimate?</p>
+</div>
+<p>The first sum uses the height at the <em>left</em> end of each strip, <span class="math inline">\(x = \frac{ra}{n}\)</span> for <span class="math inline">\(r = 0, \ldots, n-1\)</span>. For an increasing function that is the lowest point on the strip, so the rectangles fit under the curve: a <em>lower sum</em>. The second uses the right ends, <span class="math inline">\(r = 1, \ldots, n\)</span>, giving rectangles that poke above the curve: an <em>upper sum</em> (Figure 4.1.1). The definition says the integral exists if both sums approach the same limit as the strips get thinner.</p>
+<p>For <span class="math inline">\(\mathrm{f}(x) = x^5\)</span> both sums involve <span class="math inline">\(\sum r^5\)</span>. Parts (i) and (ii) bound that sum above and below.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-a-sum-that-telescopes" class="stage"><span class="stage-n">Stage 1</span> A sum that telescopes</h4>
+<div class="askyourself">
+<p>Write <span class="math inline">\(P(r) = r(r+1)(r+2)(r+3)(r+4)(r+5)\)</span>, a product of six consecutive integers. What is <span class="math inline">\(P(r) - P(r-1)\)</span>?</p>
+</div>
+<p><span class="math inline">\(P(r)\)</span> and <span class="math inline">\(P(r-1) = (r-1)r(r+1)(r+2)(r+3)(r+4)\)</span> share the five factors <span class="math inline">\(r(r+1)(r+2)(r+3)(r+4)\)</span>, so <span class="math display">\[\begin{aligned}
+  P(r) - P(r-1) &amp;= r(r+1)(r+2)(r+3)(r+4)\bigl[(r+5) - (r-1)\bigr] \\
+  &amp;= 6\,r(r+1)(r+2)(r+3)(r+4).
+\end{aligned}\]</span> Summing from <span class="math inline">\(r = 1\)</span> to <span class="math inline">\(n\)</span>, the right-hand sides telescope to <span class="math inline">\(P(n) - P(0) = P(n)\)</span>. So <span class="math display">\[\sum_{r=1}^{n} r(r+1)(r+2)(r+3)(r+4) = \tfrac16 P(n) = \tfrac16 n(n+1)(n+2)(n+3)(n+4)(n+5).\]</span><span class="qed" aria-label="end of proof">■</span></p>
+<p>Since <span class="math inline">\(r^5 &lt; r(r+1)(r+2)(r+3)(r+4)\)</span> for every <span class="math inline">\(r \geq 1\)</span>, the inequality follows.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-a-lower-bound" class="stage"><span class="stage-n">Stage 2</span> A lower bound</h4>
+<div class="pausebox">
+<p>Adapt Stage 1 to a product of five consecutive integers going <em>down</em>: <span class="math inline">\(r(r-1)(r-2)(r-3)(r-4)\)</span>. Find its sum from <span class="math inline">\(r = 0\)</span> to <span class="math inline">\(n - 1\)</span>, and compare it with <span class="math inline">\(r^5\)</span>.</p>
+</div>
+<p>Let <span class="math inline">\(Q(r) = (r-5)(r-4)(r-3)(r-2)(r-1)r\)</span>. Then <span class="math inline">\(Q(r+1) - Q(r) = (r-4)(r-3)(r-2)(r-1)r\bigl[(r+1) - (r-5)\bigr] = 6\,(r-4)(r-3)(r-2)(r-1)r\)</span>. Summing from <span class="math inline">\(r = 0\)</span> to <span class="math inline">\(n - 1\)</span> telescopes to <span class="math inline">\(Q(n) - Q(0) = Q(n)\)</span>, so <span class="math display">\[\sum_{r=0}^{n-1} (r-4)(r-3)(r-2)(r-1)r = \tfrac16 (n-5)(n-4)(n-3)(n-2)(n-1)n.\]</span> Now compare term by term. For <span class="math inline">\(r = 0\)</span> both sides are <span class="math inline">\(0\)</span>. For <span class="math inline">\(1 \leq r \leq 4\)</span> the product contains a zero factor, while <span class="math inline">\(r^5 &gt; 0\)</span>. For <span class="math inline">\(r \geq 5\)</span> every factor is positive and at most <span class="math inline">\(r\)</span>, and some are strictly smaller, so the product is less than <span class="math inline">\(r^5\)</span>. Since <span class="math inline">\(n &gt; 1\)</span>, the sum includes <span class="math inline">\(r = 1\)</span>, where the inequality is strict, so <span class="math display">\[\sum_{r=0}^{n-1} r^5 &gt; \tfrac16 (n-5)(n-4)(n-3)(n-2)(n-1)n. \qed\]</span></p>
+<h4 id="stagemark3-the-integral" class="stage"><span class="stage-n">Stage 3</span> The integral</h4>
+<div class="askyourself">
+<p>Write the lower and upper sums for <span class="math inline">\(\mathrm{f}(x) = x^5\)</span> in terms of <span class="math inline">\(\sum r^5\)</span>. What power of <span class="math inline">\(n\)</span> appears in the denominator?</p>
+</div>
+<p>With <span class="math inline">\(\mathrm{f}(x) = x^5\)</span>, <span class="math display">\[L_n = \sum_{r=0}^{n-1} \frac{a}{n}\left(\frac{ra}{n}\right)^5 = \frac{a^6}{n^6}\sum_{r=0}^{n-1} r^5, \qquad U_n = \frac{a^6}{n^6}\sum_{r=1}^{n} r^5.\]</span> By parts (i) and (ii), and since <span class="math inline">\(L_n &lt; U_n\)</span>, <span class="math display">\[\frac{a^6}{6}\cdot\frac{(n-5)(n-4)\cdots n}{n^6} \;&lt;\; L_n \;&lt;\; U_n \;&lt;\; \frac{a^6}{6}\cdot\frac{n(n+1)\cdots(n+5)}{n^6}.\]</span> Each of the two fractions is a product of six factors like <span class="math inline">\(\frac{n-3}{n} = 1 - \frac3n\)</span> or <span class="math inline">\(\frac{n+3}{n} = 1 + \frac3n\)</span>, each tending to <span class="math inline">\(1\)</span>. So both outer bounds tend to <span class="math inline">\(\frac{a^6}{6}\)</span>, and by the squeeze, so do <span class="math inline">\(L_n\)</span> and <span class="math inline">\(U_n\)</span>. Both limits exist and are equal, so by the definition <span class="math display">\[\int_0^a x^5\,\mathrm{d}x = \tfrac16 a^6. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-1-1.svg" alt="Figure 4.1.1"><figcaption><span class="fig-label">Figure 4.1.1</span> Lower and upper sums for <span class="math inline">\(x^5\)</span> on <span class="math inline">\([0, a]\)</span> with <span class="math inline">\(n = 6\)</span> strips. The lower sum is the teal area (rectangles under the curve); the upper sum adds the amber pieces. The difference between them is exactly the area of the last, tallest rectangle, <span class="math inline">\(\frac an\,\mathrm{f}(a)\)</span>, which tends to <span class="math inline">\(0\)</span> as <span class="math inline">\(n\)</span> grows.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Telescoping again.</strong> The sums of products of consecutive integers collapsed, exactly like the sums and products in Chapter 2.</p></li>
+<li><p><strong>Bound, then squeeze.</strong> We never found <span class="math inline">\(\sum r^5\)</span> exactly (it is <span class="math inline">\(\frac{1}{12}n^2(n+1)^2(2n^2 + 2n - 1)\)</span>); bounds on both sides were enough.</p></li>
+<li><p><strong>The definition does the work.</strong> No antiderivative appeared anywhere. Everything followed from the definition of the integral as a limit of sums.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Riemann’s definition</div>
+<p>The idea of finding areas by summing thin strips goes back to Archimedes, who found the area under a parabola by a version of exactly this argument around 250 BC. Newton and Leibniz turned integration into the reverse of differentiation, and for a century and a half that was how most people thought about it. In 1854 Bernhard Riemann gave the definition that university courses still begin with: divide <span class="math inline">\([a, b]\)</span> into small pieces, form sums of (width) <span class="math inline">\(\times\)</span> (height of <span class="math inline">\(\mathrm{f}\)</span> somewhere in the piece), and say <span class="math inline">\(\mathrm{f}\)</span> is integrable if all such sums approach one limit as the pieces shrink. The version in this question, with equal strips and left and right endpoints, is a special case that works for increasing functions; Jean-Gaston Darboux’s “upper and lower sums” make the general case clean.</p>
+</div>
+<h3 id="not-every-function-has-an-integral">Not every function has an integral</h3>
+<p>With a precise definition, you can ask which functions are integrable. Every continuous function on a closed interval is, and every increasing function. But consider Dirichlet’s function: <span class="math inline">\(\mathrm{f}(x) = 1\)</span> if <span class="math inline">\(x\)</span> is rational and <span class="math inline">\(0\)</span> if irrational. Every strip, however thin, contains both rationals and irrationals, so every upper sum is <span class="math inline">\(1\)</span> and every lower sum is <span class="math inline">\(0\)</span>. They never agree, and <span class="math inline">\(\int_0^1 \mathrm{f}\)</span> does not exist in Riemann’s sense. In 1902 Henri Lebesgue invented a more powerful integral that handles this function (its Lebesgue integral is <span class="math inline">\(0\)</span>) and behaves much better under limits. The Lebesgue integral is the foundation of modern probability theory, and you will meet it in your second or third year.</p>
+<h3 id="discrete-calculus">Discrete calculus</h3>
+<p>The telescoping in Stage 1 is calculus in disguise. The “rising factorial” <span class="math inline">\(r(r+1)\cdots(r+k-1)\)</span> behaves under summation exactly as <span class="math inline">\(x^k\)</span> behaves under integration: summing it raises the number of factors by one and divides by the new number of factors, just as <span class="math inline">\(\int x^k\,\mathrm{d}x = \frac{x^{k+1}}{k+1}\)</span>. This parallel between sums and integrals, differences and derivatives, is called the <em>calculus of finite differences</em>, and it is a powerful tool for evaluating sums.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Work from the definition</div>
+<p><em>When asked to prove something “using the definition”, use nothing else: no theorems that depend on what you are proving, no familiar shortcuts.</em></p>
+<p>It is surprisingly hard, and it shows you exactly what the shortcuts are worth. At university, the first weeks of every course work this way: definitions first, then theorems that let you stop working from definitions.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A limit as an integral.</strong> (From STEP III, 1999.) Justify by a sketch that <span class="math display">\[\lim_{n\to\infty} \frac1n\sum_{m=1}^{n} \mathrm{f}\!\left(1 + \frac mn\right) = \int_1^2 \mathrm{f}(x)\,\mathrm{d}x.\]</span> Deduce that <span class="math display">\[\lim_{n\to\infty}\left( \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} \right) = \ln 2,\]</span> and evaluate <span class="math inline">\(\displaystyle\lim_{n\to\infty}\left( \frac{n}{n^2+1} + \frac{n}{n^2+4} + \cdots + \frac{n}{n^2+n^2} \right)\)</span>.</p></li>
+<li><p><strong>Archimedes’ parabola.</strong> Using <span class="math inline">\(\sum_{r=1}^{n} r^2 = \frac16 n(n+1)(2n+1)\)</span> and the definition in part (iii), prove that <span class="math inline">\(\int_0^a x^2\,\mathrm{d}x = \frac13 a^3\)</span>.</p></li>
+<li><p><strong>Rising factorials.</strong> Show that <span class="math inline">\(\displaystyle\sum_{r=1}^{n} r(r+1)\cdots(r+k-1) = \frac{n(n+1)\cdots(n+k)}{k+1}\)</span> for every positive integer <span class="math inline">\(k\)</span>.</p></li>
+<li><p><strong>The exact sum.</strong> Use the identity <span class="math inline">\(r(r+1)(r+2)(r+3)(r+4) = r^5 + 10r^4 + 35r^3 + 50r^2 + 24r\)</span> and the known formulas for <span class="math inline">\(\sum r^k\)</span> with <span class="math inline">\(k \leq 4\)</span> to find <span class="math inline">\(\sum_{r=1}^n r^5\)</span> exactly.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>David Bressoud, <em>A Radical Approach to Lebesgue’s Theory of Integration</em></strong> (Cambridge University Press). The story from Riemann’s integral to Lebesgue’s, told through the problems that forced each step.</p></li>
+<li><p><strong>Michael Spivak, <em>Calculus</em></strong> (Cambridge University Press). Chapter 13 defines the integral by upper and lower sums, exactly as here.</p></li>
+<li><p><strong>Graham, Knuth &amp; Patashnik, <em>Concrete Mathematics</em></strong> (Addison-Wesley). Chapter 2 develops the calculus of finite differences, with rising and falling factorials.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← Chapter introduction</a><a class="next" href="trig-from-integral.html">→ 4.2 Building Trigonometry from an Integral</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.6 Integrals With No Formula — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 4 · Calculus Done Properly</a>
+    <div class="src">STEP III · 2016 · Question 3</div>
+    <div class="sec-head"><span class="sec-num">4.6</span><h1>Integrals With No Formula</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-6-no-formula.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 4</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Given that <span class="math display">\[\int \frac{x^3 - 2}{(x+1)^2}\,e^x\,\mathrm{d}x = \frac{\mathrm{P}(x)}{\mathrm{Q}(x)}\,e^x + \text{constant},\]</span> where <span class="math inline">\(\mathrm{P}(x)\)</span> and <span class="math inline">\(\mathrm{Q}(x)\)</span> are polynomials, show that <span class="math inline">\(\mathrm{Q}(x)\)</span> has a factor of <span class="math inline">\(x + 1\)</span>.</p>
+<p>Show also that the degree of <span class="math inline">\(\mathrm{P}(x)\)</span> is exactly one more than the degree of <span class="math inline">\(\mathrm{Q}(x)\)</span>, and find <span class="math inline">\(\mathrm{P}(x)\)</span> in the case <span class="math inline">\(\mathrm{Q}(x) = x + 1\)</span>.</p></li>
+<li><p>Show that there are no polynomials <span class="math inline">\(\mathrm{P}(x)\)</span> and <span class="math inline">\(\mathrm{Q}(x)\)</span> such that <span class="math display">\[\int \frac{1}{x+1}\,e^x\,\mathrm{d}x = \frac{\mathrm{P}(x)}{\mathrm{Q}(x)}\,e^x + \text{constant}.\]</span> You need consider only the case when <span class="math inline">\(\mathrm{P}(x)\)</span> and <span class="math inline">\(\mathrm{Q}(x)\)</span> have no common factors.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Differentiation is mechanical: there are rules, and any function built from the usual pieces can be differentiated by applying them. Integration is not. Every student has met integrals that resist every technique, and wondered whether they simply weren’t clever enough. Sometimes the answer is: no one is clever enough, because <em>there is no formula</em>.</p>
+<p>This question proves such a thing in a special case. The integral <span class="math inline">\(\int \frac{e^x}{x+1}\,\mathrm{d}x\)</span> certainly exists, as an area. But it cannot be written in the form (rational function) <span class="math inline">\(\times\, e^x\)</span>, which is the form you would expect from integration by parts. Proving that something is impossible, rather than finding something, is a different and very characteristic kind of mathematics.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>If <span class="math inline">\(\int \mathrm{f}(x)e^x\,\mathrm{d}x = \frac{\mathrm{P}}{\mathrm{Q}}e^x + C\)</span>, what equation must <span class="math inline">\(\mathrm{P}\)</span> and <span class="math inline">\(\mathrm{Q}\)</span> satisfy? (Differentiate the right-hand side.)</p>
+</div>
+<p>Differentiating, <span class="math inline">\(\dfrac{\mathrm{d}}{\mathrm{d}x}\left(\dfrac{\mathrm{P}}{\mathrm{Q}}e^x\right) = \dfrac{\mathrm{P}&#39;\mathrm{Q} - \mathrm{P}\mathrm{Q}&#39; + \mathrm{P}\mathrm{Q}}{\mathrm{Q}^2}\,e^x\)</span>, and this must equal <span class="math inline">\(\mathrm{f}(x)e^x\)</span>. So the whole question is about the polynomial identity <span class="math display">\[\mathrm{P}&#39;\mathrm{Q} - \mathrm{P}\mathrm{Q}&#39; + \mathrm{P}\mathrm{Q} = \mathrm{f}\,\mathrm{Q}^2.\]</span> Questions about integrals have become questions about polynomials: their factors and their degrees.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-factor-x-1" class="stage"><span class="stage-n">Stage 1</span> The factor <span class="math inline">\(x + 1\)</span></h4>
+<p>With <span class="math inline">\(\mathrm{f}(x) = \dfrac{x^3 - 2}{(x+1)^2}\)</span>, multiply the identity through by <span class="math inline">\((x+1)^2\)</span>: <span class="math display">\[(x+1)^2\bigl(\mathrm{P}&#39;\mathrm{Q} - \mathrm{P}\mathrm{Q}&#39; + \mathrm{P}\mathrm{Q}\bigr) = (x^3 - 2)\,\mathrm{Q}^2. \tag{$\dagger$}\]</span></p>
+<div class="askyourself">
+<p>Put <span class="math inline">\(x = -1\)</span> in <span class="math inline">\((\dagger)\)</span>. What must happen?</p>
+</div>
+<p>The left-hand side is <span class="math inline">\(0\)</span> at <span class="math inline">\(x = -1\)</span>. The right-hand side is <span class="math inline">\((-1 - 2)\,\mathrm{Q}(-1)^2 = -3\,\mathrm{Q}(-1)^2\)</span>. So <span class="math inline">\(\mathrm{Q}(-1) = 0\)</span>, and by the factor theorem, <span class="math inline">\(x + 1\)</span> is a factor of <span class="math inline">\(\mathrm{Q}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-degrees" class="stage"><span class="stage-n">Stage 2</span> Degrees</h4>
+<p>Let <span class="math inline">\(\mathrm{P}\)</span> have degree <span class="math inline">\(p\)</span> and <span class="math inline">\(\mathrm{Q}\)</span> have degree <span class="math inline">\(q\)</span>.</p>
+<div class="askyourself">
+<p>In <span class="math inline">\(\mathrm{P}&#39;\mathrm{Q} - \mathrm{P}\mathrm{Q}&#39; + \mathrm{P}\mathrm{Q}\)</span>, which term has the highest degree? Can it be cancelled by the others?</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}\mathrm{Q}\)</span> has degree <span class="math inline">\(p + q\)</span>, while <span class="math inline">\(\mathrm{P}&#39;\mathrm{Q}\)</span> and <span class="math inline">\(\mathrm{P}\mathrm{Q}&#39;\)</span> have degree at most <span class="math inline">\(p + q - 1\)</span>. So the left-hand side of <span class="math inline">\((\dagger)\)</span> has degree exactly <span class="math inline">\(2 + p + q\)</span>, and the right-hand side has degree <span class="math inline">\(3 + 2q\)</span>. Equating, <span class="math inline">\(p = q + 1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-finding-mathrmp" class="stage"><span class="stage-n">Stage 3</span> Finding <span class="math inline">\(\mathrm{P}\)</span></h4>
+<p>With <span class="math inline">\(\mathrm{Q} = x + 1\)</span>, we have <span class="math inline">\(\mathrm{Q}&#39; = 1\)</span> and <span class="math inline">\(\mathrm{P}\)</span> has degree <span class="math inline">\(2\)</span>. Dividing <span class="math inline">\((\dagger)\)</span> by <span class="math inline">\((x + 1)^2\)</span>: <span class="math display">\[\mathrm{P}&#39;(x + 1) - \mathrm{P} + \mathrm{P}(x + 1) = x^3 - 2, \qquad\text{that is,}\qquad (x + 1)\mathrm{P}&#39; + x\mathrm{P} = x^3 - 2.\]</span> Try <span class="math inline">\(\mathrm{P} = \alpha x^2 + \beta x + \gamma\)</span>. The left-hand side is <span class="math display">\[(x + 1)(2\alpha x + \beta) + \alpha x^3 + \beta x^2 + \gamma x = \alpha x^3 + (2\alpha + \beta)x^2 + (2\alpha + \beta + \gamma)x + \beta.\]</span> Matching with <span class="math inline">\(x^3 - 2\)</span>: <span class="math inline">\(\alpha = 1\)</span>, <span class="math inline">\(2\alpha + \beta = 0\)</span> so <span class="math inline">\(\beta = -2\)</span>, and then <span class="math inline">\(\gamma = 0\)</span>; the constant term <span class="math inline">\(\beta = -2\)</span> is consistent. So <span class="math display">\[\mathrm{P}(x) = x^2 - 2x, \qquad \int \frac{x^3 - 2}{(x+1)^2}\,e^x\,\mathrm{d}x = \frac{x^2 - 2x}{x + 1}\,e^x + C. \qed\]</span> (Check by differentiating, if you like; it is a good exercise in the quotient rule.)</p>
+<h4 id="stagemark4-an-impossibility" class="stage"><span class="stage-n">Stage 4</span> An impossibility</h4>
+<p>Now suppose <span class="math inline">\(\int \frac{e^x}{x+1}\,\mathrm{d}x = \frac{\mathrm{P}}{\mathrm{Q}}e^x + C\)</span> with <span class="math inline">\(\mathrm{P}\)</span> and <span class="math inline">\(\mathrm{Q}\)</span> having no common factor. The identity becomes <span class="math display">\[(x + 1)\bigl(\mathrm{P}&#39;\mathrm{Q} - \mathrm{P}\mathrm{Q}&#39; + \mathrm{P}\mathrm{Q}\bigr) = \mathrm{Q}^2.\]</span> As in Stage 1, putting <span class="math inline">\(x = -1\)</span> shows <span class="math inline">\(\mathrm{Q}(-1) = 0\)</span>. Write <span class="math inline">\(\mathrm{Q} = (x+1)^k\mathrm{R}\)</span>, where <span class="math inline">\(k \geq 1\)</span> and <span class="math inline">\(\mathrm{R}(-1) \neq 0\)</span> (take out as many factors of <span class="math inline">\(x + 1\)</span> as possible).</p>
+<div class="pausebox">
+<p>Substitute <span class="math inline">\(\mathrm{Q} = (x+1)^k\mathrm{R}\)</span>, cancel as many factors of <span class="math inline">\((x + 1)\)</span> as you can, and then put <span class="math inline">\(x = -1\)</span>. What do you learn about <span class="math inline">\(\mathrm{P}(-1)\)</span>?</p>
+</div>
+<p>Then <span class="math inline">\(\mathrm{Q}&#39; = k(x+1)^{k-1}\mathrm{R} + (x+1)^k\mathrm{R}&#39;\)</span>, and <span class="math display">\[\mathrm{P}&#39;\mathrm{Q} - \mathrm{P}\mathrm{Q}&#39; + \mathrm{P}\mathrm{Q} = (x+1)^{k-1}\Bigl[(x+1)\bigl(\mathrm{P}&#39;\mathrm{R} - \mathrm{P}\mathrm{R}&#39; + \mathrm{P}\mathrm{R}\bigr) - k\mathrm{P}\mathrm{R}\Bigr].\]</span> So the identity reads <span class="math inline">\((x+1)^k\bigl[(x+1)(\mathrm{P}&#39;\mathrm{R} - \mathrm{P}\mathrm{R}&#39; + \mathrm{P}\mathrm{R}) - k\mathrm{P}\mathrm{R}\bigr] = (x+1)^{2k}\mathrm{R}^2\)</span>. Dividing by <span class="math inline">\((x+1)^k\)</span>: <span class="math display">\[(x+1)\bigl(\mathrm{P}&#39;\mathrm{R} - \mathrm{P}\mathrm{R}&#39; + \mathrm{P}\mathrm{R}\bigr) - k\mathrm{P}\mathrm{R} = (x+1)^k\mathrm{R}^2.\]</span> At <span class="math inline">\(x = -1\)</span>, since <span class="math inline">\(k \geq 1\)</span>, this gives <span class="math inline">\(-k\,\mathrm{P}(-1)\mathrm{R}(-1) = 0\)</span>. As <span class="math inline">\(k \neq 0\)</span> and <span class="math inline">\(\mathrm{R}(-1) \neq 0\)</span>, we must have <span class="math inline">\(\mathrm{P}(-1) = 0\)</span>. But then <span class="math inline">\(x + 1\)</span> divides both <span class="math inline">\(\mathrm{P}\)</span> and <span class="math inline">\(\mathrm{Q}\)</span>, contradicting the assumption that they have no common factor. So no such <span class="math inline">\(\mathrm{P}\)</span> and <span class="math inline">\(\mathrm{Q}\)</span> exist.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Translate into algebra.</strong> “Can this be integrated in this form?” became “does this polynomial identity have a solution?”</p></li>
+<li><p><strong>Evaluate at a special point.</strong> Putting <span class="math inline">\(x = -1\)</span> extracted information about factors, three times.</p></li>
+<li><p><strong>Proof by contradiction, using lowest terms.</strong> As with <span class="math inline">\(\sqrt2\)</span> in <a href="../ch01/well-ordering.html">Section 1.3</a>, assuming the fraction is in lowest terms and finding a common factor gave the contradiction.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Poles and logarithms</div>
+<p>There is a simple picture behind part (ii). The integrand <span class="math inline">\(\frac{e^x}{x+1}\)</span> has a <em>simple pole</em> at <span class="math inline">\(x = -1\)</span>: near there it behaves like <span class="math inline">\(\frac{e^{-1}}{x+1}\)</span>. Integrating <span class="math inline">\(\frac{1}{x+1}\)</span> gives <span class="math inline">\(\ln|x+1|\)</span>, so the antiderivative should behave like <span class="math inline">\(e^{-1}\ln|x+1|\)</span> near <span class="math inline">\(-1\)</span>, growing to <span class="math inline">\(-\infty\)</span> logarithmically (Figure 4.6.1). But a rational function times <span class="math inline">\(e^x\)</span> can only blow up like a power <span class="math inline">\((x+1)^{-k}\)</span>, and its derivative then has a pole of order <span class="math inline">\(k + 1 \geq 2\)</span>, never a simple pole. Logarithmic behaviour cannot be produced by rational functions; the algebra in Stage 4 is a rigorous version of this observation. In part (i), by contrast, the integrand has a <em>double</em> pole, which is exactly what the derivative of something with a simple pole looks like, so a rational answer was possible.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-4-6-1.svg" alt="Figure 4.6.1"><figcaption><span class="fig-label">Figure 4.6.1</span> The integrand <span class="math inline">\(\frac{e^x}{x+1}\)</span> (amber) has a simple pole at <span class="math inline">\(x = -1\)</span>. Its antiderivative (teal, computed numerically) exists perfectly well, but it tends to <span class="math inline">\(-\infty\)</span> <em>logarithmically</em> as <span class="math inline">\(x \to -1^+\)</span>, like <span class="math inline">\(e^{-1}\ln(x+1)\)</span>. No rational function times <span class="math inline">\(e^x\)</span> can behave like that.</figcaption></figure>
+<h3 id="liouville-and-the-risch-algorithm">Liouville and the Risch algorithm</h3>
+<p>In the 1830s Joseph Liouville developed a theory of which integrals can be expressed in terms of <em>elementary functions</em> (those built from polynomials, exponentials, logarithms, roots and trigonometric functions by the usual operations). One of his results says that <span class="math inline">\(\int \mathrm{f}(x)e^{\mathrm{g}(x)}\,\mathrm{d}x\)</span>, with <span class="math inline">\(\mathrm{f}\)</span> and <span class="math inline">\(\mathrm{g}\)</span> rational, is elementary only if it equals <span class="math inline">\(\mathrm{R}(x)e^{\mathrm{g}(x)}\)</span> for some rational <span class="math inline">\(\mathrm{R}\)</span>. So this question, which rules out the rational form, actually proves that <span class="math inline">\(\int \frac{e^x}{x+1}\,\mathrm{d}x\)</span> is not elementary at all. The same theorem shows that <span class="math inline">\(\int e^{-x^2}\,\mathrm{d}x\)</span> and <span class="math inline">\(\int \frac{\sin x}{x}\,\mathrm{d}x\)</span> are not elementary. In 1969 Robert Risch turned Liouville’s ideas into an algorithm that decides, for a large class of functions, whether an elementary integral exists and finds it if it does. Versions of it run inside computer algebra systems.</p>
+<h3 id="special-functions">Special functions</h3>
+<p>When an integral has no elementary form, mathematicians give it a name and study it as a new function, just as we did with the Lambert W function in <a href="../ch03/lambert-w.html">Section 3.9</a>. The integral here is essentially the <em>exponential integral</em> <span class="math inline">\(\mathrm{Ei}(x) = \int_{-\infty}^x \frac{e^t}{t}\,\mathrm{d}t\)</span>, which appears in heat flow and in the <em>logarithmic integral</em> <span class="math inline">\(\mathrm{li}(x) = \mathrm{Ei}(\ln x)\)</span>, the best simple approximation to the number of primes up to <span class="math inline">\(x\)</span> (<a href="../ch01/prime-distribution.html">Section 1.2</a>).</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Proving impossibility</div>
+<p><em>To show something cannot be done, assume it can, translate the assumption into precise algebra, and derive a contradiction.</em></p>
+<p>The hard part is the translation: finding a precise statement of what “can be done” means. Here it meant “there are polynomials <span class="math inline">\(\mathrm{P}\)</span>, <span class="math inline">\(\mathrm{Q}\)</span> with no common factor satisfying this identity”. Many of the deepest results in mathematics are impossibility proofs of this kind.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Two that work.</strong> Show that <span class="math inline">\(\displaystyle\int \frac{x e^x}{(x+1)^2}\,\mathrm{d}x = \frac{e^x}{x+1} + C\)</span> and <span class="math inline">\(\displaystyle\int \frac{(x^2 + 1)e^x}{(x+1)^2}\,\mathrm{d}x = \frac{x - 1}{x + 1}\,e^x + C\)</span>.</p></li>
+<li><p><strong>The Gaussian.</strong> Show that there is no polynomial <span class="math inline">\(\mathrm{P}\)</span> with <span class="math inline">\(\displaystyle\int e^{-x^2}\,\mathrm{d}x = \mathrm{P}(x)e^{-x^2} + C\)</span>. (<em>Hint:</em> differentiate and compare degrees.)</p></li>
+<li><p><strong>Another pole.</strong> Adapt the argument of part (ii) to show that <span class="math inline">\(\displaystyle\int \frac{e^x}{x}\,\mathrm{d}x\)</span> is not of the form <span class="math inline">\(\frac{\mathrm{P}(x)}{\mathrm{Q}(x)}e^x + C\)</span>.</p></li>
+<li><p><strong>When is it possible?</strong> Suppose <span class="math inline">\(\mathrm{f}\)</span> is a polynomial and <span class="math inline">\(\displaystyle\int \frac{\mathrm{f}(x)}{(x+1)^2}\,e^x\,\mathrm{d}x = \frac{\mathrm{P}(x)}{x+1}\,e^x + C\)</span> for some polynomial <span class="math inline">\(\mathrm{P}\)</span>. Show that <span class="math inline">\((x+1)\mathrm{P}&#39; + x\mathrm{P} = \mathrm{f}\)</span>, and by evaluating this and its derivative at <span class="math inline">\(x = -1\)</span>, show that <span class="math inline">\(\mathrm{f}(-1) + \mathrm{f}&#39;(-1) = 0\)</span>. Check that this condition holds for <span class="math inline">\(\mathrm{f}(x) = x^3 - 2\)</span> and for the examples in exercise 1. <span class="hard">harder</span> Can you show that the condition is also sufficient?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Brian Conrad, “Impossibility theorems for elementary integration”</strong>. Freely available lecture notes explaining Liouville’s theorem with examples.</p></li>
+<li><p><strong>Elena Anne Marchisotto &amp; Gholam-Ali Zakeri, “An invitation to integration in finite terms”</strong>, <em>The College Mathematics Journal</em> 25 (1994). A gentle introduction to Liouville’s theory.</p></li>
+<li><p><strong>Manuel Bronstein, <em>Symbolic Integration I</em></strong> (Springer). How computer algebra systems actually integrate. Advanced.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="sophomores-dream.html">← 4.5 The Sophomore&#x27;s Dream</a><a class="next" href="variations.html">→ 4.7 The Calculus of Variations</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

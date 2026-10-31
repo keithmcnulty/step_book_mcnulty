@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.9 Holditch&#x27;s Theorem — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 4 · Calculus Done Properly</a>
+    <div class="src">STEP III · 2011 · Question 5</div>
+    <div class="sec-head"><span class="sec-num">4.9</span><h1>Holditch&#x27;s Theorem</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-9-holditch.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 4</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A movable point <span class="math inline">\(P\)</span> has cartesian coordinates <span class="math inline">\((x, y)\)</span>, where <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are functions of <span class="math inline">\(t\)</span>. The polar coordinates of <span class="math inline">\(P\)</span> with respect to the origin <span class="math inline">\(O\)</span> are <span class="math inline">\(r\)</span> and <span class="math inline">\(\theta\)</span>. Starting with the expression <span class="math display">\[\tfrac12\int r^2\,\mathrm{d}\theta\]</span> for the area swept out by <span class="math inline">\(OP\)</span>, obtain the equivalent expression <span class="math display">\[\tfrac12\int\left(x\frac{\mathrm{d}y}{\mathrm{d}t} - y\frac{\mathrm{d}x}{\mathrm{d}t}\right)\mathrm{d}t. \tag{$*$}\]</span></p>
+<p>The ends of a thin straight rod <span class="math inline">\(AB\)</span> lie on a closed convex curve <span class="math inline">\(\mathcal{C}\)</span>. The point <span class="math inline">\(P\)</span> on the rod is a fixed distance <span class="math inline">\(a\)</span> from <span class="math inline">\(A\)</span> and a fixed distance <span class="math inline">\(b\)</span> from <span class="math inline">\(B\)</span>. The angle between <span class="math inline">\(AB\)</span> and the positive <span class="math inline">\(x\)</span> direction is <span class="math inline">\(t\)</span>. As <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> move anticlockwise round <span class="math inline">\(\mathcal{C}\)</span>, the angle <span class="math inline">\(t\)</span> increases from <span class="math inline">\(0\)</span> to <span class="math inline">\(2\pi\)</span> and <span class="math inline">\(P\)</span> traces a closed convex curve <span class="math inline">\(\mathcal{D}\)</span> inside <span class="math inline">\(\mathcal{C}\)</span>, with the origin <span class="math inline">\(O\)</span> lying inside <span class="math inline">\(\mathcal{D}\)</span>, as shown in the diagram.</p>
+<figure class="steppic"><img src="../assets/fig/pic-4-9-1.svg" alt="Diagram"></figure>
+<p>Let <span class="math inline">\((x, y)\)</span> be the coordinates of <span class="math inline">\(P\)</span>. Write down the coordinates of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> in terms of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and <span class="math inline">\(t\)</span>.</p>
+<p>The areas swept out by <span class="math inline">\(OA\)</span>, <span class="math inline">\(OB\)</span> and <span class="math inline">\(OP\)</span> are denoted by <span class="math inline">\([A]\)</span>, <span class="math inline">\([B]\)</span> and <span class="math inline">\([P]\)</span>, respectively. Show, using <span class="math inline">\((*)\)</span>, that <span class="math display">\[[A] = [P] + \pi a^2 - af\]</span> where <span class="math display">\[f = \tfrac12\int_0^{2\pi}\left(\left(x + \frac{\mathrm{d}y}{\mathrm{d}t}\right)\cos t + \left(y - \frac{\mathrm{d}x}{\mathrm{d}t}\right)\sin t\right)\mathrm{d}t.\]</span> Obtain a corresponding expression for <span class="math inline">\([B]\)</span> involving <span class="math inline">\(b\)</span>. Hence show that the area between the curves <span class="math inline">\(\mathcal{C}\)</span> and <span class="math inline">\(\mathcal{D}\)</span> is <span class="math inline">\(\pi ab\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Take any oval, any shape at all as long as it is convex, and slide a rod of fixed length round inside it, keeping both ends on the curve. Paint a dot on the rod, dividing it into lengths <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. As the rod goes once round, the dot traces out a smaller oval. What is the area of the ring between the two curves?</p>
+<p>The astonishing answer is <em><span class="math inline">\(\pi ab\)</span>, whatever the shape of the original curve</em>. A long thin oval, an egg, a rounded triangle: the area of the ring is always the same, and it depends only on where the dot is on the rod. The result was found in 1858 by the Reverend Hamnet Holditch, a fellow of Gonville and Caius College, Cambridge, and it is one of the most surprising theorems in elementary geometry. This question proves it with a single formula for area.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Check the theorem in the simplest case. If <span class="math inline">\(\mathcal{C}\)</span> is a circle of radius <span class="math inline">\(R\)</span>, what curve does <span class="math inline">\(P\)</span> trace, and what is the area of the ring?</p>
+</div>
+<p>By symmetry, <span class="math inline">\(P\)</span> traces a circle of some radius <span class="math inline">\(r\)</span> with the same centre. The rod <span class="math inline">\(AB\)</span> is a chord of the big circle through <span class="math inline">\(P\)</span>, and the <em>intersecting chords theorem</em> (or “power of a point”) says that for any chord through <span class="math inline">\(P\)</span>, <span class="math inline">\(PA \times PB = R^2 - r^2\)</span>. So <span class="math inline">\(ab = R^2 - r^2\)</span>, and the ring has area <span class="math inline">\(\pi R^2 - \pi r^2 = \pi ab\)</span>. The theorem says this remains true for every convex curve, not just circles.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-area-from-coordinates" class="stage"><span class="stage-n">Stage 1</span> Area from coordinates</h4>
+<div class="askyourself">
+<p>With <span class="math inline">\(x = r\cos\theta\)</span> and <span class="math inline">\(y = r\sin\theta\)</span>, all functions of <span class="math inline">\(t\)</span>, compute <span class="math inline">\(x\dot y - y\dot x\)</span>, where dots denote <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\)</span>.</p>
+</div>
+<p><span class="math inline">\(\dot x = \dot r\cos\theta - r\sin\theta\,\dot\theta\)</span> and <span class="math inline">\(\dot y = \dot r\sin\theta + r\cos\theta\,\dot\theta\)</span>. Then <span class="math display">\[x\dot y - y\dot x = r\cos\theta\,(\dot r\sin\theta + r\cos\theta\,\dot\theta) - r\sin\theta\,(\dot r\cos\theta - r\sin\theta\,\dot\theta) = r^2\dot\theta.\]</span> So <span class="math inline">\(\frac12\int r^2\,\mathrm{d}\theta = \frac12\int r^2\dot\theta\,\mathrm{d}t = \frac12\int (x\dot y - y\dot x)\,\mathrm{d}t\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>This formula needs no polar coordinates, only the cartesian position as a function of a parameter. When a point goes once anticlockwise round a closed curve enclosing <span class="math inline">\(O\)</span>, it gives the area inside the curve.</p>
+<h4 id="stagemark2-the-ends-of-the-rod" class="stage"><span class="stage-n">Stage 2</span> The ends of the rod</h4>
+<p>The rod points in the direction <span class="math inline">\((\cos t, \sin t)\)</span> from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>, with <span class="math inline">\(P\)</span> a distance <span class="math inline">\(a\)</span> from <span class="math inline">\(A\)</span> and <span class="math inline">\(b\)</span> from <span class="math inline">\(B\)</span>. So <span class="math display">\[A = (x - a\cos t,\; y - a\sin t), \qquad B = (x + b\cos t,\; y + b\sin t).\]</span></p>
+<h4 id="stagemark3-the-area-swept-by-oa" class="stage"><span class="stage-n">Stage 3</span> The area swept by <span class="math inline">\(OA\)</span></h4>
+<div class="askyourself">
+<p>Apply <span class="math inline">\((*)\)</span> to <span class="math inline">\(A\)</span>. Expand <span class="math inline">\(x_A\dot y_A - y_A\dot x_A\)</span> and sort the terms by powers of <span class="math inline">\(a\)</span>.</p>
+</div>
+<p>With <span class="math inline">\(x_A = x - a\cos t\)</span>, <span class="math inline">\(y_A = y - a\sin t\)</span>, we have <span class="math inline">\(\dot x_A = \dot x + a\sin t\)</span> and <span class="math inline">\(\dot y_A = \dot y - a\cos t\)</span>. Expanding, <span class="math display">\[\begin{aligned}
+  x_A\dot y_A - y_A\dot x_A &amp;= (x - a\cos t)(\dot y - a\cos t) - (y - a\sin t)(\dot x + a\sin t) \\
+  &amp;= (x\dot y - y\dot x) + a^2(\cos^2 t + \sin^2 t) - a\bigl[(x + \dot y)\cos t + (y - \dot x)\sin t\bigr].
+\end{aligned}\]</span> Integrating from <span class="math inline">\(0\)</span> to <span class="math inline">\(2\pi\)</span> and halving: the first term gives <span class="math inline">\([P]\)</span>, the second gives <span class="math inline">\(\frac12 a^2 \cdot 2\pi = \pi a^2\)</span>, and the third gives <span class="math inline">\(-af\)</span>. So <span class="math display">\[[A] = [P] + \pi a^2 - af. \qed\]</span></p>
+<div class="pausebox">
+<p>Now find <span class="math inline">\([B]\)</span>. (<em>Hint:</em> <span class="math inline">\(B\)</span> is obtained from the formula for <span class="math inline">\(A\)</span> by replacing <span class="math inline">\(a\)</span> with what?)</p>
+</div>
+<p><span class="math inline">\(B = (x + b\cos t, y + b\sin t)\)</span> is the formula for <span class="math inline">\(A\)</span> with <span class="math inline">\(a\)</span> replaced by <span class="math inline">\(-b\)</span>. So <span class="math display">\[[B] = [P] + \pi b^2 + bf.\]</span></p>
+<h4 id="stagemark4-eliminating-f" class="stage"><span class="stage-n">Stage 4</span> Eliminating <span class="math inline">\(f\)</span></h4>
+<div class="askyourself">
+<p>Both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> go once round the same curve <span class="math inline">\(\mathcal{C}\)</span>. What does that tell you about <span class="math inline">\([A]\)</span> and <span class="math inline">\([B]\)</span>?</p>
+</div>
+<p>Each of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> travels once anticlockwise round <span class="math inline">\(\mathcal{C}\)</span> as <span class="math inline">\(t\)</span> goes from <span class="math inline">\(0\)</span> to <span class="math inline">\(2\pi\)</span>, so <span class="math inline">\([A] = [B] = \text{area}(\mathcal{C})\)</span>. Equating the two expressions, <span class="math display">\[\pi a^2 - af = \pi b^2 + bf \quad\Longrightarrow\quad f(a + b) = \pi(a^2 - b^2) \quad\Longrightarrow\quad f = \pi(a - b).\]</span> Since <span class="math inline">\(P\)</span> goes once round <span class="math inline">\(\mathcal{D}\)</span>, <span class="math inline">\([P] = \text{area}(\mathcal{D})\)</span>, and <span class="math display">\[\text{area}(\mathcal{C}) - \text{area}(\mathcal{D}) = [A] - [P] = \pi a^2 - a\pi(a - b) = \pi ab. \qed\]</span> The mysterious quantity <span class="math inline">\(f\)</span>, which depends on the shape of the curve, was never computed: it was eliminated.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>A formula suited to the problem.</strong> The area formula <span class="math inline">\((*)\)</span> needed only coordinates as functions of a parameter, which is exactly how the rod’s motion is described.</p></li>
+<li><p><strong>Two expressions, one unknown.</strong> We could not compute <span class="math inline">\(f\)</span>, but we had two equations involving it, so we eliminated it, like solving simultaneous equations.</p></li>
+<li><p><strong>Test the special case first.</strong> The circle gave the answer <span class="math inline">\(\pi ab\)</span> before we started, and told us what to aim for.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Green’s theorem and the planimeter</div>
+<p>The formula <span class="math inline">\((*)\)</span> is a special case of <em>Green’s theorem</em>, which relates an integral round a closed curve to an integral over the region inside it. In its area form, it says that the area enclosed by a curve is <span class="math inline">\(\frac12\oint(x\,\mathrm{d}y - y\,\mathrm{d}x)\)</span>, an integral that can be computed by travelling round the boundary alone. Engineers exploited this with the <em>planimeter</em>, a mechanical instrument invented in the nineteenth century (Jakob Amsler’s 1854 design was the most successful): you trace the boundary of a shape on a map or diagram with a pointer, and a wheel records the enclosed area. Planimeters were used to measure land areas, to compute the work done in steam engines from indicator diagrams, and in many other applications, until digital methods replaced them. Holditch’s theorem is closely related: the rod is like the arm of a planimeter.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-4-9-1.svg" alt="Figure 4.9.1"><figcaption><span class="fig-label">Figure 4.9.1</span> Holditch’s theorem for an ellipse with semi-axes <span class="math inline">\(3\)</span> and <span class="math inline">\(2\)</span>, and a rod of length <span class="math inline">\(2.5\)</span> with <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(b = 1.5\)</span>. Some positions of the rod are shown (plum), with the point <span class="math inline">\(P\)</span> marked. The curve <span class="math inline">\(\mathcal{D}\)</span> traced by <span class="math inline">\(P\)</span> (amber) was computed numerically, and the shaded ring between the curves has area <span class="math inline">\(4.7124\ldots = 1.5\pi\)</span>, exactly as the theorem predicts.</figcaption></figure>
+<h3 id="the-fine-print">The fine print</h3>
+<p>Holditch stated his theorem without much care for conditions, and it needs some. The rod must be able to go all the way round with both ends on the curve, and the traced curve <span class="math inline">\(\mathcal{D}\)</span> must be a simple closed curve traced once; if the rod is too long compared with the width of <span class="math inline">\(\mathcal{C}\)</span>, <span class="math inline">\(\mathcal{D}\)</span> can cross itself, and the “area” given by the formula counts some regions twice or with a negative sign. The question avoids these difficulties by assuming <span class="math inline">\(\mathcal{D}\)</span> is a convex curve containing <span class="math inline">\(O\)</span>. Finding exactly when the theorem holds is a good example of how a beautiful idea must be made precise, a theme of Chapter 3.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Eliminate what you cannot compute</div>
+<p><em>If a quantity is too complicated to calculate, look for two different equations that contain it, and eliminate it.</em></p>
+<p>Here <span class="math inline">\(f\)</span> depended on every detail of the curve, but it appeared in the expressions for both <span class="math inline">\([A]\)</span> and <span class="math inline">\([B]\)</span>, and the fact that <span class="math inline">\([A] = [B]\)</span> removed it. The answer, <span class="math inline">\(\pi ab\)</span>, could only be independent of the curve because the curve-dependent part cancelled.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The area of an ellipse.</strong> Use <span class="math inline">\((*)\)</span> with <span class="math inline">\(x = p\cos t\)</span>, <span class="math inline">\(y = q\sin t\)</span> to show that an ellipse with semi-axes <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> has area <span class="math inline">\(\pi pq\)</span>.</p></li>
+<li><p><strong>The circle case.</strong> Prove the intersecting chords theorem: if two chords of a circle meet at <span class="math inline">\(P\)</span>, the products of the lengths of their two segments are equal. Deduce Holditch’s theorem for a circle.</p></li>
+<li><p><strong>The midpoint.</strong> Show that <span class="math inline">\(f = \pi(a - b)\)</span> means that when <span class="math inline">\(P\)</span> is the midpoint of the rod, <span class="math inline">\(f = 0\)</span>. What is the ring’s area then, in terms of the rod’s length <span class="math inline">\(L\)</span>?</p></li>
+<li><p><strong>A triangle.</strong> <span class="hard">harder</span> Use <span class="math inline">\((*)\)</span> to find the area of the triangle with vertices <span class="math inline">\((0, 0)\)</span>, <span class="math inline">\((x_1, y_1)\)</span>, <span class="math inline">\((x_2, y_2)\)</span>, traversing its boundary, and show it equals <span class="math inline">\(\frac12|x_1y_2 - x_2y_1|\)</span>. This is the start of the “shoelace formula” for the area of any polygon.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Mark Levi, <em>The Mathematical Mechanic</em></strong> (Princeton University Press). Uses physical reasoning, with rods, wheels and springs, to prove mathematical results, in the spirit of this section.</p></li>
+<li><p><strong>H. M. Schey, <em>Div, Grad, Curl, and All That</em></strong> (Norton). An informal introduction to vector calculus, including Green’s theorem.</p></li>
+<li><p><strong>Hamnet Holditch, “Geometrical theorem”</strong>, <em>Quarterly Journal of Pure and Applied Mathematics</em> 2 (1858). The original note, a single short paragraph with none of the fine print.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="spherical-loaf.html">← 4.8 Slicing a Spherical Loaf</a><a class="next" href="wrap-up.html">→ Looking back</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

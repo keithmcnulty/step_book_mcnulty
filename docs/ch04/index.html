@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 4: Calculus Done Properly — Beyond STEP</title>
+<meta name="description" content="From the definition of the integral, through integrals that prove things, to geometry and the calculus of variations.">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter</div>
+    <div class="ch-num">4</div>
+    <h1>Calculus Done Properly</h1>
+    <p class="strap">Integration is where analysis, geometry and number theory meet, and where some of the most beautiful formulas in mathematics live.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Download the whole chapter</span><span class="dl-sub">PDF, typeset for print</span></span></a>
+  </div>
+  <h2 class="contents-head">In this chapter</h2>
+  <ol class="toc"><li><a class="toc-link" href="riemann.html"><span class="toc-num">4.1</span>
+<span class="toc-title">What Is an Integral?</span>
+<span class="toc-src">STEP III 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-1-riemann.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="trig-from-integral.html"><span class="toc-num">4.2</span>
+<span class="toc-title">Building Trigonometry from an Integral</span>
+<span class="toc-src">STEP III 2017</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-2-trig-from-integral.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="twenty-two-sevenths.html"><span class="toc-num">4.3</span>
+<span class="toc-title">\(22/7\) Is Bigger Than \(\pi\)</span>
+<span class="toc-src">STEP I 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-3-twenty-two-sevenths.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wallis-beta.html"><span class="toc-num">4.4</span>
+<span class="toc-title">Wallis, Beta and the Factorial of a Half</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-4-wallis-beta.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="sophomores-dream.html"><span class="toc-num">4.5</span>
+<span class="toc-title">The Sophomore&#x27;s Dream</span>
+<span class="toc-src">STEP III 2009</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-5-sophomores-dream.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="no-formula.html"><span class="toc-num">4.6</span>
+<span class="toc-title">Integrals With No Formula</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-6-no-formula.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="variations.html"><span class="toc-num">4.7</span>
+<span class="toc-title">The Calculus of Variations</span>
+<span class="toc-src">STEP III 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-7-variations.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="spherical-loaf.html"><span class="toc-num">4.8</span>
+<span class="toc-title">Slicing a Spherical Loaf</span>
+<span class="toc-src">STEP I 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-8-spherical-loaf.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="holditch.html"><span class="toc-num">4.9</span>
+<span class="toc-title">Holditch&#x27;s Theorem</span>
+<span class="toc-src">STEP III 2011</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-9-holditch.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">Looking back: what we have learned</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">Chapter 4  \(\cdot\)  Introduction</div>
+    <h1 class="essay-title">More Than Antiderivatives</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>I turn away with fright and horror from the lamentable evil of functions which do not have derivatives.</p>
+<p class="who">— Charles Hermite, in a letter of 1893</p>
+</div>
+<p>Ask a school student what integration is, and you will probably hear “the opposite of differentiation”. That is a wonderful fact, the <em>fundamental theorem of calculus</em>, and it makes most of the integrals you meet at school routine. But it is a theorem about integrals, not a definition of them, and it hides most of what makes integration interesting.</p>
+<p>Integration is older than differentiation by about two thousand years. Archimedes found the area of a parabolic segment and the surface area of a sphere by summing thin slices, long before anyone thought of derivatives. And integration reaches places differentiation cannot. Every reasonable function can be differentiated by mechanical rules, but most functions <em>cannot</em> be integrated in a formula, which raises a natural question: when can they, and what do we do when they can’t? Integrals define new functions, prove inequalities between numbers, compute areas and volumes that have no other description, and give exact values of infinite sums and products. This chapter is about all of these.</p>
+<h3 id="what-an-integral-really-is">What an integral really is</h3>
+<p>The chapter begins at the beginning, with the definition (<a href="../ch04/riemann.html">Section 4.1</a>). An integral is a limit of sums of thin rectangles; computing even <span class="math inline">\(\int_0^a x^5\,\mathrm{d}x\)</span> from that definition, without antiderivatives, is a substantial piece of work, and it makes you appreciate the fundamental theorem. With a precise definition comes a precise question: which functions are integrable? The answer, and the problems it raised, led in the early twentieth century to Lebesgue’s theory of integration, the foundation of modern probability.</p>
+<h3 id="integrals-that-prove-things">Integrals that prove things</h3>
+<p>Some of the most surprising results in this chapter use integrals to prove facts that seem to have nothing to do with areas. A single integral of a positive function equals <span class="math inline">\(\frac{22}{7} - \pi\)</span>, which proves <span class="math inline">\(\pi &lt; \frac{22}{7}\)</span> in one line (<a href="../ch04/twenty-two-sevenths.html">Section 4.3</a>). Powers of <span class="math inline">\(\sin t\)</span> lead to Wallis’s infinite product for <span class="math inline">\(\pi\)</span> and to the value <span class="math inline">\(\left(\frac12\right)! = \frac{\sqrt\pi}{2}\)</span> (<a href="../ch04/wallis-beta.html">Section 4.4</a>). The integral of <span class="math inline">\(x^x\)</span> turns into the sum <span class="math inline">\(\sum (-1)^{n+1}n^{-n}\)</span> (<a href="../ch04/sophomores-dream.html">Section 4.5</a>). And a single integral, <span class="math inline">\(\int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span>, can be used to build trigonometry from scratch (<a href="../ch04/trig-from-integral.html">Section 4.2</a>).</p>
+<h3 id="what-you-will-meet-at-university">What you will meet at university</h3>
+<p>The first-year <em>Analysis</em> course proves the fundamental theorem of calculus properly, from the definition of the integral. Later courses build in several directions. <em>Measure theory</em> and the <em>Lebesgue integral</em> make integration work smoothly with limits and underpin probability. <em>Vector calculus</em> integrates over curves, surfaces and volumes, and Green’s and Stokes’s theorems relate them (<a href="../ch04/holditch.html">Section 4.9</a> is a taste). <em>Complex analysis</em> evaluates real integrals by detours through the complex plane. The <em>calculus of variations</em> asks which function makes an integral as small as possible (<a href="../ch04/variations.html">Section 4.7</a>), and leads to the principle of least action in physics. And <em>differential algebra</em> explains which integrals have formulas at all (<a href="../ch04/no-formula.html">Section 4.6</a>).</p>
+<h3 id="the-questions-that-run-through-this-chapter">The questions that run through this chapter</h3>
+<div class="skillbox">
+<div class="box-title">Three big questions</div>
+<ol class="arabic">
+<li><p><strong>What is an integral, and which functions have one?</strong> How does the definition as a limit of sums connect with antiderivatives?</p></li>
+<li><p><strong>What can integrals prove?</strong> How can an area tell us about <span class="math inline">\(\pi\)</span>, about factorials, about infinite sums?</p></li>
+<li><p><strong>What can we do when there is no formula?</strong> How do we know an integral has no formula, and what can we compute anyway?</p></li>
+</ol>
+</div>
+<h3 id="ideas-in-this-chapter">Ideas in this chapter</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">4.1</td>
+<td style="text-align: left;">The definition of the integral</td>
+<td style="text-align: left;">Lower and upper sums; telescoping</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.2</td>
+<td style="text-align: left;">Trigonometry from <span class="math inline">\(\int \frac{\mathrm{d}u}{1+u^2}\)</span></td>
+<td style="text-align: left;">Substitutions that preserve an integral</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.3</td>
+<td style="text-align: left;"><span class="math inline">\(\frac{22}{7} &gt; \pi\)</span></td>
+<td style="text-align: left;">An inequality as an integral of something positive</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.4</td>
+<td style="text-align: left;">Wallis and <span class="math inline">\(\left(\frac12\right)!\)</span></td>
+<td style="text-align: left;">Reduction formulae, an invariant, a squeeze</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.5</td>
+<td style="text-align: left;"><span class="math inline">\(\int_0^1 x^x\,\mathrm{d}x\)</span></td>
+<td style="text-align: left;">Series expansion and term-by-term integration</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.6</td>
+<td style="text-align: left;">Integrals with no formula</td>
+<td style="text-align: left;">Impossibility via polynomial algebra</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.7</td>
+<td style="text-align: left;">The calculus of variations</td>
+<td style="text-align: left;">Completing the square in an integral</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.8</td>
+<td style="text-align: left;">Archimedes’ hat-box theorem</td>
+<td style="text-align: left;">Simplifying an integrand reveals geometry</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.9</td>
+<td style="text-align: left;">Holditch’s theorem</td>
+<td style="text-align: left;">Area from a boundary integral; elimination</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-to-read-this-chapter">How to read this chapter</h3>
+<p>Several sections involve heavy but routine calculation: polynomial division, integration by parts, expanding products. Do these yourself, with pencil and paper, before reading the text. Then look for the idea that made the calculation work: an invariant, a symmetry, a cancellation. The calculation is what an examiner checks; the idea is what you will remember and use again.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="riemann.html">→ Begin: 4.1 What Is an Integral?</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

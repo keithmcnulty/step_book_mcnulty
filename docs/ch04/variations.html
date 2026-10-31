@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.7 The Calculus of Variations — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 4 · Calculus Done Properly</a>
+    <div class="src">STEP III · 2014 · Question 4</div>
+    <div class="sec-head"><span class="sec-num">4.7</span><h1>The Calculus of Variations</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-7-variations.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 4</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Let <span class="math display">\[I = \int_0^1 \bigl((y&#39;)^2 - y^2\bigr)\,\mathrm{d}x \qquad\text{and}\qquad I_1 = \int_0^1 (y&#39; + y\tan x)^2\,\mathrm{d}x,\]</span> where <span class="math inline">\(y\)</span> is a given function of <span class="math inline">\(x\)</span> satisfying <span class="math inline">\(y = 0\)</span> at <span class="math inline">\(x = 1\)</span>. Show that <span class="math inline">\(I - I_1 = 0\)</span> and deduce that <span class="math inline">\(I \geq 0\)</span>. Show further that <span class="math inline">\(I = 0\)</span> only if <span class="math inline">\(y = 0\)</span> for all <span class="math inline">\(x\)</span> (<span class="math inline">\(0 \leq x \leq 1\)</span>).</p></li>
+<li><p>Let <span class="math display">\[J = \int_0^1 \bigl((y&#39;)^2 - a^2y^2\bigr)\,\mathrm{d}x,\]</span> where <span class="math inline">\(a\)</span> is a given positive constant and <span class="math inline">\(y\)</span> is a given function of <span class="math inline">\(x\)</span>, not identically zero, satisfying <span class="math inline">\(y = 0\)</span> at <span class="math inline">\(x = 1\)</span>. By considering an integral of the form <span class="math display">\[\int_0^1 (y&#39; + ay\tan bx)^2\,\mathrm{d}x,\]</span> where <span class="math inline">\(b\)</span> is suitably chosen, show that <span class="math inline">\(J \geq 0\)</span>. You should state the range of values of <span class="math inline">\(a\)</span>, in the form <span class="math inline">\(a &lt; k\)</span>, for which your proof is valid.</p>
+<p>In the case <span class="math inline">\(a = k\)</span>, find a function <span class="math inline">\(y\)</span> (not everywhere zero) such that <span class="math inline">\(J = 0\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Most optimisation problems at school ask for the best <em>number</em>: the value of <span class="math inline">\(x\)</span> that maximises an area, say. The <em>calculus of variations</em> asks for the best <em>function</em>. Which curve between two points does a bead slide down fastest? What shape does a hanging chain take? Which path does light follow through a lens? In each case the quantity to be optimised is an integral, and the unknown is a whole function.</p>
+<p>This question studies the simplest interesting example. The integral <span class="math inline">\(J = \int_0^1 \bigl((y&#39;)^2 - a^2y^2\bigr)\,\mathrm{d}x\)</span> balances two competing terms: steepness pushes it up, size pushes it down. For small <span class="math inline">\(a\)</span>, steepness always wins and <span class="math inline">\(J \geq 0\)</span> for every function. But there is a critical value of <span class="math inline">\(a\)</span> at which the balance tips, and the question finds it exactly: <span class="math inline">\(a = \frac\pi2\)</span>. Where <span class="math inline">\(\pi\)</span> comes from will be the story of the section.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Why is it not obvious that <span class="math inline">\(I \geq 0\)</span>? Try <span class="math inline">\(y = 1 - x\)</span>, which satisfies <span class="math inline">\(y(1) = 0\)</span>.</p>
+</div>
+<p><span class="math inline">\(I\)</span> is a difference of two positive quantities, so it could have either sign. For <span class="math inline">\(y = 1 - x\)</span>: <span class="math inline">\(\int_0^1 1\,\mathrm{d}x = 1\)</span> and <span class="math inline">\(\int_0^1 (1-x)^2\,\mathrm{d}x = \frac13\)</span>, so <span class="math inline">\(I = \frac23 &gt; 0\)</span>. But a cleverer function might make <span class="math inline">\(\int y^2\)</span> larger relative to <span class="math inline">\(\int (y&#39;)^2\)</span>. The trick in the question is to write <span class="math inline">\(I\)</span> as an integral of a <em>square</em>, which is obviously non-negative. This is “completing the square”, for integrals.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-completing-the-square" class="stage"><span class="stage-n">Stage 1</span> Completing the square</h4>
+<p>Expanding the square in <span class="math inline">\(I_1\)</span>: <span class="math display">\[I_1 = \int_0^1 \bigl((y&#39;)^2 + 2yy&#39;\tan x + y^2\tan^2 x\bigr)\,\mathrm{d}x,\]</span> so <span class="math display">\[I - I_1 = -\int_0^1 \bigl(y^2 + y^2\tan^2 x + 2yy&#39;\tan x\bigr)\,\mathrm{d}x = -\int_0^1 \bigl(y^2\sec^2 x + 2yy&#39;\tan x\bigr)\,\mathrm{d}x.\]</span></p>
+<div class="askyourself">
+<p>The integrand <span class="math inline">\(y^2\sec^2 x + 2yy&#39;\tan x\)</span> is an exact derivative. Of what?</p>
+</div>
+<p>By the product rule, <span class="math inline">\(\dfrac{\mathrm{d}}{\mathrm{d}x}\bigl(y^2\tan x\bigr) = 2yy&#39;\tan x + y^2\sec^2 x\)</span>. So <span class="math display">\[I - I_1 = -\Bigl[y^2\tan x\Bigr]_0^1 = -\bigl(y(1)^2\tan 1 - y(0)^2\tan 0\bigr) = 0,\]</span> because <span class="math inline">\(y(1) = 0\)</span> and <span class="math inline">\(\tan 0 = 0\)</span>. So <span class="math inline">\(I = I_1 \geq 0\)</span>, being the integral of a square.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-when-is-i-0" class="stage"><span class="stage-n">Stage 2</span> When is <span class="math inline">\(I = 0\)</span>?</h4>
+<div class="askyourself">
+<p>If the integral of a continuous non-negative function is zero, what can you say about the function? So what equation must <span class="math inline">\(y\)</span> satisfy if <span class="math inline">\(I = 0\)</span>?</p>
+</div>
+<p>A continuous non-negative function with zero integral must be identically zero (if it were positive at one point, it would be positive on a small interval around it, contributing a positive amount). So <span class="math inline">\(I = 0\)</span> forces <span class="math inline">\(y&#39; + y\tan x = 0\)</span> on <span class="math inline">\([0, 1]\)</span>. Multiplying by <span class="math inline">\(\sec x\)</span>, this says <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{y}{\cos x}\right) = \frac{y&#39;\cos x + y\sin x}{\cos^2 x} = 0\)</span>, so <span class="math inline">\(y = C\cos x\)</span>. Then <span class="math inline">\(y(1) = C\cos 1 = 0\)</span>, and since <span class="math inline">\(\cos 1 \neq 0\)</span>, <span class="math inline">\(C = 0\)</span>. So <span class="math inline">\(I = 0\)</span> only if <span class="math inline">\(y \equiv 0\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-the-general-case" class="stage"><span class="stage-n">Stage 3</span> The general case</h4>
+<div class="askyourself">
+<p>Repeat Stage 1 with <span class="math inline">\(\int_0^1 (y&#39; + ay\tan bx)^2\,\mathrm{d}x\)</span>. What must <span class="math inline">\(b\)</span> be for the leftover terms to form an exact derivative?</p>
+</div>
+<p>Call this integral <span class="math inline">\(K\)</span>. Then <span class="math display">\[\begin{aligned}
+  J - K &amp;= -\int_0^1 \bigl(a^2y^2 + a^2y^2\tan^2 bx + 2ayy&#39;\tan bx\bigr)\,\mathrm{d}x \\
+  &amp;= -\int_0^1 \bigl(a^2y^2\sec^2 bx + 2ayy&#39;\tan bx\bigr)\,\mathrm{d}x.
+\end{aligned}\]</span> On the other hand <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}x}\bigl(ay^2\tan bx\bigr) = 2ayy&#39;\tan bx + ab\,y^2\sec^2 bx\)</span>. These match exactly when <span class="math inline">\(ab = a^2\)</span>, that is, <span class="math inline">\(b = a\)</span>. Then <span class="math display">\[J - K = -\Bigl[ay^2\tan ax\Bigr]_0^1 = -a\,y(1)^2\tan a = 0,\]</span> so <span class="math inline">\(J = K \geq 0\)</span>.</p>
+<div class="pausebox">
+<p>Where can this argument break down? (Look at <span class="math inline">\(\tan ax\)</span> on the interval <span class="math inline">\(0 \leq x \leq 1\)</span>.)</p>
+</div>
+<p>The argument needs <span class="math inline">\(\tan ax\)</span> to be defined and continuous for all <span class="math inline">\(x\)</span> in <span class="math inline">\([0, 1]\)</span>; otherwise <span class="math inline">\(K\)</span> might not exist and the fundamental theorem of calculus cannot be applied. As <span class="math inline">\(x\)</span> runs over <span class="math inline">\([0, 1]\)</span>, <span class="math inline">\(ax\)</span> runs over <span class="math inline">\([0, a]\)</span>, and <span class="math inline">\(\tan\)</span> is continuous there exactly when <span class="math inline">\(a &lt; \frac\pi2\)</span>. So the proof is valid for <span class="math display">\[a &lt; k = \frac\pi2. \qed\]</span></p>
+<h4 id="stagemark4-the-critical-case" class="stage"><span class="stage-n">Stage 4</span> The critical case</h4>
+<div class="askyourself">
+<p>When <span class="math inline">\(a = \frac\pi2\)</span>, the proof fails. In Stage 2, the function making <span class="math inline">\(I = 0\)</span> would have satisfied <span class="math inline">\(y&#39; + y\tan x = 0\)</span>. What is the analogous equation now, and what are its solutions?</p>
+</div>
+<p>The analogue is <span class="math inline">\(y&#39; + ay\tan ax = 0\)</span>, whose solutions are <span class="math inline">\(y = C\cos ax\)</span>. With <span class="math inline">\(a = \frac\pi2\)</span>, <span class="math inline">\(y = \cos\frac{\pi x}{2}\)</span> satisfies <span class="math inline">\(y(1) = \cos\frac\pi2 = 0\)</span>. Check directly: <span class="math display">\[\begin{aligned}
+  J &amp;= \frac{\pi^2}{4}\int_0^1 \left(\sin^2\frac{\pi x}{2} - \cos^2\frac{\pi x}{2}\right)\mathrm{d}x = -\frac{\pi^2}{4}\int_0^1 \cos\pi x\,\mathrm{d}x \\
+  &amp;= -\frac{\pi^2}{4}\left[\frac{\sin\pi x}{\pi}\right]_0^1 = 0. \qed
+\end{aligned}\]</span> So at the critical value, a non-zero function makes <span class="math inline">\(J\)</span> exactly zero.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Completing the square in an integral.</strong> Adding and subtracting an exact derivative turned <span class="math inline">\(J\)</span> into the integral of a square plus a boundary term that vanished.</p></li>
+<li><p><strong>Check where the tools fail.</strong> The method worked only while <span class="math inline">\(\tan ax\)</span> stayed finite on the interval. The point where it failed, <span class="math inline">\(a = \frac\pi2\)</span>, was exactly the critical value.</p></li>
+<li><p><strong>The extreme case solves a differential equation.</strong> The function giving <span class="math inline">\(J = 0\)</span> came from the first-order equation <span class="math inline">\(y&#39; + ay\tan ax = 0\)</span>, and it also satisfies <span class="math inline">\(y&#39;&#39; + a^2y = 0\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">The brachistochrone and the birth of a subject</div>
+<p>In 1696 Johann Bernoulli challenged the mathematicians of Europe: find the curve down which a bead slides from one point to another in the least time. Solutions came from Newton (anonymously, overnight; Bernoulli said he recognised “the lion by his claw”), Leibniz, l’Hôpital and Jakob Bernoulli. The answer is a cycloid. In the 1750s Euler and the young Joseph-Louis Lagrange turned these special tricks into a general method: if <span class="math inline">\(y\)</span> makes <span class="math inline">\(\int F(x, y, y&#39;)\,\mathrm{d}x\)</span> stationary, then <span class="math inline">\(y\)</span> satisfies the <em>Euler–Lagrange equation</em> <span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}x}\frac{\partial F}{\partial y&#39;} = \frac{\partial F}{\partial y}.\]</span> For our <span class="math inline">\(J\)</span>, <span class="math inline">\(F = (y&#39;)^2 - a^2y^2\)</span>, and the Euler–Lagrange equation is <span class="math inline">\(y&#39;&#39; + a^2y = 0\)</span>: simple harmonic motion.</p>
+</div>
+<h3 id="why-pi2">Why <span class="math inline">\(\pi/2\)</span>?</h3>
+<p>For <span class="math inline">\(a &lt; \frac\pi2\)</span>, <span class="math inline">\(J\)</span> has a minimum value of <span class="math inline">\(0\)</span>, achieved only by <span class="math inline">\(y \equiv 0\)</span>. At <span class="math inline">\(a = \frac\pi2\)</span> the minimum is still <span class="math inline">\(0\)</span> but a second function achieves it. For <span class="math inline">\(a &gt; \frac\pi2\)</span>, the same function <span class="math inline">\(y = \cos\frac{\pi x}{2}\)</span> gives <span class="math display">\[J = \frac{\pi^2}{8} - \frac{a^2}{2} &lt; 0,\]</span> and by scaling <span class="math inline">\(y\)</span> up, <span class="math inline">\(J\)</span> can be made as negative as you like: there is no minimum at all (Figure 4.7.1). The critical value is the first <span class="math inline">\(a\)</span> for which <span class="math inline">\(y&#39;&#39; + a^2y = 0\)</span> has a non-zero solution satisfying the boundary conditions (<span class="math inline">\(y(1) = 0\)</span>, and a “natural” condition <span class="math inline">\(y&#39;(0) = 0\)</span> at the free end). That is an <em>eigenvalue problem</em>, and <span class="math inline">\(a^2 = \frac{\pi^2}{4}\)</span> is its smallest eigenvalue. Compare <a href="../ch03/wirtinger.html">Section 3.7</a>, where pinning the function at both ends of an interval of length <span class="math inline">\(\pi\)</span> gave critical value <span class="math inline">\(1\)</span>; here the interval has length <span class="math inline">\(1\)</span> and only one end is pinned, which is like half of an interval of length <span class="math inline">\(2\)</span>, so the critical <span class="math inline">\(a\)</span> is <span class="math inline">\(\frac{\pi}{2}\)</span>.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-7-1.svg" alt="Figure 4.7.1"><figcaption><span class="fig-label">Figure 4.7.1</span> The value of <span class="math inline">\(J\)</span> against <span class="math inline">\(a\)</span> for two test functions with <span class="math inline">\(y(1) = 0\)</span>. For <span class="math inline">\(y = 1 - x\)</span>, <span class="math inline">\(J = 1 - \frac{a^2}{3}\)</span> becomes negative only when <span class="math inline">\(a &gt; \sqrt3\)</span>. For <span class="math inline">\(y = \cos\frac{\pi x}{2}\)</span>, <span class="math inline">\(J = \frac{\pi^2}{8} - \frac{a^2}{2}\)</span> becomes negative as soon as <span class="math inline">\(a &gt; \frac\pi2\)</span>, and no function does better: for <span class="math inline">\(a &lt; \frac\pi2\)</span>, <span class="math inline">\(J \geq 0\)</span> for every <span class="math inline">\(y\)</span>.</figcaption></figure>
+<h3 id="physics-and-the-principle-of-least-action">Physics and the principle of least action</h3>
+<p>The calculus of variations turned out to describe nature itself. In the eighteenth and nineteenth centuries it emerged that the laws of motion can be stated as: a mechanical system moves so as to make an integral called the <em>action</em> stationary. Light, similarly, travels along the path of least time (Fermat’s principle), which explains refraction. In the twentieth century the same idea became the foundation of quantum mechanics, through Richard Feynman’s “sum over paths”. The quadratic integrals in this question are the simplest examples, and the eigenvalue problem they lead to reappears as the energy levels of a quantum oscillator in Section 8.6.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Complete the square, then mind the boundary</div>
+<p><em>To show a quadratic expression is non-negative, write it as a square plus something you can control. For integrals, the “something” is often an exact derivative, which integrates to boundary terms.</em></p>
+<p>And always ask where the method stops working. The point of failure here was not an accident; it was the most important number in the problem.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Beyond the critical value.</strong> Show that if <span class="math inline">\(a &gt; \frac\pi2\)</span> then <span class="math inline">\(y = \cos\frac{\pi x}{2}\)</span> gives <span class="math inline">\(J &lt; 0\)</span>.</p></li>
+<li><p><strong>The Euler–Lagrange equation.</strong> <span class="hard">harder</span> Suppose <span class="math inline">\(y\)</span> minimises <span class="math inline">\(J\)</span> among functions with <span class="math inline">\(y(1) = 0\)</span>. For any function <span class="math inline">\(\eta\)</span> with <span class="math inline">\(\eta(1) = 0\)</span> and any number <span class="math inline">\(\varepsilon\)</span>, <span class="math inline">\(J(y + \varepsilon\eta) \geq J(y)\)</span>. Expand <span class="math inline">\(J(y + \varepsilon\eta)\)</span> in powers of <span class="math inline">\(\varepsilon\)</span> and deduce that <span class="math inline">\(\int_0^1 (y&#39;\eta&#39; - a^2y\eta)\,\mathrm{d}x = 0\)</span>. Integrate by parts to show that <span class="math inline">\(y&#39;&#39; + a^2y = 0\)</span> and <span class="math inline">\(y&#39;(0) = 0\)</span> (assuming <span class="math inline">\(y\)</span> is smooth enough).</p></li>
+<li><p><strong>A longer interval.</strong> Show by a substitution that if <span class="math inline">\(y(L) = 0\)</span>, then <span class="math inline">\(\int_0^L \bigl((y&#39;)^2 - a^2y^2\bigr)\,\mathrm{d}x \geq 0\)</span> for all <span class="math inline">\(y\)</span> exactly when <span class="math inline">\(a &lt; \frac{\pi}{2L}\)</span>.</p></li>
+<li><p><strong>The cycloid.</strong> Look up the brachistochrone problem and find the parametric equations of the cycloid. Show that a bead released from rest anywhere on an upside-down cycloid reaches the bottom in the same time (the <em>tautochrone</em> property, found by Huygens in 1659).</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Paul Nahin, <em>When Least Is Best</em></strong> (Princeton University Press). The history and mathematics of optimisation, including the brachistochrone, written for students.</p></li>
+<li><p><strong>Richard Feynman, <em>The Feynman Lectures on Physics</em></strong>, Volume II, Chapter 19 (“The principle of least action”). Free online.</p></li>
+<li><p><strong>Bruce van Brunt, <em>The Calculus of Variations</em></strong> (Springer). An undergraduate textbook; the first chapters need only A-level calculus.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="no-formula.html">← 4.6 Integrals With No Formula</a><a class="next" href="spherical-loaf.html">→ 4.8 Slicing a Spherical Loaf</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
