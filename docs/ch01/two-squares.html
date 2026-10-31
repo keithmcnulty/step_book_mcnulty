@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.6 Sums of Two Squares — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 1 · Number Theory and Proof</a>
+    <div class="src">STEP II · 2023 · Question 7</div>
+    <div class="sec-head"><span class="sec-num">1.6</span><h1>Sums of Two Squares</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-6-two-squares.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 1</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>The complex numbers <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> have real and imaginary parts given by <span class="math inline">\(z = a + \mathrm{i}b\)</span> and <span class="math inline">\(w = c + \mathrm{i}d\)</span>. Prove that <span class="math inline">\(|zw| = |z||w|\)</span>.</p></li>
+<li><p>By considering the complex numbers <span class="math inline">\(2 + \mathrm{i}\)</span> and <span class="math inline">\(10 + 11\mathrm{i}\)</span>, find positive integers <span class="math inline">\(h\)</span> and <span class="math inline">\(k\)</span> such that <span class="math inline">\(h^2 + k^2 = 5 \times 221\)</span>.</p></li>
+<li><p>Find positive integers <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> such that <span class="math inline">\(m^2 + n^2 = 8045\)</span>.</p></li>
+<li><p>You are given that <span class="math inline">\(102^2 + 201^2 = 50805\)</span>. Find positive integers <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> such that <span class="math inline">\(p^2 + q^2 = 36 \times 50805\)</span>.</p></li>
+<li><p>Find three distinct pairs of positive integers <span class="math inline">\(r\)</span> and <span class="math inline">\(s\)</span> such that <span class="math inline">\(r^2 + s^2 = 25 \times 1002082\)</span> and <span class="math inline">\(r &lt; s\)</span>.</p></li>
+<li><p>You are given that <span class="math inline">\(109 \times 9193 = 1002037\)</span>. Find positive integers <span class="math inline">\(t\)</span> and <span class="math inline">\(u\)</span> such that <span class="math inline">\(t^2 + u^2 = 9193\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Which whole numbers can be written as the sum of two squares? <span class="math inline">\(5 = 1^2 + 2^2\)</span> and <span class="math inline">\(13 = 2^2 + 3^2\)</span> can, but <span class="math inline">\(3\)</span>, <span class="math inline">\(7\)</span> and <span class="math inline">\(21\)</span> can’t. Here is a strange fact: <span class="math inline">\(65 = 5 \times 13\)</span> can be written as a sum of two squares in <em>two</em> different ways, <span class="math inline">\(1^2 + 8^2\)</span> and <span class="math inline">\(4^2 + 7^2\)</span>. Why should multiplying two such numbers give another, and why in two ways?</p>
+<p>The answer comes from an unexpected direction. The question asks you to leave the whole numbers behind and work with <em>complex</em> numbers. In the complex numbers, sums of two squares become simple, and some baffling-looking arithmetic becomes almost mechanical.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>If <span class="math inline">\(z = a + \mathrm{i}b\)</span> with <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> integers, what is <span class="math inline">\(|z|^2\)</span>?</p>
+</div>
+<p>It is <span class="math inline">\(a^2 + b^2\)</span>, a sum of two squares. So “<span class="math inline">\(N\)</span> is a sum of two squares” means exactly “<span class="math inline">\(N = |z|^2\)</span> for some complex number <span class="math inline">\(z\)</span> with integer real and imaginary parts”. Complex numbers like this are called <em>Gaussian integers</em>. Hold on to that translation; the whole question depends on it.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-moduli-multiply" class="stage"><span class="stage-n">Stage 1</span> Moduli multiply</h4>
+<div class="askyourself">
+<p>Write out <span class="math inline">\(zw\)</span> in terms of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, <span class="math inline">\(d\)</span>. What do you need to show about <span class="math inline">\(|zw|^2\)</span>?</p>
+</div>
+<p>We have <span class="math inline">\(zw = (ac - bd) + \mathrm{i}(ad + bc)\)</span>, so <span class="math display">\[|zw|^2 = (ac - bd)^2 + (ad + bc)^2 = a^2c^2 + b^2d^2 + a^2d^2 + b^2c^2,\]</span> because the cross terms <span class="math inline">\(-2abcd\)</span> and <span class="math inline">\(+2abcd\)</span> cancel. And this factorises: <span class="math display">\[a^2c^2 + b^2d^2 + a^2d^2 + b^2c^2 = (a^2 + b^2)(c^2 + d^2) = |z|^2|w|^2.\]</span> Taking square roots, <span class="math inline">\(|zw| = |z||w|\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Now read this as a statement about whole numbers: <span class="math display">\[(a^2 + b^2)(c^2 + d^2) = (ac - bd)^2 + (ad + bc)^2. \tag{$\star$}\]</span> <em>The product of two sums of two squares is a sum of two squares</em>, and the complex numbers tell you exactly what the two squares are.</p>
+<h4 id="stagemark2-using-it" class="stage"><span class="stage-n">Stage 2</span> Using it</h4>
+<p>Part (ii): <span class="math inline">\(5 = |2 + \mathrm{i}|^2\)</span> and <span class="math inline">\(221 = 10^2 + 11^2 = |10 + 11\mathrm{i}|^2\)</span>. So multiply: <span class="math display">\[(2 + \mathrm{i})(10 + 11\mathrm{i}) = 20 + 22\mathrm{i} + 10\mathrm{i} - 11 = 9 + 32\mathrm{i},\]</span> giving <span class="math inline">\(5 \times 221 = 9^2 + 32^2\)</span>. (Check: <span class="math inline">\(81 + 1024 = 1105\)</span>.)</p>
+<div class="askyourself">
+<p>What happens if you multiply <span class="math inline">\(10 + 11\mathrm{i}\)</span> by <span class="math inline">\(2 - \mathrm{i}\)</span> instead? It has the same modulus as <span class="math inline">\(2 + \mathrm{i}\)</span>.</p>
+</div>
+<p><span class="math inline">\((2 - \mathrm{i})(10 + 11\mathrm{i}) = 20 + 22\mathrm{i} - 10\mathrm{i} + 11 = 31 + 12\mathrm{i}\)</span>, so also <span class="math inline">\(1105 = 31^2 + 12^2\)</span>. Choosing <span class="math inline">\(2 + \mathrm{i}\)</span> or its conjugate gives <em>different</em> representations. That explains the two ways of writing <span class="math inline">\(65\)</span> in the hook (Figure 1.3): <span class="math inline">\(65 = |(2+\mathrm{i})(3+2\mathrm{i})|^2 = |4 + 7\mathrm{i}|^2\)</span> and <span class="math inline">\(65 = |(2-\mathrm{i})(3+2\mathrm{i})|^2 = |8 + \mathrm{i}|^2\)</span>.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-3.svg" alt="Figure 1.3"><figcaption><span class="fig-label">Figure 1.3</span> Multiplying by <span class="math inline">\(2 \pm \mathrm{i}\)</span> scales lengths by <span class="math inline">\(\sqrt5\)</span> and rotates by about <span class="math inline">\(26.6^\circ\)</span>, anticlockwise for <span class="math inline">\(2+\mathrm{i}\)</span> and clockwise for <span class="math inline">\(2-\mathrm{i}\)</span>. Starting from <span class="math inline">\(3 + 2\mathrm{i}\)</span> on the circle <span class="math inline">\(|z|^2 = 13\)</span>, the two choices land on different lattice points of the circle <span class="math inline">\(|z|^2 = 65\)</span>. The grey points are their reflections in the line <span class="math inline">\(y = x\)</span>.</figcaption></figure>
+<h4 id="stagemark3-factorise-first" class="stage"><span class="stage-n">Stage 3</span> Factorise first</h4>
+<div class="askyourself">
+<p><span class="math inline">\(8045\)</span> ends in <span class="math inline">\(5\)</span>. What does that suggest?</p>
+</div>
+<p><span class="math inline">\(8045 = 5 \times 1609\)</span>. We need <span class="math inline">\(1609\)</span> as a sum of two squares; trying squares just below <span class="math inline">\(1609\)</span> quickly finds <span class="math inline">\(1609 = 40^2 + 3^2\)</span>. Then <span class="math display">\[(2 + \mathrm{i})(40 + 3\mathrm{i}) = 77 + 46\mathrm{i}, \qquad\text{so}\qquad 8045 = 77^2 + 46^2,\]</span> and the conjugate gives <span class="math inline">\(8045 = 83^2 + 34^2\)</span> as well.</p>
+<p>Part (iv) is quicker: <span class="math inline">\(36 = 6^2 + 0^2\)</span>, and multiplying by <span class="math inline">\(6\)</span> just scales: <span class="math inline">\(36 \times 50805 = 612^2 + 1206^2\)</span>.</p>
+<h4 id="stagemark4-three-ways" class="stage"><span class="stage-n">Stage 4</span> Three ways</h4>
+<div class="askyourself">
+<p><span class="math inline">\(25\)</span> can be written as a sum of two squares in more than one way. How many Gaussian integers have modulus <span class="math inline">\(5\)</span>, up to signs and swapping?</p>
+</div>
+<p><span class="math inline">\(25 = 5^2 + 0^2 = 3^2 + 4^2\)</span>, corresponding to <span class="math inline">\(5\)</span>, <span class="math inline">\(3 + 4\mathrm{i}\)</span> and <span class="math inline">\(3 - 4\mathrm{i}\)</span>. Next, <span class="math inline">\(1002082\)</span>: since <span class="math inline">\(1001^2 = 1002001\)</span>, we have <span class="math inline">\(1002082 = 1001^2 + 9^2\)</span>. Multiplying <span class="math inline">\(1001 + 9\mathrm{i}\)</span> by each of the three gives: <span class="math display">\[\begin{aligned}
+  5\,(1001 + 9\mathrm{i}) &amp;= 5005 + 45\mathrm{i}, \\
+  (3 + 4\mathrm{i})(1001 + 9\mathrm{i}) &amp;= 2967 + 4031\mathrm{i}, \\
+  (3 - 4\mathrm{i})(1001 + 9\mathrm{i}) &amp;= 3039 - 3977\mathrm{i}.
+\end{aligned}\]</span> So the three pairs <span class="math inline">\((r, s)\)</span> are <span class="math inline">\((45, 5005)\)</span>, <span class="math inline">\((2967, 4031)\)</span> and <span class="math inline">\((3039, 3977)\)</span>.</p>
+<h4 id="stagemark5-dividing" class="stage"><span class="stage-n">Stage 5</span> Dividing</h4>
+<div class="pausebox">
+<p>Part (vi) runs the machine backwards. We know <span class="math inline">\(109 = 10^2 + 3^2\)</span> and <span class="math inline">\(1002037 = 1001^2 + 6^2\)</span>. How might you find <span class="math inline">\(9193\)</span> as a sum of two squares, without searching?</p>
+</div>
+<p>If multiplying Gaussian integers multiplies moduli, then <em>dividing</em> should divide them. Try <span class="math display">\[\frac{1001 + 6\mathrm{i}}{10 + 3\mathrm{i}} = \frac{(1001 + 6\mathrm{i})(10 - 3\mathrm{i})}{109} = \frac{10028 - 2943\mathrm{i}}{109} = 92 - 27\mathrm{i}.\]</span> It divides exactly, so <span class="math inline">\(9193 = 92^2 + 27^2\)</span>. (Check: <span class="math inline">\(8464 + 729 = 9193\)</span>.)</p>
+<div class="askyourself">
+<p>What happens if you divide by <span class="math inline">\(10 - 3\mathrm{i}\)</span> instead?</p>
+</div>
+<p>You get <span class="math inline">\((1001 + 6\mathrm{i})(10 + 3\mathrm{i})/109 = (9992 + 3063\mathrm{i})/109\)</span>, which is <em>not</em> a Gaussian integer, since <span class="math inline">\(9992/109\)</span> isn’t a whole number. Only one of the two “factors of <span class="math inline">\(109\)</span>” divides <span class="math inline">\(1001 + 6\mathrm{i}\)</span>, just as only some primes divide a given whole number. The Gaussian integers have their own primes and their own factorisations.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Translate, solve, translate back.</strong> “Sum of two squares” became “modulus squared of a Gaussian integer”. In that language the problem was easy.</p></li>
+<li><p><strong>Factorise first.</strong> Every part began by breaking a big number into smaller ones whose representations were easy to find.</p></li>
+<li><p><strong>Conjugates give new answers.</strong> The number of representations depends on how many ways there are to choose a factor or its conjugate.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Fermat’s two-squares theorem</div>
+<p>Which primes are sums of two squares? <span class="math inline">\(2 = 1^2 + 1^2\)</span>, <span class="math inline">\(5\)</span>, <span class="math inline">\(13\)</span>, <span class="math inline">\(17\)</span>, <span class="math inline">\(29\)</span>, <span class="math inline">\(37\)</span>, <span class="math inline">\(41\)</span> are; <span class="math inline">\(3\)</span>, <span class="math inline">\(7\)</span>, <span class="math inline">\(11\)</span>, <span class="math inline">\(19\)</span>, <span class="math inline">\(23\)</span>, <span class="math inline">\(31\)</span> are not. The pattern: apart from <span class="math inline">\(2\)</span>, a prime is a sum of two squares exactly when it leaves remainder <span class="math inline">\(1\)</span> on division by <span class="math inline">\(4\)</span>. Fermat stated this in 1640; Euler proved it in 1749. In the language of Gaussian integers it says: a prime <span class="math inline">\(p \equiv 1 \pmod 4\)</span> <em>splits</em> as <span class="math inline">\(p = (a + b\mathrm{i})(a - b\mathrm{i})\)</span>, while a prime <span class="math inline">\(p \equiv 3 \pmod 4\)</span> stays prime. For example, <span class="math inline">\(5 = (2 + \mathrm{i})(2 - \mathrm{i})\)</span>, but <span class="math inline">\(3\)</span> cannot be factorised at all.</p>
+<p>In 1990 Don Zagier published a proof of the two-squares theorem that is famously one sentence long. It appears, with explanation, in <em>Proofs from THE BOOK</em>.</p>
+</div>
+<h3 id="a-new-number-system-with-its-own-primes">A new number system with its own primes</h3>
+<p>Gauss realised that the Gaussian integers behave remarkably like the ordinary integers. There is a division algorithm and a Euclidean algorithm, and every Gaussian integer factorises <em>uniquely</em> into Gaussian primes (up to multiplying by <span class="math inline">\(\pm1\)</span> or <span class="math inline">\(\pm\mathrm{i}\)</span>). Combined with <span class="math inline">\((\star)\)</span>, this lets you count exactly how many ways a number can be written as a sum of two squares, just from its prime factorisation.</p>
+<p>At university this is the gateway to <em>algebraic number theory</em>: studying number systems such as <span class="math inline">\(\mathbb{Z}[\mathrm{i}]\)</span> or <span class="math inline">\(\mathbb{Z}[\sqrt{-5}]\)</span> in order to understand ordinary whole numbers. <a href="../ch01/factorisation-fails.html">Section 1.7</a> shows why the subject needed to be invented: not every such system is as well behaved as the Gaussian integers.</p>
+<h3 id="four-squares-and-beyond">Four squares and beyond</h3>
+<p>Every positive integer is a sum of <em>four</em> squares (Lagrange, 1770). The proof relies on a four-square version of <span class="math inline">\((\star)\)</span>, which comes from Hamilton’s <em>quaternions</em> in the same way that <span class="math inline">\((\star)\)</span> comes from complex numbers. You will see it in Section 7.8.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Changing the setting</div>
+<p><em>A problem that is awkward in one number system may be natural in a larger one.</em></p>
+<p>Sums of two squares are awkward in the integers but simply moduli in the complex numbers. Mathematicians constantly enlarge number systems in this way: integers to rationals, rationals to reals, reals to complex numbers. Each enlargement makes some old problems easy.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>An obstruction.</strong> Show that no number of the form <span class="math inline">\(4k + 3\)</span> is a sum of two squares. (What are the squares modulo <span class="math inline">\(4\)</span>?)</p></li>
+<li><p><strong>Two ways.</strong> Write <span class="math inline">\(65\)</span> and <span class="math inline">\(85\)</span> each as a sum of two squares in two different ways, and explain your answers using Gaussian integers.</p></li>
+<li><p><strong>Four ways.</strong> <span class="math inline">\(1105 = 5 \times 13 \times 17\)</span>. Find four different ways to write <span class="math inline">\(1105\)</span> as a sum of two positive squares. Why four?</p></li>
+<li><p><strong>Gaussian primes.</strong> <span class="hard">harder</span> Show that if <span class="math inline">\(3 = (a + b\mathrm{i})(c + d\mathrm{i})\)</span> with <span class="math inline">\(a, b, c, d\)</span> integers, then one of the factors has modulus <span class="math inline">\(1\)</span>. (Take moduli squared.) This shows that <span class="math inline">\(3\)</span> is a Gaussian prime.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>John Stillwell, <em>Elements of Number Theory</em></strong> (Springer). Builds up to Gaussian integers and beyond, with history.</p></li>
+<li><p><strong>Aigner &amp; Ziegler, <em>Proofs from THE BOOK</em></strong>, Chapter 4, “Representing numbers as sums of two squares”.</p></li>
+<li><p><strong>Joseph Silverman, <em>A Friendly Introduction to Number Theory</em></strong>, chapters on sums of squares and Gaussian integers.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="infinite-descent.html">← 1.5 Infinite Descent</a><a class="next" href="factorisation-fails.html">→ 1.7 When Factorisation Fails</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.4 e Is Irrational, and So Is e2 — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 1 · Number Theory and Proof</a>
+    <div class="src">STEP III · 2024 · Question 7</div>
+    <div class="sec-head"><span class="sec-num">1.4</span><h1>e Is Irrational, and So Is e\(^2\)</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-4-e-irrational.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 1</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<p>This section uses two questions. The first, from 1997, proves that <span class="math inline">\(e\)</span> is irrational. The second, from 2024, uses a cleverer version of the same idea to prove that <span class="math inline">\(e^2\)</span> is irrational, which turns out to be genuinely harder.</p>
+<div class="stepquestion">
+<div class="box-title">Warm-up: STEP III 1997, Question 7</div>
+<p>For each positive integer <span class="math inline">\(n\)</span>, let <span class="math display">\[\begin{aligned}
+  a_n &amp;= \frac{1}{n+1} + \frac{1}{(n+1)(n+2)} + \frac{1}{(n+1)(n+2)(n+3)} + \cdots, \\
+  b_n &amp;= \frac{1}{n+1} + \frac{1}{(n+1)^2} + \frac{1}{(n+1)^3} + \cdots.
+\end{aligned}\]</span></p>
+<ol class="roman">
+<li><p>Evaluate <span class="math inline">\(b_n\)</span>.</p></li>
+<li><p>Show that <span class="math inline">\(0 &lt; a_n &lt; 1/n\)</span>.</p></li>
+<li><p>Deduce that <span class="math inline">\(a_n = n!\,e - [n!\,e]\)</span> (where <span class="math inline">\([x]\)</span> is the integer part of <span class="math inline">\(x\)</span>).</p></li>
+<li><p>Hence show that <span class="math inline">\(e\)</span> is irrational.</p></li>
+</ol>
+</div>
+<div class="stepquestion">
+<div class="box-title">Main question: STEP III 2024, Question 7</div>
+<p><em>In this question, you need not consider issues of convergence.</em></p>
+<p>For positive integer <span class="math inline">\(n\)</span> let <span class="math display">\[f(n) = \frac{1}{n+1} + \frac{1}{(n+1)(n+2)} + \frac{1}{(n+1)(n+2)(n+3)} + \cdots\]</span> and <span class="math display">\[g(n) = \frac{1}{n+1} - \frac{1}{(n+1)(n+2)} + \frac{1}{(n+1)(n+2)(n+3)} - \cdots.\]</span></p>
+<ol class="roman">
+<li><p>Show, by considering a geometric series, that <span class="math inline">\(0 &lt; f(n) &lt; \dfrac1n\)</span>.</p></li>
+<li><p>Show, by comparing consecutive terms, that <span class="math inline">\(0 &lt; g(n) &lt; \dfrac{1}{n+1}\)</span>.</p></li>
+<li><p>Show, for positive integer <span class="math inline">\(n\)</span>, that <span class="math inline">\((2n)!\,e - f(2n)\)</span> and <span class="math inline">\(\dfrac{(2n)!}{e} + g(2n)\)</span> are both integers.</p></li>
+<li><p>Show that if <span class="math inline">\(qe = \dfrac{p}{e}\)</span> for some positive integers <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>, then <span class="math inline">\(q f(2n) + p g(2n)\)</span> is an integer for all positive integers <span class="math inline">\(n\)</span>.</p></li>
+<li><p>Hence show that the number <span class="math inline">\(e^2\)</span> is irrational.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>In <a href="../ch01/well-ordering.html">Section 1.3</a> we proved that <span class="math inline">\(\sqrt2\)</span> is irrational using the fact that <span class="math inline">\(\sqrt2\)</span> satisfies a simple equation, <span class="math inline">\(x^2 = 2\)</span>. But <span class="math inline">\(e\)</span> doesn’t satisfy any such equation that we know of. All we have is its series, <span class="math display">\[e = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \cdots.\]</span> How can a series tell you that a number is not a fraction?</p>
+<p>The answer is one of the most useful ideas in number theory: <em>a whole number cannot lie strictly between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span></em>. If you can show that some quantity is a whole number, and also that it is strictly between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, you have a contradiction. Everything in this section is a variation on that theme.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Suppose <span class="math inline">\(e = p/q\)</span>. Multiplying <span class="math inline">\(e\)</span> by <span class="math inline">\(q\)</span> gives an integer. What does multiplying by <span class="math inline">\(q!\)</span> do to each term of the series for <span class="math inline">\(e\)</span>?</p>
+</div>
+<p>Multiplying <span class="math inline">\(\dfrac{1}{k!}\)</span> by <span class="math inline">\(q!\)</span> gives an integer whenever <span class="math inline">\(k \leq q\)</span>. So <span class="math inline">\(q!\,e\)</span> splits into a whole-number part (the first <span class="math inline">\(q+1\)</span> terms) and a “tail” (everything after). If <span class="math inline">\(e = p/q\)</span> then <span class="math inline">\(q!\,e\)</span> is itself an integer, so the tail must be an integer too. The plan is to show the tail is strictly between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-warm-up-e-is-irrational" class="stage"><span class="stage-n">Stage 1</span> The warm-up: <span class="math inline">\(e\)</span> is irrational</h4>
+<p>The series <span class="math inline">\(b_n\)</span> is geometric with first term and ratio both <span class="math inline">\(\frac{1}{n+1}\)</span>, so <span class="math display">\[b_n = \frac{1/(n+1)}{1 - 1/(n+1)} = \frac{1}{n}.\]</span></p>
+<div class="askyourself">
+<p>Compare <span class="math inline">\(a_n\)</span> and <span class="math inline">\(b_n\)</span> term by term. Which is bigger?</p>
+</div>
+<p>The first terms are equal. After that, <span class="math inline">\((n+1)(n+2) &gt; (n+1)^2\)</span>, and in general <span class="math inline">\((n+1)(n+2)\cdots(n+k) &gt; (n+1)^k\)</span> for <span class="math inline">\(k \geq 2\)</span>, so each later term of <span class="math inline">\(a_n\)</span> is smaller than the corresponding term of <span class="math inline">\(b_n\)</span>. Hence <span class="math inline">\(0 &lt; a_n &lt; b_n = 1/n\)</span>.</p>
+<p>Now look at what <span class="math inline">\(a_n\)</span> really is. Multiply the series for <span class="math inline">\(e\)</span> by <span class="math inline">\(n!\)</span>: <span class="math display">\[n!\,e = \underbrace{\frac{n!}{0!} + \frac{n!}{1!} + \cdots + \frac{n!}{n!}}_{\text{an integer}} + \underbrace{\frac{n!}{(n+1)!} + \frac{n!}{(n+2)!} + \cdots}_{=\,a_n}.\]</span> Since <span class="math inline">\(0 &lt; a_n &lt; 1\)</span>, the integer part of <span class="math inline">\(n!\,e\)</span> is the first bracket and <span class="math inline">\(a_n\)</span> is the fractional part: <span class="math inline">\(a_n = n!\,e - [n!\,e]\)</span>.</p>
+<div class="pausebox">
+<p>Now finish the proof. Suppose <span class="math inline">\(e = p/q\)</span>. Which value of <span class="math inline">\(n\)</span> should you choose?</p>
+</div>
+<p>Take <span class="math inline">\(n = q\)</span>. Then <span class="math inline">\(q!\,e = (q-1)!\,p\)</span> is an integer, so its fractional part <span class="math inline">\(a_q\)</span> is <span class="math inline">\(0\)</span>. But <span class="math inline">\(a_q &gt; 0\)</span>. Contradiction: <span class="math inline">\(e\)</span> is irrational.<span class="qed" aria-label="end of proof">■</span></p>
+<p>This proof is due to Joseph Fourier, in about 1815.</p>
+<h4 id="stagemark2-why-e2-is-harder" class="stage"><span class="stage-n">Stage 2</span> Why <span class="math inline">\(e^2\)</span> is harder</h4>
+<div class="askyourself">
+<p>Try the same idea on <span class="math inline">\(e^2\)</span>. Its series is <span class="math inline">\(\sum 2^k/k!\)</span>. What goes wrong when you multiply by <span class="math inline">\(n!\)</span> and look at the tail?</p>
+</div>
+<p>The tail is now <span class="math inline">\(\dfrac{2^{n+1}}{n+1} + \dfrac{2^{n+2}}{(n+1)(n+2)} + \cdots\)</span>, and the powers of <span class="math inline">\(2\)</span> ruin everything: the tail is no longer small. Multiplying by <span class="math inline">\(n!\)</span> doesn’t help with the <span class="math inline">\(2^k\)</span> in the numerators.</p>
+<p>The 2024 question’s trick is to avoid <span class="math inline">\(e^2\)</span> altogether. If <span class="math inline">\(e^2 = p/q\)</span>, then <span class="math display">\[qe = \frac{p}{e}.\]</span> Now we have two numbers, <span class="math inline">\(e\)</span> and <span class="math inline">\(1/e\)</span>, each with a factorial series and no troublesome powers of <span class="math inline">\(2\)</span>: <span class="math display">\[e = \sum_{k=0}^{\infty} \frac{1}{k!}, \qquad \frac1e = \sum_{k=0}^{\infty} \frac{(-1)^k}{k!}.\]</span></p>
+<h4 id="stagemark3-the-two-tails" class="stage"><span class="stage-n">Stage 3</span> The two tails</h4>
+<p>Part (i) is exactly the warm-up: <span class="math inline">\(0 &lt; f(n) &lt; 1/n\)</span>.</p>
+<p>For part (ii), <span class="math inline">\(g(n)\)</span> is an <em>alternating</em> series whose terms decrease in size.</p>
+<div class="askyourself">
+<p>For an alternating series <span class="math inline">\(t_1 - t_2 + t_3 - \cdots\)</span> with <span class="math inline">\(t_1 &gt; t_2 &gt; t_3 &gt; \cdots &gt; 0\)</span>, why is the sum between <span class="math inline">\(0\)</span> and <span class="math inline">\(t_1\)</span>?</p>
+</div>
+<p>Group the terms in pairs: <span class="math inline">\((t_1 - t_2) + (t_3 - t_4) + \cdots\)</span> is a sum of positive brackets, so it is positive. Group them the other way: <span class="math inline">\(t_1 - (t_2 - t_3) - (t_4 - t_5) - \cdots\)</span> is <span class="math inline">\(t_1\)</span> minus positive brackets, so it is less than <span class="math inline">\(t_1\)</span>. Here <span class="math inline">\(t_1 = \frac{1}{n+1}\)</span>, and the terms decrease because each is the previous one divided by something bigger than <span class="math inline">\(1\)</span>. So <span class="math inline">\(0 &lt; g(n) &lt; \frac{1}{n+1}\)</span>.</p>
+<h4 id="stagemark4-integers-again" class="stage"><span class="stage-n">Stage 4</span> Integers again</h4>
+<p>Multiply <span class="math inline">\(e\)</span> by <span class="math inline">\((2n)!\)</span> and split off the tail, exactly as in the warm-up: <span class="math display">\[(2n)!\,e = (\text{integer}) + f(2n).\]</span> So <span class="math inline">\((2n)!\,e - f(2n)\)</span> is an integer. Now do the same for <span class="math inline">\(1/e\)</span>: <span class="math display">\[\frac{(2n)!}{e} = \sum_{k=0}^{2n} (-1)^k \frac{(2n)!}{k!} + \sum_{k=2n+1}^{\infty} (-1)^k \frac{(2n)!}{k!}.\]</span></p>
+<div class="askyourself">
+<p>What is the sign of the first term of the tail, <span class="math inline">\(k = 2n+1\)</span>? How does the tail compare with <span class="math inline">\(g(2n)\)</span>?</p>
+</div>
+<p>The first term of the tail has <span class="math inline">\(k = 2n+1\)</span>, which is odd, so it is negative. The tail is <span class="math display">\[-\frac{1}{2n+1} + \frac{1}{(2n+1)(2n+2)} - \cdots = -g(2n).\]</span> So <span class="math inline">\(\dfrac{(2n)!}{e} + g(2n)\)</span> is an integer.<span class="qed" aria-label="end of proof">■</span></p>
+<p>This is why the question uses <span class="math inline">\(2n\)</span> rather than <span class="math inline">\(n\)</span>: with an even multiplier, the tail of <span class="math inline">\(1/e\)</span> is <em>exactly</em> <span class="math inline">\(-g\)</span>, with a predictable sign.</p>
+<h4 id="stagemark5-the-contradiction" class="stage"><span class="stage-n">Stage 5</span> The contradiction</h4>
+<p>Suppose <span class="math inline">\(qe = p/e\)</span>. Multiply both sides by <span class="math inline">\((2n)!\)</span> and use Stage 4: <span class="math display">\[q\bigl(\text{integer} + f(2n)\bigr) = p\bigl(\text{integer} - g(2n)\bigr).\]</span> Rearranging, <span class="math inline">\(q f(2n) + p g(2n)\)</span> equals a combination of integers, so it is an integer. That is part (iv).</p>
+<div class="pausebox">
+<p>Now use the bounds from Stage 3. What happens to <span class="math inline">\(q f(2n) + p g(2n)\)</span> when <span class="math inline">\(n\)</span> is very large?</p>
+</div>
+<p>Both <span class="math inline">\(f(2n)\)</span> and <span class="math inline">\(g(2n)\)</span> are positive, so <span class="math inline">\(q f(2n) + p g(2n) &gt; 0\)</span>. And <span class="math display">\[q f(2n) + p g(2n) &lt; \frac{q}{2n} + \frac{p}{2n+1} &lt; \frac{p+q}{2n}.\]</span> Choose <span class="math inline">\(n &gt; (p+q)/2\)</span>. Then <span class="math inline">\(q f(2n) + p g(2n)\)</span> is an integer strictly between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. That is impossible, so <span class="math inline">\(e^2\)</span> is irrational.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>The engine is “no integer lies strictly between 0 and 1”.</strong> Both proofs build a quantity that must be an integer and then trap it.</p></li>
+<li><p><strong>Factorials make tails small.</strong> Multiplying by <span class="math inline">\(n!\)</span> turned the start of the series into integers and left a tail that shrinks like <span class="math inline">\(1/n\)</span>.</p></li>
+<li><p><strong>When a direct attack fails, rearrange.</strong> Rather than attacking <span class="math inline">\(e^2 = p/q\)</span> head-on, we rewrote it as <span class="math inline">\(qe = p/e\)</span>, which spread the difficulty across two easier numbers.</p></li>
+<li><p><strong>The details matter.</strong> The choice of <span class="math inline">\(2n\)</span> rather than <span class="math inline">\(n\)</span> fixed the sign of a tail. Many proofs hinge on a small detail like this.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">How irrational is <span class="math inline">\(e\)</span>?</div>
+<p>Joseph Liouville proved in 1840 that <span class="math inline">\(e^2\)</span> is irrational, and in fact that it doesn’t satisfy any quadratic equation with integer coefficients. In 1873 Charles Hermite went much further: he proved that <span class="math inline">\(e\)</span> is <em>transcendental</em>, meaning it is not a root of <em>any</em> polynomial with integer coefficients. His proof is a sophisticated version of exactly the argument above: build an integer, show it is strictly between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. Nine years later Ferdinand von Lindemann adapted Hermite’s method to show that <span class="math inline">\(\pi\)</span> is transcendental, finally proving that the ancient problem of “squaring the circle” with ruler and compass is impossible.</p>
+</div>
+<h3 id="what-we-still-dont-know">What we still don’t know</h3>
+<p>For all the power of these methods, embarrassingly simple questions remain open. Is <span class="math inline">\(e + \pi\)</span> irrational? Is <span class="math inline">\(e\pi\)</span>? Nobody knows, although at least one of them must be transcendental (exercise 4). Is <span class="math inline">\(\zeta(3) = 1 + \frac{1}{8} + \frac{1}{27} + \cdots\)</span> irrational? Yes: Roger Apéry astonished the mathematical world by proving it in 1978. Is <span class="math inline">\(\zeta(5)\)</span>? Nobody knows.</p>
+<h3 id="approximation">Approximation</h3>
+<p>Behind these proofs lies a deeper idea: a number is irrational if it can be approximated by fractions <em>too well</em>. The partial sums of the series for <span class="math inline">\(e\)</span> are fractions that get very close to <span class="math inline">\(e\)</span> very quickly; a fraction can’t be approximated by other fractions that well. This is the starting point of <em>Diophantine approximation</em>, a branch of number theory you can explore further in Section 2.9, where a different family of integrals produces even better fractions closing in on <span class="math inline">\(e\)</span>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Trapping an integer</div>
+<p><em>To prove a number is irrational, assume it is a fraction, build from it a quantity that must be a whole number, and show that the quantity is strictly between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</em></p>
+<p>The art lies in choosing the quantity. Here, multiplying by a factorial made most of a series into integers and left a tail that was small but positive.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Using <span class="math inline">\(1/e\)</span> alone.</strong> Prove that <span class="math inline">\(e\)</span> is irrational by supposing <span class="math inline">\(1/e = p/q\)</span> and using only the alternating series for <span class="math inline">\(1/e\)</span>.</p></li>
+<li><p><strong><span class="math inline">\(\sin 1\)</span> is irrational.</strong> Use <span class="math inline">\(\sin 1 = 1 - \dfrac{1}{3!} + \dfrac{1}{5!} - \cdots\)</span> to prove that <span class="math inline">\(\sin 1\)</span> is irrational. (Multiply by a suitable odd factorial.)</p></li>
+<li><p><strong>Why not <span class="math inline">\(\pi\)</span>?</strong> Explain why this method doesn’t work directly for <span class="math inline">\(\pi\)</span>. Then look up Ivan Niven’s one-page proof (1947) that <span class="math inline">\(\pi\)</span> is irrational, which uses an integral instead of a series. It is within reach of a strong A-level student.</p></li>
+<li><p><strong>One of them is transcendental.</strong> <span class="hard">harder</span> Show that <span class="math inline">\(e + \pi\)</span> and <span class="math inline">\(e\pi\)</span> are the roots of <span class="math inline">\(x^2 - (e+\pi)x + e\pi = 0\)</span>. You may assume that a root of a polynomial whose coefficients are algebraic numbers is itself algebraic, and that <span class="math inline">\(\pi\)</span> is not algebraic (Lindemann). Deduce that at least one of <span class="math inline">\(e + \pi\)</span> and <span class="math inline">\(e\pi\)</span> is transcendental.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Aigner &amp; Ziegler, <em>Proofs from THE BOOK</em></strong>, Chapter 8, “Some irrational numbers”. Proves that <span class="math inline">\(e\)</span>, <span class="math inline">\(e^2\)</span>, <span class="math inline">\(e^4\)</span> and <span class="math inline">\(\pi^2\)</span> are irrational, using exactly these ideas.</p></li>
+<li><p><strong>Ivan Niven, <em>Irrational Numbers</em></strong> (Mathematical Association of America). A short classic covering everything from <span class="math inline">\(\sqrt2\)</span> to transcendence.</p></li>
+<li><p><strong>Julian Havil, <em>The Irrationals</em></strong> (Princeton University Press). A readable history of irrational numbers.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="well-ordering.html">← 1.3 The Smallest Counterexample</a><a class="next" href="infinite-descent.html">→ 1.5 Infinite Descent</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

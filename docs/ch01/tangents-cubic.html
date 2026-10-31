@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.9 Tangents to a Cubic — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 1 · Number Theory and Proof</a>
+    <div class="src">STEP I · 2009 · Question 2</div>
+    <div class="sec-head"><span class="sec-num">1.9</span><h1>Tangents to a Cubic</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-9-tangents-cubic.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 1</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A curve has the equation <span class="math display">\[y^3 = x^3 + a^3 + b^3,\]</span> where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are positive constants. Show that the tangent to the curve at the point <span class="math inline">\((-a, b)\)</span> is <span class="math display">\[b^2 y - a^2 x = a^3 + b^3.\]</span> In the case <span class="math inline">\(a = 1\)</span> and <span class="math inline">\(b = 2\)</span>, show that the <span class="math inline">\(x\)</span>-coordinates of the points where the tangent meets the curve satisfy <span class="math display">\[7x^3 - 3x^2 - 27x - 17 = 0.\]</span> Hence find positive integers <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span>, <span class="math inline">\(r\)</span> and <span class="math inline">\(s\)</span> such that <span class="math display">\[p^3 = q^3 + r^3 + s^3.\]</span></p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>This looks like a routine coordinate-geometry question: differentiate, find a tangent, solve a cubic. Then the last line asks for a cube that is the sum of three other cubes, and the geometry produces one as if by magic.</p>
+<p>The trick, drawing a line through a known point on a curve to find a new point, goes back to Diophantus of Alexandria in the third century. In modern hands it became the theory of <em>elliptic curves</em>, which sits at the centre of present-day number theory, underlies the proof of Fermat’s Last Theorem, and secures a large share of the world’s internet traffic.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The point <span class="math inline">\((-a, b)\)</span> is on the curve. Why? And what does that have to do with sums of cubes?</p>
+</div>
+<p>Substitute: <span class="math inline">\((-a)^3 + a^3 + b^3 = b^3\)</span>, so yes. Points on <span class="math inline">\(y^3 = x^3 + a^3 + b^3\)</span> with <em>rational</em> coordinates are exactly what we want: if <span class="math inline">\(x = q/s&#39;\)</span> and <span class="math inline">\(y = p/s&#39;\)</span> then clearing denominators gives a relation between cubes. The plan is to start from one easy point and use the geometry to find a less obvious one.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-tangent" class="stage"><span class="stage-n">Stage 1</span> The tangent</h4>
+<p>Differentiate <span class="math inline">\(y^3 = x^3 + a^3 + b^3\)</span> implicitly: <span class="math inline">\(3y^2 \dfrac{dy}{dx} = 3x^2\)</span>, so <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{x^2}{y^2}\)</span>. At <span class="math inline">\((-a, b)\)</span> the gradient is <span class="math inline">\(a^2/b^2\)</span>, so the tangent is <span class="math display">\[y - b = \frac{a^2}{b^2}(x + a) \quad\Longrightarrow\quad b^2 y - b^3 = a^2 x + a^3 \quad\Longrightarrow\quad b^2 y - a^2 x = a^3 + b^3. \qed\]</span></p>
+<h4 id="stagemark2-where-the-tangent-meets-the-curve-again" class="stage"><span class="stage-n">Stage 2</span> Where the tangent meets the curve again</h4>
+<p>With <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(b = 2\)</span> the curve is <span class="math inline">\(y^3 = x^3 + 9\)</span> and the tangent at <span class="math inline">\((-1, 2)\)</span> is <span class="math inline">\(4y - x = 9\)</span>, that is, <span class="math inline">\(y = \dfrac{x + 9}{4}\)</span>. Substitute into the curve: <span class="math display">\[\frac{(x+9)^3}{64} = x^3 + 9 \quad\Longrightarrow\quad x^3 + 27x^2 + 243x + 729 = 64x^3 + 576,\]</span> which rearranges to <span class="math inline">\(63x^3 - 27x^2 - 243x - 153 = 0\)</span>, and dividing by <span class="math inline">\(9\)</span> gives <span class="math inline">\(7x^3 - 3x^2 - 27x - 17 = 0\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-solving-the-cubic" class="stage"><span class="stage-n">Stage 3</span> Solving the cubic</h4>
+<div class="askyourself">
+<p>You already know one root of this cubic without doing any algebra. Which one, and why should it appear <em>twice</em>?</p>
+</div>
+<p>The tangent touches the curve at <span class="math inline">\(x = -1\)</span> (Figure 1.6), and “touching” means a repeated root, just as a tangent to a parabola meets it at a double root of a quadratic. So <span class="math inline">\((x + 1)^2\)</span> should be a factor. Check: <span class="math inline">\(7(-1)^3 - 3(1) - 27(-1) - 17 = -7 - 3 + 27 - 17 = 0\)</span>, and the derivative <span class="math inline">\(21x^2 - 6x - 27\)</span> also vanishes at <span class="math inline">\(x = -1\)</span>. Dividing, <span class="math display">\[7x^3 - 3x^2 - 27x - 17 = (x+1)^2 (7x - 17).\]</span></p>
+<div class="pausebox">
+<p>So the tangent meets the curve again where <span class="math inline">\(x = \frac{17}{7}\)</span>. Find <span class="math inline">\(y\)</span>, and turn the point into a relation between cubes.</p>
+</div>
+<p><span class="math inline">\(y = \dfrac{17/7 + 9}{4} = \dfrac{80/7}{4} = \dfrac{20}{7}\)</span>. The point <span class="math inline">\(\bigl(\frac{17}{7}, \frac{20}{7}\bigr)\)</span> lies on <span class="math inline">\(y^3 = x^3 + 9\)</span>, so <span class="math display">\[\frac{20^3}{7^3} = \frac{17^3}{7^3} + 9 \quad\Longrightarrow\quad 20^3 = 17^3 + 9 \times 7^3.\]</span></p>
+<div class="askyourself">
+<p>We want <span class="math inline">\(9 \times 7^3\)</span> to be a sum of two cubes. Remember where the <span class="math inline">\(9\)</span> came from.</p>
+</div>
+<p><span class="math inline">\(9 = a^3 + b^3 = 1^3 + 2^3\)</span>, so <span class="math inline">\(9 \times 7^3 = 7^3 + 14^3\)</span>. Therefore <span class="math display">\[20^3 = 17^3 + 14^3 + 7^3.\]</span> Check: <span class="math inline">\(8000 = 4913 + 2744 + 343\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-6.svg" alt="Figure 1.6"><figcaption><span class="fig-label">Figure 1.6</span> The curve <span class="math inline">\(y^3 = x^3 + 9\)</span> (teal) approaches the line <span class="math inline">\(y = x\)</span> far from the origin. The tangent at the rational point <span class="math inline">\((-1, 2)\)</span> (amber) touches the curve there, which counts as a double intersection, and crosses it once more at another rational point, <span class="math inline">\(\bigl(\frac{17}{7}, \frac{20}{7}\bigr)\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Tangency means a double root.</strong> That turned a cubic with no obvious roots into one we could factorise immediately.</p></li>
+<li><p><strong>The new root is rational for free.</strong> Once two of the three roots are rational (here both <span class="math inline">\(-1\)</span>), the third must be too, because the sum of the roots, <span class="math inline">\(\frac{3}{7}\)</span>, is rational. This is the heart of the method.</p></li>
+<li><p><strong>Geometry produced arithmetic.</strong> We never searched for cubes; a tangent line found them.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">The chord–tangent method</div>
+<p>Take a cubic curve, such as <span class="math inline">\(y^3 = x^3 + 9\)</span> or the more standard form <span class="math inline">\(y^2 = x^3 + Ax + B\)</span>. If you know two points on it with rational coordinates, the line through them meets the curve in exactly one more point, and that point also has rational coordinates (by the argument in <em>Looking back</em>). If you know only one point, use the tangent there instead. Either way, old rational points produce new ones.</p>
+<p>Remarkably, this “chord–tangent” construction can be made into a way of <em>adding</em> points on the curve, and the rational points then form a <em>group</em>, an algebraic structure you will study in your first year. Louis Mordell proved in 1922 that this group is generated by finitely many points: all the rational points, however many there are, can be built from a finite set using chords and tangents. His proof is a version of Fermat’s descent from <a href="../ch01/infinite-descent.html">Section 1.5</a>.</p>
+</div>
+<h3 id="elliptic-curves-today">Elliptic curves today</h3>
+<p>Curves like these are called <em>elliptic curves</em> (not because they are ellipses, but because of a historical link with the arc length of an ellipse). They are everywhere in modern mathematics.</p>
+<ul>
+<li><p><strong>Fermat’s Last Theorem.</strong> In the 1980s Gerhard Frey noticed that a solution of <span class="math inline">\(x^n + y^n = z^n\)</span> would produce a very strange elliptic curve. Andrew Wiles proved in 1994 that such strange curves can’t exist, and so proved Fermat’s Last Theorem.</p></li>
+<li><p><strong>The Birch and Swinnerton-Dyer conjecture.</strong> How many generators does the group of rational points need? A conjecture made in the 1960s, using some of the earliest computer experiments in mathematics at Cambridge, predicts the answer in terms of a function built from counting points modulo primes. It is one of the seven Millennium Prize Problems.</p></li>
+<li><p><strong>Cryptography.</strong> Adding points on elliptic curves over finite number systems is easy, but undoing the addition seems to be extremely hard. That asymmetry protects much of today’s online communication.</p></li>
+</ul>
+<h3 id="sums-of-like-powers">Sums of like powers</h3>
+<p>The smallest cube that is a sum of three positive cubes is <span class="math inline">\(6^3 = 3^3 + 4^3 + 5^3\)</span>; the tangent method found <span class="math inline">\(20^3 = 7^3 + 14^3 + 17^3\)</span>, which is not a multiple of it, and repeating the method keeps producing new identities (although some involve negative numbers). How many <span class="math inline">\(k\)</span>th powers does it take to make another <span class="math inline">\(k\)</span>th power? Euler conjectured in 1769 that you need at least <span class="math inline">\(k\)</span> <span class="math inline">\(k\)</span>th powers to make another <span class="math inline">\(k\)</span>th power. For fourth and fifth powers he was wrong: in 1966 Leon Lander and Thomas Parkin found <span class="math display">\[27^5 + 84^5 + 110^5 + 133^5 = 144^5\]</span> by computer search, and in 1988 Noam Elkies used elliptic curves to find counterexamples for fourth powers.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Geometry solving arithmetic</div>
+<p><em>To find whole-number or rational solutions of an equation, think of it as a curve and look for lines through known points.</em></p>
+<p>The algebra behind it is simple: if a polynomial with rational coefficients has all but one of its roots rational, the last root is rational too. Translating between pictures and equations in this way is one of the most powerful habits a mathematician can have.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Rational points on a circle.</strong> The line through <span class="math inline">\((-1, 0)\)</span> with gradient <span class="math inline">\(t\)</span> meets the circle <span class="math inline">\(x^2 + y^2 = 1\)</span> again. Show that the other point is <span class="math inline">\(\left(\dfrac{1 - t^2}{1 + t^2}, \dfrac{2t}{1 + t^2}\right)\)</span>, and use this to produce infinitely many Pythagorean triples.</p></li>
+<li><p><strong>A chord that misses.</strong> The points <span class="math inline">\((1, 2)\)</span> and <span class="math inline">\((2, 1)\)</span> lie on <span class="math inline">\(x^3 + y^3 = 9\)</span>. Show that the line through them meets the curve in no other point. Where has the “third point” gone? (Look up the <em>point at infinity</em>.)</p></li>
+<li><p><strong>Repeat the trick.</strong> Find the tangent to <span class="math inline">\(y^3 = x^3 + 9\)</span> at <span class="math inline">\(\bigl(\frac{17}{7}, \frac{20}{7}\bigr)\)</span> and the third point where it meets the curve. (A computer algebra system helps; notice how quickly the numbers grow.)</p></li>
+<li><p><strong>Taxicab numbers.</strong> <span class="math inline">\(1729 = 1^3 + 12^3 = 9^3 + 10^3\)</span>. Find the third point where the line through <span class="math inline">\((1, 12)\)</span> and <span class="math inline">\((9, 10)\)</span> meets the curve <span class="math inline">\(x^3 + y^3 = 1729\)</span>, and deduce a new identity of the form <span class="math inline">\(p^3 = q^3 + r^3 + s^3\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Joseph Silverman &amp; John Tate, <em>Rational Points on Elliptic Curves</em></strong> (Springer). Written for undergraduates; Chapter 1 needs nothing beyond A-level.</p></li>
+<li><p><strong>Avner Ash &amp; Robert Gross, <em>Elliptic Tales</em></strong> (Princeton University Press). A popular account leading up to the Birch and Swinnerton-Dyer conjecture.</p></li>
+<li><p><strong>Simon Singh, <em>Fermat’s Last Theorem</em></strong>. How elliptic curves came to solve a 350-year-old problem.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="counting-rationals.html">← 1.8 Counting the Rationals</a><a class="next" href="wrap-up.html">→ Looking back</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

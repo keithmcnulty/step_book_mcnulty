@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.1 A Prime Factory — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 1 · Number Theory and Proof</a>
+    <div class="src">STEP II · 2002 · Question 3</div>
+    <div class="sec-head"><span class="sec-num">1.1</span><h1>A Prime Factory</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-1-fermat-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 1</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The <span class="math inline">\(n\)</span>th <em>Fermat number</em>, <span class="math inline">\(F_n\)</span>, is defined by <span class="math display">\[F_n = 2^{2^n} + 1, \qquad n = 0, 1, 2, \ldots,\]</span> where <span class="math inline">\(2^{2^n}\)</span> means <span class="math inline">\(2\)</span> raised to the power <span class="math inline">\(2^n\)</span>.</p>
+<p>Calculate <span class="math inline">\(F_0\)</span>, <span class="math inline">\(F_1\)</span>, <span class="math inline">\(F_2\)</span> and <span class="math inline">\(F_3\)</span>. Show that, for <span class="math inline">\(k = 1\)</span>, <span class="math inline">\(k = 2\)</span> and <span class="math inline">\(k = 3\)</span>, <span class="math display">\[F_0 F_1 \cdots F_{k-1} = F_k - 2. \tag{$*$}\]</span> Prove, by induction or otherwise, that <span class="math inline">\((*)\)</span> holds for all <span class="math inline">\(k \geq 1\)</span>. Deduce that no two Fermat numbers have a common factor greater than <span class="math inline">\(1\)</span>.</p>
+<p>Hence show that there are infinitely many prime numbers.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>You almost certainly already know that there are infinitely many primes. Euclid proved it around 300 BC, and it is one of the first proofs anyone meets. So why would a STEP question ask you to prove it <em>again</em>?</p>
+<p>Because this proof works in a completely different way. Euclid’s argument says: <em>give me any finite list of primes and I will show you it is incomplete.</em> This one says: <em>here is a single, explicit sequence of numbers, written down in advance, and every one of them contains a prime that none of the others contain.</em> It is a machine for manufacturing new primes, and the reason it works is a beautifully simple identity that the question walks you towards.</p>
+<p>Along the way you will meet numbers that fooled Fermat himself.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>Read the question through once and notice its shape. It has four stages:</p>
+<ol class="arabic">
+<li><p>compute some examples;</p></li>
+<li><p>spot (well, be told) a pattern, and check it on those examples;</p></li>
+<li><p>prove the pattern in general;</p></li>
+<li><p>use the pattern twice: first to deduce something about common factors, then something about primes.</p></li>
+</ol>
+<p>This “examples <span class="math inline">\(\to\)</span> conjecture <span class="math inline">\(\to\)</span> proof <span class="math inline">\(\to\)</span> consequences” structure is how a great deal of mathematics is actually done, and STEP questions often follow it. When you see it, the early parts are usually not just warm-up: they are where you build the intuition you will need later.</p>
+<div class="askyourself">
+<p>The last line asks about <em>infinitely many primes</em>. The middle asks about <em>common factors</em>. What could possibly connect “no two Fermat numbers share a factor” with “there are infinitely many primes”?</p>
+</div>
+<p>Hold on to that question. We will come back to it.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-getting-a-feel-for-the-numbers" class="stage"><span class="stage-n">Stage 1</span> Getting a feel for the numbers</h4>
+<p>Be careful with the notation: <span class="math inline">\(2^{2^n}\)</span> means <span class="math inline">\(2^{(2^n)}\)</span>, not <span class="math inline">\((2^2)^n\)</span>. The exponent is itself a power of 2, so these numbers grow <em>very</em> fast. <span class="math display">\[\begin{aligned}
+  F_0 &amp;= 2^{1} + 1 = 3, &amp;\qquad F_2 &amp;= 2^{4} + 1 = 17,\\
+  F_1 &amp;= 2^{2} + 1 = 5, &amp;\qquad F_3 &amp;= 2^{8} + 1 = 257.
+\end{aligned}\]</span></p>
+<div class="askyourself">
+<p>What do you notice about these four numbers?</p>
+</div>
+<p>They are all prime. (Check <span class="math inline">\(257\)</span>: it is not divisible by <span class="math inline">\(2, 3, 5, 7, 11\)</span> or <span class="math inline">\(13\)</span>, and <span class="math inline">\(17^2 = 289 &gt; 257\)</span>, so we can stop.) The next one, <span class="math inline">\(F_4 = 2^{16} + 1 = 65537\)</span>, is also prime. Pierre de Fermat noticed exactly this in 1640 and conjectured that <em>every</em> number of this form is prime. Keep that in mind; we will see later whether he was right.</p>
+<h4 id="stagemark2-checking-the-identity" class="stage"><span class="stage-n">Stage 2</span> Checking the identity</h4>
+<p>Now check <span class="math inline">\((*)\)</span> for small <span class="math inline">\(k\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(k = 1\)</span>: the left-hand side is just <span class="math inline">\(F_0 = 3\)</span>, and <span class="math inline">\(F_1 - 2 = 3\)</span>.</p></li>
+<li><p><span class="math inline">\(k = 2\)</span>: <span class="math inline">\(F_0 F_1 = 3 \times 5 = 15\)</span>, and <span class="math inline">\(F_2 - 2 = 15\)</span>.</p></li>
+<li><p><span class="math inline">\(k = 3\)</span>: <span class="math inline">\(F_0 F_1 F_2 = 15 \times 17 = 255\)</span>, and <span class="math inline">\(F_3 - 2 = 255\)</span>.</p></li>
+</ul>
+<div class="askyourself">
+<p>Look at the step from <span class="math inline">\(k = 2\)</span> to <span class="math inline">\(k = 3\)</span>. We took <span class="math inline">\(15\)</span>, multiplied by <span class="math inline">\(17\)</span>, and got <span class="math inline">\(255\)</span>. In terms of Fermat numbers, we computed <span class="math inline">\((F_2 - 2) \times F_2\)</span> and got <span class="math inline">\(F_3 - 2\)</span>. Is that a coincidence?</p>
+</div>
+<p>That observation is the whole proof in miniature. Let’s see why it should be true.</p>
+<h4 id="stagemark3-proving-the-identity" class="stage"><span class="stage-n">Stage 3</span> Proving the identity</h4>
+<div class="pausebox">
+<p>Before reading on, try to show directly that <span class="math display">\[(F_k - 2)\, F_k = F_{k+1} - 2.\]</span> <em>Hint:</em> write everything in terms of powers of 2. What does <span class="math inline">\(F_k - 2\)</span> look like?</p>
+</div>
+<p>We have <span class="math inline">\(F_k - 2 = 2^{2^k} - 1\)</span> and <span class="math inline">\(F_k = 2^{2^k} + 1\)</span>, so <span class="math display">\[(F_k - 2)\, F_k = \bigl(2^{2^k} - 1\bigr)\bigl(2^{2^k} + 1\bigr).\]</span></p>
+<div class="askyourself">
+<p>This is a product of the form <span class="math inline">\((a - 1)(a + 1)\)</span>. What is that?</p>
+</div>
+<p>It is a difference of two squares, <span class="math inline">\(a^2 - 1\)</span>. With <span class="math inline">\(a = 2^{2^k}\)</span>, <span class="math display">\[a^2 = \bigl(2^{2^k}\bigr)^2 = 2^{2 \cdot 2^k} = 2^{2^{k+1}},\]</span> so <span class="math display">\[(F_k - 2)\, F_k = 2^{2^{k+1}} - 1 = F_{k+1} - 2. \tag{$\dagger$}\]</span> That is the engine. Notice what squaring does: it doubles the exponent, and doubling <span class="math inline">\(2^k\)</span> gives <span class="math inline">\(2^{k+1}\)</span>. The definition of the Fermat numbers is perfectly tuned to the difference-of-squares factorisation.</p>
+<p>Now the induction is almost automatic.</p>
+<div class="askyourself">
+<p>What exactly do we need to show in the inductive step?</p>
+</div>
+<p>We assume <span class="math inline">\((*)\)</span> holds for some <span class="math inline">\(k \geq 1\)</span>, <span class="math display">\[F_0 F_1 \cdots F_{k-1} = F_k - 2,\]</span> and we want to show it holds for <span class="math inline">\(k + 1\)</span>: <span class="math display">\[F_0 F_1 \cdots F_{k-1} F_k = F_{k+1} - 2.\]</span> Multiply both sides of the assumption by <span class="math inline">\(F_k\)</span> and use <span class="math inline">\((\dagger)\)</span>: <span class="math display">\[F_0 F_1 \cdots F_{k-1} F_k = (F_k - 2)\, F_k = F_{k+1} - 2.\]</span> We have already checked <span class="math inline">\(k = 1\)</span>, so by induction <span class="math inline">\((*)\)</span> holds for every <span class="math inline">\(k \geq 1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>Could we have avoided induction altogether?</p>
+</div>
+<p>Yes, and it is worth seeing how. Apply <span class="math inline">\((\dagger)\)</span> repeatedly, starting from <span class="math inline">\(F_0 - 2 = 1\)</span>: <span class="math display">\[F_k - 2 = (F_{k-1} - 2) F_{k-1} = (F_{k-2} - 2) F_{k-2} F_{k-1} = \cdots = (F_0 - 2)\, F_0 F_1 \cdots F_{k-1}.\]</span> Since <span class="math inline">\(F_0 - 2 = 1\)</span>, we are done. This “unrolling” is really the same induction written out in full, but some people find it easier to see.</p>
+<h4 id="stagemark4-no-common-factors" class="stage"><span class="stage-n">Stage 4</span> No common factors</h4>
+<p>We want to show that if <span class="math inline">\(m \neq n\)</span> then <span class="math inline">\(F_m\)</span> and <span class="math inline">\(F_n\)</span> have no common factor greater than <span class="math inline">\(1\)</span>.</p>
+<div class="askyourself">
+<p>Suppose some number <span class="math inline">\(d\)</span> divides both <span class="math inline">\(F_m\)</span> and <span class="math inline">\(F_n\)</span>, with <span class="math inline">\(m &lt; n\)</span>. Where does <span class="math inline">\(F_m\)</span> appear in <span class="math inline">\((*)\)</span>?</p>
+</div>
+<p>Take <span class="math inline">\(k = n\)</span> in <span class="math inline">\((*)\)</span>: <span class="math display">\[F_0 F_1 \cdots F_m \cdots F_{n-1} = F_n - 2.\]</span> Since <span class="math inline">\(m &lt; n\)</span>, the number <span class="math inline">\(F_m\)</span> is one of the factors on the left. So if <span class="math inline">\(d\)</span> divides <span class="math inline">\(F_m\)</span>, then <span class="math inline">\(d\)</span> divides the whole left-hand side; that is, <span class="math inline">\(d\)</span> divides <span class="math inline">\(F_n - 2\)</span>.</p>
+<div class="askyourself">
+<p>Now <span class="math inline">\(d\)</span> divides <span class="math inline">\(F_n\)</span> <em>and</em> <span class="math inline">\(F_n - 2\)</span>. What else must it divide?</p>
+</div>
+<p>Their difference: <span class="math inline">\(d\)</span> divides <span class="math inline">\(F_n - (F_n - 2) = 2\)</span>. So <span class="math inline">\(d = 1\)</span> or <span class="math inline">\(d = 2\)</span>.</p>
+<div class="askyourself">
+<p>Can <span class="math inline">\(d\)</span> be <span class="math inline">\(2\)</span>?</p>
+</div>
+<p>No: every Fermat number is a power of 2 plus 1, so it is odd. Hence <span class="math inline">\(d = 1\)</span>, and no two distinct Fermat numbers share a factor greater than <span class="math inline">\(1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Mathematicians say the Fermat numbers are <em>pairwise coprime</em>.</p>
+<h4 id="stagemark5-infinitely-many-primes" class="stage"><span class="stage-n">Stage 5</span> Infinitely many primes</h4>
+<p>Now we return to the question we asked at the start.</p>
+<div class="askyourself">
+<p>Every whole number greater than <span class="math inline">\(1\)</span> has at least one prime factor. Pick one prime factor of each Fermat number. What can you say about the primes you have picked?</p>
+</div>
+<p>Let <span class="math inline">\(p_n\)</span> be any prime that divides <span class="math inline">\(F_n\)</span>. If two of these were equal, say <span class="math inline">\(p_m = p_n\)</span> with <span class="math inline">\(m \neq n\)</span>, then that prime would be a common factor of <span class="math inline">\(F_m\)</span> and <span class="math inline">\(F_n\)</span> greater than <span class="math inline">\(1\)</span>, which we have just shown is impossible. So the primes <span class="math display">\[p_0,\; p_1,\; p_2,\; p_3,\; \ldots\]</span> are all <em>different</em>. There are infinitely many Fermat numbers, so there are infinitely many different primes.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Notice that we never needed to know <em>which</em> prime divides each Fermat number, or even whether the Fermat numbers are themselves prime. All we needed was that they never share a factor. Each one is forced to “use up” at least one prime that no other can use.</p>
+<h2 id="looking-back">Looking back</h2>
+<p>It is worth pausing to see what made this work, because the same ideas will come back many times in this book.</p>
+<ul>
+<li><p><strong>The examples weren’t decoration.</strong> Spotting that <span class="math inline">\(15 \times 17 = 255\)</span> was “<span class="math inline">\((F_2 - 2) \times F_2 = F_3 - 2\)</span>” <em>was</em> the key idea. When a question gives you small cases, ask what each step is doing, not just whether the numbers match.</p></li>
+<li><p><strong>A single identity did all the work.</strong> Everything flowed from <span class="math inline">\((a-1)(a+1) = a^2 - 1\)</span>. Hard-looking STEP questions are often driven by one simple piece of algebra.</p></li>
+<li><p><strong>The final argument is about structure, not size.</strong> We proved there are infinitely many primes without finding a single new one. Instead we showed that an infinite family of numbers <em>needs</em> infinitely many primes to build them.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Was Fermat right?</div>
+<p>No. In 1732 Leonhard Euler showed that <span class="math display">\[F_5 = 2^{32} + 1 = 4\,294\,967\,297 = 641 \times 6\,700\,417.\]</span> Euler didn’t find <span class="math inline">\(641\)</span> by luck. He proved that any prime factor of <span class="math inline">\(F_n\)</span> must have a very special form (for <span class="math inline">\(n = 5\)</span>, it must be one more than a multiple of <span class="math inline">\(64\)</span>), which drastically cut down the candidates. You can prove this yourself in Exercise 4.</p>
+<p>Since then, every Fermat number anyone has managed to test, from <span class="math inline">\(F_5\)</span> up to <span class="math inline">\(F_{32}\)</span>, has turned out to be composite. As far as anyone knows, <span class="math inline">\(F_0\)</span> to <span class="math inline">\(F_4\)</span> may be the <em>only</em> Fermat primes, but nobody has been able to prove it. It is a genuinely open problem.</p>
+<p>The delightful twist is that our proof doesn’t care. Prime or composite, the Fermat numbers still produce infinitely many primes.</p>
+</div>
+<h3 id="fermat-primes-and-constructing-polygons">Fermat primes and constructing polygons</h3>
+<p>Fermat primes turn up somewhere quite unexpected. The ancient Greeks knew how to construct an equilateral triangle and a regular pentagon with ruler and compass, and notice that <span class="math inline">\(3 = F_0\)</span> and <span class="math inline">\(5 = F_1\)</span>. For two thousand years nobody could construct any other regular polygon with a prime number of sides. Then in 1796, aged 19, Carl Friedrich Gauss showed how to construct a regular <em>17-gon</em>, and <span class="math inline">\(17 = F_2\)</span>.</p>
+<p>Gauss went further: a regular <span class="math inline">\(N\)</span>-gon can be constructed with ruler and compass exactly when <span class="math inline">\(N\)</span> is a power of 2 multiplied by <em>distinct Fermat primes</em>. (Pierre Wantzel completed the proof in 1837.) So which polygons can be constructed depends on how many Fermat primes there are. You will meet the key calculation behind Gauss’s 17-gon in Section 6.2 (STEP II 1991, Question 4), and the full story belongs to <em>Galois theory</em>, one of the highlights of an undergraduate degree.</p>
+<h3 id="one-theorem-many-proofs">One theorem, many proofs</h3>
+<p>Why would mathematicians bother proving the same theorem more than once? Because different proofs reveal different things. This proof, usually credited to Christian Goldbach in a 1730 letter to Euler, shows that <em>any</em> infinite sequence of pairwise coprime whole numbers greater than 1 forces infinitely many primes. Fermat numbers are just one convenient example. (Exercise 3 gives another.)</p>
+<p>It also gives more than Euclid’s proof does. The primes <span class="math inline">\(p_0, p_1, \ldots, p_{n-1}\)</span> are <span class="math inline">\(n\)</span> <em>different</em> primes, each at most <span class="math inline">\(F_{n-1}\)</span>. So there are at least <span class="math inline">\(n\)</span> primes no bigger than <span class="math inline">\(2^{2^{n-1}} + 1\)</span>. That is a <em>quantitative</em> statement about how the primes are spread out. It is very weak (the truth is much better), but it is a first step towards one of the great results of nineteenth-century mathematics, the <em>Prime Number Theorem</em>, which describes exactly how the primes thin out. <a href="../ch01/prime-distribution.html">Section 1.2</a> takes the next step.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Building an argument from a structural property</div>
+<p><em>To show that infinitely many objects of type A exist, find infinitely many objects of type B, each of which needs its own object of type A.</em></p>
+<p>Here A = primes and B = Fermat numbers, and “needs its own” means “has a prime factor not shared with any other”. The same pattern appears in counting arguments, in linear algebra (infinitely many independent vectors force infinite dimension) and in analysis.</p>
+</div>
+<p>You also practised <em>induction</em>, and in particular the habit of asking <em>“what does the step from <span class="math inline">\(k\)</span> to <span class="math inline">\(k+1\)</span> actually do?”</em> That question is often more useful than the formal template.</p>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Euclid’s version.</strong> Write out Euclid’s proof that there are infinitely many primes. In what sense is it “by contradiction”, and in what sense is the Fermat-number proof “constructive”?</p></li>
+<li><p><strong>The last digit.</strong> Show that for <span class="math inline">\(n \geq 2\)</span> the Fermat number <span class="math inline">\(F_n\)</span> ends in the digit <span class="math inline">\(7\)</span>.</p></li>
+<li><p><strong>Sylvester’s sequence.</strong> Define <span class="math inline">\(a_1 = 2\)</span> and <span class="math inline">\(a_{n+1} = a_n^2 - a_n + 1\)</span>, so the sequence begins <span class="math inline">\(2, 3, 7, 43, 1807, \ldots\)</span></p>
+<div class="exercises">
+<ol class="exercises">
+<li><p>Show that <span class="math inline">\(a_{n+1} - 1 = a_1 a_2 \cdots a_n\)</span>.</p></li>
+<li><p>Deduce that the terms are pairwise coprime, and hence give another proof that there are infinitely many primes.</p></li>
+<li><p><span class="hard">harder</span> Show that <span class="math inline">\(\dfrac{1}{a_1} + \dfrac{1}{a_2} + \cdots + \dfrac{1}{a_n} = 1 - \dfrac{1}{a_{n+1} - 1}\)</span>.</p></li>
+</ol>
+</div></li>
+<li><p><strong>Euler’s trick.</strong> <em>This needs Fermat’s Little Theorem: if <span class="math inline">\(p\)</span> is prime and <span class="math inline">\(p \nmid a\)</span>, then <span class="math inline">\(a^{p-1} \equiv 1 \pmod{p}\)</span>.</em> Suppose a prime <span class="math inline">\(p\)</span> divides <span class="math inline">\(F_n\)</span>.</p>
+<div class="exercises">
+<ol class="exercises">
+<li><p>Show that <span class="math inline">\(2^{2^n} \equiv -1 \pmod p\)</span>, and hence that <span class="math inline">\(2^{2^{n+1}} \equiv 1 \pmod p\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(d\)</span> be the smallest positive integer with <span class="math inline">\(2^d \equiv 1 \pmod p\)</span>. Show that <span class="math inline">\(d\)</span> divides <span class="math inline">\(2^{n+1}\)</span> but not <span class="math inline">\(2^n\)</span>, and conclude that <span class="math inline">\(d = 2^{n+1}\)</span>.</p></li>
+<li><p>Using Fermat’s Little Theorem, show that <span class="math inline">\(d\)</span> divides <span class="math inline">\(p - 1\)</span>. Deduce that <span class="math inline">\(p \equiv 1 \pmod{2^{n+1}}\)</span>.</p></li>
+<li><p>For <span class="math inline">\(n = 5\)</span>, this says any prime factor of <span class="math inline">\(F_5\)</span> has the form <span class="math inline">\(64k + 1\)</span>. Check that <span class="math inline">\(641\)</span> does. How many primes of this form are smaller than <span class="math inline">\(641\)</span>?</p></li>
+</ol>
+</div></li>
+<li><p><strong>A bound on the primes.</strong> Use the argument in <em>One theorem, many proofs</em> to show that the <span class="math inline">\(n\)</span>th prime is at most <span class="math inline">\(2^{2^{n-1}} + 1\)</span>. How good is this bound when <span class="math inline">\(n = 5\)</span>?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Martin Aigner &amp; Günter M. Ziegler, <em>Proofs from THE BOOK</em></strong> (Springer), Chapter 1, “Six proofs of the infinity of primes”. It includes this proof alongside Euclid’s and four others, one of which uses topology. One of the best books you can read before university.</p></li>
+<li><p><strong>Harold Davenport, <em>The Higher Arithmetic</em></strong> (Cambridge University Press), Chapters 1–2. A beautifully written introduction to primes and factorisation, ideal for the summer before university.</p></li>
+<li><p><strong>Michal Křížek, Florian Luca &amp; Lawrence Somer, <em>17 Lectures on Fermat Numbers</em></strong> (Springer, 2001). Everything about Fermat numbers, from Euler’s factorisation to Gauss’s polygons. Dip into the early chapters.</p></li>
+<li><p><strong>Ian Stewart, <em>Why Beauty Is Truth</em></strong> (Basic Books), the chapter on Gauss. The story of the 17-gon told for a general reader.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← Chapter introduction</a><a class="next" href="prime-distribution.html">→ 1.2 How Thinly Spread Are the Primes?</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

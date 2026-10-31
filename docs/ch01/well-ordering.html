@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.3 The Smallest Counterexample — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 1 · Number Theory and Proof</a>
+    <div class="src">STEP III · 2015 · Question 5</div>
+    <div class="sec-head"><span class="sec-num">1.3</span><h1>The Smallest Counterexample</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-3-well-ordering.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 1</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>In the following argument to show that <span class="math inline">\(\sqrt2\)</span> is irrational, give proofs appropriate for steps 3, 5 and 6.</p>
+<ol class="arabic">
+<li><p>Assume that <span class="math inline">\(\sqrt2\)</span> is rational.</p></li>
+<li><p>Define the set <span class="math inline">\(S\)</span> to be the set of positive integers with the following property: <span class="math inline">\(n\)</span> is in <span class="math inline">\(S\)</span> if and only if <span class="math inline">\(n\sqrt2\)</span> is an integer.</p></li>
+<li><p>Show that the set <span class="math inline">\(S\)</span> contains at least one positive integer.</p></li>
+<li><p>Define the integer <span class="math inline">\(k\)</span> to be the smallest positive integer in <span class="math inline">\(S\)</span>.</p></li>
+<li><p>Show that <span class="math inline">\((\sqrt2 - 1)k\)</span> is in <span class="math inline">\(S\)</span>.</p></li>
+<li><p>Show that steps 4 and 5 are contradictory and hence that <span class="math inline">\(\sqrt2\)</span> is irrational.</p></li>
+</ol></li>
+<li><p>Prove that <span class="math inline">\(2^{1/3}\)</span> is rational if and only if <span class="math inline">\(2^{2/3}\)</span> is rational.</p>
+<p>Use an argument similar to that of part (i) to prove that <span class="math inline">\(2^{1/3}\)</span> and <span class="math inline">\(2^{2/3}\)</span> are irrational.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>You have probably seen a proof that <span class="math inline">\(\sqrt2\)</span> is irrational: suppose <span class="math inline">\(\sqrt2 = a/b\)</span> in lowest terms, square, deduce that <span class="math inline">\(a\)</span> is even, then that <span class="math inline">\(b\)</span> is even, contradiction. It is a fine proof. But it relies on a trick about <em>even numbers</em> that doesn’t obviously generalise. What about <span class="math inline">\(\sqrt[3]{2}\)</span>? Or <span class="math inline">\(\sqrt{7}\)</span>?</p>
+<p>This question offers a different proof, and its central idea is almost absurdly simple: <em>look at the smallest one</em>. The same idea will reappear, in disguise, several times in this chapter.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>This is an unusual STEP question: it gives you the skeleton of a proof and asks you to fill in the missing justifications. That is exactly how undergraduates learn to read mathematics. A textbook proof often says “clearly” or “it follows that”, and part of your job is to check that it really does.</p>
+<div class="askyourself">
+<p>Step 4 says “define <span class="math inline">\(k\)</span> to be the smallest positive integer in <span class="math inline">\(S\)</span>”. Why are we entitled to do that? Would it be allowed if <span class="math inline">\(S\)</span> were a set of positive <em>real</em> numbers?</p>
+</div>
+<p>Any non-empty set of positive integers has a smallest element. This is called the <em>well-ordering principle</em>, and it is equivalent to the principle of mathematical induction. It is <em>false</em> for sets of positive reals: the set <span class="math inline">\(\{x : x &gt; 0\}\)</span> has no smallest element. So step 4 relies on step 3 (the set must be non-empty) and on <span class="math inline">\(S\)</span> consisting of integers.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-step-3-s-is-not-empty" class="stage"><span class="stage-n">Stage 1</span> Step 3: <span class="math inline">\(S\)</span> is not empty</h4>
+<div class="askyourself">
+<p>If <span class="math inline">\(\sqrt2 = a/b\)</span> for positive integers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, can you write down an element of <span class="math inline">\(S\)</span>?</p>
+</div>
+<p>If <span class="math inline">\(\sqrt2 = a/b\)</span>, then <span class="math inline">\(b\sqrt2 = a\)</span>, which is an integer. So <span class="math inline">\(b\)</span> is in <span class="math inline">\(S\)</span>, and <span class="math inline">\(S\)</span> is not empty.</p>
+<h4 id="stagemark2-step-5-a-smaller-element" class="stage"><span class="stage-n">Stage 2</span> Step 5: a smaller element</h4>
+<p>Now <span class="math inline">\(k\)</span> is the smallest element of <span class="math inline">\(S\)</span>, so <span class="math inline">\(k\sqrt2\)</span> is an integer; call it <span class="math inline">\(j\)</span>.</p>
+<div class="pausebox">
+<p>To show that <span class="math inline">\((\sqrt2 - 1)k\)</span> belongs to <span class="math inline">\(S\)</span> you must check three things. What are they?</p>
+</div>
+<p>We need <span class="math inline">\((\sqrt2-1)k\)</span> to be (a) an integer, (b) positive, and (c) such that multiplying it by <span class="math inline">\(\sqrt2\)</span> gives an integer.</p>
+<ul>
+<li><p>(a) <span class="math inline">\((\sqrt2 - 1)k = k\sqrt2 - k = j - k\)</span>, a difference of integers.</p></li>
+<li><p>(b) <span class="math inline">\(\sqrt2 &gt; 1\)</span>, so <span class="math inline">\(\sqrt2 - 1 &gt; 0\)</span> and hence <span class="math inline">\((\sqrt2-1)k &gt; 0\)</span>.</p></li>
+<li><p>(c) <span class="math inline">\((\sqrt2-1)k \cdot \sqrt2 = 2k - k\sqrt2 = 2k - j\)</span>, an integer.</p></li>
+</ul>
+<p>So <span class="math inline">\((\sqrt2 - 1)k \in S\)</span>.</p>
+<h4 id="stagemark3-step-6-the-contradiction" class="stage"><span class="stage-n">Stage 3</span> Step 6: the contradiction</h4>
+<div class="askyourself">
+<p>How big is <span class="math inline">\(\sqrt2 - 1\)</span>?</p>
+</div>
+<p>Since <span class="math inline">\(1 &lt; \sqrt2 &lt; 2\)</span>, we have <span class="math inline">\(0 &lt; \sqrt2 - 1 &lt; 1\)</span>, and so <span class="math inline">\((\sqrt2 - 1)k &lt; k\)</span>. We have found an element of <span class="math inline">\(S\)</span> smaller than <span class="math inline">\(k\)</span>, the smallest element of <span class="math inline">\(S\)</span>. That is impossible, so our assumption in step 1 was false: <span class="math inline">\(\sqrt2\)</span> is irrational.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Notice that we never needed “lowest terms” or any facts about even and odd numbers. The whole proof rests on three facts: <span class="math inline">\(\sqrt2 \cdot \sqrt2\)</span> is an integer, <span class="math inline">\(\sqrt2\)</span> lies strictly between two consecutive integers, and integers have a well-ordering.</p>
+<h4 id="stagemark4-cube-roots-linking-the-two-numbers" class="stage"><span class="stage-n">Stage 4</span> Cube roots: linking the two numbers</h4>
+<p>Write <span class="math inline">\(c = 2^{1/3}\)</span>, so that <span class="math inline">\(c^2 = 2^{2/3}\)</span> and <span class="math inline">\(c^3 = 2\)</span>.</p>
+<div class="askyourself">
+<p>If <span class="math inline">\(c\)</span> is rational, is <span class="math inline">\(c^2\)</span>? And if <span class="math inline">\(c^2\)</span> is rational, can you get back to <span class="math inline">\(c\)</span> using only multiplication and division?</p>
+</div>
+<p>If <span class="math inline">\(c\)</span> is rational then so is <span class="math inline">\(c^2 = c \times c\)</span>. Conversely, if <span class="math inline">\(c^2\)</span> is rational then so is <span class="math inline">\(2 / c^2 = c^3 / c^2 = c\)</span>. So <span class="math inline">\(2^{1/3}\)</span> is rational if and only if <span class="math inline">\(2^{2/3}\)</span> is.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark5-adapting-the-argument" class="stage"><span class="stage-n">Stage 5</span> Adapting the argument</h4>
+<div class="askyourself">
+<p>In part (i), the key was that <span class="math inline">\((\sqrt2)^2 = 2\)</span> is an integer, so multiplying an element of <span class="math inline">\(S\)</span> by <span class="math inline">\(\sqrt2\)</span> twice takes you back to integers. For <span class="math inline">\(c = 2^{1/3}\)</span> you would need to multiply <em>three</em> times. How should the set <span class="math inline">\(S\)</span> change?</p>
+</div>
+<p>Suppose <span class="math inline">\(c\)</span> is rational; then <span class="math inline">\(c^2\)</span> is too. Define <span class="math display">\[S = \{ n \text{ a positive integer} : nc \text{ and } nc^2 \text{ are both integers} \}.\]</span></p>
+<ul>
+<li><p><strong><span class="math inline">\(S\)</span> is not empty.</strong> If <span class="math inline">\(c = a/b\)</span> and <span class="math inline">\(c^2 = a&#39;/b&#39;\)</span>, then <span class="math inline">\(bb&#39;\)</span> is in <span class="math inline">\(S\)</span>.</p></li>
+<li><p><strong>Let <span class="math inline">\(k\)</span> be its smallest element</strong>, and consider <span class="math inline">\((c - 1)k\)</span>. We have <span class="math inline">\(1 &lt; c &lt; 2\)</span> (since <span class="math inline">\(1^3 &lt; 2 &lt; 2^3\)</span>), so <span class="math inline">\(0 &lt; (c-1)k &lt; k\)</span>.</p></li>
+<li><p><strong>It is an integer:</strong> <span class="math inline">\((c-1)k = kc - k\)</span>.</p></li>
+<li><p><strong>Times <span class="math inline">\(c\)</span>:</strong> <span class="math inline">\((c-1)k \cdot c = kc^2 - kc\)</span>, an integer.</p></li>
+<li><p><strong>Times <span class="math inline">\(c^2\)</span>:</strong> <span class="math inline">\((c-1)k \cdot c^2 = kc^3 - kc^2 = 2k - kc^2\)</span>, an integer.</p></li>
+</ul>
+<p>So <span class="math inline">\((c-1)k \in S\)</span> and is smaller than <span class="math inline">\(k\)</span>: contradiction. Hence <span class="math inline">\(2^{1/3}\)</span> is irrational, and so, by Stage 4, is <span class="math inline">\(2^{2/3}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>“Take the smallest one” is a proof technique.</strong> Assume a counterexample exists, take the smallest, and manufacture a smaller one. This is called the <em>extremal principle</em>, or a <em>minimal counterexample</em> argument.</p></li>
+<li><p><strong>The set <span class="math inline">\(S\)</span> did the bookkeeping.</strong> Instead of juggling numerators and denominators, we collected all the “good” multipliers into one set.</p></li>
+<li><p><strong>Generalising meant asking what really made the proof work.</strong> For <span class="math inline">\(\sqrt2\)</span> one multiplication by <span class="math inline">\(\sqrt2\)</span> was needed; for <span class="math inline">\(\sqrt[3]{2}\)</span> we needed two. Spotting that told us exactly how to redefine <span class="math inline">\(S\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">A proof you can draw</div>
+<p>There is a lovely picture behind part (i), due to Stanley Tennenbaum. If <span class="math inline">\(\sqrt2 = a/b\)</span> then <span class="math inline">\(a^2 = 2b^2\)</span>: a square of side <span class="math inline">\(a\)</span> has the same area as two squares of side <span class="math inline">\(b\)</span>. Place the two <span class="math inline">\(b\)</span>-squares in opposite corners of the <span class="math inline">\(a\)</span>-square, as in Figure 1.2. They overlap in a small square, and leave two small squares uncovered. Equal areas force the overlap to equal the two uncovered squares together, giving a <em>smaller</em> pair of integers with the same property. Smaller and smaller pairs can’t go on for ever, so no such squares exist. The smaller pair is exactly <span class="math inline">\((2b - a,\; a - b)\)</span>, which is our <span class="math inline">\((\sqrt2 - 1)k\)</span> step in disguise.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-1-2.svg" alt="Figure 1.2"><figcaption><span class="fig-label">Figure 1.2</span> Tennenbaum’s proof. Two squares of side <span class="math inline">\(b\)</span> (teal) sit in opposite corners of a square of side <span class="math inline">\(a\)</span>. If <span class="math inline">\(a^2 = 2b^2\)</span>, the area counted twice (the plum overlap) must equal the area missed (the two amber corners), so <span class="math inline">\((2b-a)^2 = 2(a-b)^2\)</span>: a smaller solution.</figcaption></figure>
+<h3 id="well-ordering-induction-and-descent">Well-ordering, induction and descent</h3>
+<p>The well-ordering principle and the principle of induction are logically equivalent: each can be proved from the other. At university you will see both used as the foundations of the natural numbers. In <a href="../ch01/infinite-descent.html">Section 1.5</a> we will use the same principle in a different form, Fermat’s <em>method of infinite descent</em>: there is no infinite strictly decreasing sequence of positive integers.</p>
+<h3 id="how-far-does-it-go">How far does it go?</h3>
+<p>The argument proves that <span class="math inline">\(\sqrt N\)</span> is irrational whenever <span class="math inline">\(N\)</span> is not a perfect square (see the exercises), and more generally that the <span class="math inline">\(n\)</span>th root of a whole number is either a whole number or irrational. At university this becomes a statement about <em>algebraic integers</em>: a rational number that satisfies a monic polynomial equation with integer coefficients, such as <span class="math inline">\(x^3 - 2 = 0\)</span>, must be an integer. You will meet the idea again in Section 6.3.</p>
+<p>The legend that the Pythagoreans drowned Hippasus for revealing the irrationality of <span class="math inline">\(\sqrt2\)</span> is probably untrue. What is true is that the discovery forced Greek mathematicians to separate the study of number from the study of length, a split that took until the nineteenth century, and Dedekind’s construction of the real numbers, to heal.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">The extremal principle</div>
+<p><em>If you want to show that something never happens, suppose it does, choose the smallest (or largest, or simplest) instance, and use it to build an even smaller one.</em></p>
+<p>The choice of what “smallest” means is the creative step. Here it was the smallest <span class="math inline">\(n\)</span> making <span class="math inline">\(n\sqrt2\)</span> an integer.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Other square roots.</strong> Adapt the argument to show that <span class="math inline">\(\sqrt3\)</span> is irrational. Which number plays the role of <span class="math inline">\(\sqrt2 - 1\)</span>?</p></li>
+<li><p><strong>All non-squares.</strong> Let <span class="math inline">\(N\)</span> be a positive integer that is not a perfect square, and let <span class="math inline">\(m\)</span> be the integer with <span class="math inline">\(m &lt; \sqrt N &lt; m+1\)</span>. Prove that <span class="math inline">\(\sqrt N\)</span> is irrational by considering <span class="math inline">\((\sqrt N - m)k\)</span>.</p></li>
+<li><p><strong>Spot the flaw.</strong> Try to run the argument for <span class="math inline">\(\sqrt 4\)</span>. Exactly which step fails?</p></li>
+<li><p><strong>Tennenbaum’s picture.</strong> Use Figure 1.2 to show that if <span class="math inline">\(a^2 = 2b^2\)</span> then <span class="math inline">\((2b-a)^2 = 2(a-b)^2\)</span>. Check this identity algebraically too.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Daniel Velleman, <em>How to Prove It</em></strong> (Cambridge University Press). A thorough introduction to proof, including induction and well-ordering.</p></li>
+<li><p><strong>R. P. Burn, <em>A Pathway into Number Theory</em></strong> (Cambridge University Press). A book made entirely of carefully sequenced questions; ideal preparation for a first-year course.</p></li>
+<li><p><strong>John Conway &amp; Joseph Shipman, “Extreme proofs I: the irrationality of <span class="math inline">\(\sqrt2\)</span>”</strong> (<em>Mathematical Intelligencer</em>, 2013). Many proofs of one fact, compared with wit.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="prime-distribution.html">← 1.2 How Thinly Spread Are the Primes?</a><a class="next" href="e-irrational.html">→ 1.4 e Is Irrational, and So Is e2</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

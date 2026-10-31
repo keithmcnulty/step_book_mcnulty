@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 1: Number Theory and Proof — Beyond STEP</title>
+<meta name="description" content="Primes, irrationality and Diophantine equations: the most proof-heavy chapter, moving from the infinitude of primes through irrationality to the structure of number systems.">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter</div>
+    <div class="ch-num">1</div>
+    <h1>Number Theory and Proof</h1>
+    <p class="strap">Whole numbers are the oldest objects in mathematics, and they still hold some of its deepest secrets.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Download the whole chapter</span><span class="dl-sub">PDF, typeset for print</span></span></a>
+  </div>
+  <h2 class="contents-head">In this chapter</h2>
+  <ol class="toc"><li><a class="toc-link" href="fermat-numbers.html"><span class="toc-num">1.1</span>
+<span class="toc-title">A Prime Factory</span>
+<span class="toc-src">STEP II 2002</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-1-fermat-numbers.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="prime-distribution.html"><span class="toc-num">1.2</span>
+<span class="toc-title">How Thinly Spread Are the Primes?</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-2-prime-distribution.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="well-ordering.html"><span class="toc-num">1.3</span>
+<span class="toc-title">The Smallest Counterexample</span>
+<span class="toc-src">STEP III 2015</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-3-well-ordering.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="e-irrational.html"><span class="toc-num">1.4</span>
+<span class="toc-title">e Is Irrational, and So Is e\(^2\)</span>
+<span class="toc-src">STEP III 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-4-e-irrational.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="infinite-descent.html"><span class="toc-num">1.5</span>
+<span class="toc-title">Infinite Descent</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-5-infinite-descent.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="two-squares.html"><span class="toc-num">1.6</span>
+<span class="toc-title">Sums of Two Squares</span>
+<span class="toc-src">STEP II 2023</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-6-two-squares.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="factorisation-fails.html"><span class="toc-num">1.7</span>
+<span class="toc-title">When Factorisation Fails</span>
+<span class="toc-src">STEP I 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-7-factorisation-fails.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="counting-rationals.html"><span class="toc-num">1.8</span>
+<span class="toc-title">Counting the Rationals</span>
+<span class="toc-src">STEP III 2020</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-8-counting-rationals.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="tangents-cubic.html"><span class="toc-num">1.9</span>
+<span class="toc-title">Tangents to a Cubic</span>
+<span class="toc-src">STEP I 2009</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-9-tangents-cubic.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">Looking back: what we have learned</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">Chapter 1  \(\cdot\)  Introduction</div>
+    <h1 class="essay-title">Why Whole Numbers?</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>Mathematics is the queen of the sciences, and number theory is the queen of mathematics.</p>
+<p class="who">— Carl Friedrich Gauss</p>
+</div>
+<p>Whole numbers are the first mathematical objects anyone meets. You learned to count before you could read. And yet the simplest questions about them can be fiendishly hard. Is every even number greater than 2 the sum of two primes? Nobody knows: Christian Goldbach asked in 1742, computers have checked it beyond <span class="math inline">\(4 \times 10^{18}\)</span>, and it has still never been proved. Are there infinitely many pairs of primes that differ by 2, like <span class="math inline">\(11\)</span> and <span class="math inline">\(13\)</span>, or <span class="math inline">\(101\)</span> and <span class="math inline">\(103\)</span>? Nobody knows that either, although in 2013 an almost unknown mathematician called Yitang Zhang stunned the world by proving that there are infinitely many pairs of primes differing by at most <span class="math inline">\(70\)</span> million, a number since brought down to <span class="math inline">\(246\)</span>. Pierre de Fermat scribbled in a margin in 1637 that <span class="math inline">\(x^n + y^n = z^n\)</span> has no solutions in positive whole numbers when <span class="math inline">\(n \geq 3\)</span>. It took more than 350 years, and some of the most sophisticated mathematics ever created, before Andrew Wiles proved him right in 1994.</p>
+<p>This mixture of questions a child can understand and answers that can take centuries is what makes number theory addictive. It is also why number theory has always been the training ground for <em>proof</em>. When you cannot check every case, because there are infinitely many whole numbers, you have to find an argument that covers them all at once. Most of the proof techniques you will use for the rest of your mathematical life were first sharpened on questions about whole numbers.</p>
+<h3 id="pure-useless-and-running-the-internet">Pure, useless, and running the internet</h3>
+<p>In 1940 the Cambridge mathematician G. H. Hardy wrote, with some pride, that number theory was the purest of all mathematics, too remote from ordinary life to be put to any practical use, and so too remote to be put to any <em>harmful</em> use either. He could hardly have been more wrong. Every time you buy something online, send a secure message or unlock your phone, you are relying on number theory. The RSA system (1977) depends on the fact that multiplying two large primes is easy but recovering them from their product seems to be impossibly hard. Modern systems use the arithmetic of the very curves you will meet at the end of this chapter. The “useless” mathematics of the eighteenth and nineteenth centuries became the security of the twenty-first.</p>
+<h3 id="what-you-will-meet-at-university">What you will meet at university</h3>
+<p>If you study mathematics at university, number theory will be one of your first destinations and one of your last.</p>
+<ul>
+<li><p><strong>In your first term</strong> you will almost certainly take a course with a name like <em>Numbers and Sets</em> or <em>Foundations</em>. It will teach you to write proofs properly, and much of its raw material is number theory: induction, the Euclidean algorithm, modular arithmetic, Fermat’s Little Theorem, the Chinese Remainder Theorem, and the surprising fact that some infinite sets are bigger than others.</p></li>
+<li><p><strong>In group theory</strong>, usually in the first year, you will discover that many number-theory facts are shadows of a single theorem about symmetry, Lagrange’s Theorem.</p></li>
+<li><p><strong>In the second year</strong> a course in <em>Number Theory</em> typically covers quadratic reciprocity (Gauss’s “golden theorem”), continued fractions and Pell’s equation.</p></li>
+<li><p><strong>Later</strong> you can go further: <em>algebraic number theory</em>, where new number systems such as the Gaussian integers rescue unique factorisation; <em>analytic number theory</em>, which uses calculus and complex analysis to count primes; and the theory of <em>elliptic curves</em>, which lies behind the proof of Fermat’s Last Theorem and one of the seven million-dollar Millennium Prize Problems.</p></li>
+</ul>
+<h3 id="the-questions-that-run-through-this-chapter">The questions that run through this chapter</h3>
+<p>The nine STEP questions in this chapter circle around three big questions. Keep them in mind as you work; we will come back to them at the end.</p>
+<div class="skillbox">
+<ol class="arabic">
+<li><p><strong>How many primes are there, and how are they spread out?</strong> Everyone knows there are infinitely many. But how thinly do they thin out, and what kind of argument can tell us?</p></li>
+<li><p><strong>How can you prove that a number is <em>not</em> a fraction?</strong> Showing that a number is rational just needs an example. Showing that it is irrational means ruling out infinitely many possibilities. How is that ever done?</p></li>
+<li><p><strong>Which equations have whole-number solutions, and what happens when we change the number system?</strong> Sometimes we can show an equation has no solutions at all. Sometimes the best way to understand whole numbers is to step outside them, into the complex numbers or onto a curve.</p></li>
+</ol>
+</div>
+<h3 id="a-chapter-about-proof">A chapter about proof</h3>
+<p>Running underneath those three questions is a fourth theme: <em>how to prove things</em>. Each section has been chosen partly because it shows a different method of proof in action, and between them they make a fair toolkit for a first-year undergraduate.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Way of thinking</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1.1</td>
+<td style="text-align: left;">Fermat numbers</td>
+<td style="text-align: left;">An infinite family that <em>needs</em> infinitely many primes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.2</td>
+<td style="text-align: left;">Products of primes</td>
+<td style="text-align: left;">Strong induction; information hidden in binomial coefficients</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.3</td>
+<td style="text-align: left;"><span class="math inline">\(\sqrt2\)</span> again</td>
+<td style="text-align: left;">“Take the smallest one”: the well-ordering principle</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.4</td>
+<td style="text-align: left;"><span class="math inline">\(e\)</span> and <span class="math inline">\(e^2\)</span></td>
+<td style="text-align: left;">Trapping a whole number strictly between 0 and 1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.5</td>
+<td style="text-align: left;">Impossible equations</td>
+<td style="text-align: left;">Infinite descent; working modulo <span class="math inline">\(n\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.6</td>
+<td style="text-align: left;">Sums of two squares</td>
+<td style="text-align: left;">Changing the setting: complex numbers</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.7</td>
+<td style="text-align: left;">A strange number system</td>
+<td style="text-align: left;">Questioning what you take for granted</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.8</td>
+<td style="text-align: left;">Listing the fractions</td>
+<td style="text-align: left;">Building a bijection; descent in reverse</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.9</td>
+<td style="text-align: left;">Cubes and curves</td>
+<td style="text-align: left;">Geometry solving arithmetic</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-to-read-this-chapter">How to read this chapter</h3>
+<p>Each section starts with a STEP question exactly as it was set. Try it yourself first, for at least half an hour, before you read on. You will learn far more from a question you have struggled with than from one you have only read about. When you do read on, the <em>Ask yourself</em> boxes are invitations to stop and think before the answer arrives, and the <em>Pause and try</em> boxes mark the moments where the key idea is within your reach. Then the <em>What’s really going on</em> part of each section looks past the exam to the mathematics you will meet at university.</p>
+<p>The sections increase roughly in sophistication, but they are largely independent. If one doesn’t grip you, move on and come back to it later.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="fermat-numbers.html">→ Begin: 1.1 A Prime Factory</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

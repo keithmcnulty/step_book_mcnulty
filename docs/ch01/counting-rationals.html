@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.8 Counting the Rationals — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 1 · Number Theory and Proof</a>
+    <div class="src">STEP III · 2020 · Question 8</div>
+    <div class="sec-head"><span class="sec-num">1.8</span><h1>Counting the Rationals</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-8-counting-rationals.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 1</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A sequence <span class="math inline">\(u_k\)</span>, for integer <span class="math inline">\(k \geq 1\)</span>, is defined as follows. <span class="math display">\[u_1 = 1, \qquad u_{2k} = u_k \ \text{ for } k \geq 1, \qquad u_{2k+1} = u_k + u_{k+1} \ \text{ for } k \geq 1.\]</span></p>
+<ol class="roman">
+<li><p>Show that, for every pair of consecutive terms of this sequence, except the first pair, the term with odd subscript is larger than the term with even subscript.</p></li>
+<li><p>Suppose that two consecutive terms in this sequence have a common factor greater than one. Show that there are then two consecutive terms earlier in the sequence which have the same common factor. Deduce that any two consecutive terms in this sequence are co-prime (do not have a common factor greater than one).</p></li>
+<li><p>Prove that it is not possible for two positive integers to appear consecutively in the same order in two different places in the sequence.</p></li>
+<li><p>Suppose that <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are two co-prime positive integers which do not occur consecutively in the sequence with <span class="math inline">\(b\)</span> following <span class="math inline">\(a\)</span>. If <span class="math inline">\(a &gt; b\)</span>, show that <span class="math inline">\(a - b\)</span> and <span class="math inline">\(b\)</span> are two co-prime positive integers which do not occur consecutively in the sequence with <span class="math inline">\(b\)</span> following <span class="math inline">\(a - b\)</span>, and whose sum is smaller than <span class="math inline">\(a + b\)</span>. Find a similar result for <span class="math inline">\(a &lt; b\)</span>.</p></li>
+<li><p>For each integer <span class="math inline">\(n \geq 1\)</span>, define the function <span class="math inline">\(f\)</span> from the positive integers to the positive rational numbers by <span class="math inline">\(f(n) = \dfrac{u_n}{u_{n+1}}\)</span>. Show that the range of <span class="math inline">\(f\)</span> is all the positive rational numbers, and that <span class="math inline">\(f\)</span> has an inverse.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Can you list all the positive fractions, one after another, so that every fraction appears exactly once? It seems impossible: between any two fractions there are infinitely many more, so there is no “next” fraction to write down. Georg Cantor showed in the 1870s that it can nevertheless be done, which means that, in a precise sense, there are no more fractions than there are whole numbers.</p>
+<p>Cantor’s list was clumsy: it included <span class="math inline">\(\frac{2}{4}\)</span> as well as <span class="math inline">\(\frac12\)</span>, and the repeats had to be crossed out. This question builds a list with no repeats at all, from a sequence with an absurdly simple rule. It was published by Neil Calkin and Herbert Wilf in 2000, though the sequence itself was studied by Moritz Stern in 1858.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Before proving anything, compute the first fifteen or so terms. What do you notice about the ratios <span class="math inline">\(u_n / u_{n+1}\)</span>?</p>
+</div>
+<p>The sequence begins <span class="math display">\[1,\ 1,\ 2,\ 1,\ 3,\ 2,\ 3,\ 1,\ 4,\ 3,\ 5,\ 2,\ 5,\ 3,\ 4,\ 1,\ 5,\ \ldots\]</span> and the ratios <span class="math inline">\(u_n / u_{n+1}\)</span> are <span class="math display">\[\tfrac11,\ \tfrac12,\ \tfrac21,\ \tfrac13,\ \tfrac32,\ \tfrac23,\ \tfrac31,\ \tfrac14,\ \tfrac43,\ \tfrac35,\ \tfrac52,\ \tfrac25,\ \tfrac53,\ \tfrac34,\ \tfrac41,\ \ldots\]</span> Every fraction appears in lowest terms, and none is repeated. The question asks you to prove that this goes on for ever, and that every positive fraction eventually turns up.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-odd-beats-even" class="stage"><span class="stage-n">Stage 1</span> Odd beats even</h4>
+<p>Consecutive terms are either <span class="math inline">\((u_{2k}, u_{2k+1})\)</span> or <span class="math inline">\((u_{2k+1}, u_{2k+2})\)</span>.</p>
+<div class="askyourself">
+<p>Write each of these pairs in terms of <span class="math inline">\(u_k\)</span> and <span class="math inline">\(u_{k+1}\)</span>. Which term is bigger?</p>
+</div>
+<p><span class="math inline">\((u_{2k}, u_{2k+1}) = (u_k,\ u_k + u_{k+1})\)</span> and <span class="math inline">\((u_{2k+1}, u_{2k+2}) = (u_k + u_{k+1},\ u_{k+1})\)</span>. Since every term is a positive integer (an easy induction), <span class="math inline">\(u_k + u_{k+1}\)</span> is bigger than both <span class="math inline">\(u_k\)</span> and <span class="math inline">\(u_{k+1}\)</span>. The only exception is the first pair, <span class="math inline">\((u_1, u_2) = (1, 1)\)</span>, which doesn’t fit either pattern because <span class="math inline">\(u_1\)</span> is defined directly.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-consecutive-terms-are-coprime" class="stage"><span class="stage-n">Stage 2</span> Consecutive terms are coprime</h4>
+<div class="askyourself">
+<p>Suppose <span class="math inline">\(d &gt; 1\)</span> divides both <span class="math inline">\(u_{2k}\)</span> and <span class="math inline">\(u_{2k+1}\)</span>, that is, both <span class="math inline">\(u_k\)</span> and <span class="math inline">\(u_k + u_{k+1}\)</span>. What else does <span class="math inline">\(d\)</span> divide?</p>
+</div>
+<p><span class="math inline">\(d\)</span> divides <span class="math inline">\((u_k + u_{k+1}) - u_k = u_{k+1}\)</span>, so <span class="math inline">\(d\)</span> divides the consecutive pair <span class="math inline">\(u_k, u_{k+1}\)</span>, which is earlier in the sequence. The other case is identical: if <span class="math inline">\(d\)</span> divides <span class="math inline">\(u_k + u_{k+1}\)</span> and <span class="math inline">\(u_{k+1}\)</span>, it divides <span class="math inline">\(u_k\)</span>.</p>
+<p>So a common factor of a consecutive pair is passed back to an earlier pair, then an earlier one, and so on. Positions can’t decrease for ever (well-ordering yet again), so eventually <span class="math inline">\(d\)</span> would have to divide the first pair, <span class="math inline">\(u_1 = u_2 = 1\)</span>. That is impossible for <span class="math inline">\(d &gt; 1\)</span>. So every consecutive pair is coprime.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-no-pair-appears-twice" class="stage"><span class="stage-n">Stage 3</span> No pair appears twice</h4>
+<div class="pausebox">
+<p>Stage 1 tells you something useful: if you see a consecutive pair <span class="math inline">\((a, b)\)</span>, you can tell whether <span class="math inline">\(a\)</span> sits at an odd or an even position. How? And can you then recover the pair that came before it, in the sense of Stage 2?</p>
+</div>
+<p>If <span class="math inline">\(a &lt; b\)</span>, then (by Stage 1) <span class="math inline">\(b\)</span> is at the odd position, so the pair is <span class="math inline">\((u_{2k}, u_{2k+1}) = (u_k, u_k + u_{k+1})\)</span> for some <span class="math inline">\(k\)</span>, and the “parent” pair <span class="math inline">\((u_k, u_{k+1})\)</span> is <span class="math inline">\((a,\ b - a)\)</span>. If <span class="math inline">\(a &gt; b\)</span>, the pair is <span class="math inline">\((u_{2k+1}, u_{2k+2})\)</span> and its parent is <span class="math inline">\((a - b,\ b)\)</span>. If <span class="math inline">\(a = b\)</span>, Stage 1 shows the pair must be the very first pair, <span class="math inline">\((1,1)\)</span>.</p>
+<p>So each consecutive pair other than the first determines its parent pair, <em>and the position of the parent</em> (you can see this structure as a tree in Figure 1.5): the parent is at position <span class="math inline">\(k\)</span> when the child is at <span class="math inline">\(2k\)</span> or <span class="math inline">\(2k+1\)</span>. Now suppose <span class="math inline">\((a, b)\)</span> appeared at two different positions. Their parents would be the same pair at two positions, and so would <em>their</em> parents, and so on. Following this back, we would eventually find <span class="math inline">\((1,1)\)</span> at a position other than <span class="math inline">\(1\)</span>, which Stage 1 rules out.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-every-coprime-pair-appears" class="stage"><span class="stage-n">Stage 4</span> Every coprime pair appears</h4>
+<div class="askyourself">
+<p>Suppose some coprime pair <span class="math inline">\((a, b)\)</span> never appears consecutively. Which such pair should you look at?</p>
+</div>
+<p>Take the “missing” coprime pair with the smallest possible value of <span class="math inline">\(a + b\)</span>: a minimal counterexample. It can’t be <span class="math inline">\((1,1)\)</span>, which does appear, so <span class="math inline">\(a \neq b\)</span> (coprime and equal forces <span class="math inline">\(a = b = 1\)</span>).</p>
+<ul>
+<li><p>If <span class="math inline">\(a &gt; b\)</span>: the pair <span class="math inline">\((a - b, b)\)</span> is coprime (any common factor of <span class="math inline">\(a-b\)</span> and <span class="math inline">\(b\)</span> divides <span class="math inline">\(a\)</span>), and its sum <span class="math inline">\(a\)</span> is smaller than <span class="math inline">\(a + b\)</span>. By minimality it does appear, say at positions <span class="math inline">\(k, k+1\)</span>. But then <span class="math inline">\(u_{2k+1} = u_k + u_{k+1} = a\)</span> and <span class="math inline">\(u_{2k+2} = u_{k+1} = b\)</span>, so <span class="math inline">\((a, b)\)</span> appears after all.</p></li>
+<li><p>If <span class="math inline">\(a &lt; b\)</span>: similarly <span class="math inline">\((a, b - a)\)</span> appears at some <span class="math inline">\(k, k+1\)</span>, and then <span class="math inline">\((u_{2k}, u_{2k+1}) = (a, b)\)</span>.</p></li>
+</ul>
+<p>Either way, contradiction. So every coprime pair of positive integers appears consecutively.<span class="qed" aria-label="end of proof">■</span></p>
+<p>(The question phrases part (iv) as a descent: a missing pair produces a smaller missing pair. That is the same argument, read the other way.)</p>
+<h4 id="stagemark5-a-list-of-all-fractions" class="stage"><span class="stage-n">Stage 5</span> A list of all fractions</h4>
+<p>Every positive rational number can be written uniquely in lowest terms as <span class="math inline">\(a/b\)</span> with <span class="math inline">\(a, b\)</span> coprime. By Stage 4, <span class="math inline">\((a, b)\)</span> appears as some consecutive pair <span class="math inline">\((u_n, u_{n+1})\)</span>, so <span class="math inline">\(f(n) = a/b\)</span>: the range of <span class="math inline">\(f\)</span> is all positive rationals. By Stage 3 it appears only once, and by Stage 2 every value <span class="math inline">\(f(n)\)</span> is already in lowest terms, so two different <span class="math inline">\(n\)</span> can’t give the same fraction. Hence <span class="math inline">\(f\)</span> is a bijection from the positive integers to the positive rationals, and has an inverse.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Descent and its reverse.</strong> Common factors and repeated pairs were chased <em>back</em> to the start of the sequence. Missing pairs were handled by a minimal counterexample, building <em>forward</em>.</p></li>
+<li><p><strong>A bijection needs two halves.</strong> “Every fraction appears” (onto) and “no fraction appears twice” (one-to-one) are separate claims, proved separately.</p></li>
+<li><p><strong>Compute first.</strong> Writing out fifteen terms made the claims believable and suggested the parent–child structure that drove the proofs.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">The Calkin–Wilf tree</div>
+<p>Arrange the positive fractions in a tree: put <span class="math inline">\(\frac11\)</span> at the top, and give each fraction <span class="math inline">\(\frac{a}{b}\)</span> two children, <span class="math inline">\(\frac{a}{a+b}\)</span> on the left and <span class="math inline">\(\frac{a+b}{b}\)</span> on the right. Reading the tree row by row, left to right, gives exactly the list <span class="math inline">\(f(1), f(2), f(3), \ldots\)</span> from this question (Figure 1.5). Stage 3 says every fraction has a unique parent, and Stage 4 says every fraction is in the tree. In 2003 Moshe Newman found that you don’t even need the tree: each fraction in the list can be computed from the one before by <span class="math display">\[x_{n+1} = \frac{1}{2\lfloor x_n \rfloor - x_n + 1}.\]</span></p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-1-5.svg" alt="Figure 1.5"><figcaption><span class="fig-label">Figure 1.5</span> The first four rows of the Calkin–Wilf tree. Reading row by row, left to right, gives <span class="math inline">\(f(1), f(2), f(3), \ldots\)</span>; the small grey numbers are the positions <span class="math inline">\(n\)</span>. Every positive fraction appears exactly once, in lowest terms.</figcaption></figure>
+<h3 id="different-sizes-of-infinity">Different sizes of infinity</h3>
+<p>A set that can be listed like this is called <em>countable</em>. The fractions are countable, which is surprising, since they seem so much more numerous than the whole numbers. In your first term at university you will also meet Cantor’s <em>diagonal argument</em>, which shows that the <em>real</em> numbers are not countable: any list of real numbers must miss some. So there really are different sizes of infinity, and the real numbers form a strictly bigger infinity than the rationals. This is one of the most startling results you will meet in a first-year course.</p>
+<h3 id="sterns-sequence">Stern’s sequence</h3>
+<p>The sequence <span class="math inline">\(u_n\)</span> is <em>Stern’s diatomic sequence</em>, and it has many other lives. For example, <span class="math inline">\(u_{n+1}\)</span> counts the number of ways to write <span class="math inline">\(n\)</span> as a sum of powers of <span class="math inline">\(2\)</span> with each power used at most twice. It is closely related to the <em>Stern–Brocot tree</em> and to continued fractions, which give the best rational approximations to irrational numbers.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Building a bijection</div>
+<p><em>To show two sets are the same size, match them up exactly: prove that every element of the target is hit (onto), and that nothing is hit twice (one-to-one).</em></p>
+<p>Bijections are the foundation of counting, finite and infinite, and you will use them constantly at university. Here both halves were proved by chasing a structure back to its starting point.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Find the fraction.</strong> For which <span class="math inline">\(n\)</span> is <span class="math inline">\(f(n) = \frac{3}{5}\)</span>? And <span class="math inline">\(f(n) = \frac{5}{3}\)</span>? Use the parent rule to work backwards to <span class="math inline">\(\frac11\)</span>.</p></li>
+<li><p><strong>Newman’s formula.</strong> Check that Newman’s formula produces the first ten fractions of the list, starting from <span class="math inline">\(x_1 = 1\)</span>.</p></li>
+<li><p><strong>Cantor’s diagonal argument.</strong> Suppose you had a list of all real numbers between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, written as decimals. Construct a decimal that differs from the <span class="math inline">\(n\)</span>th number in the list in its <span class="math inline">\(n\)</span>th digit. Why does this show the list is incomplete? (What care is needed with decimals like <span class="math inline">\(0.0999\ldots = 0.1\)</span>?)</p></li>
+<li><p><strong>Countable unions.</strong> <span class="hard">harder</span> Show that the set of all pairs <span class="math inline">\((m, n)\)</span> of positive integers is countable by giving an explicit bijection with the positive integers. (Try <span class="math inline">\(2^{m-1}(2n-1)\)</span>.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Neil Calkin &amp; Herbert Wilf, “Recounting the rationals”</strong> (<em>American Mathematical Monthly</em>, 2000). Four pages, entirely readable.</p></li>
+<li><p><strong>Aigner &amp; Ziegler, <em>Proofs from THE BOOK</em></strong>, Chapter 17, “Sets, functions, and the continuum hypothesis”, which includes the Calkin–Wilf tree.</p></li>
+<li><p><strong>Ian Stewart &amp; David Tall, <em>The Foundations of Mathematics</em></strong> (Oxford University Press). Countability, Cantor and the real numbers, as in a first-year course.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="factorisation-fails.html">← 1.7 When Factorisation Fails</a><a class="next" href="tangents-cubic.html">→ 1.9 Tangents to a Cubic</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

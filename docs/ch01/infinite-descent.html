@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.5 Infinite Descent — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 1 · Number Theory and Proof</a>
+    <div class="src">STEP III · 2022 · Question 2</div>
+    <div class="sec-head"><span class="sec-num">1.5</span><h1>Infinite Descent</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-5-infinite-descent.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 1</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Suppose that there are three non-zero integers <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> for which <span class="math inline">\(a^3 + 2b^3 + 4c^3 = 0\)</span>.</p>
+<p>Explain why there must exist an integer <span class="math inline">\(p\)</span>, with <span class="math inline">\(|p| &lt; |a|\)</span>, such that <span class="math inline">\(4p^3 + b^3 + 2c^3 = 0\)</span>, and show further that there must exist integers <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span>, with <span class="math inline">\(|p| &lt; |a|\)</span>, <span class="math inline">\(|q| &lt; |b|\)</span> and <span class="math inline">\(|r| &lt; |c|\)</span>, such that <span class="math inline">\(p^3 + 2q^3 + 4r^3 = 0\)</span>.</p>
+<p>Deduce that no such integers <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> can exist.</p></li>
+<li><p>Prove that there are no non-zero integers <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> for which <span class="math inline">\(9a^3 + 10b^3 + 6c^3 = 0\)</span>.</p></li>
+<li><p>By considering the expression <span class="math inline">\((3n \pm 1)^2\)</span>, prove that, unless an integer is a multiple of three, its square is one more than a multiple of <span class="math inline">\(3\)</span>. Deduce that the sum of the squares of two integers can only be a multiple of three if each of the integers is a multiple of three.</p>
+<p>Hence prove that there are no non-zero integers <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> for which <span class="math inline">\(a^2 + b^2 = 3c^2\)</span>.</p></li>
+<li><p>Prove that there are no non-zero integers <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> for which <span class="math inline">\(a^2 + b^2 + c^2 = 4abc\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>How can you prove that an equation has <em>no</em> whole-number solutions? You can’t try every possibility; there are infinitely many. Pierre de Fermat, in the 1630s, found a way: show that any solution would produce another solution with <em>smaller</em> numbers, and then another, smaller still, and so on for ever. But positive whole numbers can’t keep getting smaller for ever. So there was never a solution in the first place.</p>
+<p>Fermat called this the <em>method of infinite descent</em>, and he was very proud of it. It is the reverse side of the well-ordering principle from <a href="../ch01/well-ordering.html">Section 1.3</a>, and it is still one of the main tools for proving that equations have no solutions.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>All four parts have the same shape: assume a solution, shrink it, contradict. The question is <em>how</em> to shrink.</p>
+<div class="askyourself">
+<p>In part (i), look at <span class="math inline">\(a^3 + 2b^3 + 4c^3 = 0\)</span>. Two of the three terms are obviously even. What does that tell you about the third?</p>
+</div>
+<p>That is the kind of observation that starts every descent: some divisibility is forced on you.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-first-descent" class="stage"><span class="stage-n">Stage 1</span> The first descent</h4>
+<p>Since <span class="math inline">\(a^3 = -2b^3 - 4c^3\)</span>, the number <span class="math inline">\(a^3\)</span> is even, and so <span class="math inline">\(a\)</span> is even (the cube of an odd number is odd). Write <span class="math inline">\(a = 2p\)</span>. Then <span class="math inline">\(|p| = |a|/2 &lt; |a|\)</span>, and substituting, <span class="math display">\[8p^3 + 2b^3 + 4c^3 = 0 \quad\Longrightarrow\quad 4p^3 + b^3 + 2c^3 = 0.\]</span></p>
+<div class="askyourself">
+<p>The new equation is <span class="math inline">\(4p^3 + b^3 + 2c^3 = 0\)</span>. It has the same coefficients, just rotated. Can you do the same trick again?</p>
+</div>
+<p>Now <span class="math inline">\(b^3 = -4p^3 - 2c^3\)</span> is even, so <span class="math inline">\(b = 2q\)</span> with <span class="math inline">\(|q| &lt; |b|\)</span>, and dividing by <span class="math inline">\(2\)</span> gives <span class="math inline">\(2p^3 + 4q^3 + c^3 = 0\)</span>. Once more, <span class="math inline">\(c\)</span> must be even: <span class="math inline">\(c = 2r\)</span> with <span class="math inline">\(|r| &lt; |c|\)</span>, and dividing by <span class="math inline">\(2\)</span>, <span class="math display">\[p^3 + 2q^3 + 4r^3 = 0.\]</span> This is the <em>original</em> equation, with <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span>, <span class="math inline">\(r\)</span> in place of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>. Each is half the size, and none of them is zero, because halving a non-zero number can’t give zero.</p>
+<div class="pausebox">
+<p>Turn this into a proof that no non-zero solution exists. What, exactly, should you assume is the “smallest”?</p>
+</div>
+<p>Among all solutions in non-zero integers, choose one with <span class="math inline">\(|a|\)</span> as small as possible. (The well-ordering principle lets us do this, if any solutions exist at all.) The argument above produces another non-zero solution with <span class="math inline">\(|p| &lt; |a|\)</span>, contradicting minimality. So there are no non-zero solutions.<span class="qed" aria-label="end of proof">■</span></p>
+<p>An equivalent way to say it: from one solution we could build an infinite sequence of solutions with <span class="math inline">\(|a| &gt; |p| &gt; \cdots\)</span>, an infinite strictly decreasing sequence of positive integers, which is impossible.</p>
+<h4 id="stagemark2-a-different-prime" class="stage"><span class="stage-n">Stage 2</span> A different prime</h4>
+<div class="askyourself">
+<p>In <span class="math inline">\(9a^3 + 10b^3 + 6c^3 = 0\)</span>, parity doesn’t obviously help. Look at the coefficients <span class="math inline">\(9\)</span>, <span class="math inline">\(10\)</span>, <span class="math inline">\(6\)</span>. Which prime divides two of them?</p>
+</div>
+<p>The prime <span class="math inline">\(3\)</span> divides <span class="math inline">\(9\)</span> and <span class="math inline">\(6\)</span>, so <span class="math inline">\(3\)</span> divides <span class="math inline">\(10b^3\)</span>, and hence <span class="math inline">\(3\)</span> divides <span class="math inline">\(b\)</span>. Write <span class="math inline">\(b = 3q\)</span> and divide by <span class="math inline">\(3\)</span>: <span class="math display">\[3a^3 + 90q^3 + 2c^3 = 0.\]</span> Now <span class="math inline">\(3\)</span> divides <span class="math inline">\(2c^3\)</span>, so <span class="math inline">\(c = 3r\)</span>; dividing by <span class="math inline">\(3\)</span> again gives <span class="math inline">\(a^3 + 30q^3 + 18r^3 = 0\)</span>. So <span class="math inline">\(3\)</span> divides <span class="math inline">\(a\)</span>: <span class="math inline">\(a = 3p\)</span>, and dividing by <span class="math inline">\(3\)</span> once more, <span class="math display">\[9p^3 + 10q^3 + 6r^3 = 0.\]</span> Exactly the original equation, with smaller non-zero numbers. By the same descent argument, there are no non-zero solutions.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-squares-modulo-3" class="stage"><span class="stage-n">Stage 3</span> Squares modulo 3</h4>
+<div class="askyourself">
+<p>Every integer is of the form <span class="math inline">\(3n\)</span>, <span class="math inline">\(3n+1\)</span> or <span class="math inline">\(3n-1\)</span>. What are their squares, modulo <span class="math inline">\(3\)</span>?</p>
+</div>
+<p><span class="math inline">\((3n \pm 1)^2 = 9n^2 \pm 6n + 1 = 3(3n^2 \pm 2n) + 1\)</span>, one more than a multiple of <span class="math inline">\(3\)</span>. And <span class="math inline">\((3n)^2\)</span> is a multiple of <span class="math inline">\(3\)</span>. So a square leaves remainder <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> on division by <span class="math inline">\(3\)</span>, never <span class="math inline">\(2\)</span>.</p>
+<p>Now if <span class="math inline">\(a^2 + b^2\)</span> is a multiple of <span class="math inline">\(3\)</span>, the possible remainders are <span class="math inline">\(0+0\)</span>, <span class="math inline">\(0+1\)</span>, <span class="math inline">\(1+0\)</span> and <span class="math inline">\(1+1\)</span>, which give <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>. Only the first is a multiple of <span class="math inline">\(3\)</span>, so both <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> must be multiples of <span class="math inline">\(3\)</span>.</p>
+<div class="askyourself">
+<p>If <span class="math inline">\(a^2 + b^2 = 3c^2\)</span> and <span class="math inline">\(a = 3p\)</span>, <span class="math inline">\(b = 3q\)</span>, what can you say about <span class="math inline">\(c\)</span>?</p>
+</div>
+<p>We get <span class="math inline">\(9p^2 + 9q^2 = 3c^2\)</span>, so <span class="math inline">\(c^2 = 3(p^2 + q^2)\)</span> is a multiple of <span class="math inline">\(3\)</span>, and hence <span class="math inline">\(c = 3r\)</span>. Then <span class="math inline">\(9p^2 + 9q^2 = 27r^2\)</span>, so <span class="math inline">\(p^2 + q^2 = 3r^2\)</span>: the same equation, smaller numbers. Descent again.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-a-twist-the-equation-changes" class="stage"><span class="stage-n">Stage 4</span> A twist: the equation changes</h4>
+<div class="askyourself">
+<p>In <span class="math inline">\(a^2 + b^2 + c^2 = 4abc\)</span> the right-hand side is a multiple of <span class="math inline">\(4\)</span>. What are the squares modulo <span class="math inline">\(4\)</span>?</p>
+</div>
+<p>Even squares are multiples of <span class="math inline">\(4\)</span> and odd squares are one more than a multiple of <span class="math inline">\(4\)</span> (<span class="math inline">\((2n+1)^2 = 4n^2 + 4n + 1\)</span>). So <span class="math inline">\(a^2 + b^2 + c^2\)</span> leaves remainder <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span> or <span class="math inline">\(3\)</span> on division by <span class="math inline">\(4\)</span>, according to how many of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> are odd. Since the right-hand side is a multiple of <span class="math inline">\(4\)</span>, <em>none</em> of them can be odd. Write <span class="math inline">\(a = 2p\)</span>, <span class="math inline">\(b = 2q\)</span>, <span class="math inline">\(c = 2r\)</span>: <span class="math display">\[4(p^2 + q^2 + r^2) = 32\,pqr \quad\Longrightarrow\quad p^2 + q^2 + r^2 = 8\,pqr.\]</span></p>
+<div class="askyourself">
+<p>This is <em>not</em> the same equation: the <span class="math inline">\(4\)</span> has become an <span class="math inline">\(8\)</span>. Does the descent still work?</p>
+</div>
+<p>Here is the trick: <em>prove something stronger</em>. Consider all equations of the form <span class="math display">\[x^2 + y^2 + z^2 = 2^m\, xyz \qquad\text{with } m \geq 2.\]</span> For any such <span class="math inline">\(m\)</span>, the right-hand side is a multiple of <span class="math inline">\(4\)</span>, so exactly the same argument shows <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, <span class="math inline">\(z\)</span> are all even. Halving them gives a solution of the equation with <span class="math inline">\(2^{m+1}\)</span>, which is again of this form. So from a non-zero solution of the <span class="math inline">\(m\)</span> equation we get a smaller non-zero solution of the <span class="math inline">\(m+1\)</span> equation. Taking the solution, of <em>any</em> equation in the family, with <span class="math inline">\(|x|\)</span> smallest gives a contradiction. In particular, <span class="math inline">\(a^2 + b^2 + c^2 = 4abc\)</span> has no non-zero solutions.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Sometimes the statement you want to prove is too weak to support its own induction, and the cure is to prove a more general statement that <em>is</em> self-supporting. This is a surprisingly common trick at university.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Descent needs a source of divisibility.</strong> Each time, we found a prime <span class="math inline">\(p\)</span> (here <span class="math inline">\(2\)</span> or <span class="math inline">\(3\)</span>) that was forced to divide all the variables, and divided it out.</p></li>
+<li><p><strong>Working modulo <span class="math inline">\(n\)</span> is the way to find it.</strong> Looking at remainders mod <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> or <span class="math inline">\(4\)</span> turned “could anything work?” into a short finite check.</p></li>
+<li><p><strong>If the equation changes, generalise.</strong> Part (iv) needed a whole family of equations, closed under the descent step.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Fermat, descent and his Last Theorem</div>
+<p>Fermat used infinite descent to prove that <span class="math inline">\(x^4 + y^4 = z^2\)</span> has no solutions in positive integers. This is the only case of his famous “Last Theorem” for which he left a proof, and it settles the case <span class="math inline">\(n = 4\)</span> of <span class="math inline">\(x^n + y^n = z^n\)</span>. Euler later used descent, with a gap that was later filled, for <span class="math inline">\(n = 3\)</span>. Descent is still the starting point of the modern theory: the proof of the Mordell–Weil theorem about curves like the one in <a href="../ch01/tangents-cubic.html">Section 1.9</a> is a sophisticated descent.</p>
+</div>
+<h3 id="local-obstructions">Local obstructions</h3>
+<p>Every proof in this section worked by looking at remainders modulo some number. If an equation has no solutions modulo <span class="math inline">\(n\)</span> for some <span class="math inline">\(n\)</span>, or no solutions in real numbers, it certainly has no solutions in integers. Such reasons are called <em>local obstructions</em>, and at university you will meet the <em><span class="math inline">\(p\)</span>-adic numbers</em>, a way of studying all the remainders modulo <span class="math inline">\(p, p^2, p^3, \ldots\)</span> at once.</p>
+<p>A wonderful theorem of Hasse and Minkowski says that for <em>quadratic</em> equations like <span class="math inline">\(a^2 + b^2 = 3c^2\)</span>, local obstructions are the only obstructions: if there are no “local” reasons to fail, there really is a rational solution. For cubic equations this breaks down spectacularly. Ernst Selmer showed in 1951 that <span class="math display">\[3x^3 + 4y^3 + 5z^3 = 0\]</span> has solutions modulo every whole number, and in real numbers, but no solution in non-zero integers. Explaining when and why the “local-to-global” principle fails is a major theme of modern number theory.</p>
+<h3 id="an-equation-that-does-have-solutions">An equation that <em>does</em> have solutions</h3>
+<p>Part (iv) has a famous cousin: <span class="math inline">\(x^2 + y^2 + z^2 = 3xyz\)</span>, the <em>Markov equation</em>. It has infinitely many solutions in positive integers, starting with <span class="math inline">\((1,1,1)\)</span>, <span class="math inline">\((1,1,2)\)</span>, <span class="math inline">\((1,2,5)\)</span>, <span class="math inline">\((1,5,13)\)</span> and <span class="math inline">\((2,5,29)\)</span>, and they are connected to how well irrational numbers can be approximated by fractions. See exercise 4.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Infinite descent</div>
+<p><em>To show an equation has no solutions, show that any solution would produce a strictly smaller one. Then the smallest solution can’t exist.</em></p>
+<p>Pair this with working modulo <span class="math inline">\(n\)</span> to find the divisibility that drives the descent, and be ready to generalise the statement if it isn’t preserved by the descent step.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A STEP I warm-up.</strong> <em>(STEP I 2010 Question 8.)</em> Show that the only integer solution of <span class="math inline">\(a^3 + 3b^3 = 9c^3\)</span> is <span class="math inline">\(a = b = c = 0\)</span>. Then, by considering final digits, show the same for <span class="math inline">\(p^4 + 2q^4 = 5r^4\)</span>.</p></li>
+<li><p><strong>A modulus with no descent needed.</strong> Show that <span class="math inline">\(x^2 + y^2 = 4z + 3\)</span> has no integer solutions at all, just by working modulo <span class="math inline">\(4\)</span>.</p></li>
+<li><p><strong>Rational points.</strong> Use part (iii) to show that there is no point with <em>rational</em> coordinates on the circle <span class="math inline">\(x^2 + y^2 = 3\)</span>. (Contrast this with <span class="math inline">\(x^2 + y^2 = 2\)</span>, which contains <span class="math inline">\((1,1)\)</span>.)</p></li>
+<li><p><strong>Markov triples.</strong> Show that if <span class="math inline">\((x, y, z)\)</span> satisfies <span class="math inline">\(x^2 + y^2 + z^2 = 3xyz\)</span>, then so does <span class="math inline">\((x, y, 3xy - z)\)</span>. Starting from <span class="math inline">\((1,1,1)\)</span>, generate the triples listed above. (This “jumping” trick is the opposite of descent.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Harold Davenport, <em>The Higher Arithmetic</em></strong>, Chapters 2 and 5.</p></li>
+<li><p><strong>Joseph Silverman, <em>A Friendly Introduction to Number Theory</em></strong> (Pearson). Very readable; includes Fermat’s descent proof for <span class="math inline">\(x^4 + y^4 = z^2\)</span>.</p></li>
+<li><p><strong>Simon Singh, <em>Fermat’s Last Theorem</em></strong> (Fourth Estate). The story, from Fermat’s margin to Wiles’s proof, for a general reader.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="e-irrational.html">← 1.4 e Is Irrational, and So Is e2</a><a class="next" href="two-squares.html">→ 1.6 Sums of Two Squares</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

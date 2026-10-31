@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.2 How Thinly Spread Are the Primes? — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 1 · Number Theory and Proof</a>
+    <div class="src">STEP III · 2016 · Question 5</div>
+    <div class="sec-head"><span class="sec-num">1.2</span><h1>How Thinly Spread Are the Primes?</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-2-prime-distribution.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 1</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>By considering the binomial expansion of <span class="math inline">\((1+x)^{2m+1}\)</span>, prove that <span class="math display">\[\binom{2m+1}{m} &lt; 2^{2m}\]</span> for any positive integer <span class="math inline">\(m\)</span>.</p></li>
+<li><p>For any positive integers <span class="math inline">\(r\)</span> and <span class="math inline">\(s\)</span> with <span class="math inline">\(r &lt; s\)</span>, <span class="math inline">\(P_{r,s}\)</span> is defined as follows: <span class="math inline">\(P_{r,s}\)</span> is the product of all the prime numbers greater than <span class="math inline">\(r\)</span> and less than or equal to <span class="math inline">\(s\)</span>, if there are any such prime numbers; if there are no such prime numbers, then <span class="math inline">\(P_{r,s} = 1\)</span>.</p>
+<p>For example, <span class="math inline">\(P_{3,7} = 35\)</span>, <span class="math inline">\(P_{7,10} = 1\)</span> and <span class="math inline">\(P_{14,18} = 17\)</span>.</p>
+<p>Show that, for any positive integer <span class="math inline">\(m\)</span>, <span class="math inline">\(P_{m+1,\,2m+1}\)</span> divides <span class="math inline">\(\dbinom{2m+1}{m}\)</span>, and deduce that <span class="math display">\[P_{m+1,\,2m+1} &lt; 2^{2m}.\]</span></p></li>
+<li><p>Show that, if <span class="math inline">\(P_{1,k} &lt; 4^k\)</span> for <span class="math inline">\(k = 2, 3, \ldots, 2m\)</span>, then <span class="math inline">\(P_{1,2m+1} &lt; 4^{2m+1}\)</span>.</p></li>
+<li><p>Prove that <span class="math inline">\(P_{1,n} &lt; 4^n\)</span> for <span class="math inline">\(n \geq 2\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>In <a href="../ch01/fermat-numbers.html">Section 1.1</a> we saw that there are infinitely many primes. But “infinitely many” is a blunt statement. The primes certainly get rarer: there are <span class="math inline">\(25\)</span> primes below <span class="math inline">\(100\)</span> but only <span class="math inline">\(14\)</span> between <span class="math inline">\(900\)</span> and <span class="math inline">\(1000\)</span>. <em>How</em> rare do they get?</p>
+<p>This question proves something that sounds quite modest: if you multiply together all the primes up to <span class="math inline">\(n\)</span>, the answer is less than <span class="math inline">\(4^n\)</span>. But that innocent inequality is the first real step towards answering “how rare?”, and it is the key lemma in one of the most celebrated short proofs in mathematics, by the young Paul Erdős in 1932.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>The notation <span class="math inline">\(P_{r,s}\)</span> looks fussy, but the idea is simple: multiply together the primes in a range. Make sure you understand the examples. <span class="math inline">\(P_{3,7}\)</span> uses the primes greater than <span class="math inline">\(3\)</span> and at most <span class="math inline">\(7\)</span>, namely <span class="math inline">\(5\)</span> and <span class="math inline">\(7\)</span>, so it is <span class="math inline">\(35\)</span>.</p>
+<div class="askyourself">
+<p>Part (iv) asks you to prove a statement for <em>all</em> <span class="math inline">\(n \geq 2\)</span>. Part (iii) assumes the statement for every <span class="math inline">\(k\)</span> up to <span class="math inline">\(2m\)</span>. What kind of induction is that?</p>
+</div>
+<p>It is <em>strong</em> induction: to prove the case <span class="math inline">\(n\)</span>, you may assume <em>all</em> the earlier cases, not just the one immediately before. Keep that in mind; it is why the question is laid out the way it is.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-a-binomial-coefficient-is-not-too-big" class="stage"><span class="stage-n">Stage 1</span> A binomial coefficient is not too big</h4>
+<div class="askyourself">
+<p>What do you get if you put <span class="math inline">\(x = 1\)</span> in the binomial expansion of <span class="math inline">\((1+x)^{2m+1}\)</span>?</p>
+</div>
+<p>You get <span class="math display">\[2^{2m+1} = \binom{2m+1}{0} + \binom{2m+1}{1} + \cdots + \binom{2m+1}{2m+1}.\]</span> All the terms are positive, so each one is less than <span class="math inline">\(2^{2m+1}\)</span>. That is not quite good enough; we want <span class="math inline">\(2^{2m}\)</span>, which is half as much.</p>
+<div class="askyourself">
+<p>Pascal’s triangle is symmetric. Which other term in the sum equals <span class="math inline">\(\binom{2m+1}{m}\)</span>?</p>
+</div>
+<p>By symmetry, <span class="math inline">\(\binom{2m+1}{m} = \binom{2m+1}{m+1}\)</span>, and these are two <em>different</em> terms of the sum (since <span class="math inline">\(m \neq m+1\)</span>). So <span class="math display">\[2\binom{2m+1}{m} = \binom{2m+1}{m} + \binom{2m+1}{m+1} &lt; 2^{2m+1},\]</span> with strict inequality because the sum also contains other positive terms such as <span class="math inline">\(\binom{2m+1}{0} = 1\)</span>. Dividing by <span class="math inline">\(2\)</span> gives <span class="math inline">\(\binom{2m+1}{m} &lt; 2^{2m}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-which-primes-divide-that-binomial-coefficient" class="stage"><span class="stage-n">Stage 2</span> Which primes divide that binomial coefficient?</h4>
+<p>Write the binomial coefficient out: <span class="math display">\[\binom{2m+1}{m} = \frac{(2m+1)!}{m!\,(m+1)!} = \frac{(m+2)(m+3)\cdots(2m+1)}{m!}.\]</span></p>
+<div class="askyourself">
+<p>Let <span class="math inline">\(p\)</span> be a prime with <span class="math inline">\(m + 1 &lt; p \leq 2m+1\)</span>. Does <span class="math inline">\(p\)</span> divide the numerator? Can it divide the denominator?</p>
+</div>
+<p>The numerator <span class="math inline">\((m+2)(m+3)\cdots(2m+1)\)</span> contains <span class="math inline">\(p\)</span> itself as one of its factors, so <span class="math inline">\(p\)</span> divides it. The denominator <span class="math inline">\(m!\)</span> is a product of numbers all smaller than <span class="math inline">\(p\)</span>; since <span class="math inline">\(p\)</span> is prime, it cannot divide a product of numbers none of which it divides. So <span class="math inline">\(p\)</span> divides the numerator but not the denominator, and therefore <span class="math inline">\(p\)</span> divides the whole binomial coefficient (which, remember, is a whole number).</p>
+<div class="pausebox">
+<p>We now know that <em>each</em> prime in the range divides <span class="math inline">\(\binom{2m+1}{m}\)</span>. Why does it follow that their <em>product</em> <span class="math inline">\(P_{m+1,2m+1}\)</span> divides it too? (Careful: if <span class="math inline">\(4\)</span> and <span class="math inline">\(6\)</span> both divide a number, <span class="math inline">\(24\)</span> need not.)</p>
+</div>
+<p>The difference is that our primes are <em>distinct primes</em>. If distinct primes <span class="math inline">\(p_1, p_2, \ldots\)</span> each divide <span class="math inline">\(N\)</span>, then their product divides <span class="math inline">\(N\)</span>: write <span class="math inline">\(N = p_1 N_1\)</span>; then <span class="math inline">\(p_2\)</span> divides <span class="math inline">\(p_1 N_1\)</span> but not <span class="math inline">\(p_1\)</span>, so it divides <span class="math inline">\(N_1\)</span>; and so on. (This uses the fact that if a prime divides a product then it divides one of the factors. That fact is worth a moment’s respect; <a href="../ch01/factorisation-fails.html">Section 1.7</a> shows a world in which its analogue breaks down.)</p>
+<p>So <span class="math inline">\(P_{m+1,2m+1}\)</span> divides <span class="math inline">\(\binom{2m+1}{m}\)</span>, and since a divisor of a positive number is no bigger than it, <span class="math display">\[P_{m+1,\,2m+1} \leq \binom{2m+1}{m} &lt; 2^{2m}. \qed\]</span></p>
+<h4 id="stagemark3-splitting-the-product" class="stage"><span class="stage-n">Stage 3</span> Splitting the product</h4>
+<div class="askyourself">
+<p>How can <span class="math inline">\(P_{1,2m+1}\)</span>, the product of all primes up to <span class="math inline">\(2m+1\)</span>, be built from products we already know about?</p>
+</div>
+<p>Split the primes up to <span class="math inline">\(2m+1\)</span> into those up to <span class="math inline">\(m+1\)</span> and those above <span class="math inline">\(m+1\)</span>: <span class="math display">\[P_{1,2m+1} = P_{1,m+1} \times P_{m+1,2m+1}.\]</span> The second factor is less than <span class="math inline">\(2^{2m} = 4^m\)</span> by Stage 2. For the first, we are allowed to assume <span class="math inline">\(P_{1,k} &lt; 4^k\)</span> for every <span class="math inline">\(k\)</span> from <span class="math inline">\(2\)</span> to <span class="math inline">\(2m\)</span>, and <span class="math inline">\(k = m+1\)</span> is in that range (because <span class="math inline">\(m \geq 1\)</span> gives <span class="math inline">\(2 \leq m+1 \leq 2m\)</span>). So <span class="math display">\[P_{1,2m+1} &lt; 4^{m+1} \times 4^{m} = 4^{2m+1}. \qed\]</span> This is where strong induction earns its keep: to deal with <span class="math inline">\(2m+1\)</span> we needed the case <span class="math inline">\(m+1\)</span>, which is roughly <em>half</em> as big, not the case just before.</p>
+<h4 id="stagemark4-all-n" class="stage"><span class="stage-n">Stage 4</span> All <span class="math inline">\(n\)</span></h4>
+<div class="askyourself">
+<p>Part (iii) handles odd numbers. What happens for an even number <span class="math inline">\(n = 2m+2\)</span>? Is it prime?</p>
+</div>
+<p>Check the start: <span class="math inline">\(P_{1,2} = 2 &lt; 16\)</span> and <span class="math inline">\(P_{1,3} = 6 &lt; 64\)</span>. Now suppose <span class="math inline">\(P_{1,k} &lt; 4^k\)</span> for all <span class="math inline">\(k\)</span> from <span class="math inline">\(2\)</span> up to <span class="math inline">\(n-1\)</span>, where <span class="math inline">\(n \geq 4\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(n\)</span> is even, then <span class="math inline">\(n\)</span> is not prime (it is bigger than <span class="math inline">\(2\)</span>), so the primes up to <span class="math inline">\(n\)</span> are the same as the primes up to <span class="math inline">\(n-1\)</span>. Hence <span class="math inline">\(P_{1,n} = P_{1,n-1} &lt; 4^{n-1} &lt; 4^n\)</span>.</p></li>
+<li><p>If <span class="math inline">\(n\)</span> is odd, write <span class="math inline">\(n = 2m+1\)</span> with <span class="math inline">\(m \geq 2\)</span>. Then part (iii) gives <span class="math inline">\(P_{1,n} &lt; 4^n\)</span> directly.</p></li>
+</ul>
+<p>By strong induction, <span class="math inline">\(P_{1,n} &lt; 4^n\)</span> for every <span class="math inline">\(n \geq 2\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Binomial coefficients carry arithmetic information.</strong> <span class="math inline">\(\binom{2m+1}{m}\)</span> is a single number that is small (less than <span class="math inline">\(4^m\)</span>) but is forced to be divisible by many primes. Squeezing many primes into a small number tells you there can’t be too many of them.</p></li>
+<li><p><strong>Strong induction is the natural tool when a problem halves itself.</strong> The case <span class="math inline">\(2m+1\)</span> depended on the case <span class="math inline">\(m+1\)</span>.</p></li>
+<li><p><strong>Small cases need checking separately.</strong> The induction only gets going once <span class="math inline">\(n \geq 4\)</span>, so <span class="math inline">\(n = 2\)</span> and <span class="math inline">\(3\)</span> had to be done by hand.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">From <span class="math inline">\(4^n\)</span> to the Prime Number Theorem</div>
+<p>Take logarithms of the result: <span class="math inline">\(\ln P_{1,n} &lt; n \ln 4\)</span>, that is, <span class="math display">\[\sum_{p \leq n} \ln p &lt; (\ln 4)\, n \approx 1.39\,n .\]</span> In the 1850s Pafnuty Chebyshev proved bounds of exactly this kind, above <em>and below</em>, showing that <span class="math inline">\(\sum_{p \leq n} \ln p\)</span> grows in proportion to <span class="math inline">\(n\)</span>. Gauss, aged about 15, had already guessed from tables that the number of primes up to <span class="math inline">\(n\)</span> is roughly <span class="math inline">\(n / \ln n\)</span>. This became the <em>Prime Number Theorem</em>, finally proved in 1896 by Jacques Hadamard and Charles de la Vallée Poussin using complex analysis. In its logarithmic form it says <span class="math display">\[\sum_{p \leq n} \ln p \sim n,\]</span> so the product of the primes up to <span class="math inline">\(n\)</span> is roughly <span class="math inline">\(e^n\)</span>. Our bound of <span class="math inline">\(4^n\)</span> is not far off at all: Figure 1.1 shows all three.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-1-1.svg" alt="Figure 1.1"><figcaption><span class="fig-label">Figure 1.1</span> The logarithm of the product of all primes up to <span class="math inline">\(n\)</span> (teal), jumping by <span class="math inline">\(\ln p\)</span> at each prime <span class="math inline">\(p\)</span>. This section proves it stays below <span class="math inline">\(n \ln 4\)</span> (amber, dashed); the Prime Number Theorem says it grows like <span class="math inline">\(n\)</span> (plum).</figcaption></figure>
+<h3 id="bertrands-postulate">Bertrand’s postulate</h3>
+<p>In 1845 Joseph Bertrand conjectured that for every <span class="math inline">\(n \geq 1\)</span> there is always a prime between <span class="math inline">\(n\)</span> and <span class="math inline">\(2n\)</span>. Chebyshev proved it in 1852. Eighty years later, Paul Erdős, aged 19, found a beautiful elementary proof. Its key ingredients are this question’s lemma and a careful look at which primes divide the <em>middle</em> binomial coefficient <span class="math inline">\(\binom{2n}{n}\)</span>. Martin Aigner and Günter Ziegler chose it as Chapter 2 of <em>Proofs from THE BOOK</em>, a collection of the most elegant proofs in mathematics.</p>
+<h3 id="where-this-goes-next">Where this goes next</h3>
+<p>The precise distribution of the primes is controlled by the zeros of the Riemann zeta function, <span class="math display">\[\zeta(s) = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \cdots,\]</span> a function you will meet in a much humbler guise in Section 2.4, where <span class="math inline">\(\zeta(2) = \pi^2/6\)</span>. The <em>Riemann Hypothesis</em>, which predicts exactly where those zeros lie, would pin down the error in the Prime Number Theorem as tightly as possible. It is perhaps the most famous unsolved problem in mathematics, and one of the Millennium Prize Problems.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Strong induction, and extracting information from a clever object</div>
+<p><em>If the case <span class="math inline">\(n\)</span> depends on cases much smaller than <span class="math inline">\(n-1\)</span>, assume all earlier cases at once.</em></p>
+<p>The other idea here is subtler and very characteristic of number theory: to show something about <em>all</em> primes in a range, find one object (here a binomial coefficient) that every one of those primes must divide, and that you can also show is not too large.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Feel the numbers.</strong> Compute <span class="math inline">\(P_{1,n}\)</span> for <span class="math inline">\(n = 10, 20, 30\)</span> and compare it with <span class="math inline">\(4^n\)</span> and with <span class="math inline">\(e^n\)</span>. (A calculator is fine here.)</p></li>
+<li><p><strong>The middle binomial coefficient.</strong> Show that <span class="math inline">\(\binom{2m}{m}\)</span> is the largest of the <span class="math inline">\(2m+1\)</span> terms in the expansion of <span class="math inline">\((1+1)^{2m}\)</span>, and deduce that <span class="math inline">\(\binom{2m}{m} \geq \dfrac{4^m}{2m+1}\)</span>.</p></li>
+<li><p><strong>Not too many primes.</strong> Let <span class="math inline">\(\pi(n)\)</span> be the number of primes up to <span class="math inline">\(n\)</span>. Every prime between <span class="math inline">\(\sqrt n\)</span> and <span class="math inline">\(n\)</span> is bigger than <span class="math inline">\(\sqrt n\)</span>, and their product is at most <span class="math inline">\(P_{1,n} &lt; 4^n\)</span>. Deduce that <span class="math display">\[\pi(n) - \pi(\sqrt n) &lt; \frac{2\ln 4}{\ln n}\, n ,\]</span> and hence that <span class="math inline">\(\pi(n) &lt; 2.8\, n/\ln n + \sqrt n\)</span>. Compare this with the Prime Number Theorem’s <span class="math inline">\(\pi(n) \approx n / \ln n\)</span>.</p></li>
+<li><p><strong>Check Bertrand.</strong> Verify Bertrand’s postulate for <span class="math inline">\(n = 1, 2, \ldots, 50\)</span> by finding a prime between <span class="math inline">\(n\)</span> and <span class="math inline">\(2n\)</span> in each case. Can you do it efficiently using a short list of primes, each less than twice the one before?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Aigner &amp; Ziegler, <em>Proofs from THE BOOK</em></strong>, Chapter 2, “Bertrand’s postulate”.</p></li>
+<li><p><strong>Marcus du Sautoy, <em>The Music of the Primes</em></strong> (Fourth Estate). A popular history of the Prime Number Theorem and the Riemann Hypothesis.</p></li>
+<li><p><strong>G. J. O. Jameson, <em>The Prime Number Theorem</em></strong> (Cambridge University Press). Rigorous but gentle, and written for undergraduates; the first chapters need only A-level calculus.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="fermat-numbers.html">← 1.1 A Prime Factory</a><a class="next" href="well-ordering.html">→ 1.3 The Smallest Counterexample</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
