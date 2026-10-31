@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8.3 Harvesting a Population — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 8 · Differential Equations and Dynamical Systems</a>
+    <div class="src">STEP II · 1995 · Question 8</div>
+    <div class="sec-head"><span class="sec-num">8.3</span><h1>Harvesting a Population</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-3-harvesting.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 8</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>If there are <span class="math inline">\(x\)</span> micrograms of bacteria in a nutrient medium, the population of bacteria will grow at the rate <span class="math inline">\((2K - x)x\)</span> micrograms per hour. Show that, if <span class="math inline">\(x = K\)</span> when <span class="math inline">\(t = 0\)</span>, the population at time <span class="math inline">\(t\)</span> is given by <span class="math display">\[x(t) = K + K\frac{1 - \mathrm{e}^{-2Kt}}{1 + \mathrm{e}^{-2Kt}}.\]</span> Sketch, for <span class="math inline">\(t \geq 0\)</span>, the graph of <span class="math inline">\(x\)</span> against <span class="math inline">\(t\)</span>. What happens to <span class="math inline">\(x(t)\)</span> as <span class="math inline">\(t \to \infty\)</span>?</p>
+<p>Now suppose that the situation is as described in the first paragraph, except that we remove the bacteria from the nutrient medium at a rate <span class="math inline">\(L\)</span> micrograms per hour where <span class="math inline">\(K^2 &gt; L\)</span>. We set <span class="math inline">\(\alpha = \sqrt{K^2 - L}\)</span>. Write down the new differential equation for <span class="math inline">\(x\)</span>. By considering a new variable <span class="math inline">\(y = x - K + \alpha\)</span>, or otherwise, show that, if <span class="math inline">\(x(0) = K\)</span> then <span class="math inline">\(x(t) \to K + \alpha\)</span> as <span class="math inline">\(t \to \infty\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>A population with unlimited food grows exponentially. Real populations run out of room: growth slows as the population approaches what the environment can support, its <em>carrying capacity</em>. The simplest model of this, the <em>logistic equation</em>, is in the first half of the question, and it describes everything from bacteria in a dish to the spread of a new technology.</p>
+<p>The second half asks a question with enormous practical stakes: what happens if we harvest the population at a steady rate? Below a certain threshold, the population adjusts to a new, lower equilibrium. But push the harvest past that threshold, even slightly, and the equilibrium vanishes and the population crashes to zero. This is the mathematics behind the collapse of fisheries, and the reason fishing quotas exist.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Before solving anything, sketch the growth rate <span class="math inline">\((2K - x)x\)</span> as a function of <span class="math inline">\(x\)</span>. Where is it zero? Where positive? What does that tell you about how <span class="math inline">\(x\)</span> will behave?</p>
+</div>
+<p>The rate is zero at <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(x = 2K\)</span>, positive in between and negative beyond <span class="math inline">\(2K\)</span>. So a population starting between <span class="math inline">\(0\)</span> and <span class="math inline">\(2K\)</span> grows towards <span class="math inline">\(2K\)</span>, and one starting above <span class="math inline">\(2K\)</span> shrinks towards it. The carrying capacity is <span class="math inline">\(2K\)</span>, and the growth is fastest at <span class="math inline">\(x = K\)</span>, where the rate is <span class="math inline">\(K^2\)</span>. You can predict the long-term behaviour without solving the equation.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-solving-the-logistic-equation" class="stage"><span class="stage-n">Stage 1</span> Solving the logistic equation</h4>
+<div class="askyourself">
+<p>Separate the variables: <span class="math inline">\(\displaystyle\int \frac{\mathrm{d}x}{(2K - x)x} = \int \mathrm{d}t\)</span>. Split the left-hand side into partial fractions.</p>
+</div>
+<p><span class="math inline">\(\dfrac{1}{(2K - x)x} = \dfrac{1}{2K}\left(\dfrac1x + \dfrac{1}{2K - x}\right)\)</span>, so <span class="math display">\[\frac{1}{2K}\ln\frac{x}{2K - x} = t + C.\]</span> At <span class="math inline">\(t = 0\)</span>, <span class="math inline">\(x = K\)</span>, so <span class="math inline">\(\ln 1 = 0\)</span> and <span class="math inline">\(C = 0\)</span>. Then <span class="math inline">\(\frac{x}{2K - x} = e^{2Kt}\)</span>, giving <span class="math display">\[x = \frac{2Ke^{2Kt}}{1 + e^{2Kt}} = \frac{2K}{1 + e^{-2Kt}} = K + K\frac{1 - e^{-2Kt}}{1 + e^{-2Kt}}. \qed\]</span> The fraction is <span class="math inline">\(\tanh(Kt)\)</span>, so <span class="math inline">\(x = K + K\tanh Kt\)</span>: an S-shaped curve rising from <span class="math inline">\(K\)</span> towards <span class="math inline">\(2K\)</span>. As <span class="math inline">\(t \to \infty\)</span>, <span class="math inline">\(e^{-2Kt} \to 0\)</span> and <span class="math inline">\(x \to 2K\)</span>.</p>
+<h4 id="stagemark2-harvesting" class="stage"><span class="stage-n">Stage 2</span> Harvesting</h4>
+<p>Removing bacteria at rate <span class="math inline">\(L\)</span> gives <span class="math display">\[\frac{\mathrm{d}x}{\mathrm{d}t} = (2K - x)x - L.\]</span></p>
+<div class="askyourself">
+<p>Complete the square in <span class="math inline">\((2K - x)x - L\)</span>. Where are its zeros?</p>
+</div>
+<p><span class="math inline">\((2K - x)x - L = K^2 - L - (x - K)^2 = \alpha^2 - (x - K)^2 = \bigl(\alpha - (x - K)\bigr)\bigl(\alpha + (x - K)\bigr)\)</span>. The equilibria are <span class="math inline">\(x = K \pm \alpha\)</span>.</p>
+<div class="pausebox">
+<p>Now substitute <span class="math inline">\(y = x - K + \alpha\)</span>. What equation does <span class="math inline">\(y\)</span> satisfy? Compare it with the original logistic equation.</p>
+</div>
+<p>With <span class="math inline">\(y = x - K + \alpha\)</span>, we have <span class="math inline">\(x - K = y - \alpha\)</span>, so <span class="math inline">\(\alpha + (x - K) = y\)</span> and <span class="math inline">\(\alpha - (x - K) = 2\alpha - y\)</span>. Hence <span class="math display">\[\frac{\mathrm{d}y}{\mathrm{d}t} = (2\alpha - y)y,\]</span> the logistic equation again, with <span class="math inline">\(K\)</span> replaced by <span class="math inline">\(\alpha\)</span>. Initially <span class="math inline">\(y(0) = K - K + \alpha = \alpha\)</span>, exactly as <span class="math inline">\(x(0) = K\)</span> in the first part. So by Stage 1 (with <span class="math inline">\(\alpha\)</span> for <span class="math inline">\(K\)</span>), <span class="math inline">\(y(t) = \alpha + \alpha\tanh\alpha t \to 2\alpha\)</span>, and therefore <span class="math display">\[x(t) = K + \alpha\tanh\alpha t \to K + \alpha. \qed\]</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Qualitative first.</strong> The sign of the growth rate predicted the long-term behaviour before any solving.</p></li>
+<li><p><strong>Completing the square reveals the equilibria.</strong> The harvested equation had equilibria at <span class="math inline">\(K \pm \alpha\)</span>.</p></li>
+<li><p><strong>A substitution reduces a new problem to an old one.</strong> Shifting the variable turned the harvested equation into the logistic equation already solved.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Tipping points</div>
+<p>The harvested equation has two equilibria, <span class="math inline">\(K + \alpha\)</span> and <span class="math inline">\(K - \alpha\)</span>. The upper one is <em>stable</em>: a population slightly above or below it returns to it. The lower one is <em>unstable</em>: a population just below <span class="math inline">\(K - \alpha\)</span> declines to extinction. As the harvest rate <span class="math inline">\(L\)</span> increases, <span class="math inline">\(\alpha = \sqrt{K^2 - L}\)</span> shrinks, and the two equilibria approach each other; at <span class="math inline">\(L = K^2\)</span> they merge, and for <span class="math inline">\(L &gt; K^2\)</span> there is no equilibrium at all, and every population collapses (Figure 8.3.1). This is a <em>saddle-node bifurcation</em>, the simplest kind of <em>tipping point</em>. Its sting is that nothing dramatic warns of it: as <span class="math inline">\(L\)</span> approaches <span class="math inline">\(K^2\)</span>, the equilibrium population declines only gently, and then suddenly there is no equilibrium. Reducing the harvest afterwards may not help, because the population may already be below the unstable threshold.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-8-3-1.svg" alt="Figure 8.3.1"><figcaption><span class="fig-label">Figure 8.3.1</span> Equilibrium populations against the harvest rate <span class="math inline">\(L\)</span>, with <span class="math inline">\(K = 1\)</span>. The stable equilibrium (solid) and the unstable threshold (dashed) approach each other as <span class="math inline">\(L\)</span> increases, and meet at <span class="math inline">\(L = K^2\)</span>. Beyond that, no equilibrium exists and the population collapses whatever its size.</figcaption></figure>
+<h3 id="maximum-sustainable-yield">Maximum sustainable yield</h3>
+<p>What is the largest harvest the population can sustain? It is <span class="math inline">\(L = K^2\)</span>, the peak of the growth rate <span class="math inline">\((2K - x)x\)</span>, achieved when the population is held at <span class="math inline">\(K\)</span>, half the carrying capacity. Fisheries science adopted this “maximum sustainable yield” as a management target in the mid-twentieth century. But harvesting exactly at the maximum puts the system exactly at the tipping point, where the slightest overestimate of <span class="math inline">\(K\)</span>, or a bad year, causes collapse. The Grand Banks cod fishery off Newfoundland, one of the richest in the world for five hundred years, collapsed in the early 1990s, and in 1992 the Canadian government imposed a moratorium that put tens of thousands of people out of work. The stocks have still not fully recovered.</p>
+<h3 id="logistic-growth-elsewhere">Logistic growth elsewhere</h3>
+<p>The logistic equation was proposed by Pierre-François Verhulst in 1838 to model human populations. The same S-shaped curve describes the spread of an epidemic in its early stages, the adoption of new technologies, autocatalytic chemical reactions and the growth of tumours. Its discrete-time version, the logistic <em>map</em>, behaves very differently: it can be chaotic, as we will see in <a href="../ch08/solvable-chaos.html">Section 8.7</a>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Equilibria and their stability</div>
+<p><em>For an equation <span class="math inline">\(x&#39; = f(x)\)</span>, the equilibria are the zeros of <span class="math inline">\(f\)</span>, and the sign of <span class="math inline">\(f\)</span> between them tells you which way solutions move.</em></p>
+<p>An equilibrium where <span class="math inline">\(f\)</span> changes from positive to negative is stable; one where it changes from negative to positive is unstable. Drawing the graph of <span class="math inline">\(f\)</span> often answers the important questions without solving anything.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Starting low.</strong> With harvesting and <span class="math inline">\(K^2 &gt; L\)</span>, show that if <span class="math inline">\(x(0) &lt; K - \alpha\)</span> then the population reaches zero in finite time. (<em>Hint:</em> what does <span class="math inline">\(y\)</span> do when <span class="math inline">\(y(0) &lt; 0\)</span>?)</p></li>
+<li><p><strong>Over-harvesting.</strong> If <span class="math inline">\(L &gt; K^2\)</span>, write <span class="math inline">\(\beta = \sqrt{L - K^2}\)</span>. Solve <span class="math inline">\(x&#39; = -(x - K)^2 - \beta^2\)</span> with <span class="math inline">\(x(0) = 2K\)</span> and find when the population reaches zero.</p></li>
+<li><p><strong>Proportional harvesting.</strong> Suppose instead that a fixed <em>fraction</em> of the population is removed: <span class="math inline">\(x&#39; = (2K - x)x - hx\)</span>. Find the equilibria and show that the population survives for all <span class="math inline">\(h &lt; 2K\)</span>. Why is this policy safer?</p></li>
+<li><p><strong>Half-time.</strong> In the unharvested case, find the time at which the population reaches <span class="math inline">\(\frac32K\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Steven Strogatz, <em>Nonlinear Dynamics and Chaos</em></strong> (CRC Press). Chapter 3 is about bifurcations, with this harvesting model as an exercise.</p></li>
+<li><p><strong>Nicholas Britton, <em>Essential Mathematical Biology</em></strong> (Springer). Population models for undergraduates.</p></li>
+<li><p><strong>Mark Kurlansky, <em>Cod: A Biography of the Fish That Changed the World</em></strong> (Penguin). The history of the cod fishery and its collapse.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="bounding-without-solving.html">← 8.2 Bounding Without Solving</a><a class="next" href="limit-cycle.html">→ 8.4 Spiralling onto a Circle</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

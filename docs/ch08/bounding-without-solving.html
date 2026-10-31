@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8.2 Bounding Without Solving — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 8 · Differential Equations and Dynamical Systems</a>
+    <div class="src">STEP III · 2013 · Question 7</div>
+    <div class="sec-head"><span class="sec-num">8.2</span><h1>Bounding Without Solving</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-2-bounding-without-solving.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 8</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Let <span class="math inline">\(y(x)\)</span> be a solution of the differential equation <span class="math inline">\(\dfrac{\mathrm{d}^2y}{\mathrm{d}x^2} + y^3 = 0\)</span> with <span class="math inline">\(y = 1\)</span> and <span class="math inline">\(\dfrac{\mathrm{d}y}{\mathrm{d}x} = 0\)</span> at <span class="math inline">\(x = 0\)</span>, and let <span class="math display">\[\mathrm{E}(x) = \left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)^2 + \tfrac12y^4.\]</span> Show by differentiation that <span class="math inline">\(\mathrm{E}\)</span> is constant and deduce that <span class="math inline">\(|y(x)| \leq 1\)</span> for all <span class="math inline">\(x\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(v(x)\)</span> be a solution of the differential equation <span class="math inline">\(\dfrac{\mathrm{d}^2v}{\mathrm{d}x^2} + x\dfrac{\mathrm{d}v}{\mathrm{d}x} + \sinh v = 0\)</span> with <span class="math inline">\(v = \ln 3\)</span> and <span class="math inline">\(\dfrac{\mathrm{d}v}{\mathrm{d}x} = 0\)</span> at <span class="math inline">\(x = 0\)</span>, and let <span class="math display">\[\mathrm{E}(x) = \left(\frac{\mathrm{d}v}{\mathrm{d}x}\right)^2 + 2\cosh v.\]</span> Show that <span class="math inline">\(\dfrac{\mathrm{d}\mathrm{E}}{\mathrm{d}x} \leq 0\)</span> for <span class="math inline">\(x \geq 0\)</span> and deduce that <span class="math inline">\(\cosh v(x) \leq \frac53\)</span> for <span class="math inline">\(x \geq 0\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(w(x)\)</span> be a solution of the differential equation <span class="math display">\[\frac{\mathrm{d}^2w}{\mathrm{d}x^2} + (5\cosh x - 4\sinh x - 3)\frac{\mathrm{d}w}{\mathrm{d}x} + (w\cosh w + 2\sinh w) = 0\]</span> with <span class="math inline">\(\dfrac{\mathrm{d}w}{\mathrm{d}x} = \dfrac{1}{\sqrt2}\)</span> and <span class="math inline">\(w = 0\)</span> at <span class="math inline">\(x = 0\)</span>. Show that <span class="math inline">\(\cosh w(x) \leq \frac54\)</span> for <span class="math inline">\(x \geq 0\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Most differential equations cannot be solved. There is no formula for the solution of <span class="math inline">\(y&#39;&#39; + y^3 = 0\)</span> in terms of familiar functions, let alone for the monster in part (iii). Yet we can still say a great deal about the solutions: that they stay bounded, that they oscillate, that they settle down. The trick is to find a quantity, built from the solution and its derivative, that never increases. Then the solution is trapped.</p>
+<p>In physics, that quantity is usually <em>energy</em>. A ball rolling in a bowl cannot climb higher than its starting height, because energy is conserved, or, with friction, decreases. This question applies the same reasoning to three equations, the last of them chosen so that you have to invent the “energy” yourself. The method, due to Aleksandr Lyapunov in 1892, is one of the most important tools in the study of differential equations.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>For part (i), think of <span class="math inline">\(y\)</span> as the position of a particle and <span class="math inline">\(x\)</span> as time. Then <span class="math inline">\(y&#39;&#39; = -y^3\)</span> is Newton’s law with force <span class="math inline">\(-y^3\)</span>. What are the kinetic and potential energies?</p>
+</div>
+<p>The kinetic energy is <span class="math inline">\(\frac12(y&#39;)^2\)</span> (taking mass <span class="math inline">\(1\)</span>), and the force <span class="math inline">\(-y^3\)</span> comes from the potential <span class="math inline">\(V(y) = \frac14y^4\)</span>, since force is <span class="math inline">\(-V&#39;(y)\)</span>. The total energy is <span class="math inline">\(\frac12(y&#39;)^2 + \frac14y^4\)</span>, which is half of <span class="math inline">\(\mathrm{E}\)</span>. Conservation of energy is exactly the statement that <span class="math inline">\(\mathrm{E}\)</span> is constant.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-conservation" class="stage"><span class="stage-n">Stage 1</span> Conservation</h4>
+<p>By the chain rule, <span class="math display">\[\frac{\mathrm{d}\mathrm{E}}{\mathrm{d}x} = 2y&#39;y&#39;&#39; + 2y^3y&#39; = 2y&#39;\bigl(y&#39;&#39; + y^3\bigr) = 0.\]</span> So <span class="math inline">\(\mathrm{E}\)</span> is constant, equal to its value at <span class="math inline">\(x = 0\)</span>: <span class="math inline">\(\mathrm{E} = 0 + \frac12 = \frac12\)</span>. Since <span class="math inline">\((y&#39;)^2 \geq 0\)</span>, we get <span class="math inline">\(\frac12y^4 \leq \frac12\)</span>, so <span class="math inline">\(y^4 \leq 1\)</span> and <span class="math inline">\(|y| \leq 1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>The solution oscillates between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>, tracing the closed curve <span class="math inline">\((y&#39;)^2 + \frac12y^4 = \frac12\)</span> in the <span class="math inline">\((y, y&#39;)\)</span> plane (Figure 8.2.1).</p>
+<h4 id="stagemark2-dissipation" class="stage"><span class="stage-n">Stage 2</span> Dissipation</h4>
+<div class="askyourself">
+<p>Differentiate <span class="math inline">\(\mathrm{E} = (v&#39;)^2 + 2\cosh v\)</span>. Use the differential equation to replace <span class="math inline">\(v&#39;&#39;\)</span>. What sign does the result have?</p>
+</div>
+<p><span class="math display">\[\frac{\mathrm{d}\mathrm{E}}{\mathrm{d}x} = 2v&#39;v&#39;&#39; + 2\sinh v\,v&#39; = 2v&#39;\bigl(v&#39;&#39; + \sinh v\bigr) = 2v&#39;\bigl(-xv&#39;\bigr) = -2x(v&#39;)^2 \leq 0 \quad\text{for } x \geq 0.\]</span> The term <span class="math inline">\(xv&#39;\)</span> acts like friction, and it removes energy. So <span class="math inline">\(\mathrm{E}(x) \leq \mathrm{E}(0)\)</span> for <span class="math inline">\(x \geq 0\)</span>. At <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(\cosh(\ln 3) = \frac{3 + \frac13}{2} = \frac53\)</span>, so <span class="math inline">\(\mathrm{E}(0) = \frac{10}{3}\)</span>. Hence <span class="math display">\[2\cosh v \leq (v&#39;)^2 + 2\cosh v = \mathrm{E}(x) \leq \tfrac{10}{3}, \qquad\text{so}\qquad \cosh v(x) \leq \tfrac53. \qed\]</span></p>
+<h4 id="stagemark3-inventing-the-energy" class="stage"><span class="stage-n">Stage 3</span> Inventing the energy</h4>
+<p>Part (iii) gives no hint. We need a function <span class="math inline">\(\mathrm{E} = (w&#39;)^2 + F(w)\)</span> that does not increase.</p>
+<div class="askyourself">
+<p>If <span class="math inline">\(\mathrm{E} = (w&#39;)^2 + F(w)\)</span>, then <span class="math inline">\(\mathrm{E}&#39; = 2w&#39;w&#39;&#39; + F&#39;(w)w&#39;\)</span>. What should <span class="math inline">\(F&#39;(w)\)</span> be, so that the equation can be used to replace <span class="math inline">\(w&#39;&#39;\)</span> and leave only a multiple of <span class="math inline">\((w&#39;)^2\)</span>?</p>
+</div>
+<p>We want <span class="math inline">\(\mathrm{E}&#39; = 2w&#39;\bigl(w&#39;&#39; + w\cosh w + 2\sinh w\bigr)\)</span>, so we need <span class="math inline">\(F&#39;(w) = 2(w\cosh w + 2\sinh w)\)</span>. Since <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}w}(w\sinh w) = \sinh w + w\cosh w\)</span>, we can take <span class="math display">\[F(w) = 2w\sinh w + 2\cosh w, \qquad \mathrm{E} = (w&#39;)^2 + 2w\sinh w + 2\cosh w.\]</span> Then, using the equation, <span class="math display">\[\frac{\mathrm{d}\mathrm{E}}{\mathrm{d}x} = -2(5\cosh x - 4\sinh x - 3)(w&#39;)^2.\]</span></p>
+<div class="pausebox">
+<p>Show that <span class="math inline">\(5\cosh x - 4\sinh x - 3 \geq 0\)</span> for all <span class="math inline">\(x\)</span>. (Write it in terms of <span class="math inline">\(e^x\)</span> and look for a perfect square.) Then finish the argument.</p>
+</div>
+<p><span class="math inline">\(5\cosh x - 4\sinh x - 3 = \frac52(e^x + e^{-x}) - 2(e^x - e^{-x}) - 3 = \frac12e^x - 3 + \frac92e^{-x} = \frac12\bigl(e^{x/2} - 3e^{-x/2}\bigr)^2 \geq 0\)</span>. So <span class="math inline">\(\mathrm{E}\)</span> never increases. At <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(\mathrm{E}(0) = \frac12 + 0 + 2 = \frac52\)</span>. Since <span class="math inline">\(w\sinh w \geq 0\)</span> for every <span class="math inline">\(w\)</span> (both factors have the same sign), <span class="math display">\[2\cosh w \leq (w&#39;)^2 + 2w\sinh w + 2\cosh w = \mathrm{E}(x) \leq \tfrac52, \qquad\text{so}\qquad \cosh w(x) \leq \tfrac54. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-2-1.svg" alt="Figure 8.2.1"><figcaption><span class="fig-label">Figure 8.2.1</span> Level curves of the energy <span class="math inline">\(\mathrm{E} = (y&#39;)^2 + \frac12y^4\)</span> in the <span class="math inline">\((y, y&#39;)\)</span> plane. Because <span class="math inline">\(\mathrm{E}\)</span> is constant, the solution of part (i), starting at <span class="math inline">\(y = 1\)</span>, <span class="math inline">\(y&#39; = 0\)</span>, stays on the curve <span class="math inline">\(\mathrm{E} = \frac12\)</span> (amber) for ever, and so never leaves the strip <span class="math inline">\(|y| \leq 1\)</span> (dashed). We know this without ever finding a formula for <span class="math inline">\(y\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Multiply by <span class="math inline">\(y&#39;\)</span>.</strong> In each part, <span class="math inline">\(\mathrm{E}&#39;\)</span> was <span class="math inline">\(2y&#39;\)</span> times the left-hand side of the equation, plus whatever was left over. That leftover term decided whether <span class="math inline">\(\mathrm{E}\)</span> was conserved or decreasing.</p></li>
+<li><p><strong>Energy bounds position.</strong> Since the kinetic part <span class="math inline">\((y&#39;)^2\)</span> is non-negative, a bound on <span class="math inline">\(\mathrm{E}\)</span> is a bound on the potential part, and hence on <span class="math inline">\(y\)</span>.</p></li>
+<li><p><strong>Spot hidden squares.</strong> The damping coefficient in part (iii) looked as if it might change sign, but it was a perfect square in disguise.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Lyapunov functions</div>
+<p>In his 1892 doctoral thesis, Aleksandr Lyapunov studied the <em>stability</em> of motion: if a system is disturbed slightly from equilibrium, does it return, or wander away? His “second method” was to find a function, now called a <em>Lyapunov function</em>, that is smallest at the equilibrium and never increases along solutions. Then solutions that start near the equilibrium stay near it. The beauty of the method is that it needs no formula for the solutions, only the differential equation itself, which is exactly what this question demonstrates. Lyapunov functions are now used to prove the stability of everything from aircraft control systems to power grids to ecosystems.</p>
+</div>
+<h3 id="energy-in-physics-and-engineering">Energy in physics and engineering</h3>
+<p>Part (i) is a nonlinear oscillator: like a spring, but with a restoring force proportional to the cube of the displacement. Unlike a simple harmonic oscillator, its period depends on its amplitude (larger oscillations are faster), but energy conservation still confines it. Part (ii) adds damping that grows with time, and energy drains away. In engineering, energy methods are used to show that structures will not shake themselves apart and that control systems will not oscillate out of control. In the theory of partial differential equations, “energy estimates” of this kind are the main tool for proving that solutions exist and behave well; questions about the equations of fluid flow, including one of the Millennium Prize Problems (the Navier–Stokes problem), come down to whether such bounds can be found.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Find a quantity that cannot increase</div>
+<p><em>If you cannot solve an equation, look for a quantity built from the solution whose derivative has a definite sign. It will bound the solution.</em></p>
+<p>The search is guided by physics (“what is the energy?”) and by algebra (“what must I add so that the derivative collapses?”). Part (iii) shows the algebraic route when there is no physical intuition to lean on.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Simple harmonic motion.</strong> For <span class="math inline">\(y&#39;&#39; + y = 0\)</span> with <span class="math inline">\(y(0) = A\)</span>, <span class="math inline">\(y&#39;(0) = 0\)</span>, find the conserved energy and deduce <span class="math inline">\(|y| \leq A\)</span>. Check against the exact solution.</p></li>
+<li><p><strong>The pendulum.</strong> The angle <span class="math inline">\(\theta\)</span> of a pendulum satisfies <span class="math inline">\(\theta&#39;&#39; + \sin\theta = 0\)</span> (in suitable units). Show that <span class="math inline">\((\theta&#39;)^2 - 2\cos\theta\)</span> is constant. If the pendulum starts at rest at angle <span class="math inline">\(\theta_0\)</span>, show that it never exceeds <span class="math inline">\(\theta_0\)</span> in absolute value.</p></li>
+<li><p><strong>Damping.</strong> For <span class="math inline">\(y&#39;&#39; + 2ky&#39; + y = 0\)</span> with <span class="math inline">\(k &gt; 0\)</span>, show that <span class="math inline">\((y&#39;)^2 + y^2\)</span> decreases. Does it necessarily tend to zero?</p></li>
+<li><p><strong>An escape.</strong> For <span class="math inline">\(y&#39;&#39; - y^3 = 0\)</span> with <span class="math inline">\(y(0) = 1\)</span>, <span class="math inline">\(y&#39;(0) = 0\)</span>, find a conserved quantity and show that <span class="math inline">\(y\)</span> is not bounded by it. What goes wrong?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Steven Strogatz, <em>Nonlinear Dynamics and Chaos</em></strong> (CRC Press). Chapters 6 and 7 cover phase planes, conservative systems and Lyapunov functions.</p></li>
+<li><p><strong>D. W. Jordan &amp; P. Smith, <em>Nonlinear Ordinary Differential Equations</em></strong> (Oxford University Press). A standard undergraduate text with many examples of energy methods.</p></li>
+<li><p><strong>Keith Devlin, <em>The Millennium Problems</em></strong> (Basic Books). Includes an accessible account of the Navier–Stokes problem.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="non-uniqueness.html">← 8.1 When Solutions Aren&#x27;t Unique</a><a class="next" href="harvesting.html">→ 8.3 Harvesting a Population</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

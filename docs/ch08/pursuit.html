@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8.5 Greyhounds Chasing Greyhounds — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 8 · Differential Equations and Dynamical Systems</a>
+    <div class="src">STEP III · 1988 · Question 10</div>
+    <div class="sec-head"><span class="sec-num">8.5</span><h1>Greyhounds Chasing Greyhounds</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-5-pursuit.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 8</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Four greyhounds <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span> are held at positions such that <span class="math inline">\(ABCD\)</span> is a large square. At a given instant, the dogs are released and <span class="math inline">\(A\)</span> runs directly towards <span class="math inline">\(B\)</span> at constant speed <span class="math inline">\(v\)</span>, <span class="math inline">\(B\)</span> runs directly towards <span class="math inline">\(C\)</span> at constant speed <span class="math inline">\(v\)</span>, and so on. Show that <span class="math inline">\(A\)</span>’s path is given in polar coordinates (referred to an origin at the centre of the field and a suitable initial line) by <span class="math inline">\(r = \lambda\mathrm{e}^{-\theta}\)</span>, where <span class="math inline">\(\lambda\)</span> is a constant.</p>
+<p>Generalise this result to the case of <span class="math inline">\(n\)</span> dogs held at the vertices of a regular <span class="math inline">\(n\)</span>-gon (<span class="math inline">\(n \geq 3\)</span>).</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Four dogs stand at the corners of a square field. Each chases the dog to its left. Where do they meet, how long does it take, and what paths do they follow? The paths are beautiful spirals that wind round the centre infinitely many times, and yet each dog runs only a finite distance, exactly the length of a side of the square.</p>
+<p>This is a <em>pursuit problem</em>, a type first studied by Pierre Bouguer in 1732 for a ship chasing a pirate. The trick that makes it solvable is symmetry: whatever happens to one dog happens to all of them, so the four dogs always form a square. Once you see that, the differential equation almost writes itself.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>By symmetry, what shape do the four dogs form at every moment? Where is its centre?</p>
+</div>
+<p>The situation is unchanged by a quarter-turn about the centre of the square (which moves <span class="math inline">\(A \to B \to C \to D \to A\)</span>), so the dogs always form a square with the same centre <span class="math inline">\(O\)</span>. The square rotates and shrinks, but it stays a square. In particular, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are always the same distance <span class="math inline">\(r\)</span> from <span class="math inline">\(O\)</span>, and <span class="math inline">\(OB\)</span> is always a quarter-turn ahead of <span class="math inline">\(OA\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-direction-of-motion" class="stage"><span class="stage-n">Stage 1</span> The direction of motion</h4>
+<div class="askyourself">
+<p><span class="math inline">\(A\)</span> runs towards <span class="math inline">\(B\)</span>. In the triangle <span class="math inline">\(OAB\)</span>, what angle does <span class="math inline">\(AB\)</span> make with <span class="math inline">\(AO\)</span> (the direction towards the centre)?</p>
+</div>
+<p>Triangle <span class="math inline">\(OAB\)</span> has <span class="math inline">\(OA = OB\)</span> and a right angle at <span class="math inline">\(O\)</span>, so its other two angles are <span class="math inline">\(45^\circ\)</span>. So <span class="math inline">\(A\)</span>’s velocity, of size <span class="math inline">\(v\)</span>, points at <span class="math inline">\(45^\circ\)</span> to the inward radial direction, and is turned towards <span class="math inline">\(B\)</span>, in the direction of increasing <span class="math inline">\(\theta\)</span> (if we label the angles so that <span class="math inline">\(B\)</span> is anticlockwise from <span class="math inline">\(A\)</span>).</p>
+<h4 id="stagemark2-the-differential-equation" class="stage"><span class="stage-n">Stage 2</span> The differential equation</h4>
+<div class="askyourself">
+<p>Split <span class="math inline">\(A\)</span>’s velocity into radial and transverse parts. In polar coordinates the radial velocity is <span class="math inline">\(\dot r\)</span> and the transverse velocity is <span class="math inline">\(r\dot\theta\)</span>.</p>
+</div>
+<p>The radial component (inwards) is <span class="math inline">\(v\cos45^\circ\)</span> and the transverse component is <span class="math inline">\(v\sin45^\circ\)</span>, so <span class="math display">\[\dot r = -\frac{v}{\sqrt2}, \qquad r\dot\theta = \frac{v}{\sqrt2}.\]</span> Dividing, <span class="math inline">\(\dfrac{\mathrm{d}r}{\mathrm{d}\theta} = \dfrac{\dot r}{\dot\theta} = -r\)</span>, so <span class="math inline">\(r = \lambda e^{-\theta}\)</span>, with <span class="math inline">\(\lambda\)</span> the initial distance from the centre if <span class="math inline">\(\theta = 0\)</span> initially.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-n-dogs" class="stage"><span class="stage-n">Stage 3</span> <span class="math inline">\(n\)</span> dogs</h4>
+<div class="pausebox">
+<p>For a regular <span class="math inline">\(n\)</span>-gon, what is the angle at <span class="math inline">\(O\)</span> in triangle <span class="math inline">\(OAB\)</span>? What angle does <span class="math inline">\(AB\)</span> make with <span class="math inline">\(AO\)</span>? Repeat Stage 2.</p>
+</div>
+<p>The angle at <span class="math inline">\(O\)</span> is <span class="math inline">\(\frac{2\pi}{n}\)</span>, so the two equal base angles are <span class="math inline">\(\frac12\bigl(\pi - \frac{2\pi}{n}\bigr) = \frac\pi2 - \frac\pi n\)</span>. The velocity makes this angle with the inward radius, so <span class="math display">\[\dot r = -v\cos\left(\frac\pi2 - \frac\pi n\right) = -v\sin\frac\pi n, \qquad r\dot\theta = v\sin\left(\frac\pi2 - \frac\pi n\right) = v\cos\frac\pi n.\]</span> Hence <span class="math inline">\(\dfrac{\mathrm{d}r}{\mathrm{d}\theta} = -r\tan\dfrac\pi n\)</span>, and <span class="math display">\[r = \lambda e^{-\theta\tan(\pi/n)}. \qed\]</span> For <span class="math inline">\(n = 4\)</span>, <span class="math inline">\(\tan\frac\pi4 = 1\)</span>, recovering the square case.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-5-1.svg" alt="Figure 8.5.1"><figcaption><span class="fig-label">Figure 8.5.1</span> Four dogs chasing each other from the corners of a square. Each follows a logarithmic spiral <span class="math inline">\(r = \lambda e^{-\theta}\)</span> (relative to its own starting direction), winding infinitely often round the centre. At every moment the dogs form a square (dashed, shown at one intermediate time), rotating and shrinking until they meet at the centre.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Symmetry reduces many bodies to one.</strong> Four interacting dogs became a single particle obeying a simple rule, because the configuration stays a square.</p></li>
+<li><p><strong>Polar coordinates for motion about a centre.</strong> Radial and transverse components of velocity, <span class="math inline">\(\dot r\)</span> and <span class="math inline">\(r\dot\theta\)</span>, gave the equation directly.</p></li>
+<li><p><strong>Divide to eliminate time.</strong> The ratio <span class="math inline">\(\dot r/\dot\theta\)</span> gave the shape of the path without needing to know when each point is reached.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Infinitely many turns, finite distance</div>
+<p>The radial speed <span class="math inline">\(\dot r = -v\sin\frac\pi n\)</span> is constant, so the dogs reach the centre after time <span class="math inline">\(T = \frac{r_0}{v\sin(\pi/n)}\)</span>, having each run a distance <span class="math inline">\(vT = \frac{r_0}{\sin(\pi/n)}\)</span>. For a regular <span class="math inline">\(n\)</span>-gon of side <span class="math inline">\(s\)</span>, <span class="math inline">\(r_0 = \frac{s}{2\sin(\pi/n)}\)</span>, so each dog runs <span class="math display">\[\frac{s}{2\sin^2(\pi/n)}.\]</span> For four dogs this is exactly <span class="math inline">\(s\)</span>: each dog runs precisely the length of one side. (Here is a slick way to see it: <span class="math inline">\(B\)</span>’s velocity is always perpendicular to <span class="math inline">\(AB\)</span>, so it does not change the distance <span class="math inline">\(AB\)</span>; only <span class="math inline">\(A\)</span>’s motion, at speed <span class="math inline">\(v\)</span> straight along <span class="math inline">\(AB\)</span>, closes the gap, and the gap is initially <span class="math inline">\(s\)</span>.) For three dogs the distance is <span class="math inline">\(\frac23s\)</span>, and for six it is <span class="math inline">\(2s\)</span>. Yet in every case the spiral winds round the centre infinitely many times, because <span class="math inline">\(\theta \to \infty\)</span> as <span class="math inline">\(r \to 0\)</span>. A curve of finite length with infinitely many turns is no paradox: the turns get smaller fast enough.</p>
+</div>
+<h3 id="the-logarithmic-spiral">The logarithmic spiral</h3>
+<p>The curve <span class="math inline">\(r = \lambda e^{-k\theta}\)</span> is the <em>logarithmic</em> or <em>equiangular</em> spiral: it crosses every ray from the centre at the same angle. It appears in nature, in the shell of the nautilus and the arms of some galaxies, because growth that preserves shape produces it. It fascinated Jacob Bernoulli so much that he asked for it to be carved on his tombstone with the motto <em>Eadem mutata resurgo</em> (“Changed, I shall arise the same”), referring to the fact that it looks the same at every scale. The stonemason carved an Archimedean spiral instead.</p>
+<h3 id="pursuit-in-practice">Pursuit in practice</h3>
+<p>“Pure pursuit”, always heading straight at the target, is the simplest guidance law for a missile or a predator. It is not the best: heading for where the target <em>will</em> be (“proportional navigation”) is more efficient, and is what both modern missiles and some predators, such as dragonflies and falcons, actually do. The mathematics of pursuit and evasion became a subject of its own in the twentieth century under the name <em>differential games</em>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Exploit symmetry to reduce a many-body problem</div>
+<p><em>If a system is symmetric and the rules respect the symmetry, the symmetry is preserved for all time, and you can follow just one part.</em></p>
+<p>This idea solves many problems in mechanics and dynamics; it is a simple case of the deep connection between symmetry and conservation.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The slick argument.</strong> Explain carefully why the distance <span class="math inline">\(AB\)</span> decreases at rate exactly <span class="math inline">\(v\)</span> in the four-dog problem, and deduce that the dogs meet after time <span class="math inline">\(s/v\)</span>.</p></li>
+<li><p><strong>Three dogs.</strong> Three dogs start at the corners of an equilateral triangle of side <span class="math inline">\(s\)</span>. Find the equation of each path, the time until they meet, and the distance each runs.</p></li>
+<li><p><strong>How many turns?</strong> For four dogs starting <span class="math inline">\(100\)</span> m from the centre, how close to the centre are they after one full turn? After how many full turns are they within <span class="math inline">\(1\)</span> mm?</p></li>
+<li><p><strong>Two dogs.</strong> What happens with <span class="math inline">\(n = 2\)</span> (two dogs facing each other)? Does the formula still make sense?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Paul Nahin, <em>Chases and Escapes: The Mathematics of Pursuit and Evasion</em></strong> (Princeton University Press). Everything about pursuit curves, from Bouguer to missiles.</p></li>
+<li><p><strong>Eli Maor, <em>e: The Story of a Number</em></strong> (Princeton University Press). Includes the logarithmic spiral and Bernoulli’s tombstone.</p></li>
+<li><p><strong>D’Arcy Thompson, <em>On Growth and Form</em></strong> (Cambridge University Press). The classic book on mathematics in nature, including spiral growth.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="limit-cycle.html">← 8.4 Spiralling onto a Circle</a><a class="next" href="quantum-oscillator.html">→ 8.6 The Quantum Oscillator</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

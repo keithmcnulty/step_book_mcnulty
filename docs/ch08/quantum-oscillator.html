@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8.6 The Quantum Oscillator — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 8 · Differential Equations and Dynamical Systems</a>
+    <div class="src">STEP III · 1988 · Question 7</div>
+    <div class="sec-head"><span class="sec-num">8.6</span><h1>The Quantum Oscillator</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-6-quantum-oscillator.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 8</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>For <span class="math inline">\(n = 0, 1, 2, \ldots\)</span>, the functions <span class="math inline">\(y_n\)</span> satisfy the differential equation <span class="math display">\[\frac{\mathrm{d}^2y_n}{\mathrm{d}x^2} - \omega^2x^2y_n = -(2n + 1)\omega y_n,\]</span> where <span class="math inline">\(\omega\)</span> is a positive constant, and <span class="math inline">\(y_n \to 0\)</span> and <span class="math inline">\(\mathrm{d}y_n/\mathrm{d}x \to 0\)</span> as <span class="math inline">\(x \to +\infty\)</span> and as <span class="math inline">\(x \to -\infty\)</span>. Verify that these conditions are satisfied, for <span class="math inline">\(n = 0\)</span> and <span class="math inline">\(n = 1\)</span>, by <span class="math display">\[y_0(x) = \mathrm{e}^{-\lambda x^2} \qquad\text{and}\qquad y_1(x) = x\mathrm{e}^{-\lambda x^2}\]</span> for some constant <span class="math inline">\(\lambda\)</span>, to be determined.</p>
+<p>Show that <span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}x}\left(y_m\frac{\mathrm{d}y_n}{\mathrm{d}x} - y_n\frac{\mathrm{d}y_m}{\mathrm{d}x}\right) = 2(m - n)\omega y_my_n,\]</span> and deduce that, if <span class="math inline">\(m \neq n\)</span>, <span class="math display">\[\int_{-\infty}^{\infty} y_m(x)y_n(x)\,\mathrm{d}x = 0.\]</span></p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>A mass on a spring oscillates with any energy you like: pull it back a little or a lot. But in 1900 Max Planck found that he could only explain the colours of light emitted by hot objects if the vibrating atoms could have only certain energies, in steps of a fixed size. Energy, at the atomic scale, comes in <em>quanta</em>. Twenty-five years later, quantum mechanics explained why.</p>
+<p>This question contains the explanation. The differential equation is, after a change of units, the Schrödinger equation for a quantum particle in a spring-like potential: the <em>quantum harmonic oscillator</em>. It has well-behaved solutions, ones that die away at infinity, only for special values of the energy, labelled by <span class="math inline">\(n = 0, 1, 2, \ldots\)</span>, in equally spaced steps. And the solutions for different <span class="math inline">\(n\)</span> are <em>orthogonal</em>: the integral of their product is zero, just like <span class="math inline">\(\sin mx\)</span> and <span class="math inline">\(\sin nx\)</span> in a Fourier series. The quantum oscillator is the starting point for the physics of molecules, solids and light.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Why should a function like <span class="math inline">\(e^{-\lambda x^2}\)</span> be a sensible guess? What happens to <span class="math inline">\(e^{-\lambda x^2}\)</span> and its derivative as <span class="math inline">\(x \to \pm\infty\)</span>?</p>
+</div>
+<p>For large <span class="math inline">\(|x|\)</span> the equation is dominated by <span class="math inline">\(y&#39;&#39; \approx \omega^2x^2y\)</span>, and a Gaussian <span class="math inline">\(e^{-\lambda x^2}\)</span> has <span class="math inline">\(y&#39;&#39; \approx 4\lambda^2x^2y\)</span> for large <span class="math inline">\(x\)</span>, which matches if <span class="math inline">\(4\lambda^2 = \omega^2\)</span>. With <span class="math inline">\(\lambda &gt; 0\)</span>, a Gaussian and all its derivatives decay to <span class="math inline">\(0\)</span> faster than any power of <span class="math inline">\(x\)</span>. So the boundary conditions will be automatic; the work is in matching the equation.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-ground-state" class="stage"><span class="stage-n">Stage 1</span> The ground state</h4>
+<div class="askyourself">
+<p>Differentiate <span class="math inline">\(y_0 = e^{-\lambda x^2}\)</span> twice, substitute into the equation with <span class="math inline">\(n = 0\)</span>, and compare coefficients of <span class="math inline">\(x^2\)</span> and of the constant term.</p>
+</div>
+<p><span class="math inline">\(y_0&#39; = -2\lambda xe^{-\lambda x^2}\)</span> and <span class="math inline">\(y_0&#39;&#39; = (4\lambda^2x^2 - 2\lambda)e^{-\lambda x^2}\)</span>. The equation with <span class="math inline">\(n = 0\)</span> requires <span class="math display">\[4\lambda^2x^2 - 2\lambda - \omega^2x^2 = -\omega\]</span> for all <span class="math inline">\(x\)</span>. Matching coefficients: <span class="math inline">\(4\lambda^2 = \omega^2\)</span> and <span class="math inline">\(2\lambda = \omega\)</span>. Both hold with <span class="math inline">\(\lambda = \frac\omega2\)</span> (taking <span class="math inline">\(\lambda &gt; 0\)</span>, so that <span class="math inline">\(y_0 \to 0\)</span>). And <span class="math inline">\(y_0\)</span>, <span class="math inline">\(y_0&#39; \to 0\)</span> as <span class="math inline">\(x \to \pm\infty\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-first-excited-state" class="stage"><span class="stage-n">Stage 2</span> The first excited state</h4>
+<p><span class="math inline">\(y_1 = xe^{-\lambda x^2}\)</span> has <span class="math inline">\(y_1&#39; = (1 - 2\lambda x^2)e^{-\lambda x^2}\)</span> and <span class="math inline">\(y_1&#39;&#39; = (4\lambda^2x^3 - 6\lambda x)e^{-\lambda x^2}\)</span>. The equation with <span class="math inline">\(n = 1\)</span> requires <span class="math display">\[4\lambda^2x^3 - 6\lambda x - \omega^2x^3 = -3\omega x,\]</span> which holds with the same <span class="math inline">\(\lambda = \frac\omega2\)</span>. Again <span class="math inline">\(y_1\)</span> and <span class="math inline">\(y_1&#39;\)</span> decay at <span class="math inline">\(\pm\infty\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-an-identity" class="stage"><span class="stage-n">Stage 3</span> An identity</h4>
+<div class="askyourself">
+<p>Differentiate <span class="math inline">\(y_my_n&#39; - y_ny_m&#39;\)</span> by the product rule. Two of the four terms cancel. Then use the differential equation to replace <span class="math inline">\(y_n&#39;&#39;\)</span> and <span class="math inline">\(y_m&#39;&#39;\)</span>.</p>
+</div>
+<p><span class="math inline">\(\dfrac{\mathrm{d}}{\mathrm{d}x}(y_my_n&#39; - y_ny_m&#39;) = y_m&#39;y_n&#39; + y_my_n&#39;&#39; - y_n&#39;y_m&#39; - y_ny_m&#39;&#39; = y_my_n&#39;&#39; - y_ny_m&#39;&#39;\)</span>. From the equation, <span class="math inline">\(y_n&#39;&#39; = \bigl(\omega^2x^2 - (2n + 1)\omega\bigr)y_n\)</span>, and similarly for <span class="math inline">\(m\)</span>. So <span class="math display">\[y_my_n&#39;&#39; - y_ny_m&#39;&#39; = y_my_n\bigl[\omega^2x^2 - (2n + 1)\omega - \omega^2x^2 + (2m + 1)\omega\bigr] = 2(m - n)\omega y_my_n. \qed\]</span></p>
+<h4 id="stagemark4-orthogonality" class="stage"><span class="stage-n">Stage 4</span> Orthogonality</h4>
+<div class="pausebox">
+<p>Integrate the identity from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(\infty\)</span>. What is the left-hand side?</p>
+</div>
+<p>The left-hand side integrates to <span class="math inline">\(\bigl[y_my_n&#39; - y_ny_m&#39;\bigr]_{-\infty}^{\infty} = 0 - 0 = 0\)</span>, because each <span class="math inline">\(y\)</span> and <span class="math inline">\(y&#39;\)</span> tends to <span class="math inline">\(0\)</span> at both ends. So <span class="math inline">\(2(m - n)\omega\int_{-\infty}^{\infty}y_my_n\,\mathrm{d}x = 0\)</span>, and since <span class="math inline">\(m \neq n\)</span> and <span class="math inline">\(\omega &gt; 0\)</span>, <span class="math display">\[\int_{-\infty}^{\infty}y_m(x)y_n(x)\,\mathrm{d}x = 0. \qed\]</span> For <span class="math inline">\(y_0\)</span> and <span class="math inline">\(y_1\)</span> this is easy to see directly: <span class="math inline">\(y_0y_1 = xe^{-\omega x^2}\)</span> is an odd function. But the identity proves it for every pair, without knowing the functions.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Match coefficients.</strong> Substituting a guessed form and requiring the equation to hold for all <span class="math inline">\(x\)</span> determined <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p><strong>The Wronskian trick.</strong> The combination <span class="math inline">\(y_my_n&#39; - y_ny_m&#39;\)</span> has a derivative in which the second derivatives can be replaced using the equation, leaving something simple.</p></li>
+<li><p><strong>Boundary conditions kill boundary terms.</strong> Decay at infinity made the integrated left-hand side vanish, which gave orthogonality.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Schrödinger’s equation</div>
+<p>In 1926 Erwin Schrödinger proposed that a quantum particle is described by a <em>wave function</em> <span class="math inline">\(\psi(x)\)</span>, which for a particle of energy <span class="math inline">\(E\)</span> in a potential <span class="math inline">\(V(x)\)</span> satisfies <span class="math display">\[-\frac{\hbar^2}{2m}\psi&#39;&#39; + V(x)\psi = E\psi.\]</span> For a spring, <span class="math inline">\(V(x) = \frac12m\Omega^2x^2\)</span>, and after rescaling <span class="math inline">\(x\)</span> this is exactly the equation in the question, with <span class="math inline">\(E = \bigl(n + \frac12\bigr)\hbar\Omega\)</span>. The physical requirement that <span class="math inline">\(\psi\)</span> dies away at infinity (so that the particle is somewhere) can only be met for these energies: that is <em>quantisation</em>, falling out of the mathematics. Notice that the lowest energy is not zero but <span class="math inline">\(\frac12\hbar\Omega\)</span>: a quantum oscillator can never be completely at rest. This <em>zero-point energy</em> is real and measurable; it is why liquid helium does not freeze at ordinary pressure, even at absolute zero.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-8-6-1.svg" alt="Figure 8.6.1"><figcaption><span class="fig-label">Figure 8.6.1</span> The quantum harmonic oscillator (with <span class="math inline">\(\omega = 1\)</span>). The parabola is the potential energy. Each wave function <span class="math inline">\(y_n\)</span> is drawn at the height of its energy level, <span class="math inline">\(n + \frac12\)</span>; the levels are equally spaced, and the lowest is above zero. The function <span class="math inline">\(y_n\)</span> crosses zero <span class="math inline">\(n\)</span> times, and any two of them are orthogonal.</figcaption></figure>
+<h3 id="hermite-functions-and-sturmliouville-theory">Hermite functions and Sturm–Liouville theory</h3>
+<p>The general solution is <span class="math inline">\(y_n = H_n(\sqrt\omega x)e^{-\omega x^2/2}\)</span>, where <span class="math inline">\(H_n\)</span> is a polynomial of degree <span class="math inline">\(n\)</span>, the <em>Hermite polynomial</em> (Figure 8.6.1). Orthogonality is not special to this equation. Whenever an equation can be written as <span class="math inline">\((py&#39;)&#39; + qy = -\lambda wy\)</span> with suitable boundary conditions, solutions belonging to different values of <span class="math inline">\(\lambda\)</span> are orthogonal, by exactly the argument of Stage 4. This is <em>Sturm–Liouville theory</em> (1830s), and it covers the sine functions of Fourier series (<a href="../ch03/wirtinger.html">Section 3.7</a>), the vibrations of a drum, the Legendre polynomials of electrostatics and the wave functions of the hydrogen atom. The eigenvalue problem of <a href="../ch04/variations.html">Section 4.7</a> is another instance: the critical values found there are the eigenvalues <span class="math inline">\(\lambda\)</span>, and the orthogonal functions are the natural “modes” of the system.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Orthogonality from an identity</div>
+<p><em>To show two solutions of related equations are orthogonal, find an exact derivative whose integral vanishes by the boundary conditions, and which equals a multiple of their product.</em></p>
+<p>This is far more powerful than computing the integral directly: it works for every pair at once, even when you cannot write the solutions down.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The next state.</strong> Show that <span class="math inline">\(y_2 = (4\lambda x^2 - 1)e^{-\lambda x^2}\)</span>, with <span class="math inline">\(\lambda = \frac\omega2\)</span>, satisfies the equation with <span class="math inline">\(n = 2\)</span>. Check directly that <span class="math inline">\(\int_{-\infty}^\infty y_0y_2\,\mathrm{d}x = 0\)</span>, using <span class="math inline">\(\int_{-\infty}^\infty e^{-\omega x^2}\,\mathrm{d}x = \sqrt{\pi/\omega}\)</span> and <span class="math inline">\(\int_{-\infty}^\infty x^2e^{-\omega x^2}\,\mathrm{d}x = \frac{1}{2\omega}\sqrt{\pi/\omega}\)</span>.</p></li>
+<li><p><strong>No other energies.</strong> Try <span class="math inline">\(y = e^{-\lambda x^2}\)</span> with <span class="math inline">\(n\)</span> replaced by a general number <span class="math inline">\(\nu\)</span>. Show that it works only if <span class="math inline">\(\nu = 0\)</span>. (In fact, decaying solutions exist only when <span class="math inline">\(\nu\)</span> is a non-negative integer.)</p></li>
+<li><p><strong>Sine waves.</strong> Use the same method to show that <span class="math inline">\(\int_0^\pi \sin mx\sin nx\,\mathrm{d}x = 0\)</span> for <span class="math inline">\(m \neq n\)</span>, starting from <span class="math inline">\(y&#39;&#39; = -n^2y\)</span> with <span class="math inline">\(y(0) = y(\pi) = 0\)</span>.</p></li>
+<li><p><strong>A ladder.</strong> Show that if <span class="math inline">\(y_n\)</span> solves the equation, then <span class="math inline">\(y_{n+1} = \omega xy_n - y_n&#39;\)</span> solves it with <span class="math inline">\(n + 1\)</span> in place of <span class="math inline">\(n\)</span>. Use this to generate <span class="math inline">\(y_1\)</span> and <span class="math inline">\(y_2\)</span> from <span class="math inline">\(y_0\)</span>. (This is the “raising operator” of quantum mechanics.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>David Griffiths, <em>Introduction to Quantum Mechanics</em></strong> (Cambridge University Press). The standard undergraduate physics text; Chapter 2 treats the harmonic oscillator.</p></li>
+<li><p><strong>Richard Feynman, <em>QED: The Strange Theory of Light and Matter</em></strong> (Princeton University Press). A popular account of quantum mechanics by one of its masters.</p></li>
+<li><p><strong>Mary Boas, <em>Mathematical Methods in the Physical Sciences</em></strong> (Wiley). Covers Hermite polynomials and Sturm–Liouville theory for students of mathematics and physics.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="pursuit.html">← 8.5 Greyhounds Chasing Greyhounds</a><a class="next" href="solvable-chaos.html">→ 8.7 Chaos You Can Solve</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

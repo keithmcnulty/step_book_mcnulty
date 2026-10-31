@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8.7 Chaos You Can Solve — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 8 · Differential Equations and Dynamical Systems</a>
+    <div class="src">STEP I · 2014 · Question 6</div>
+    <div class="sec-head"><span class="sec-num">8.7</span><h1>Chaos You Can Solve</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-7-solvable-chaos.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 8</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>The sequence of numbers <span class="math inline">\(u_0, u_1, \ldots\)</span> is given by <span class="math inline">\(u_0 = u\)</span> and, for <span class="math inline">\(n \geq 0\)</span>, <span class="math display">\[u_{n+1} = 4u_n(1 - u_n). \tag{$*$}\]</span> In the case <span class="math inline">\(u = \sin^2\theta\)</span> for some given angle <span class="math inline">\(\theta\)</span>, write down and simplify expressions for <span class="math inline">\(u_1\)</span> and <span class="math inline">\(u_2\)</span> in terms of <span class="math inline">\(\theta\)</span>. Conjecture an expression for <span class="math inline">\(u_n\)</span> and prove your conjecture.</p></li>
+<li><p>The sequence of numbers <span class="math inline">\(v_0, v_1, \ldots\)</span> is given by <span class="math inline">\(v_0 = v\)</span> and, for <span class="math inline">\(n \geq 0\)</span>, <span class="math display">\[v_{n+1} = -pv_n^2 + qv_n + r,\]</span> where <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> are given numbers, with <span class="math inline">\(p \neq 0\)</span>. Show that a substitution of the form <span class="math inline">\(v_n = \alpha u_n + \beta\)</span>, where <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are suitably chosen, results in the sequence <span class="math inline">\((*)\)</span> provided that <span class="math display">\[4pr = 8 + 2q - q^2.\]</span> Hence obtain the sequence satisfying <span class="math inline">\(v_0 = 1\)</span> and, for <span class="math inline">\(n \geq 0\)</span>, <span class="math inline">\(v_{n+1} = -v_n^2 + 2v_n + 2\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>The rule <span class="math inline">\(u_{n+1} = ku_n(1 - u_n)\)</span> is the <em>logistic map</em>, the simplest model of a population with limited resources: <span class="math inline">\(u_n\)</span> is the population in year <span class="math inline">\(n\)</span> as a fraction of the maximum the environment can support, <span class="math inline">\(k\)</span> is the breeding rate, and the factor <span class="math inline">\(1 - u_n\)</span> represents overcrowding. In 1976 the biologist Robert May published a short article in <em>Nature</em> called “Simple mathematical models with very complicated dynamics”. He showed that, as <span class="math inline">\(k\)</span> increases towards <span class="math inline">\(4\)</span>, this one-line rule goes from settling down, to oscillating, to behaving in a way that looks completely random. It became one of the founding examples of <em>chaos</em>.</p>
+<p>Chaotic systems are usually impossible to solve: there is no formula for <span class="math inline">\(u_n\)</span>, and the only way to find <span class="math inline">\(u_{100}\)</span> is to compute all the terms before it. This question finds the exception. At <span class="math inline">\(k = 4\)</span>, the most chaotic value of all, there <em>is</em> a formula, and it explains exactly why the sequence is unpredictable.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Where have you seen the expression <span class="math inline">\(4s(1 - s)\)</span> before, with <span class="math inline">\(s = \sin^2\theta\)</span>? Which identity connects <span class="math inline">\(\sin^2\theta\)</span>, <span class="math inline">\(\cos^2\theta\)</span> and <span class="math inline">\(\sin 2\theta\)</span>?</p>
+</div>
+<p>If <span class="math inline">\(s = \sin^2\theta\)</span> then <span class="math inline">\(1 - s = \cos^2\theta\)</span>, so <span class="math inline">\(4s(1 - s) = 4\sin^2\theta\cos^2\theta = (2\sin\theta\cos\theta)^2 = \sin^2 2\theta\)</span>. The map <span class="math inline">\(s \mapsto 4s(1 - s)\)</span> is the double-angle formula in disguise.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-guessing-the-pattern" class="stage"><span class="stage-n">Stage 1</span> Guessing the pattern</h4>
+<p>With <span class="math inline">\(u_0 = \sin^2\theta\)</span>, the identity above gives <span class="math display">\[u_1 = 4\sin^2\theta\cos^2\theta = \sin^2 2\theta, \qquad u_2 = 4\sin^2 2\theta\cos^2 2\theta = \sin^2 4\theta.\]</span></p>
+<div class="askyourself">
+<p>What happens to the angle at each step? What is your conjecture for <span class="math inline">\(u_n\)</span>?</p>
+</div>
+<p>The angle doubles each time, so we conjecture <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span>.</p>
+<h4 id="stagemark2-proving-it" class="stage"><span class="stage-n">Stage 2</span> Proving it</h4>
+<div class="askyourself">
+<p>Which proof method fits a statement about every term of a sequence defined by a rule from one term to the next?</p>
+</div>
+<p>Induction. The statement holds for <span class="math inline">\(n = 0\)</span>, since <span class="math inline">\(u_0 = \sin^2\theta = \sin^2(2^0\theta)\)</span>. Suppose <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span> for some <span class="math inline">\(n\)</span>. Then <span class="math display">\[u_{n+1} = 4\sin^2(2^n\theta)\bigl(1 - \sin^2(2^n\theta)\bigr) = \bigl(2\sin(2^n\theta)\cos(2^n\theta)\bigr)^2 = \sin^2(2^{n+1}\theta),\]</span> which is the statement for <span class="math inline">\(n + 1\)</span>. So <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span> for all <span class="math inline">\(n \geq 0\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Notice that every starting value <span class="math inline">\(u\)</span> in <span class="math inline">\([0, 1]\)</span> can be written as <span class="math inline">\(\sin^2\theta\)</span> (take <span class="math inline">\(\theta = \arcsin\sqrt u\)</span>), so this solves the logistic map with <span class="math inline">\(k = 4\)</span> for every start in <span class="math inline">\([0, 1]\)</span>.</p>
+<h4 id="stagemark3-changing-variables" class="stage"><span class="stage-n">Stage 3</span> Changing variables</h4>
+<div class="askyourself">
+<p>Substitute <span class="math inline">\(v_n = \alpha u_n + \beta\)</span> into the rule for <span class="math inline">\(v_{n+1}\)</span>. You need the result to be <span class="math inline">\(u_{n+1} = 4u_n - 4u_n^2\)</span>. How many conditions does that give, and how many unknowns do you have?</p>
+</div>
+<p>Substituting, <span class="math display">\[\alpha u_{n+1} + \beta = -p(\alpha u_n + \beta)^2 + q(\alpha u_n + \beta) + r,\]</span> so <span class="math display">\[u_{n+1} = -p\alpha\, u_n^2 + (q - 2p\beta)\, u_n + \frac{-p\beta^2 + q\beta + r - \beta}{\alpha}.\]</span> For this to be <span class="math inline">\(4u_n - 4u_n^2\)</span> we need three things: <span class="math display">\[p\alpha = 4, \qquad q - 2p\beta = 4, \qquad -p\beta^2 + (q - 1)\beta + r = 0.\]</span> The first two fix <span class="math inline">\(\alpha = 4/p\)</span> and <span class="math inline">\(\beta = (q - 4)/(2p)\)</span>. There are no unknowns left, so the third equation is a genuine condition on <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span>. Substituting <span class="math inline">\(\beta\)</span> and multiplying by <span class="math inline">\(4p\)</span>, <span class="math display">\[-(q - 4)^2 + 2(q - 1)(q - 4) + 4pr = 0,\]</span> and expanding, <span class="math inline">\(-(q^2 - 8q + 16) + (2q^2 - 10q + 8) + 4pr = 0\)</span>, that is <span class="math inline">\(q^2 - 2q - 8 + 4pr = 0\)</span>, or <span class="math display">\[4pr = 8 + 2q - q^2. \qed\]</span></p>
+<div class="pausebox">
+<p>Three equations but only two unknowns: this is why a condition appears. Can you see, before calculating, why a general quadratic map should not always be equivalent to <span class="math inline">\((*)\)</span>? (Think about what a linear change of variable can and cannot change.)</p>
+</div>
+<h4 id="stagemark4-the-example" class="stage"><span class="stage-n">Stage 4</span> The example</h4>
+<p>For <span class="math inline">\(v_{n+1} = -v_n^2 + 2v_n + 2\)</span> we have <span class="math inline">\(p = 1\)</span>, <span class="math inline">\(q = 2\)</span>, <span class="math inline">\(r = 2\)</span>, and <span class="math inline">\(4pr = 8 = 8 + 4 - 4\)</span>, so the condition holds. Then <span class="math inline">\(\alpha = 4\)</span> and <span class="math inline">\(\beta = -1\)</span>, so <span class="math inline">\(v_n = 4u_n - 1\)</span>, with <span class="math inline">\(u_n\)</span> satisfying <span class="math inline">\((*)\)</span>. Since <span class="math inline">\(v_0 = 1\)</span>, <span class="math inline">\(u_0 = \frac12 = \sin^2\frac{\pi}{4}\)</span>, so <span class="math display">\[u_n = \sin^2\!\Bigl(\frac{2^n\pi}{4}\Bigr), \qquad v_n = 4\sin^2\!\Bigl(\frac{2^n\pi}{4}\Bigr) - 1 = 1 - 2\cos\Bigl(\frac{2^n\pi}{2}\Bigr).\]</span> This gives <span class="math inline">\(v_0 = 1\)</span>, <span class="math inline">\(v_1 = 3\)</span> and <span class="math inline">\(v_n = -1\)</span> for all <span class="math inline">\(n \geq 2\)</span>. (Check directly: <span class="math inline">\(-1 + 2 + 2 = 3\)</span>, then <span class="math inline">\(-9 + 6 + 2 = -1\)</span>, then <span class="math inline">\(-1 - 2 + 2 = -1\)</span>.)<span class="qed" aria-label="end of proof">■</span></p>
+<p>The particular starting value was chosen so that the angle lands on a multiple of <span class="math inline">\(\pi\)</span> and the sequence stops. That hides the interesting part, which comes next.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Recognise the disguise.</strong> The map <span class="math inline">\(s \mapsto 4s(1 - s)\)</span> became angle doubling once we wrote <span class="math inline">\(s = \sin^2\theta\)</span>.</p></li>
+<li><p><strong>Conjecture, then prove by induction.</strong> Two terms suggested the pattern; induction proved it.</p></li>
+<li><p><strong>Count equations and unknowns.</strong> A linear substitution has two free parameters, a quadratic has three coefficients, so one condition must be left over.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="why-the-sequence-is-unpredictable">Why the sequence is unpredictable</h3>
+<p>The formula <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span> looks like the end of the story: we can compute any term directly. But look at what it says. Since <span class="math inline">\(\sin^2\)</span> has period <span class="math inline">\(\pi\)</span>, only the value of <span class="math inline">\(2^n\theta\)</span> modulo <span class="math inline">\(\pi\)</span> matters. Write <span class="math inline">\(\theta = \pi x\)</span> with <span class="math inline">\(0 \leq x &lt; 1\)</span>, and write <span class="math inline">\(x\)</span> in binary: <span class="math display">\[x = 0.b_1 b_2 b_3 \ldots \quad(\text{base } 2).\]</span> Multiplying by <span class="math inline">\(2\)</span> shifts the binary point one place to the right, and taking the result modulo <span class="math inline">\(1\)</span> throws away the digit that crosses the point. So <span class="math inline">\(u_n\)</span> depends only on the binary digits of <span class="math inline">\(x\)</span> from <span class="math inline">\(b_{n+1}\)</span> onwards. Each step of the logistic map reads one more digit of the starting value and discards one from the front.</p>
+<p>This is <em>sensitive dependence on initial conditions</em>, the defining feature of chaos. Two starting values that agree to <span class="math inline">\(20\)</span> binary places (about six decimal places) produce sequences that agree for about <span class="math inline">\(20\)</span> steps and then have nothing to do with each other (Figure 8.7.1). To predict <span class="math inline">\(u_{100}\)</span>, you need to know <span class="math inline">\(u_0\)</span> to <span class="math inline">\(100\)</span> binary places. Any error in measuring the starting population, however small, doubles at every step. The formula does not help: it simply makes the mechanism visible.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-7-1.svg" alt="Figure 8.7.1"><figcaption><span class="fig-label">Figure 8.7.1</span> Two sequences of the logistic map with <span class="math inline">\(k = 4\)</span>, starting from <span class="math inline">\(\sin^2(1)\)</span> (teal) and <span class="math inline">\(\sin^2(1.00001)\)</span> (plum, dashed). They are indistinguishable for about ten steps, visibly different by step <span class="math inline">\(12\)</span>, and unrelated after that: by step <span class="math inline">\(12\)</span> the difference in angle, <span class="math inline">\(10^{-5}\)</span>, has been doubled twelve times, to about <span class="math inline">\(2^{12} \times 10^{-5} \approx 0.04\)</span>.</figcaption></figure>
+<h3 id="periodic-points-everywhere">Periodic points everywhere</h3>
+<p>The formula also finds every cycle of the map. The sequence returns to its starting value after <span class="math inline">\(N\)</span> steps exactly when <span class="math inline">\(\sin^2(2^N\theta) = \sin^2\theta\)</span>, that is, when <span class="math inline">\(2^N\theta \equiv \pm\theta \pmod{\pi}\)</span>. So <span class="math inline">\(\theta = m\pi/(2^N - 1)\)</span> or <span class="math inline">\(\theta = m\pi/(2^N + 1)\)</span> gives a point of period dividing <span class="math inline">\(N\)</span>. For example <span class="math inline">\(\theta = \pi/5\)</span> satisfies <span class="math inline">\(4\theta \equiv -\theta\)</span>, so <span class="math inline">\(\sin^2\frac{\pi}{5} \to \sin^2\frac{2\pi}{5} \to \sin^2\frac{4\pi}{5} = \sin^2\frac{\pi}{5}\)</span> is a <span class="math inline">\(2\)</span>-cycle. There are periodic points of every period, and they are dense in <span class="math inline">\([0, 1]\)</span>: in every interval, however small, there is a starting value whose sequence repeats. Yet each one is unstable, because any error doubles. Dense periodic points that repel everything nearby are the second hallmark of chaos.</p>
+<h3 id="the-road-to-chaos">The road to chaos</h3>
+<p>For smaller <span class="math inline">\(k\)</span> there is no formula, and the behaviour depends dramatically on <span class="math inline">\(k\)</span> (Figure 8.7.2). For <span class="math inline">\(1 &lt; k &lt; 3\)</span> every sequence starting in <span class="math inline">\((0, 1)\)</span> settles down to the fixed point <span class="math inline">\(1 - 1/k\)</span>. At <span class="math inline">\(k = 3\)</span> the fixed point becomes unstable and a <span class="math inline">\(2\)</span>-cycle takes over (this is the subject of STEP II 2002 Q5; see the exercises). At <span class="math inline">\(k = 1 + \sqrt6 \approx 3.449\)</span> the <span class="math inline">\(2\)</span>-cycle gives way to a <span class="math inline">\(4\)</span>-cycle, then an <span class="math inline">\(8\)</span>-cycle, with the doublings coming faster and faster, until at <span class="math inline">\(k \approx 3.5699\)</span> the cycles have infinite length and chaos begins. Inside the chaotic region are windows of order: the clearest, near <span class="math inline">\(k = 3.83\)</span>, contains a <span class="math inline">\(3\)</span>-cycle, which is the subject of <a href="../ch08/period-three.html">Section 8.8</a>.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-7-2.svg" alt="Figure 8.7.2"><figcaption><span class="fig-label">Figure 8.7.2</span> The bifurcation diagram of the logistic map. For each <span class="math inline">\(k\)</span>, the map was iterated <span class="math inline">\(300\)</span> times from <span class="math inline">\(u_0 = 0.31416\)</span> and the next <span class="math inline">\(40\)</span> values plotted. A single fixed point splits into a <span class="math inline">\(2\)</span>-cycle at <span class="math inline">\(k = 3\)</span>, then <span class="math inline">\(4\)</span>, <span class="math inline">\(8\)</span>, …, until chaos sets in near <span class="math inline">\(k = 3.57\)</span>. The pale vertical gap near <span class="math inline">\(k = 3.83\)</span> is the window containing a stable <span class="math inline">\(3\)</span>-cycle. At <span class="math inline">\(k = 4\)</span> the values fill all of <span class="math inline">\([0, 1]\)</span>.</figcaption></figure>
+<div class="historybox">
+<div class="box-title">Feigenbaum’s constant</div>
+<p>In 1975 Mitchell Feigenbaum, working at Los Alamos with a programmable pocket calculator, measured the values of <span class="math inline">\(k\)</span> at which the period doubles: <span class="math inline">\(k_1 = 3\)</span>, <span class="math inline">\(k_2 \approx 3.4495\)</span>, <span class="math inline">\(k_3 \approx 3.5441\)</span>, <span class="math inline">\(k_4 \approx 3.5644\)</span>, …. He noticed that the gaps shrink by a constant factor, <span class="math display">\[\frac{k_{n} - k_{n-1}}{k_{n+1} - k_{n}} \to 4.6692\ldots,\]</span> and then, astonishingly, that the same number <span class="math inline">\(4.6692\ldots\)</span> appears for <span class="math inline">\(x \mapsto k\sin(\pi x)\)</span> and for every other smooth map with a single hump. The constant is <em>universal</em>. It has since been measured in experiments on dripping taps, heated fluids and electronic circuits. Explaining why required ideas borrowed from the physics of phase transitions, and was only made rigorous by Oscar Lanford in 1982, with the help of a computer.</p>
+</div>
+<h3 id="the-same-trick-three-times">The same trick, three times</h3>
+<p>The substitution in part (ii) is an example of <em>conjugacy</em>: two maps are conjugate if a change of variable turns one into the other, and then they have exactly the same dynamics. The question shows that every quadratic map satisfying the condition is conjugate to the logistic map with <span class="math inline">\(k = 4\)</span>, which in turn is conjugate (through <span class="math inline">\(u = \sin^2\theta\)</span>) to angle doubling. In <a href="../ch02/squaring-minus-two.html">Section 2.8</a> you met <span class="math inline">\(x \mapsto x^2 - 2\)</span>, solved by <span class="math inline">\(x = 2\cos\theta\)</span> with the angle doubling at each step; it satisfies the condition too (try it). So these are all the same map in disguise. In <a href="../ch08/period-three.html">Section 8.8</a>, a third member of the family appears: a map built from straight lines, the <em>tent map</em>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Change variables to see the structure</div>
+<p><em>A good substitution can turn a complicated rule into a simple one. Look for a change of variable that turns the problem into one you already understand.</em></p>
+<p>Here <span class="math inline">\(u = \sin^2\theta\)</span> turned a quadratic map into angle doubling, and a linear substitution turned a whole family of quadratics into one. At university, conjugacy is a central tool: in dynamical systems, in linear algebra (diagonalising a matrix is choosing coordinates in which it is simple), and in group theory.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Cycles of the logistic map.</strong> (From STEP II, 2002.) The sequence <span class="math inline">\(x_n\)</span> satisfies <span class="math inline">\(x_{n+1} = kx_n(1 - x_n)\)</span>.</p>
+<ol class="alpha">
+<li><p>Prove that, if <span class="math inline">\(0 &lt; k &lt; 4\)</span> and <span class="math inline">\(0 &lt; x_0 &lt; 1\)</span>, then <span class="math inline">\(0 &lt; x_n &lt; 1\)</span> for all <span class="math inline">\(n\)</span>.</p></li>
+<li><p>Given that <span class="math inline">\(x_0 = x_1 = x_2 = \cdots = a\)</span>, with <span class="math inline">\(a \neq 0\)</span> and <span class="math inline">\(a \neq 1\)</span>, find <span class="math inline">\(k\)</span> in terms of <span class="math inline">\(a\)</span>.</p></li>
+<li><p>Given instead that <span class="math inline">\(x_0 = x_2 = x_4 = \cdots = a\)</span>, with <span class="math inline">\(a \neq 0, 1\)</span>, show that <span class="math inline">\(ab^3 - b^2 + (1 - a) = 0\)</span>, where <span class="math inline">\(b = k(1 - a)\)</span>. Given, in addition, that <span class="math inline">\(x_1 \neq a\)</span>, find the possible values of <span class="math inline">\(k\)</span> in terms of <span class="math inline">\(a\)</span>. Hence show that a <span class="math inline">\(2\)</span>-cycle exists only when <span class="math inline">\(k &gt; 3\)</span>.</p></li>
+</ol></li>
+<li><p><strong>Squaring minus two.</strong> Show that <span class="math inline">\(v_{n+1} = v_n^2 - 2\)</span> satisfies the condition of part (ii) (write it as <span class="math inline">\(-pv_n^2 + qv_n + r\)</span> with <span class="math inline">\(p = -1\)</span>). Find <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, and check that your answer agrees with <span class="math inline">\(v_n = 2\cos(2^n\phi)\)</span>.</p></li>
+<li><p><strong>A <span class="math inline">\(3\)</span>-cycle.</strong> Use the formula <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span> to find a <span class="math inline">\(3\)</span>-cycle of <span class="math inline">\(u_{n+1} = 4u_n(1 - u_n)\)</span>. (<em>Hint:</em> try <span class="math inline">\(\theta = \pi/7\)</span>, or <span class="math inline">\(\theta = \pi/9\)</span>.) How many points have period exactly <span class="math inline">\(3\)</span>?</p></li>
+<li><p><strong>Losing digits.</strong> A computer stores numbers to about <span class="math inline">\(53\)</span> binary places. If you iterate <span class="math inline">\(u_{n+1} = 4u_n(1 - u_n)\)</span> on a computer, roughly how many steps before the computed values bear no relation to the true sequence? Is the computed sequence then useless?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Robert May, “Simple mathematical models with very complicated dynamics”</strong>, <em>Nature</em> 261 (1976). A classic, still very readable.</p></li>
+<li><p><strong>James Gleick, <em>Chaos: Making a New Science</em></strong> (Penguin). The story of May, Feigenbaum and the discovery of chaos.</p></li>
+<li><p><strong>Steven Strogatz, <em>Nonlinear Dynamics and Chaos</em></strong> (CRC Press), Chapter 10. One-dimensional maps, the logistic map and Feigenbaum’s constant, at first-year undergraduate level.</p></li>
+<li><p><strong>Ian Stewart, <em>Does God Play Dice?</em></strong> (Penguin). A popular account of chaos, with a good chapter on the logistic map.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="quantum-oscillator.html">← 8.6 The Quantum Oscillator</a><a class="next" href="period-three.html">→ 8.8 Period Three Implies Chaos</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
