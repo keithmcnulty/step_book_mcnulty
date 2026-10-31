@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10.5 Infinitely Many Bounces in Finite Time — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 10 · Conservation Laws, Collisions and Gravity</a>
+    <div class="src">STEP III · 2002 · Question 11</div>
+    <div class="sec-head"><span class="sec-num">10.5</span><h1>Infinitely Many Bounces in Finite Time</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-10-5-zeno-wedge.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-10-conservation-laws-collisions-and-gravity.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 10</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A particle moves on a smooth triangular horizontal surface <span class="math inline">\(AOB\)</span> with angle <span class="math inline">\(AOB = 30^\circ\)</span>. The surface is bounded by two vertical walls <span class="math inline">\(OA\)</span> and <span class="math inline">\(OB\)</span> and the coefficient of restitution between the particle and the walls is <span class="math inline">\(e\)</span>, where <span class="math inline">\(e &lt; 1\)</span>. The particle, which is initially at point <span class="math inline">\(P\)</span> on the surface and moving with velocity <span class="math inline">\(u_1\)</span>, strikes the wall <span class="math inline">\(OA\)</span> at <span class="math inline">\(M_1\)</span>, with angle <span class="math inline">\(PM_1A = \theta\)</span>, and rebounds, with velocity <span class="math inline">\(v_1\)</span>, to strike the wall <span class="math inline">\(OB\)</span> at <span class="math inline">\(N_1\)</span>, with angle <span class="math inline">\(M_1N_1B = \theta\)</span>. Find <span class="math inline">\(e\)</span> and <span class="math inline">\(\dfrac{v_1}{u_1}\)</span> in terms of <span class="math inline">\(\theta\)</span>.</p>
+<p>The motion continues, with the particle striking side <span class="math inline">\(OA\)</span> at <span class="math inline">\(M_2, M_3, \ldots\)</span> and striking side <span class="math inline">\(OB\)</span> at <span class="math inline">\(N_2, N_3, \ldots\)</span>. Show that, if <span class="math inline">\(\theta &lt; 60^\circ\)</span>, the particle reaches <span class="math inline">\(O\)</span> in a finite time.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Zeno of Elea argued that you can never reach a wall: first you must cover half the distance, then half of what remains, and so on for ever. The resolution, that infinitely many steps can take a finite total time, is an infinite series that converges. This question is Zeno’s paradox made real: a puck sliding into the corner of a wedge bounces off the walls infinitely many times, yet arrives at the corner after a finite time.</p>
+<p>Nature does this too. A ball bouncing on the floor with a coefficient of restitution less than <span class="math inline">\(1\)</span> bounces infinitely often in a finite time and then comes to rest. In computer simulations of granular materials (sand, grain, snow) this “inelastic collapse” is a real difficulty: the computer is asked to handle infinitely many collisions in a finite time.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>When a particle hits a smooth wall with coefficient of restitution <span class="math inline">\(e\)</span>, what happens to the component of velocity along the wall? And the component perpendicular to it?</p>
+</div>
+<p>A smooth wall exerts no force along itself, so the component of velocity parallel to the wall is unchanged. The perpendicular component is reversed and multiplied by <span class="math inline">\(e\)</span>. So if the particle arrives at angle <span class="math inline">\(\alpha\)</span> to the wall and leaves at angle <span class="math inline">\(\beta\)</span>, then <span class="math display">\[\tan\beta = e\tan\alpha,\]</span> and since the parallel component is unchanged, (speed in)<span class="math inline">\(\cos\alpha\)</span> = (speed out)<span class="math inline">\(\cos\beta\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-angle-of-departure" class="stage"><span class="stage-n">Stage 1</span> The angle of departure</h4>
+<div class="askyourself">
+<p>The particle arrives at <span class="math inline">\(M_1\)</span> at angle <span class="math inline">\(\theta\)</span> to the wall <span class="math inline">\(OA\)</span> (measured on the side away from <span class="math inline">\(O\)</span>). At what angle <span class="math inline">\(\varphi\)</span> to <span class="math inline">\(OA\)</span> does it leave? Use the triangle <span class="math inline">\(OM_1N_1\)</span> to find <span class="math inline">\(\varphi\)</span> in terms of <span class="math inline">\(\theta\)</span>.</p>
+</div>
+<p>The particle leaves <span class="math inline">\(M_1\)</span> heading towards <span class="math inline">\(O\)</span>’s side, at angle <span class="math inline">\(\varphi\)</span> to the wall, so the angle <span class="math inline">\(OM_1N_1\)</span> is <span class="math inline">\(\varphi\)</span>. In triangle <span class="math inline">\(OM_1N_1\)</span>, the angle at <span class="math inline">\(O\)</span> is <span class="math inline">\(30^\circ\)</span>. At <span class="math inline">\(N_1\)</span>, the angle <span class="math inline">\(M_1N_1B\)</span> is <span class="math inline">\(\theta\)</span> and <span class="math inline">\(O\)</span>, <span class="math inline">\(N_1\)</span>, <span class="math inline">\(B\)</span> lie on a line, so the angle <span class="math inline">\(ON_1M_1\)</span> is <span class="math inline">\(180^\circ - \theta\)</span>. The angles of the triangle add to <span class="math inline">\(180^\circ\)</span>: <span class="math display">\[30^\circ + \varphi + (180^\circ - \theta) = 180^\circ, \qquad\text{so}\qquad \varphi = \theta - 30^\circ.\]</span> (In particular, <span class="math inline">\(\theta &gt; 30^\circ\)</span>.) The restitution law <span class="math inline">\(\tan\varphi = e\tan\theta\)</span> then gives <span class="math display">\[e = \frac{\tan(\theta - 30^\circ)}{\tan\theta},\]</span> and conservation of the parallel component, <span class="math inline">\(u_1\cos\theta = v_1\cos\varphi\)</span>, gives <span class="math display">\[\frac{v_1}{u_1} = \frac{\cos\theta}{\cos(\theta - 30^\circ)}. \qed\]</span></p>
+<h4 id="stagemark2-the-pattern-repeats" class="stage"><span class="stage-n">Stage 2</span> The pattern repeats</h4>
+<div class="askyourself">
+<p>At <span class="math inline">\(N_1\)</span>, the particle arrives at angle <span class="math inline">\(\theta\)</span> to the wall <span class="math inline">\(OB\)</span>, measured on the side away from <span class="math inline">\(O\)</span>. Compare this with its arrival at <span class="math inline">\(M_1\)</span>. What happens next?</p>
+</div>
+<p>The situation at <span class="math inline">\(N_1\)</span> is the mirror image of the situation at <span class="math inline">\(M_1\)</span>: the particle meets a wall at angle <span class="math inline">\(\theta\)</span>, on the side away from <span class="math inline">\(O\)</span>. So it leaves at angle <span class="math inline">\(\theta - 30^\circ\)</span> and meets <span class="math inline">\(OA\)</span> again at angle <span class="math inline">\(\theta\)</span>, and so on for ever. Every bounce is a scaled copy of the first. Each triangle <span class="math inline">\(OM_kN_k\)</span>, <span class="math inline">\(ON_kM_{k+1}\)</span>, … is similar to the one before (Figure 10.5.1), and the speed is multiplied by the same factor at every bounce.</p>
+<h4 id="stagemark3-two-ratios" class="stage"><span class="stage-n">Stage 3</span> Two ratios</h4>
+<div class="askyourself">
+<p>By what factor <span class="math inline">\(\rho\)</span> does the distance from <span class="math inline">\(O\)</span> shrink from one bounce to the next? By what factor <span class="math inline">\(k\)</span> does the speed shrink? So by what factor does the time for each leg shrink?</p>
+</div>
+<p>The sine rule in triangle <span class="math inline">\(OM_1N_1\)</span> gives <span class="math display">\[\rho = \frac{ON_1}{OM_1} = \frac{\sin\varphi}{\sin(180^\circ - \theta)} = \frac{\sin(\theta - 30^\circ)}{\sin\theta}.\]</span> All lengths in the next triangle are <span class="math inline">\(\rho\)</span> times those in this one, so each leg of the path is <span class="math inline">\(\rho\)</span> times as long as the previous leg. The speed is multiplied by <span class="math inline">\(k = \frac{\cos\theta}{\cos(\theta - 30^\circ)}\)</span> at each bounce. Time is length divided by speed, so each leg takes <span class="math display">\[\frac{\rho}{k} = \frac{\sin(\theta - 30^\circ)\cos(\theta - 30^\circ)}{\sin\theta\cos\theta} = \frac{\sin(2\theta - 60^\circ)}{\sin 2\theta}\]</span> times as long as the previous one.</p>
+<h4 id="stagemark4-a-geometric-series" class="stage"><span class="stage-n">Stage 4</span> A geometric series</h4>
+<p>The total time is <span class="math inline">\(T_1(1 + r + r^2 + \cdots)\)</span>, where <span class="math inline">\(T_1\)</span> is the time for the first leg and <span class="math inline">\(r = \frac{\sin(2\theta - 60^\circ)}{\sin 2\theta}\)</span>. This is finite if <span class="math inline">\(0 &lt; r &lt; 1\)</span>.</p>
+<div class="askyourself">
+<p>When is <span class="math inline">\(\sin(2\theta - 60^\circ) &lt; \sin 2\theta\)</span>? Use the identity <span class="math inline">\(\sin X - \sin Y = 2\cos\tfrac12(X + Y)\sin\tfrac12(X - Y)\)</span>.</p>
+</div>
+<p><span class="math display">\[\sin 2\theta - \sin(2\theta - 60^\circ) = 2\cos(2\theta - 30^\circ)\sin 30^\circ = \cos(2\theta - 30^\circ),\]</span> which is positive when <span class="math inline">\(2\theta - 30^\circ &lt; 90^\circ\)</span>, that is, when <span class="math inline">\(\theta &lt; 60^\circ\)</span>. And <span class="math inline">\(r &gt; 0\)</span> since <span class="math inline">\(\theta &gt; 30^\circ\)</span>. So for <span class="math inline">\(30^\circ &lt; \theta &lt; 60^\circ\)</span> the series converges: the particle makes infinitely many bounces, its distance from <span class="math inline">\(O\)</span> shrinks by the factor <span class="math inline">\(\rho &lt; 1\)</span> each time, and it reaches <span class="math inline">\(O\)</span> after the finite time <span class="math inline">\(\frac{T_1}{1 - r}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-10-5-1.svg" alt="Figure 10.5.1"><figcaption><span class="fig-label">Figure 10.5.1</span> The path in the wedge with <span class="math inline">\(\theta = 50^\circ\)</span>, so <span class="math inline">\(\varphi = 20^\circ\)</span> and <span class="math inline">\(e = \tan 20^\circ/\tan 50^\circ \approx 0.31\)</span>. Each bounce is a copy of the previous one, scaled by <span class="math inline">\(\rho \approx 0.45\)</span>, and the time for each leg is about <span class="math inline">\(0.65\)</span> times that of the leg before. The particle reaches <span class="math inline">\(O\)</span> after infinitely many bounces, in a finite time.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Self-similarity.</strong> Once one bounce was understood, every later bounce was a scaled copy, so the whole infinite process reduced to two ratios.</p></li>
+<li><p><strong>Combine ratios correctly.</strong> Distance shrinks by <span class="math inline">\(\rho\)</span> and speed by <span class="math inline">\(k\)</span>, so time shrinks by <span class="math inline">\(\rho/k\)</span>.</p></li>
+<li><p><strong>Infinitely many events, finite total.</strong> A geometric series with ratio less than <span class="math inline">\(1\)</span> converges.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="when-theta-geq-60circ">When <span class="math inline">\(\theta \geq 60^\circ\)</span></h3>
+<p>At <span class="math inline">\(\theta = 60^\circ\)</span>, the ratio is exactly <span class="math inline">\(1\)</span>: every leg takes the same time, and the particle never reaches <span class="math inline">\(O\)</span>, although it gets ever closer. (The speed and the leg lengths both shrink by the same factor.) For <span class="math inline">\(\theta &gt; 60^\circ\)</span>, the legs take longer and longer. In every case the particle approaches <span class="math inline">\(O\)</span> and makes infinitely many bounces; only for <span class="math inline">\(\theta &lt; 60^\circ\)</span> does it get there in finite time. The value <span class="math inline">\(e = \tan 30^\circ/\tan 60^\circ = \frac13\)</span> is the dividing line.</p>
+<h3 id="bouncing-balls-and-inelastic-collapse">Bouncing balls and inelastic collapse</h3>
+<p>The simplest example of the same phenomenon: a ball dropped onto a floor rises to height <span class="math inline">\(e^2H\)</span>, then <span class="math inline">\(e^4H\)</span>, and so on. The time between bounces is proportional to the speed at each bounce, which shrinks by the factor <span class="math inline">\(e\)</span>, so the total time is a geometric series: with <span class="math inline">\(T_0 = \sqrt{2H/g}\)</span> the time of the first fall, the ball stops bouncing after <span class="math display">\[T_0 + 2eT_0 + 2e^2T_0 + \cdots = T_0\,\frac{1 + e}{1 - e}.\]</span> Infinitely many bounces, and then rest. In 1992 Sean McNamara and William Young showed that the same thing happens in simulations of many inelastic particles in a line: a group of them can undergo infinitely many collisions in a finite time, an “inelastic collapse”. Simulations of sand and granular flows must include special rules to avoid it, and the phenomenon helps explain why granular gases spontaneously form clusters.</p>
+<div class="historybox">
+<div class="box-title">Zeno and convergence</div>
+<p>Zeno’s paradoxes, from around 450 BC, troubled philosophers for two thousand years. The mathematical resolution, that an infinite sum can have a finite value, was made precise only in the nineteenth century, when Cauchy, Weierstrass and others defined convergence by means of limits (the subject of Chapter 2). The surprising feature of this question is that the process is <em>physically</em> infinite: there really are infinitely many collisions, in a finite time. Mathematicians studying billiards in polygons and the motion of colliding particles call such behaviour a <em>Zeno phenomenon</em>, and it is one of the subtleties in proving that systems of colliding hard spheres have well-defined motions for all time.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Sum an infinite process</div>
+<p><em>When a process repeats with a constant scale factor, the total of any additive quantity (time, distance, energy) is a geometric series. Decide convergence from the ratio.</em></p>
+<p>Here the key was to find the right ratio: not the ratio of distances, nor of speeds, but of times. At university, the same reasoning governs the convergence of iterative methods, the theory of fractals, and the analysis of algorithms that repeatedly halve a problem.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The total distance.</strong> Show that the total distance travelled from <span class="math inline">\(M_1\)</span> to <span class="math inline">\(O\)</span> is finite for every <span class="math inline">\(\theta\)</span> between <span class="math inline">\(30^\circ\)</span> and <span class="math inline">\(90^\circ\)</span>, and find it in terms of <span class="math inline">\(OM_1\)</span> and <span class="math inline">\(\theta\)</span>.</p></li>
+<li><p><strong>Other wedges.</strong> Repeat the question for a wedge of angle <span class="math inline">\(\alpha\)</span> instead of <span class="math inline">\(30^\circ\)</span>. Show that <span class="math inline">\(\varphi = \theta - \alpha\)</span>, and find the condition on <span class="math inline">\(\theta\)</span> for the particle to reach <span class="math inline">\(O\)</span> in a finite time.</p></li>
+<li><p><strong>Elastic walls.</strong> If <span class="math inline">\(e = 1\)</span>, can the particle ever reach <span class="math inline">\(O\)</span>? (<em>Hint:</em> reflect the wedge repeatedly in its walls, so that the path becomes a straight line. How many copies of a <span class="math inline">\(30^\circ\)</span> wedge fit round <span class="math inline">\(O\)</span>?)</p></li>
+<li><p><strong>The bouncing ball.</strong> A ball is dropped from height <span class="math inline">\(1\)</span> m with <span class="math inline">\(e = 0.8\)</span>. How long does it bounce for, and how far does it travel in total? (Take <span class="math inline">\(g = 9.8\)</span> m s<span class="math inline">\(^{-2}\)</span>.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>David Morin, <em>Introduction to Classical Mechanics</em></strong> (Cambridge University Press), Chapter 5. Includes several problems on bouncing balls and infinite sequences of collisions.</p></li>
+<li><p><strong>Sean McNamara &amp; William Young, “Inelastic collapse and clumping in a one-dimensional granular medium”</strong>, <em>Physics of Fluids A</em> 4 (1992).</p></li>
+<li><p><strong>Serge Tabachnikov, <em>Geometry and Billiards</em></strong> (American Mathematical Society; free online). The mathematics of billiards, including the unfolding trick in the exercises.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="piston.html">← 10.4 A Molecule and a Piston</a><a class="next" href="two-body.html">→ 10.6 Two Bodies Become One</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

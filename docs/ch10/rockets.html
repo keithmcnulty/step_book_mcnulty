@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10.3 Rockets and Guns — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 10 · Conservation Laws, Collisions and Gravity</a>
+    <div class="src">STEP III · 2017 · Question 11</div>
+    <div class="sec-head"><span class="sec-num">10.3</span><h1>Rockets and Guns</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-10-3-rockets.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-10-conservation-laws-collisions-and-gravity.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 10</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A railway truck, initially at rest, can move forwards without friction on a long straight horizontal track. On the truck, <span class="math inline">\(n\)</span> guns are mounted parallel to the track and facing backwards, where <span class="math inline">\(n &gt; 1\)</span>. Each of the guns is loaded with a single projectile of mass <span class="math inline">\(m\)</span>. The mass of the truck and guns (but not including the projectiles) is <span class="math inline">\(M\)</span>.</p>
+<p>When a gun is fired, the projectile leaves its muzzle horizontally with a speed <span class="math inline">\(v - V\)</span> relative to the ground, where <span class="math inline">\(V\)</span> is the speed of the truck immediately before the gun is fired.</p>
+<ol class="roman">
+<li><p>All <span class="math inline">\(n\)</span> guns are fired simultaneously. Find the speed, <span class="math inline">\(u\)</span>, with which the truck moves, and show that the kinetic energy, <span class="math inline">\(K\)</span>, which is gained by the system (truck, guns and projectiles) is given by <span class="math display">\[K = \tfrac12nmv^2\Bigl(1 + \frac{nm}{M}\Bigr).\]</span></p></li>
+<li><p>Instead, the guns are fired one at a time. Let <span class="math inline">\(u_r\)</span> be the speed of the truck when <span class="math inline">\(r\)</span> guns have been fired, so that <span class="math inline">\(u_0 = 0\)</span>. Show that, for <span class="math inline">\(1 \leq r \leq n\)</span>, <span class="math display">\[u_r - u_{r-1} = \frac{mv}{M + (n - r)m} \tag{$*$}\]</span> and hence that <span class="math inline">\(u_n &lt; u\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(K_r\)</span> be the total kinetic energy of the system when <span class="math inline">\(r\)</span> guns have been fired (one at a time), so that <span class="math inline">\(K_0 = 0\)</span>. Using <span class="math inline">\((*)\)</span>, show that, for <span class="math inline">\(1 \leq r \leq n\)</span>, <span class="math display">\[K_r - K_{r-1} = \tfrac12mv^2 + \tfrac12mv(u_r - u_{r-1})\]</span> and hence show that <span class="math display">\[K_n = \tfrac12nmv^2 + \tfrac12mvu_n.\]</span> Deduce that <span class="math inline">\(K_n &lt; K\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>A rocket in space has nothing to push against. It moves forward by throwing mass backwards, and conservation of momentum does the rest. A truck firing guns off its back is a rocket broken into pieces: each projectile is a lump of exhaust.</p>
+<p>So should the guns fire all at once, or one after another? This question gives a definite answer, but look carefully at what it compares. Firing all at once gives the truck more speed, but it also uses more energy, so the guns are not doing the same job in the two cases. Change what is held fixed, and the answer reverses. Sorting this out leads to the most important equation in spaceflight, Tsiolkovsky’s <em>rocket equation</em>, and to the reason why real rockets have several stages.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Before a gun fires, the truck moves at <span class="math inline">\(V\)</span>. Afterwards the projectile’s velocity is <span class="math inline">\(V - v\)</span> (that is, speed <span class="math inline">\(v - V\)</span> backwards). What is the projectile’s velocity <em>relative to the truck before firing</em>?</p>
+</div>
+<p>It is <span class="math inline">\((V - v) - V = -v\)</span>. So each gun throws its projectile backwards at speed <span class="math inline">\(v\)</span> relative to the truck’s velocity just before firing. That is the fixed rule of this question; keep it in mind, because it is what decides the answer.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-all-at-once" class="stage"><span class="stage-n">Stage 1</span> All at once</h4>
+<p>The system starts at rest, with zero momentum. After firing, the truck (mass <span class="math inline">\(M\)</span>) moves forward at <span class="math inline">\(u\)</span>, and the <span class="math inline">\(n\)</span> projectiles move backwards at speed <span class="math inline">\(v\)</span> (since <span class="math inline">\(V = 0\)</span> before firing). So <span class="math display">\[Mu - nmv = 0, \qquad u = \frac{nmv}{M}.\]</span> The kinetic energy gained is <span class="math display">\[K = \tfrac12Mu^2 + \tfrac12nmv^2 = \tfrac12\frac{n^2m^2v^2}{M} + \tfrac12nmv^2 = \tfrac12nmv^2\Bigl(1 + \frac{nm}{M}\Bigr). \qed\]</span></p>
+<h4 id="stagemark2-one-at-a-time" class="stage"><span class="stage-n">Stage 2</span> One at a time</h4>
+<div class="askyourself">
+<p>Just before the <span class="math inline">\(r\)</span>th gun fires, what is the mass of the truck with its remaining projectiles, and what is its speed? Write down conservation of momentum for the <span class="math inline">\(r\)</span>th firing.</p>
+</div>
+<p>Before the <span class="math inline">\(r\)</span>th firing, the truck carries <span class="math inline">\(n - r + 1\)</span> projectiles, so it has mass <span class="math inline">\(M + (n - r + 1)m\)</span> and speed <span class="math inline">\(u_{r-1}\)</span>. Afterwards, the truck with <span class="math inline">\(n - r\)</span> projectiles has speed <span class="math inline">\(u_r\)</span>, and the fired projectile has velocity <span class="math inline">\(u_{r-1} - v\)</span>. Momentum is conserved: <span class="math display">\[\bigl(M + (n - r + 1)m\bigr)u_{r-1} = \bigl(M + (n - r)m\bigr)u_r + m(u_{r-1} - v).\]</span> The <span class="math inline">\(mu_{r-1}\)</span> terms rearrange to give <span class="math inline">\(\bigl(M + (n - r)m\bigr)(u_r - u_{r-1}) = mv\)</span>, which is <span class="math inline">\((*)\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Adding up the increments, <span class="math display">\[u_n = \sum_{r=1}^{n}\frac{mv}{M + (n - r)m} = \frac{mv}{M} + \frac{mv}{M + m} + \cdots + \frac{mv}{M + (n - 1)m}.\]</span> Every term after the first is smaller than <span class="math inline">\(\frac{mv}{M}\)</span>, and <span class="math inline">\(n &gt; 1\)</span>, so <span class="math inline">\(u_n &lt; \frac{nmv}{M} = u\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>Why does firing one at a time do worse here? When the first gun fires, it has to accelerate the truck <em>and</em> the <span class="math inline">\(n - 1\)</span> unfired projectiles, so it produces less of a speed increase than it would on the bare truck.</p>
+</div>
+<h4 id="stagemark3-the-energy-bill" class="stage"><span class="stage-n">Stage 3</span> The energy bill</h4>
+<div class="askyourself">
+<p>Write down the change in kinetic energy at the <span class="math inline">\(r\)</span>th firing. How can <span class="math inline">\((*)\)</span> help you simplify the term involving <span class="math inline">\(u_r^2 - u_{r-1}^2\)</span>?</p>
+</div>
+<p>The kinetic energy changes by <span class="math display">\[K_r - K_{r-1} = \tfrac12\bigl(M + (n - r)m\bigr)u_r^2 + \tfrac12m(u_{r-1} - v)^2 - \tfrac12\bigl(M + (n - r + 1)m\bigr)u_{r-1}^2.\]</span> The last two terms combine to <span class="math inline">\(\frac12m(v^2 - 2vu_{r-1}) - \frac12\bigl(M + (n - r)m\bigr)u_{r-1}^2\)</span>. Then, factorising a difference of squares and using <span class="math inline">\((*)\)</span>, <span class="math display">\[\tfrac12\bigl(M + (n - r)m\bigr)(u_r^2 - u_{r-1}^2) = \tfrac12mv(u_r + u_{r-1}).\]</span> So <span class="math display">\[K_r - K_{r-1} = \tfrac12mv(u_r + u_{r-1}) + \tfrac12mv^2 - mvu_{r-1} = \tfrac12mv^2 + \tfrac12mv(u_r - u_{r-1}). \qed\]</span> Summing from <span class="math inline">\(r = 1\)</span> to <span class="math inline">\(n\)</span>, the increments <span class="math inline">\(u_r - u_{r-1}\)</span> telescope to <span class="math inline">\(u_n\)</span>: <span class="math display">\[K_n = \tfrac12nmv^2 + \tfrac12mvu_n. \qed\]</span> Finally, <span class="math inline">\(K = \frac12nmv^2 + \frac12nmv^2\cdot\frac{nm}{M} = \frac12nmv^2 + \frac12mvu\)</span>, so <span class="math inline">\(K_n &lt; K\)</span> because <span class="math inline">\(u_n &lt; u\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Momentum for each step.</strong> Each firing was a small two-body problem: the truck with its load, and one projectile.</p></li>
+<li><p><strong>Telescoping sums.</strong> The increments <span class="math inline">\((*)\)</span> and the energy increments added up neatly.</p></li>
+<li><p><strong>Read the conclusion carefully.</strong> Firing all at once gives more speed, but costs more energy. The question compares two processes that do different amounts of work.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="what-should-be-held-fixed">What should be held fixed?</h3>
+<p>A real gun, or a rocket engine, throws its projectile at a fixed speed relative to <em>itself</em>, measured just after the projectile leaves. In this question the reference is the truck’s speed <em>before</em> firing. For a small projectile the difference is tiny, but when all <span class="math inline">\(n\)</span> projectiles are fired at once it matters a great deal: in part (i), a heavy load of projectiles is thrown back at speed <span class="math inline">\(v\)</span> as if the truck did not recoil at all, which needs a lot of energy.</p>
+<p>If instead every projectile leaves at speed <span class="math inline">\(v\)</span> relative to the truck <em>after</em> firing, the conclusion reverses. All at once gives <span class="math inline">\(u = \frac{nmv}{M + nm}\)</span>; one at a time gives <span class="math inline">\(u_n = \sum_{k=1}^{n}\frac{mv}{M + km}\)</span>, which is larger, because each term is at least <span class="math inline">\(\frac{mv}{M + nm}\)</span>. Now firing one at a time wins: each projectile pushes off from a truck that is already moving, and each later gun has less mass to accelerate. (Check this in the exercises.)</p>
+<h3 id="the-rocket-equation">The rocket equation</h3>
+<p>Now let the projectiles become very small and very numerous, with total mass <span class="math inline">\(\mu = nm\)</span> fixed: this is a rocket burning fuel continuously. The sum for <span class="math inline">\(u_n\)</span> becomes an integral (both conventions give the same limit): <span class="math display">\[u_n = \sum_{k=0}^{n-1}\frac{mv}{M + km} \;\to\; \int_0^{\mu}\frac{v\,\mathrm{d}s}{M + s} = v\ln\frac{M + \mu}{M}.\]</span> This is <em>Tsiolkovsky’s rocket equation</em>: a rocket whose exhaust leaves at speed <span class="math inline">\(v\)</span> relative to the rocket gains speed <span class="math display">\[\Delta u = v\ln\frac{m_{\text{initial}}}{m_{\text{final}}}.\]</span> Figure 10.3.1 compares the three answers. The logarithm is the problem: to reach the orbital speed of about <span class="math inline">\(7.8\)</span> km/s with an exhaust speed of about <span class="math inline">\(4.5\)</span> km/s (good chemical fuel), the mass ratio must be <span class="math inline">\(e^{7.8/4.5} \approx 5.7\)</span>, and once air resistance and gravity are included it is nearer <span class="math inline">\(10\)</span> or more. Almost all of a rocket is fuel.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-10-3-1.svg" alt="Figure 10.3.1"><figcaption><span class="fig-label">Figure 10.3.1</span> Final speed against the ratio of fuel to empty mass. Firing everything at once gives <span class="math inline">\(\mu/M\)</span> (plum) with the question’s convention, but only <span class="math inline">\(\frac{\mu/M}{1 + \mu/M}\)</span> (amber) if the exhaust speed is measured relative to the recoiling truck. The rocket, firing continuously, lies in between at <span class="math inline">\(\ln(1 + \mu/M)\)</span> (teal). The picture is the inequality <span class="math inline">\(\frac{x}{1+x} \leq \ln(1 + x) \leq x\)</span>.</figcaption></figure>
+<h3 id="why-rockets-have-stages">Why rockets have stages</h3>
+<p>The logarithm also explains staging. A rocket that drops its empty fuel tanks part way up no longer has to accelerate their dead mass. Since the gains of successive stages <em>add</em> (like the guns), while each stage’s gain depends on the <em>ratio</em> of its masses, splitting a rocket into stages lets it reach speeds that a single stage of the same total mass cannot. The Saturn V that took astronauts to the Moon had three stages; its first stage burned about <span class="math inline">\(2000\)</span> tonnes of fuel in under three minutes.</p>
+<div class="historybox">
+<div class="box-title">Tsiolkovsky</div>
+<p>Konstantin Tsiolkovsky, a deaf schoolteacher in the provincial Russian town of Kaluga, published the rocket equation in 1903, in a paper entitled “Exploration of outer space by means of reaction devices”. He worked out multi-stage rockets, liquid hydrogen and oxygen fuel, and space stations, decades before any of them could be built. The equation had appeared earlier in less prominent places (William Moore derived a version in 1810), but Tsiolkovsky was the first to see what it meant for spaceflight. “The Earth is the cradle of humanity,” he wrote, “but one cannot live in the cradle forever.”</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">From a discrete process to a limit</div>
+<p><em>A continuous process can often be understood as the limit of many small discrete steps. Solve the discrete problem exactly, then let the step size shrink: sums become integrals.</em></p>
+<p>Here <span class="math inline">\(n\)</span> guns became a rocket and a sum became a logarithm. At university you will see the same move whenever a physical law is derived: a small element is analysed, and the results are added up into an integral or a differential equation.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The other convention.</strong> Redo parts (i) and (ii) supposing each projectile leaves at speed <span class="math inline">\(v\)</span> relative to the truck <em>after</em> firing. Show that now firing one at a time gives the larger final speed.</p></li>
+<li><p><strong>A comet in a dust cloud.</strong> (From STEP III, 2009.) A comet of mass <span class="math inline">\(M\)</span> enters a stationary dust cloud at speed <span class="math inline">\(V\)</span>; after travelling a distance <span class="math inline">\(x\)</span> its mass is <span class="math inline">\(M(1 + bx)\)</span>. If no other force acts, show that <span class="math inline">\((1 + bx)v = V\)</span> and find <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>. If a constant force <span class="math inline">\(Mf\)</span> acts in the direction of motion, use force <span class="math inline">\(=\)</span> rate of change of momentum to show that <span class="math inline">\(v = \frac{ft + V}{1 + bx}\)</span>. Show that the comet can move at constant speed if <span class="math inline">\(bV^2 = f\)</span>, and that otherwise its speed tends to <span class="math inline">\(\sqrt{f/b}\)</span>.</p></li>
+<li><p><strong>Two stages.</strong> A rocket has exhaust speed <span class="math inline">\(v\)</span>, empty mass <span class="math inline">\(M\)</span> and fuel mass <span class="math inline">\(9M\)</span>. Find its final speed. Now split it into two stages, each with empty mass <span class="math inline">\(\frac12M\)</span> and fuel <span class="math inline">\(4.5M\)</span>, the first stage being dropped when empty. Compare the final speeds.</p></li>
+<li><p><strong>The inequality.</strong> Prove that <span class="math inline">\(\frac{x}{1 + x} \leq \ln(1 + x) \leq x\)</span> for <span class="math inline">\(x \geq 0\)</span>, by comparing <span class="math inline">\(\frac{1}{1 + s}\)</span> with <span class="math inline">\(1\)</span> and with <span class="math inline">\(\frac{1}{1 + x}\)</span> on <span class="math inline">\([0, x]\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Daniel Kleppner &amp; Robert Kolenkow, <em>An Introduction to Mechanics</em></strong> (Cambridge University Press), Chapter 4. Momentum, variable mass and the rocket equation.</p></li>
+<li><p><strong>George Sutton &amp; Oscar Biblarz, <em>Rocket Propulsion Elements</em></strong> (Wiley). The standard engineering text; the opening chapters are readable after this section.</p></li>
+<li><p><strong>Hermann Oberth, <em>Ways to Spaceflight</em></strong> (NASA translation, free online). A pioneer’s own account.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="stacked-balls.html">← 10.2 The Stacked-Ball Effect</a><a class="next" href="piston.html">→ 10.4 A Molecule and a Piston</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

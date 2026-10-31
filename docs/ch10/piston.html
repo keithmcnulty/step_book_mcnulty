@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10.4 A Molecule and a Piston — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 10 · Conservation Laws, Collisions and Gravity</a>
+    <div class="src">STEP I · 2002 · Question 10</div>
+    <div class="sec-head"><span class="sec-num">10.4</span><h1>A Molecule and a Piston</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-10-4-piston.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-10-conservation-laws-collisions-and-gravity.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 10</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A bicycle pump consists of a cylinder and a piston. The piston is pushed in with steady speed <span class="math inline">\(u\)</span>. A particle of air moves to and fro between the piston and the end of the cylinder, colliding perfectly elastically with the piston and the end of the cylinder, and always moving parallel with the axis of the cylinder. Initially, the particle is moving towards the piston at speed <span class="math inline">\(v\)</span>. Show that the speed, <span class="math inline">\(v_n\)</span>, of the particle just after the <span class="math inline">\(n\)</span>th collision with the piston is given by <span class="math inline">\(v_n = v + 2nu\)</span>.</p>
+<p>Let <span class="math inline">\(d_n\)</span> be the distance between the piston and the end of the cylinder at the <span class="math inline">\(n\)</span>th collision, and let <span class="math inline">\(t_n\)</span> be the time between the <span class="math inline">\(n\)</span>th and <span class="math inline">\((n+1)\)</span>th collisions. Express <span class="math inline">\(d_n - d_{n+1}\)</span> in terms of <span class="math inline">\(u\)</span> and <span class="math inline">\(t_n\)</span>, and show that <span class="math display">\[d_{n+1} = \frac{v + (2n - 1)u}{v + (2n + 1)u}\,d_n.\]</span> Express <span class="math inline">\(d_n\)</span> in terms of <span class="math inline">\(d_1\)</span>, <span class="math inline">\(u\)</span>, <span class="math inline">\(v\)</span> and <span class="math inline">\(n\)</span>.</p>
+<p>In the case <span class="math inline">\(v = u\)</span>, show that <span class="math inline">\(ut_n = \dfrac{d_1}{n(n + 1)}\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Pump up a bicycle tyre and feel the pump: it gets hot. Squeezing a gas warms it, and this is the principle behind diesel engines (which ignite their fuel by compression alone), refrigerators and the formation of stars. But why does compression heat a gas? Temperature is the average kinetic energy of the molecules, so the question is: why do the molecules speed up?</p>
+<p>This question answers it with a single molecule. Each time it bounces off the advancing piston, it picks up a little extra speed, just as a tennis ball does off a moving racket. Following the bounces exactly reveals a hidden law: the molecule’s speed times the length of the cylinder stays almost constant. That is an <em>adiabatic invariant</em>, and it is the microscopic origin of the gas laws you meet in physics.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>A ball moving at speed <span class="math inline">\(w\)</span> hits a wall that is moving towards it at speed <span class="math inline">\(u\)</span>, and bounces elastically. What is its speed afterwards? (Think in the wall’s frame.)</p>
+</div>
+<p>In the wall’s frame, the ball approaches at <span class="math inline">\(w + u\)</span> and, bouncing elastically off a very heavy object, leaves at <span class="math inline">\(w + u\)</span>. Back in the ground frame, the wall is moving at <span class="math inline">\(u\)</span> in the same direction as the rebounding ball, so the ball’s speed is <span class="math inline">\(w + 2u\)</span>. Each bounce off the advancing piston adds <span class="math inline">\(2u\)</span>. (Bouncing off the stationary end of the cylinder changes nothing.)</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-speed-after-n-bounces" class="stage"><span class="stage-n">Stage 1</span> The speed after <span class="math inline">\(n\)</span> bounces</h4>
+<p>The particle starts at speed <span class="math inline">\(v\)</span>. Each collision with the piston adds <span class="math inline">\(2u\)</span>, and collisions with the end do not change the speed. So after <span class="math inline">\(n\)</span> collisions with the piston, <span class="math display">\[v_n = v + 2nu. \qed\]</span></p>
+<h4 id="stagemark2-a-recurrence-for-the-length" class="stage"><span class="stage-n">Stage 2</span> A recurrence for the length</h4>
+<div class="askyourself">
+<p>Between the <span class="math inline">\(n\)</span>th and <span class="math inline">\((n+1)\)</span>th collisions, the particle goes from the piston to the end and back. How far does it travel? How far does the piston move?</p>
+</div>
+<p>In time <span class="math inline">\(t_n\)</span> the piston moves <span class="math inline">\(ut_n\)</span>, so <span class="math inline">\(d_n - d_{n+1} = ut_n\)</span>. Meanwhile the particle, at speed <span class="math inline">\(v_n\)</span>, travels from the piston to the end (distance <span class="math inline">\(d_n\)</span>) and back to the piston (distance <span class="math inline">\(d_{n+1}\)</span>): so <span class="math inline">\(d_n + d_{n+1} = v_nt_n\)</span>. Dividing one equation by the other eliminates <span class="math inline">\(t_n\)</span>: <span class="math display">\[\frac{d_n + d_{n+1}}{d_n - d_{n+1}} = \frac{v_n}{u}, \qquad\text{so}\qquad d_{n+1}(v_n + u) = d_n(v_n - u).\]</span> With <span class="math inline">\(v_n = v + 2nu\)</span>, <span class="math display">\[d_{n+1} = \frac{v + (2n - 1)u}{v + (2n + 1)u}\,d_n. \qed\]</span></p>
+<h4 id="stagemark3-telescoping" class="stage"><span class="stage-n">Stage 3</span> Telescoping</h4>
+<div class="askyourself">
+<p>Write <span class="math inline">\(d_n\)</span> as <span class="math inline">\(d_1\)</span> times a product of <span class="math inline">\(n - 1\)</span> such fractions. What cancels?</p>
+</div>
+<p><span class="math display">\[d_n = d_1 \cdot \frac{v + u}{v + 3u}\cdot\frac{v + 3u}{v + 5u}\cdots\frac{v + (2n - 3)u}{v + (2n - 1)u} = \frac{v + u}{v + (2n - 1)u}\,d_1. \qed\]</span> Each numerator cancels the previous denominator, leaving only the first numerator and the last denominator.</p>
+<h4 id="stagemark4-the-case-v-u" class="stage"><span class="stage-n">Stage 4</span> The case <span class="math inline">\(v = u\)</span></h4>
+<p>Then <span class="math inline">\(d_n = \frac{2u}{2nu}d_1 = \frac{d_1}{n}\)</span>, and <span class="math display">\[ut_n = d_n - d_{n+1} = d_1\Bigl(\frac1n - \frac{1}{n + 1}\Bigr) = \frac{d_1}{n(n + 1)}. \qed\]</span> Adding these up, <span class="math inline">\(u(t_1 + t_2 + \cdots) = d_1\bigl(1 - \frac12 + \frac12 - \frac13 + \cdots\bigr) = d_1\)</span>: the piston reaches the end of the cylinder at time <span class="math inline">\(d_1/u\)</span> after the first collision, as it must. Before it gets there, the particle bounces infinitely often (Figure 10.4.1).</p>
+<figure class="stepfig"><img src="../assets/fig/fig-10-4-1.svg" alt="Figure 10.4.1"><figcaption><span class="fig-label">Figure 10.4.1</span> Space–time diagram for the case <span class="math inline">\(v = u\)</span>: distance from the end of the cylinder against time. The piston (amber) advances steadily; the molecule (teal) bounces between it and the end. Its zigzags get steeper (faster) and shorter. The <span class="math inline">\(n\)</span>th collision with the piston happens at distance <span class="math inline">\(d_1/n\)</span>, so the molecule’s speed is roughly proportional to <span class="math inline">\(1/(\text{length})\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Change frame for a collision.</strong> In the piston’s frame the bounce is trivial.</p></li>
+<li><p><strong>Two equations, eliminate the unknown.</strong> The distances travelled by the particle and the piston in the same time gave a recurrence without <span class="math inline">\(t_n\)</span>.</p></li>
+<li><p><strong>Telescoping.</strong> The product collapsed, just as the sum of <span class="math inline">\(\frac{1}{n(n+1)}\)</span> did.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="an-adiabatic-invariant">An adiabatic invariant</h3>
+<p>Multiply the speed by the length: <span class="math display">\[v_n d_n = (v + 2nu)\cdot\frac{v + u}{v + (2n - 1)u}\,d_1 \approx (v + u)d_1\]</span> when <span class="math inline">\(n\)</span> is large, or when <span class="math inline">\(u\)</span> is much smaller than <span class="math inline">\(v\)</span>. So <span class="math display">\[\text{speed} \times \text{length} \approx \text{constant}.\]</span> If the piston moves slowly compared with the molecule, the product <span class="math inline">\(vd\)</span> hardly changes, however far the piston moves. Quantities like this, which stay nearly constant when a system is changed slowly, are called <em>adiabatic invariants</em>. In general, the adiabatic invariant of a back-and-forth motion is <span class="math inline">\(\oint p\,\mathrm{d}q\)</span>, the momentum integrated round one cycle; here that is <span class="math inline">\(mv \times 2d\)</span>.</p>
+<h3 id="from-one-molecule-to-a-gas">From one molecule to a gas</h3>
+<p>Since <span class="math inline">\(v \propto 1/d\)</span>, the kinetic energy <span class="math inline">\(\frac12mv^2\)</span> is proportional to <span class="math inline">\(1/d^2\)</span>. For a gas of many molecules moving along one direction, temperature is proportional to the average kinetic energy, so <span class="math inline">\(T \propto 1/d^2\)</span>: halving the length quadruples the temperature. In three dimensions the energy is shared between three directions of motion, and the same argument (which Feynman gives in his <em>Lectures</em>) leads to the law of adiabatic compression of a monatomic gas, <span class="math display">\[TV^{2/3} = \text{constant}, \qquad\text{or equivalently}\qquad pV^{5/3} = \text{constant}.\]</span> The exponent <span class="math inline">\(\frac53\)</span> is the famous ratio <span class="math inline">\(\gamma\)</span> of specific heats for a monatomic gas. Compressing air in a bicycle pump to a fifth of its volume would, if done quickly and with no heat escaping, raise its absolute temperature by a factor of <span class="math inline">\(5^{0.4} \approx 1.9\)</span> (air molecules have two atoms, giving <span class="math inline">\(\gamma = 1.4\)</span> instead): from <span class="math inline">\(20^\circ\)</span>C to about <span class="math inline">\(280^\circ\)</span>C. The pump does not get that hot only because the compression is slow and heat leaks away.</p>
+<div class="historybox">
+<div class="box-title">Fermi’s cosmic rays</div>
+<p>In 1949 Enrico Fermi proposed that cosmic rays, particles arriving from space with enormous energies, are accelerated exactly as the molecule in this question is: by bouncing repeatedly off moving magnetic fields in interstellar gas clouds, gaining a little energy each time. “Fermi acceleration” is now thought to operate at the shock waves of supernova remnants, where particles cross the shock back and forth like a molecule between a piston and a wall. Adiabatic invariants also played a role in the birth of quantum mechanics: Paul Ehrenfest argued in 1916 that the quantities that are quantised must be adiabatic invariants, since a slow change cannot make a system jump between quantum states.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Build a recurrence from a physical process</div>
+<p><em>When a process repeats, describe one cycle exactly and write down how the state changes from one cycle to the next.</em></p>
+<p>Here the state was the pair (speed, length) at each collision. The recurrence could be solved exactly, and its solution revealed an approximately conserved quantity. At university, the same approach (one cycle, then a recurrence or a “return map”) is used for orbits, oscillators and the iterated maps of <a href="../ch08/solvable-chaos.html">Section 8.7</a>.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The invariant exactly.</strong> Show that <span class="math inline">\(v_nd_n - (v + u)d_1 = \frac{u(v + u)d_1}{v + (2n - 1)u}\)</span>, and deduce that <span class="math inline">\(v_nd_n \to (v + u)d_1\)</span> as <span class="math inline">\(n \to \infty\)</span>.</p></li>
+<li><p><strong>Pulling the piston out.</strong> Repeat the question with the piston withdrawn at speed <span class="math inline">\(u &lt; v\)</span>. Show that the particle slows down, and find <span class="math inline">\(v_nd_n\)</span>. (Expanding gases cool.)</p></li>
+<li><p><strong>Energy.</strong> In the case <span class="math inline">\(v = u\)</span>, the molecule’s speed grows without limit as the piston approaches the end. Find the average force on the piston during the <span class="math inline">\(n\)</span>th cycle (change of momentum divided by <span class="math inline">\(t_n\)</span>) and show that it grows like <span class="math inline">\(n^3\)</span>. What does this say about the work needed to push the piston all the way in?</p></li>
+<li><p><strong>A bouncing ball.</strong> A ball bounces elastically on a floor under gravity, and the floor is raised slowly. Guess an adiabatic invariant for this motion. (<em>Hint:</em> the analogue of <span class="math inline">\(vd\)</span> is speed times the time between bounces, or the height to the power <span class="math inline">\(\frac32\)</span>.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Richard Feynman, Robert Leighton &amp; Matthew Sands, <em>The Feynman Lectures on Physics</em>, Vol. I</strong> (free online), Chapter 39, “The kinetic theory of gases”. The same piston argument, extended to three dimensions.</p></li>
+<li><p><strong>Stephen Blundell &amp; Katherine Blundell, <em>Concepts in Thermal Physics</em></strong> (Oxford University Press). Adiabatic processes and kinetic theory at first-year level.</p></li>
+<li><p><strong>Lev Landau &amp; Evgeny Lifshitz, <em>Mechanics</em></strong> (Butterworth-Heinemann), §49. A concise treatment of adiabatic invariants, for later.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="rockets.html">← 10.3 Rockets and Guns</a><a class="next" href="zeno-wedge.html">→ 10.5 Infinitely Many Bounces in Finite Time</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10.2 The Stacked-Ball Effect — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 10 · Conservation Laws, Collisions and Gravity</a>
+    <div class="src">STEP II · 2010 · Question 10</div>
+    <div class="sec-head"><span class="sec-num">10.2</span><h1>The Stacked-Ball Effect</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-10-2-stacked-balls.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-10-conservation-laws-collisions-and-gravity.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 10</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>In an experiment, a particle <span class="math inline">\(A\)</span> of mass <span class="math inline">\(m\)</span> is at rest on a smooth horizontal table. A particle <span class="math inline">\(B\)</span> of mass <span class="math inline">\(bm\)</span>, where <span class="math inline">\(b &gt; 1\)</span>, is projected along the table directly towards <span class="math inline">\(A\)</span> with speed <span class="math inline">\(u\)</span>. The collision is perfectly elastic.</p>
+<p>Find an expression for the speed of <span class="math inline">\(A\)</span> after the collision in terms of <span class="math inline">\(b\)</span> and <span class="math inline">\(u\)</span>, and show that, irrespective of the relative masses of the particles, <span class="math inline">\(A\)</span> cannot be made to move at twice the initial speed of <span class="math inline">\(B\)</span>.</p></li>
+<li><p>In a second experiment, a particle <span class="math inline">\(B_1\)</span> is projected along the table directly towards <span class="math inline">\(A\)</span> with speed <span class="math inline">\(u\)</span>. This time, particles <span class="math inline">\(B_2, B_3, \ldots, B_n\)</span> are at rest in order on the line between <span class="math inline">\(B_1\)</span> and <span class="math inline">\(A\)</span>. The mass of <span class="math inline">\(B_i\)</span> (<span class="math inline">\(i = 1, 2, \ldots, n\)</span>) is <span class="math inline">\(\lambda^{n+1-i}m\)</span>, where <span class="math inline">\(\lambda &gt; 1\)</span>. All collisions are perfectly elastic. Show that, by choosing <span class="math inline">\(n\)</span> sufficiently large, there is no upper limit on the speed at which <span class="math inline">\(A\)</span> can be made to move.</p>
+<p>In the case <span class="math inline">\(\lambda = 4\)</span>, determine the least value of <span class="math inline">\(n\)</span> for which <span class="math inline">\(A\)</span> moves at more than <span class="math inline">\(20u\)</span>. You may use the approximation <span class="math inline">\(\log_{10}2 \approx 0.30103\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Hold a tennis ball on top of a basketball and drop them together. The basketball bounces off the floor, and the tennis ball shoots up to several times the height you dropped it from, sometimes high enough to hit the ceiling. Try it outdoors.</p>
+<p>Part (i) of the question shows that a single collision has a speed limit: however heavy the ball that hits it, a stationary ball cannot be sent off at more than twice the speed of the incoming one. Part (ii) shows how to break the limit: pass the motion down a chain of ever-lighter balls, and the speed multiplies at every step. The same idea sends space probes to the outer planets, and has been suggested as part of the mechanism of a supernova.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>From <a href="../ch10/newtons-cradle.html">Section 10.1</a>: if a mass <span class="math inline">\(M\)</span> moving at speed <span class="math inline">\(u\)</span> hits a stationary mass <span class="math inline">\(m\)</span> elastically, what is the speed of <span class="math inline">\(m\)</span> afterwards?</p>
+</div>
+<p>The result there (with the roles of the masses swapped) gives the speed of the struck particle as <span class="math inline">\(\frac{2M}{M + m}u\)</span>. Another way to remember it: in an elastic collision the <em>relative</em> velocity is reversed. If the heavy ball barely slows down, the light ball must leave at about <span class="math inline">\(u\)</span> more than the heavy ball’s speed, that is about <span class="math inline">\(2u\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-speed-limit" class="stage"><span class="stage-n">Stage 1</span> The speed limit</h4>
+<p>With <span class="math inline">\(M = bm\)</span>, the speed of <span class="math inline">\(A\)</span> after the collision is <span class="math display">\[v_A = \frac{2bm}{bm + m}\,u = \frac{2b}{b + 1}\,u.\]</span></p>
+<div class="askyourself">
+<p>How does <span class="math inline">\(\frac{2b}{b+1}\)</span> compare with <span class="math inline">\(2\)</span>? What happens as <span class="math inline">\(b \to \infty\)</span>?</p>
+</div>
+<p>Since <span class="math inline">\(\frac{2b}{b + 1} = 2 - \frac{2}{b + 1} &lt; 2\)</span> for every <span class="math inline">\(b\)</span>, the speed of <span class="math inline">\(A\)</span> is always less than <span class="math inline">\(2u\)</span>, however heavy <span class="math inline">\(B\)</span> is. It approaches <span class="math inline">\(2u\)</span> as <span class="math inline">\(b \to \infty\)</span>: an infinitely heavy ball would bounce <span class="math inline">\(A\)</span> off as if from a moving wall.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-passing-it-along-a-chain" class="stage"><span class="stage-n">Stage 2</span> Passing it along a chain</h4>
+<div class="askyourself">
+<p>In part (ii), each particle is <span class="math inline">\(\lambda\)</span> times as heavy as the next one. What does part (i) say about each collision in the chain?</p>
+</div>
+<p><span class="math inline">\(B_1\)</span> (mass <span class="math inline">\(\lambda^n m\)</span>) hits <span class="math inline">\(B_2\)</span> (mass <span class="math inline">\(\lambda^{n-1}m\)</span>), which is <span class="math inline">\(\lambda\)</span> times lighter. By part (i) with <span class="math inline">\(b = \lambda\)</span>, <span class="math inline">\(B_2\)</span> moves off at <span class="math inline">\(\frac{2\lambda}{\lambda + 1}u\)</span>. Then <span class="math inline">\(B_2\)</span> hits <span class="math inline">\(B_3\)</span>, which is again <span class="math inline">\(\lambda\)</span> times lighter, and <span class="math inline">\(B_3\)</span> moves off at <span class="math inline">\(\bigl(\frac{2\lambda}{\lambda + 1}\bigr)^2u\)</span>. After <span class="math inline">\(n\)</span> such collisions, the last one being <span class="math inline">\(B_n\)</span> hitting <span class="math inline">\(A\)</span>, <span class="math display">\[v_A = \Bigl(\frac{2\lambda}{\lambda + 1}\Bigr)^nu.\]</span> (Later collisions between the <span class="math inline">\(B\)</span>s can only push <span class="math inline">\(A\)</span> further; they cannot slow it, since nothing ever hits <span class="math inline">\(A\)</span> from in front.)</p>
+<div class="askyourself">
+<p>Is <span class="math inline">\(\frac{2\lambda}{\lambda + 1}\)</span> bigger or smaller than <span class="math inline">\(1\)</span>?</p>
+</div>
+<p>Since <span class="math inline">\(\lambda &gt; 1\)</span>, <span class="math inline">\(2\lambda &gt; \lambda + 1\)</span>, so the ratio <span class="math inline">\(r = \frac{2\lambda}{\lambda + 1}\)</span> exceeds <span class="math inline">\(1\)</span>, and <span class="math inline">\(r^n \to \infty\)</span> as <span class="math inline">\(n \to \infty\)</span>. So by taking <span class="math inline">\(n\)</span> large enough, <span class="math inline">\(A\)</span> can be made to move as fast as we like.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-twenty-times-as-fast" class="stage"><span class="stage-n">Stage 3</span> Twenty times as fast</h4>
+<p>With <span class="math inline">\(\lambda = 4\)</span>, <span class="math inline">\(r = \frac85 = 1.6\)</span>, and we need <span class="math inline">\(1.6^n &gt; 20\)</span>. Taking logarithms to base <span class="math inline">\(10\)</span>, <span class="math display">\[\log_{10}1.6 = \log_{10}16 - 1 = 4\log_{10}2 - 1 \approx 0.20412, \qquad \log_{10}20 = 1 + \log_{10}2 \approx 1.30103,\]</span> so we need <span class="math inline">\(n &gt; \frac{1.30103}{0.20412} \approx 6.37\)</span>. The least value is <span class="math inline">\(n = 7\)</span>. (Indeed <span class="math inline">\(1.6^6 \approx 16.8\)</span> and <span class="math inline">\(1.6^7 \approx 26.8\)</span>.)<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Iterate a single result.</strong> Part (i) was used <span class="math inline">\(n\)</span> times in part (ii), turning a bounded gain into an unbounded one.</p></li>
+<li><p><strong>A limit that is never reached.</strong> The bound <span class="math inline">\(2u\)</span> is approached but never attained, so the right statement is a strict inequality.</p></li>
+<li><p><strong>Logarithms turn powers into products.</strong> The question of how many steps are needed became a division.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-basketball-and-the-tennis-ball">The basketball and the tennis ball</h3>
+<p>Let the two balls fall together from height <span class="math inline">\(H\)</span>, reaching the floor at speed <span class="math inline">\(U = \sqrt{2gH}\)</span>. Suppose everything is perfectly elastic and the basketball is much heavier. It bounces off the floor with speed <span class="math inline">\(U\)</span> upwards, and immediately meets the tennis ball, still moving down at speed <span class="math inline">\(U\)</span>. In the basketball’s frame, the tennis ball approaches at <span class="math inline">\(2U\)</span> and, bouncing off a very heavy object, leaves at <span class="math inline">\(2U\)</span>. Back in the ground frame, that is <span class="math inline">\(2U + U = 3U\)</span> upwards (Figure 10.2.1). Since height is proportional to the square of the launch speed, the tennis ball rises to <span class="math inline">\(9H\)</span>.</p>
+<p>Real balls are not perfectly elastic. With coefficient of restitution <span class="math inline">\(e\)</span> and mass ratio <span class="math inline">\(M/m\)</span>, the tennis ball leaves at speed <span class="math inline">\(\frac{Me(2 + e) - m}{M + m}U\)</span>. STEP I 2014 Q10, in the exercises, uses a measured height to work backwards to the mass ratio.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-10-2-1.svg" alt="Figure 10.2.1"><figcaption><span class="fig-label">Figure 10.2.1</span> The stacked-ball effect, for perfectly elastic balls with the lower one much heavier. The big ball bounces up at speed <span class="math inline">\(U\)</span> and meets the small ball coming down at <span class="math inline">\(U\)</span>. Relative to the big ball, the small one arrives at <span class="math inline">\(2U\)</span> and leaves at <span class="math inline">\(2U\)</span>, so it leaves the ground frame at <span class="math inline">\(3U\)</span>, reaching nine times the original height.</figcaption></figure>
+<h3 id="gravitational-slingshots">Gravitational slingshots</h3>
+<p>A space probe flying past a planet does not touch it, but gravity acts like a very soft elastic collision with a very heavy object. In the planet’s frame, the probe swings round and leaves with the same speed it arrived with. If the planet is moving towards the probe at speed <span class="math inline">\(V\)</span>, then in the Sun’s frame the probe can gain up to <span class="math inline">\(2V\)</span>, exactly as the tennis ball does. The two <em>Voyager</em> probes, launched in 1977, used a rare alignment of the outer planets to pass from Jupiter to Saturn (and, for <em>Voyager 2</em>, on to Uranus and Neptune), gaining speed at each encounter. Without these gravity assists, the journey to Neptune would have taken about thirty years instead of twelve. The energy comes from the planet, which slows down by an immeasurably small amount.</p>
+<div class="historybox">
+<div class="box-title">Superballs and supernovae</div>
+<p>In 1968 W. R. Mellen described in the <em>American Journal of Physics</em> a “superball rebound projectile” made by stacking several balls of decreasing size, and noted that the top ball can be launched at many times the impact speed. Astrophysicists have pointed out a loose analogy with a core-collapse supernova: the infalling outer layers of a star rebound off the stiff, dense core, and a shock wave carries momentum outwards into ever less dense material, accelerating it to enormous speeds. Demonstrations of the stacked-ball effect are used to explain the idea to students, though real supernovae involve much more physics, including neutrinos, than bouncing balls.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Iterate a single result</div>
+<p><em>When a process is a repetition of one simple step, solve the step once and compose it.</em></p>
+<p>A gain factor less than <span class="math inline">\(2\)</span> per step becomes unbounded after many steps, because the factors multiply. At university this is the idea behind transfer matrices, multi-stage amplifiers and multi-stage rockets (<a href="../ch10/rockets.html">Section 10.3</a>): the gain of a chain is the product of the gains of its links.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The real thing.</strong> (From STEP I, 2014.) A ball of mass <span class="math inline">\(M\)</span> and radius <span class="math inline">\(R\)</span> is released from rest with its centre at height <span class="math inline">\(H + R\)</span>, with a ball of mass <span class="math inline">\(m\)</span> and radius <span class="math inline">\(r\)</span> on top. The coefficient of restitution for every impact is <span class="math inline">\(e\)</span>. Show that, bouncing alone, the large ball would rise until its centre is at height <span class="math inline">\(R + He^2\)</span>. Given <span class="math inline">\(R = 0.2\)</span>, <span class="math inline">\(r = 0.05\)</span>, <span class="math inline">\(H = 1.8\)</span>, <span class="math inline">\(e = \frac23\)</span> and that the small ball’s centre reaches height <span class="math inline">\(4.5\)</span>, show that <span class="math inline">\(M/m = 9\)</span>.</p></li>
+<li><p><strong>An inelastic chain.</strong> (From STEP I, 2017.) Particles <span class="math inline">\(P_1, P_2, \ldots\)</span> of masses <span class="math inline">\(\lambda m, \lambda^2m, \ldots\)</span> lie at <span class="math inline">\(x = 1, 2, \ldots\)</span>, and a particle of mass <span class="math inline">\(m\)</span> hits <span class="math inline">\(P_1\)</span> at speed <span class="math inline">\(u\)</span>; the coefficient of restitution is <span class="math inline">\(e\)</span>. Show that <span class="math inline">\(P_1\)</span> moves off at <span class="math inline">\(\frac{1 + e}{1 + \lambda}u\)</span>. Find the speed of <span class="math inline">\(P_n\)</span> after its first collision, and show that if <span class="math inline">\(e &gt; \lambda\)</span> each particle is involved in exactly two collisions. What happens if <span class="math inline">\(\lambda e = 1\)</span>?</p></li>
+<li><p><strong>Three balls.</strong> Three perfectly elastic balls are stacked, each much lighter than the one below. Show that the top ball leaves at <span class="math inline">\(7U\)</span> and rises to <span class="math inline">\(49H\)</span>. With <span class="math inline">\(k\)</span> balls, show that the top one leaves at <span class="math inline">\((2^k - 1)U\)</span>.</p></li>
+<li><p><strong>Where does the energy come from?</strong> In part (ii), show that the total kinetic energy is conserved even though <span class="math inline">\(A\)</span>’s speed is unbounded. What happens to the heavy particles?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>David Morin, <em>Introduction to Classical Mechanics</em></strong> (Cambridge University Press), Chapter 5, which includes the stacked-ball problem.</p></li>
+<li><p><strong>W. R. Mellen, “Superball rebound projectiles”</strong>, <em>American Journal of Physics</em> 36 (1968). Short and fun.</p></li>
+<li><p><strong>Gary Flandro, “Fast reconnaissance missions to the outer solar system utilizing energy derived from the gravitational field of Jupiter”</strong>, <em>Astronautica Acta</em> 12 (1966). The paper that proposed the Voyager “grand tour”.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="newtons-cradle.html">← 10.1 Newton&#x27;s Cradle</a><a class="next" href="rockets.html">→ 10.3 Rockets and Guns</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

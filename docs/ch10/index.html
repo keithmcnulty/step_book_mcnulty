@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 10: Conservation Laws, Collisions and Gravity — Beyond STEP</title>
+<meta name="description" content="Momentum and energy as constraints, variable mass, and Newtonian gravitation.">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter</div>
+    <div class="ch-num">10</div>
+    <h1>Conservation Laws, Collisions and Gravity</h1>
+    <p class="strap">Some things never change. Knowing which ones is half of physics.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-10-conservation-laws-collisions-and-gravity.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Download the whole chapter</span><span class="dl-sub">PDF, typeset for print</span></span></a>
+  </div>
+  <h2 class="contents-head">In this chapter</h2>
+  <ol class="toc"><li><a class="toc-link" href="newtons-cradle.html"><span class="toc-num">10.1</span>
+<span class="toc-title">Newton&#x27;s Cradle</span>
+<span class="toc-src">STEP II 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-1-newtons-cradle.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="stacked-balls.html"><span class="toc-num">10.2</span>
+<span class="toc-title">The Stacked-Ball Effect</span>
+<span class="toc-src">STEP II 2010</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-2-stacked-balls.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="rockets.html"><span class="toc-num">10.3</span>
+<span class="toc-title">Rockets and Guns</span>
+<span class="toc-src">STEP III 2017</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-3-rockets.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="piston.html"><span class="toc-num">10.4</span>
+<span class="toc-title">A Molecule and a Piston</span>
+<span class="toc-src">STEP I 2002</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-4-piston.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="zeno-wedge.html"><span class="toc-num">10.5</span>
+<span class="toc-title">Infinitely Many Bounces in Finite Time</span>
+<span class="toc-src">STEP III 2002</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-5-zeno-wedge.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="two-body.html"><span class="toc-num">10.6</span>
+<span class="toc-title">Two Bodies Become One</span>
+<span class="toc-src">STEP III 2004</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-6-two-body.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="shell-theorem.html"><span class="toc-num">10.7</span>
+<span class="toc-title">Gravity Inside a Shell</span>
+<span class="toc-src">STEP III 1999</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-7-shell-theorem.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="three-stars.html"><span class="toc-num">10.8</span>
+<span class="toc-title">Three Stars in a Triangle</span>
+<span class="toc-src">STEP I 1999</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-8-three-stars.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">Looking back: what we have learned</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">Chapter 10  \(\cdot\)  Introduction</div>
+    <h1 class="essay-title">What Stays the Same</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>There is a fact, or if you wish, a law, governing all natural phenomena that are known to date. There is no known exception to this law.</p>
+<p class="who">— Richard Feynman, on the conservation of energy, <em>The Feynman Lectures on Physics</em> (1963)</p>
+</div>
+<p>Mechanics at school is usually a matter of forces: draw a diagram, resolve, apply <span class="math inline">\(F = ma\)</span>. That works for a block on a slope. It does not work for a collision lasting a thousandth of a second, during which the forces are huge and unknown, or for a rocket that changes its mass as it goes, or for three stars pulling on each other at once. In all of these, the way forward is to stop asking about forces and ask instead what <em>cannot change</em>.</p>
+<p>Momentum is conserved whenever no outside force acts. Energy is conserved in elastic collisions, and its loss can be measured in the others. Mass, angular momentum and the motion of the centre of mass follow similar rules. These laws do not tell you everything, but they are always true, they apply to systems far too complicated to analyse in detail, and they often rule out most of the possibilities before any calculation begins.</p>
+<h3 id="why-conservation-laws-matter">Why conservation laws matter</h3>
+<p>The conservation laws are the most reliable tools in physics. In the radioactive process called beta decay, the energies of the emerging particles did not add up; rather than abandon conservation of energy, Wolfgang Pauli predicted in 1930 an invisible particle carrying the missing energy, and the neutrino was detected twenty-six years later. Engineers design crash barriers, airbags and rockets by momentum and energy budgets. Astronomers weigh stars and find planets by watching centres of mass. And in 1918 Emmy Noether explained why the laws hold: each conservation law is the shadow of a symmetry of nature. Momentum is conserved because the laws of physics are the same everywhere; energy, because they are the same at all times.</p>
+<p>Gravity is the second theme of this chapter. It is the force Newton used to unify the heavens and the Earth, and it is a natural partner of the conservation laws: orbits, slingshots and collapsing clouds are all understood through energy and momentum, together with one remarkable fact about spheres.</p>
+<h3 id="what-you-will-meet-at-university">What you will meet at university</h3>
+<p>A first-year dynamics course starts here. You will meet systems of particles, the centre of mass and the reduced mass, collisions in different frames, variable-mass systems such as rockets, and the motion of bodies under gravity: Kepler’s laws, orbits, escape velocity. Later courses reformulate mechanics in the languages of Lagrange and Hamilton, where Noether’s theorem becomes a precise statement and conservation laws can be read off from the symmetries of a single function. Beyond that lie celestial mechanics and the three-body problem, kinetic theory and statistical mechanics (where the piston of <a href="../ch10/piston.html">Section 10.4</a> becomes the theory of gases), and Einstein’s theory of gravity.</p>
+<h3 id="the-questions-that-run-through-this-chapter">The questions that run through this chapter</h3>
+<div class="skillbox">
+<div class="box-title">Three big questions</div>
+<ol class="arabic">
+<li><p><strong>What can conservation laws decide on their own?</strong> When do momentum and energy determine an outcome, and when do they only rule things out?</p></li>
+<li><p><strong>How do small steps add up?</strong> What happens when a simple event, a collision or a firing, is repeated many times, or infinitely often?</p></li>
+<li><p><strong>How do we tame many bodies?</strong> Which choices of coordinates, and which symmetries, turn a problem about several interacting bodies into one we can solve?</p></li>
+</ol>
+</div>
+<p>The chapter begins with collisions: what Newton’s cradle can and cannot do (<a href="../ch10/newtons-cradle.html">Section 10.1</a>), and how a chain of balls multiplies speed (<a href="../ch10/stacked-balls.html">Section 10.2</a>). It then follows repeated processes: guns fired from a truck and the rocket equation, a molecule speeding up against a piston, and a puck that bounces infinitely often in a finite time. The last three sections turn to bodies that attract or repel: the centre of mass and reduced mass, the gravity of a spherical shell, and Lagrange’s rotating triangle of stars.</p>
+<h3 id="ideas-in-this-chapter">Ideas in this chapter</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">10.1</td>
+<td style="text-align: left;">Newton’s cradle</td>
+<td style="text-align: left;">Conservation laws as constraints</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.2</td>
+<td style="text-align: left;">Stacked balls</td>
+<td style="text-align: left;">Iterating one collision; slingshots</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10.3</td>
+<td style="text-align: left;">Rockets</td>
+<td style="text-align: left;">Variable mass; the rocket equation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.4</td>
+<td style="text-align: left;">Kinetic theory</td>
+<td style="text-align: left;">An adiabatic invariant</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10.5</td>
+<td style="text-align: left;">Inelastic collisions</td>
+<td style="text-align: left;">Infinitely many bounces in finite time</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.6</td>
+<td style="text-align: left;">The two-body problem</td>
+<td style="text-align: left;">Centre of mass and reduced mass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10.7</td>
+<td style="text-align: left;">Newtonian gravity</td>
+<td style="text-align: left;">The shell theorem; free-fall collapse</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.8</td>
+<td style="text-align: left;">The three-body problem</td>
+<td style="text-align: left;">Lagrange’s equilateral solution</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-to-read-this-chapter">How to read this chapter</h3>
+<p>Before calculating, list what is conserved, and in which frame. Then ask whether the problem looks simpler from somewhere else: from the centre of mass, from the moving piston, from the bouncing ball. Many of the questions in this chapter become almost trivial in the right frame, and most of the work in mechanics is finding it.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="newtons-cradle.html">→ Begin: 10.1 Newton&#x27;s Cradle</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
