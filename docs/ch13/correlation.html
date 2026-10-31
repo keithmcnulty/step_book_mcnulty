@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13.7 Manufacturing Correlation — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 13 · Statistics and Randomness in the World</a>
+    <div class="src">STEP III · 2010 · Question 13</div>
+    <div class="sec-head"><span class="sec-num">13.7</span><h1>Manufacturing Correlation</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-7-correlation.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 13</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>In this question, <span class="math inline">\(\mathrm{Corr}(U, V)\)</span> denotes the product moment correlation coefficient between the random variables <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span>, defined by <span class="math display">\[\mathrm{Corr}(U, V) \equiv \frac{\mathrm{Cov}(U, V)}{\sqrt{\mathrm{Var}(U)\mathrm{Var}(V)}}.\]</span> The independent random variables <span class="math inline">\(Z_1\)</span>, <span class="math inline">\(Z_2\)</span> and <span class="math inline">\(Z_3\)</span> each have expectation <span class="math inline">\(0\)</span> and variance <span class="math inline">\(1\)</span>. What is the value of <span class="math inline">\(\mathrm{Corr}(Z_1, Z_2)\)</span>?</p>
+<p>Let <span class="math inline">\(Y_1 = Z_1\)</span> and let <span class="math display">\[Y_2 = \rho_{12}Z_1 + (1 - \rho_{12}^2)^{\frac12}Z_2,\]</span> where <span class="math inline">\(\rho_{12}\)</span> is a given constant with <span class="math inline">\(-1 &lt; \rho_{12} &lt; 1\)</span>. Find <span class="math inline">\(\mathrm{E}(Y_2)\)</span>, <span class="math inline">\(\mathrm{Var}(Y_2)\)</span> and <span class="math inline">\(\mathrm{Corr}(Y_1, Y_2)\)</span>.</p>
+<p>Now let <span class="math inline">\(Y_3 = aZ_1 + bZ_2 + cZ_3\)</span>, where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> are real constants and <span class="math inline">\(c \geq 0\)</span>. Given that <span class="math inline">\(\mathrm{E}(Y_3) = 0\)</span>, <span class="math inline">\(\mathrm{Var}(Y_3) = 1\)</span>, <span class="math inline">\(\mathrm{Corr}(Y_1, Y_3) = \rho_{13}\)</span> and <span class="math inline">\(\mathrm{Corr}(Y_2, Y_3) = \rho_{23}\)</span>, express <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> in terms of <span class="math inline">\(\rho_{23}\)</span>, <span class="math inline">\(\rho_{13}\)</span> and <span class="math inline">\(\rho_{12}\)</span>.</p>
+<p>Given constants <span class="math inline">\(\mu_i\)</span> and <span class="math inline">\(\sigma_i\)</span>, for <span class="math inline">\(i = 1\)</span>, <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, give expressions in terms of the <span class="math inline">\(Y_i\)</span> for random variables <span class="math inline">\(X_i\)</span> such that <span class="math inline">\(\mathrm{E}(X_i) = \mu_i\)</span>, <span class="math inline">\(\mathrm{Var}(X_i) = \sigma_i^2\)</span> and <span class="math inline">\(\mathrm{Corr}(X_i, X_j) = \rho_{ij}\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>A bank wants to know how likely it is to lose money on a portfolio of shares. Share prices move together: when one falls, others tend to fall too. To simulate thousands of possible futures, the bank must generate random numbers that are correlated in exactly the right way. How do you manufacture random variables with prescribed correlations, starting from independent ones?</p>
+<p>This question gives the recipe, step by step, for three variables. Each new variable is a combination of the previous independent ingredients, plus a fresh independent ingredient to make up the variance. The construction is a famous piece of linear algebra in disguise, the <em>Cholesky decomposition</em>, and it also reveals a hidden constraint: not every set of correlations is possible.</p>
+<div class="skillbox">
+<div class="box-title">A note on the syllabus</div>
+<p>Covariance and correlation were removed from the STEP specification in 2019. The covariance is <span class="math inline">\(\mathrm{Cov}(U, V) = \mathrm{E}(UV) - \mathrm{E}(U)\mathrm{E}(V)\)</span>; it is zero for independent variables, and it is linear in each argument: <span class="math inline">\(\mathrm{Cov}(aU + bV, W) = a\,\mathrm{Cov}(U, W) + b\,\mathrm{Cov}(V, W)\)</span>. Also <span class="math inline">\(\mathrm{Var}(U) = \mathrm{Cov}(U, U)\)</span>. The correlation always lies between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>.</p>
+</div>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p><span class="math inline">\(Z_1\)</span> and <span class="math inline">\(Z_2\)</span> are independent. What is their covariance, and so their correlation?</p>
+</div>
+<p>Independent variables satisfy <span class="math inline">\(\mathrm{E}(Z_1Z_2) = \mathrm{E}(Z_1)\,\mathrm{E}(Z_2)\)</span>. So the covariance is <span class="math inline">\(0\)</span>, and <span class="math inline">\(\mathrm{Corr}(Z_1, Z_2) = 0\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-two-variables" class="stage"><span class="stage-n">Stage 1</span> Two variables</h4>
+<p><span class="math inline">\(\mathrm{E}(Y_2) = 0\)</span>. Since <span class="math inline">\(Z_1\)</span> and <span class="math inline">\(Z_2\)</span> are independent with variance <span class="math inline">\(1\)</span>, <span class="math display">\[\mathrm{Var}(Y_2) = \rho_{12}^2 + (1 - \rho_{12}^2) = 1, \qquad \mathrm{Cov}(Y_1, Y_2) = \mathrm{Cov}\bigl(Z_1, \rho_{12}Z_1 + \sqrt{1 - \rho_{12}^2}\,Z_2\bigr) = \rho_{12}.\]</span> Both variances are <span class="math inline">\(1\)</span>, so <span class="math inline">\(\mathrm{Corr}(Y_1, Y_2) = \rho_{12}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>Think of <span class="math inline">\(Z_1\)</span> and <span class="math inline">\(Z_2\)</span> as perpendicular unit vectors. Where is <span class="math inline">\(Y_2\)</span>? What is the cosine of the angle between <span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_2\)</span>?</p>
+</div>
+<p><span class="math inline">\(Y_2 = \rho_{12}Z_1 + \sqrt{1 - \rho_{12}^2}\,Z_2\)</span> is a unit vector making angle <span class="math inline">\(\theta\)</span> with <span class="math inline">\(Z_1 = Y_1\)</span>, where <span class="math inline">\(\cos\theta = \rho_{12}\)</span>. Correlation is the cosine of the angle between the variables, viewed as vectors (Figure 13.7.1).</p>
+<h4 id="stagemark2-the-third-variable" class="stage"><span class="stage-n">Stage 2</span> The third variable</h4>
+<div class="askyourself">
+<p>Write down the three conditions <span class="math inline">\(\mathrm{Var}(Y_3) = 1\)</span>, <span class="math inline">\(\mathrm{Cov}(Y_1, Y_3) = \rho_{13}\)</span>, <span class="math inline">\(\mathrm{Cov}(Y_2, Y_3) = \rho_{23}\)</span> in terms of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>.</p>
+</div>
+<p>Using linearity and independence: <span class="math display">\[a^2 + b^2 + c^2 = 1, \qquad a = \rho_{13}, \qquad \rho_{12}a + \sqrt{1 - \rho_{12}^2}\,b = \rho_{23}.\]</span> So <span class="math display">\[a = \rho_{13}, \qquad b = \frac{\rho_{23} - \rho_{12}\rho_{13}}{\sqrt{1 - \rho_{12}^2}}, \qquad c = \sqrt{1 - \rho_{13}^2 - \frac{(\rho_{23} - \rho_{12}\rho_{13})^2}{1 - \rho_{12}^2}}. \qed\]</span> (Taking the non-negative square root, as <span class="math inline">\(c \geq 0\)</span>.)</p>
+<h4 id="stagemark3-any-means-and-variances" class="stage"><span class="stage-n">Stage 3</span> Any means and variances</h4>
+<p>Scaling and shifting do not change correlations, so <span class="math display">\[X_i = \mu_i + \sigma_iY_i \qquad (i = 1, 2, 3)\]</span> have means <span class="math inline">\(\mu_i\)</span>, variances <span class="math inline">\(\sigma_i^2\)</span> and correlations <span class="math inline">\(\rho_{ij}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>The formula for <span class="math inline">\(c\)</span> needs the quantity under the square root to be non-negative. Try <span class="math inline">\(\rho_{12} = \rho_{13} = \rho_{23} = -0.6\)</span>. What goes wrong, and why does it make sense that three variables cannot all be strongly negatively correlated with each other?</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-13-7-1.svg" alt="Figure 13.7.1"><figcaption><span class="fig-label">Figure 13.7.1</span> Samples of <span class="math inline">\((Y_1, Y_2)\)</span> made from independent standard normal <span class="math inline">\(Z_1\)</span>, <span class="math inline">\(Z_2\)</span> by the recipe <span class="math inline">\(Y_1 = Z_1\)</span>, <span class="math inline">\(Y_2 = \rho Z_1 + \sqrt{1 - \rho^2}\,Z_2\)</span>, for <span class="math inline">\(\rho = 0\)</span>, <span class="math inline">\(0.5\)</span> and <span class="math inline">\(0.9\)</span>. The same independent ingredients produce any correlation we choose.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Build up one variable at a time.</strong> Each new variable copied the right amount of the previous ingredients and added a fresh, independent one.</p></li>
+<li><p><strong>Covariance is linear.</strong> All the conditions became simple equations in the coefficients.</p></li>
+<li><p><strong>Correlation is a cosine.</strong> Thinking of standardised variables as unit vectors makes correlations into angles.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="the-cholesky-decomposition">The Cholesky decomposition</h3>
+<p>In matrix form, the construction says <span class="math inline">\(\mathbf{Y} = L\mathbf{Z}\)</span> with a <em>lower triangular</em> matrix <span class="math display">\[L = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ \rho_{12} &amp; \sqrt{1 - \rho_{12}^2} &amp; 0 \\ a &amp; b &amp; c \end{pmatrix},\]</span> and the correlation matrix of <span class="math inline">\(\mathbf{Y}\)</span> is <span class="math inline">\(R = LL^{\mathsf T}\)</span>. Writing a symmetric matrix as <span class="math inline">\(LL^{\mathsf T}\)</span> is the <em>Cholesky decomposition</em>, found by the French military engineer André-Louis Cholesky around 1910 for solving the equations of geodetic surveys (published after his death in the First World War). It works whenever <span class="math inline">\(R\)</span> is <em>positive definite</em>, and the computation is exactly what we did by hand: each row is solved in turn. It is the standard way to simulate correlated variables in finance, engineering and climate modelling.</p>
+<h3 id="which-correlations-are-possible">Which correlations are possible?</h3>
+<p>The number under the square root for <span class="math inline">\(c\)</span> must be non-negative. Multiplying out, the condition is <span class="math display">\[1 - \rho_{12}^2 - \rho_{13}^2 - \rho_{23}^2 + 2\rho_{12}\rho_{13}\rho_{23} \geq 0,\]</span> which is the condition that the determinant of the correlation matrix is non-negative. Geometrically: three unit vectors with pairwise angles <span class="math inline">\(\theta_{ij}\)</span> (where <span class="math inline">\(\cos\theta_{ij} = \rho_{ij}\)</span>) must actually fit together in space. If <span class="math inline">\(\rho_{12} = \rho_{13} = \rho_{23} = -0.6\)</span>, the angles are all about <span class="math inline">\(127^\circ\)</span>, and three vectors at <span class="math inline">\(127^\circ\)</span> to each other would need angles summing to more than <span class="math inline">\(360^\circ\)</span>: impossible. In general a matrix can be a correlation matrix only if it is positive semi-definite, all its eigenvalues non-negative (<a href="../ch07/eigenvectors.html">Section 7.2</a>). When correlations are estimated separately from incomplete data, this can fail, and statisticians must find the nearest valid correlation matrix, a problem solved by Nicholas Higham in 2002.</p>
+<div class="historybox">
+<div class="box-title">Galton, Pearson and correlation</div>
+<p>Francis Galton introduced correlation in 1888, while studying how the heights of parents and children are related, and Karl Pearson gave the product moment formula used in this question in 1896. Galton also noticed regression to the mean (<a href="../ch13/headlines.html">Section 13.1</a>). Pearson founded the world’s first university statistics department, at University College London, in 1911. The warning that “correlation does not imply causation” is almost as old as correlation itself.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Construct step by step, using fresh independent ingredients</div>
+<p><em>To build objects with prescribed relationships, add them one at a time, each a combination of what came before plus something new and independent.</em></p>
+<p>This is the Gram–Schmidt process of linear algebra, run in reverse, and the Cholesky decomposition. At university it appears in least squares, in the theory of multivariate normal distributions and in the simulation of random processes.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Impossible correlations.</strong> Show that three random variables cannot all have pairwise correlation <span class="math inline">\(\rho\)</span> unless <span class="math inline">\(\rho \geq -\frac12\)</span>. What is the corresponding statement for <span class="math inline">\(n\)</span> variables?</p></li>
+<li><p><strong>Check the determinant.</strong> Show that <span class="math inline">\(1 - \rho_{13}^2 - b^2 \geq 0\)</span> is equivalent to <span class="math inline">\(\det R \geq 0\)</span>, where <span class="math inline">\(R\)</span> is the <span class="math inline">\(3 \times 3\)</span> correlation matrix.</p></li>
+<li><p><strong>Portfolio risk.</strong> Two shares have returns with standard deviations <span class="math inline">\(\sigma_1 = 0.2\)</span> and <span class="math inline">\(\sigma_2 = 0.3\)</span> and correlation <span class="math inline">\(\rho\)</span>. Find the standard deviation of a portfolio half in each, for <span class="math inline">\(\rho = -1\)</span>, <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. What does diversification achieve?</p></li>
+<li><p><strong>Recover the ingredients.</strong> Given <span class="math inline">\(Y_1\)</span>, <span class="math inline">\(Y_2\)</span> as in the question, express <span class="math inline">\(Z_2\)</span> in terms of <span class="math inline">\(Y_1\)</span> and <span class="math inline">\(Y_2\)</span>. (This is the Gram–Schmidt step.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Gilbert Strang, <em>Introduction to Linear Algebra</em></strong> (Wellesley-Cambridge), on positive definite matrices and the Cholesky factorisation.</p></li>
+<li><p><strong>Paul Glasserman, <em>Monte Carlo Methods in Financial Engineering</em></strong> (Springer). Simulating correlated variables in practice; advanced but the early chapters are readable.</p></li>
+<li><p><strong>Theodore Porter, <em>Karl Pearson: The Scientific Life in a Statistical Age</em></strong> (Princeton University Press).</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="errors-add-up.html">← 13.6 Errors That Add Up</a><a class="next" href="wrap-up.html">→ Looking back</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

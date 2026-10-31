@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13.2 Counting Voles — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 13 · Statistics and Randomness in the World</a>
+    <div class="src">STEP II · 2000 · Question 13</div>
+    <div class="sec-head"><span class="sec-num">13.2</span><h1>Counting Voles</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-2-voles.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 13</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A group of biologists attempts to estimate the magnitude, <span class="math inline">\(N\)</span>, of an island population of voles (<em>Microtus agrestis</em>). Accordingly, the biologists capture a random sample of <span class="math inline">\(200\)</span> voles, mark them and release them. A second random sample of <span class="math inline">\(200\)</span> voles is then taken of which <span class="math inline">\(11\)</span> are found to be marked. Show that the probability, <span class="math inline">\(p_N\)</span>, of this occurrence is given by <span class="math display">\[p_N = k\frac{\bigl((N - 200)!\bigr)^2}{N!\,(N - 389)!},\]</span> where <span class="math inline">\(k\)</span> is independent of <span class="math inline">\(N\)</span>.</p>
+<p>The biologists then estimate <span class="math inline">\(N\)</span> by calculating the value of <span class="math inline">\(N\)</span> for which <span class="math inline">\(p_N\)</span> is a maximum. Find this estimate.</p>
+<p>All unmarked voles in the second sample are marked and then the entire sample is released. Subsequently a third random sample of <span class="math inline">\(200\)</span> voles is taken. Write down the probability that this sample contains exactly <span class="math inline">\(j\)</span> marked voles, leaving your answer in terms of binomial coefficients.</p>
+<p>Deduce that <span class="math display">\[\sum_{j=0}^{200}\binom{389}{j}\binom{3247}{200 - j} = \binom{3636}{200}.\]</span></p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>How many voles live on an island? Counting them is impossible: they hide, they move, they look alike. But you can catch some, mark them, let them go, and catch some more. If <span class="math inline">\(200\)</span> are marked and, in a second catch of <span class="math inline">\(200\)</span>, <span class="math inline">\(11\)</span> turn out to be marked, then roughly <span class="math inline">\(\frac{11}{200}\)</span> of the population is marked, so the population is about <span class="math inline">\(200 \times \frac{200}{11} \approx 3636\)</span>.</p>
+<p>This <em>capture–recapture</em> method is used to estimate populations of fish, birds and whales, and also of drug users, homeless people and casualties of war, any population that cannot be fully counted. The question puts the intuitive estimate on a firm footing using the principle of <em>maximum likelihood</em>, the most important idea in statistical estimation: choose the value of the unknown that makes the observed data most probable.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The population has <span class="math inline">\(N\)</span> voles, <span class="math inline">\(200\)</span> of them marked. A random sample of <span class="math inline">\(200\)</span> is taken. What is the probability that exactly <span class="math inline">\(11\)</span> are marked?</p>
+</div>
+<p>Choose <span class="math inline">\(11\)</span> of the <span class="math inline">\(200\)</span> marked voles and <span class="math inline">\(189\)</span> of the <span class="math inline">\(N - 200\)</span> unmarked ones, out of <span class="math inline">\(\binom{N}{200}\)</span> equally likely samples: <span class="math display">\[p_N = \frac{\binom{200}{11}\binom{N - 200}{189}}{\binom{N}{200}}.\]</span> This is the <em>hypergeometric distribution</em>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-likelihood" class="stage"><span class="stage-n">Stage 1</span> The likelihood</h4>
+<p>Writing out the binomial coefficients that involve <span class="math inline">\(N\)</span>, <span class="math display">\[\binom{N - 200}{189} = \frac{(N - 200)!}{189!\,(N - 389)!}, \qquad \binom{N}{200} = \frac{N!}{200!\,(N - 200)!},\]</span> so <span class="math display">\[p_N = \binom{200}{11}\frac{200!}{189!}\cdot\frac{\bigl((N - 200)!\bigr)^2}{N!\,(N - 389)!} = k\frac{\bigl((N - 200)!\bigr)^2}{N!\,(N - 389)!}. \qed\]</span> Seen as a function of the unknown <span class="math inline">\(N\)</span>, with the data fixed, <span class="math inline">\(p_N\)</span> is called the <em>likelihood</em>.</p>
+<h4 id="stagemark2-maximising-over-a-whole-number" class="stage"><span class="stage-n">Stage 2</span> Maximising over a whole number</h4>
+<div class="askyourself">
+<p><span class="math inline">\(N\)</span> is a whole number, so calculus is awkward. Instead compare <span class="math inline">\(p_{N+1}\)</span> with <span class="math inline">\(p_N\)</span>. When is their ratio bigger than <span class="math inline">\(1\)</span>?</p>
+</div>
+<p>Most of the factorials cancel: <span class="math display">\[\frac{p_{N+1}}{p_N} = \frac{(N - 199)^2}{(N + 1)(N - 388)}.\]</span> This exceeds <span class="math inline">\(1\)</span> when <span class="math inline">\((N - 199)^2 &gt; (N + 1)(N - 388)\)</span>, that is <span class="math inline">\(N^2 - 398N + 39601 &gt; N^2 - 387N - 388\)</span>, or <span class="math inline">\(11N &lt; 39989\)</span>, <span class="math inline">\(N &lt; 3635.4\)</span>. So <span class="math inline">\(p_N\)</span> increases up to <span class="math inline">\(N = 3636\)</span> and decreases afterwards: the maximum likelihood estimate is <span class="math display">\[\hat N = 3636. \qed\]</span> This is the integer part of <span class="math inline">\(\frac{200 \times 200}{11} = 3636.4\)</span>, the intuitive estimate.</p>
+<h4 id="stagemark3-a-third-sample" class="stage"><span class="stage-n">Stage 3</span> A third sample</h4>
+<p>After the second sample, the <span class="math inline">\(189\)</span> unmarked voles in it are marked too, so <span class="math inline">\(389\)</span> voles are now marked. Taking <span class="math inline">\(N = 3636\)</span>, there are <span class="math inline">\(3636 - 389 = 3247\)</span> unmarked. A third sample of <span class="math inline">\(200\)</span> contains exactly <span class="math inline">\(j\)</span> marked voles with probability <span class="math display">\[\frac{\binom{389}{j}\binom{3247}{200 - j}}{\binom{3636}{200}}.\]</span> These probabilities, for <span class="math inline">\(j = 0, 1, \ldots, 200\)</span>, must add up to <span class="math inline">\(1\)</span>, which gives the identity.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-2-1.svg" alt="Figure 13.2.1"><figcaption><span class="fig-label">Figure 13.2.1</span> The likelihood <span class="math inline">\(p_N\)</span> of finding <span class="math inline">\(11\)</span> marked voles in the second sample, as a function of the population size <span class="math inline">\(N\)</span>, scaled so that its maximum is <span class="math inline">\(1\)</span>. It peaks at <span class="math inline">\(N = 3636\)</span>, but is broad and skewed: populations from about <span class="math inline">\(2500\)</span> to <span class="math inline">\(6500\)</span> are all reasonably consistent with the data.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Probability of the data, as a function of the unknown.</strong> The likelihood reverses the usual viewpoint: the data are fixed and the parameter varies.</p></li>
+<li><p><strong>Ratios for discrete maximisation.</strong> Comparing consecutive terms located the maximum of a function of an integer.</p></li>
+<li><p><strong>Probabilities add to <span class="math inline">\(1\)</span>.</strong> Summing a distribution over all outcomes proved a combinatorial identity (Vandermonde’s identity).</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="maximum-likelihood">Maximum likelihood</h3>
+<p>The principle of <em>maximum likelihood</em>, developed by Ronald Fisher in the 1910s and 1920s, says: estimate an unknown parameter by the value that makes the observed data most probable. It is by far the most widely used method of estimation, from fitting curves to data to training the neural networks of machine learning, whose “loss functions” are usually negative log-likelihoods. Fisher showed that, for large samples, maximum likelihood estimates are approximately normal and as precise as any reasonable estimator can be.</p>
+<h3 id="how-precise-is-the-estimate">How precise is the estimate?</h3>
+<p>Figure 13.2.1 shows that the likelihood is broad: <span class="math inline">\(11\)</span> recaptures is not much information. A rough calculation: the number of marked voles in the second sample is approximately Poisson with mean <span class="math inline">\(\frac{200 \times 200}{N}\)</span>, so its standard deviation is about <span class="math inline">\(\sqrt{11} \approx 3.3\)</span>, a relative error of about <span class="math inline">\(30\%\)</span>, which carries over to the estimate of <span class="math inline">\(N\)</span>. To estimate <span class="math inline">\(N\)</span> to within <span class="math inline">\(10\%\)</span>, the biologists would need about <span class="math inline">\(100\)</span> recaptures. Statisticians also correct for the small bias of the simple estimate, using the <em>Chapman estimator</em> <span class="math inline">\(\frac{(M + 1)(C + 1)}{R + 1} - 1\)</span>, where <span class="math inline">\(M\)</span> and <span class="math inline">\(C\)</span> are the sizes of the two catches and <span class="math inline">\(R\)</span> the number recaptured.</p>
+<div class="historybox">
+<div class="box-title">Laplace counts France</div>
+<p>Laplace used the same idea in 1802 to estimate the population of France without a census. He knew the number of births registered in the whole country in a year, and, for a sample of communes, both the population and the births. Assuming the ratio of population to births was the same everywhere, he estimated the population of France at about <span class="math inline">\(28\)</span> million, and even gave a measure of the uncertainty. The method was rediscovered for animal populations by C. G. J. Petersen, who marked plaice in Danish fjords in the 1890s, and by Frederick Lincoln, who used bird rings in the 1930s; it is still often called the <em>Lincoln–Petersen</em> estimator.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Choose the parameter that makes the data most likely</div>
+<p><em>To estimate an unknown, write the probability of what you observed as a function of the unknown, and maximise it.</em></p>
+<p>At university, maximum likelihood is the backbone of statistical inference, with a theory of how precise the estimates are (the Fisher information) and how to compare competing models (likelihood ratio tests).</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>General formula.</strong> If <span class="math inline">\(M\)</span> animals are marked and a second sample of <span class="math inline">\(C\)</span> contains <span class="math inline">\(R\)</span> marked, show that the maximum likelihood estimate of <span class="math inline">\(N\)</span> is the integer part of <span class="math inline">\(\frac{MC}{R}\)</span>.</p></li>
+<li><p><strong>Vandermonde.</strong> Prove <span class="math inline">\(\sum_j\binom{a}{j}\binom{b}{c - j} = \binom{a + b}{c}\)</span> by counting committees of <span class="math inline">\(c\)</span> people chosen from <span class="math inline">\(a\)</span> women and <span class="math inline">\(b\)</span> men.</p></li>
+<li><p><strong>Coin tosses.</strong> In <span class="math inline">\(n\)</span> tosses of a coin with unknown probability <span class="math inline">\(p\)</span> of heads, <span class="math inline">\(h\)</span> heads are observed. Show that the maximum likelihood estimate of <span class="math inline">\(p\)</span> is <span class="math inline">\(\frac hn\)</span>.</p></li>
+<li><p><strong>No recaptures.</strong> What happens to the maximum likelihood estimate if the second sample contains no marked voles? What does that tell you about the method?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>David Spiegelhalter, <em>The Art of Statistics</em></strong> (Pelican), on estimation and uncertainty.</p></li>
+<li><p><strong>George Seber, <em>The Estimation of Animal Abundance</em></strong> (Blackburn). The standard reference on capture–recapture.</p></li>
+<li><p><strong>John Rice, <em>Mathematical Statistics and Data Analysis</em></strong> (Duxbury). A first course in mathematical statistics, including maximum likelihood.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="headlines.html">← 13.1 Reading the Headlines</a><a class="next" href="german-tanks.html">→ 13.3 The German Tank Problem</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

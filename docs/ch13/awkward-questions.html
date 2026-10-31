@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13.5 Asking Awkward Questions — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 13 · Statistics and Randomness in the World</a>
+    <div class="src">STEP II · 2023 · Question 11</div>
+    <div class="sec-head"><span class="sec-num">13.5</span><h1>Asking Awkward Questions</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-5-awkward-questions.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 13</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p><span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are both random variables which take values <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, with probabilities <span class="math inline">\(a_1, a_2, \ldots, a_n\)</span> and <span class="math inline">\(b_1, b_2, \ldots, b_n\)</span> respectively.</p>
+<p>The value of random variable <span class="math inline">\(Y\)</span> is defined to be that of <span class="math inline">\(X_1\)</span> with probability <span class="math inline">\(p\)</span> and that of <span class="math inline">\(X_2\)</span> with probability <span class="math inline">\(q = 1 - p\)</span>.</p>
+<p>If <span class="math inline">\(X_1\)</span> has mean <span class="math inline">\(\mu_1\)</span> and variance <span class="math inline">\(\sigma_1^2\)</span>, and <span class="math inline">\(X_2\)</span> has mean <span class="math inline">\(\mu_2\)</span> and variance <span class="math inline">\(\sigma_2^2\)</span>, find the mean of <span class="math inline">\(Y\)</span> and show that the variance of <span class="math inline">\(Y\)</span> is <span class="math inline">\(p\sigma_1^2 + q\sigma_2^2 + pq(\mu_1 - \mu_2)^2\)</span>.</p></li>
+<li><p>To find the value of random variable <span class="math inline">\(B\)</span>, a fair coin is tossed and a fair six-sided die is rolled. If the coin shows heads, then <span class="math inline">\(B = 1\)</span> if the die shows a six and <span class="math inline">\(B = 0\)</span> otherwise; if the coin shows tails, then <span class="math inline">\(B = 1\)</span> if the die does not show a six and <span class="math inline">\(B = 0\)</span> if it does.</p>
+<p>The value of <span class="math inline">\(Z_1\)</span> is the sum of <span class="math inline">\(n\)</span> independent values of <span class="math inline">\(B\)</span>, where <span class="math inline">\(n\)</span> is large. Show that <span class="math inline">\(Z_1\)</span> is a Binomial random variable with probability of success <span class="math inline">\(\frac12\)</span>. Using a Normal approximation, show that the probability that <span class="math inline">\(Z_1\)</span> is within <span class="math inline">\(10\%\)</span> of its mean tends to <span class="math inline">\(1\)</span> as <span class="math inline">\(n \to \infty\)</span>.</p></li>
+<li><p>To find the value of random variable <span class="math inline">\(Z_2\)</span>, a fair coin is tossed and <span class="math inline">\(n\)</span> fair six-sided dice are rolled, where <span class="math inline">\(n\)</span> is large. If the coin shows heads, then the value of <span class="math inline">\(Z_2\)</span> is the number of dice showing a six; if the coin shows tails, then the value of <span class="math inline">\(Z_2\)</span> is the number of dice not showing a six.</p>
+<p>Use part (i) to write down the mean and variance of <span class="math inline">\(Z_2\)</span>. Explain why a Normal distribution with this mean and variance will not be a good approximation to the distribution of <span class="math inline">\(Z_2\)</span>. Show that the probability that <span class="math inline">\(Z_2\)</span> is within <span class="math inline">\(10\%\)</span> of its mean tends to <span class="math inline">\(0\)</span> as <span class="math inline">\(n \to \infty\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>How do you find out what fraction of students have cheated in an exam, or of employees have stolen from work? Ask them directly and many will lie. In 1965 the statistician Stanley Warner invented an ingenious solution, <em>randomised response</em>. Each person secretly tosses a coin or rolls a die, and the outcome decides whether they answer the sensitive question truthfully or answer its opposite. The interviewer never knows which, so no individual answer is incriminating; yet, because the randomisation probabilities are known, the overall proportion can still be estimated.</p>
+<p>This question explores the mathematics behind it. Randomising each person <em>independently</em> (part (ii)) gives a well-behaved total that pins down the proportion. Randomising everyone with a <em>single</em> coin toss (part (iii)) produces a total with the same mean but a completely different, two-humped distribution, which tells us almost nothing. Where you put the randomness matters.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p><span class="math inline">\(Y\)</span> is <span class="math inline">\(X_1\)</span> with probability <span class="math inline">\(p\)</span> and <span class="math inline">\(X_2\)</span> with probability <span class="math inline">\(q\)</span>. What is <span class="math inline">\(\mathrm{E}(Y)\)</span>? What is <span class="math inline">\(\mathrm{E}(Y^2)\)</span>?</p>
+</div>
+<p>Conditioning on which variable is chosen, <span class="math inline">\(\mathrm{E}(Y) = p\mu_1 + q\mu_2\)</span>, and <span class="math inline">\(\mathrm{E}(Y^2) = p\,\mathrm{E}(X_1^2) + q\,\mathrm{E}(X_2^2) = p(\sigma_1^2 + \mu_1^2) + q(\sigma_2^2 + \mu_2^2)\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-variance-of-a-mixture" class="stage"><span class="stage-n">Stage 1</span> The variance of a mixture</h4>
+<p><span class="math display">\[\mathrm{Var}(Y) = p(\sigma_1^2 + \mu_1^2) + q(\sigma_2^2 + \mu_2^2) - (p\mu_1 + q\mu_2)^2.\]</span> The <span class="math inline">\(\mu\)</span> terms are <span class="math inline">\(p\mu_1^2 + q\mu_2^2 - p^2\mu_1^2 - 2pq\mu_1\mu_2 - q^2\mu_2^2 = pq\mu_1^2 + pq\mu_2^2 - 2pq\mu_1\mu_2\)</span>, using <span class="math inline">\(p - p^2 = pq\)</span> and <span class="math inline">\(q - q^2 = pq\)</span>. So <span class="math display">\[\mathrm{Var}(Y) = p\sigma_1^2 + q\sigma_2^2 + pq(\mu_1 - \mu_2)^2. \qed\]</span> The variance of a mixture is the average variance within the components, plus the variance <em>between</em> their means.</p>
+<h4 id="stagemark2-independent-randomisation" class="stage"><span class="stage-n">Stage 2</span> Independent randomisation</h4>
+<div class="askyourself">
+<p>What is <span class="math inline">\(\mathrm{P}(B = 1)\)</span>? Are the <span class="math inline">\(n\)</span> values of <span class="math inline">\(B\)</span> independent?</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(B = 1) = \frac12\cdot\frac16 + \frac12\cdot\frac56 = \frac12\)</span>. The <span class="math inline">\(n\)</span> values are independent, each with success probability <span class="math inline">\(\frac12\)</span>, so <span class="math inline">\(Z_1 \sim \mathrm{B}(n, \frac12)\)</span>, with mean <span class="math inline">\(\frac n2\)</span> and standard deviation <span class="math inline">\(\frac{\sqrt n}{2}\)</span>.</p>
+<p>Within <span class="math inline">\(10\%\)</span> of the mean means <span class="math inline">\(|Z_1 - \frac n2| &lt; \frac{n}{20}\)</span>. In standard units, this is <span class="math inline">\(|Z| &lt; \frac{n/20}{\sqrt n/2} = \frac{\sqrt n}{10}\)</span>, which tends to infinity, so the probability tends to <span class="math inline">\(1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-one-coin-for-everybody" class="stage"><span class="stage-n">Stage 3</span> One coin for everybody</h4>
+<div class="askyourself">
+<p>Now one coin toss decides for all <span class="math inline">\(n\)</span> dice. Given heads, what is the distribution of <span class="math inline">\(Z_2\)</span>? Given tails? Use part (i).</p>
+</div>
+<p>Given heads, <span class="math inline">\(Z_2 \sim \mathrm{B}(n, \frac16)\)</span>: mean <span class="math inline">\(\frac n6\)</span>, variance <span class="math inline">\(\frac{5n}{36}\)</span>. Given tails, <span class="math inline">\(Z_2 \sim \mathrm{B}(n, \frac56)\)</span>: mean <span class="math inline">\(\frac{5n}{6}\)</span>, variance <span class="math inline">\(\frac{5n}{36}\)</span>. By part (i) with <span class="math inline">\(p = q = \frac12\)</span>, <span class="math display">\[\mathrm{E}(Z_2) = \frac n2, \qquad \mathrm{Var}(Z_2) = \frac{5n}{36} + \frac14\Bigl(\frac{4n}{6}\Bigr)^2 = \frac{5n}{36} + \frac{n^2}{9}.\]</span></p>
+<div class="askyourself">
+<p>Where is most of the probability? Is there much near the mean <span class="math inline">\(\frac n2\)</span>?</p>
+</div>
+<p><span class="math inline">\(Z_2\)</span> has two humps, near <span class="math inline">\(\frac n6\)</span> and <span class="math inline">\(\frac{5n}{6}\)</span>, each of width about <span class="math inline">\(\sqrt n\)</span> (Figure 13.5.1), and almost nothing in between. A normal distribution with the same mean and variance would be a single hump centred at <span class="math inline">\(\frac n2\)</span>, exactly where <span class="math inline">\(Z_2\)</span> almost never is. For <span class="math inline">\(Z_2\)</span> to be within <span class="math inline">\(10\%\)</span> of <span class="math inline">\(\frac n2\)</span>, a <span class="math inline">\(\mathrm{B}(n, \frac16)\)</span> or <span class="math inline">\(\mathrm{B}(n, \frac56)\)</span> variable must lie in <span class="math inline">\([0.45n, 0.55n]\)</span>. For <span class="math inline">\(\mathrm{B}(n, \frac16)\)</span> that is at least <span class="math inline">\(0.28n\)</span> above its mean, which is about <span class="math inline">\(\frac{0.28n}{0.37\sqrt n} \approx 0.75\sqrt n\)</span> standard deviations, so the probability tends to <span class="math inline">\(0\)</span>; similarly for <span class="math inline">\(\mathrm{B}(n, \frac56)\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-5-1.svg" alt="Figure 13.5.1"><figcaption><span class="fig-label">Figure 13.5.1</span> The distribution of <span class="math inline">\(Z_2\)</span> for <span class="math inline">\(n = 60\)</span> dice (bars): two humps at <span class="math inline">\(10\)</span> and <span class="math inline">\(50\)</span>, from the two outcomes of the single coin toss. A normal distribution with the same mean (<span class="math inline">\(30\)</span>) and variance (plum) is a poor fit, and almost none of the probability lies within <span class="math inline">\(10\%\)</span> of the mean (between the amber lines).</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Condition on the hidden choice.</strong> The mixture’s mean and variance came from conditioning on which component was chosen.</p></li>
+<li><p><strong>Variance within plus variance between.</strong> The extra term <span class="math inline">\(pq(\mu_1 - \mu_2)^2\)</span> measured the spread between the two components.</p></li>
+<li><p><strong>Mean and variance are not the whole story.</strong> <span class="math inline">\(Z_2\)</span> had the same mean as <span class="math inline">\(Z_1\)</span>, but a completely different shape.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="randomised-response">Randomised response</h3>
+<p>In Warner’s scheme, each respondent answers “Do you belong to group <span class="math inline">\(A\)</span>?” with probability <span class="math inline">\(p\)</span>, and “Do you <em>not</em> belong to group <span class="math inline">\(A\)</span>?” with probability <span class="math inline">\(1 - p\)</span>, choosing privately. If a fraction <span class="math inline">\(\pi\)</span> belong to <span class="math inline">\(A\)</span>, the probability of a “yes” is <span class="math display">\[\lambda = p\pi + (1 - p)(1 - \pi),\]</span> so from the observed fraction of yeses, <span class="math inline">\(\hat\lambda\)</span>, we can estimate <span class="math inline">\(\hat\pi = \frac{\hat\lambda - (1 - p)}{2p - 1}\)</span> (provided <span class="math inline">\(p \neq \frac12\)</span>). Part (ii) of the question is exactly this, with each person’s own die deciding. The price of privacy is precision: dividing by <span class="math inline">\(2p - 1\)</span> inflates the variance, so a randomised survey needs more respondents than a direct one. But each person randomises independently, so the law of large numbers works. Part (iii) shows what goes wrong if the randomisation is shared: the uncertainty about the single coin never averages out.</p>
+<h3 id="differential-privacy">Differential privacy</h3>
+<p>Randomised response is the ancestor of <em>differential privacy</em>, a mathematical definition of privacy introduced by Cynthia Dwork and colleagues in 2006: a procedure is private if adding or removing any one person’s data changes the probability of any output by at most a small factor. Technology companies use it to collect usage statistics, and the United States Census Bureau used it for the 2020 census, adding carefully calibrated random noise to published figures so that no individual’s answers could be reconstructed.</p>
+<div class="historybox">
+<div class="box-title">The law of total variance</div>
+<p>The identity in part (i) is a special case of the <em>law of total variance</em>: <span class="math inline">\(\mathrm{Var}(Y) = \mathrm{E}\bigl(\mathrm{Var}(Y \mid C)\bigr) + \mathrm{Var}\bigl(\mathrm{E}(Y \mid C)\bigr)\)</span>, where <span class="math inline">\(C\)</span> is the hidden choice. It underlies the <em>analysis of variance</em> (ANOVA), introduced by Ronald Fisher in the 1920s for agricultural experiments at Rothamsted, which splits the variation in crop yields into the part explained by fertilisers or varieties and the part left unexplained.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Look at the whole distribution, not just its summaries</div>
+<p><em>A mean and variance describe a single-humped distribution well, but can be badly misleading for a mixture. Ask where the probability actually lies.</em></p>
+<p>At university, mixture models are used to describe populations made of several groups, and the law of total variance is a standard tool in statistics, from survey design to hierarchical models.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The twins.</strong> (From STEP II, 2005.) Twins share a computer; the one online is Anna with probability <span class="math inline">\(p\)</span>, who answers truthfully with probability <span class="math inline">\(a\)</span>, or Bella, who does so with probability <span class="math inline">\(b\)</span>. I ask them to toss a coin and say whether it came down heads, and get “yes”. Show that the probability that it was heads is <span class="math inline">\(\frac12\)</span> if and only if <span class="math inline">\(2(ap + bq) = 1\)</span>. If I then ask again and get “no”, show that the probability of heads is <span class="math inline">\(\frac12\)</span>; if I get “yes” again, show that it is <span class="math inline">\(\frac12\)</span> provided <span class="math inline">\(2(ap + bq) = 1\)</span>.</p></li>
+<li><p><strong>Estimating <span class="math inline">\(\pi\)</span>.</strong> In a Warner survey with <span class="math inline">\(p = \frac34\)</span>, <span class="math inline">\(400\)</span> people answer and <span class="math inline">\(160\)</span> say yes. Estimate the proportion <span class="math inline">\(\pi\)</span> in group <span class="math inline">\(A\)</span>, and find the approximate standard error of your estimate.</p></li>
+<li><p><strong>Total variance.</strong> Prove the law of total variance for a discrete hidden variable <span class="math inline">\(C\)</span> with several values.</p></li>
+<li><p><strong>Shared coins.</strong> In part (iii), what is the probability that <span class="math inline">\(Z_2 &gt; \frac n2\)</span>? Explain why, for large <span class="math inline">\(n\)</span>, it is close to <span class="math inline">\(\frac12\)</span> even though <span class="math inline">\(Z_2\)</span> is almost never close to <span class="math inline">\(\frac n2\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Stanley Warner, “Randomized response: a survey technique for eliminating evasive answer bias”</strong>, <em>Journal of the American Statistical Association</em> 60 (1965).</p></li>
+<li><p><strong>Cynthia Dwork &amp; Aaron Roth, <em>The Algorithmic Foundations of Differential Privacy</em></strong> (free online). The modern theory; the first chapters are accessible.</p></li>
+<li><p><strong>David Spiegelhalter, <em>The Art of Statistics</em></strong> (Pelican), on surveys and their pitfalls.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="mean-or-median.html">← 13.4 Mean or Median?</a><a class="next" href="errors-add-up.html">→ 13.6 Errors That Add Up</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 13: Statistics and Randomness in the World — Beyond STEP</title>
+<meta name="description" content="Estimation, inference and statistical literacy.">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter</div>
+    <div class="ch-num">13</div>
+    <h1>Statistics and Randomness in the World</h1>
+    <p class="strap">Probability goes from a model to data. Statistics goes from data back to the world.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Download the whole chapter</span><span class="dl-sub">PDF, typeset for print</span></span></a>
+  </div>
+  <h2 class="contents-head">In this chapter</h2>
+  <ol class="toc"><li><a class="toc-link" href="headlines.html"><span class="toc-num">13.1</span>
+<span class="toc-title">Reading the Headlines</span>
+<span class="toc-src">STEP I 1992</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-13-1-headlines.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="voles.html"><span class="toc-num">13.2</span>
+<span class="toc-title">Counting Voles</span>
+<span class="toc-src">STEP II 2000</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-13-2-voles.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="german-tanks.html"><span class="toc-num">13.3</span>
+<span class="toc-title">The German Tank Problem</span>
+<span class="toc-src">STEP III 1998</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-13-3-german-tanks.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="mean-or-median.html"><span class="toc-num">13.4</span>
+<span class="toc-title">Mean or Median?</span>
+<span class="toc-src">STEP II 2000</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-13-4-mean-or-median.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="awkward-questions.html"><span class="toc-num">13.5</span>
+<span class="toc-title">Asking Awkward Questions</span>
+<span class="toc-src">STEP II 2023</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-13-5-awkward-questions.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="errors-add-up.html"><span class="toc-num">13.6</span>
+<span class="toc-title">Errors That Add Up</span>
+<span class="toc-src">STEP II 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-13-6-errors-add-up.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="correlation.html"><span class="toc-num">13.7</span>
+<span class="toc-title">Manufacturing Correlation</span>
+<span class="toc-src">STEP III 2010</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-13-7-correlation.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">Looking back: what we have learned</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">Chapter 13  \(\cdot\)  Introduction</div>
+    <h1 class="essay-title">Learning from Data</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>All models are wrong, but some are useful.</p>
+<p class="who">— George Box, statistician</p>
+</div>
+<p>In probability, we know how the dice are loaded and ask what will happen. In statistics, we see what happened and ask how the dice must be loaded. Probability reasons from causes to effects; statistics reasons back from effects to causes. Every estimate of a population, every opinion poll, every clinical trial and every scientific measurement is a statistical inference: a conclusion about the world drawn from limited, noisy data.</p>
+<p>Statistics is a young subject compared with most of mathematics. Its modern form was created in the early twentieth century by Karl Pearson, Ronald Fisher, Jerzy Neyman and others, often driven by practical problems: brewing beer (the <span class="math inline">\(t\)</span>-test was invented at the Guinness brewery), growing crops, testing medicines. Today, with the explosion of data, statistics and its close relative machine learning are among the most important applications of mathematics.</p>
+<h3 id="why-statistics-matters">Why statistics matters</h3>
+<p>Decisions about medicines, public health, economic policy, climate and justice all rest on statistical evidence. Misreading it has real consequences: a patient frightened by a false positive (<a href="../ch12/base-rate.html">Section 12.2</a>), a policy based on a chance fluctuation (<a href="../ch13/headlines.html">Section 13.1</a>), a computer system whose small errors pile up (<a href="../ch13/errors-add-up.html">Section 13.6</a>). Understanding what data can and cannot tell you, and how uncertain any conclusion is, is part of being an informed citizen, and a professional necessity for scientists, doctors, engineers and economists.</p>
+<h3 id="what-you-will-meet-at-university">What you will meet at university</h3>
+<p>A first course in statistics covers estimation (finding good estimates of unknown quantities and saying how precise they are), hypothesis testing (deciding whether data are consistent with a hypothesis), confidence intervals, regression (relating one variable to others), and the design of experiments and surveys. The central ideas are <em>sampling distributions</em> (an estimate is a random variable), <em>bias</em> and <em>variance</em>, and <em>likelihood</em>. Later courses add Bayesian inference, multivariate analysis, time series and the methods of machine learning, which are statistics at enormous scale.</p>
+<h3 id="the-questions-that-run-through-this-chapter">The questions that run through this chapter</h3>
+<div class="skillbox">
+<div class="box-title">Three big questions</div>
+<ol class="arabic">
+<li><p><strong>Is it real or is it noise?</strong> How much variation should we expect by chance, and when is a change worth taking seriously?</p></li>
+<li><p><strong>How should we estimate?</strong> Given data, what is the best estimate of an unknown quantity, and how do we compare different methods?</p></li>
+<li><p><strong>How does randomness enter the data?</strong> What do the ways data are collected, protected or processed do to our conclusions?</p></li>
+</ol>
+</div>
+<p>The chapter starts with reading newspaper statistics critically (<a href="../ch13/headlines.html">Section 13.1</a>), then turns to estimation: counting voles by capture–recapture, estimating a total from serial numbers, and comparing the mean with the median. It ends with three questions about how randomness enters data: randomised surveys that protect privacy, rounding errors that accumulate or cancel, and the construction of variables with prescribed correlations.</p>
+<h3 id="ideas-in-this-chapter">Ideas in this chapter</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">13.1</td>
+<td style="text-align: left;">Reading statistics</td>
+<td style="text-align: left;">Rates, natural variation, trends</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">13.2</td>
+<td style="text-align: left;">Capture–recapture</td>
+<td style="text-align: left;">Maximum likelihood</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13.3</td>
+<td style="text-align: left;">Serial numbers</td>
+<td style="text-align: left;">Bias, variance and sufficiency</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">13.4</td>
+<td style="text-align: left;">Estimating a centre</td>
+<td style="text-align: left;">Efficiency and robustness</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13.5</td>
+<td style="text-align: left;">Randomised response</td>
+<td style="text-align: left;">Mixtures and total variance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">13.6</td>
+<td style="text-align: left;">Rounding errors</td>
+<td style="text-align: left;">Systematic versus random error</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13.7</td>
+<td style="text-align: left;">Correlation</td>
+<td style="text-align: left;">The Cholesky construction</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="../ch13/correlation.html">Section 13.7</a> uses covariance and correlation, which were removed from the STEP specification in 2019; it explains what it needs.</p>
+<h3 id="how-to-read-this-chapter">How to read this chapter</h3>
+<p>Remember that every estimate is a random variable: if the data had come out differently, so would the estimate. For each method in this chapter, ask what its distribution would be over many repetitions: is it right on average, and how much does it vary? That single question is the heart of statistical thinking.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="headlines.html">→ Begin: 13.1 Reading the Headlines</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

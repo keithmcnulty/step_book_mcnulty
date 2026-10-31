@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13.4 Mean or Median? — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 13 · Statistics and Randomness in the World</a>
+    <div class="src">STEP II · 2000 · Question 14</div>
+    <div class="sec-head"><span class="sec-num">13.4</span><h1>Mean or Median?</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-4-mean-or-median.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 13</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The random variables <span class="math inline">\(X_1, X_2, \ldots, X_{2n+1}\)</span> are independently and uniformly distributed on the interval <span class="math inline">\(0 \leq x \leq 1\)</span>. The random variable <span class="math inline">\(Y\)</span> is defined to be the median of <span class="math inline">\(X_1, X_2, \ldots, X_{2n+1}\)</span>. Given that the probability density function of <span class="math inline">\(Y\)</span> is <span class="math inline">\(\mathrm{g}(y)\)</span>, where <span class="math display">\[\mathrm{g}(y) = \begin{cases} ky^n(1 - y)^n &amp; \text{if } 0 \leq y \leq 1 \\ 0 &amp; \text{otherwise} \end{cases}\]</span> use the result <span class="math display">\[\int_0^1y^r(1 - y)^s\,\mathrm{d}y = \frac{r!\,s!}{(r + s + 1)!}\]</span> to show that <span class="math inline">\(k = (2n + 1)!/(n!)^2\)</span>, and evaluate <span class="math inline">\(\mathrm{E}(Y)\)</span> and <span class="math inline">\(\mathrm{Var}(Y)\)</span>. Hence show that, for any given positive number <span class="math inline">\(d\)</span>, the inequality <span class="math display">\[\mathrm{P}\Bigl(\bigl|Y - \tfrac12\bigr| &lt; \frac{d}{\sqrt n}\Bigr) &lt; \mathrm{P}\Bigl(\bigl|\bar X - \tfrac12\bigr| &lt; \frac{d}{\sqrt n}\Bigr)\]</span> holds provided <span class="math inline">\(n\)</span> is large enough, where <span class="math inline">\(\bar X\)</span> is the mean of <span class="math inline">\(X_1, X_2, \ldots, X_{2n+1}\)</span>.</p>
+<p>[You may assume that <span class="math inline">\(Y\)</span> and <span class="math inline">\(\bar X\)</span> are normally distributed for large <span class="math inline">\(n\)</span>.]</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>To estimate the centre of a set of measurements, you could take the mean or the median. Which is better? The answer depends on the data. For measurements with occasional wild errors, the median is far more reliable: one absurd value can drag the mean anywhere, but barely moves the median. For well-behaved data, the mean usually wins. This question measures how much it wins by, for uniformly distributed data: the median’s variance is three times as large, so you would need three times as many observations to make the median as precise as the mean.</p>
+<p>The comparison introduces <em>efficiency</em>, one of the main ideas in choosing statistical methods, and the beta integral, which also appeared in <a href="../ch04/wallis-beta.html">Section 4.4</a>.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Why is the density of the median proportional to <span class="math inline">\(y^n(1 - y)^n\)</span>? (For <span class="math inline">\(Y\)</span> to be near <span class="math inline">\(y\)</span>, how many of the <span class="math inline">\(2n + 1\)</span> values must be below <span class="math inline">\(y\)</span>, and how many above?)</p>
+</div>
+<p>For the median to be at <span class="math inline">\(y\)</span>, one value must be at <span class="math inline">\(y\)</span>, <span class="math inline">\(n\)</span> values below (each with probability <span class="math inline">\(y\)</span>) and <span class="math inline">\(n\)</span> above (each with probability <span class="math inline">\(1 - y\)</span>). That gives the factor <span class="math inline">\(y^n(1 - y)^n\)</span>; the constant counts the ways of choosing which values are which.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-constant" class="stage"><span class="stage-n">Stage 1</span> The constant</h4>
+<p>The density must integrate to <span class="math inline">\(1\)</span>: <span class="math display">\[k\int_0^1y^n(1 - y)^n\,\mathrm{d}y = k\cdot\frac{n!\,n!}{(2n + 1)!} = 1, \qquad k = \frac{(2n + 1)!}{(n!)^2}. \qed\]</span></p>
+<h4 id="stagemark2-mean-and-variance" class="stage"><span class="stage-n">Stage 2</span> Mean and variance</h4>
+<p>The density is symmetric about <span class="math inline">\(\frac12\)</span> (replace <span class="math inline">\(y\)</span> by <span class="math inline">\(1 - y\)</span>), so <span class="math inline">\(\mathrm{E}(Y) = \frac12\)</span>.</p>
+<div class="askyourself">
+<p>Compute <span class="math inline">\(\mathrm{E}(Y^2) = k\int_0^1y^{n+2}(1 - y)^n\,\mathrm{d}y\)</span> using the beta integral, and simplify the factorials.</p>
+</div>
+<p><span class="math display">\[\mathrm{E}(Y^2) = \frac{(2n + 1)!}{(n!)^2}\cdot\frac{(n + 2)!\,n!}{(2n + 3)!} = \frac{(n + 2)(n + 1)}{(2n + 3)(2n + 2)} = \frac{n + 2}{2(2n + 3)}.\]</span> So <span class="math display">\[\mathrm{Var}(Y) = \frac{n + 2}{2(2n + 3)} - \frac14 = \frac{2(n + 2) - (2n + 3)}{4(2n + 3)} = \frac{1}{4(2n + 3)}. \qed\]</span></p>
+<h4 id="stagemark3-comparing-with-the-mean" class="stage"><span class="stage-n">Stage 3</span> Comparing with the mean</h4>
+<div class="askyourself">
+<p>What are the mean and variance of <span class="math inline">\(\bar X\)</span>, the average of <span class="math inline">\(2n + 1\)</span> independent uniform variables?</p>
+</div>
+<p>Each <span class="math inline">\(X_i\)</span> has mean <span class="math inline">\(\frac12\)</span> and variance <span class="math inline">\(\frac{1}{12}\)</span>, so <span class="math inline">\(\mathrm{E}(\bar X) = \frac12\)</span> and <span class="math inline">\(\mathrm{Var}(\bar X) = \frac{1}{12(2n + 1)}\)</span>. For large <span class="math inline">\(n\)</span>, <span class="math display">\[\mathrm{Var}(Y) \approx \frac{1}{8n}, \qquad \mathrm{Var}(\bar X) \approx \frac{1}{24n}.\]</span></p>
+<div class="askyourself">
+<p>If <span class="math inline">\(Y\)</span> and <span class="math inline">\(\bar X\)</span> are normal with mean <span class="math inline">\(\frac12\)</span> and standard deviations <span class="math inline">\(\sigma_Y\)</span> and <span class="math inline">\(\sigma_{\bar X}\)</span>, write both probabilities in terms of the standard normal distribution function <span class="math inline">\(\Phi\)</span>.</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}\bigl(|Y - \frac12| &lt; \frac{d}{\sqrt n}\bigr) = 2\Phi\bigl(\frac{d}{\sqrt n\,\sigma_Y}\bigr) - 1\)</span>, and <span class="math inline">\(\sqrt n\,\sigma_Y \to \frac{1}{\sqrt8}\)</span>; similarly for <span class="math inline">\(\bar X\)</span> with <span class="math inline">\(\sqrt n\,\sigma_{\bar X} \to \frac{1}{\sqrt{24}}\)</span>. So the probabilities tend to <span class="math inline">\(2\Phi(d\sqrt8) - 1\)</span> and <span class="math inline">\(2\Phi(d\sqrt{24}) - 1\)</span>. Since <span class="math inline">\(\Phi\)</span> is increasing and <span class="math inline">\(\sqrt{24} &gt; \sqrt8\)</span>, the second is larger, and so the inequality holds for all sufficiently large <span class="math inline">\(n\)</span>.<span class="qed" aria-label="end of proof">■</span> The mean is more likely to be close to the true centre.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-4-1.svg" alt="Figure 13.4.1"><figcaption><span class="fig-label">Figure 13.4.1</span> The sampling distributions of the median (plum) and the mean (teal) of <span class="math inline">\(21\)</span> independent uniform observations. Both are centred on the true value <span class="math inline">\(\frac12\)</span>, but the mean is more tightly concentrated: its variance is about a third of the median’s.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>The beta integral.</strong> <span class="math inline">\(\int_0^1y^r(1 - y)^s\,\mathrm{d}y\)</span> gave the normalising constant and the moments in one formula.</p></li>
+<li><p><strong>Symmetry gave the mean.</strong> No integration was needed for <span class="math inline">\(\mathrm{E}(Y)\)</span>.</p></li>
+<li><p><strong>Compare spreads on the right scale.</strong> Multiplying standard deviations by <span class="math inline">\(\sqrt n\)</span> made the comparison independent of <span class="math inline">\(n\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="efficiency">Efficiency</h3>
+<p>The <em>relative efficiency</em> of two unbiased estimators is the ratio of their variances; it says how many times as many observations one needs to match the other. For uniform data the median has efficiency <span class="math inline">\(\frac13\)</span> relative to the mean. For normal data it is <span class="math inline">\(\frac2\pi \approx 0.64\)</span>: the median needs about <span class="math inline">\(57\%\)</span> more observations. But for heavy-tailed data the tables turn. For the Cauchy distribution (<a href="../ch12/cauchy.html">Section 12.22</a>) the mean is useless, since the average of <span class="math inline">\(n\)</span> observations is no better than one, while the median works well. For the Laplace distribution (<a href="../ch12/clt.html">Section 12.24</a>) the median is twice as efficient as the mean.</p>
+<h3 id="robust-statistics">Robust statistics</h3>
+<p>The median is <em>robust</em>: you can change almost half the data to arbitrary values without moving it far. The mean has no such protection: one wrong value can spoil it. In the 1960s and 1970s John Tukey, Peter Huber and others developed <em>robust statistics</em>, estimators that are nearly as efficient as the mean for clean data but resistant to outliers, such as the <em>trimmed mean</em> (discard the largest and smallest <span class="math inline">\(10\%\)</span> and average the rest), which is used in judging sports like diving and gymnastics.</p>
+<div class="historybox">
+<div class="box-title">Laplace and the median</div>
+<p>Laplace showed in 1774 that if errors follow the double exponential (Laplace) distribution, the best estimate of the true value is the median; Gauss showed in 1809 that if they follow the normal distribution, the best estimate is the mean, which led him to the method of least squares. Which is right depends on how errors behave, a question that statisticians still debate for each new kind of data.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Compare methods by their variability</div>
+<p><em>Two methods may both be right on average; compare how much their answers vary, and how quickly that variation shrinks with more data.</em></p>
+<p>At university, asymptotic efficiency, the comparison of variances for large samples, is a standard tool for choosing between statistical methods, together with robustness for when the model might be wrong.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The median’s density.</strong> Derive the density <span class="math inline">\(\frac{(2n + 1)!}{(n!)^2}y^n(1 - y)^n\)</span> by counting: one value in <span class="math inline">\([y, y + \delta y]\)</span>, <span class="math inline">\(n\)</span> below and <span class="math inline">\(n\)</span> above.</p></li>
+<li><p><strong>Three observations.</strong> For <span class="math inline">\(n = 1\)</span> (three uniform observations), find <span class="math inline">\(\mathrm{Var}(Y)\)</span> and <span class="math inline">\(\mathrm{Var}(\bar X)\)</span> exactly. Which is smaller?</p></li>
+<li><p><strong>The midrange.</strong> Another estimator of the centre is the midrange <span class="math inline">\(\frac12(\max + \min)\)</span>. Show that for uniform data its variance is <span class="math inline">\(\frac{1}{2(m + 1)(m + 2)}\)</span> with <span class="math inline">\(m = 2n + 1\)</span> observations. How does it compare with the mean? (Compare <a href="../ch13/german-tanks.html">Section 13.3</a>.)</p></li>
+<li><p><strong>An outlier.</strong> Eleven measurements are <span class="math inline">\(9.8\)</span>, <span class="math inline">\(9.9\)</span>, <span class="math inline">\(10.0\)</span>, <span class="math inline">\(10.0\)</span>, <span class="math inline">\(10.1\)</span>, <span class="math inline">\(10.1\)</span>, <span class="math inline">\(10.2\)</span>, <span class="math inline">\(10.2\)</span>, <span class="math inline">\(10.3\)</span>, <span class="math inline">\(10.4\)</span> and <span class="math inline">\(104\)</span> (a typing error). Compare the mean and median.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>John Rice, <em>Mathematical Statistics and Data Analysis</em></strong> (Duxbury), on order statistics and efficiency.</p></li>
+<li><p><strong>Rand Wilcox, <em>Fundamentals of Modern Statistical Methods</em></strong> (Springer). Why robust methods matter, for non-specialists.</p></li>
+<li><p><strong>Stephen Stigler, <em>The Seven Pillars of Statistical Wisdom</em></strong> (Harvard University Press). Aggregation, the mean and the median, in historical perspective.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="german-tanks.html">← 13.3 The German Tank Problem</a><a class="next" href="awkward-questions.html">→ 13.5 Asking Awkward Questions</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

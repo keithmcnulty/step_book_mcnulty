@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13.3 The German Tank Problem — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 13 · Statistics and Randomness in the World</a>
+    <div class="src">STEP III · 1998 · Question 14</div>
+    <div class="sec-head"><span class="sec-num">13.3</span><h1>The German Tank Problem</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-3-german-tanks.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 13</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A hostile naval power possesses a large, unknown number <span class="math inline">\(N\)</span> of submarines. Interception of radio signals yields a small number <span class="math inline">\(n\)</span> of their identification numbers <span class="math inline">\(X_i\)</span> (<span class="math inline">\(i = 1, 2, \ldots, n\)</span>), which are taken to be independent and uniformly distributed over the continuous range from <span class="math inline">\(0\)</span> to <span class="math inline">\(N\)</span>. Show that <span class="math inline">\(Z_1\)</span> and <span class="math inline">\(Z_2\)</span>, defined by <span class="math display">\[Z_1 = \frac{n + 1}{n}\max\{X_1, X_2, \ldots, X_n\} \qquad\text{and}\qquad Z_2 = \frac2n\sum_{i=1}^{n}X_i,\]</span> both have means equal to <span class="math inline">\(N\)</span>.</p>
+<p>Calculate the variance of <span class="math inline">\(Z_1\)</span> and of <span class="math inline">\(Z_2\)</span>. Which estimator do you prefer, and why?</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>During the Second World War, Allied intelligence wanted to know how many tanks Germany was producing. Spies’ reports suggested about <span class="math inline">\(1400\)</span> a month. Statisticians took a different approach: captured tanks carried serial numbers on their gearboxes and other parts, and serial numbers are, in effect, a random sample from <span class="math inline">\(1, 2, \ldots, N\)</span>. From the numbers alone, they estimated production at about <span class="math inline">\(250\)</span> a month. In the figures usually quoted, German records examined after the war gave <span class="math inline">\(245\)</span>. The statisticians had been far more accurate than the spies.</p>
+<p>This question compares two ways of estimating <span class="math inline">\(N\)</span> from serial numbers. Both are right on average. But one uses the data much more efficiently than the other, and working out which leads to the central idea of estimation theory: among estimators that are correct on average, prefer the one that varies least.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>If <span class="math inline">\(M\)</span> is the largest of <span class="math inline">\(n\)</span> independent uniform values on <span class="math inline">\([0, N]\)</span>, what is <span class="math inline">\(\mathrm{P}(M \leq m)\)</span>?</p>
+</div>
+<p><span class="math inline">\(M \leq m\)</span> exactly when every <span class="math inline">\(X_i \leq m\)</span>, so <span class="math inline">\(\mathrm{P}(M \leq m) = \bigl(\frac mN\bigr)^n\)</span> for <span class="math inline">\(0 \leq m \leq N\)</span> (compare <a href="../ch12/extremes.html">Section 12.25</a>). Differentiating, <span class="math inline">\(M\)</span> has density <span class="math inline">\(\frac{nm^{n-1}}{N^n}\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-both-are-unbiased" class="stage"><span class="stage-n">Stage 1</span> Both are unbiased</h4>
+<p>For <span class="math inline">\(M\)</span>: <span class="math display">\[\mathrm{E}(M) = \int_0^N m\cdot\frac{nm^{n-1}}{N^n}\,\mathrm{d}m = \frac{n}{n + 1}N, \qquad\text{so}\qquad \mathrm{E}(Z_1) = \frac{n + 1}{n}\cdot\frac{n}{n + 1}N = N.\]</span> For the mean: each <span class="math inline">\(X_i\)</span> has mean <span class="math inline">\(\frac N2\)</span>, so <span class="math inline">\(\mathrm{E}(Z_2) = \frac2n\cdot n\cdot\frac N2 = N\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Both estimators are <em>unbiased</em>: on average, they give the right answer. The factor <span class="math inline">\(\frac{n + 1}{n}\)</span> corrects for the fact that the largest serial number seen is always a little below <span class="math inline">\(N\)</span>.</p>
+<h4 id="stagemark2-their-variances" class="stage"><span class="stage-n">Stage 2</span> Their variances</h4>
+<div class="askyourself">
+<p>Find <span class="math inline">\(\mathrm{E}(M^2)\)</span> and hence <span class="math inline">\(\mathrm{Var}(M)\)</span>. For <span class="math inline">\(Z_2\)</span>, what is the variance of a single uniform variable on <span class="math inline">\([0, N]\)</span>?</p>
+</div>
+<p><span class="math inline">\(\mathrm{E}(M^2) = \int_0^N m^2\cdot\frac{nm^{n-1}}{N^n}\,\mathrm{d}m = \frac{n}{n + 2}N^2\)</span>, so <span class="math display">\[\begin{aligned}
+  \mathrm{Var}(M) &amp;= \frac{n}{n + 2}N^2 - \frac{n^2}{(n + 1)^2}N^2 = \frac{nN^2}{(n + 1)^2(n + 2)}, \\
+  \mathrm{Var}(Z_1) &amp;= \frac{(n + 1)^2}{n^2}\mathrm{Var}(M) = \frac{N^2}{n(n + 2)}.
+\end{aligned}\]</span> A uniform variable on <span class="math inline">\([0, N]\)</span> has variance <span class="math inline">\(\frac{N^2}{12}\)</span>, and the <span class="math inline">\(X_i\)</span> are independent, so <span class="math display">\[\mathrm{Var}(Z_2) = \frac{4}{n^2}\cdot n\cdot\frac{N^2}{12} = \frac{N^2}{3n}. \qed\]</span></p>
+<h4 id="stagemark3-which-is-better" class="stage"><span class="stage-n">Stage 3</span> Which is better?</h4>
+<div class="askyourself">
+<p>Compare <span class="math inline">\(\frac{1}{n(n + 2)}\)</span> with <span class="math inline">\(\frac{1}{3n}\)</span>. How do they behave as <span class="math inline">\(n\)</span> grows?</p>
+</div>
+<p>The ratio is <span class="math inline">\(\frac{\mathrm{Var}(Z_1)}{\mathrm{Var}(Z_2)} = \frac{3}{n + 2}\)</span>, which is less than <span class="math inline">\(1\)</span> for <span class="math inline">\(n \geq 2\)</span> (and equal for <span class="math inline">\(n = 1\)</span>, when the two estimators coincide). So <span class="math inline">\(Z_1\)</span> is better, and much better for large <span class="math inline">\(n\)</span>: its standard deviation shrinks like <span class="math inline">\(\frac1n\)</span>, while that of <span class="math inline">\(Z_2\)</span> shrinks only like <span class="math inline">\(\frac{1}{\sqrt n}\)</span> (Figure 13.3.1). With <span class="math inline">\(n = 10\)</span> serial numbers, <span class="math inline">\(Z_1\)</span> has a standard deviation about <span class="math inline">\(9\%\)</span> of <span class="math inline">\(N\)</span>, and <span class="math inline">\(Z_2\)</span> about <span class="math inline">\(18\%\)</span>.</p>
+<p>There is another reason to prefer <span class="math inline">\(Z_1\)</span>: <span class="math inline">\(Z_2\)</span> can be absurd. With the serial numbers <span class="math inline">\(10\)</span>, <span class="math inline">\(20\)</span> and <span class="math inline">\(300\)</span>, <span class="math inline">\(Z_2 = \frac23 \cdot 330 = 220\)</span>, less than a serial number we have actually seen. <span class="math inline">\(Z_1 = \frac43 \cdot 300 = 400\)</span> can never be smaller than the largest observation.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-3-1.svg" alt="Figure 13.3.1"><figcaption><span class="fig-label">Figure 13.3.1</span> The sampling distributions of the two estimators with <span class="math inline">\(n = 5\)</span> serial numbers and true value <span class="math inline">\(N = 1\)</span>. Both average exactly <span class="math inline">\(1\)</span>, but <span class="math inline">\(Z_1\)</span> (teal) is concentrated much more tightly near the truth than <span class="math inline">\(Z_2\)</span> (plum), and it never falls below the largest serial number observed.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Unbiasedness.</strong> Each estimator was scaled so that its expected value is exactly <span class="math inline">\(N\)</span>.</p></li>
+<li><p><strong>Compare variances.</strong> Among unbiased estimators, the one with smaller variance is more reliable.</p></li>
+<li><p><strong>Use the most informative statistic.</strong> The maximum contains all the information about <span class="math inline">\(N\)</span> that the sample holds; the mean wastes much of it.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="sufficiency">Sufficiency</h3>
+<p>Why is the maximum so much better? Given the largest value <span class="math inline">\(M\)</span>, the other values are just uniform on <span class="math inline">\([0, M]\)</span>, whatever <span class="math inline">\(N\)</span> is: they carry no further information about <span class="math inline">\(N\)</span>. The maximum is a <em>sufficient statistic</em>. A theorem of C. R. Rao and David Blackwell (1945–47) says that any unbiased estimator can be improved, or at least not made worse, by replacing it with its expected value given a sufficient statistic, and here that turns <span class="math inline">\(Z_2\)</span> into <span class="math inline">\(Z_1\)</span>. The <em>Lehmann–Scheffé theorem</em> then shows that <span class="math inline">\(Z_1\)</span> is the unbiased estimator with the smallest possible variance. Notice too that the variance of <span class="math inline">\(Z_1\)</span> falls like <span class="math inline">\(\frac{1}{n^2}\)</span>, faster than the <span class="math inline">\(\frac1n\)</span> of most estimators: that happens because <span class="math inline">\(N\)</span> is an endpoint of the distribution, and the data pile up against it.</p>
+<h3 id="the-discrete-version">The discrete version</h3>
+<p>Real serial numbers are whole numbers <span class="math inline">\(1, 2, \ldots, N\)</span>, sampled without replacement. The best unbiased estimate is then <span class="math inline">\(\hat N = m + \frac mk - 1\)</span>, where <span class="math inline">\(m\)</span> is the largest of <span class="math inline">\(k\)</span> observed serial numbers: the maximum plus the average gap between observations. Using estimates of this kind, based mainly on the serial numbers of gearboxes and wheels, the Allied statisticians estimated German production at about <span class="math inline">\(246\)</span> tanks a month, against the <span class="math inline">\(245\)</span> later found in German records and the <span class="math inline">\(1400\)</span> suggested by intelligence reports.</p>
+<div class="historybox">
+<div class="box-title">Serial numbers in history</div>
+<p>The method has been used many times since, for example by analysts estimating how many units of a new consumer product had been made from the serial numbers of the first few sold. Manufacturers learned the lesson: many now encode serial numbers so that they cannot be read as a simple sequence. Richard Ruggles and Henry Brodie described the wartime work in the <em>Journal of the American Statistical Association</em> in 1947.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Judge an estimator by its sampling distribution</div>
+<p><em>An estimator is a random variable. Ask whether it is right on average (bias) and how much it varies (variance), and prefer the one with smaller error.</em></p>
+<p>At university this leads to the theory of efficient estimation: the Cramér–Rao bound says how small the variance of an unbiased estimator can be, and sufficiency explains how to reach it.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Mean squared error.</strong> The biased estimator <span class="math inline">\(M\)</span> has <span class="math inline">\(\mathrm{E}(M - N)^2 = \mathrm{Var}(M) + \bigl(\mathrm{E}(M) - N\bigr)^2\)</span>. Compute it and compare with <span class="math inline">\(\mathrm{Var}(Z_1)\)</span>. Find the constant <span class="math inline">\(c\)</span> that minimises <span class="math inline">\(\mathrm{E}(cM - N)^2\)</span>.</p></li>
+<li><p><strong>The minimum too.</strong> Show that <span class="math inline">\((n + 1)\min\{X_i\}\)</span> is also an unbiased estimator of <span class="math inline">\(N\)</span>, and find its variance. Is it any good?</p></li>
+<li><p><strong>The discrete formula.</strong> For serial numbers <span class="math inline">\(1, \ldots, N\)</span>, sample <span class="math inline">\(k\)</span> without replacement, with maximum <span class="math inline">\(m\)</span>. Show that <span class="math inline">\(\mathrm{P}(\max \leq m) = \binom mk\big/\binom Nk\)</span>, and verify that <span class="math inline">\(m + \frac mk - 1\)</span> is unbiased when <span class="math inline">\(k = 1\)</span>.</p></li>
+<li><p><strong>Tanks.</strong> If <span class="math inline">\(5\)</span> captured tanks have serial numbers <span class="math inline">\(19\)</span>, <span class="math inline">\(40\)</span>, <span class="math inline">\(42\)</span>, <span class="math inline">\(60\)</span>, <span class="math inline">\(98\)</span>, estimate the number of tanks made.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Richard Ruggles &amp; Henry Brodie, “An empirical approach to economic intelligence in World War II”</strong>, <em>Journal of the American Statistical Association</em> 42 (1947). The original account.</p></li>
+<li><p><strong>John Rice, <em>Mathematical Statistics and Data Analysis</em></strong> (Duxbury), on bias, variance and sufficiency.</p></li>
+<li><p><strong>David Spiegelhalter, <em>The Art of Statistics</em></strong> (Pelican).</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="voles.html">← 13.2 Counting Voles</a><a class="next" href="mean-or-median.html">→ 13.4 Mean or Median?</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

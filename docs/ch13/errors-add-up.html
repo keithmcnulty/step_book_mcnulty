@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13.6 Errors That Add Up — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 13 · Statistics and Randomness in the World</a>
+    <div class="src">STEP II · 1993 · Question 15</div>
+    <div class="sec-head"><span class="sec-num">13.6</span><h1>Errors That Add Up</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-6-errors-add-up.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 13</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Two computers, LEP and VOZ are programmed to add numbers after first approximating each number by an integer. LEP approximates the numbers by rounding: that is, it replaces each number by the nearest integer. VOZ approximates by truncation: that is, it replaces each number by the largest integer less than or equal to the number. The fractional parts of the numbers to be added are uniformly and independently distributed. (The fractional part of a number <span class="math inline">\(a\)</span> is <span class="math inline">\(a - \lfloor a\rfloor\)</span>, where <span class="math inline">\(\lfloor a\rfloor\)</span> is the largest integer less than or equal to <span class="math inline">\(a\)</span>.) Both computers approximate and add <span class="math inline">\(1500\)</span> numbers. For each computer, find the probability that the magnitude of error in the answer will exceed <span class="math inline">\(15\)</span>.</p>
+<p>How many additions can LEP perform before the probability that the magnitude of error is less than <span class="math inline">\(10\)</span> drops below <span class="math inline">\(0.9\)</span>?</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>In 1982 the Vancouver Stock Exchange launched a new index, starting at <span class="math inline">\(1000\)</span>. Every time a share price changed, the index was recalculated and <em>truncated</em> to three decimal places. Each truncation lost on average <span class="math inline">\(0.0005\)</span>, which seems negligible. But there were about <span class="math inline">\(3000\)</span> recalculations a day, and after twenty-two months the index stood at around <span class="math inline">\(520\)</span>, even though the market had risen. When it was recomputed correctly, overnight it jumped to about <span class="math inline">\(1100\)</span>.</p>
+<p>This question explains what happened. Truncation errors all point the same way, so they add up steadily, in proportion to the number of operations. Rounding errors point both ways and largely cancel: they grow only like the square root of the number of operations, the random-walk behaviour that the central limit theorem (<a href="../ch12/clt.html">Section 12.24</a>) predicts.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>If a number’s fractional part <span class="math inline">\(U\)</span> is uniform on <span class="math inline">\([0, 1)\)</span>, what is the error when it is truncated? When it is rounded? What are the mean and variance of each?</p>
+</div>
+<p>Truncation replaces <span class="math inline">\(a\)</span> by <span class="math inline">\(\lfloor a\rfloor\)</span>, an error (true minus approximate) of <span class="math inline">\(U\)</span>, uniform on <span class="math inline">\([0, 1)\)</span>: mean <span class="math inline">\(\frac12\)</span>, variance <span class="math inline">\(\frac{1}{12}\)</span>. Rounding gives an error uniform on <span class="math inline">\((-\frac12, \frac12]\)</span>: mean <span class="math inline">\(0\)</span>, variance <span class="math inline">\(\frac{1}{12}\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-total-errors" class="stage"><span class="stage-n">Stage 1</span> The total errors</h4>
+<p>The total error after <span class="math inline">\(1500\)</span> numbers is the sum of <span class="math inline">\(1500\)</span> independent errors, approximately normal by the central limit theorem:</p>
+<ul>
+<li><p>LEP (rounding): mean <span class="math inline">\(0\)</span>, variance <span class="math inline">\(\frac{1500}{12} = 125\)</span>, standard deviation <span class="math inline">\(\sqrt{125} \approx 11.18\)</span>.</p></li>
+<li><p>VOZ (truncation): mean <span class="math inline">\(\frac{1500}{2} = 750\)</span>, the same standard deviation <span class="math inline">\(11.18\)</span>.</p></li>
+</ul>
+<h4 id="stagemark2-the-probability-of-a-large-error" class="stage"><span class="stage-n">Stage 2</span> The probability of a large error</h4>
+<div class="askyourself">
+<p>For LEP, what is <span class="math inline">\(\mathrm{P}(|E| &gt; 15)\)</span> with <span class="math inline">\(E \sim \mathrm{N}(0, 125)\)</span>? For VOZ, where is the error almost certainly?</p>
+</div>
+<p>For LEP, <span class="math inline">\(\frac{15}{11.18} \approx 1.342\)</span>, so <span class="math display">\[\mathrm{P}(|E| &gt; 15) \approx 2\bigl(1 - \Phi(1.342)\bigr) \approx 2 \times 0.090 = 0.18.\]</span> For VOZ, the error is about <span class="math inline">\(750 \pm 11\)</span>; the probability that it is less than <span class="math inline">\(15\)</span> in magnitude is essentially zero, so <span class="math inline">\(\mathrm{P}(|E| &gt; 15) \approx 1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-how-many-additions" class="stage"><span class="stage-n">Stage 3</span> How many additions?</h4>
+<div class="askyourself">
+<p>After <span class="math inline">\(n\)</span> additions, LEP’s error has standard deviation <span class="math inline">\(\sqrt{n/12}\)</span>. When is <span class="math inline">\(\mathrm{P}(|E| &lt; 10) \geq 0.9\)</span>?</p>
+</div>
+<p>We need <span class="math inline">\(\frac{10}{\sqrt{n/12}} \geq 1.645\)</span> (since <span class="math inline">\(\mathrm{P}(|Z| &lt; 1.645) = 0.9\)</span>), that is <span class="math inline">\(\frac{n}{12} \leq \bigl(\frac{10}{1.645}\bigr)^2 \approx 36.95\)</span>, so <span class="math inline">\(n \leq 443\)</span>. LEP can perform about <span class="math inline">\(443\)</span> additions.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-6-1.svg" alt="Figure 13.6.1"><figcaption><span class="fig-label">Figure 13.6.1</span> How errors accumulate. Truncation errors (plum) all have the same sign and grow in proportion to <span class="math inline">\(n\)</span>: after <span class="math inline">\(1500\)</span> additions the total is about <span class="math inline">\(750\)</span>. Rounding errors (teal band, two standard deviations either side of zero) cancel on average and grow only like <span class="math inline">\(\sqrt n\)</span>: after <span class="math inline">\(1500\)</span> additions they are usually within about <span class="math inline">\(\pm22\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Model each error.</strong> Uniform fractional parts gave each error a simple distribution.</p></li>
+<li><p><strong>Add means and variances.</strong> Means add (giving the bias <span class="math inline">\(\frac n2\)</span>) and, for independent errors, so do variances.</p></li>
+<li><p><strong>Normal approximation.</strong> The central limit theorem turned a sum of <span class="math inline">\(1500\)</span> uniform errors into a normal distribution.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="bias-and-variance">Bias and variance</h3>
+<p>Truncation is <em>biased</em>: its errors have non-zero mean, and bias accumulates linearly. Rounding is <em>unbiased</em>, and its errors behave like a random walk, growing like <span class="math inline">\(\sqrt n\)</span>. After a million operations, the difference is between an error of order <span class="math inline">\(500\,000\)</span> and one of order <span class="math inline">\(300\)</span>. This is the same distinction as between a systematic error in an experiment (a miscalibrated instrument) and random measurement error: averaging many measurements reduces random error but does nothing to systematic error.</p>
+<h3 id="floating-point">Floating point</h3>
+<p>Every computer stores real numbers to limited precision, and every arithmetic operation rounds its result. Modern computers follow the IEEE 754 standard, which rounds to the nearest representable number, with ties broken towards an even last digit precisely so that rounding is unbiased on average. Even so, careless summation of many numbers can lose accuracy; William Kahan’s <em>compensated summation</em> algorithm (1965) keeps track of the lost low-order digits and adds them back. In the Gulf War in 1991, a Patriot missile battery failed to intercept an incoming missile because its clock counted time in tenths of a second, a number that cannot be stored exactly in binary; after <span class="math inline">\(100\)</span> hours of operation the truncation error had grown to about a third of a second, enough to misjudge the target’s position by over half a kilometre.</p>
+<div class="historybox">
+<div class="box-title">The Vancouver index</div>
+<p>The Vancouver Stock Exchange index was created in January 1982 with a value of <span class="math inline">\(1000.000\)</span>. By November 1983 it had fallen to about <span class="math inline">\(524\)</span>, despite a generally rising market. Consultants found that the index was being recalculated thousands of times a day and truncated (not rounded) to three decimal places each time. Recomputed correctly over a weekend, the index reopened at about <span class="math inline">\(1098\)</span>. The episode is a standard warning in courses on numerical computation.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Separate systematic from random error</div>
+<p><em>Errors with a consistent sign accumulate linearly; independent errors with mean zero accumulate like a square root. Identify which kind you have.</em></p>
+<p>At university, numerical analysis studies how errors propagate through calculations, and statistics distinguishes bias from variance; the “bias–variance trade-off” is central to modern machine learning.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>VOZ corrected.</strong> If VOZ adds <span class="math inline">\(\frac n2\)</span> to its answer at the end, what is the distribution of its error? Is it now as good as LEP?</p></li>
+<li><p><strong>Rounding to one decimal place.</strong> If numbers are rounded to one decimal place, with uniformly distributed discarded digits, find the standard deviation of the total error in adding <span class="math inline">\(10\,000\)</span> numbers.</p></li>
+<li><p><strong>The Vancouver index.</strong> If the index was recalculated <span class="math inline">\(3000\)</span> times a day and each truncation lost on average <span class="math inline">\(0.0005\)</span>, how much would it lose in a year of <span class="math inline">\(250\)</span> trading days?</p></li>
+<li><p><strong>The exact distribution.</strong> For the sum of two rounding errors, find the exact density (a triangle). For three, sketch it. How quickly does it start to look normal?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Nicholas Higham, <em>Accuracy and Stability of Numerical Algorithms</em></strong> (SIAM). The authoritative book on rounding errors; the opening chapter is accessible.</p></li>
+<li><p><strong>David Goldberg, “What every computer scientist should know about floating-point arithmetic”</strong>, <em>ACM Computing Surveys</em> 23 (1991). A classic, free online.</p></li>
+<li><p><strong>Tim Harford, <em>How to Make the World Add Up</em></strong> (Bridge Street), on systematic errors in data.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="awkward-questions.html">← 13.5 Asking Awkward Questions</a><a class="next" href="correlation.html">→ 13.7 Manufacturing Correlation</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

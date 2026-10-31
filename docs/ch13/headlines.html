@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13.1 Reading the Headlines — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 13 · Statistics and Randomness in the World</a>
+    <div class="src">STEP I · 1992 · Question 14</div>
+    <div class="sec-head"><span class="sec-num">13.1</span><h1>Reading the Headlines</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-1-headlines.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 13</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The average number of pedestrians killed annually in road accidents in Poldavia during the period 1974–1989 was <span class="math inline">\(1080\)</span> and the average number killed annually in commercial flight accidents during the same period was <span class="math inline">\(180\)</span>. Discuss the following newspaper headlines which appeared in 1991. (The percentage figures in square brackets give a rough indication of the weight of marks attached to each discussion.)</p>
+<ol class="roman">
+<li><p>Six Times Safer To Fly Than To Walk. 1974–1989 Figures Prove It.</p></li>
+<li><p>Our Skies Are Safer. Only 125 People Killed In Air Accidents In 1990.</p></li>
+<li><p>Road Carnage Increasing. 7 People Killed On Tuesday.</p></li>
+<li><p>Alarming Rise In Pedestrian Casualties. 1350 Pedestrians Killed In Road Accidents During 1990.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Statistics is the science of learning from data, and its first lesson is that numbers do not speak for themselves. “Six times safer”, “alarming rise”, “carnage increasing”: every day, headlines turn numbers into claims, and the claims are often wrong, not because the numbers are false but because they are compared with the wrong thing, or because ordinary random variation is mistaken for a trend.</p>
+<p>This question has no formulas in it at all, which makes it unusual for STEP. It asks you to think like a statistician: what would we need to know to justify each headline, and how much variation should we expect by chance alone? The answers use the Poisson distribution (<a href="../ch12/memoryless.html">Section 12.18</a>), and the reasoning is the foundation of the rest of this chapter.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>If deaths occur independently and at random at a steady rate, how much should the yearly total vary? If the average is <span class="math inline">\(1080\)</span> a year, what is a typical deviation from year to year?</p>
+</div>
+<p>Counts of independent rare events are approximately Poisson, and a Poisson count with mean <span class="math inline">\(\mu\)</span> has variance <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sqrt\mu\)</span>. With <span class="math inline">\(\mu = 1080\)</span>, the standard deviation is about <span class="math inline">\(33\)</span>: yearly totals between about <span class="math inline">\(1015\)</span> and <span class="math inline">\(1145\)</span> would be unremarkable.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-six-times-safer-to-fly-than-to-walk" class="stage"><span class="stage-n">Stage 1</span> “Six times safer to fly than to walk”</h4>
+<div class="askyourself">
+<p><span class="math inline">\(1080\)</span> pedestrian deaths and <span class="math inline">\(180\)</span> air deaths per year. Six times what, exactly?</p>
+</div>
+<p>The headline compares total deaths, but safety is about <em>risk</em>: deaths per unit of exposure. Almost everyone walks every day, while relatively few people fly, and then only occasionally. A fair comparison would use deaths per kilometre travelled, per hour of travel, or per journey, and these can give very different answers (air travel is extremely safe per kilometre, less impressively so per journey, since most air deaths happen at take-off and landing). The figures given cannot “prove” anything about relative safety. Also, “pedestrians killed in road accidents” is a narrow category; road deaths overall are much larger.</p>
+<h4 id="stagemark2-our-skies-are-safer-only-125-killed-in-1990" class="stage"><span class="stage-n">Stage 2</span> “Our skies are safer: only 125 killed in 1990”</h4>
+<div class="askyourself">
+<p>Are air deaths like independent rare events? How variable would you expect the yearly total to be?</p>
+</div>
+<p>Air deaths come in clusters: a single crash may kill hundreds of people. So the yearly total depends mainly on the number of crashes, which is small, and is extremely variable from year to year. One year with <span class="math inline">\(125\)</span> deaths, against an average of <span class="math inline">\(180\)</span>, is entirely consistent with no change at all: a single extra crash would have changed the figure completely. One year’s data cannot show a trend.</p>
+<h4 id="stagemark3-road-carnage-increasing-7-killed-on-tuesday" class="stage"><span class="stage-n">Stage 3</span> “Road carnage increasing: 7 killed on Tuesday”</h4>
+<div class="askyourself">
+<p>On average, how many pedestrians are killed per day? If daily deaths are Poisson, how often would you see <span class="math inline">\(7\)</span> or more in a day?</p>
+</div>
+<p>The average is <span class="math inline">\(\frac{1080}{365} \approx 2.96\)</span> pedestrian deaths per day. If daily counts are Poisson with this mean, <span class="math inline">\(\mathrm{P}(\geq 7) \approx 0.031\)</span>: about <span class="math inline">\(11\)</span> days a year would have <span class="math inline">\(7\)</span> or more pedestrian deaths purely by chance. (And “road carnage” presumably includes drivers and passengers too, making <span class="math inline">\(7\)</span> road deaths in a day even less remarkable.) A single day says nothing about a trend. The headline picks an extreme value out of a highly variable series, a classic error.</p>
+<h4 id="stagemark4-alarming-rise-1350-pedestrians-killed-in-1990" class="stage"><span class="stage-n">Stage 4</span> “Alarming rise: 1350 pedestrians killed in 1990”</h4>
+<div class="askyourself">
+<p>Compare <span class="math inline">\(1350\)</span> with the Poisson standard deviation. Is this just chance? If not, what else could explain it, and does it justify “alarming rise”?</p>
+</div>
+<p>This is the substantial part. Under a steady Poisson model, <span class="math inline">\(1350\)</span> is <span class="math inline">\(270\)</span> above the mean of <span class="math inline">\(1080\)</span>, about <span class="math inline">\(8\)</span> standard deviations: it is wildly unlikely to be chance. So something has probably changed. But the headline still overreaches, in several ways:</p>
+<ul>
+<li><p><em>A trend hidden by an average.</em> The figure <span class="math inline">\(1080\)</span> is an average over <span class="math inline">\(16\)</span> years. If deaths rose steadily from about <span class="math inline">\(900\)</span> in 1974 to about <span class="math inline">\(1260\)</span> in 1989, the average would still be <span class="math inline">\(1080\)</span>, and <span class="math inline">\(1350\)</span> in 1990 would simply continue an existing trend, not a sudden “alarming” rise (Figure 13.1.1). We need the year-by-year figures.</p></li>
+<li><p><em>Exposure.</em> Population growth, more walking, more traffic or an ageing population would all increase deaths without the roads becoming more dangerous per journey. A rate per head, or per kilometre walked, is the right measure.</p></li>
+<li><p><em>Definitions.</em> A change in how deaths are recorded or classified (for example, how long after an accident a death is counted) can produce a jump.</p></li>
+<li><p><em>Over-dispersion.</em> Real yearly counts vary more than the Poisson model suggests, because conditions (weather, economic activity) vary. The “<span class="math inline">\(8\)</span> standard deviations” should be treated with some caution.</p></li>
+</ul>
+<p>The rise is probably real, but whether it is alarming, and what causes it, needs more data.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-1-1.svg" alt="Figure 13.1.1"><figcaption><span class="fig-label">Figure 13.1.1</span> Two very different histories with the same <span class="math inline">\(16\)</span>-year average of <span class="math inline">\(1080\)</span>. If deaths were steady (teal, with the band of typical Poisson variation), <span class="math inline">\(1350\)</span> in 1990 would be a dramatic jump. If they had been rising steadily (plum), <span class="math inline">\(1350\)</span> would be only a little above the trend. The average alone cannot tell these apart.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Compare like with like.</strong> Risks need a denominator: deaths per person, per kilometre or per journey.</p></li>
+<li><p><strong>Know the natural variation.</strong> Poisson variability, and the much larger variability of clustered events, tell us when a change is noteworthy.</p></li>
+<li><p><strong>An average hides a trend.</strong> A single summary number cannot describe how a quantity has changed over time.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<h3 id="signal-and-noise">Signal and noise</h3>
+<p>Every statistical question is, at bottom, a question of separating <em>signal</em> (a real effect or trend) from <em>noise</em> (random variation). The Poisson model gives a yardstick for the noise in counts of independent events: a standard deviation of <span class="math inline">\(\sqrt\mu\)</span>. Rare events have large <em>relative</em> variation: a count of <span class="math inline">\(9\)</span> varies by about <span class="math inline">\(\pm3\)</span>, a third of its size, while a count of <span class="math inline">\(10\,000\)</span> varies by only about <span class="math inline">\(1\%\)</span>. That is why small numbers (deaths on one day, crashes in one year) are so often over-interpreted, and why cancer “clusters” in small towns usually turn out to be chance.</p>
+<h3 id="regression-to-the-mean">Regression to the mean</h3>
+<p>There is a further trap. Road-safety cameras are often installed at sites that have just had an unusually bad year. The following year, accidents fall, and the cameras get the credit. But an unusually bad year is likely to be followed by a more ordinary one anyway: this is <em>regression to the mean</em>, first described by Francis Galton in the 1880s. Separating the effect of a camera from regression to the mean requires comparison with similar sites that did not get cameras, the idea behind controlled experiments.</p>
+<div class="historybox">
+<div class="box-title">Florence Nightingale’s statistics</div>
+<p>Florence Nightingale, famous as a nurse in the Crimean War, was also a pioneering statistician. Her “rose diagrams” of 1858 showed that far more soldiers were dying of preventable disease than of wounds, and persuaded the government to reform army sanitation. She insisted on rates (deaths per thousand soldiers per year) rather than raw totals, and on comparing like with like, the very points this question tests. She was the first woman elected a Fellow of the Royal Statistical Society.</p>
+</div>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Ask “compared with what?”</div>
+<p><em>Before accepting a statistical claim, ask what the comparison is, what the denominator is, and how much variation would be expected by chance.</em></p>
+<p>At university, statistics courses turn these questions into precise methods: hypothesis tests ask whether an observation is consistent with chance; confidence intervals say how precisely a quantity has been measured; and the design of experiments ensures that comparisons are fair.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Poisson tails.</strong> Check that <span class="math inline">\(\mathrm{P}(X \geq 7) \approx 0.031\)</span> for <span class="math inline">\(X\)</span> Poisson with mean <span class="math inline">\(2.96\)</span>. How many days a year would you expect <span class="math inline">\(9\)</span> or more pedestrian deaths?</p></li>
+<li><p><strong>Clustered deaths.</strong> Suppose air crashes occur as a Poisson process at <span class="math inline">\(1.2\)</span> per year, and each kills <span class="math inline">\(150\)</span> people. Find the mean and standard deviation of yearly air deaths. Is <span class="math inline">\(125\)</span> deaths in a year unusual?</p></li>
+<li><p><strong>A significant rise?</strong> If the 1974–1989 figures had been steady at <span class="math inline">\(1080 \pm 33\)</span>, find (using a normal approximation) the probability of <span class="math inline">\(1350\)</span> or more in a single year.</p></li>
+<li><p><strong>Write a better headline.</strong> For each of the four headlines, write a headline that the data actually support.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>David Spiegelhalter, <em>The Art of Statistics</em></strong> (Pelican). How to learn from data, with many examples from the news.</p></li>
+<li><p><strong>Tim Harford, <em>How to Make the World Add Up</em></strong> (Bridge Street). Ten rules for thinking about numbers in the media.</p></li>
+<li><p><strong>Darrell Huff, <em>How to Lie with Statistics</em></strong> (Penguin). A short classic from 1954, still relevant.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← Chapter introduction</a><a class="next" href="voles.html">→ 13.2 Counting Voles</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
