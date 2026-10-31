@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5.3 Factorising z²ⁿ + 1 — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 5 · Complex Numbers</a>
+    <div class="src">STEP III · 2013 · Question 4</div>
+    <div class="sec-head"><span class="sec-num">5.3</span><h1>Factorising \(z^{2n} + 1\)</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-3-z2n-plus-one.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 5</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Show that <span class="math inline">\((z - \mathrm{e}^{\mathrm{i}\theta})(z - \mathrm{e}^{-\mathrm{i}\theta}) = z^2 - 2z\cos\theta + 1\)</span>.</p>
+<p>Write down the <span class="math inline">\((2n)\)</span>th roots of <span class="math inline">\(-1\)</span> in the form <span class="math inline">\(\mathrm{e}^{\mathrm{i}\theta}\)</span>, where <span class="math inline">\(-\pi &lt; \theta \leq \pi\)</span>, and deduce that <span class="math display">\[z^{2n} + 1 = \prod_{k=1}^{n}\left(z^2 - 2z\cos\left(\tfrac{(2k-1)\pi}{2n}\right) + 1\right).\]</span> Here, <span class="math inline">\(n\)</span> is a positive integer, and the <span class="math inline">\(\prod\)</span> notation denotes the product.</p>
+<ol class="roman">
+<li><p>By substituting <span class="math inline">\(z = \mathrm{i}\)</span> show that, when <span class="math inline">\(n\)</span> is even, <span class="math display">\[\cos\left(\tfrac{\pi}{2n}\right)\cos\left(\tfrac{3\pi}{2n}\right)\cos\left(\tfrac{5\pi}{2n}\right)\cdots\cos\left(\tfrac{(2n-1)\pi}{2n}\right) = (-1)^{\frac12 n}2^{1-n}.\]</span></p></li>
+<li><p>Show that, when <span class="math inline">\(n\)</span> is odd, <span class="math display">\[\cos^2\left(\tfrac{\pi}{2n}\right)\cos^2\left(\tfrac{3\pi}{2n}\right)\cos^2\left(\tfrac{5\pi}{2n}\right)\cdots\cos^2\left(\tfrac{(n-2)\pi}{2n}\right) = n2^{1-n}.\]</span> You may use without proof the fact that <span class="math inline">\(1 + z^{2n} = (1 + z^2)(1 - z^2 + z^4 - \cdots + z^{2n-2})\)</span> when <span class="math inline">\(n\)</span> is odd.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>What is <span class="math inline">\(\cos\frac{\pi}{8}\cos\frac{3\pi}{8}\cos\frac{5\pi}{8}\cos\frac{7\pi}{8}\)</span>? Each factor is an ugly number involving nested square roots, but the product is exactly <span class="math inline">\(\frac18\)</span>. Products of cosines at equally spaced angles keep collapsing to simple numbers like this, and the question explains why. The trick is to recognise the angles as arguments of roots of a polynomial, factorise the polynomial, and then substitute a cleverly chosen value.</p>
+<p>Over the complex numbers, every polynomial factorises completely into linear factors. Over the real numbers, the non-real roots come in conjugate pairs, which combine into real quadratic factors. Both facts are on display here, and the second is how <span class="math inline">\(z^{2n} + 1\)</span>, which has no real roots at all, can be written as a product of real quadratics.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Where are the solutions of <span class="math inline">\(z^{2n} = -1\)</span> in the complex plane? Draw them for <span class="math inline">\(n = 2\)</span> and <span class="math inline">\(n = 4\)</span>.</p>
+</div>
+<p>They all have modulus <span class="math inline">\(1\)</span>, and their arguments <span class="math inline">\(\theta\)</span> satisfy <span class="math inline">\(2n\theta = \pi + 2m\pi\)</span>, so <span class="math inline">\(\theta\)</span> is an odd multiple of <span class="math inline">\(\frac{\pi}{2n}\)</span>. They form a regular <span class="math inline">\(2n\)</span>-gon on the unit circle, rotated so that no vertex lies on the real axis (Figure 5.3.1). They pair up into conjugates <span class="math inline">\(e^{\pm\mathrm{i}\theta}\)</span>, mirror images in the real axis.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-conjugate-pairs-give-real-quadratics" class="stage"><span class="stage-n">Stage 1</span> Conjugate pairs give real quadratics</h4>
+<p><span class="math inline">\((z - e^{\mathrm{i}\theta})(z - e^{-\mathrm{i}\theta}) = z^2 - (e^{\mathrm{i}\theta} + e^{-\mathrm{i}\theta})z + 1 = z^2 - 2z\cos\theta + 1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-factorisation" class="stage"><span class="stage-n">Stage 2</span> The factorisation</h4>
+<p>The <span class="math inline">\(2n\)</span>th roots of <span class="math inline">\(-1\)</span> with <span class="math inline">\(-\pi &lt; \theta \leq \pi\)</span> are <span class="math inline">\(e^{\pm\mathrm{i}\theta_k}\)</span> with <span class="math display">\[\theta_k = \frac{(2k - 1)\pi}{2n}, \qquad k = 1, 2, \ldots, n.\]</span> These are <span class="math inline">\(2n\)</span> distinct numbers, all roots of the degree-<span class="math inline">\(2n\)</span> polynomial <span class="math inline">\(z^{2n} + 1\)</span>, so they are all its roots and <span class="math display">\[z^{2n} + 1 = \prod_{k=1}^{n}(z - e^{\mathrm{i}\theta_k})(z - e^{-\mathrm{i}\theta_k}) = \prod_{k=1}^{n}\bigl(z^2 - 2z\cos\theta_k + 1\bigr). \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-5-3-1.svg" alt="Figure 5.3.1"><figcaption><span class="fig-label">Figure 5.3.1</span> The eight solutions of <span class="math inline">\(z^8 = -1\)</span> (the case <span class="math inline">\(n = 4\)</span>). They pair into four conjugate pairs, joined by dashed lines; each pair gives one real quadratic factor <span class="math inline">\(z^2 - 2z\cos\theta_k + 1\)</span> of <span class="math inline">\(z^8 + 1\)</span>.</figcaption></figure>
+<h4 id="stagemark3-substituting-z-mathrmi" class="stage"><span class="stage-n">Stage 3</span> Substituting <span class="math inline">\(z = \mathrm{i}\)</span></h4>
+<div class="askyourself">
+<p>What is <span class="math inline">\(\mathrm{i}^2 - 2\mathrm{i}\cos\theta + 1\)</span>? And what is <span class="math inline">\(\mathrm{i}^{2n} + 1\)</span> when <span class="math inline">\(n\)</span> is even?</p>
+</div>
+<p>Each factor becomes <span class="math display">\[\mathrm{i}^2 - 2\mathrm{i}\cos\theta_k + 1 = -2\mathrm{i}\cos\theta_k,\]</span> so the right-hand side is <span class="math inline">\((-2\mathrm{i})^n\prod_k\cos\theta_k\)</span>. The left-hand side is <span class="math inline">\(\mathrm{i}^{2n} + 1 = (-1)^n + 1\)</span>, which is <span class="math inline">\(2\)</span> when <span class="math inline">\(n\)</span> is even. And for even <span class="math inline">\(n\)</span>, <span class="math display">\[(-2\mathrm{i})^n = 2^n(-\mathrm{i})^n = 2^n\bigl((-\mathrm{i})^2\bigr)^{n/2} = 2^n(-1)^{n/2}.\]</span> So <span class="math display">\[\prod_{k=1}^{n}\cos\theta_k = \frac{2}{2^n(-1)^{n/2}} = (-1)^{\frac12 n}2^{1-n}. \qed\]</span> For <span class="math inline">\(n = 4\)</span> this is the product in the hook: <span class="math inline">\((-1)^2 2^{-3} = \frac18\)</span>.</p>
+<h4 id="stagemark4-when-n-is-odd" class="stage"><span class="stage-n">Stage 4</span> When <span class="math inline">\(n\)</span> is odd</h4>
+<div class="askyourself">
+<p>For odd <span class="math inline">\(n\)</span>, one of the angles <span class="math inline">\(\theta_k\)</span> equals <span class="math inline">\(\frac\pi2\)</span>. Which one, and why does that make the substitution <span class="math inline">\(z = \mathrm{i}\)</span> useless as it stands?</p>
+</div>
+<p>When <span class="math inline">\(k = \frac{n+1}{2}\)</span>, <span class="math inline">\(\theta_k = \frac{n\pi}{2n} = \frac\pi2\)</span>, so that factor is <span class="math inline">\(z^2 + 1\)</span>, which vanishes at <span class="math inline">\(z = \mathrm{i}\)</span>; both sides are <span class="math inline">\(0\)</span>, and we learn nothing. The way round is to divide out that factor first, which is what the given identity does.</p>
+<div class="pausebox">
+<p>Divide both sides of the factorisation by <span class="math inline">\(1 + z^2\)</span>, substitute <span class="math inline">\(z = \mathrm{i}\)</span>, and simplify. You will need to pair up the remaining cosines.</p>
+</div>
+<p>Dividing by the factor <span class="math inline">\(z^2 + 1\)</span> (the term <span class="math inline">\(k = \frac{n+1}{2}\)</span>), <span class="math display">\[1 - z^2 + z^4 - \cdots + z^{2n-2} = \prod_{k \neq \frac{n+1}{2}}\bigl(z^2 - 2z\cos\theta_k + 1\bigr).\]</span> At <span class="math inline">\(z = \mathrm{i}\)</span>, every term on the left is <span class="math inline">\((-z^2)^j = 1^j = 1\)</span>, and there are <span class="math inline">\(n\)</span> terms, so the left-hand side is <span class="math inline">\(n\)</span>. The right-hand side is <span class="math inline">\((-2\mathrm{i})^{n-1}\prod_{k \neq \frac{n+1}{2}}\cos\theta_k\)</span>. Since <span class="math inline">\(n - 1\)</span> is even, <span class="math inline">\((-2\mathrm{i})^{n-1} = 2^{n-1}(-1)^{(n-1)/2}\)</span>.</p>
+<p>Now pair the angles: <span class="math inline">\(\theta_{n+1-k} = \pi - \theta_k\)</span>, so <span class="math inline">\(\cos\theta_{n+1-k} = -\cos\theta_k\)</span>. The <span class="math inline">\(n - 1\)</span> remaining factors form <span class="math inline">\(\frac{n-1}{2}\)</span> such pairs, with <span class="math inline">\(k = 1, \ldots, \frac{n-1}{2}\)</span>, and each pair contributes <span class="math inline">\(-\cos^2\theta_k\)</span>. So <span class="math display">\[n = 2^{n-1}(-1)^{(n-1)/2}\cdot(-1)^{(n-1)/2}\prod_{k=1}^{(n-1)/2}\cos^2\theta_k = 2^{n-1}\prod_{k=1}^{(n-1)/2}\cos^2\theta_k,\]</span> giving <span class="math inline">\(\prod\cos^2\theta_k = n2^{1-n}\)</span>. The last factor, with <span class="math inline">\(k = \frac{n-1}{2}\)</span>, is <span class="math inline">\(\cos^2\frac{(n-2)\pi}{2n}\)</span>, as in the question.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Check with <span class="math inline">\(n = 3\)</span>: <span class="math inline">\(\cos^2\frac\pi6 = \frac34 = 3 \cdot 2^{-2}\)</span>.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Know the roots, know the polynomial.</strong> A polynomial is determined (up to a constant) by its roots, so listing the roots of <span class="math inline">\(z^{2n} + 1\)</span> gave its factorisation.</p></li>
+<li><p><strong>Substitute a clever value.</strong> Putting <span class="math inline">\(z = \mathrm{i}\)</span> turned every quadratic factor into a multiple of a cosine.</p></li>
+<li><p><strong>When a substitution gives <span class="math inline">\(0 = 0\)</span>, divide first.</strong> For odd <span class="math inline">\(n\)</span> one factor vanished at <span class="math inline">\(z = \mathrm{i}\)</span>, so we removed it before substituting.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">The fundamental theorem of algebra</div>
+<p>That <span class="math inline">\(z^{2n} + 1\)</span> can be factorised completely into linear factors over <span class="math inline">\(\mathbb{C}\)</span> is a special case of the <em>fundamental theorem of algebra</em>: every non-constant polynomial with complex coefficients has a complex root, and so factorises completely into linear factors. Gauss gave the first widely accepted proof in his doctoral thesis of 1799, and returned to the theorem several times with new proofs. A consequence is that every real polynomial factorises into real linear and quadratic factors, because non-real roots come in conjugate pairs, exactly as in Stage 1. The theorem is “algebraic” in name but analytic in substance: every proof uses some property of the real numbers, such as continuity, and you will see one of the slickest proofs in a first course on complex analysis.</p>
+</div>
+<h3 id="products-of-sines-and-cosines">Products of sines and cosines</h3>
+<p>The method gives a whole family of identities. Using <span class="math inline">\(z^n - 1\)</span> in place of <span class="math inline">\(z^{2n} + 1\)</span> leads to <span class="math display">\[\prod_{k=1}^{n-1}\sin\frac{k\pi}{n} = \frac{n}{2^{n-1}},\]</span> which is proved, in its geometric form, in <a href="../ch05/polygon-distances.html">Section 5.4</a>. Identities like these appear in the analysis of vibrating systems (the frequencies of <span class="math inline">\(n\)</span> masses joined by springs involve <span class="math inline">\(\sin\frac{k\pi}{2(n+1)}\)</span>) and in counting problems (the number of spanning trees of some graphs, and the number of domino tilings of a rectangle, are given by products of cosines). Kasteleyn’s 1961 formula for domino tilings of an <span class="math inline">\(m \times n\)</span> rectangle is a double product of expressions in <span class="math inline">\(\cos^2\frac{j\pi}{m+1}\)</span> and <span class="math inline">\(\cos^2\frac{k\pi}{n+1}\)</span>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">From roots to products</div>
+<p><em>To evaluate a product of trigonometric values at equally spaced angles, recognise them as coming from the roots of a simple polynomial, factorise, and substitute a convenient value.</em></p>
+<p>The choice of value is the art: here <span class="math inline">\(z = \mathrm{i}\)</span> turned each quadratic factor into a cosine. Other choices (such as <span class="math inline">\(z = 1\)</span> or <span class="math inline">\(z = -1\)</span>) give other identities.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A heptagonal product.</strong> Use part (ii) with <span class="math inline">\(n = 7\)</span> to show that <span class="math inline">\(\cos\frac{\pi}{14}\cos\frac{3\pi}{14}\cos\frac{5\pi}{14} = \frac{\sqrt7}{8}\)</span>. Then show that <span class="math inline">\(\cos\frac{\pi}{7}\cos\frac{2\pi}{7}\cos\frac{3\pi}{7} = \frac18\)</span>. (<em>Hint:</em> relate the angles using <span class="math inline">\(\cos\theta = \sin(\frac\pi2 - \theta)\)</span>, or use the identity <span class="math inline">\(\sin 2x = 2\sin x\cos x\)</span> repeatedly.)</p></li>
+<li><p><strong>Another substitution.</strong> Substitute <span class="math inline">\(z = 1\)</span> in the factorisation to show that <span class="math display">\[\prod_{k=1}^{n}\sin\frac{(2k-1)\pi}{4n} = 2^{\frac12 - n}.\]</span></p></li>
+<li><p><strong>Factorise <span class="math inline">\(z^6 + 1\)</span>.</strong> Write <span class="math inline">\(z^6 + 1\)</span> as a product of three real quadratics, and check your answer by multiplying out.</p></li>
+<li><p><strong>Sines.</strong> By factorising <span class="math inline">\(z^{2n} - 1\)</span> similarly and dividing by <span class="math inline">\(z^2 - 1\)</span>, show that <span class="math display">\[\prod_{k=1}^{n-1}\sin\frac{k\pi}{2n} = \frac{\sqrt n}{2^{n-1}}.\]</span></p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Tristan Needham, <em>Visual Complex Analysis</em></strong> (Oxford University Press). Chapter 2 on roots of unity and polynomials, with beautiful pictures.</p></li>
+<li><p><strong>Benjamin Fine &amp; Gerhard Rosenberger, <em>The Fundamental Theorem of Algebra</em></strong> (Springer). Several proofs of the theorem, from analysis, algebra and topology, written for undergraduates.</p></li>
+<li><p><strong>Paul Nahin, <em>An Imaginary Tale</em></strong> (Princeton University Press). A history of <span class="math inline">\(\sqrt{-1}\)</span>, including roots of unity and their uses.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="roots-filter.html">← 5.2 The Roots-of-Unity Filter</a><a class="next" href="polygon-distances.html">→ 5.4 Distances in a Regular Polygon</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

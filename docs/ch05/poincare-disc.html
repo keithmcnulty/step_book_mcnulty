@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5.8 A Hidden Distance in the Disc — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 5 · Complex Numbers</a>
+    <div class="src">STEP III · 2013 · Question 6</div>
+    <div class="sec-head"><span class="sec-num">5.8</span><h1>A Hidden Distance in the Disc</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-8-poincare-disc.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 5</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Let <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> be complex numbers. Use a diagram to show that <span class="math inline">\(|z - w| \leq |z| + |w|\)</span>.</p>
+<p>For any complex numbers <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span>, <span class="math inline">\(E\)</span> is defined by <span class="math display">\[E = zw^* + z^*w + 2|zw|.\]</span></p>
+<ol class="roman">
+<li><p>Show that <span class="math inline">\(|z - w|^2 = \bigl(|z| + |w|\bigr)^2 - E\)</span>, and deduce that <span class="math inline">\(E\)</span> is real and non-negative.</p></li>
+<li><p>Show that <span class="math inline">\(|1 - zw^*|^2 = \bigl(1 + |zw|\bigr)^2 - E\)</span>.</p></li>
+</ol>
+<p>Hence show that, if both <span class="math inline">\(|z| &gt; 1\)</span> and <span class="math inline">\(|w| &gt; 1\)</span>, then <span class="math display">\[\frac{|z - w|}{|1 - zw^*|} \leq \frac{|z| + |w|}{1 + |zw|}.\]</span> Does this inequality also hold if both <span class="math inline">\(|z| &lt; 1\)</span> and <span class="math inline">\(|w| &lt; 1\)</span>?</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>At first sight this is an exercise in manipulating moduli and conjugates, ending in a strange-looking inequality. Why would anyone care about <span class="math inline">\(\frac{|z - w|}{|1 - zw^*|}\)</span>?</p>
+<p>Because it is a distance. Not the ordinary distance between <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span>, but the distance in a different geometry, one in which the unit disc is an entire infinite universe, straight lines are circular arcs, and the angles of a triangle add up to less than <span class="math inline">\(180^\circ\)</span>. This is <em>hyperbolic geometry</em>, discovered in the nineteenth century after two thousand years of attempts to prove Euclid’s parallel postulate, and the inequality in this question turns out to be its triangle inequality, in disguise. Even more surprisingly, the right-hand side is the formula for adding velocities in special relativity, which we met in <a href="../ch03/addition-laws.html">Section 3.8</a>.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>How does <span class="math inline">\(|z - w| \leq |z| + |w|\)</span> follow from a diagram? (Think of <span class="math inline">\(z\)</span> and <span class="math inline">\(-w\)</span> as vectors.)</p>
+</div>
+<p><span class="math inline">\(z - w = z + (-w)\)</span>. Draw <span class="math inline">\(z\)</span> as an arrow from the origin, then <span class="math inline">\(-w\)</span> as an arrow from the tip of <span class="math inline">\(z\)</span>. The arrow from the origin to the final point is <span class="math inline">\(z - w\)</span>, and the three arrows form a triangle with sides <span class="math inline">\(|z|\)</span>, <span class="math inline">\(|w|\)</span> and <span class="math inline">\(|z - w|\)</span>. One side of a triangle is at most the sum of the other two.</p>
+<p>Also recall that <span class="math inline">\(|a|^2 = aa^*\)</span> for any complex number <span class="math inline">\(a\)</span>. That converts every modulus in the question into algebra.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-expanding-the-moduli" class="stage"><span class="stage-n">Stage 1</span> Expanding the moduli</h4>
+<div class="askyourself">
+<p>Expand <span class="math inline">\(|z - w|^2 = (z - w)(z^* - w^*)\)</span>. Compare with <span class="math inline">\((|z| + |w|)^2\)</span>.</p>
+</div>
+<p><span class="math inline">\(|z - w|^2 = zz^* - zw^* - z^*w + ww^* = |z|^2 + |w|^2 - zw^* - z^*w\)</span>. Meanwhile <span class="math inline">\((|z| + |w|)^2 - E = |z|^2 + 2|z||w| + |w|^2 - zw^* - z^*w - 2|zw|\)</span>, and since <span class="math inline">\(|z||w| = |zw|\)</span> this is the same.<span class="qed" aria-label="end of proof">■</span></p>
+<p><span class="math inline">\(E = (zw^*) + (zw^*)^* + 2|zw| = 2\,\mathrm{Re}(zw^*) + 2|zw|\)</span>, which is real. And <span class="math inline">\(E = (|z| + |w|)^2 - |z - w|^2 \geq 0\)</span> by the triangle inequality.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-second-identity" class="stage"><span class="stage-n">Stage 2</span> The second identity</h4>
+<p><span class="math inline">\(|1 - zw^*|^2 = (1 - zw^*)(1 - z^*w) = 1 - zw^* - z^*w + |z|^2|w|^2\)</span>, while <span class="math inline">\((1 + |zw|)^2 - E = 1 + 2|zw| + |zw|^2 - zw^* - z^*w - 2|zw|\)</span>, which is the same.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-the-inequality" class="stage"><span class="stage-n">Stage 3</span> The inequality</h4>
+<div class="askyourself">
+<p>Write <span class="math inline">\(A = (|z| + |w|)^2\)</span> and <span class="math inline">\(B = (1 + |zw|)^2\)</span>. The inequality, squared, says <span class="math inline">\(\frac{A - E}{B - E} \leq \frac AB\)</span>. When is that true?</p>
+</div>
+<p>Both sides of the required inequality are non-negative, so it is equivalent to its square, <span class="math inline">\(\frac{A - E}{B - E} \leq \frac{A}{B}\)</span>. Assuming <span class="math inline">\(B - E = |1 - zw^*|^2 &gt; 0\)</span>, multiply out: <span class="math display">\[(A - E)B \leq A(B - E) \iff -EB \leq -EA \iff E(B - A) \geq 0.\]</span> Since <span class="math inline">\(E \geq 0\)</span>, this holds whenever <span class="math inline">\(B \geq A\)</span>, that is, <span class="math inline">\(1 + |zw| \geq |z| + |w|\)</span>.</p>
+<div class="pausebox">
+<p>Show that <span class="math inline">\(1 + |z||w| - |z| - |w|\)</span> factorises. When is it non-negative?</p>
+</div>
+<p><span class="math inline">\(1 + |z||w| - |z| - |w| = (1 - |z|)(1 - |w|)\)</span>. If <span class="math inline">\(|z| &gt; 1\)</span> and <span class="math inline">\(|w| &gt; 1\)</span>, both factors are negative and the product is positive. So <span class="math inline">\(B \geq A\)</span> and the inequality holds.<span class="qed" aria-label="end of proof">■</span></p>
+<p>If instead <span class="math inline">\(|z| &lt; 1\)</span> and <span class="math inline">\(|w| &lt; 1\)</span>, both factors are positive, the product is again positive, and the same argument works: <strong>yes</strong>, the inequality holds in this case too. (In both cases <span class="math inline">\(|zw^*| \neq 1\)</span>, so <span class="math inline">\(1 - zw^* \neq 0\)</span> and the left-hand side is defined.) It is the mixed case, one inside the unit circle and one outside, where it can fail.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong><span class="math inline">\(|a|^2 = aa^*\)</span>.</strong> Every identity came from expanding products of conjugates. This is the standard way to handle moduli algebraically.</p></li>
+<li><p><strong>Reduce to the sign of one quantity.</strong> After squaring and cross-multiplying, the whole inequality depended on the sign of <span class="math inline">\((1 - |z|)(1 - |w|)\)</span>.</p></li>
+<li><p><strong>Check other cases.</strong> The final question asked about <span class="math inline">\(|z|, |w| &lt; 1\)</span>; the same factorisation answered it immediately.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Non-Euclidean geometry</div>
+<p>For two thousand years mathematicians tried to prove Euclid’s fifth postulate (through a point not on a line, there is exactly one parallel to the line) from his other axioms. In the 1820s and 1830s Nikolai Lobachevsky, János Bolyai and (privately) Gauss realised that it cannot be done: there is a perfectly consistent geometry in which there are infinitely many parallels. In 1882 Henri Poincaré found a beautiful model of it inside the unit disc. Points are points of the open disc; “straight lines” are diameters and circular arcs that meet the boundary circle at right angles; and the distance between <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> is <span class="math display">\[d(z, w) = 2\tanh^{-1}\rho(z, w), \qquad\text{where}\qquad \rho(z, w) = \frac{|z - w|}{|1 - zw^*|}.\]</span> As a point approaches the boundary circle, its distance from the centre tends to infinity: the disc is a whole infinite plane, seen through a distorting lens.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-5-8-1.svg" alt="Figure 5.8.1"><figcaption><span class="fig-label">Figure 5.8.1</span> The Poincaré disc. Hyperbolic “straight lines” are diameters or arcs of circles meeting the boundary at right angles (grey). The hyperbolic triangle with vertices <span class="math inline">\(0\)</span>, <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> has two sides along diameters (amber) and one along an arc (plum). The inequality in the question says that the plum side is no longer, in hyperbolic distance, than the other two put together.</figcaption></figure>
+<h3 id="the-triangle-inequality-in-disguise">The triangle inequality in disguise</h3>
+<p>Here is what the question proved, for <span class="math inline">\(|z|, |w| &lt; 1\)</span>. Write <span class="math inline">\(|z| = \tanh a\)</span> and <span class="math inline">\(|w| = \tanh b\)</span>, so that the hyperbolic distances from <span class="math inline">\(0\)</span> to <span class="math inline">\(z\)</span> and <span class="math inline">\(w\)</span> are <span class="math inline">\(2a\)</span> and <span class="math inline">\(2b\)</span>. Then by the addition formula for <span class="math inline">\(\tanh\)</span> from <a href="../ch03/addition-laws.html">Section 3.8</a>, <span class="math display">\[\frac{|z| + |w|}{1 + |zw|} = \frac{\tanh a + \tanh b}{1 + \tanh a\tanh b} = \tanh(a + b).\]</span> So the inequality says <span class="math inline">\(\tanh\bigl(\frac12 d(z, w)\bigr) \leq \tanh(a + b)\)</span>, that is, <span class="math display">\[d(z, w) \leq 2a + 2b = d(z, 0) + d(0, w).\]</span> This is the triangle inequality for hyperbolic distance (Figure 5.8.1). The relativistic velocity-addition formula and hyperbolic geometry are secretly the same thing: the set of possible velocities in special relativity, with the right notion of distance, <em>is</em> a hyperbolic space. We return to this in Section 7.6.</p>
+<h3 id="symmetries-of-the-disc">Symmetries of the disc</h3>
+<p>Why is <span class="math inline">\(\rho\)</span> the right quantity? The maps <span class="math inline">\(z \mapsto \dfrac{z - a}{1 - a^*z}\)</span>, for <span class="math inline">\(|a| &lt; 1\)</span>, send the unit disc to itself, preserve the hyperbolic distance, and move <span class="math inline">\(a\)</span> to the centre. They are the hyperbolic analogues of translations, and <span class="math inline">\(\rho(z, w)\)</span> is exactly <span class="math inline">\(|{\text{image of } z}|\)</span> when <span class="math inline">\(w\)</span> is moved to the centre. These <em>Möbius transformations</em> are a central topic in complex analysis. M. C. Escher’s <em>Circle Limit</em> woodcuts, inspired by a diagram of the mathematician H. S. M. Coxeter, show tilings of the Poincaré disc by congruent fish and angels, which shrink towards the edge because hyperbolic distances blow up there.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Ask what an expression means</div>
+<p><em>When an algebraic expression keeps appearing, ask whether it has a meaning: a distance, an angle, a probability, a symmetry.</em></p>
+<p>Here a strange ratio of moduli turned out to be a distance in another geometry, and a strange inequality turned out to be its triangle inequality. Recognising the meaning explains why the result is true and where it leads.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A numerical check.</strong> Take <span class="math inline">\(z = \frac12\)</span> and <span class="math inline">\(w = -\frac12\)</span>. Compute both sides of the inequality. Then compute the hyperbolic distances <span class="math inline">\(d(z, 0)\)</span>, <span class="math inline">\(d(0, w)\)</span> and <span class="math inline">\(d(z, w)\)</span> and check the triangle inequality is an equality here. Why?</p></li>
+<li><p><strong>The mixed case.</strong> Find <span class="math inline">\(z\)</span>, <span class="math inline">\(w\)</span> with <span class="math inline">\(|z| &lt; 1 &lt; |w|\)</span> for which the inequality fails.</p></li>
+<li><p><strong>An isometry.</strong> Let <span class="math inline">\(f(z) = \dfrac{z - a}{1 - a^*z}\)</span> with <span class="math inline">\(|a| &lt; 1\)</span>. Show that <span class="math inline">\(|f(z)| = 1\)</span> whenever <span class="math inline">\(|z| = 1\)</span>, and that <span class="math inline">\(f(a) = 0\)</span>. Show that <span class="math inline">\(\rho(f(z), f(w)) = \rho(z, w)\)</span>.</p></li>
+<li><p><strong>Infinity is near.</strong> Show that the hyperbolic distance from <span class="math inline">\(0\)</span> to <span class="math inline">\(r\)</span> (with <span class="math inline">\(0 &lt; r &lt; 1\)</span>) is <span class="math inline">\(\ln\frac{1+r}{1-r}\)</span>, and that it tends to infinity as <span class="math inline">\(r \to 1\)</span>. How close to the boundary must a point be to be hyperbolic distance <span class="math inline">\(10\)</span> from the centre?</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Caroline Series, “Hyperbolic geometry” lecture notes</strong> (University of Warwick, freely available). A clear first course, starting from the Poincaré disc.</p></li>
+<li><p><strong>Jeremy Gray, <em>Ideas of Space</em></strong> (Oxford University Press). The history of non-Euclidean geometry from Euclid to Einstein.</p></li>
+<li><p><strong>Tristan Needham, <em>Visual Complex Analysis</em></strong> (Oxford University Press). Chapter 6 covers non-Euclidean geometry and Möbius transformations, with beautiful pictures.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="complex-exponential.html">← 5.7 The Complex Exponential as a Map</a><a class="next" href="wrap-up.html">→ Looking back</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

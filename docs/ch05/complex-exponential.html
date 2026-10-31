@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5.7 The Complex Exponential as a Map — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 5 · Complex Numbers</a>
+    <div class="src">STEP II · 1997 · Question 5</div>
+    <div class="sec-head"><span class="sec-num">5.7</span><h1>The Complex Exponential as a Map</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-7-complex-exponential.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 5</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The complex numbers <span class="math inline">\(w = u + \mathrm{i}v\)</span> and <span class="math inline">\(z = x + \mathrm{i}y\)</span> are related by the equation <span class="math display">\[z = (\cos v + \mathrm{i}\sin v)\mathrm{e}^u.\]</span> Find all <span class="math inline">\(w\)</span> which correspond to <span class="math inline">\(z = \mathrm{i}\,\mathrm{e}\)</span>.</p>
+<p>Find the loci in the <span class="math inline">\(x\)</span>–<span class="math inline">\(y\)</span> plane corresponding to the lines <span class="math inline">\(u =\)</span> constant in the <span class="math inline">\(u\)</span>–<span class="math inline">\(v\)</span> plane. Find also the loci corresponding to the lines <span class="math inline">\(v =\)</span> constant. Illustrate your answers with clearly labelled sketches.</p>
+<p>Identify two subsets <span class="math inline">\(W_1\)</span> and <span class="math inline">\(W_2\)</span> of the <span class="math inline">\(u\)</span>–<span class="math inline">\(v\)</span> plane each of which is in one-to-one correspondence with the first quadrant <span class="math inline">\(\{(x, y) : x &gt; 0, y &gt; 0\}\)</span> of the <span class="math inline">\(x\)</span>–<span class="math inline">\(y\)</span> plane. Identify also two subsets <span class="math inline">\(W_3\)</span> and <span class="math inline">\(W_4\)</span> each of which is in one-to-one correspondence with the set <span class="math inline">\(\{z : 0 &lt; |z| &lt; 1\}\)</span>.</p>
+<p>[<strong>NB</strong> ‘one-to-one’ means here that to each value of <span class="math inline">\(w\)</span> there is only one corresponding value of <span class="math inline">\(z\)</span>, and vice-versa.]</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>You know the exponential function as a curve, <span class="math inline">\(y = e^x\)</span>. But a function of a complex variable cannot be drawn as a curve: its input is a point of a plane and so is its output. The way to picture it is as a <em>map</em>, a transformation that moves every point of one plane to a point of another, stretching and bending as it goes.</p>
+<p>The formula in the question is <span class="math inline">\(z = e^{u}(\cos v + \mathrm{i}\sin v) = e^{u + \mathrm{i}v} = e^w\)</span>. Seen as a map, the complex exponential does something remarkable: it rolls up a horizontal strip of the plane into a whole plane (minus the origin), wrapping vertical lines round circles and laying horizontal lines out as rays. And because it wraps round, it is not one-to-one: infinitely many points go to each point. This is why the complex logarithm is “multi-valued”, one of the first surprises of complex analysis.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>What are the modulus and argument of <span class="math inline">\(z = e^u(\cos v + \mathrm{i}\sin v)\)</span> in terms of <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>?</p>
+</div>
+<p><span class="math inline">\(|z| = e^u\)</span> and <span class="math inline">\(\arg z = v\)</span> (up to multiples of <span class="math inline">\(2\pi\)</span>). So the real part <span class="math inline">\(u\)</span> of <span class="math inline">\(w\)</span> controls the distance from the origin, exponentially, and the imaginary part <span class="math inline">\(v\)</span> controls the direction. That one observation answers almost every part of the question.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-solving-ew-mathrmie" class="stage"><span class="stage-n">Stage 1</span> Solving <span class="math inline">\(e^w = \mathrm{i}e\)</span></h4>
+<div class="askyourself">
+<p>What are the modulus and argument of <span class="math inline">\(\mathrm{i}e\)</span>?</p>
+</div>
+<p><span class="math inline">\(|\mathrm{i}e| = e\)</span> and <span class="math inline">\(\arg(\mathrm{i}e) = \frac\pi2\)</span>. So we need <span class="math inline">\(e^u = e\)</span>, giving <span class="math inline">\(u = 1\)</span>, and <span class="math inline">\(v = \frac\pi2 + 2k\pi\)</span> for any integer <span class="math inline">\(k\)</span>. The solutions are <span class="math display">\[w = 1 + \mathrm{i}\left(\tfrac\pi2 + 2k\pi\right), \qquad k \in \mathbb{Z}.\]</span> There are infinitely many, spaced <span class="math inline">\(2\pi\)</span> apart vertically.</p>
+<h4 id="stagemark2-the-images-of-grid-lines" class="stage"><span class="stage-n">Stage 2</span> The images of grid lines</h4>
+<p>On a vertical line <span class="math inline">\(u = c\)</span>, <span class="math inline">\(|z| = e^c\)</span> is fixed while <span class="math inline">\(v\)</span> varies: the image is the <em>circle</em> of radius <span class="math inline">\(e^c\)</span> centred at the origin, traced round infinitely often as <span class="math inline">\(v\)</span> runs over all real numbers.</p>
+<p>On a horizontal line <span class="math inline">\(v = d\)</span>, <span class="math inline">\(\arg z = d\)</span> is fixed while <span class="math inline">\(|z| = e^u\)</span> takes every positive value: the image is the open <em>ray</em> (half-line) from the origin at angle <span class="math inline">\(d\)</span>, not including the origin itself. Lines <span class="math inline">\(v = d\)</span> and <span class="math inline">\(v = d + 2\pi\)</span> give the same ray.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-5-7-1.svg" alt="Figure 5.7.1"><figcaption><span class="fig-label">Figure 5.7.1</span> The complex exponential as a map. Vertical lines <span class="math inline">\(u = c\)</span> in the <span class="math inline">\(w\)</span>-plane (teal) go to circles of radius <span class="math inline">\(e^c\)</span>; horizontal lines <span class="math inline">\(v = d\)</span> (amber, plum) go to rays at angle <span class="math inline">\(d\)</span>. The shaded strip <span class="math inline">\(W_1 = \{0 &lt; v &lt; \frac\pi2\}\)</span> goes exactly onto the first quadrant. Notice that the grid lines meet at right angles in both pictures: the map preserves angles. The origin (open circle) is never reached.</figcaption></figure>
+<h4 id="stagemark3-one-to-one-pieces" class="stage"><span class="stage-n">Stage 3</span> One-to-one pieces</h4>
+<div class="askyourself">
+<p>Which points <span class="math inline">\(w\)</span> map into the first quadrant <span class="math inline">\(x &gt; 0\)</span>, <span class="math inline">\(y &gt; 0\)</span>? Why is that set too big to be in one-to-one correspondence with the quadrant?</p>
+</div>
+<p><span class="math inline">\(z\)</span> is in the open first quadrant exactly when <span class="math inline">\(\arg z\)</span> is strictly between <span class="math inline">\(0\)</span> and <span class="math inline">\(\frac\pi2\)</span> (modulo <span class="math inline">\(2\pi\)</span>), with any modulus. So <span class="math inline">\(w\)</span> must satisfy <span class="math inline">\(0 &lt; v &lt; \frac\pi2\)</span> <em>or</em> <span class="math inline">\(2\pi &lt; v &lt; \frac{5\pi}{2}\)</span> or …: infinitely many horizontal strips, each of which maps onto the whole quadrant. Any one strip is in one-to-one correspondence with it, since within a strip <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are determined uniquely by <span class="math inline">\(|z|\)</span> and <span class="math inline">\(\arg z\)</span>. So we can take <span class="math display">\[W_1 = \{u + \mathrm{i}v : 0 &lt; v &lt; \tfrac\pi2\}, \qquad W_2 = \{u + \mathrm{i}v : 2\pi &lt; v &lt; \tfrac{5\pi}{2}\}.\]</span></p>
+<div class="pausebox">
+<p>Now find two sets in the <span class="math inline">\(w\)</span>-plane in one-to-one correspondence with the punctured disc <span class="math inline">\(0 &lt; |z| &lt; 1\)</span>.</p>
+</div>
+<p><span class="math inline">\(|z| &lt; 1\)</span> means <span class="math inline">\(e^u &lt; 1\)</span>, that is <span class="math inline">\(u &lt; 0\)</span>; and every argument must be covered exactly once, so <span class="math inline">\(v\)</span> should range over an interval of length exactly <span class="math inline">\(2\pi\)</span>, including one end but not the other. For example, <span class="math display">\[W_3 = \{u + \mathrm{i}v : u &lt; 0,\ 0 \leq v &lt; 2\pi\}, \qquad W_4 = \{u + \mathrm{i}v : u &lt; 0,\ -\pi &lt; v \leq \pi\}.\]</span> These are half-strips with one edge included and one excluded. (If both edges were included, the points on the positive real axis would be hit twice; if neither, they would be missed.)<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Modulus and argument separate the variables.</strong> <span class="math inline">\(|e^w| = e^{\mathrm{Re}\,w}\)</span> and <span class="math inline">\(\arg e^w = \mathrm{Im}\,w\)</span>, so the real and imaginary parts of <span class="math inline">\(w\)</span> control distance and direction independently.</p></li>
+<li><p><strong>Picture a complex function as a map.</strong> Tracking where grid lines go gives a clear picture of a function that cannot be drawn as a graph.</p></li>
+<li><p><strong>Periodicity destroys injectivity.</strong> <span class="math inline">\(e^{w + 2\pi\mathrm{i}} = e^w\)</span>, so the map is many-to-one, and must be restricted to a strip of height <span class="math inline">\(2\pi\)</span> to have an inverse.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">The complex logarithm</div>
+<p>On the real line, <span class="math inline">\(\ln\)</span> is the inverse of <span class="math inline">\(\exp\)</span>. In the complex plane, <span class="math inline">\(e^w = z\)</span> has infinitely many solutions <span class="math inline">\(w\)</span> for each <span class="math inline">\(z \neq 0\)</span>, differing by multiples of <span class="math inline">\(2\pi\mathrm{i}\)</span>, so “<span class="math inline">\(\log z\)</span>” is not a single number. To get a genuine function you must choose a <em>branch</em>, which means choosing a strip like <span class="math inline">\(W_3\)</span> or <span class="math inline">\(W_4\)</span>: the <em>principal branch</em> takes <span class="math inline">\(-\pi &lt; \arg z \leq \pi\)</span>. Every branch has a jump somewhere, along a ray from the origin called a <em>branch cut</em>. Bernhard Riemann’s resolution, in his thesis of 1851, was to stop insisting that the logarithm lives on a plane: it lives on an infinite spiral staircase, a <em>Riemann surface</em>, on which it is single-valued and smooth. Riemann surfaces are now central to geometry, number theory and string theory.</p>
+</div>
+<h3 id="angles-are-preserved">Angles are preserved</h3>
+<p>Look again at Figure 5.7.1. The vertical and horizontal grid lines meet at right angles, and so do the circles and rays they become. This is not a coincidence: wherever the derivative of a complex function is non-zero, the function preserves the angles between curves. Such maps are called <em>conformal</em>. Locally, a conformal map is just a rotation and a scaling, which is exactly what multiplication by the complex number <span class="math inline">\(f&#39;(z)\)</span> does. Conformal maps are used to solve problems in fluid flow, electrostatics and heat conduction, by transforming a complicated region into a simple one where the answer is known.</p>
+<h3 id="mercators-map">Mercator’s map</h3>
+<p>Here is a surprise connecting this section with <a href="../ch04/spherical-loaf.html">Section 4.8</a>. Gerardus Mercator’s map of 1569 was designed so that a course of constant compass bearing is a straight line, which requires preserving angles. If you first project the globe stereographically onto a plane (from the north pole), then take the complex logarithm, the result is exactly Mercator’s projection: meridians become vertical lines and lines of latitude become horizontal lines, just as rays and circles become horizontal and vertical lines under <span class="math inline">\(\log\)</span>. The exponential map in this section, run backwards, is the mathematics of the navigator’s chart.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Visualise functions as transformations</div>
+<p><em>When a function cannot be drawn as a graph, draw what it does: follow a grid of simple curves and see where they go.</em></p>
+<p>For complex functions, the images of horizontal and vertical lines, or of circles and rays, usually tell the whole story. This way of thinking, about what a map does to shapes, runs through all of geometry and analysis.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Solving equations.</strong> Find all complex <span class="math inline">\(w\)</span> with <span class="math inline">\(e^w = -1\)</span>, and all <span class="math inline">\(w\)</span> with <span class="math inline">\(e^w = 1 + \mathrm{i}\)</span>.</p></li>
+<li><p><strong>The image of a square.</strong> Find and sketch the image under <span class="math inline">\(z = e^w\)</span> of the square with corners <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(1 + \mathrm{i}\)</span> and <span class="math inline">\(\mathrm{i}\)</span>.</p></li>
+<li><p><strong>Right angles.</strong> Show directly that the circle <span class="math inline">\(|z| = e^c\)</span> and the ray <span class="math inline">\(\arg z = d\)</span> meet at right angles, and explain why this is consistent with the lines <span class="math inline">\(u = c\)</span> and <span class="math inline">\(v = d\)</span> being perpendicular.</p></li>
+<li><p><strong>Squaring.</strong> Find the images of the lines <span class="math inline">\(x = c\)</span> and <span class="math inline">\(y = d\)</span> under the map <span class="math inline">\(z \mapsto z^2\)</span>. Show that they are parabolas, and that they meet at right angles.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Tristan Needham, <em>Visual Complex Analysis</em></strong> (Oxford University Press). Chapters 2 and 4 treat the exponential, the logarithm and conformal maps with superb pictures.</p></li>
+<li><p><strong>Hilary Priestley, <em>Introduction to Complex Analysis</em></strong> (Oxford University Press). A clear first undergraduate text.</p></li>
+<li><p><strong>Ian Stewart &amp; David Tall, <em>Complex Analysis</em></strong> (Cambridge University Press). Another excellent undergraduate introduction, with an emphasis on geometry.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="fermat-point.html">← 5.6 The Fermat Point</a><a class="next" href="poincare-disc.html">→ 5.8 A Hidden Distance in the Disc</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

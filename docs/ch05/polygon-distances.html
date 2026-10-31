@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5.4 Distances in a Regular Polygon — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 5 · Complex Numbers</a>
+    <div class="src">STEP III · 2016 · Question 7</div>
+    <div class="sec-head"><span class="sec-num">5.4</span><h1>Distances in a Regular Polygon</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-4-polygon-distances.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 5</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Let <span class="math inline">\(\omega = \mathrm{e}^{2\pi\mathrm{i}/n}\)</span>, where <span class="math inline">\(n\)</span> is a positive integer. Show that, for any complex number <span class="math inline">\(z\)</span>, <span class="math display">\[(z - 1)(z - \omega)\cdots(z - \omega^{n-1}) = z^n - 1.\]</span> The points <span class="math inline">\(X_0, X_1, \ldots, X_{n-1}\)</span> lie on a circle with centre <span class="math inline">\(O\)</span> and radius <span class="math inline">\(1\)</span>, and are the vertices of a regular polygon.</p>
+<ol class="roman">
+<li><p>The point <span class="math inline">\(P\)</span> is equidistant from <span class="math inline">\(X_0\)</span> and <span class="math inline">\(X_1\)</span>. Show that, if <span class="math inline">\(n\)</span> is even, <span class="math display">\[|PX_0| \times |PX_1| \times \cdots \times |PX_{n-1}| = |OP|^n + 1,\]</span> where <span class="math inline">\(|PX_k|\)</span> denotes the distance from <span class="math inline">\(P\)</span> to <span class="math inline">\(X_k\)</span>.</p>
+<p>Give the corresponding result when <span class="math inline">\(n\)</span> is odd. (There are two cases to consider.)</p></li>
+<li><p>Show that <span class="math display">\[|X_0X_1| \times |X_0X_2| \times \cdots \times |X_0X_{n-1}| = n.\]</span></p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Draw a regular heptagon in a circle of radius <span class="math inline">\(1\)</span>. From one vertex, draw the six chords to the other vertices and measure them. Multiply the six lengths together. The answer is exactly <span class="math inline">\(7\)</span>. For a regular <span class="math inline">\(100\)</span>-gon, the product of the <span class="math inline">\(99\)</span> chords from one vertex is exactly <span class="math inline">\(100\)</span>.</p>
+<p>Why should anything so clean be true? The chord lengths themselves are messy (<span class="math inline">\(2\sin\frac{\pi}{7}\)</span>, <span class="math inline">\(2\sin\frac{2\pi}{7}\)</span>, and so on). The question shows that the result is a geometric shadow of a simple algebraic identity, the factorisation of <span class="math inline">\(z^n - 1\)</span> over the roots of unity, and that distances in the plane are moduli of complex numbers.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Put the polygon’s vertices at the <span class="math inline">\(n\)</span>th roots of unity, <span class="math inline">\(X_k = \omega^k\)</span>. If <span class="math inline">\(P\)</span> is the point <span class="math inline">\(z\)</span>, what is <span class="math inline">\(|PX_k|\)</span> in terms of <span class="math inline">\(z\)</span>? So what is the product of all the distances?</p>
+</div>
+<p><span class="math inline">\(|PX_k| = |z - \omega^k|\)</span>, and the product of all of them is <span class="math inline">\(|(z - 1)(z - \omega)\cdots(z - \omega^{n-1})|\)</span>, which the first part of the question says is <span class="math inline">\(|z^n - 1|\)</span>. A product of <span class="math inline">\(n\)</span> distances has become a single modulus. Everything else is choosing <span class="math inline">\(z\)</span> cleverly.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-factorisation" class="stage"><span class="stage-n">Stage 1</span> The factorisation</h4>
+<p>Each <span class="math inline">\(\omega^k\)</span> satisfies <span class="math inline">\((\omega^k)^n = (\omega^n)^k = 1\)</span>, so <span class="math inline">\(1, \omega, \ldots, \omega^{n-1}\)</span> are roots of <span class="math inline">\(z^n - 1\)</span>. They are distinct (their arguments <span class="math inline">\(\frac{2\pi k}{n}\)</span> are different, between <span class="math inline">\(0\)</span> and <span class="math inline">\(2\pi\)</span>), so they are all <span class="math inline">\(n\)</span> roots of this degree-<span class="math inline">\(n\)</span> polynomial with leading coefficient <span class="math inline">\(1\)</span>, and <span class="math inline">\(z^n - 1 = \prod_{k=0}^{n-1}(z - \omega^k)\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-a-point-on-the-perpendicular-bisector" class="stage"><span class="stage-n">Stage 2</span> A point on the perpendicular bisector</h4>
+<p>Rotate the picture so that <span class="math inline">\(X_k = \omega^k\)</span>. The points equidistant from <span class="math inline">\(X_0 = 1\)</span> and <span class="math inline">\(X_1 = \omega\)</span> form the perpendicular bisector of <span class="math inline">\(X_0X_1\)</span>, which is the line through <span class="math inline">\(O\)</span> at angle <span class="math inline">\(\frac\pi n\)</span>.</p>
+<div class="askyourself">
+<p>So <span class="math inline">\(P\)</span> is <span class="math inline">\(z = te^{\mathrm{i}\pi/n}\)</span> for some real <span class="math inline">\(t\)</span> (positive or negative), with <span class="math inline">\(|OP| = |t|\)</span>. What is <span class="math inline">\(z^n\)</span>?</p>
+</div>
+<p><span class="math inline">\(z^n = t^ne^{\mathrm{i}\pi} = -t^n\)</span>. So <span class="math display">\[|PX_0| \times \cdots \times |PX_{n-1}| = |z^n - 1| = |{-t^n} - 1| = |t^n + 1|.\]</span> If <span class="math inline">\(n\)</span> is even, <span class="math inline">\(t^n = |t|^n \geq 0\)</span>, so this is <span class="math inline">\(|OP|^n + 1\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>What happens when <span class="math inline">\(n\)</span> is odd? Consider <span class="math inline">\(t &gt; 0\)</span> and <span class="math inline">\(t &lt; 0\)</span> separately, and say what each case means geometrically.</p>
+</div>
+<p>If <span class="math inline">\(n\)</span> is odd, <span class="math inline">\(t^n\)</span> has the same sign as <span class="math inline">\(t\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(t \geq 0\)</span>, so <span class="math inline">\(P\)</span> is on the same side of <span class="math inline">\(O\)</span> as the midpoint of <span class="math inline">\(X_0X_1\)</span>, the product is <span class="math inline">\(|OP|^n + 1\)</span>.</p></li>
+<li><p>If <span class="math inline">\(t &lt; 0\)</span>, so <span class="math inline">\(P\)</span> is on the opposite side of <span class="math inline">\(O\)</span> (towards the vertex opposite the side <span class="math inline">\(X_0X_1\)</span>), then <span class="math inline">\(t^n = -|OP|^n\)</span> and the product is <span class="math inline">\(\bigl|1 - |OP|^n\bigr|\)</span>.</p></li>
+</ul>
+<p>For odd <span class="math inline">\(n\)</span>, the line through <span class="math inline">\(O\)</span> perpendicular to <span class="math inline">\(X_0X_1\)</span> passes through a vertex on the far side; in the second case, the product vanishes when <span class="math inline">\(P\)</span> is that vertex (<span class="math inline">\(|OP| = 1\)</span>), as it must, since one of the distances is then zero.</p>
+<h4 id="stagemark3-chords-from-a-vertex" class="stage"><span class="stage-n">Stage 3</span> Chords from a vertex</h4>
+<div class="askyourself">
+<p>Now <span class="math inline">\(P = X_0\)</span>, and one of the distances, <span class="math inline">\(|X_0X_0|\)</span>, is zero, so <span class="math inline">\(|z^n - 1| = 0\)</span> is no use. What polynomial has the roots <span class="math inline">\(\omega, \omega^2, \ldots, \omega^{n-1}\)</span> but not <span class="math inline">\(1\)</span>?</p>
+</div>
+<p>Dividing <span class="math inline">\(z^n - 1\)</span> by <span class="math inline">\(z - 1\)</span>, <span class="math display">\[(z - \omega)(z - \omega^2)\cdots(z - \omega^{n-1}) = \frac{z^n - 1}{z - 1} = 1 + z + z^2 + \cdots + z^{n-1}.\]</span> The right-hand side is a polynomial, so this holds for every <span class="math inline">\(z\)</span>, including <span class="math inline">\(z = 1\)</span>, where it equals <span class="math inline">\(n\)</span>. Taking moduli at <span class="math inline">\(z = 1\)</span>, <span class="math display">\[|X_0X_1| \times |X_0X_2| \times \cdots \times |X_0X_{n-1}| = |1 - \omega|\,|1 - \omega^2|\cdots|1 - \omega^{n-1}| = n. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-5-4-1.svg" alt="Figure 5.4.1"><figcaption><span class="fig-label">Figure 5.4.1</span> A regular heptagon inscribed in a circle of radius <span class="math inline">\(1\)</span>. The six chords from <span class="math inline">\(X_0\)</span> have lengths <span class="math inline">\(2\sin\frac{k\pi}{7}\)</span>, about <span class="math inline">\(0.868\)</span> (teal), <span class="math inline">\(1.564\)</span> (amber) and <span class="math inline">\(1.950\)</span> (plum), each occurring twice. Their product is exactly <span class="math inline">\(7\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Distances are moduli.</strong> <span class="math inline">\(|PX_k| = |z - \omega^k|\)</span>, so a product of distances is the modulus of a product, and the product had a closed form.</p></li>
+<li><p><strong>Use symmetry to choose coordinates.</strong> Rotating so that the vertices are the roots of unity, and using the symmetry line through <span class="math inline">\(O\)</span>, made <span class="math inline">\(z^n\)</span> easy to compute.</p></li>
+<li><p><strong>Cancel the zero before substituting.</strong> As in <a href="../ch05/z2n-plus-one.html">Section 5.3</a>, dividing out the factor that vanished at the point of interest rescued the substitution.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Cotes’s theorem</div>
+<p>Part (i) is a theorem of Roger Cotes, the brilliant young Cambridge mathematician who edited the second edition of Newton’s <em>Principia</em> and died in 1716 at the age of thirty-three (Newton said “if he had lived we might have known something”). Cotes found that if <span class="math inline">\(P\)</span> lies on a ray from <span class="math inline">\(O\)</span> through a vertex of a regular <span class="math inline">\(n\)</span>-gon, then the product of the distances from <span class="math inline">\(P\)</span> to the vertices is <span class="math inline">\(\bigl||OP|^n - 1\bigr|\)</span>, and if <span class="math inline">\(P\)</span> lies on a ray through the midpoint of a side, it is <span class="math inline">\(|OP|^n + 1\)</span>. He used this, without complex numbers, to factorise <span class="math inline">\(x^n \pm 1\)</span> into real quadratics, which he needed for integrating rational functions. The theorem was published after his death, in 1722.</p>
+</div>
+<h3 id="a-product-of-sines">A product of sines</h3>
+<p>Since <span class="math inline">\(|1 - \omega^k| = |e^{-\mathrm{i}\pi k/n} - e^{\mathrm{i}\pi k/n}| = 2\sin\frac{k\pi}{n}\)</span>, part (ii) says <span class="math display">\[\prod_{k=1}^{n-1}\sin\frac{k\pi}{n} = \frac{n}{2^{n-1}}.\]</span> This is the companion of the cosine products in <a href="../ch05/z2n-plus-one.html">Section 5.3</a>. A related product gives the <em>discriminant</em> of <span class="math inline">\(z^n - 1\)</span>: the product of the squared distances between all pairs of distinct <span class="math inline">\(n\)</span>th roots of unity is <span class="math inline">\(n^n\)</span>. Discriminants measure how far apart the roots of a polynomial are, and they are central to the algebra of polynomials and of number fields, which we take up in Chapter 6.</p>
+<h3 id="electrostatics-and-equal-spacing">Electrostatics and equal spacing</h3>
+<p>There is also a physical reading. Place <span class="math inline">\(n\)</span> equal electric charges on a circle; the configuration that minimises the potential energy (with the logarithmic potential of two-dimensional electrostatics) is the regular polygon, and the energy involves exactly <span class="math inline">\(\sum\ln|X_jX_k|\)</span>, the logarithm of a product of distances. Points that are “as spread out as possible” are important in numerical analysis (<a href="../ch03/markov-bound.html">Section 3.6</a>, where the best interpolation points come from a regular polygon via <span class="math inline">\(x = \cos\theta\)</span>) and in the theory of random matrices.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Turn geometry into algebra with complex numbers</div>
+<p><em>Points in the plane are complex numbers, distances are moduli, and regular polygons are roots of unity. A product of distances becomes the modulus of a polynomial.</em></p>
+<p>The translation lets algebraic identities, like the factorisation of <span class="math inline">\(z^n - 1\)</span>, prove geometric facts that would be very hard to see directly.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Check small cases.</strong> Verify part (ii) directly for a square (<span class="math inline">\(n = 4\)</span>) and an equilateral triangle (<span class="math inline">\(n = 3\)</span>).</p></li>
+<li><p><strong>Through a vertex.</strong> Show that if <span class="math inline">\(P\)</span> lies on the ray from <span class="math inline">\(O\)</span> through <span class="math inline">\(X_0\)</span>, then <span class="math inline">\(|PX_0| \times \cdots \times |PX_{n-1}| = \bigl||OP|^n - 1\bigr|\)</span>.</p></li>
+<li><p><strong>The average distance.</strong> Using part (ii) and the AM–GM inequality of <a href="../ch03/am-gm-backwards.html">Section 3.2</a>, show that the average length of the <span class="math inline">\(n - 1\)</span> chords from <span class="math inline">\(X_0\)</span> is at least <span class="math inline">\(n^{1/(n-1)}\)</span>. Find the actual average, <span class="math inline">\(\frac{1}{n-1}\sum_k 2\sin\frac{k\pi}{n}\)</span>, for <span class="math inline">\(n = 6\)</span>, and compare.</p></li>
+<li><p><strong>All the chords.</strong> <span class="hard">harder</span> Show that the product of all <span class="math inline">\(\binom n2\)</span> chord lengths of a regular <span class="math inline">\(n\)</span>-gon inscribed in a unit circle is <span class="math inline">\(n^{n/2}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Tristan Needham, <em>Visual Complex Analysis</em></strong> (Oxford University Press). Geometry with complex numbers, beautifully illustrated.</p></li>
+<li><p><strong>Ross Honsberger, <em>Mathematical Gems</em></strong> (Mathematical Association of America). Several elegant problems about regular polygons.</p></li>
+<li><p><strong>Ronald Gowing, <em>Roger Cotes: Natural Philosopher</em></strong> (Cambridge University Press). A biography of Cotes and his mathematics.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="z2n-plus-one.html">← 5.3 Factorising z²ⁿ + 1</a><a class="next" href="rational-angles.html">→ 5.5 Rational Angles That Aren&#x27;t</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

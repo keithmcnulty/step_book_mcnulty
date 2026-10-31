@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5.6 The Fermat Point — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 5 · Complex Numbers</a>
+    <div class="src">STEP III · 2000 · Question 3</div>
+    <div class="sec-head"><span class="sec-num">5.6</span><h1>The Fermat Point</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-6-fermat-point.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 5</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Given that <span class="math inline">\(\alpha = \mathrm{e}^{\mathrm{i}\pi/3}\)</span>, prove that <span class="math inline">\(1 + \alpha^2 = \alpha\)</span>.</p>
+<p>A triangle in the Argand plane has vertices <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> represented by the complex numbers <span class="math inline">\(p\)</span>, <span class="math inline">\(q\alpha^2\)</span> and <span class="math inline">\(-r\alpha\)</span> respectively, where <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> are positive real numbers. Sketch the triangle <span class="math inline">\(ABC\)</span>.</p>
+<p>Three equilateral triangles <span class="math inline">\(ABL\)</span>, <span class="math inline">\(BCM\)</span> and <span class="math inline">\(CAN\)</span> (each lettered clockwise) are erected on sides <span class="math inline">\(AB\)</span>, <span class="math inline">\(BC\)</span> and <span class="math inline">\(CA\)</span> respectively. Show that the complex number representing <span class="math inline">\(N\)</span> is <span class="math inline">\((1 - \alpha)p - \alpha^2r\)</span> and find similar expressions for the complex numbers representing <span class="math inline">\(L\)</span> and <span class="math inline">\(M\)</span>.</p>
+<p>Show that lines <span class="math inline">\(LC\)</span>, <span class="math inline">\(MA\)</span> and <span class="math inline">\(NB\)</span> all meet at the origin, and that these three line segments have the common length <span class="math inline">\(p + q + r\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Three villages want to build a road network connecting all of them, as short as possible. Where should the junction go? In about 1640 Pierre de Fermat posed the problem of finding the point <span class="math inline">\(P\)</span> inside a triangle that minimises <span class="math inline">\(PA + PB + PC\)</span>, and Evangelista Torricelli solved it: it is the point from which the three sides are seen at angles of <span class="math inline">\(120^\circ\)</span>.</p>
+<p>This question uses complex numbers to prove a beautiful construction of that point. Build an equilateral triangle outwards on each side of the triangle, and join each new apex to the opposite vertex of the original. The three lines meet at a single point, the <em>Fermat point</em>, and all three have the same length, which is the minimum total road length. With complex numbers and one identity about <span class="math inline">\(e^{\mathrm{i}\pi/3}\)</span>, the whole thing is a few lines of algebra.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Where are <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>? What are their arguments? What angles do <span class="math inline">\(OA\)</span>, <span class="math inline">\(OB\)</span> and <span class="math inline">\(OC\)</span> make with each other?</p>
+</div>
+<p><span class="math inline">\(A = p\)</span> lies on the positive real axis (argument <span class="math inline">\(0^\circ\)</span>). <span class="math inline">\(B = q\alpha^2 = qe^{2\pi\mathrm{i}/3}\)</span> has argument <span class="math inline">\(120^\circ\)</span>. <span class="math inline">\(C = -r\alpha = re^{\mathrm{i}\pi}e^{\mathrm{i}\pi/3}\)</span> has argument <span class="math inline">\(240^\circ\)</span>. So the origin is a point inside the triangle from which the three vertices are seen at <span class="math inline">\(120^\circ\)</span> to one another, at distances <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span>. The origin <em>is</em> the Fermat point, by construction; the question shows that the equilateral-triangle construction finds it.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-key-identity" class="stage"><span class="stage-n">Stage 1</span> The key identity</h4>
+<p><span class="math inline">\(\alpha^3 = e^{\mathrm{i}\pi} = -1\)</span>, so <span class="math inline">\(\alpha\)</span> is a root of <span class="math inline">\(z^3 + 1 = (z + 1)(z^2 - z + 1)\)</span>. Since <span class="math inline">\(\alpha \neq -1\)</span>, <span class="math inline">\(\alpha^2 - \alpha + 1 = 0\)</span>, that is, <span class="math inline">\(1 + \alpha^2 = \alpha\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Two consequences will be useful: <span class="math inline">\(1 - \alpha = -\alpha^2\)</span>, and <span class="math inline">\(\alpha - \alpha^2 = 1\)</span>. Also <span class="math inline">\(1 - \alpha = \frac12 - \frac{\sqrt3}{2}\mathrm{i} = e^{-\mathrm{i}\pi/3}\)</span>, the complex conjugate of <span class="math inline">\(\alpha\)</span>.</p>
+<h4 id="stagemark2-equilateral-triangles-as-rotations" class="stage"><span class="stage-n">Stage 2</span> Equilateral triangles as rotations</h4>
+<div class="askyourself">
+<p>Triangle <span class="math inline">\(CAN\)</span> is equilateral, lettered clockwise. If you stand at <span class="math inline">\(C\)</span>, how do you get from <span class="math inline">\(A\)</span> to <span class="math inline">\(N\)</span>? Express <span class="math inline">\(N - C\)</span> in terms of <span class="math inline">\(A - C\)</span>.</p>
+</div>
+<p>Going clockwise round <span class="math inline">\(C\)</span>, <span class="math inline">\(A\)</span>, <span class="math inline">\(N\)</span>, the point <span class="math inline">\(N\)</span> is obtained by rotating <span class="math inline">\(A\)</span> about <span class="math inline">\(C\)</span> through <span class="math inline">\(60^\circ\)</span> clockwise. Multiplying by <span class="math inline">\(e^{-\mathrm{i}\pi/3} = 1 - \alpha\)</span> rotates by <span class="math inline">\(60^\circ\)</span> clockwise, so <span class="math display">\[\begin{aligned}
+  N = C + (1 - \alpha)(A - C) &amp;= -r\alpha + (1 - \alpha)(p + r\alpha) \\
+  &amp;= (1 - \alpha)p + r(\alpha - \alpha^2 - \alpha) = (1 - \alpha)p - \alpha^2r. \qed
+\end{aligned}\]</span> (Rotating clockwise rather than anticlockwise puts <span class="math inline">\(N\)</span> on the far side of <span class="math inline">\(CA\)</span> from the origin, outside the triangle.)</p>
+<div class="pausebox">
+<p>Find <span class="math inline">\(L\)</span> and <span class="math inline">\(M\)</span> in the same way, and simplify using the identities from Stage 1.</p>
+</div>
+<p>Similarly <span class="math inline">\(L = A + (1 - \alpha)(B - A)\)</span> and <span class="math inline">\(M = B + (1 - \alpha)(C - B)\)</span>: <span class="math display">\[\begin{aligned}
+  L &amp;= p + (1 - \alpha)(q\alpha^2 - p) = \alpha p + (\alpha^2 - \alpha^3)q = \alpha p + (\alpha^2 + 1)q = \alpha(p + q), \\
+  M &amp;= q\alpha^2 + (1 - \alpha)(-r\alpha - q\alpha^2) = q\alpha^3 + r(\alpha^2 - \alpha) = -q - r.
+\end{aligned}\]</span> And using <span class="math inline">\(1 - \alpha = -\alpha^2\)</span>, <span class="math inline">\(N = -\alpha^2p - \alpha^2r = -\alpha^2(p + r)\)</span>.</p>
+<h4 id="stagemark3-three-lines-through-the-origin" class="stage"><span class="stage-n">Stage 3</span> Three lines through the origin</h4>
+<div class="askyourself">
+<p>Compare <span class="math inline">\(L = \alpha(p + q)\)</span> with <span class="math inline">\(C = -r\alpha\)</span>. What do you notice? Do the same for <span class="math inline">\(M\)</span> and <span class="math inline">\(A\)</span>, and for <span class="math inline">\(N\)</span> and <span class="math inline">\(B\)</span>.</p>
+</div>
+<p><span class="math inline">\(L\)</span> is a positive multiple of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(C\)</span> is a negative multiple of <span class="math inline">\(\alpha\)</span>. So <span class="math inline">\(L\)</span> and <span class="math inline">\(C\)</span> lie on opposite sides of <span class="math inline">\(O\)</span> on the same line through <span class="math inline">\(O\)</span>, and the segment <span class="math inline">\(LC\)</span> passes through the origin, with length <span class="math inline">\(|L - C| = |\alpha|(p + q + r) = p + q + r\)</span>.</p>
+<p>Likewise <span class="math inline">\(M = -(q + r)\)</span> and <span class="math inline">\(A = p\)</span> lie on the real axis on opposite sides of <span class="math inline">\(O\)</span>, so <span class="math inline">\(MA\)</span> passes through <span class="math inline">\(O\)</span> with length <span class="math inline">\(p + q + r\)</span>. And <span class="math inline">\(N = -\alpha^2(p + r)\)</span>, <span class="math inline">\(B = q\alpha^2\)</span> lie on the line through <span class="math inline">\(O\)</span> in the direction <span class="math inline">\(\alpha^2\)</span>, on opposite sides, so <span class="math inline">\(NB\)</span> passes through <span class="math inline">\(O\)</span> with length <span class="math inline">\(p + q + r\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-5-6-1.svg" alt="Figure 5.6.1"><figcaption><span class="fig-label">Figure 5.6.1</span> The Fermat point, with <span class="math inline">\(p = 2\)</span>, <span class="math inline">\(q = 1.4\)</span>, <span class="math inline">\(r = 1.1\)</span>. Equilateral triangles (amber) are built outwards on the sides of <span class="math inline">\(ABC\)</span>. The lines <span class="math inline">\(LC\)</span>, <span class="math inline">\(MA\)</span> and <span class="math inline">\(NB\)</span> (plum) all pass through the origin <span class="math inline">\(O\)</span>, where the sides of <span class="math inline">\(ABC\)</span> subtend <span class="math inline">\(120^\circ\)</span>, and each has length <span class="math inline">\(p + q + r = 4.5\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Rotation is multiplication.</strong> Building an equilateral triangle meant rotating one vertex about another by <span class="math inline">\(60^\circ\)</span>, which is multiplication by <span class="math inline">\(e^{\pm\mathrm{i}\pi/3}\)</span>.</p></li>
+<li><p><strong>Clever coordinates.</strong> Placing the Fermat point at the origin, with the vertices along the directions <span class="math inline">\(1\)</span>, <span class="math inline">\(\alpha^2\)</span>, <span class="math inline">\(-\alpha\)</span>, made every expression collapse.</p></li>
+<li><p><strong>One identity, used repeatedly.</strong> Every simplification came from <span class="math inline">\(\alpha^2 - \alpha + 1 = 0\)</span> and <span class="math inline">\(\alpha^3 = -1\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Why the Fermat point minimises distance</div>
+<p>Why should <span class="math inline">\(PA + PB + PC\)</span> be smallest at the point where the sides subtend <span class="math inline">\(120^\circ\)</span>? Here is a lovely argument. Rotate the whole picture about <span class="math inline">\(B\)</span> by <span class="math inline">\(60^\circ\)</span>, sending <span class="math inline">\(A\)</span> to <span class="math inline">\(L&#39;\)</span> (the apex of an equilateral triangle on <span class="math inline">\(AB\)</span>) and <span class="math inline">\(P\)</span> to <span class="math inline">\(P&#39;\)</span>. Triangle <span class="math inline">\(BPP&#39;\)</span> is equilateral, so <span class="math inline">\(PB = PP&#39;\)</span>, and <span class="math inline">\(PA = P&#39;L&#39;\)</span>. Then <span class="math inline">\(PA + PB + PC = L&#39;P&#39; + P&#39;P + PC\)</span>, the length of a path from <span class="math inline">\(L&#39;\)</span> to <span class="math inline">\(C\)</span>. That is at least <span class="math inline">\(|L&#39;C|\)</span>, with equality exactly when the path is straight, which happens when the angles at <span class="math inline">\(P\)</span> are <span class="math inline">\(120^\circ\)</span>. So the minimum total length is <span class="math inline">\(|LC| = p + q + r\)</span>, as found in the question. (This works provided every angle of the triangle is less than <span class="math inline">\(120^\circ\)</span>; otherwise the minimum is at the obtuse vertex.)</p>
+</div>
+<h3 id="soap-films-and-steiner-trees">Soap films and Steiner trees</h3>
+<p>Dip a frame with three pegs (representing <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>) into soapy water: the soap film, minimising its surface tension energy, forms three walls meeting at <span class="math inline">\(120^\circ\)</span> at the Fermat point. For more points the shortest connecting network is a <em>Steiner tree</em>, with extra junctions where three edges meet at <span class="math inline">\(120^\circ\)</span>. Finding Steiner trees is computationally hard in general (it is an NP-hard problem), but they matter in practice for designing networks of roads, pipelines and the wiring on computer chips.</p>
+<h3 id="napoleons-theorem">Napoleon’s theorem</h3>
+<p>The same configuration contains another gem: the <em>centres</em> of the three equilateral triangles on the sides of any triangle form an equilateral triangle. This is traditionally credited to Napoleon Bonaparte (who was a keen amateur mathematician), though there is no evidence he discovered it. It too has a short proof with complex numbers, using <span class="math inline">\(1 + \alpha^2 = \alpha\)</span>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Choose coordinates that fit the problem</div>
+<p><em>Put the most important point at the origin and line things up with the symmetry of the problem. A good choice can make the algebra almost trivial.</em></p>
+<p>Here the origin was the Fermat point, and the three vertices lay along the cube roots of <span class="math inline">\(-1\)</span> (up to sign). With any other coordinates the same calculation would be much messier.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Check the lettering.</strong> Show that if the equilateral triangles were lettered anticlockwise (built inwards), the three lines would generally not pass through <span class="math inline">\(O\)</span>.</p></li>
+<li><p><strong>Napoleon’s theorem.</strong> Show that the centre of the equilateral triangle <span class="math inline">\(ABL\)</span> is <span class="math inline">\(\frac13(A + B + L)\)</span>. Using the expressions above, show that the three centres form an equilateral triangle.</p></li>
+<li><p><strong>The minimum.</strong> With <span class="math inline">\(p = 2\)</span>, <span class="math inline">\(q = 1.4\)</span>, <span class="math inline">\(r = 1.1\)</span>, compute <span class="math inline">\(PA + PB + PC\)</span> for <span class="math inline">\(P\)</span> at each vertex and at the centroid <span class="math inline">\(\frac13(A + B + C)\)</span>, and check that all exceed <span class="math inline">\(4.5\)</span>.</p></li>
+<li><p><strong>An equilateral test.</strong> Show that <span class="math inline">\(z_1\)</span>, <span class="math inline">\(z_2\)</span>, <span class="math inline">\(z_3\)</span> form an equilateral triangle (in either orientation) if and only if <span class="math inline">\(z_1^2 + z_2^2 + z_3^2 = z_1z_2 + z_2z_3 + z_3z_1\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Richard Courant &amp; Herbert Robbins, <em>What Is Mathematics?</em></strong> (Oxford University Press). Chapter 7 discusses the Fermat point, Steiner trees and soap films.</p></li>
+<li><p><strong>Liang-shin Hahn, <em>Complex Numbers and Geometry</em></strong> (Mathematical Association of America). Many geometric theorems proved with complex numbers, at exactly this level.</p></li>
+<li><p><strong>Tristan Needham, <em>Visual Complex Analysis</em></strong> (Oxford University Press). Chapter 1 includes Napoleon’s theorem and other geometric results.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="rational-angles.html">← 5.5 Rational Angles That Aren&#x27;t</a><a class="next" href="complex-exponential.html">→ 5.7 The Complex Exponential as a Map</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

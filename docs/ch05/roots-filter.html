@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5.2 The Roots-of-Unity Filter — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 5 · Complex Numbers</a>
+    <div class="src">STEP I · 1990 · Question 2</div>
+    <div class="sec-head"><span class="sec-num">5.2</span><h1>The Roots-of-Unity Filter</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-2-roots-filter.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 5</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Let <span class="math inline">\(\omega = \mathrm{e}^{2\pi\mathrm{i}/3}\)</span>. Show that <span class="math inline">\(1 + \omega + \omega^2 = 0\)</span> and calculate the modulus and argument of <span class="math inline">\(1 + \omega^2\)</span>.</p>
+<p>Let <span class="math inline">\(n\)</span> be a positive integer. By evaluating <span class="math inline">\((1 + \omega^r)^n\)</span> in two ways, taking <span class="math inline">\(r = 1, 2\)</span> and <span class="math inline">\(3\)</span>, or otherwise, prove that <span class="math display">\[\binom n0 + \binom n3 + \binom n6 + \cdots + \binom nk = \frac13\left(2^n + 2\cos\left(\frac{n\pi}{3}\right)\right),\]</span> where <span class="math inline">\(k\)</span> is the largest multiple of <span class="math inline">\(3\)</span> less than or equal to <span class="math inline">\(n\)</span>. Without using a calculator, evaluate <span class="math display">\[\binom{25}{0} + \binom{25}{3} + \cdots + \binom{25}{24}\]</span> and <span class="math display">\[\binom{24}{2} + \binom{24}{5} + \cdots + \binom{24}{23}.\]</span> [<span class="math inline">\(2^{25} = 33554432\)</span>.]</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>The binomial coefficients in a row of Pascal’s triangle add up to <span class="math inline">\(2^n\)</span>: put <span class="math inline">\(x = 1\)</span> in <span class="math inline">\((1 + x)^n\)</span>. Put <span class="math inline">\(x = -1\)</span> instead and you get the alternating sum, which is <span class="math inline">\(0\)</span>; adding the two shows that the coefficients in even positions add up to <span class="math inline">\(2^{n-1}\)</span>, exactly half. So the even-numbered and odd-numbered entries split the total evenly.</p>
+<p>What about every <em>third</em> coefficient? There is no real number <span class="math inline">\(x\)</span> that can pick out positions <span class="math inline">\(0, 3, 6, \ldots\)</span>. But there is a complex one. The cube roots of unity act as a filter: averaged over <span class="math inline">\(1\)</span>, <span class="math inline">\(\omega\)</span> and <span class="math inline">\(\omega^2\)</span>, the powers <span class="math inline">\(\omega^k\)</span> give <span class="math inline">\(1\)</span> when <span class="math inline">\(k\)</span> is a multiple of <span class="math inline">\(3\)</span> and <span class="math inline">\(0\)</span> otherwise. This idea, the <em>roots-of-unity filter</em>, is a small version of the <em>discrete Fourier transform</em>, one of the most important algorithms ever devised.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\omega\)</span> is a root of <span class="math inline">\(z^3 - 1 = 0\)</span>. Factorise <span class="math inline">\(z^3 - 1\)</span>. Why does this give <span class="math inline">\(1 + \omega + \omega^2 = 0\)</span>?</p>
+</div>
+<p><span class="math inline">\(z^3 - 1 = (z - 1)(z^2 + z + 1)\)</span>. Since <span class="math inline">\(\omega^3 = 1\)</span> but <span class="math inline">\(\omega \neq 1\)</span>, <span class="math inline">\(\omega\)</span> must be a root of the second factor: <span class="math inline">\(\omega^2 + \omega + 1 = 0\)</span>. Geometrically, <span class="math inline">\(1\)</span>, <span class="math inline">\(\omega\)</span> and <span class="math inline">\(\omega^2\)</span> are the vertices of an equilateral triangle centred at the origin, and their sum is the centre of mass of the triangle, which is <span class="math inline">\(0\)</span>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-moduli-and-arguments" class="stage"><span class="stage-n">Stage 1</span> Moduli and arguments</h4>
+<p>From <span class="math inline">\(1 + \omega + \omega^2 = 0\)</span>, <span class="math inline">\(1 + \omega^2 = -\omega\)</span>. Since <span class="math inline">\(\omega = e^{2\pi\mathrm{i}/3}\)</span>, <span class="math inline">\(-\omega = e^{\mathrm{i}\pi}e^{2\pi\mathrm{i}/3} = e^{5\pi\mathrm{i}/3} = e^{-\pi\mathrm{i}/3}\)</span>. So <span class="math inline">\(1 + \omega^2\)</span> has modulus <span class="math inline">\(1\)</span> and argument <span class="math inline">\(-\frac\pi3\)</span>. Similarly <span class="math inline">\(1 + \omega = -\omega^2 = e^{\pi\mathrm{i}/3}\)</span>, with modulus <span class="math inline">\(1\)</span> and argument <span class="math inline">\(\frac\pi3\)</span>.</p>
+<h4 id="stagemark2-the-filter" class="stage"><span class="stage-n">Stage 2</span> The filter</h4>
+<div class="askyourself">
+<p>What is <span class="math inline">\(1 + \omega^k + \omega^{2k}\)</span> when <span class="math inline">\(k\)</span> is a multiple of <span class="math inline">\(3\)</span>? When it is not?</p>
+</div>
+<p>If <span class="math inline">\(3 \mid k\)</span>, then <span class="math inline">\(\omega^k = 1\)</span> and the sum is <span class="math inline">\(3\)</span>. If not, <span class="math inline">\(\omega^k\)</span> is <span class="math inline">\(\omega\)</span> or <span class="math inline">\(\omega^2\)</span>, and in either case <span class="math inline">\(1 + \omega^k + \omega^{2k} = 1 + \omega + \omega^2 = 0\)</span>. So the expression <span class="math inline">\(\frac13(1 + \omega^k + \omega^{2k})\)</span> is <span class="math inline">\(1\)</span> when <span class="math inline">\(3 \mid k\)</span> and <span class="math inline">\(0\)</span> otherwise: it is a detector for multiples of <span class="math inline">\(3\)</span>.</p>
+<div class="pausebox">
+<p>Add up <span class="math inline">\((1 + \omega^r)^n\)</span> for <span class="math inline">\(r = 1, 2, 3\)</span>, expanding each by the binomial theorem. What do you get?</p>
+</div>
+<p>Since <span class="math inline">\(\omega^3 = 1\)</span>, <span class="math display">\[(1 + \omega)^n + (1 + \omega^2)^n + (1 + 1)^n = \sum_{k=0}^{n} \binom nk\bigl(\omega^k + \omega^{2k} + 1\bigr) = 3\sum_{3 \mid k} \binom nk.\]</span> On the other hand, by Stage 1, <span class="math display">\[(1 + \omega)^n + (1 + \omega^2)^n + 2^n = e^{n\pi\mathrm{i}/3} + e^{-n\pi\mathrm{i}/3} + 2^n = 2\cos\frac{n\pi}{3} + 2^n.\]</span> Dividing by <span class="math inline">\(3\)</span> gives the formula.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-two-calculations" class="stage"><span class="stage-n">Stage 3</span> Two calculations</h4>
+<p>For <span class="math inline">\(n = 25\)</span>: <span class="math inline">\(\frac{25\pi}{3} = 8\pi + \frac\pi3\)</span>, so <span class="math inline">\(\cos\frac{25\pi}{3} = \frac12\)</span>, and <span class="math display">\[\binom{25}{0} + \binom{25}{3} + \cdots + \binom{25}{24} = \frac{33554432 + 1}{3} = 11184811.\]</span></p>
+<div class="askyourself">
+<p>For the second sum we need positions <span class="math inline">\(k \equiv 2 \pmod 3\)</span>. How can you modify the filter to detect <span class="math inline">\(k \equiv 2\)</span> instead of <span class="math inline">\(k \equiv 0\)</span>?</p>
+</div>
+<p>Shift the detector: <span class="math inline">\(\frac13\bigl(1 + \omega^{k-2} + \omega^{2(k-2)}\bigr)\)</span> is <span class="math inline">\(1\)</span> exactly when <span class="math inline">\(k \equiv 2 \pmod 3\)</span>. Since <span class="math inline">\(\omega^{-2} = \omega\)</span> and <span class="math inline">\(\omega^{-4} = \omega^2\)</span>, this gives <span class="math display">\[\sum_{k \equiv 2} \binom nk = \frac13\Bigl(2^n + \omega(1 + \omega)^n + \omega^2(1 + \omega^2)^n\Bigr).\]</span> With <span class="math inline">\(n = 24\)</span>, <span class="math inline">\((1 + \omega)^{24} = e^{8\pi\mathrm{i}} = 1\)</span> and likewise <span class="math inline">\((1 + \omega^2)^{24} = 1\)</span>, so the bracket is <span class="math inline">\(2^{24} + \omega + \omega^2 = 2^{24} - 1\)</span>. With <span class="math inline">\(2^{24} = 16777216\)</span>, <span class="math display">\[\binom{24}{2} + \binom{24}{5} + \cdots + \binom{24}{23} = \frac{16777215}{3} = 5592405. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-5-2-1.svg" alt="Figure 5.2.1"><figcaption><span class="fig-label">Figure 5.2.1</span> Row <span class="math inline">\(12\)</span> of Pascal’s triangle, coloured by the remainder of <span class="math inline">\(k\)</span> on division by <span class="math inline">\(3\)</span>. The three classes have totals <span class="math inline">\(1366\)</span>, <span class="math inline">\(1365\)</span> and <span class="math inline">\(1365\)</span>: almost exactly a third each of <span class="math inline">\(2^{12} = 4096\)</span>. The roots-of-unity filter predicts the small differences from <span class="math inline">\(\frac{4096}{3}\)</span> exactly: <span class="math inline">\(+\frac23\)</span>, <span class="math inline">\(-\frac13\)</span> and <span class="math inline">\(-\frac13\)</span>.</figcaption></figure>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Averaging over roots of unity filters by residue.</strong> <span class="math inline">\(\frac13\sum_{r}\omega^{rk}\)</span> is <span class="math inline">\(1\)</span> or <span class="math inline">\(0\)</span> according as <span class="math inline">\(3\)</span> divides <span class="math inline">\(k\)</span>. Summing a polynomial’s values at the roots of unity picks out every third coefficient.</p></li>
+<li><p><strong>Shifting the filter.</strong> Multiplying by <span class="math inline">\(\omega^{-rj}\)</span> before averaging picks out the coefficients with <span class="math inline">\(k \equiv j\)</span>.</p></li>
+<li><p><strong>Complex numbers for real answers.</strong> The answer is a whole number, and the question was about whole numbers, but the route went through the complex plane.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">The discrete Fourier transform</div>
+<p>Replace <span class="math inline">\(3\)</span> by any <span class="math inline">\(N\)</span> and <span class="math inline">\(\omega\)</span> by <span class="math inline">\(e^{2\pi\mathrm{i}/N}\)</span>. For a list of numbers <span class="math inline">\(a_0, a_1, \ldots, a_{N-1}\)</span>, the numbers <span class="math display">\[\hat a_r = \sum_{k=0}^{N-1} a_k\,\omega^{rk}\]</span> form its <em>discrete Fourier transform</em>, and the filter identity <span class="math inline">\(\sum_r \omega^{rk} = N\)</span> or <span class="math inline">\(0\)</span> is what lets you recover the <span class="math inline">\(a_k\)</span> from the <span class="math inline">\(\hat a_r\)</span>. The transform splits a signal into its component frequencies. In 1965 James Cooley and John Tukey published a way to compute it in about <span class="math inline">\(N\log_2 N\)</span> steps instead of <span class="math inline">\(N^2\)</span>, the <em>fast Fourier transform</em>; Gauss had found essentially the same idea in 1805 but never published it. The FFT is used in audio and image compression (MP3 and JPEG), in mobile phone signals, in medical scanners and in multiplying enormous numbers, and it is often listed among the most important algorithms of the twentieth century.</p>
+</div>
+<h3 id="generating-functions">Generating functions</h3>
+<p>The filter is one instance of a bigger idea: a sequence <span class="math inline">\(a_0, a_1, a_2, \ldots\)</span> can be packaged as a polynomial or power series <span class="math inline">\(A(x) = \sum a_kx^k\)</span>, its <em>generating function</em>, and operations on the sequence become operations on the function. Evaluating at <span class="math inline">\(1\)</span> sums the sequence; evaluating at roots of unity picks out residue classes; differentiating weights the terms by <span class="math inline">\(k\)</span>. This turns many counting problems into algebra, and it is a central technique in Chapter 9. The same filter, applied to <span class="math inline">\((1 + x)^n\)</span> with fifth roots of unity, connects to the regular pentagon and the golden ratio; we pursue the algebra of roots of unity in Section 6.1.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Use symmetry to filter</div>
+<p><em>To pick out the terms of a sum that satisfy a condition, find a function that is <span class="math inline">\(1\)</span> on the terms you want and <span class="math inline">\(0\)</span> on the rest, built from a symmetric average.</em></p>
+<p>Averaging over the roots of unity is the classic example. The same principle, “average over a group of symmetries to isolate the part you want”, appears throughout algebra, from the roots-of-unity filter to the representation theory of groups.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Even positions.</strong> Use the filter with square roots of unity (<span class="math inline">\(1\)</span> and <span class="math inline">\(-1\)</span>) to show that <span class="math inline">\(\binom n0 + \binom n2 + \binom n4 + \cdots = 2^{n-1}\)</span>.</p></li>
+<li><p><strong>The other residue.</strong> Find a formula for <span class="math inline">\(\binom n1 + \binom n4 + \binom n7 + \cdots\)</span>, and check that the three formulas add up to <span class="math inline">\(2^n\)</span>.</p></li>
+<li><p><strong>Every fourth.</strong> Using <span class="math inline">\(\mathrm{i}\)</span>, show that <span class="math inline">\(\binom n0 + \binom n4 + \binom n8 + \cdots = \frac14\Bigl(2^n + 2^{n/2+1}\cos\frac{n\pi}{4}\Bigr)\)</span>.</p></li>
+<li><p><strong>Divisibility.</strong> How many subsets of <span class="math inline">\(\{1, 2, \ldots, 12\}\)</span> have a number of elements divisible by <span class="math inline">\(3\)</span>? How many have a sum divisible by <span class="math inline">\(3\)</span>? (<em>Hint for the second:</em> consider <span class="math inline">\(\prod_{j=1}^{12}(1 + x^j)\)</span> at the cube roots of unity.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Herbert Wilf, <em>generatingfunctionology</em></strong> (A. K. Peters; free online). A delightful introduction to generating functions; the roots-of-unity filter appears early on.</p></li>
+<li><p><strong>Arthur Benjamin &amp; Jennifer Quinn, <em>Proofs That Really Count</em></strong> (Mathematical Association of America). Binomial identities proved by counting.</p></li>
+<li><p><strong>T. W. Körner, <em>Fourier Analysis</em></strong> (Cambridge University Press). Includes the discrete Fourier transform and the FFT.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="machin.html">← 5.1 Machin&#x27;s Formula</a><a class="next" href="z2n-plus-one.html">→ 5.3 Factorising z²ⁿ + 1</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 5: Complex Numbers — Beyond STEP</title>
+<meta name="description" content="Arguments and roots of unity, then complex-number geometry, then complex functions as maps. Placed before Chapter 6 because roots of unity drive the algebra there.">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter</div>
+    <div class="ch-num">5</div>
+    <h1>Complex Numbers</h1>
+    <p class="strap">The shortest path between two truths in the real domain passes through the complex domain.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Download the whole chapter</span><span class="dl-sub">PDF, typeset for print</span></span></a>
+  </div>
+  <h2 class="contents-head">In this chapter</h2>
+  <ol class="toc"><li><a class="toc-link" href="machin.html"><span class="toc-num">5.1</span>
+<span class="toc-title">Machin&#x27;s Formula</span>
+<span class="toc-src">STEP III 1987</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-1-machin.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="roots-filter.html"><span class="toc-num">5.2</span>
+<span class="toc-title">The Roots-of-Unity Filter</span>
+<span class="toc-src">STEP I 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-2-roots-filter.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="z2n-plus-one.html"><span class="toc-num">5.3</span>
+<span class="toc-title">Factorising \(z^{2n} + 1\)</span>
+<span class="toc-src">STEP III 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-3-z2n-plus-one.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="polygon-distances.html"><span class="toc-num">5.4</span>
+<span class="toc-title">Distances in a Regular Polygon</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-4-polygon-distances.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="rational-angles.html"><span class="toc-num">5.5</span>
+<span class="toc-title">Rational Angles That Aren&#x27;t</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-5-rational-angles.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="fermat-point.html"><span class="toc-num">5.6</span>
+<span class="toc-title">The Fermat Point</span>
+<span class="toc-src">STEP III 2000</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-6-fermat-point.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="complex-exponential.html"><span class="toc-num">5.7</span>
+<span class="toc-title">The Complex Exponential as a Map</span>
+<span class="toc-src">STEP II 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-7-complex-exponential.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="poincare-disc.html"><span class="toc-num">5.8</span>
+<span class="toc-title">A Hidden Distance in the Disc</span>
+<span class="toc-src">STEP III 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-8-poincare-disc.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">Looking back: what we have learned</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">Chapter 5  \(\cdot\)  Introduction</div>
+    <h1 class="essay-title">Imaginary Numbers, Real Answers</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>The shortest path between two truths in the real domain passes through the complex domain.</p>
+<p class="who">— Jacques Hadamard</p>
+</div>
+<p>In 1545 Gerolamo Cardano published a formula for solving cubic equations, and found something disturbing. For some cubics with three perfectly good real roots, the formula required taking square roots of negative numbers along the way. The square roots cancelled out at the end, leaving real answers, but in the middle of the calculation there were quantities that, by every standard of the time, did not exist. Cardano called the manipulation “as subtle as it is useless”. For two centuries, mathematicians used these “imaginary” numbers uneasily, as a trick that happened to work.</p>
+<p>It took until the early nineteenth century, when Caspar Wessel, Jean-Robert Argand and Gauss pictured complex numbers as points in a plane, for them to become respectable. Once they did, they turned out to be not a trick but a revelation. Complex numbers explain why real phenomena behave as they do, and they keep providing the shortest route to results about real numbers, exactly as Hadamard said.</p>
+<h3 id="why-complex-numbers-matter">Why complex numbers matter</h3>
+<p>Every polynomial equation has a solution in the complex numbers: the <em>fundamental theorem of algebra</em>. So the complex numbers are, in a precise sense, where algebra is complete. They are also the natural language of rotation and oscillation. Multiplying by a complex number of modulus <span class="math inline">\(1\)</span> rotates the plane, so anything involving angles, waves or periodic behaviour is simpler with complex numbers. Electrical engineers use them to analyse alternating currents; physicists cannot write down quantum mechanics without them; signal processing, from mobile phones to MRI scanners, runs on the complex Fourier transform. And in pure mathematics, functions of a complex variable turn out to be astonishingly rigid and beautiful: knowing a complex function on a tiny region determines it everywhere.</p>
+<h3 id="what-you-will-meet-at-university">What you will meet at university</h3>
+<p>You will use complex numbers from the first week, but the big step comes with <em>complex analysis</em>, usually in the second year. Its central objects are <em>holomorphic</em> functions, complex functions that can be differentiated, and the theory is full of surprises. Every holomorphic function is automatically infinitely differentiable and equal to its Taylor series. Integrals round closed curves can be evaluated by looking only at the points where the function blows up (Cauchy’s residue theorem), which lets you compute real integrals that resist every other method. The theory leads on to conformal maps (<a href="../ch05/complex-exponential.html">Section 5.7</a>), Riemann surfaces, and the Riemann zeta function that controls the primes (<a href="../ch01/prime-distribution.html">Section 1.2</a>). In parallel, the algebra of roots of unity (<a href="../ch05/roots-filter.html">Section 5.2</a>, <a href="../ch05/z2n-plus-one.html">Section 5.3</a>) leads to Galois theory, and complex geometry leads to the non-Euclidean geometry of <a href="../ch05/poincare-disc.html">Section 5.8</a>.</p>
+<h3 id="the-questions-that-run-through-this-chapter">The questions that run through this chapter</h3>
+<div class="skillbox">
+<div class="box-title">Three big questions</div>
+<ol class="arabic">
+<li><p><strong>How do complex numbers help with real problems?</strong> Why should a detour through the complex plane produce facts about <span class="math inline">\(\pi\)</span>, binomial coefficients or cosines?</p></li>
+<li><p><strong>What is special about the roots of unity?</strong> Why do the solutions of <span class="math inline">\(z^n = 1\)</span> keep appearing, in sums, products, polygons and angles?</p></li>
+<li><p><strong>What does a complex function look like?</strong> How can we picture functions whose inputs and outputs are both points of a plane, and what geometry do they reveal?</p></li>
+</ol>
+</div>
+<p>The chapter moves from arguments and multiplication (Machin’s formula), through the algebra of roots of unity (filters, factorisations, polygon distances and irrational angles), to geometry with complex numbers (the Fermat point) and finally to complex functions as maps (the exponential, and a hidden distance in the unit disc).</p>
+<h3 id="ideas-in-this-chapter">Ideas in this chapter</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">5.1</td>
+<td style="text-align: left;">Machin’s formula</td>
+<td style="text-align: left;">Arguments add when complex numbers multiply</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.2</td>
+<td style="text-align: left;">Every third binomial coefficient</td>
+<td style="text-align: left;">Averaging over roots of unity filters by residue</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.3</td>
+<td style="text-align: left;">Products of cosines</td>
+<td style="text-align: left;">Factorise over the roots, then substitute</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.4</td>
+<td style="text-align: left;">Chords of a regular polygon</td>
+<td style="text-align: left;">Distances are moduli; <span class="math inline">\(z^n - 1 = \prod(z - \omega^k)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.5</td>
+<td style="text-align: left;"><span class="math inline">\(\cos^{-1}\frac13\)</span> is irrational</td>
+<td style="text-align: left;">De Moivre, parity and a minimal counterexample</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.6</td>
+<td style="text-align: left;">The Fermat point</td>
+<td style="text-align: left;">Rotation is multiplication; good coordinates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.7</td>
+<td style="text-align: left;"><span class="math inline">\(e^w\)</span> as a map</td>
+<td style="text-align: left;">Picturing complex functions; many-to-one maps</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.8</td>
+<td style="text-align: left;">A hidden distance</td>
+<td style="text-align: left;">An inequality as a triangle inequality in hyperbolic geometry</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-to-read-this-chapter">How to read this chapter</h3>
+<p>Draw pictures. Almost every result in this chapter has a geometric meaning, and a quick sketch of the complex plane (where the roots of unity are, which way a multiplication rotates, where the grid lines go) often shows you what to do before any algebra. Then do the algebra carefully, because the pictures can mislead about signs and multiples of <span class="math inline">\(2\pi\)</span>.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="machin.html">→ Begin: 5.1 Machin&#x27;s Formula</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

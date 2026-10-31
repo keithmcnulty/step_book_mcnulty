@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5.5 Rational Angles That Aren&#x27;t — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 5 · Complex Numbers</a>
+    <div class="src">STEP III · 2022 · Question 8</div>
+    <div class="sec-head"><span class="sec-num">5.5</span><h1>Rational Angles That Aren&#x27;t</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-5-rational-angles.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 5</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Use De Moivre’s theorem to prove that for any positive integer <span class="math inline">\(k &gt; 1\)</span>, <span class="math display">\[\sin(k\theta) = \sin\theta\cos^{k-1}\theta\left(k - \binom k3(\sec^2\theta - 1) + \binom k5(\sec^2\theta - 1)^2 - \cdots\right)\]</span> and find a similar expression for <span class="math inline">\(\cos(k\theta)\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\theta = \cos^{-1}\left(\frac1a\right)\)</span>, where <span class="math inline">\(\theta\)</span> is measured in degrees, and <span class="math inline">\(a\)</span> is an odd integer greater than <span class="math inline">\(1\)</span>.</p>
+<p>Suppose that there is a positive integer <span class="math inline">\(k\)</span> such that <span class="math inline">\(\sin(k\theta) = 0\)</span> and <span class="math inline">\(\sin(m\theta) \neq 0\)</span> for all integers <span class="math inline">\(m\)</span> with <span class="math inline">\(0 &lt; m &lt; k\)</span>.</p>
+<p>Show that it would be necessary to have <span class="math inline">\(k\)</span> even and <span class="math inline">\(\cos(\frac12k\theta) = 0\)</span>.</p>
+<p>Deduce that <span class="math inline">\(\theta\)</span> is irrational.</p></li>
+<li><p>Show that if <span class="math inline">\(\phi = \cot^{-1}\left(\frac1b\right)\)</span>, where <span class="math inline">\(\phi\)</span> is measured in degrees, and <span class="math inline">\(b\)</span> is an even integer greater than <span class="math inline">\(1\)</span>, then <span class="math inline">\(\phi\)</span> is irrational.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>The angles you meet in school geometry are usually whole numbers of degrees: <span class="math inline">\(30^\circ\)</span>, <span class="math inline">\(45^\circ\)</span>, <span class="math inline">\(60^\circ\)</span>. Their cosines are numbers like <span class="math inline">\(\frac{\sqrt3}{2}\)</span> and <span class="math inline">\(\frac12\)</span>. What about going the other way? If the cosine is a simple fraction, such as <span class="math inline">\(\frac13\)</span>, is the angle a nice number of degrees?</p>
+<p>The angle <span class="math inline">\(\cos^{-1}\frac13 \approx 70.528779\ldots^\circ\)</span> appears all over science. It is the angle between two faces of a regular tetrahedron, and its supplement, <span class="math inline">\(109.47^\circ\)</span>, is the angle between the bonds in a methane molecule. This question proves that it is not a rational number of degrees: not <span class="math inline">\(70\frac12\)</span>, not <span class="math inline">\(\frac{1411}{20}\)</span>, not any fraction at all. Its decimal expansion never repeats. This seemingly obscure fact solved one of the famous problems that David Hilbert posed in 1900.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Suppose <span class="math inline">\(\theta\)</span> were rational, say <span class="math inline">\(\theta = \frac pq\)</span> degrees. Find a positive integer <span class="math inline">\(k\)</span> with <span class="math inline">\(\sin(k\theta) = 0\)</span>.</p>
+</div>
+<p>Take <span class="math inline">\(k = 180q\)</span>: then <span class="math inline">\(k\theta = 180p\)</span> degrees, a whole number of half-turns, so <span class="math inline">\(\sin(k\theta) = 0\)</span>. So rational angles always have some multiple that lands on a multiple of <span class="math inline">\(180^\circ\)</span>. To prove <span class="math inline">\(\theta\)</span> is irrational, it is enough to show that <em>no</em> multiple <span class="math inline">\(k\theta\)</span> has zero sine. Part (ii) does this by taking the smallest such <span class="math inline">\(k\)</span>, if there is one, and deriving a contradiction: the well-ordering principle of <a href="../ch01/well-ordering.html">Section 1.3</a> again.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-multiple-angle-formulas" class="stage"><span class="stage-n">Stage 1</span> Multiple-angle formulas</h4>
+<div class="askyourself">
+<p>Write <span class="math inline">\(\cos k\theta + \mathrm{i}\sin k\theta = (\cos\theta + \mathrm{i}\sin\theta)^k\)</span>, and take out a factor of <span class="math inline">\(\cos^k\theta\)</span>. What is left inside the bracket?</p>
+</div>
+<p><span class="math inline">\((\cos\theta + \mathrm{i}\sin\theta)^k = \cos^k\theta\,(1 + \mathrm{i}\tan\theta)^k = \cos^k\theta\sum_{j=0}^{k}\binom kj\mathrm{i}^j\tan^j\theta\)</span>. The imaginary part comes from odd <span class="math inline">\(j = 2m + 1\)</span>, where <span class="math inline">\(\mathrm{i}^j = \mathrm{i}(-1)^m\)</span>: <span class="math display">\[\begin{aligned}
+  \sin k\theta &amp;= \cos^k\theta\sum_{m}(-1)^m\binom{k}{2m+1}\tan^{2m+1}\theta \\
+  &amp;= \sin\theta\cos^{k-1}\theta\sum_m(-1)^m\binom{k}{2m+1}\tan^{2m}\theta.
+\end{aligned}\]</span> Since <span class="math inline">\(\tan^2\theta = \sec^2\theta - 1\)</span>, this is the required formula.<span class="qed" aria-label="end of proof">■</span> The real part, from even <span class="math inline">\(j = 2m\)</span>, gives <span class="math display">\[\cos k\theta = \cos^k\theta\left(1 - \binom k2(\sec^2\theta - 1) + \binom k4(\sec^2\theta - 1)^2 - \cdots\right).\]</span></p>
+<h4 id="stagemark2-parity" class="stage"><span class="stage-n">Stage 2</span> Parity</h4>
+<p>Now <span class="math inline">\(\sec\theta = a\)</span>, an odd integer, so <span class="math inline">\(\sec^2\theta - 1 = a^2 - 1\)</span> is an <em>even</em> integer. And <span class="math inline">\(\theta\)</span> is strictly between <span class="math inline">\(0^\circ\)</span> and <span class="math inline">\(90^\circ\)</span>, so <span class="math inline">\(\sin\theta \neq 0\)</span> and <span class="math inline">\(\cos\theta \neq 0\)</span>.</p>
+<div class="askyourself">
+<p>If <span class="math inline">\(\sin(k\theta) = 0\)</span>, the bracket <span class="math inline">\(k - \binom k3(a^2 - 1) + \cdots\)</span> must be zero. Every term after the first is a multiple of <span class="math inline">\(a^2 - 1\)</span>. What does that tell you about <span class="math inline">\(k\)</span>?</p>
+</div>
+<p>The bracket is <span class="math inline">\(k\)</span> plus a sum of multiples of the even number <span class="math inline">\(a^2 - 1\)</span>. If <span class="math inline">\(k\)</span> were odd, the bracket would be odd, and an odd integer cannot be <span class="math inline">\(0\)</span>. So <span class="math inline">\(k\)</span> must be even.</p>
+<p>Then <span class="math inline">\(\sin(k\theta) = 2\sin(\frac12k\theta)\cos(\frac12k\theta) = 0\)</span>. But <span class="math inline">\(\frac12k\)</span> is a positive integer smaller than <span class="math inline">\(k\)</span>, so by the minimality of <span class="math inline">\(k\)</span>, <span class="math inline">\(\sin(\frac12k\theta) \neq 0\)</span>. Hence <span class="math inline">\(\cos(\frac12k\theta) = 0\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-the-contradiction" class="stage"><span class="stage-n">Stage 3</span> The contradiction</h4>
+<div class="pausebox">
+<p>Apply the cosine formula with <span class="math inline">\(m = \frac12k\)</span>. Why can <span class="math inline">\(\cos(m\theta)\)</span> never be zero?</p>
+</div>
+<p>By Stage 1, <span class="math inline">\(\cos(m\theta) = a^{-m}\left(1 - \binom m2(a^2 - 1) + \binom m4(a^2 - 1)^2 - \cdots\right)\)</span>. The bracket is <span class="math inline">\(1\)</span> plus multiples of the even number <span class="math inline">\(a^2 - 1\)</span>, so it is odd, and in particular not zero. So <span class="math inline">\(\cos(m\theta) \neq 0\)</span>, contradicting Stage 2.</p>
+<p>Therefore there is no positive integer <span class="math inline">\(k\)</span> with <span class="math inline">\(\sin(k\theta) = 0\)</span>. (If there were any, there would be a smallest one, and we have just shown that the smallest one cannot exist.) By the observation in <em>Before you start</em>, <span class="math inline">\(\theta\)</span> cannot be a rational number of degrees.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-the-cotangent-version" class="stage"><span class="stage-n">Stage 4</span> The cotangent version</h4>
+<div class="askyourself">
+<p>If <span class="math inline">\(\cot\phi = \frac1b\)</span>, what is <span class="math inline">\(\sec^2\phi - 1\)</span>? Is it even?</p>
+</div>
+<p><span class="math inline">\(\tan\phi = b\)</span>, so <span class="math inline">\(\sec^2\phi - 1 = \tan^2\phi = b^2\)</span>, which is even (indeed a multiple of <span class="math inline">\(4\)</span>) since <span class="math inline">\(b\)</span> is even. Also <span class="math inline">\(0^\circ &lt; \phi &lt; 90^\circ\)</span>, so <span class="math inline">\(\sin\phi\)</span> and <span class="math inline">\(\cos\phi\)</span> are non-zero. Exactly the same argument now works: if <span class="math inline">\(k\)</span> is the smallest positive integer with <span class="math inline">\(\sin(k\phi) = 0\)</span>, the bracket <span class="math inline">\(k - \binom k3b^2 + \cdots\)</span> must vanish, forcing <span class="math inline">\(k\)</span> even; then <span class="math inline">\(\cos(\frac12k\phi) = 0\)</span>; but the cosine bracket <span class="math inline">\(1 - \binom m2b^2 + \cdots\)</span> is odd. Contradiction, so <span class="math inline">\(\phi\)</span> is irrational.<span class="qed" aria-label="end of proof">■</span></p>
+<p>For example, <span class="math inline">\(\cot^{-1}\frac12 = \tan^{-1}2 \approx 63.43^\circ\)</span> is irrational.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Rational angles have periodic multiples.</strong> That reformulation turned irrationality into a statement about <span class="math inline">\(\sin(k\theta)\)</span> for all <span class="math inline">\(k\)</span>.</p></li>
+<li><p><strong>Parity arguments.</strong> Working modulo <span class="math inline">\(2\)</span> showed that certain integers were odd and therefore not zero. Simple, but decisive.</p></li>
+<li><p><strong>The smallest counterexample.</strong> Assuming a smallest <span class="math inline">\(k\)</span> and showing a smaller one must exist (here <span class="math inline">\(\frac12k\)</span>) is the well-ordering argument of Chapter 1.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Irrational rotations</div>
+<p>If <span class="math inline">\(\theta\)</span> is a rational number of degrees, repeatedly rotating by <span class="math inline">\(\theta\)</span> eventually returns you to where you started. If <span class="math inline">\(\theta\)</span> is irrational, you never return, and something remarkable happens: the points <span class="math inline">\(k\theta\)</span> (taken modulo <span class="math inline">\(360^\circ\)</span>) spread out <em>evenly</em> around the circle, coming arbitrarily close to every angle. This is the <em>equidistribution theorem</em>, proved independently by Hermann Weyl, Wacław Sierpiński and Piers Bohl around 1910. Figure 5.5.1 shows the first <span class="math inline">\(40\)</span> multiples of <span class="math inline">\(\cos^{-1}\frac13\)</span>: they are already filling the circle, and none ever repeats.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-5-5-1.svg" alt="Figure 5.5.1"><figcaption><span class="fig-label">Figure 5.5.1</span> The points at angles <span class="math inline">\(k\theta\)</span>, for <span class="math inline">\(k = 0, 1, \ldots, 39\)</span>, where <span class="math inline">\(\theta = \cos^{-1}\frac13 \approx 70.53^\circ\)</span> (shading from teal to plum as <span class="math inline">\(k\)</span> increases). Because <span class="math inline">\(\theta\)</span> is irrational, no point is ever repeated, and the points spread evenly around the whole circle.</figcaption></figure>
+<h3 id="hilberts-third-problem">Hilbert’s third problem</h3>
+<p>In 1900 David Hilbert listed twenty-three problems for the new century. The third asked: if two polyhedra have the same volume, can one always be cut into finitely many polyhedral pieces and reassembled into the other? (For polygons in the plane the answer is yes: this is the Wallace–Bolyai–Gerwien theorem.) Within a year, Hilbert’s student Max Dehn showed the answer is <em>no</em>: a regular tetrahedron cannot be cut up and reassembled into a cube of the same volume. Dehn’s proof attaches to each polyhedron a quantity built from its edge lengths and dihedral angles, now called the <em>Dehn invariant</em>, which is unchanged by cutting and reassembling; for a cube it is zero, and for a regular tetrahedron it is non-zero precisely because the dihedral angle <span class="math inline">\(\cos^{-1}\frac13\)</span> is not a rational multiple of <span class="math inline">\(180^\circ\)</span>. That is exactly what this question proves.</p>
+<h3 id="nivens-theorem">Niven’s theorem</h3>
+<p>How far does this go? In 1956 Ivan Niven proved that if <span class="math inline">\(\theta\)</span> is a rational number of degrees and <span class="math inline">\(\cos\theta\)</span> is rational, then <span class="math inline">\(\cos\theta\)</span> is one of <span class="math inline">\(0\)</span>, <span class="math inline">\(\pm\frac12\)</span>, <span class="math inline">\(\pm1\)</span>. So the only “nice” angles with rational cosines are <span class="math inline">\(0^\circ\)</span>, <span class="math inline">\(60^\circ\)</span>, <span class="math inline">\(90^\circ\)</span>, <span class="math inline">\(120^\circ\)</span>, <span class="math inline">\(180^\circ\)</span> and their relatives. The proof uses the fact that <span class="math inline">\(2\cos\theta\)</span> is a root of a monic polynomial with integer coefficients, an <em>algebraic integer</em>, the idea mentioned at the end of <a href="../ch01/well-ordering.html">Section 1.3</a>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Parity as a proof of non-vanishing</div>
+<p><em>To show an integer expression is never zero, show it is always odd: reduce it modulo <span class="math inline">\(2\)</span>.</em></p>
+<p>Combined with a minimal counterexample, this simple idea proved a deep fact. Reducing modulo a small number to rule out an equation is one of the most common moves in number theory, as in <a href="../ch01/infinite-descent.html">Section 1.5</a>.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The tetrahedron.</strong> Show that the angle between two faces of a regular tetrahedron is <span class="math inline">\(\cos^{-1}\frac13\)</span>, and that the angle between two bonds in a methane molecule (from the centre of a regular tetrahedron to two vertices) is <span class="math inline">\(\cos^{-1}\left(-\frac13\right)\)</span>.</p></li>
+<li><p><strong>The <span class="math inline">\(3\)</span>–<span class="math inline">\(4\)</span>–<span class="math inline">\(5\)</span> triangle.</strong> Show that the smallest angle of a <span class="math inline">\(3\)</span>–<span class="math inline">\(4\)</span>–<span class="math inline">\(5\)</span> triangle is an irrational number of degrees. (<em>Hint:</em> it is <span class="math inline">\(\cot^{-1}\frac43\)</span>; adapt the argument, or consider powers of the Gaussian integer <span class="math inline">\(4 + 3\mathrm{i}\)</span> and show none is real.)</p></li>
+<li><p><strong>Why odd <span class="math inline">\(a\)</span>?</strong> What goes wrong in the argument when <span class="math inline">\(a = 2\)</span>? Is <span class="math inline">\(\cos^{-1}\frac12\)</span> rational?</p></li>
+<li><p><strong>Niven for small cases.</strong> Find all whole numbers of degrees <span class="math inline">\(\theta\)</span> between <span class="math inline">\(0^\circ\)</span> and <span class="math inline">\(90^\circ\)</span> for which <span class="math inline">\(\cos\theta\)</span> is rational, and check that your list agrees with Niven’s theorem.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Ivan Niven, <em>Irrational Numbers</em></strong> (Mathematical Association of America). Includes Niven’s theorem on rational values of trigonometric functions.</p></li>
+<li><p><strong>Martin Aigner &amp; Günter Ziegler, <em>Proofs from THE BOOK</em></strong>, chapter on Hilbert’s third problem. A beautiful account of Dehn’s solution.</p></li>
+<li><p><strong>Benjamin Yandell, <em>The Honors Class: Hilbert’s Problems and Their Solvers</em></strong> (A. K. Peters). The stories behind all twenty-three problems.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="polygon-distances.html">← 5.4 Distances in a Regular Polygon</a><a class="next" href="fermat-point.html">→ 5.6 The Fermat Point</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

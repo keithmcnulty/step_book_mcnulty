@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5.1 Machin&#x27;s Formula — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 5 · Complex Numbers</a>
+    <div class="src">STEP III · 1987 · Question 3</div>
+    <div class="sec-head"><span class="sec-num">5.1</span><h1>Machin&#x27;s Formula</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-1-machin.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 5</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>If <span class="math inline">\(z = x + \mathrm{i}y\)</span>, with <span class="math inline">\(x, y\)</span> real, show that <span class="math display">\[|x|\cos\alpha + |y|\sin\alpha \leq |z| \leq |x| + |y|\]</span> for all real <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>By considering <span class="math inline">\((5 - \mathrm{i})^4(1 + \mathrm{i})\)</span>, show that <span class="math display">\[\frac\pi4 = 4\tan^{-1}\left(\frac15\right) - \tan^{-1}\left(\frac{1}{239}\right).\]</span> Prove similarly that <span class="math display">\[\frac\pi4 = 3\tan^{-1}\left(\frac14\right) + \tan^{-1}\left(\frac{1}{20}\right) + \tan^{-1}\left(\frac{1}{1985}\right).\]</span></p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>In 1706 the London mathematician John Machin computed <span class="math inline">\(\pi\)</span> to <span class="math inline">\(100\)</span> decimal places, by hand. Nobody had come close before. His secret was the formula in part (ii), which expresses <span class="math inline">\(\frac\pi4\)</span> in terms of angles whose tangents are tiny fractions. Tiny fractions make the series <span class="math inline">\(\tan^{-1}x = x - \frac{x^3}{3} + \frac{x^5}{5} - \cdots\)</span> converge very fast, and Machin’s formula, or variants of it, remained the standard way to compute <span class="math inline">\(\pi\)</span> for two and a half centuries, until computers and the methods of <a href="../ch02/agm.html">Section 2.6</a> took over.</p>
+<p>The formula looks like a miracle of trigonometric identities. The question shows it is really a fact about multiplying complex numbers: when you multiply complex numbers, their arguments add. One multiplication of whole-number complex numbers proves the whole thing.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>What is the argument of <span class="math inline">\(5 - \mathrm{i}\)</span>? Of <span class="math inline">\(1 + \mathrm{i}\)</span>? What happens to arguments when complex numbers are multiplied?</p>
+</div>
+<p><span class="math inline">\(\arg(5 - \mathrm{i}) = -\tan^{-1}\frac15\)</span>, a small negative angle, and <span class="math inline">\(\arg(1 + \mathrm{i}) = \frac\pi4\)</span>. When you multiply complex numbers, the moduli multiply and the arguments add (up to multiples of <span class="math inline">\(2\pi\)</span>). So <span class="math display">\[\arg\bigl((5 - \mathrm{i})^4(1 + \mathrm{i})\bigr) = \frac\pi4 - 4\tan^{-1}\frac15 \quad\text{(possibly plus a multiple of } 2\pi\text{)}.\]</span> If we can compute the product and find its argument another way, we get an identity.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-bounds-on-the-modulus" class="stage"><span class="stage-n">Stage 1</span> Bounds on the modulus</h4>
+<div class="askyourself">
+<p>For the upper bound, square both sides. For the lower bound, think of <span class="math inline">\(|x|\cos\alpha + |y|\sin\alpha\)</span> as a dot product of two vectors.</p>
+</div>
+<p><em>Upper bound:</em> <span class="math inline">\((|x| + |y|)^2 = x^2 + y^2 + 2|x||y| \geq x^2 + y^2 = |z|^2\)</span>, and both sides are non-negative, so <span class="math inline">\(|z| \leq |x| + |y|\)</span>.</p>
+<p><em>Lower bound:</em> <span class="math inline">\(|x|\cos\alpha + |y|\sin\alpha\)</span> is the dot product of the vector <span class="math inline">\((|x|, |y|)\)</span>, of length <span class="math inline">\(|z|\)</span>, with the unit vector <span class="math inline">\((\cos\alpha, \sin\alpha)\)</span>. A dot product is at most the product of the lengths, so it is at most <span class="math inline">\(|z|\)</span>. (Algebraically: <span class="math inline">\(|z|^2 - (|x|\cos\alpha + |y|\sin\alpha)^2 = (|x|\sin\alpha - |y|\cos\alpha)^2 \geq 0\)</span>.)<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-key-multiplication" class="stage"><span class="stage-n">Stage 2</span> The key multiplication</h4>
+<div class="askyourself">
+<p>Compute <span class="math inline">\((5 - \mathrm{i})^2\)</span>, then square it, then multiply by <span class="math inline">\(1 + \mathrm{i}\)</span>.</p>
+</div>
+<p><span class="math inline">\((5 - \mathrm{i})^2 = 25 - 10\mathrm{i} - 1 = 24 - 10\mathrm{i}\)</span>. Then <span class="math inline">\((24 - 10\mathrm{i})^2 = 576 - 480\mathrm{i} - 100 = 476 - 480\mathrm{i}\)</span>. Finally <span class="math display">\[(476 - 480\mathrm{i})(1 + \mathrm{i}) = 476 + 476\mathrm{i} - 480\mathrm{i} + 480 = 956 - 4\mathrm{i}.\]</span></p>
+<div class="pausebox">
+<p>Now compare arguments. What is the argument of <span class="math inline">\(956 - 4\mathrm{i}\)</span>? Why are you sure there is no extra multiple of <span class="math inline">\(2\pi\)</span>?</p>
+</div>
+<p><span class="math inline">\(956 - 4\mathrm{i} = 4(239 - \mathrm{i})\)</span>, which has argument <span class="math inline">\(-\tan^{-1}\frac{1}{239}\)</span>. So <span class="math display">\[\frac\pi4 - 4\tan^{-1}\frac15 = -\tan^{-1}\frac{1}{239} + 2k\pi\]</span> for some integer <span class="math inline">\(k\)</span>. But <span class="math inline">\(0 &lt; \tan^{-1}\frac15 &lt; \frac15\)</span>, so the left-hand side lies between <span class="math inline">\(\frac\pi4 - \frac45\)</span> and <span class="math inline">\(\frac\pi4\)</span>, that is, between about <span class="math inline">\(-0.02\)</span> and <span class="math inline">\(0.79\)</span>; and the right-hand side without the <span class="math inline">\(2k\pi\)</span> lies between <span class="math inline">\(-0.005\)</span> and <span class="math inline">\(0\)</span>. Since <span class="math inline">\(2\pi\)</span> is much bigger than the gap, <span class="math inline">\(k = 0\)</span>. Rearranging, <span class="math display">\[\frac\pi4 = 4\tan^{-1}\frac15 - \tan^{-1}\frac{1}{239}. \qed\]</span> Figure 5.1.1 shows what happened: starting at <span class="math inline">\(45^\circ\)</span>, each multiplication by <span class="math inline">\(5 - \mathrm{i}\)</span> rotates clockwise by about <span class="math inline">\(11.3^\circ\)</span>, and after four of them we have overshot the real axis by just <span class="math inline">\(0.24^\circ\)</span>.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-5-1-1.svg" alt="Figure 5.1.1"><figcaption><span class="fig-label">Figure 5.1.1</span> Multiplying <span class="math inline">\(1 + \mathrm{i}\)</span> by <span class="math inline">\(5 - \mathrm{i}\)</span> four times. Each multiplication rotates clockwise by <span class="math inline">\(\tan^{-1}\frac15 \approx 11.31^\circ\)</span> (and stretches, which is ignored here). Four rotations take <span class="math inline">\(45^\circ\)</span> to <span class="math inline">\(-0.24^\circ\)</span>, the argument of <span class="math inline">\(956 - 4\mathrm{i}\)</span>, which is <span class="math inline">\(-\tan^{-1}\frac{1}{239}\)</span>.</figcaption></figure>
+<h4 id="stagemark3-the-second-formula" class="stage"><span class="stage-n">Stage 3</span> The second formula</h4>
+<div class="askyourself">
+<p>By analogy, which product should you compute this time?</p>
+</div>
+<p>Consider <span class="math inline">\((4 + \mathrm{i})^3(20 + \mathrm{i})(1985 + \mathrm{i})\)</span>, whose argument is <span class="math inline">\(3\tan^{-1}\frac14 + \tan^{-1}\frac{1}{20} + \tan^{-1}\frac{1}{1985}\)</span>. Now <span class="math inline">\((4 + \mathrm{i})^2 = 15 + 8\mathrm{i}\)</span>, so <span class="math inline">\((4 + \mathrm{i})^3 = (15 + 8\mathrm{i})(4 + \mathrm{i}) = 52 + 47\mathrm{i}\)</span>. Then <span class="math inline">\((52 + 47\mathrm{i})(20 + \mathrm{i}) = 1040 + 52\mathrm{i} + 940\mathrm{i} - 47 = 993 + 992\mathrm{i}\)</span>, and <span class="math display">\[(993 + 992\mathrm{i})(1985 + \mathrm{i}) = (1971105 - 992) + (993 + 1969120)\mathrm{i} = 1970113 + 1970113\mathrm{i}.\]</span> Real part equals imaginary part, so the argument is <span class="math inline">\(\frac\pi4\)</span>. All three angles are small and positive (their sum is less than <span class="math inline">\(3 \cdot \frac14 + \frac1{20} + \frac{1}{1985} &lt; 1 &lt; 2\pi\)</span>), so there is no multiple of <span class="math inline">\(2\pi\)</span> to worry about, and the formula follows.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Arguments add under multiplication.</strong> That single fact turned a product of Gaussian integers into an identity between angles.</p></li>
+<li><p><strong>Mind the multiples of <span class="math inline">\(2\pi\)</span>.</strong> Arguments are only defined up to <span class="math inline">\(2\pi\)</span>, so each identity needed a size estimate to pin down the multiple.</p></li>
+<li><p><strong>Whole numbers do the work.</strong> All the arithmetic was with integers; the identity for <span class="math inline">\(\pi\)</span> came out exactly, with no approximation.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Computing <span class="math inline">\(\pi\)</span> by hand</div>
+<p>Why is Machin’s formula so good for computation? The series <span class="math inline">\(\tan^{-1}x = x - \frac{x^3}{3} + \frac{x^5}{5} - \cdots\)</span> converges for <span class="math inline">\(|x| \leq 1\)</span>, but painfully slowly at <span class="math inline">\(x = 1\)</span>: you need about a thousand terms of <span class="math inline">\(1 - \frac13 + \frac15 - \cdots\)</span> for three decimal places of <span class="math inline">\(\frac\pi4\)</span>. With <span class="math inline">\(x = \frac15\)</span>, each term is about <span class="math inline">\(25\)</span> times smaller than the last, giving roughly <span class="math inline">\(1.4\)</span> decimal digits per term; with <span class="math inline">\(x = \frac{1}{239}\)</span>, about <span class="math inline">\(4.8\)</span> digits per term. Machin’s <span class="math inline">\(100\)</span> digits needed only about <span class="math inline">\(70\)</span> terms of the first series and <span class="math inline">\(20\)</span> of the second. In 1873 William Shanks used a Machin formula to compute <span class="math inline">\(707\)</span> digits, spending years on the arithmetic; in 1944 it was discovered that he had made an error at the <span class="math inline">\(528\)</span>th place, and everything after it was wrong.</p>
+</div>
+<h3 id="gaussian-integers-again">Gaussian integers again</h3>
+<p>The numbers <span class="math inline">\(a + b\mathrm{i}\)</span> with <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> whole numbers are the <em>Gaussian integers</em> of <a href="../ch01/two-squares.html">Section 1.6</a>. The reason <span class="math inline">\(5 - \mathrm{i}\)</span> works so well is a factorisation: <span class="math inline">\(239^2 + 1 = 57122 = 2 \times 13^4\)</span>, which in the Gaussian integers reads <span class="math inline">\((239 + \mathrm{i})(239 - \mathrm{i}) = (1 + \mathrm{i})(1 - \mathrm{i})\,(3 + 2\mathrm{i})^4(3 - 2\mathrm{i})^4\)</span>, and <span class="math inline">\(5 - \mathrm{i} = (1 - \mathrm{i})(3 + 2\mathrm{i})\)</span> is built from the same Gaussian primes. Finding Machin-type formulas is really a problem about factorising numbers of the form <span class="math inline">\(n^2 + 1\)</span>. In 1899 Carl Størmer used exactly this idea to prove that there are only four formulas of the form <span class="math inline">\(\frac\pi4 = a\tan^{-1}\frac1m + b\tan^{-1}\frac1n\)</span> with whole numbers <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(m\)</span>, <span class="math inline">\(n\)</span>: Machin’s, and three found by Euler, Hermann and Hutton.</p>
+<h3 id="rotations">Rotations</h3>
+<p>Multiplying by a complex number of modulus <span class="math inline">\(1\)</span> is a rotation of the plane. That is why complex numbers are the natural language for anything involving rotation and angles, from the geometry later in this chapter to alternating currents in electrical engineering and the wave functions of quantum mechanics. In <a href="../ch04/trig-from-integral.html">Section 4.2</a> the addition formula for <span class="math inline">\(\tan^{-1}\)</span> came from a clever substitution; here it comes from the multiplication of complex numbers, and the two are the same fact seen from different sides.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Translate angles into complex multiplication</div>
+<p><em>An identity between sums of angles is an identity between arguments of a product. Compute the product exactly and read off its argument.</em></p>
+<p>Arithmetic with complex numbers is mechanical and exact, while manipulating inverse trigonometric functions is error-prone. Translating from one to the other is often the quickest route to a proof.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A cousin.</strong> (From STEP II, 2000.) By considering <span class="math inline">\((5 - \mathrm{i})^2(1 + \mathrm{i})\)</span>, prove that <span class="math inline">\(\tan^{-1}\frac{7}{17} + 2\tan^{-1}\frac15 = \frac\pi4\)</span>.</p></li>
+<li><p><strong>Euler’s formula.</strong> Show that <span class="math inline">\(\tan^{-1}\frac12 + \tan^{-1}\frac13 = \frac\pi4\)</span> by considering <span class="math inline">\((2 + \mathrm{i})(3 + \mathrm{i})\)</span>.</p></li>
+<li><p><strong>Hutton’s formula.</strong> Show that <span class="math inline">\(\frac\pi4 = 2\tan^{-1}\frac13 + \tan^{-1}\frac17\)</span>.</p></li>
+<li><p><strong>How many terms?</strong> Estimate how many terms of each series in Machin’s formula you would need to compute <span class="math inline">\(\pi\)</span> to <span class="math inline">\(20\)</span> decimal places. Then do it for the first few digits with a calculator.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Jonathan Borwein &amp; Peter Borwein, <em>Pi and the AGM</em></strong> (Wiley). Includes the history of Machin-type formulas.</p></li>
+<li><p><strong>Jörg Arndt &amp; Christoph Haenel, <em>Pi Unleashed</em></strong> (Springer). A lively account of methods for computing <span class="math inline">\(\pi\)</span>, old and new.</p></li>
+<li><p><strong>Tristan Needham, <em>Visual Complex Analysis</em></strong> (Oxford University Press). The best book for seeing complex numbers geometrically. Chapter 1 is about multiplication as rotation and scaling.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← Chapter introduction</a><a class="next" href="roots-filter.html">→ 5.2 The Roots-of-Unity Filter</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
