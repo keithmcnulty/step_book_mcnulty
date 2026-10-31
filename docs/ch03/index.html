@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 3: Functions, Inequalities and Rigour — Beyond STEP</title>
+<meta name="description" content="Opens with error-spotting, then the classical inequalities, then functions defined by their properties.">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter</div>
+    <div class="ch-num">3</div>
+    <h1>Functions, Inequalities and Rigour</h1>
+    <p class="strap">Knowing that something is true is not the same as knowing why, and the difference is where mathematics lives.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Download the whole chapter</span><span class="dl-sub">PDF, typeset for print</span></span></a>
+  </div>
+  <h2 class="contents-head">In this chapter</h2>
+  <ol class="toc"><li><a class="toc-link" href="spot-the-flaw.html"><span class="toc-num">3.1</span>
+<span class="toc-title">Spot the Flaw</span>
+<span class="toc-src">STEP I 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-1-spot-the-flaw.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="am-gm-backwards.html"><span class="toc-num">3.2</span>
+<span class="toc-title">AM–GM, Backwards</span>
+<span class="toc-src">STEP II 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-2-am-gm-backwards.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="convexity.html"><span class="toc-num">3.3</span>
+<span class="toc-title">The Power of Convexity</span>
+<span class="toc-src">STEP II 2007</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-3-convexity.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="areas-inequalities.html"><span class="toc-num">3.4</span>
+<span class="toc-title">Areas That Prove Inequalities</span>
+<span class="toc-src">STEP III 2011</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-4-areas-inequalities.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="pi-e-or-e-pi.html"><span class="toc-num">3.5</span>
+<span class="toc-title">\(\pi^e\) or \(e^\pi\)?</span>
+<span class="toc-src">STEP II 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-5-pi-e-or-e-pi.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="markov-bound.html"><span class="toc-num">3.6</span>
+<span class="toc-title">A Bound on Slopes</span>
+<span class="toc-src">STEP I 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-6-markov-bound.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wirtinger.html"><span class="toc-num">3.7</span>
+<span class="toc-title">\(\pi^2 \leq 10\)</span>
+<span class="toc-src">STEP II 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-7-wirtinger.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="addition-laws.html"><span class="toc-num">3.8</span>
+<span class="toc-title">Functions from Their Addition Laws</span>
+<span class="toc-src">STEP III 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-8-addition-laws.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="lambert-w.html"><span class="toc-num">3.9</span>
+<span class="toc-title">Inventing a New Function</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-9-lambert-w.pdf" download title="Worksheet PDF">Worksheet</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">Looking back: what we have learned</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">Chapter 3  \(\cdot\)  Introduction</div>
+    <h1 class="essay-title">Getting It Right</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>In mathematics you don’t understand things. You just get used to them.</p>
+<p class="who">— John von Neumann</p>
+</div>
+<p>Here is a “proof” that <span class="math inline">\(1 = 2\)</span>. Let <span class="math inline">\(a = b\)</span>. Then <span class="math inline">\(a^2 = ab\)</span>, so <span class="math inline">\(a^2 - b^2 = ab - b^2\)</span>, which factorises as <span class="math inline">\((a + b)(a - b) = b(a - b)\)</span>. Cancelling <span class="math inline">\(a - b\)</span> gives <span class="math inline">\(a + b = b\)</span>, and since <span class="math inline">\(a = b\)</span>, that says <span class="math inline">\(2b = b\)</span>, so <span class="math inline">\(2 = 1\)</span>.</p>
+<p>You probably spotted the problem: since <span class="math inline">\(a = b\)</span>, “cancelling <span class="math inline">\(a - b\)</span>” means dividing by zero. But notice how plausible every step looked, and how easily the error hid inside a routine move. Real mistakes in real mathematics are rarely so obvious, and they have fooled some of the greatest mathematicians who ever lived. This chapter is about the habits of mind that catch them: precise definitions, careful use of theorems, and a healthy suspicion of arguments that seem too easy.</p>
+<h3 id="why-rigour-matters">Why rigour matters</h3>
+<p>At school, mathematics is mostly about getting answers. At university it is mostly about <em>knowing that your answers are right</em>, and being able to convince someone else. That shift is the biggest single change between school and university mathematics, and it can be unsettling. Why spend a page proving something that “obviously” works?</p>
+<p>The answer is that “obvious” is unreliable. The history of analysis is full of results that seemed obvious and were false: that a continuous function must be differentiable except perhaps at a few isolated points (André-Marie Ampère published a “proof” in 1806; in 1872 Weierstrass found a continuous function differentiable <em>nowhere</em>), that a convergent sum of continuous functions is continuous (Cauchy believed it; Abel found a counterexample), that you can rearrange the terms of a convergent series without changing its sum (you can’t, in general). Rigour is not pedantry. It is the only reliable way to tell the true from the plausible.</p>
+<h3 id="inequalities-the-working-tools-of-analysis">Inequalities: the working tools of analysis</h3>
+<p>The second theme of this chapter is <em>inequalities</em>. In school mathematics most results are equations: this equals that. In analysis, most results are inequalities: this is at most that. To prove a sequence converges you show the error is <em>less than</em> any tolerance; to prove an integral exists you show some sum is <em>bounded</em>; to estimate how good an approximation is, you bound the error. A professional analyst spends much more time proving inequalities than equations, and the classical inequalities you will meet here (AM–GM, Jensen, Young, Hölder, Cauchy–Schwarz) are the tools of the trade.</p>
+<p>They are also remarkable in their own right. A single inequality about functions, with a well-chosen example, proves <span class="math inline">\(\pi^2 \leq 10\)</span> (<a href="../ch03/wirtinger.html">Section 3.7</a>). A fact about the shape of the logarithm settles whether <span class="math inline">\(\pi^e\)</span> or <span class="math inline">\(e^\pi\)</span> is bigger (<a href="../ch03/pi-e-or-e-pi.html">Section 3.5</a>). A chemist’s question about measurement errors leads to some of the most important polynomials in mathematics (<a href="../ch03/markov-bound.html">Section 3.6</a>).</p>
+<h3 id="what-you-will-meet-at-university">What you will meet at university</h3>
+<p>Rigour is the theme of first-year <em>Analysis</em>, and also of a course often called <em>Numbers and Sets</em> or <em>Foundations</em>, where you learn to write proofs precisely. You will meet the formal definitions of continuity and differentiability, and theorems with precise hypotheses (the intermediate value theorem, the mean value theorem, the extreme value theorem) whose hypotheses really matter. Later courses develop the inequalities in this chapter into whole subjects: <em>functional analysis</em> studies spaces of functions measured by integrals like those in <a href="../ch03/areas-inequalities.html">Section 3.4</a> and <a href="../ch03/wirtinger.html">Section 3.7</a>; <em>convex analysis</em> and <em>optimisation</em> grow out of <a href="../ch03/convexity.html">Section 3.3</a>; <em>approximation theory</em> grows out of <a href="../ch03/markov-bound.html">Section 3.6</a>; and <em>special functions</em> like the one in <a href="../ch03/lambert-w.html">Section 3.9</a> appear throughout applied mathematics and physics.</p>
+<h3 id="the-questions-that-run-through-this-chapter">The questions that run through this chapter</h3>
+<div class="skillbox">
+<div class="box-title">Three big questions</div>
+<ol class="arabic">
+<li><p><strong>How do you know an argument is correct?</strong> What are the common ways for plausible arguments to fail, and how do you check?</p></li>
+<li><p><strong>How do you prove an inequality?</strong> Where do the classical inequalities come from, and how do you choose which one to use?</p></li>
+<li><p><strong>What is a function, really?</strong> Can a function be defined by a property it has, rather than by a formula? And can we invent new functions when the old ones are not enough?</p></li>
+</ol>
+</div>
+<p>The chapter opens with error-spotting (<a href="../ch03/spot-the-flaw.html">Section 3.1</a>), then works through the classical inequalities, each from a different angle: an unusual induction, convexity, areas, the shape of a graph, polynomial interpolation and test functions. It closes with two sections on functions defined by their properties: <span class="math inline">\(e^x\)</span> and <span class="math inline">\(\tanh x\)</span> from their addition laws, and a brand-new function defined as an inverse.</p>
+<h3 id="ideas-in-this-chapter">Ideas in this chapter</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">3.1</td>
+<td style="text-align: left;">Plausible wrong arguments</td>
+<td style="text-align: left;">Checking calculations, logic and hidden hypotheses</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.2</td>
+<td style="text-align: left;">AM–GM</td>
+<td style="text-align: left;">Forward–backward induction</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.3</td>
+<td style="text-align: left;">Jensen’s inequality</td>
+<td style="text-align: left;">Concave curves lie above their chords</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.4</td>
+<td style="text-align: left;">Young’s inequality</td>
+<td style="text-align: left;">Comparing areas in a picture</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.5</td>
+<td style="text-align: left;"><span class="math inline">\(\pi^e\)</span> or <span class="math inline">\(e^\pi\)</span>?</td>
+<td style="text-align: left;">Reducing to one function and studying its graph</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.6</td>
+<td style="text-align: left;">Slopes of quadratics</td>
+<td style="text-align: left;">Expressing the unknown in terms of the known</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.7</td>
+<td style="text-align: left;"><span class="math inline">\(\pi^2 \leq 10\)</span></td>
+<td style="text-align: left;">Test functions in a general inequality</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.8</td>
+<td style="text-align: left;"><span class="math inline">\(e^x\)</span> and <span class="math inline">\(\tanh x\)</span></td>
+<td style="text-align: left;">Functions defined by functional equations</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.9</td>
+<td style="text-align: left;">The W function</td>
+<td style="text-align: left;">Inventing a function as an inverse</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-to-read-this-chapter">How to read this chapter</h3>
+<p>As before, try each question before reading the solution. In this chapter, also try something else: after reading each solution, go back and find the one or two steps that a careless student would get wrong. Where would a hidden assumption slip in? Which hypothesis of which theorem needs checking? Reading in this way, critically and actively, is the single most useful habit you can build before university.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="spot-the-flaw.html">→ Begin: 3.1 Spot the Flaw</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

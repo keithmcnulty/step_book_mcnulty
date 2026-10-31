@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.7 π² ≤ 10 — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 3 · Functions, Inequalities and Rigour</a>
+    <div class="src">STEP II · 2014 · Question 2</div>
+    <div class="sec-head"><span class="sec-num">3.7</span><h1>\(\pi^2 \leq 10\)</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-7-wirtinger.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 3</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>This question concerns the inequality <span class="math display">\[\int_0^\pi \bigl(\mathrm{f}(x)\bigr)^2\,\mathrm{d}x \leq \int_0^\pi \bigl(\mathrm{f}&#39;(x)\bigr)^2\,\mathrm{d}x. \tag{$*$}\]</span></p>
+<ol class="roman">
+<li><p>Show that <span class="math inline">\((*)\)</span> is satisfied in the case <span class="math inline">\(\mathrm{f}(x) = \sin nx\)</span>, where <span class="math inline">\(n\)</span> is a positive integer.</p>
+<p>Show by means of counterexamples that <span class="math inline">\((*)\)</span> is not necessarily satisfied if either <span class="math inline">\(\mathrm{f}(0) \neq 0\)</span> or <span class="math inline">\(\mathrm{f}(\pi) \neq 0\)</span>.</p></li>
+<li><p>You may now assume that <span class="math inline">\((*)\)</span> is satisfied for any (differentiable) function <span class="math inline">\(\mathrm{f}\)</span> for which <span class="math inline">\(\mathrm{f}(0) = \mathrm{f}(\pi) = 0\)</span>.</p>
+<p>By setting <span class="math inline">\(\mathrm{f}(x) = ax^2 + bx + c\)</span>, where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> are suitably chosen, show that <span class="math inline">\(\pi^2 \leq 10\)</span>.</p>
+<p>By setting <span class="math inline">\(\mathrm{f}(x) = p\sin\frac12 x + q\cos\frac12 x + r\)</span>, where <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> are suitably chosen, obtain another inequality for <span class="math inline">\(\pi\)</span>.</p>
+<p>Which of these inequalities leads to a better estimate for <span class="math inline">\(\pi^2\)</span>?</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Every school student knows that <span class="math inline">\(\pi\)</span> is a little more than <span class="math inline">\(3\)</span>. How would you <em>prove</em> an upper bound for it? Archimedes did it with polygons. This question does it in a completely unexpected way: by taking a general inequality about functions, plugging in a simple parabola, and reading off <span class="math inline">\(\pi^2 \leq 10\)</span>. A different choice of function gives the famous approximation <span class="math inline">\(\pi \leq \frac{22}{7}\)</span>.</p>
+<p>The inequality <span class="math inline">\((*)\)</span> is <em>Wirtinger’s inequality</em>. It says that a function pinned to zero at both ends cannot be “big” without also being “steep”. Behind it lies one of the central ideas of mathematical physics: the vibrations of a string, the energy levels of a quantum particle, and the theory of eigenvalues.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Why might a function that is zero at both ends of <span class="math inline">\([0, \pi]\)</span> have to be steep if it is large in the middle? Why does the condition <span class="math inline">\(\mathrm{f}(0) = \mathrm{f}(\pi) = 0\)</span> matter?</p>
+</div>
+<p>To get from <span class="math inline">\(0\)</span> up to some height <span class="math inline">\(H\)</span> and back down to <span class="math inline">\(0\)</span> within a distance <span class="math inline">\(\pi\)</span>, a function must climb at an average rate of at least <span class="math inline">\(H/(\pi/2)\)</span>. So its derivative cannot be small everywhere. Without the condition at the ends there is no such constraint: a constant function can be as large as you like with zero derivative. The inequality <span class="math inline">\((*)\)</span> makes this precise, measuring “size” and “steepness” by integrals of squares.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-sine-waves" class="stage"><span class="stage-n">Stage 1</span> Sine waves</h4>
+<div class="askyourself">
+<p>What is <span class="math inline">\(\int_0^\pi \sin^2 nx\,\mathrm{d}x\)</span>? And <span class="math inline">\(\int_0^\pi \cos^2 nx\,\mathrm{d}x\)</span>? (Use <span class="math inline">\(\sin^2\theta = \frac12(1 - \cos 2\theta)\)</span>.)</p>
+</div>
+<p>Both are <span class="math inline">\(\frac\pi2\)</span>, since <span class="math inline">\(\int_0^\pi \cos 2nx\,\mathrm{d}x = 0\)</span>. With <span class="math inline">\(\mathrm{f}(x) = \sin nx\)</span> we have <span class="math inline">\(\mathrm{f}&#39;(x) = n\cos nx\)</span>, so <span class="math display">\[\int_0^\pi \mathrm{f}^2 = \frac\pi2 \leq \frac{n^2\pi}{2} = \int_0^\pi (\mathrm{f}&#39;)^2,\]</span> since <span class="math inline">\(n \geq 1\)</span>.<span class="qed" aria-label="end of proof">■</span> Notice that <span class="math inline">\(n = 1\)</span> gives equality, so the inequality is as tight as it could be.</p>
+<h4 id="stagemark2-the-end-conditions-matter" class="stage"><span class="stage-n">Stage 2</span> The end conditions matter</h4>
+<div class="askyourself">
+<p>Find a simple function with <span class="math inline">\(\mathrm{f}(0) \neq 0\)</span> for which <span class="math inline">\((*)\)</span> fails. Then find one with <span class="math inline">\(\mathrm{f}(0) = 0\)</span> but <span class="math inline">\(\mathrm{f}(\pi) \neq 0\)</span>.</p>
+</div>
+<p>The constant function <span class="math inline">\(\mathrm{f}(x) = 1\)</span> has <span class="math inline">\(\mathrm{f}(0) = 1 \neq 0\)</span>, and <span class="math inline">\(\int_0^\pi 1\,\mathrm{d}x = \pi &gt; 0 = \int_0^\pi 0\,\mathrm{d}x\)</span>.</p>
+<p>For the second, <span class="math inline">\(\mathrm{f}(x) = x\)</span> has <span class="math inline">\(\mathrm{f}(0) = 0\)</span> but <span class="math inline">\(\mathrm{f}(\pi) = \pi\)</span>, and <span class="math display">\[\int_0^\pi x^2\,\mathrm{d}x = \frac{\pi^3}{3} \approx 10.3 &gt; \pi = \int_0^\pi 1^2\,\mathrm{d}x.\]</span> So <span class="math inline">\((*)\)</span> fails in both cases.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-a-parabola" class="stage"><span class="stage-n">Stage 3</span> A parabola</h4>
+<div class="askyourself">
+<p>Which quadratic vanishes at <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(x = \pi\)</span>? (Up to a constant multiple, there is only one. Why doesn’t the multiple matter?)</p>
+</div>
+<p>The quadratic must be a multiple of <span class="math inline">\(x(\pi - x)\)</span>, and multiplying <span class="math inline">\(\mathrm{f}\)</span> by a constant <span class="math inline">\(k\)</span> multiplies both sides of <span class="math inline">\((*)\)</span> by <span class="math inline">\(k^2\)</span>, so we may take <span class="math inline">\(\mathrm{f}(x) = x(\pi - x)\)</span>, that is, <span class="math inline">\(a = -1\)</span>, <span class="math inline">\(b = \pi\)</span>, <span class="math inline">\(c = 0\)</span>. Then <span class="math inline">\(\mathrm{f}&#39;(x) = \pi - 2x\)</span>, and with the substitution <span class="math inline">\(u = x - \frac\pi2\)</span> (which makes both integrands even), <span class="math display">\[\begin{aligned}
+  \int_0^\pi x^2(\pi - x)^2\,\mathrm{d}x &amp;= \int_{-\pi/2}^{\pi/2} \left( \frac{\pi^2}{4} - u^2 \right)^2 \mathrm{d}u = \frac{\pi^5}{30}, \\
+  \int_0^\pi (\pi - 2x)^2\,\mathrm{d}x &amp;= \int_{-\pi/2}^{\pi/2} 4u^2\,\mathrm{d}u = \frac{\pi^3}{3}.
+\end{aligned}\]</span> (For the first: <span class="math inline">\(\int_{-h}^{h}(h^2 - u^2)^2\,\mathrm{d}u = 2\bigl(h^5 - \frac23 h^5 + \frac15 h^5\bigr) = \frac{16}{15}h^5\)</span> with <span class="math inline">\(h = \frac\pi2\)</span>.) So <span class="math inline">\((*)\)</span> says <span class="math inline">\(\frac{\pi^5}{30} \leq \frac{\pi^3}{3}\)</span>, that is, <span class="math display">\[\pi^2 \leq 10. \qed\]</span></p>
+<h4 id="stagemark4-a-trigonometric-choice" class="stage"><span class="stage-n">Stage 4</span> A trigonometric choice</h4>
+<div class="askyourself">
+<p>For <span class="math inline">\(\mathrm{f}(x) = p\sin\frac12 x + q\cos\frac12 x + r\)</span>, what conditions do <span class="math inline">\(\mathrm{f}(0) = 0\)</span> and <span class="math inline">\(\mathrm{f}(\pi) = 0\)</span> impose on <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span>, <span class="math inline">\(r\)</span>?</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(0) = q + r = 0\)</span> and <span class="math inline">\(\mathrm{f}(\pi) = p + r = 0\)</span>. So <span class="math inline">\(p = q = -r\)</span>, and scaling, we take <span class="math inline">\(\mathrm{f}(x) = \sin\frac x2 + \cos\frac x2 - 1\)</span>.</p>
+<div class="pausebox">
+<p>Compute <span class="math inline">\(\int_0^\pi \mathrm{f}^2\)</span> and <span class="math inline">\(\int_0^\pi (\mathrm{f}&#39;)^2\)</span> for this function. What inequality for <span class="math inline">\(\pi\)</span> results?</p>
+</div>
+<p>Write <span class="math inline">\(s = \sin\frac x2\)</span> and <span class="math inline">\(c = \cos\frac x2\)</span>. Then <span class="math inline">\((s + c)^2 = 1 + 2sc = 1 + \sin x\)</span>, so <span class="math display">\[\mathrm{f}^2 = (s + c)^2 - 2(s + c) + 1 = 2 + \sin x - 2\sin\tfrac x2 - 2\cos\tfrac x2.\]</span> Using <span class="math inline">\(\int_0^\pi \sin x = 2\)</span>, <span class="math inline">\(\int_0^\pi \sin\frac x2 = 2\)</span> and <span class="math inline">\(\int_0^\pi \cos\frac x2 = 2\)</span>, <span class="math display">\[\int_0^\pi \mathrm{f}^2\,\mathrm{d}x = 2\pi + 2 - 4 - 4 = 2\pi - 6.\]</span> And <span class="math inline">\(\mathrm{f}&#39; = \frac12(c - s)\)</span>, so <span class="math inline">\((\mathrm{f}&#39;)^2 = \frac14(1 - \sin x)\)</span> and <span class="math inline">\(\int_0^\pi (\mathrm{f}&#39;)^2\,\mathrm{d}x = \frac14(\pi - 2)\)</span>. Now <span class="math inline">\((*)\)</span> gives <span class="math display">\[2\pi - 6 \leq \frac{\pi - 2}{4} \quad\Longrightarrow\quad 8\pi - 24 \leq \pi - 2 \quad\Longrightarrow\quad \pi \leq \frac{22}{7}. \qed\]</span></p>
+<h4 id="stagemark5-which-is-better" class="stage"><span class="stage-n">Stage 5</span> Which is better?</h4>
+<p>From <span class="math inline">\(\pi \leq \frac{22}{7}\)</span> we get <span class="math inline">\(\pi^2 \leq \frac{484}{49} \approx 9.878\)</span>, which is better than <span class="math inline">\(\pi^2 \leq 10\)</span>. (The true value is <span class="math inline">\(\pi^2 \approx 9.870\)</span>.) Notice that this proves <span class="math inline">\(\frac{22}{7}\)</span> is an <em>upper</em> bound for <span class="math inline">\(\pi\)</span>; a quite different integral, in Section 4.3, shows that it is not equal to <span class="math inline">\(\pi\)</span>.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>A general inequality, a specific function.</strong> Choosing a test function turned a statement about all functions into a statement about a number.</p></li>
+<li><p><strong>Scaling.</strong> Both sides of <span class="math inline">\((*)\)</span> scale by the same factor, so we could fix the free constant in each family.</p></li>
+<li><p><strong>Better test functions give better bounds.</strong> The closer the test function is to the extreme case <span class="math inline">\(\sin x\)</span>, the closer the inequality is to equality, and the better the estimate (Figure 3.7.1).</p></li>
+</ul>
+<figure class="stepfig"><img src="../assets/fig/fig-3-7-1.svg" alt="Figure 3.7.1"><figcaption><span class="fig-label">Figure 3.7.1</span> The three functions in this section, each scaled to have maximum <span class="math inline">\(1\)</span>: the extreme case <span class="math inline">\(\sin x\)</span> (solid), which gives equality in <span class="math inline">\((*)\)</span>; the parabola <span class="math inline">\(x(\pi - x)\)</span> (dashed), which gives <span class="math inline">\(\pi^2 \leq 10\)</span>; and <span class="math inline">\(\sin\frac x2 + \cos\frac x2 - 1\)</span> (dotted), which gives <span class="math inline">\(\pi \leq \frac{22}{7}\)</span>. Both test functions are very close to <span class="math inline">\(\sin x\)</span>, which is why the bounds are so good.</figcaption></figure>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">A proof with Fourier series</div>
+<p>Why is <span class="math inline">\((*)\)</span> true? At university you will learn that any reasonable function on <span class="math inline">\([0, \pi]\)</span> that vanishes at both ends can be written as a <em>Fourier sine series</em>, <span class="math display">\[\mathrm{f}(x) = b_1\sin x + b_2\sin 2x + b_3\sin 3x + \cdots.\]</span> Because <span class="math inline">\(\int_0^\pi \sin mx\sin nx\,\mathrm{d}x = 0\)</span> for <span class="math inline">\(m \neq n\)</span>, all the cross terms vanish when you square and integrate, giving <span class="math display">\[\int_0^\pi \mathrm{f}^2 = \frac\pi2\bigl(b_1^2 + b_2^2 + b_3^2 + \cdots\bigr), \qquad \int_0^\pi (\mathrm{f}&#39;)^2 = \frac\pi2\bigl(1^2 b_1^2 + 2^2 b_2^2 + 3^2 b_3^2 + \cdots\bigr).\]</span> Each term on the right is at least the corresponding term on the left, which proves <span class="math inline">\((*)\)</span>, and shows that equality holds only when <span class="math inline">\(\mathrm{f}\)</span> is a multiple of <span class="math inline">\(\sin x\)</span>. Part (i) of the question is the single-term case.</p>
+</div>
+<h3 id="vibrating-strings-and-quantum-particles">Vibrating strings and quantum particles</h3>
+<p>The ratio <span class="math inline">\(\int (\mathrm{f}&#39;)^2 \big/ \int \mathrm{f}^2\)</span> is called a <em>Rayleigh quotient</em>, and <span class="math inline">\((*)\)</span> says its smallest possible value, for functions pinned at <span class="math inline">\(0\)</span> and <span class="math inline">\(\pi\)</span>, is <span class="math inline">\(1\)</span>. This number has physical meaning. For a string fixed at both ends, <span class="math inline">\(\int (\mathrm{f}&#39;)^2\)</span> measures the stretching energy and <span class="math inline">\(\int \mathrm{f}^2\)</span> the size of the displacement, and the minimum value of the ratio determines the lowest note the string can play. In quantum mechanics, the same minimum is the lowest energy of a particle trapped in a box: it cannot be zero, because a wave pinned at both ends must bend. Lord Rayleigh used exactly this trick, guessing a test function and computing the ratio, to estimate the frequencies of vibrating systems; because the extreme case gives the minimum, any guess gives an upper bound on the true lowest frequency, and good guesses give very accurate ones.</p>
+<h3 id="the-calculus-of-variations">The calculus of variations</h3>
+<p>Finding the function that minimises a ratio of integrals is a problem in the <em>calculus of variations</em>, where the unknown is a whole function rather than a number. The minimiser here, <span class="math inline">\(\sin x\)</span>, satisfies the differential equation <span class="math inline">\(\mathrm{f}&#39;&#39; + \mathrm{f} = 0\)</span>, and this is no coincidence: minimising an integral always leads to a differential equation for the minimiser. We return to this idea in Section 4.7.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Test functions</div>
+<p><em>An inequality that holds for every function in a class can be applied to a cleverly chosen function to give information about a specific number.</em></p>
+<p>The art is in the choice: a test function close to the extreme case gives a nearly sharp result. This idea runs through analysis, physics and engineering, from estimating eigenvalues to the finite element method.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A quartic.</strong> Use <span class="math inline">\(\mathrm{f}(x) = x^2(\pi - x)^2\)</span> in <span class="math inline">\((*)\)</span>. Show that it gives only <span class="math inline">\(\pi^2 \leq 12\)</span>. Why is this test function worse than the parabola? (Compare its shape with <span class="math inline">\(\sin x\)</span>.)</p></li>
+<li><p><strong>Two sine waves.</strong> Check <span class="math inline">\((*)\)</span> directly for <span class="math inline">\(\mathrm{f}(x) = \sin x + \sin 2x\)</span>, computing both sides.</p></li>
+<li><p><strong>A different interval.</strong> Show by a substitution that if <span class="math inline">\(\mathrm{g}(0) = \mathrm{g}(L) = 0\)</span> then <span class="math inline">\(\displaystyle\int_0^L \mathrm{g}^2 \leq \frac{L^2}{\pi^2}\int_0^L (\mathrm{g}&#39;)^2\)</span>. What does this say about strings of different lengths?</p></li>
+<li><p><strong>Rayleigh’s method.</strong> <span class="hard">harder</span> Take <span class="math inline">\(\mathrm{f}(x) = x(\pi - x) + \lambda x^2(\pi - x)^2\)</span> and choose <span class="math inline">\(\lambda\)</span> to make the bound on <span class="math inline">\(\pi^2\)</span> as good as possible. (The algebra is heavy; a computer algebra system helps.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>T. W. Körner, <em>Fourier Analysis</em></strong> (Cambridge University Press). A wonderful, discursive book on Fourier series and their applications, written by a Cambridge analyst.</p></li>
+<li><p><strong>Hardy, Littlewood &amp; Pólya, <em>Inequalities</em></strong> (Cambridge University Press). Chapter 7 discusses Wirtinger’s inequality and its relatives.</p></li>
+<li><p><strong>Richard Feynman, <em>The Feynman Lectures on Physics</em></strong>, Volume II, Chapter 19 (“The principle of least action”). Feynman’s lecture on minimising integrals, with physical intuition throughout. Free online.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="markov-bound.html">← 3.6 A Bound on Slopes</a><a class="next" href="addition-laws.html">→ 3.8 Functions from Their Addition Laws</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

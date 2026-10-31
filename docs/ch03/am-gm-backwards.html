@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.2 AM–GM, Backwards — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 3 · Functions, Inequalities and Rigour</a>
+    <div class="src">STEP II · 1993 · Question 8</div>
+    <div class="sec-head"><span class="sec-num">3.2</span><h1>AM–GM, Backwards</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-2-am-gm-backwards.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 3</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Suppose that <span class="math inline">\(a_i &gt; 0\)</span> for all <span class="math inline">\(i &gt; 0\)</span>. Show that <span class="math display">\[a_1 a_2 \leq \left( \frac{a_1 + a_2}{2} \right)^2.\]</span> Prove by induction that for all positive integers <span class="math inline">\(m\)</span> <span class="math display">\[a_1 \cdots a_{2^m} \leq \left( \frac{a_1 + \cdots + a_{2^m}}{2^m} \right)^{2^m}. \tag{$*$}\]</span> If <span class="math inline">\(n &lt; 2^m\)</span>, put <span class="math inline">\(b_1 = a_1\)</span>, <span class="math inline">\(b_2 = a_2\)</span>, …, <span class="math inline">\(b_n = a_n\)</span> and <span class="math inline">\(b_{n+1} = \cdots = b_{2^m} = A\)</span>, where <span class="math display">\[A = \frac{a_1 + \cdots + a_n}{n}.\]</span> By applying <span class="math inline">\((*)\)</span> to the <span class="math inline">\(b_i\)</span>, show that <span class="math display">\[a_1 \cdots a_n A^{(2^m - n)} \leq A^{2^m}\]</span> (notice that <span class="math inline">\(b_1 + \cdots + b_n = nA\)</span>). Deduce the (arithmetic mean)/(geometric mean) inequality <span class="math display">\[(a_1 \cdots a_n)^{1/n} \leq \frac{a_1 + \cdots + a_n}{n}.\]</span></p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>The arithmetic mean–geometric mean inequality (AM–GM) is perhaps the single most useful inequality in mathematics. It says that for positive numbers, the ordinary average is always at least the “multiplicative average”, with equality only when all the numbers are equal. It solves optimisation problems without calculus, it proves other inequalities, and it appears in every branch of analysis.</p>
+<p>This question proves it by a strange and beautiful induction, due to Augustin-Louis Cauchy in 1821. Instead of going from <span class="math inline">\(n\)</span> to <span class="math inline">\(n + 1\)</span>, it leaps from <span class="math inline">\(2\)</span> to <span class="math inline">\(4\)</span> to <span class="math inline">\(8\)</span> to <span class="math inline">\(16\)</span>, covering only the powers of <span class="math inline">\(2\)</span>, and then comes <em>back down</em> to fill in the numbers in between. It is a reminder that “induction” is a much more flexible idea than the textbook version suggests.</p>
+<h2 id="before-you-start">Before you start</h2>
+<p>The version of this paper in the online archive has a misprint: it reads “<span class="math inline">\(b_1 = a_2\)</span>”. It should of course be <span class="math inline">\(b_1 = a_1\)</span>, as printed above; the idea is that the <span class="math inline">\(b\)</span>s are the <span class="math inline">\(a\)</span>s, padded out with copies of their average.</p>
+<div class="askyourself">
+<p>Why might it be easier to go from <span class="math inline">\(2^m\)</span> numbers to <span class="math inline">\(2^{m+1}\)</span> numbers than from <span class="math inline">\(n\)</span> to <span class="math inline">\(n + 1\)</span>?</p>
+</div>
+<p>Because <span class="math inline">\(2^{m+1}\)</span> numbers split naturally into two groups of <span class="math inline">\(2^m\)</span>, and you can apply the inductive hypothesis to each half and then use the two-number case to combine the halves. Going from <span class="math inline">\(n\)</span> to <span class="math inline">\(n + 1\)</span> gives you nothing so symmetric to work with.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-two-numbers" class="stage"><span class="stage-n">Stage 1</span> Two numbers</h4>
+<p><span class="math inline">\(\left( \frac{a_1 + a_2}{2} \right)^2 - a_1 a_2 = \frac{a_1^2 + 2a_1a_2 + a_2^2 - 4a_1a_2}{4} = \frac{(a_1 - a_2)^2}{4} \geq 0.\)</span><span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-doubling" class="stage"><span class="stage-n">Stage 2</span> Doubling</h4>
+<p>The case <span class="math inline">\(m = 1\)</span> is Stage 1. Suppose <span class="math inline">\((*)\)</span> holds for <span class="math inline">\(2^m\)</span> numbers, and take <span class="math inline">\(2^{m+1}\)</span> positive numbers.</p>
+<div class="askyourself">
+<p>Split the <span class="math inline">\(2^{m+1}\)</span> numbers into a first half and a second half, and let <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> be the arithmetic means of the two halves. What does the inductive hypothesis say about each half?</p>
+</div>
+<p>Applying <span class="math inline">\((*)\)</span> to each half, <span class="math display">\[a_1 \cdots a_{2^m} \leq P^{2^m} \qquad\text{and}\qquad a_{2^m + 1} \cdots a_{2^{m+1}} \leq Q^{2^m}.\]</span> Multiplying (everything is positive), the product of all <span class="math inline">\(2^{m+1}\)</span> numbers is at most <span class="math inline">\((PQ)^{2^m}\)</span>. Now the two-number case gives <span class="math inline">\(PQ \leq \left( \frac{P + Q}{2} \right)^2\)</span>, and <span class="math inline">\(\frac{P + Q}{2}\)</span> is exactly the mean of all <span class="math inline">\(2^{m+1}\)</span> numbers. So <span class="math display">\[a_1 \cdots a_{2^{m+1}} \leq (PQ)^{2^m} \leq \left( \frac{P + Q}{2} \right)^{2^{m+1}} = \left( \frac{a_1 + \cdots + a_{2^{m+1}}}{2^{m+1}} \right)^{2^{m+1}},\]</span> which is <span class="math inline">\((*)\)</span> for <span class="math inline">\(m + 1\)</span>. By induction, AM–GM holds whenever the number of terms is a power of <span class="math inline">\(2\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-filling-the-gaps" class="stage"><span class="stage-n">Stage 3</span> Filling the gaps</h4>
+<p>Now take any <span class="math inline">\(n\)</span>, and choose <span class="math inline">\(m\)</span> with <span class="math inline">\(2^m &gt; n\)</span>. We pad the list <span class="math inline">\(a_1, \ldots, a_n\)</span> with <span class="math inline">\(2^m - n\)</span> copies of its own average <span class="math inline">\(A\)</span>.</p>
+<div class="askyourself">
+<p>What is the average of the padded list <span class="math inline">\(b_1, \ldots, b_{2^m}\)</span>?</p>
+</div>
+<p>The sum is <span class="math inline">\((a_1 + \cdots + a_n) + (2^m - n)A = nA + (2^m - n)A = 2^m A\)</span>, so the average is <span class="math inline">\(A\)</span> itself. Adding copies of the average does not change the average. So <span class="math inline">\((*)\)</span> applied to the <span class="math inline">\(b\)</span>s gives <span class="math display">\[a_1 \cdots a_n \cdot A^{2^m - n} \leq A^{2^m}.\]</span></p>
+<div class="pausebox">
+<p>Finish the proof.</p>
+</div>
+<p>Divide both sides by <span class="math inline">\(A^{2^m - n}\)</span> (which is positive): <span class="math inline">\(a_1 \cdots a_n \leq A^n\)</span>. Taking <span class="math inline">\(n\)</span>th roots, <span class="math display">\[(a_1 \cdots a_n)^{1/n} \leq A = \frac{a_1 + \cdots + a_n}{n}. \qed\]</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Induction along a different path.</strong> Stage 2 is an induction on <span class="math inline">\(m\)</span>, covering <span class="math inline">\(n = 2, 4, 8, \ldots\)</span> Stage 3 is a way of stepping <em>down</em> from any power of <span class="math inline">\(2\)</span> to any smaller <span class="math inline">\(n\)</span> (Figure 3.2.1).</p></li>
+<li><p><strong>Padding with the average.</strong> The trick of extending a list without changing its average is worth remembering; it is a way of turning a problem about any <span class="math inline">\(n\)</span> into a problem about a convenient <span class="math inline">\(n\)</span>.</p></li>
+<li><p><strong>When is there equality?</strong> Tracing back through the proof, equality needs equality in every use of the two-number case, which happens only when all the numbers are equal.</p></li>
+</ul>
+<figure class="stepfig"><img src="../assets/fig/fig-3-2-1.svg" alt="Figure 3.2.1"><figcaption><span class="fig-label">Figure 3.2.1</span> Cauchy’s forward–backward induction. The teal arrows prove AM–GM for <span class="math inline">\(2, 4, 8, 16, \ldots\)</span> numbers by doubling; the amber arrows fill in every other <span class="math inline">\(n\)</span> by padding the list up to the next power of <span class="math inline">\(2\)</span>.</figcaption></figure>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Cauchy’s induction</div>
+<p>Cauchy published this proof in his <em>Cours d’analyse</em> (1821), the book that began the rigorous treatment of analysis we discussed in Chapter 2. The technique is now called <em>forward–backward induction</em>: prove a statement for an infinite sequence of cases (here the powers of <span class="math inline">\(2\)</span>), and then show that the case <span class="math inline">\(n\)</span> implies the case <span class="math inline">\(n - 1\)</span>. Together, these reach every <span class="math inline">\(n\)</span>. Our Stage 3 jumps straight down from <span class="math inline">\(2^m\)</span> to <span class="math inline">\(n\)</span>, but you can also do it one step at a time: padding <span class="math inline">\(n - 1\)</span> numbers with one copy of their average shows that the case <span class="math inline">\(n\)</span> implies the case <span class="math inline">\(n - 1\)</span>.</p>
+</div>
+<h3 id="many-proofs-of-one-inequality">Many proofs of one inequality</h3>
+<p>AM–GM has dozens of proofs, and comparing them is a good way to see different styles of mathematics.</p>
+<ul>
+<li><p><strong>By convexity.</strong> The logarithm is concave, so the average of the logarithms is at most the logarithm of the average. That is AM–GM after taking exponentials, and it is the subject of <a href="../ch03/convexity.html">Section 3.3</a>.</p></li>
+<li><p><strong>George Pólya’s proof.</strong> Use <span class="math inline">\(e^{x - 1} \geq x\)</span> (the tangent line to <span class="math inline">\(e^{x-1}\)</span> at <span class="math inline">\(x = 1\)</span> lies below the curve). With <span class="math inline">\(A\)</span> the mean, apply it to each <span class="math inline">\(a_i/A\)</span> and multiply: <span class="math inline">\(\prod \frac{a_i}{A} \leq e^{\sum (a_i/A - 1)} = e^0 = 1\)</span>. Pólya said this proof came to him in a dream.</p></li>
+<li><p><strong>By smoothing.</strong> If two of the numbers are unequal, replace them both by their average. The arithmetic mean is unchanged and, by the two-number case, the product increases. Repeating pushes all the numbers towards the average.</p></li>
+</ul>
+<h3 id="optimisation-without-calculus">Optimisation without calculus</h3>
+<p>AM–GM turns many optimisation problems into one-liners. Of all boxes with a given surface area, which has the largest volume? Of all rectangles with a given perimeter, which has the largest area? (A square, by the two-number case: <span class="math inline">\(xy \leq \bigl(\frac{x+y}{2}\bigr)^2\)</span>, with equality when <span class="math inline">\(x = y\)</span>.) The equality condition tells you where the optimum is, and the inequality tells you it really is the optimum, not just a stationary point. Compare the warnings of <a href="../ch03/spot-the-flaw.html">Section 3.1</a>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Flexible induction</div>
+<p><em>Induction does not have to go <span class="math inline">\(1, 2, 3, \ldots\)</span> You can induct along any path that reaches every case: by doubling, by strong induction, or forwards on a subsequence and then backwards to fill the gaps.</em></p>
+<p>When the obvious step from <span class="math inline">\(n\)</span> to <span class="math inline">\(n+1\)</span> is hard, ask which step would be easy, and whether you can reach every case using it.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>One step back.</strong> Show directly that if AM–GM holds for <span class="math inline">\(n\)</span> numbers, it holds for <span class="math inline">\(n - 1\)</span> numbers, by padding with one copy of the average.</p></li>
+<li><p><strong>An increasing sequence.</strong> Apply AM–GM to the <span class="math inline">\(n + 1\)</span> numbers <span class="math inline">\(1 + \frac1n, \ldots, 1 + \frac1n, 1\)</span> (with <span class="math inline">\(n\)</span> copies of <span class="math inline">\(1 + \frac1n\)</span>) to show that <span class="math inline">\(\left(1 + \frac1n\right)^n &lt; \left(1 + \frac{1}{n+1}\right)^{n+1}\)</span>.</p></li>
+<li><p><strong>The best box.</strong> A closed rectangular box has surface area <span class="math inline">\(S\)</span>. Use AM–GM on the areas of three different faces to show that its volume is at most <span class="math inline">\((S/6)^{3/2}\)</span>, with equality for a cube.</p></li>
+<li><p><strong>Harmonic mean.</strong> By applying AM–GM to the numbers <span class="math inline">\(1/a_i\)</span>, show that the harmonic mean <span class="math inline">\(\dfrac{n}{1/a_1 + \cdots + 1/a_n}\)</span> is at most the geometric mean.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>J. Michael Steele, <em>The Cauchy–Schwarz Master Class</em></strong> (Cambridge University Press). A wonderful, problem-driven book on inequalities, starting from exactly this level. Chapter 2 is about AM–GM.</p></li>
+<li><p><strong>Hardy, Littlewood &amp; Pólya, <em>Inequalities</em></strong> (Cambridge University Press). The classic reference, written by three of the great analysts of the twentieth century.</p></li>
+<li><p><strong>Arthur Engel, <em>Problem-Solving Strategies</em></strong> (Springer). Chapter 7 is a large collection of inequality problems from olympiads.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="spot-the-flaw.html">← 3.1 Spot the Flaw</a><a class="next" href="convexity.html">→ 3.3 The Power of Convexity</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

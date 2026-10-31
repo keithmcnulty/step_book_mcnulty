@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.9 Inventing a New Function — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 3 · Functions, Inequalities and Rigour</a>
+    <div class="src">STEP II · 2021 · Question 4</div>
+    <div class="sec-head"><span class="sec-num">3.9</span><h1>Inventing a New Function</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-9-lambert-w.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 3</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<ol class="roman">
+<li><p>Sketch the curve <span class="math inline">\(y = x\mathrm{e}^x\)</span>, giving the coordinates of any stationary points.</p></li>
+<li><p>The function <span class="math inline">\(\mathrm{f}\)</span> is defined by <span class="math inline">\(\mathrm{f}(x) = x\mathrm{e}^x\)</span> for <span class="math inline">\(x \geq a\)</span>, where <span class="math inline">\(a\)</span> is the minimum possible value such that <span class="math inline">\(\mathrm{f}\)</span> has an inverse function. What is the value of <span class="math inline">\(a\)</span>?</p>
+<p>Let <span class="math inline">\(\mathrm{g}\)</span> be the inverse of <span class="math inline">\(\mathrm{f}\)</span>. Sketch the curve <span class="math inline">\(y = \mathrm{g}(x)\)</span>.</p></li>
+<li><p>For each of the following equations, find a real root in terms of a value of the function <span class="math inline">\(\mathrm{g}\)</span>, or demonstrate that the equation has no real root. If the equation has two real roots, determine whether the root you have found is greater than or less than the other root.</p>
+<p><strong>(a)</strong> <span class="math inline">\(\mathrm{e}^{-x} = 5x\)</span> <strong>(b)</strong> <span class="math inline">\(2x\ln x + 1 = 0\)</span> <strong>(c)</strong> <span class="math inline">\(3x\ln x + 1 = 0\)</span> <strong>(d)</strong> <span class="math inline">\(x = 3\ln x\)</span></p></li>
+<li><p>Given that the equation <span class="math inline">\(x^x = 10\)</span> has a unique positive root, find this root in terms of a value of the function <span class="math inline">\(\mathrm{g}\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Can you solve <span class="math inline">\(e^{-x} = 5x\)</span>? Not with any function on your calculator. Rearranging gets nowhere: the <span class="math inline">\(x\)</span> is stuck both inside and outside the exponential. You could find a numerical answer by trial and improvement, but there is no “formula”.</p>
+<p>Or is there? This question takes a bold step: if a family of equations has no solution in terms of known functions, <em>invent a new function</em> that solves them. That is exactly what mathematicians did with <span class="math inline">\(\sqrt{x}\)</span> (the inverse of <span class="math inline">\(x^2\)</span>), with <span class="math inline">\(\ln x\)</span> (the inverse of <span class="math inline">\(e^x\)</span>) and with <span class="math inline">\(\arcsin x\)</span>. The new function here is the inverse of <span class="math inline">\(xe^x\)</span>, now called the <em>Lambert W function</em>. Once you have it, a surprising range of equations, from <span class="math inline">\(x^x = 10\)</span> to a law of physics, can be solved exactly.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>What does it actually mean to “solve” an equation? Is <span class="math inline">\(x = \sqrt{2}\)</span> a solution of <span class="math inline">\(x^2 = 2\)</span>, or just a name for the solution?</p>
+</div>
+<p>Both. <span class="math inline">\(\sqrt2\)</span> is a name for “the positive number whose square is <span class="math inline">\(2\)</span>”; we accept it as an answer because the function <span class="math inline">\(\sqrt{\phantom{x}}\)</span> is well understood, easy to compute and has known properties. Whether an answer counts as a “formula” depends on which functions we have agreed to name. This question adds one more to the list.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-curve-y-xex" class="stage"><span class="stage-n">Stage 1</span> The curve <span class="math inline">\(y = xe^x\)</span></h4>
+<p><span class="math inline">\(\frac{\mathrm{d}y}{\mathrm{d}x} = e^x + xe^x = (1 + x)e^x\)</span>, which is zero only at <span class="math inline">\(x = -1\)</span>, where <span class="math inline">\(y = -e^{-1}\)</span>. The derivative is negative for <span class="math inline">\(x &lt; -1\)</span> and positive for <span class="math inline">\(x &gt; -1\)</span>, so this is a minimum.</p>
+<div class="askyourself">
+<p>What happens to <span class="math inline">\(xe^x\)</span> as <span class="math inline">\(x \to +\infty\)</span> and as <span class="math inline">\(x \to -\infty\)</span>? Where does the curve cross the axes?</p>
+</div>
+<p>As <span class="math inline">\(x \to \infty\)</span>, <span class="math inline">\(xe^x \to \infty\)</span>. As <span class="math inline">\(x \to -\infty\)</span>, <span class="math inline">\(xe^x \to 0\)</span> from below, because the exponential decay beats the linear growth. The curve passes through the origin. So it comes in from just below the negative <span class="math inline">\(x\)</span>-axis, dips to its minimum <span class="math inline">\((-1, -\frac1e)\)</span>, then rises through <span class="math inline">\((0, 0)\)</span> and shoots upwards (Figure 3.9.1).</p>
+<h4 id="stagemark2-the-inverse" class="stage"><span class="stage-n">Stage 2</span> The inverse</h4>
+<p>To have an inverse, <span class="math inline">\(\mathrm{f}\)</span> must be one-to-one, so it must be restricted to a region where it is strictly increasing or strictly decreasing. The largest such interval containing the right-hand part is <span class="math inline">\([-1, \infty)\)</span>, so <span class="math inline">\(a = -1\)</span>. On <span class="math inline">\([-1, \infty)\)</span>, <span class="math inline">\(\mathrm{f}\)</span> increases from <span class="math inline">\(-\frac1e\)</span> to <span class="math inline">\(\infty\)</span>, so the inverse <span class="math inline">\(\mathrm{g}\)</span> is defined on <span class="math inline">\([-\frac1e, \infty)\)</span>, increases from <span class="math inline">\(\mathrm{g}(-\frac1e) = -1\)</span>, passes through <span class="math inline">\(\mathrm{g}(0) = 0\)</span>, and grows slowly (for large <span class="math inline">\(x\)</span>, even more slowly than <span class="math inline">\(\ln x\)</span>). Its graph is the reflection of the right-hand part of <span class="math inline">\(y = xe^x\)</span> in the line <span class="math inline">\(y = x\)</span>, with a vertical tangent at <span class="math inline">\((-\frac1e, -1)\)</span>.</p>
+<p>The defining property of <span class="math inline">\(\mathrm{g}\)</span> is <span class="math display">\[\mathrm{g}(z)\,e^{\mathrm{g}(z)} = z, \qquad \mathrm{g}(z) \geq -1.\]</span> So the strategy for every part of (iii) is the same: rearrange the equation into the form <span class="math inline">\((\text{something})\,e^{(\text{the same something})} = (\text{a number})\)</span>.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-3-9-1.svg" alt="Figure 3.9.1"><figcaption><span class="fig-label">Figure 3.9.1</span> The curve <span class="math inline">\(y = xe^x\)</span> (teal) has a minimum at <span class="math inline">\((-1, -\frac1e)\)</span>. Restricting to <span class="math inline">\(x \geq -1\)</span> and reflecting in <span class="math inline">\(y = x\)</span> gives the inverse <span class="math inline">\(\mathrm{g}\)</span> (amber, solid), the Lambert W function. The dashed amber curve is the reflection of the left-hand part of <span class="math inline">\(y = xe^x\)</span>: a second branch, needed for the second roots in part (iii).</figcaption></figure>
+<h4 id="stagemark3-four-equations" class="stage"><span class="stage-n">Stage 3</span> Four equations</h4>
+<p><strong>(a)</strong> <span class="math inline">\(e^{-x} = 5x\)</span>. Multiply by <span class="math inline">\(e^x\)</span> and divide by <span class="math inline">\(5\)</span>: <span class="math inline">\(xe^x = \frac15\)</span>. So <span class="math inline">\(x = \mathrm{g}\bigl(\frac15\bigr) \approx 0.169\)</span>. Since <span class="math inline">\(xe^x\)</span> is negative for <span class="math inline">\(x &lt; 0\)</span>, any root is positive, and <span class="math inline">\(xe^x\)</span> is increasing for <span class="math inline">\(x &gt; 0\)</span>, so this is the only root.</p>
+<div class="askyourself">
+<p>For (b) and (c), the unknown appears as <span class="math inline">\(x\ln x\)</span>. What substitution turns <span class="math inline">\(x\ln x\)</span> into something of the form <span class="math inline">\(ue^u\)</span>?</p>
+</div>
+<p>Put <span class="math inline">\(x = e^u\)</span>, so <span class="math inline">\(\ln x = u\)</span> and <span class="math inline">\(x\ln x = ue^u\)</span>.</p>
+<p><strong>(b)</strong> <span class="math inline">\(2x\ln x + 1 = 0\)</span> becomes <span class="math inline">\(ue^u = -\frac12\)</span>. But <span class="math inline">\(ue^u \geq -\frac1e \approx -0.368\)</span> for all real <span class="math inline">\(u\)</span>, and <span class="math inline">\(-\frac12 &lt; -\frac1e\)</span>. So there is <strong>no real root</strong>.</p>
+<p><strong>(c)</strong> <span class="math inline">\(3x\ln x + 1 = 0\)</span> becomes <span class="math inline">\(ue^u = -\frac13\)</span>, and <span class="math inline">\(-\frac1e &lt; -\frac13 &lt; 0\)</span>. A horizontal line at height <span class="math inline">\(-\frac13\)</span> cuts <span class="math inline">\(y = ue^u\)</span> <em>twice</em>, once on each side of the minimum at <span class="math inline">\(u = -1\)</span>. The root on the right is <span class="math inline">\(u = \mathrm{g}\bigl(-\frac13\bigr)\)</span>, giving <span class="math display">\[x = e^{\mathrm{g}(-1/3)} \approx 0.538.\]</span> The other root has <span class="math inline">\(u &lt; -1 &lt; \mathrm{g}\bigl(-\frac13\bigr)\)</span>, and <span class="math inline">\(x = e^u\)</span> is increasing in <span class="math inline">\(u\)</span>, so the root we have found is the <strong>greater</strong> of the two. (The other is about <span class="math inline">\(0.220\)</span>.)</p>
+<div class="pausebox">
+<p>Now try (d), <span class="math inline">\(x = 3\ln x\)</span>. (<em>Hint:</em> exponentiate and aim for <span class="math inline">\((\text{something})\,e^{\text{something}}\)</span> with the something being a multiple of <span class="math inline">\(x\)</span>.)</p>
+</div>
+<p><strong>(d)</strong> <span class="math inline">\(x = 3\ln x\)</span> means <span class="math inline">\(e^{x/3} = x\)</span>, so <span class="math inline">\(xe^{-x/3} = 1\)</span>, and multiplying by <span class="math inline">\(-\frac13\)</span>, <span class="math display">\[\left(-\frac x3\right)e^{-x/3} = -\frac13.\]</span> So <span class="math inline">\(-\frac x3\)</span> is one of the two solutions of <span class="math inline">\(ue^u = -\frac13\)</span> found in (c). Taking the one given by <span class="math inline">\(\mathrm{g}\)</span>, <span class="math inline">\(x = -3\,\mathrm{g}\bigl(-\frac13\bigr) \approx 1.857\)</span>. The other root comes from the other solution <span class="math inline">\(u &lt; \mathrm{g}(-\frac13)\)</span>, which gives a larger <span class="math inline">\(x = -3u\)</span>. So this time the root we have found is the <strong>smaller</strong> of the two. (The other is about <span class="math inline">\(4.536\)</span>.)<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-xx-10" class="stage"><span class="stage-n">Stage 4</span> <span class="math inline">\(x^x = 10\)</span></h4>
+<p>Taking logarithms, <span class="math inline">\(x\ln x = \ln 10\)</span>. With <span class="math inline">\(x = e^u\)</span> this is <span class="math inline">\(ue^u = \ln 10\)</span>, so <span class="math inline">\(u = \mathrm{g}(\ln 10)\)</span> and <span class="math display">\[x = e^{\mathrm{g}(\ln 10)} \approx 2.506.\]</span> Since <span class="math inline">\(\mathrm{g}(z)e^{\mathrm{g}(z)} = z\)</span>, we can also write this as <span class="math inline">\(x = \dfrac{\ln 10}{\mathrm{g}(\ln 10)}\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Name the missing function.</strong> When an equation cannot be solved with known functions, defining a new function as an inverse is a legitimate, and often illuminating, move.</p></li>
+<li><p><strong>Rearrange to a standard form.</strong> Every part of (iii) and (iv) came down to <span class="math inline">\(ue^u = \text{constant}\)</span>, using a substitution such as <span class="math inline">\(x = e^u\)</span> or <span class="math inline">\(u = -\frac x3\)</span>.</p></li>
+<li><p><strong>Count roots with the graph.</strong> Whether <span class="math inline">\(ue^u = c\)</span> has zero, one or two solutions depends only on where <span class="math inline">\(c\)</span> sits relative to the minimum value <span class="math inline">\(-\frac1e\)</span>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">A function with a long history and a recent name</div>
+<p>Johann Heinrich Lambert studied equations of this type in 1758, and Euler took them further in 1783. But the function had no standard name until the 1990s, when the developers of the computer algebra system Maple needed one. In 1996 Robert Corless, Gaston Gonnet, David Hare, David Jeffrey and Donald Knuth published a paper, “On the Lambert W function”, that collected its properties and applications. It has been cited thousands of times, and W is now built into most mathematical software. The function <span class="math inline">\(\mathrm{g}\)</span> in the question is the <em>principal branch</em> <span class="math inline">\(W_0\)</span>; the dashed curve in Figure 3.9.1, which gave the second roots in (c) and (d), is the other real branch <span class="math inline">\(W_{-1}\)</span>.</p>
+</div>
+<h3 id="where-w-appears">Where W appears</h3>
+<ul>
+<li><p><strong>Wien’s displacement law.</strong> The wavelength at which a hot body radiates most strongly is inversely proportional to its temperature. The constant comes from solving <span class="math inline">\(5(1 - e^{-x}) = x\)</span>, whose positive solution is <span class="math inline">\(x = 5 + W\bigl(-5e^{-5}\bigr) \approx 4.965\)</span>. That is why the Sun, at about <span class="math inline">\(5800\)</span> K, looks yellow-white, and why a cooler red dwarf looks red.</p></li>
+<li><p><strong>Power towers.</strong> The infinite tower <span class="math inline">\(x^{x^{x^{\cdot^{\cdot^{\cdot}}}}}\)</span> converges for <span class="math inline">\(e^{-e} \leq x \leq e^{1/e}\)</span>, and its value is <span class="math inline">\(\dfrac{W(-\ln x)}{-\ln x}\)</span>.</p></li>
+<li><p><strong>Population and epidemic models.</strong> The final size of an epidemic in the simplest model, and the time to reach a given population in some growth models, are both given by W.</p></li>
+</ul>
+<h3 id="elementary-functions">Elementary functions</h3>
+<p>Is <span class="math inline">\(W\)</span> really new, or could it be written using <span class="math inline">\(\exp\)</span>, <span class="math inline">\(\ln\)</span>, roots and the trigonometric functions? It is genuinely new: a theorem going back to Joseph Liouville in the 1830s shows that <span class="math inline">\(W\)</span> is not an <em>elementary function</em>. The same theory shows that some innocent-looking integrals, such as <span class="math inline">\(\int e^{-x^2}\,\mathrm{d}x\)</span>, cannot be done in elementary terms, which is why the normal distribution needs its own special function.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Inverse functions as solutions</div>
+<p><em>An equation <span class="math inline">\(\mathrm{f}(x) = c\)</span> is solved by <span class="math inline">\(x = \mathrm{f}^{-1}(c)\)</span>, provided <span class="math inline">\(\mathrm{f}\)</span> is restricted to make it one-to-one. The restriction determines which solution you get.</em></p>
+<p>Many equations that look different are the same equation in disguise; finding the substitution that reveals the common form is the key step.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>Two, four, and one more.</strong> The equation <span class="math inline">\(x^2 = 2^x\)</span> has the obvious solutions <span class="math inline">\(x = 2\)</span> and <span class="math inline">\(x = 4\)</span> (compare <a href="../ch03/pi-e-or-e-pi.html">Section 3.5</a>). Show that it also has a negative solution, and that this solution is <span class="math display">\[x = -\frac{2}{\ln 2}\,\mathrm{g}\!\left(\frac{\ln 2}{2}\right) \approx -0.767.\]</span></p></li>
+<li><p><strong>A derivative.</strong> By differentiating <span class="math inline">\(\mathrm{g}(x)e^{\mathrm{g}(x)} = x\)</span> implicitly, show that, for <span class="math inline">\(x \neq 0\)</span>, <span class="math display">\[\mathrm{g}&#39;(x) = \frac{\mathrm{g}(x)}{x\bigl(1 + \mathrm{g}(x)\bigr)}.\]</span> What happens at <span class="math inline">\(x = -\frac1e\)</span>?</p></li>
+<li><p><strong>An integral.</strong> Use the substitution <span class="math inline">\(x = we^w\)</span> to show that <span class="math inline">\(\displaystyle\int_0^e \mathrm{g}(x)\,\mathrm{d}x = e - 1\)</span>.</p></li>
+<li><p><strong>The tower.</strong> Assuming the tower <span class="math inline">\(T = \sqrt2^{\sqrt2^{\sqrt2^{\cdots}}}\)</span> converges, show that <span class="math inline">\(T = \sqrt2^{\,T}\)</span>, and deduce that <span class="math inline">\(T = 2\)</span> or <span class="math inline">\(T = 4\)</span>. Which is it? (Compute a few terms of the sequence <span class="math inline">\(t_1 = \sqrt2\)</span>, <span class="math inline">\(t_{n+1} = \sqrt2^{\,t_n}\)</span>, and think about the cobweb diagrams of <a href="../ch02/golden-limit.html">Section 2.2</a>.)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Robert Corless et al., “On the Lambert W function”</strong>, <em>Advances in Computational Mathematics</em> 5 (1996). The paper that named the function. The first sections are readable with this section behind you.</p></li>
+<li><p><strong>Brian Hayes, “Why W?”</strong>, <em>American Scientist</em> 93 (2005). A lively essay on the function’s history and uses. Free online.</p></li>
+<li><p><strong>Brian Conrad, “Impossibility theorems for elementary integration”</strong>. Lecture notes, available online, explaining Liouville’s theory. Advanced.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="addition-laws.html">← 3.8 Functions from Their Addition Laws</a><a class="next" href="wrap-up.html">→ Looking back</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

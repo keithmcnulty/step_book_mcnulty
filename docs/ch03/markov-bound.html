@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.6 A Bound on Slopes — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 3 · Functions, Inequalities and Rigour</a>
+    <div class="src">STEP I · 1988 · Question 7</div>
+    <div class="sec-head"><span class="sec-num">3.6</span><h1>A Bound on Slopes</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-6-markov-bound.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 3</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The function <span class="math inline">\(\mathrm{f}\)</span> is defined by <span class="math display">\[\mathrm{f}(x) = ax^2 + bx + c.\]</span> Show that <span class="math display">\[\mathrm{f}&#39;(x) = \mathrm{f}(1)\left(x + \tfrac12\right) + \mathrm{f}(-1)\left(x - \tfrac12\right) - 2\mathrm{f}(0)x.\]</span> If <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> are real and such that <span class="math inline">\(|\mathrm{f}(x)| \leq 1\)</span> for <span class="math inline">\(|x| \leq 1\)</span>, show that <span class="math inline">\(|\mathrm{f}&#39;(x)| \leq 4\)</span> for <span class="math inline">\(|x| \leq 1\)</span>.</p>
+<p>Find particular values of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> such that, for the corresponding function <span class="math inline">\(\mathrm{f}\)</span> of the above form, <span class="math inline">\(|\mathrm{f}(x)| \leq 1\)</span> for all <span class="math inline">\(x\)</span> with <span class="math inline">\(|x| \leq 1\)</span> and <span class="math inline">\(|\mathrm{f}&#39;(x)| = 4\)</span> for some <span class="math inline">\(x\)</span> satisfying <span class="math inline">\(|x| \leq 1\)</span>.</p>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>If you know a function stays between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span> on an interval, can you say anything about how steep it is? For a general function, no: <span class="math inline">\(\sin(1000x)\)</span> stays between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span> but has slopes as large as <span class="math inline">\(1000\)</span>. But a quadratic cannot wiggle like that. This question shows that a quadratic trapped in the box <span class="math inline">\(|x| \leq 1\)</span>, <span class="math inline">\(|y| \leq 1\)</span> can never have slope bigger than <span class="math inline">\(4\)</span> inside the box, and that <span class="math inline">\(4\)</span> is the best possible.</p>
+<p>The problem has a surprising origin. In 1887 the chemist Dmitri Mendeleev, famous for the periodic table, was studying how the density of a solution depends on its concentration, and fitting quadratics to his data. He needed to know how badly errors in the data could affect the slope of his curves, and he proved exactly the result in this question. Two years later the young Andrei Markov solved the general problem for polynomials of any degree, and the answer led straight to some of the most important polynomials in mathematics.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>The formula for <span class="math inline">\(\mathrm{f}&#39;(x)\)</span> uses only three values of <span class="math inline">\(\mathrm{f}\)</span>: at <span class="math inline">\(-1\)</span>, <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. Why should three values be enough to determine the derivative of a quadratic?</p>
+</div>
+<p>A quadratic has three coefficients, so it is determined by its values at any three points. So its derivative, which is another function of the coefficients, must be expressible in terms of those three values. The formula tells you how. And it is exactly what you need, because the hypothesis <span class="math inline">\(|\mathrm{f}(x)| \leq 1\)</span> tells you about the <em>values</em> of <span class="math inline">\(\mathrm{f}\)</span>, while the conclusion is about its <em>derivative</em>.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-formula" class="stage"><span class="stage-n">Stage 1</span> The formula</h4>
+<p><span class="math inline">\(\mathrm{f}(1) = a + b + c\)</span>, <span class="math inline">\(\mathrm{f}(-1) = a - b + c\)</span> and <span class="math inline">\(\mathrm{f}(0) = c\)</span>. So the right-hand side is <span class="math display">\[(a + b + c)\left(x + \tfrac12\right) + (a - b + c)\left(x - \tfrac12\right) - 2cx.\]</span> The coefficient of <span class="math inline">\(x\)</span> is <span class="math inline">\((a + b + c) + (a - b + c) - 2c = 2a\)</span>, and the constant term is <span class="math inline">\(\frac12(a + b + c) - \frac12(a - b + c) = b\)</span>. So the right-hand side is <span class="math inline">\(2ax + b = \mathrm{f}&#39;(x)\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-the-bound" class="stage"><span class="stage-n">Stage 2</span> The bound</h4>
+<div class="askyourself">
+<p>Take absolute values in the formula and use the triangle inequality, together with <span class="math inline">\(|\mathrm{f}(1)|, |\mathrm{f}(-1)|, |\mathrm{f}(0)| \leq 1\)</span>. What bound on <span class="math inline">\(|\mathrm{f}&#39;(x)|\)</span> do you get, as a function of <span class="math inline">\(x\)</span>?</p>
+</div>
+<p>By the triangle inequality <span class="math inline">\(|u + v + w| \leq |u| + |v| + |w|\)</span>, <span class="math display">\[|\mathrm{f}&#39;(x)| \leq |\mathrm{f}(1)|\,\bigl|x + \tfrac12\bigr| + |\mathrm{f}(-1)|\,\bigl|x - \tfrac12\bigr| + 2|\mathrm{f}(0)|\,|x| \leq \bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| + 2|x|.\]</span></p>
+<div class="pausebox">
+<p>Show that <span class="math inline">\(\bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| + 2|x| \leq 4\)</span> for <span class="math inline">\(|x| \leq 1\)</span>. (Split into cases according to the signs.)</p>
+</div>
+<p>If <span class="math inline">\(|x| \leq \frac12\)</span>, then <span class="math inline">\(x + \frac12 \geq 0\)</span> and <span class="math inline">\(x - \frac12 \leq 0\)</span>, so <span class="math inline">\(\bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| = (x + \tfrac12) - (x - \tfrac12) = 1\)</span>, and the total is <span class="math inline">\(1 + 2|x| \leq 2\)</span>.</p>
+<p>If <span class="math inline">\(\frac12 \leq |x| \leq 1\)</span>, both brackets have the same sign as <span class="math inline">\(x\)</span>, so <span class="math inline">\(\bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| = 2|x|\)</span>, and the total is <span class="math inline">\(4|x| \leq 4\)</span>.</p>
+<p>Either way <span class="math inline">\(|\mathrm{f}&#39;(x)| \leq 4\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>The bound is only achieved at <span class="math inline">\(x = \pm1\)</span>; in the middle half of the interval the slope is at most <span class="math inline">\(2\)</span>.</p>
+<h4 id="stagemark3-an-extreme-example" class="stage"><span class="stage-n">Stage 3</span> An extreme example</h4>
+<div class="askyourself">
+<p>For the bound to be attained at <span class="math inline">\(x = 1\)</span>, every inequality in Stage 2 must be an equality. What values must <span class="math inline">\(\mathrm{f}(1)\)</span>, <span class="math inline">\(\mathrm{f}(-1)\)</span> and <span class="math inline">\(\mathrm{f}(0)\)</span> take, and with what signs?</p>
+</div>
+<p>At <span class="math inline">\(x = 1\)</span>, the formula is <span class="math inline">\(\mathrm{f}&#39;(1) = \frac32\mathrm{f}(1) + \frac12\mathrm{f}(-1) - 2\mathrm{f}(0)\)</span>. To make this equal to <span class="math inline">\(4\)</span> we need <span class="math inline">\(\mathrm{f}(1) = 1\)</span>, <span class="math inline">\(\mathrm{f}(-1) = 1\)</span> and <span class="math inline">\(\mathrm{f}(0) = -1\)</span>. The quadratic through <span class="math inline">\((-1, 1)\)</span>, <span class="math inline">\((0, -1)\)</span> and <span class="math inline">\((1, 1)\)</span> is <span class="math display">\[\mathrm{f}(x) = 2x^2 - 1,\]</span> so <span class="math inline">\(a = 2\)</span>, <span class="math inline">\(b = 0\)</span>, <span class="math inline">\(c = -1\)</span>. On <span class="math inline">\(|x| \leq 1\)</span>, <span class="math inline">\(x^2 \in [0, 1]\)</span>, so <span class="math inline">\(2x^2 - 1 \in [-1, 1]\)</span>, and <span class="math inline">\(\mathrm{f}&#39;(1) = 4\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Express what you want in terms of what you know.</strong> The formula rewrote the derivative in terms of values of <span class="math inline">\(\mathrm{f}\)</span>, which is where the hypothesis gave information.</p></li>
+<li><p><strong>The triangle inequality.</strong> Bounding a sum by the sum of the absolute values is one of the most common moves in analysis.</p></li>
+<li><p><strong>Find the extremal case from the equality conditions.</strong> Asking when every inequality is tight produced the example <span class="math inline">\(2x^2 - 1\)</span> directly.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Markov’s inequality and Chebyshev polynomials</div>
+<p>Andrei Markov proved in 1889 that if <span class="math inline">\(p\)</span> is a polynomial of degree <span class="math inline">\(n\)</span> with <span class="math inline">\(|p(x)| \leq 1\)</span> on <span class="math inline">\([-1, 1]\)</span>, then <span class="math display">\[|p&#39;(x)| \leq n^2 \qquad\text{for } |x| \leq 1.\]</span> For <span class="math inline">\(n = 2\)</span> this is our bound of <span class="math inline">\(4\)</span>. The extreme cases are the <em>Chebyshev polynomials</em> <span class="math inline">\(T_n\)</span>, defined by <span class="math display">\[T_n(\cos\theta) = \cos n\theta.\]</span> For example <span class="math inline">\(\cos 2\theta = 2\cos^2\theta - 1\)</span> gives <span class="math inline">\(T_2(x) = 2x^2 - 1\)</span>, our extreme quadratic, and <span class="math inline">\(\cos 3\theta = 4\cos^3\theta - 3\cos\theta\)</span> gives <span class="math inline">\(T_3(x) = 4x^3 - 3x\)</span>. Because <span class="math inline">\(T_n(x) = \cos n\theta\)</span>, these polynomials oscillate between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span> as often as a polynomial of degree <span class="math inline">\(n\)</span> possibly can, and they are as steep as possible at the ends (Figure 3.6.1). Markov’s brother Vladimir extended the result to higher derivatives in 1892.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-3-6-1.svg" alt="Figure 3.6.1"><figcaption><span class="fig-label">Figure 3.6.1</span> The Chebyshev polynomials <span class="math inline">\(T_2 = 2x^2 - 1\)</span>, <span class="math inline">\(T_3 = 4x^3 - 3x\)</span> and <span class="math inline">\(T_4 = 8x^4 - 8x^2 + 1\)</span> stay inside the box <span class="math inline">\(|x| \leq 1\)</span>, <span class="math inline">\(|y| \leq 1\)</span>, touching its top and bottom as often as possible. They are the steepest polynomials of their degree at the ends: <span class="math inline">\(T_n&#39;(1) = n^2\)</span>. The dashed line is the tangent to <span class="math inline">\(T_2\)</span> at <span class="math inline">\(x = 1\)</span>, with slope <span class="math inline">\(4\)</span>.</figcaption></figure>
+<h3 id="interpolation">Interpolation</h3>
+<p>The formula in the question is a piece of <em>Lagrange interpolation</em>: given the values of a function at a few points, write down the unique polynomial of lowest degree through them, and use it to approximate the function or its derivative. Here the three points are <span class="math inline">\(-1, 0, 1\)</span>. Formulas like this are used everywhere in numerical analysis, for example to estimate derivatives from measured data. Markov’s inequality is the warning that comes with them: a small error in the values can be magnified by a factor of up to <span class="math inline">\(n^2\)</span> in the derivative, which is exactly the issue Mendeleev was worried about.</p>
+<h3 id="chebyshev-polynomials-in-practice">Chebyshev polynomials in practice</h3>
+<p>Chebyshev polynomials are the workhorses of approximation theory. Interpolating a function at the roots of <span class="math inline">\(T_n\)</span>, rather than at equally spaced points, keeps the error under control; with equally spaced points, high-degree interpolation can go wildly wrong near the ends of the interval (Runge’s phenomenon). Software that evaluates functions to full machine precision, or solves differential equations very accurately, often works with Chebyshev expansions internally.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Express the unknown in terms of the known</div>
+<p><em>If the hypothesis tells you about one kind of quantity and the conclusion is about another, look for an identity linking them, then bound term by term.</em></p>
+<p>And when you have a bound, ask whether it is best possible. Following the equality cases backwards usually leads you to the extreme example, and the extreme example is often interesting in its own right.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The general idea.</strong> Show that if <span class="math inline">\(\mathrm{f}\)</span> is a quadratic then <span class="math inline">\(\mathrm{f}(x) = \mathrm{f}(-1)\dfrac{x(x-1)}{2} + \mathrm{f}(0)(1 - x^2) + \mathrm{f}(1)\dfrac{x(x+1)}{2}\)</span>, and differentiate to recover the formula in the question.</p></li>
+<li><p><strong>Uniqueness.</strong> <span class="hard">harder</span> Show that <span class="math inline">\(\pm(2x^2 - 1)\)</span> are the only quadratics with <span class="math inline">\(|\mathrm{f}(x)| \leq 1\)</span> on <span class="math inline">\([-1, 1]\)</span> and <span class="math inline">\(|\mathrm{f}&#39;(x)| = 4\)</span> somewhere in <span class="math inline">\([-1, 1]\)</span>.</p></li>
+<li><p><strong>Chebyshev polynomials.</strong> Use <span class="math inline">\(\cos 3\theta = 4\cos^3\theta - 3\cos\theta\)</span> to check that <span class="math inline">\(T_3(x) = 4x^3 - 3x\)</span>, and verify that <span class="math inline">\(T_3&#39;(1) = 9\)</span>. Show that <span class="math inline">\(T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)\)</span>, and find <span class="math inline">\(T_4\)</span>.</p></li>
+<li><p><strong>Slopes of <span class="math inline">\(T_n\)</span>.</strong> By differentiating <span class="math inline">\(T_n(\cos\theta) = \cos n\theta\)</span> with respect to <span class="math inline">\(\theta\)</span>, show that <span class="math inline">\(T_n&#39;(\cos\theta) = \dfrac{n\sin n\theta}{\sin\theta}\)</span>, and deduce that <span class="math inline">\(T_n&#39;(1) = n^2\)</span> by letting <span class="math inline">\(\theta \to 0\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>Lloyd N. Trefethen, <em>Approximation Theory and Approximation Practice</em></strong> (SIAM). A beautiful modern book about Chebyshev polynomials and interpolation, readable by a strong school student, with computer experiments throughout.</p></li>
+<li><p><strong>Peter Borwein &amp; Tamás Erdélyi, <em>Polynomials and Polynomial Inequalities</em></strong> (Springer). For the full story of Markov’s inequality and its relatives. Advanced.</p></li>
+<li><p><strong>George M. Phillips, <em>Interpolation and Approximation by Polynomials</em></strong> (Springer). An undergraduate text covering Lagrange interpolation, Chebyshev polynomials and Markov-type inequalities.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="pi-e-or-e-pi.html">← 3.5 πᵉ or e^π?</a><a class="next" href="wirtinger.html">→ 3.7 π² ≤ 10</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

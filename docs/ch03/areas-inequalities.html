@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.4 Areas That Prove Inequalities — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 3 · Functions, Inequalities and Rigour</a>
+    <div class="src">STEP III · 2011 · Question 4</div>
+    <div class="sec-head"><span class="sec-num">3.4</span><h1>Areas That Prove Inequalities</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-4-areas-inequalities.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 3</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>The following result applies to any function <span class="math inline">\(\mathrm{f}\)</span> which is continuous, has positive gradient and satisfies <span class="math inline">\(\mathrm{f}(0) = 0\)</span>: <span class="math display">\[ab \leq \int_0^a \mathrm{f}(x)\,\mathrm{d}x + \int_0^b \mathrm{f}^{-1}(y)\,\mathrm{d}y, \tag{$*$}\]</span> where <span class="math inline">\(\mathrm{f}^{-1}\)</span> denotes the inverse function of <span class="math inline">\(\mathrm{f}\)</span>, and <span class="math inline">\(a \geq 0\)</span> and <span class="math inline">\(b \geq 0\)</span>.</p>
+<ol class="roman">
+<li><p>By considering the graph of <span class="math inline">\(y = \mathrm{f}(x)\)</span>, explain briefly why the inequality <span class="math inline">\((*)\)</span> holds.</p>
+<p>In the case <span class="math inline">\(a &gt; 0\)</span> and <span class="math inline">\(b &gt; 0\)</span>, state a condition on <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> under which equality holds.</p></li>
+<li><p>By taking <span class="math inline">\(\mathrm{f}(x) = x^{p-1}\)</span> in <span class="math inline">\((*)\)</span>, where <span class="math inline">\(p &gt; 1\)</span>, show that if <span class="math inline">\(\dfrac1p + \dfrac1q = 1\)</span> then <span class="math display">\[ab \leq \frac{a^p}{p} + \frac{b^q}{q}.\]</span> Verify that equality holds under the condition you stated above.</p></li>
+<li><p>Show that, for <span class="math inline">\(0 \leq a \leq \frac12\pi\)</span> and <span class="math inline">\(0 \leq b \leq 1\)</span>, <span class="math display">\[ab \leq b\arcsin b + \sqrt{1 - b^2} - \cos a.\]</span> Deduce that, for <span class="math inline">\(t \geq 1\)</span>, <span class="math display">\[\arcsin(t^{-1}) \geq t - \sqrt{t^2 - 1}.\]</span></p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Here is an inequality proved by a picture so simple that it fits on a postage stamp. Draw an increasing curve through the origin. The area under it, plus the area to its left, always covers a rectangle. From that one observation comes <em>Young’s inequality</em>, <span class="math inline">\(ab \leq \frac{a^p}{p} + \frac{b^q}{q}\)</span>, which in turn is the key to Hölder’s inequality and the Cauchy–Schwarz inequality, two of the most important tools in analysis.</p>
+<p>The picture also contains a deeper idea. It pairs a function with its inverse in a perfectly symmetric way, and that pairing, generalised, is the <em>Legendre transform</em>, which connects the two great formulations of classical mechanics and the two main descriptions of thermodynamics.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\int_0^a \mathrm{f}(x)\,\mathrm{d}x\)</span> is the area between the curve and the <span class="math inline">\(x\)</span>-axis. What area does <span class="math inline">\(\int_0^b \mathrm{f}^{-1}(y)\,\mathrm{d}y\)</span> represent on the same picture?</p>
+</div>
+<p>The graph of <span class="math inline">\(x = \mathrm{f}^{-1}(y)\)</span> is the same curve as <span class="math inline">\(y = \mathrm{f}(x)\)</span>, viewed sideways. So <span class="math inline">\(\int_0^b \mathrm{f}^{-1}(y)\,\mathrm{d}y\)</span> is the area between the curve and the <span class="math inline">\(y\)</span>-axis, from height <span class="math inline">\(0\)</span> to height <span class="math inline">\(b\)</span>. With that, part (i) is a matter of drawing.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-the-picture" class="stage"><span class="stage-n">Stage 1</span> The picture</h4>
+<div class="askyourself">
+<p>Draw the rectangle with corners <span class="math inline">\((0, 0)\)</span> and <span class="math inline">\((a, b)\)</span>. Shade the region under the curve from <span class="math inline">\(0\)</span> to <span class="math inline">\(a\)</span> in one colour and the region to the left of the curve from <span class="math inline">\(0\)</span> to <span class="math inline">\(b\)</span> in another. Do the two regions cover the rectangle? When is there no overlap and no excess?</p>
+</div>
+<p>The two regions together cover the whole rectangle <span class="math inline">\([0, a] \times [0, b]\)</span>, and usually some area outside it as well (Figure 3.4.1). Every point <span class="math inline">\((x, y)\)</span> of the rectangle is either below the curve (so in the first region, since <span class="math inline">\(x \leq a\)</span>) or to the left of it (so in the second, since <span class="math inline">\(y \leq b\)</span>). The total shaded area is therefore at least the area of the rectangle, <span class="math inline">\(ab\)</span>. That is <span class="math inline">\((*)\)</span>.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-3-4-1.svg" alt="Figure 3.4.1"><figcaption><span class="fig-label">Figure 3.4.1</span> Young’s inequality as a picture. The area under the curve from <span class="math inline">\(0\)</span> to <span class="math inline">\(a\)</span> (teal) and the area to the left of the curve from <span class="math inline">\(0\)</span> to <span class="math inline">\(b\)</span> (amber) together cover the dashed rectangle of area <span class="math inline">\(ab\)</span>, with some area to spare. There is no excess exactly when the corner <span class="math inline">\((a, b)\)</span> lies on the curve.</figcaption></figure>
+<p>The excess is the small curved region between the curve and the corner of the rectangle. It disappears exactly when the curve passes through the corner <span class="math inline">\((a, b)\)</span>, that is, when <span class="math display">\[b = \mathrm{f}(a).\]</span></p>
+<h4 id="stagemark2-youngs-inequality" class="stage"><span class="stage-n">Stage 2</span> Young’s inequality</h4>
+<div class="askyourself">
+<p>With <span class="math inline">\(\mathrm{f}(x) = x^{p-1}\)</span>, what is <span class="math inline">\(\mathrm{f}^{-1}(y)\)</span>? Compute both integrals, and use <span class="math inline">\(\frac1p + \frac1q = 1\)</span> to tidy the second.</p>
+</div>
+<p>Since <span class="math inline">\(p &gt; 1\)</span>, <span class="math inline">\(\mathrm{f}(x) = x^{p-1}\)</span> is continuous and increasing with <span class="math inline">\(\mathrm{f}(0) = 0\)</span>, and <span class="math inline">\(\mathrm{f}^{-1}(y) = y^{1/(p-1)}\)</span>. Then <span class="math display">\[\int_0^a x^{p-1}\,\mathrm{d}x = \frac{a^p}{p}, \qquad \int_0^b y^{1/(p-1)}\,\mathrm{d}y = \frac{b^{1 + 1/(p-1)}}{1 + 1/(p-1)}.\]</span> From <span class="math inline">\(\frac1p + \frac1q = 1\)</span> we get <span class="math inline">\(q = \frac{p}{p-1}\)</span>, so <span class="math inline">\(1 + \frac{1}{p-1} = \frac{p}{p-1} = q\)</span>, and the second integral is <span class="math inline">\(\frac{b^q}{q}\)</span>. So <span class="math inline">\((*)\)</span> becomes <span class="math display">\[ab \leq \frac{a^p}{p} + \frac{b^q}{q}. \qed\]</span> Equality should hold when <span class="math inline">\(b = \mathrm{f}(a) = a^{p-1}\)</span>. Check: then <span class="math inline">\(ab = a^p\)</span>, and <span class="math inline">\(b^q = a^{(p-1)q} = a^p\)</span>, so the right-hand side is <span class="math inline">\(a^p\bigl(\frac1p + \frac1q\bigr) = a^p\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>With <span class="math inline">\(p = q = 2\)</span> this is <span class="math inline">\(ab \leq \frac{a^2 + b^2}{2}\)</span>, the two-number AM–GM inequality of <a href="../ch03/am-gm-backwards.html">Section 3.2</a> in disguise.</p>
+<h4 id="stagemark3-an-inverse-sine" class="stage"><span class="stage-n">Stage 3</span> An inverse sine</h4>
+<p>Now take <span class="math inline">\(\mathrm{f}(x) = \sin x\)</span> on <span class="math inline">\([0, \frac\pi2]\)</span>, which is continuous and increasing with <span class="math inline">\(\mathrm{f}(0) = 0\)</span>, and <span class="math inline">\(\mathrm{f}^{-1} = \arcsin\)</span> on <span class="math inline">\([0, 1]\)</span>.</p>
+<div class="askyourself">
+<p><span class="math inline">\(\int_0^a \sin x\,\mathrm{d}x\)</span> is easy. How would you integrate <span class="math inline">\(\arcsin y\)</span>?</p>
+</div>
+<p><span class="math inline">\(\int_0^a \sin x\,\mathrm{d}x = 1 - \cos a\)</span>. For the inverse sine, integrate by parts with <span class="math inline">\(\arcsin y \times 1\)</span>: <span class="math display">\[\int_0^b \arcsin y\,\mathrm{d}y = \Bigl[ y\arcsin y \Bigr]_0^b - \int_0^b \frac{y}{\sqrt{1 - y^2}}\,\mathrm{d}y = b\arcsin b + \sqrt{1 - b^2} - 1.\]</span> Adding, <span class="math inline">\((*)\)</span> gives <span class="math inline">\(ab \leq b\arcsin b + \sqrt{1 - b^2} - \cos a\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>Now deduce the inequality for <span class="math inline">\(\arcsin(t^{-1})\)</span>. Which value of <span class="math inline">\(a\)</span> should you choose? (Try the simplest possible one.)</p>
+</div>
+<p>Take <span class="math inline">\(a = 0\)</span>: then <span class="math inline">\(0 \leq b\arcsin b + \sqrt{1 - b^2} - 1\)</span>, that is, <span class="math inline">\(b\arcsin b \geq 1 - \sqrt{1 - b^2}\)</span>. (This is just the statement that <span class="math inline">\(\int_0^b \arcsin y\,\mathrm{d}y \geq 0\)</span>.) Put <span class="math inline">\(b = 1/t\)</span> with <span class="math inline">\(t \geq 1\)</span>, so <span class="math inline">\(0 &lt; b \leq 1\)</span>, and divide by <span class="math inline">\(b\)</span>: <span class="math display">\[\arcsin\left(\frac1t\right) \geq t\left(1 - \sqrt{1 - \frac{1}{t^2}}\right) = t - \sqrt{t^2 - 1}. \qed\]</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>A picture as a proof.</strong> Part (i) is a complete proof once you see the right picture. Translating a geometric fact into an inequality between integrals is a powerful technique.</p></li>
+<li><p><strong>Specialise a general result.</strong> One general inequality, with different choices of <span class="math inline">\(\mathrm{f}\)</span>, gave Young’s inequality and an inequality for <span class="math inline">\(\arcsin\)</span>.</p></li>
+<li><p><strong>The simplest choice can be the right one.</strong> The final deduction used <span class="math inline">\(a = 0\)</span>, where the inequality is almost trivial. Always try the easy cases.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">From Young to Hölder</div>
+<p>William Henry Young published his inequality in 1912. Its importance comes from what it leads to. Suppose <span class="math inline">\(\sum a_i^p = 1\)</span> and <span class="math inline">\(\sum b_i^q = 1\)</span>. Applying Young to each pair and adding, <span class="math display">\[\sum a_i b_i \leq \frac{\sum a_i^p}{p} + \frac{\sum b_i^q}{q} = \frac1p + \frac1q = 1.\]</span> Scaling the <span class="math inline">\(a\)</span>s and <span class="math inline">\(b\)</span>s to make the sums <span class="math inline">\(1\)</span> gives <em>Hölder’s inequality</em>: for positive numbers, <span class="math display">\[\sum a_i b_i \leq \Bigl(\sum a_i^p\Bigr)^{1/p} \Bigl(\sum b_i^q\Bigr)^{1/q}.\]</span> With <span class="math inline">\(p = q = 2\)</span> this is the <em>Cauchy–Schwarz inequality</em>, <span class="math inline">\(\sum a_ib_i \leq \sqrt{\sum a_i^2}\sqrt{\sum b_i^2}\)</span>, which says that the cosine of the angle between two vectors is at most <span class="math inline">\(1\)</span>. Hölder’s inequality is the foundation of the theory of <span class="math inline">\(L^p\)</span> spaces, spaces of functions in which “distance” is measured by <span class="math inline">\(\bigl(\int |f|^p\bigr)^{1/p}\)</span>, and which you will meet in courses on functional analysis and probability.</p>
+</div>
+<h3 id="the-legendre-transform">The Legendre transform</h3>
+<p>The picture in Figure 3.4.1 treats <span class="math inline">\(\mathrm{f}\)</span> and <span class="math inline">\(\mathrm{f}^{-1}\)</span> completely symmetrically. Write <span class="math inline">\(F(a) = \int_0^a \mathrm{f}\)</span> and <span class="math inline">\(G(b) = \int_0^b \mathrm{f}^{-1}\)</span>. The inequality says <span class="math inline">\(F(a) + G(b) \geq ab\)</span>, with equality on the curve, so <span class="math display">\[G(b) = \max_a \bigl( ab - F(a) \bigr).\]</span> This operation, turning a convex function <span class="math inline">\(F\)</span> into a new convex function <span class="math inline">\(G\)</span>, is the <em>Legendre transform</em>, and applying it twice gets you back to <span class="math inline">\(F\)</span>. In mechanics it converts the <em>Lagrangian</em>, a function of position and velocity, into the <em>Hamiltonian</em>, a function of position and momentum: two equivalent formulations of Newton’s laws that you will meet in a second-year course. In thermodynamics it converts between energy, enthalpy and free energy. For <span class="math inline">\(F(a) = a^p/p\)</span> the transform is <span class="math inline">\(G(b) = b^q/q\)</span>, which is why the two exponents in Young’s inequality are linked by <span class="math inline">\(\frac1p + \frac1q = 1\)</span>.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Inequalities from pictures</div>
+<p><em>An integral is an area. Comparing areas in a well-chosen picture can prove an inequality that is hard to see algebraically.</em></p>
+<p>Look for pictures in which one region obviously contains another, or several regions obviously cover a third. Then translate each area into an integral.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The 1987 version.</strong> (From STEP I, 1987.) Using the same picture with <span class="math inline">\(y = \sin x\)</span>, and choosing <span class="math inline">\(s\)</span> so that equality holds in <span class="math inline">\((*)\)</span>, show that <span class="math inline">\(\displaystyle\int_0^t \arcsin y\,\mathrm{d}y = t\arcsin t - \bigl(1 - \cos(\arcsin t)\bigr)\)</span> for <span class="math inline">\(0 \leq t \leq 1\)</span>. Check the result by differentiating both sides with respect to <span class="math inline">\(t\)</span>.</p></li>
+<li><p><strong>Cauchy–Schwarz.</strong> Use Young’s inequality with <span class="math inline">\(p = q = 2\)</span> to prove <span class="math inline">\(a_1b_1 + a_2b_2 + a_3b_3 \leq \sqrt{a_1^2 + a_2^2 + a_3^2}\,\sqrt{b_1^2 + b_2^2 + b_3^2}\)</span> for positive numbers. (<em>Hint:</em> first deal with the case where both square roots equal <span class="math inline">\(1\)</span>.)</p></li>
+<li><p><strong>An exponential version.</strong> Take <span class="math inline">\(\mathrm{f}(x) = e^x - 1\)</span> in <span class="math inline">\((*)\)</span> to show that, for <span class="math inline">\(a, b \geq 0\)</span>, <span class="math display">\[ab \leq e^a - 1 - a + (1 + b)\ln(1 + b) - b.\]</span> When is there equality?</p></li>
+<li><p><strong>How good is the bound?</strong> <span class="hard">harder</span> Use a calculator to compare <span class="math inline">\(\arcsin(1/t)\)</span> with <span class="math inline">\(t - \sqrt{t^2 - 1}\)</span> for <span class="math inline">\(t = 1, 2, 10\)</span>. Show that for large <span class="math inline">\(t\)</span>, <span class="math inline">\(t - \sqrt{t^2 - 1} \approx \frac{1}{2t}\)</span> while <span class="math inline">\(\arcsin(1/t) \approx \frac1t\)</span>. Why is the bound off by a factor of <span class="math inline">\(2\)</span>? (Look at the picture with <span class="math inline">\(a = 0\)</span>: how much of the excess is wasted?)</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>J. Michael Steele, <em>The Cauchy–Schwarz Master Class</em></strong> (Cambridge University Press). Chapters 1 and 9 cover Cauchy–Schwarz and Hölder, with Young’s inequality along the way.</p></li>
+<li><p><strong>Roger Nelsen, <em>Proofs Without Words</em></strong> (Mathematical Association of America). Includes Young’s inequality and many other picture proofs.</p></li>
+<li><p><strong>V. I. Arnold, <em>Mathematical Methods of Classical Mechanics</em></strong> (Springer). Section 14 explains the Legendre transform with exactly this picture. Advanced, but the relevant section is short.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="convexity.html">← 3.3 The Power of Convexity</a><a class="next" href="pi-e-or-e-pi.html">→ 3.5 πᵉ or e^π?</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

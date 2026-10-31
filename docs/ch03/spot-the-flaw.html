@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.1 Spot the Flaw — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 3 · Functions, Inequalities and Rigour</a>
+    <div class="src">STEP I · 1991 · Question 6</div>
+    <div class="sec-head"><span class="sec-num">3.1</span><h1>Spot the Flaw</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-1-spot-the-flaw.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 3</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>Criticise each step of the following arguments. You should correct the arguments where necessary and possible, and say (with justification) whether you think the conclusions are true even though the argument is incorrect.</p>
+<ol class="roman">
+<li><p>The function <span class="math inline">\(\mathrm{g}\)</span> defined by <span class="math display">\[\mathrm{g}(x) = \frac{2x^3 + 3}{x^4 + 4}\]</span> satisfies <span class="math inline">\(\mathrm{g}&#39;(x) = 0\)</span> only for <span class="math inline">\(x = 0\)</span> or <span class="math inline">\(x = \pm1\)</span>. Hence the stationary values are given by <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(\mathrm{g}(x) = \frac34\)</span> and <span class="math inline">\(x = \pm1\)</span>, <span class="math inline">\(\mathrm{g}(x) = 1\)</span>. Since <span class="math inline">\(\frac34 &lt; 1\)</span>, there is a minimum at <span class="math inline">\(x = 0\)</span> and maxima at <span class="math inline">\(x = \pm1\)</span>. Thus we must have <span class="math inline">\(\frac34 \leq \mathrm{g}(x) \leq 1\)</span> for all <span class="math inline">\(x\)</span>.</p></li>
+<li><p><span class="math inline">\(\displaystyle\int (1-x)^{-3}\,\mathrm{d}x = -3(1-x)^{-4}\)</span> and so <span class="math inline">\(\displaystyle\int_{-1}^{3} (1-x)^{-3}\,\mathrm{d}x = 0\)</span>.</p></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>Most exam questions ask you to produce an argument. This one hands you two arguments and asks you to take them apart. That is a very different skill, and it is the one you will use most at university: checking your own work, reading a proof in a book and deciding whether you believe it, marking a friend’s attempt, refereeing a paper.</p>
+<p>The arguments here are bad in an instructive way. Every step <em>looks</em> like something you have seen a hundred times. Some steps contain arithmetic slips, but the more serious errors are errors of <em>logic</em>: conclusions that do not follow even when the calculations are right. Those are the errors that survive into professional mathematics, and spotting them is what this chapter is about.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>When you are asked to “criticise each step”, what should you check at each step? Make a list before you start.</p>
+</div>
+<p>A good checklist has at least three questions. <em>Is the calculation correct?</em> <em>Does this step follow from the previous ones?</em> <em>Are there hidden assumptions (that a function is continuous, that a limit exists, that a stationary point must be a maximum or minimum)?</em> The question also asks whether the conclusions might be true anyway. A wrong argument can have a true conclusion, so that needs a separate check.</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-is-the-derivative-right" class="stage"><span class="stage-n">Stage 1</span> Is the derivative right?</h4>
+<div class="askyourself">
+<p>Differentiate <span class="math inline">\(\mathrm{g}\)</span> with the quotient rule. Where is <span class="math inline">\(\mathrm{g}&#39;(x) = 0\)</span>? Check <span class="math inline">\(x = 1\)</span> and <span class="math inline">\(x = -1\)</span> directly.</p>
+</div>
+<p>By the quotient rule, <span class="math display">\[\mathrm{g}&#39;(x) = \frac{6x^2(x^4 + 4) - (2x^3 + 3)\cdot 4x^3}{(x^4 + 4)^2} = \frac{-2x^6 - 12x^3 + 24x^2}{(x^4 + 4)^2} = \frac{-2x^2\bigl(x^4 + 6x - 12\bigr)}{(x^4 + 4)^2}.\]</span> So <span class="math inline">\(\mathrm{g}&#39;(x) = 0\)</span> when <span class="math inline">\(x = 0\)</span> or <span class="math inline">\(x^4 + 6x - 12 = 0\)</span>. At <span class="math inline">\(x = 1\)</span>, <span class="math inline">\(x^4 + 6x - 12 = -5\)</span>; at <span class="math inline">\(x = -1\)</span> it is <span class="math inline">\(-17\)</span>. Neither is a stationary point. The first claim is <strong>false</strong>.</p>
+<p>The quartic <span class="math inline">\(x^4 + 6x - 12\)</span> is <span class="math inline">\(-12\)</span> at <span class="math inline">\(x = 0\)</span> and tends to <span class="math inline">\(+\infty\)</span> in both directions, so it has (at least) one positive root and one negative root; it has exactly two real roots, because its second derivative <span class="math inline">\(12x^2\)</span> is non-negative, so it is convex and can cross zero at most twice. Numerically they are <span class="math inline">\(x \approx 1.386\)</span> and <span class="math inline">\(x \approx -2.247\)</span>.</p>
+<h4 id="stagemark2-are-the-values-right" class="stage"><span class="stage-n">Stage 2</span> Are the values right?</h4>
+<p><span class="math inline">\(\mathrm{g}(0) = \frac34\)</span> is correct, and <span class="math inline">\(\mathrm{g}(1) = \frac{5}{5} = 1\)</span>. But <span class="math inline">\(\mathrm{g}(-1) = \frac{-2 + 3}{1 + 4} = \frac15\)</span>, not <span class="math inline">\(1\)</span>. Even on its own terms, the argument has an arithmetic error: it seems to have assumed that <span class="math inline">\(\mathrm{g}\)</span> is even.</p>
+<h4 id="stagemark3-does-comparing-values-tell-you-which-is-a-maximum" class="stage"><span class="stage-n">Stage 3</span> Does comparing values tell you which is a maximum?</h4>
+<div class="askyourself">
+<p>Suppose a function has exactly two stationary points, with values <span class="math inline">\(\frac34\)</span> and <span class="math inline">\(1\)</span>. Does it follow that the first is a minimum and the second a maximum?</p>
+</div>
+<p>No. The <em>nature</em> of a stationary point is a local property: it depends on how the function behaves near that point, not on how its value compares with the value somewhere else. A function can have a local maximum lower than a local minimum (think of <span class="math inline">\(x + 2\sin x\)</span>), or a stationary point that is neither. Here, near <span class="math inline">\(x = 0\)</span>, the factor <span class="math inline">\(x^4 + 6x - 12\)</span> is close to <span class="math inline">\(-12\)</span>, so <span class="math display">\[\mathrm{g}&#39;(x) = \frac{-2x^2(x^4 + 6x - 12)}{(x^4 + 4)^2} &gt; 0 \qquad\text{for small } x \neq 0.\]</span> The derivative is positive on both sides of <span class="math inline">\(0\)</span>: <span class="math inline">\(x = 0\)</span> is a stationary point of <em>inflection</em>, not a minimum.</p>
+<h4 id="stagemark4-do-stationary-values-bound-a-function" class="stage"><span class="stage-n">Stage 4</span> Do stationary values bound a function?</h4>
+<div class="pausebox">
+<p>Even with correct stationary points, why can’t you conclude that every value of <span class="math inline">\(\mathrm{g}\)</span> lies between the smallest and largest stationary values? Find a value of <span class="math inline">\(x\)</span> with <span class="math inline">\(\mathrm{g}(x) &lt; \frac34\)</span>.</p>
+</div>
+<p>Stationary points only describe <em>local</em> behaviour. The global behaviour also depends on what happens at the ends of the domain, here as <span class="math inline">\(x \to \pm\infty\)</span>. Since <span class="math inline">\(\mathrm{g}(x) \to 0\)</span> as <span class="math inline">\(x \to \pm\infty\)</span>, and <span class="math inline">\(\mathrm{g}(x) &lt; 0\)</span> whenever <span class="math inline">\(2x^3 + 3 &lt; 0\)</span>, that is, <span class="math inline">\(x &lt; -\sqrt[3]{3/2} \approx -1.14\)</span>, the function takes negative values. For example <span class="math inline">\(\mathrm{g}(-2) = \frac{-13}{20}\)</span>. So the conclusion <span class="math inline">\(\frac34 \leq \mathrm{g}(x) \leq 1\)</span> is <strong>false</strong> (Figure 3.1.1).</p>
+<p>The correct statement: <span class="math inline">\(\mathrm{g}\)</span> increases to a global maximum of about <span class="math inline">\(1.083\)</span> at <span class="math inline">\(x \approx 1.386\)</span>, then decreases towards <span class="math inline">\(0\)</span>; to the left, it decreases from <span class="math inline">\(0\)</span> to a global minimum of about <span class="math inline">\(-0.668\)</span> at <span class="math inline">\(x \approx -2.247\)</span>, then increases through <span class="math inline">\(x = 0\)</span> (where it has a horizontal inflection) up to the maximum. So <span class="math inline">\(-0.668 \lesssim \mathrm{g}(x) \lesssim 1.083\)</span> for all <span class="math inline">\(x\)</span>.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-3-1-1.svg" alt="Figure 3.1.1"><figcaption><span class="fig-label">Figure 3.1.1</span> The true graph of <span class="math inline">\(\mathrm{g}(x) = \frac{2x^3+3}{x^4+4}\)</span>. The argument’s claimed range (amber band) is wrong at every turn: <span class="math inline">\(x = -1\)</span> is not stationary and <span class="math inline">\(\mathrm{g}(-1) = \frac15\)</span>; <span class="math inline">\(x = 0\)</span> is an inflection, not a minimum; and the function goes well outside the band, to a maximum above <span class="math inline">\(1\)</span> and a minimum below <span class="math inline">\(0\)</span>.</figcaption></figure>
+<h4 id="stagemark5-the-integral" class="stage"><span class="stage-n">Stage 5</span> The integral</h4>
+<div class="askyourself">
+<p>Differentiate <span class="math inline">\(-3(1-x)^{-4}\)</span>. Do you get <span class="math inline">\((1-x)^{-3}\)</span>?</p>
+</div>
+<p><span class="math inline">\(\dfrac{\mathrm{d}}{\mathrm{d}x}\bigl[-3(1-x)^{-4}\bigr] = -3 \cdot (-4)(1-x)^{-5} \cdot (-1) = -12(1-x)^{-5}\)</span>. Wrong in both the power and the coefficient. The correct antiderivative is <span class="math display">\[\int (1-x)^{-3}\,\mathrm{d}x = \tfrac12(1-x)^{-2} + C,\]</span> as you can check by differentiating.</p>
+<div class="askyourself">
+<p>With the correct antiderivative, <span class="math inline">\(\bigl[\frac12(1-x)^{-2}\bigr]_{-1}^{3} = \frac12 \cdot \frac14 - \frac12 \cdot \frac14 = 0\)</span>. So the answer was right after all. Or was it?</p>
+</div>
+<p>It was not. The fundamental theorem of calculus, <span class="math inline">\(\int_a^b F&#39;(x)\,\mathrm{d}x = F(b) - F(a)\)</span>, requires the integrand to be continuous on the whole interval <span class="math inline">\([a, b]\)</span>. Here <span class="math inline">\((1-x)^{-3}\)</span> is undefined at <span class="math inline">\(x = 1\)</span>, which lies inside <span class="math inline">\([-1, 3]\)</span>, and near <span class="math inline">\(x = 1\)</span> it is enormous. The integral must be treated as an <em>improper</em> integral, split at the bad point: <span class="math display">\[\int_{-1}^{1} (1-x)^{-3}\,\mathrm{d}x = \lim_{\varepsilon \to 0^+} \Bigl[\tfrac12(1-x)^{-2}\Bigr]_{-1}^{1-\varepsilon} = \lim_{\varepsilon \to 0^+} \left( \frac{1}{2\varepsilon^2} - \frac18 \right) = +\infty.\]</span> The integral from <span class="math inline">\(-1\)</span> to <span class="math inline">\(1\)</span> is infinite (and the one from <span class="math inline">\(1\)</span> to <span class="math inline">\(3\)</span> is <span class="math inline">\(-\infty\)</span>), so <span class="math inline">\(\int_{-1}^{3}(1-x)^{-3}\,\mathrm{d}x\)</span> <strong>does not exist</strong>. The conclusion “<span class="math inline">\(= 0\)</span>” is false, not because the true value is something else, but because there is no value.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>Three kinds of error.</strong> Calculation errors (the derivative, <span class="math inline">\(\mathrm{g}(-1)\)</span>, the antiderivative), logical errors (comparing values to classify stationary points; stationary values as global bounds), and hidden assumptions (continuity in the fundamental theorem of calculus).</p></li>
+<li><p><strong>Right answer, wrong reason.</strong> Correcting the antiderivative in part (ii) reproduces the answer <span class="math inline">\(0\)</span>, but the argument is still invalid. A correct-looking answer is no evidence that the reasoning is sound.</p></li>
+<li><p><strong>Local versus global.</strong> Derivatives tell you about the behaviour near a point. Global conclusions need more: what happens at the ends of the domain, or at points where the function misbehaves.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">When great mathematicians got it wrong</div>
+<p>Errors of exactly this kind were made by the founders of analysis. In his <em>Cours d’analyse</em> of 1821, Augustin-Louis Cauchy “proved” that a convergent sum of continuous functions is always continuous. In 1826 Niels Henrik Abel pointed out a counterexample: the Fourier series <span class="math display">\[\sin x - \tfrac12\sin 2x + \tfrac13\sin 3x - \cdots\]</span> converges for every <span class="math inline">\(x\)</span>, and every term is continuous, but the sum jumps at <span class="math inline">\(x = \pm\pi\)</span> (it equals <span class="math inline">\(x/2\)</span> for <span class="math inline">\(-\pi &lt; x &lt; \pi\)</span>). Working out exactly what had gone wrong in Cauchy’s argument took decades, and led to the concept of <em>uniform convergence</em>, which every analysis student now learns. Hidden assumptions, often about swapping the order of two limits, are the most common source of error in all of analysis.</p>
+</div>
+<h3 id="theorems-with-hypotheses">Theorems with hypotheses</h3>
+<p>Two of the errors in this question come from ignoring the hypotheses of a theorem.</p>
+<ul>
+<li><p>The <em>extreme value theorem</em> says that a continuous function on a closed, bounded interval <span class="math inline">\([a, b]\)</span> attains a maximum and a minimum, and they occur either at stationary points or at the endpoints. On the whole real line there are no endpoints to check, and the function might not have a maximum at all; you must examine the behaviour as <span class="math inline">\(x \to \pm\infty\)</span> instead.</p></li>
+<li><p>The <em>fundamental theorem of calculus</em> needs the integrand to be continuous on <span class="math inline">\([a, b]\)</span>. If it is not, the integral may still exist (try <span class="math inline">\(\int_0^1 x^{-1/2}\,\mathrm{d}x\)</span>) or may not (as here), and you must check using limits.</p></li>
+</ul>
+<p>At university, every theorem you meet will come with a precise list of hypotheses. Part of the training is to check them, every time, before using the theorem.</p>
+<h3 id="a-value-for-a-divergent-integral">A value for a divergent integral</h3>
+<p>There is a curious footnote to part (ii). The interval <span class="math inline">\([-1, 3]\)</span> is symmetric about the bad point <span class="math inline">\(x = 1\)</span>, and <span class="math inline">\((1-x)^{-3}\)</span> is “odd” about that point. If you cut out a symmetric gap <span class="math inline">\((1 - \varepsilon, 1 + \varepsilon)\)</span> and let <span class="math inline">\(\varepsilon \to 0\)</span>, the two infinite pieces cancel and you do get <span class="math inline">\(0\)</span>. This is called the <em>Cauchy principal value</em>, and it is genuinely useful in physics and complex analysis. But it is a <em>different definition</em>, chosen deliberately, and an argument that arrives at it by accident has not proved anything.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Reading arguments critically</div>
+<p><em>Check every step for three things: is the calculation right, does the step follow logically, and what has been assumed without being said?</em></p>
+<p>Then check the conclusion separately: an incorrect argument can have a true conclusion, and a “correct” answer can come from an invalid argument. Apply the same scrutiny to your own work; the arguments you are most likely to believe are your own.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A substitution that lies.</strong> (From STEP I, 1987.) Explain why the substitution <span class="math inline">\(x = 1/t\)</span> does not show that <span class="math display">\[\int_{-1}^{1} \frac{\mathrm{d}x}{(1+x^2)^2} \quad\text{and}\quad \int_{-1}^{1} \frac{-t^2}{(1+t^2)^2}\,\mathrm{d}t\]</span> are equal. Evaluate both integrals correctly. (One is positive and one is negative, so they certainly differ.)</p></li>
+<li><p><strong>True or false?</strong> (From STEP I, 1998.) Justify your answers.</p>
+<ol class="alpha">
+<li><p><span class="math inline">\(a^{\ln b} = b^{\ln a}\)</span> for all <span class="math inline">\(a, b &gt; 0\)</span>.</p></li>
+<li><p><span class="math inline">\(\cos(\sin\theta) = \sin(\cos\theta)\)</span> for all real <span class="math inline">\(\theta\)</span>.</p></li>
+<li><p>There is a polynomial <span class="math inline">\(\mathrm{P}\)</span> such that <span class="math inline">\(|\mathrm{P}(\theta) - \cos\theta| \leq 10^{-6}\)</span> for all real <span class="math inline">\(\theta\)</span>.</p></li>
+<li><p><span class="math inline">\(x^4 + 3 + x^{-4} \geq 5\)</span> for all <span class="math inline">\(x &gt; 0\)</span>.</p></li>
+</ol></li>
+<li><p><strong>All horses are the same colour.</strong> Find the flaw in this “proof” by induction: any one horse is the same colour as itself; given <span class="math inline">\(n + 1\)</span> horses, the first <span class="math inline">\(n\)</span> are the same colour by the inductive hypothesis, and so are the last <span class="math inline">\(n\)</span>; the two groups overlap, so all <span class="math inline">\(n + 1\)</span> are the same colour.</p></li>
+<li><p><strong>An integral that does exist.</strong> Show that <span class="math inline">\(\int_{-1}^{1} |x|^{-1/2}\,\mathrm{d}x\)</span> exists, although the integrand is undefined at <span class="math inline">\(0\)</span>, and find its value.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>E. A. Maxwell, <em>Fallacies in Mathematics</em></strong> (Cambridge University Press). A classic collection of plausible wrong arguments, organised by topic, written for sixth-formers.</p></li>
+<li><p><strong>Bernard Gelbaum &amp; John Olmsted, <em>Counterexamples in Analysis</em></strong> (Dover). Hundreds of examples showing why the hypotheses of theorems matter. Dip in once you have started an analysis course.</p></li>
+<li><p><strong>Imre Lakatos, <em>Proofs and Refutations</em></strong> (Cambridge University Press). A brilliant dialogue about how mathematicians find, and fix, errors in proofs.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← Chapter introduction</a><a class="next" href="am-gm-backwards.html">→ 3.2 AM–GM, Backwards</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>

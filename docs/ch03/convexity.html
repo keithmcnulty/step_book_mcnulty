@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.3 The Power of Convexity — Beyond STEP</title>
+<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">Chapter 3 · Functions, Inequalities and Rigour</a>
+    <div class="src">STEP II · 2007 · Question 7</div>
+    <div class="sec-head"><span class="sec-num">3.3</span><h1>The Power of Convexity</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-3-convexity.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Worksheet</span><span class="dl-sub">The question, hints and exercises</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">Chapter 3</span><span class="dl-sub">The whole chapter as a PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">The question</div>
+<p>A function <span class="math inline">\(\mathrm{f}(x)\)</span> is said to be concave on some interval if <span class="math inline">\(\mathrm{f}&#39;&#39;(x) &lt; 0\)</span> in that interval. Show that <span class="math inline">\(\sin x\)</span> is concave for <span class="math inline">\(0 &lt; x &lt; \pi\)</span> and that <span class="math inline">\(\ln x\)</span> is concave for <span class="math inline">\(x &gt; 0\)</span>.</p>
+<p>Let <span class="math inline">\(\mathrm{f}(x)\)</span> be concave on a given interval and let <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> lie in the interval. <em>Jensen’s inequality</em> states that <span class="math display">\[\frac1n \sum_{k=1}^{n} \mathrm{f}(x_k) \leq \mathrm{f}\left( \frac1n \sum_{k=1}^{n} x_k \right)\]</span> and that equality holds if and only if <span class="math inline">\(x_1 = x_2 = \cdots = x_n\)</span>. You may use this result without proving it.</p>
+<ol class="roman">
+<li><p>Given that <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> are angles of a triangle, show that <span class="math display">\[\sin A + \sin B + \sin C \leq \frac{3\sqrt3}{2}.\]</span></p></li>
+<li><p>By choosing a suitable function <span class="math inline">\(\mathrm{f}\)</span>, prove that <span class="math display">\[\sqrt[n]{t_1 t_2 \cdots t_n} \leq \frac{t_1 + t_2 + \cdots + t_n}{n}\]</span> for any positive integer <span class="math inline">\(n\)</span> and for any positive numbers <span class="math inline">\(t_1, t_2, \ldots, t_n\)</span>.</p>
+<p>Hence:</p>
+<ol class="alpha">
+<li><p>show that <span class="math inline">\(x^4 + y^4 + z^4 + 16 \geq 8xyz\)</span>, where <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> are any positive numbers;</p></li>
+<li><p>find the minimum value of <span class="math inline">\(x^5 + y^5 + z^5 - 5xyz\)</span>, where <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> are any positive numbers.</p></li>
+</ol></li>
+</ol>
+</div>
+<h2 id="the-hook">The hook</h2>
+<p>In <a href="../ch03/am-gm-backwards.html">Section 3.2</a> we proved AM–GM with a clever induction. Here it falls out in one line, as a special case of something much bigger. The bigger thing is <em>concavity</em>: the shape of a curve that bends downwards, like the top of a hill. A single geometric fact about such curves, that the curve lies above its chords, turns out to prove a startling range of inequalities, from a fact about triangles to AM–GM to inequalities in probability, information theory and economics.</p>
+<p>At university this idea becomes <em>convexity</em>, and it is one of the great unifying themes of modern mathematics. Whole subjects, such as convex optimisation, are built on it.</p>
+<h2 id="before-you-start">Before you start</h2>
+<div class="askyourself">
+<p>Draw a curve that bends downwards, such as <span class="math inline">\(y = \sin x\)</span> on <span class="math inline">\((0, \pi)\)</span>. Mark two points on it and join them with a straight line. Is the chord above or below the curve?</p>
+</div>
+<p>Below. For a concave curve, every chord lies below the curve between its endpoints. The average of two function values is the height of the midpoint of the chord; the function value at the average is the height of the curve above that midpoint. So “chord below curve” is exactly Jensen’s inequality for <span class="math inline">\(n = 2\)</span>: <span class="math display">\[\frac{\mathrm{f}(x_1) + \mathrm{f}(x_2)}{2} \leq \mathrm{f}\left( \frac{x_1 + x_2}{2} \right).\]</span> For <span class="math inline">\(n\)</span> points, the average of the points <span class="math inline">\((x_k, \mathrm{f}(x_k))\)</span> is their centre of mass, which lies inside the region under the curve, so it is below the curve too (Figure 3.3.1).</p>
+<h2 id="working-it-through">Working it through</h2>
+<h4 id="stagemark1-checking-concavity" class="stage"><span class="stage-n">Stage 1</span> Checking concavity</h4>
+<p><span class="math inline">\(\frac{\mathrm{d}^2}{\mathrm{d}x^2}\sin x = -\sin x &lt; 0\)</span> for <span class="math inline">\(0 &lt; x &lt; \pi\)</span>, and <span class="math inline">\(\frac{\mathrm{d}^2}{\mathrm{d}x^2}\ln x = -\frac{1}{x^2} &lt; 0\)</span> for <span class="math inline">\(x &gt; 0\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-triangles" class="stage"><span class="stage-n">Stage 2</span> Triangles</h4>
+<div class="askyourself">
+<p>Which function, which points, and what is their average? Do the angles of a triangle lie in an interval where the function is concave?</p>
+</div>
+<p>Take <span class="math inline">\(\mathrm{f}(x) = \sin x\)</span> and the three points <span class="math inline">\(A, B, C\)</span>. Each is strictly between <span class="math inline">\(0\)</span> and <span class="math inline">\(\pi\)</span>, where <span class="math inline">\(\sin\)</span> is concave, and their average is <span class="math inline">\(\frac{A + B + C}{3} = \frac{\pi}{3}\)</span>. Jensen gives <span class="math display">\[\frac{\sin A + \sin B + \sin C}{3} \leq \sin\frac{\pi}{3} = \frac{\sqrt3}{2},\]</span> so <span class="math inline">\(\sin A + \sin B + \sin C \leq \frac{3\sqrt3}{2}\)</span>, with equality exactly for the equilateral triangle.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-3-3-1.svg" alt="Figure 3.3.1"><figcaption><span class="fig-label">Figure 3.3.1</span> Jensen’s inequality for <span class="math inline">\(\sin x\)</span> with three angles <span class="math inline">\(A = 0.4\)</span>, <span class="math inline">\(B = 1.2\)</span>, <span class="math inline">\(C = \pi - 1.6\)</span> of a triangle. The centre of mass of the three points on the curve (amber) lies inside the shaded triangle, and so below the curve. Its height is the average of <span class="math inline">\(\sin A\)</span>, <span class="math inline">\(\sin B\)</span>, <span class="math inline">\(\sin C\)</span>, and the curve above it is at height <span class="math inline">\(\sin\frac{\pi}{3}\)</span>.</figcaption></figure>
+<h4 id="stagemark3-amgm-in-one-line" class="stage"><span class="stage-n">Stage 3</span> AM–GM in one line</h4>
+<div class="askyourself">
+<p>AM–GM compares a product with a sum. Which concave function turns products into sums?</p>
+</div>
+<p>The logarithm. Apply Jensen to <span class="math inline">\(\mathrm{f} = \ln\)</span> and the positive numbers <span class="math inline">\(t_1, \ldots, t_n\)</span>: <span class="math display">\[\frac{\ln t_1 + \cdots + \ln t_n}{n} \leq \ln\left( \frac{t_1 + \cdots + t_n}{n} \right).\]</span> The left-hand side is <span class="math inline">\(\ln\bigl(\sqrt[n]{t_1 \cdots t_n}\bigr)\)</span>. Since <span class="math inline">\(\ln\)</span> is increasing, we can remove it from both sides, and that is AM–GM. Equality holds exactly when all the <span class="math inline">\(t_k\)</span> are equal.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-using-amgm" class="stage"><span class="stage-n">Stage 4</span> Using AM–GM</h4>
+<div class="askyourself">
+<p>For (a), the left-hand side is a sum of four terms and the right-hand side contains a product of three variables. How many terms should you apply AM–GM to, and why does the <span class="math inline">\(16\)</span> help?</p>
+</div>
+<p>Apply AM–GM to the four positive numbers <span class="math inline">\(x^4\)</span>, <span class="math inline">\(y^4\)</span>, <span class="math inline">\(z^4\)</span>, <span class="math inline">\(16\)</span>: <span class="math display">\[\frac{x^4 + y^4 + z^4 + 16}{4} \geq \sqrt[4]{16\,x^4 y^4 z^4} = 2xyz.\]</span> Multiplying by <span class="math inline">\(4\)</span> gives <span class="math inline">\(x^4 + y^4 + z^4 + 16 \geq 8xyz\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>Now find the minimum of <span class="math inline">\(x^5 + y^5 + z^5 - 5xyz\)</span>. (<em>Hint:</em> you want a fifth root of <span class="math inline">\(x^5y^5z^5\)</span>, so you need five numbers. What should the other two be?)</p>
+</div>
+<p>Apply AM–GM to <span class="math inline">\(x^5, y^5, z^5, 1, 1\)</span>: <span class="math display">\[\frac{x^5 + y^5 + z^5 + 1 + 1}{5} \geq \sqrt[5]{x^5y^5z^5} = xyz,\]</span> so <span class="math inline">\(x^5 + y^5 + z^5 - 5xyz \geq -2\)</span>. Equality holds when <span class="math inline">\(x^5 = y^5 = z^5 = 1\)</span>, that is, <span class="math inline">\(x = y = z = 1\)</span>, where the expression is <span class="math inline">\(3 - 5 = -2\)</span>. So the minimum value is <span class="math inline">\(-2\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<p>Notice how the equality condition does double duty: it shows the bound is actually attained, so <span class="math inline">\(-2\)</span> is the minimum and not just a lower bound.</p>
+<h2 id="looking-back">Looking back</h2>
+<ul>
+<li><p><strong>One idea, many inequalities.</strong> A geometric fact about concave curves gave a result about triangles and AM–GM, with no calculation beyond checking a second derivative.</p></li>
+<li><p><strong>Choose the function and the points.</strong> Using Jensen means deciding which function to apply it to and at which points. The logarithm, which turns products into sums, is a favourite.</p></li>
+<li><p><strong>Pad to fit.</strong> In (b), adding two <span class="math inline">\(1\)</span>s made the AM–GM fit the problem, just as padding with the average did in <a href="../ch03/am-gm-backwards.html">Section 3.2</a>.</p></li>
+</ul>
+<h2 id="whats-really-going-on">What’s really going on</h2>
+<div class="historybox">
+<div class="box-title">Convex functions</div>
+<p>At university the standard definition of a <em>convex</em> function (the upside-down version of concave) does not mention derivatives at all: <span class="math inline">\(\mathrm{f}\)</span> is convex if <span class="math display">\[\mathrm{f}\bigl(t x_1 + (1-t)x_2\bigr) \leq t\,\mathrm{f}(x_1) + (1-t)\,\mathrm{f}(x_2) \qquad\text{for all } x_1, x_2 \text{ and } 0 \leq t \leq 1,\]</span> which says exactly that chords lie above the curve. This definition makes sense for functions that are not differentiable, such as <span class="math inline">\(|x|\)</span>, and for functions of many variables. The Danish engineer and mathematician Johan Jensen made convex functions a subject in their own right in 1906, with the inequality that bears his name.</p>
+</div>
+<h3 id="convexity-everywhere">Convexity everywhere</h3>
+<p>Convexity appears throughout mathematics and its applications.</p>
+<ul>
+<li><p><strong>Probability.</strong> Jensen’s inequality says that for a concave <span class="math inline">\(\mathrm{f}\)</span> and any random variable <span class="math inline">\(X\)</span>, <span class="math inline">\(\mathbb{E}[\mathrm{f}(X)] \leq \mathrm{f}(\mathbb{E}[X])\)</span>. In economics, with <span class="math inline">\(\mathrm{f}\)</span> a concave “utility” function, this explains why people prefer a certain £100 to a fifty-fifty gamble on £0 or £200, and why insurance exists.</p></li>
+<li><p><strong>Information theory.</strong> The proof that entropy is maximised by the uniform distribution, which underlies data compression, is Jensen’s inequality for <span class="math inline">\(\ln\)</span>.</p></li>
+<li><p><strong>Optimisation.</strong> A convex function has no local minima except the global one, so “walk downhill” always finds the best answer. This is why convex optimisation problems can be solved efficiently, and why so much effort goes into recasting problems in convex form.</p></li>
+</ul>
+<p>In <a href="../ch03/areas-inequalities.html">Section 3.4</a> we will see a different side of convexity: a geometric duality between a function and its inverse.</p>
+<h2 id="the-thinking-skill">The thinking skill</h2>
+<div class="skillbox">
+<div class="box-title">Find the general principle</div>
+<p><em>When several results have similar proofs, look for the single principle behind them. Then prove the principle once and apply it many times.</em></p>
+<p>AM–GM, the triangle inequality for sines, and many others are all instances of “a concave curve lies above its chords”. Recognising the principle turns a collection of tricks into a method.</p>
+</div>
+<h2 id="try-this-next">Try this next</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>The definition.</strong> (From STEP II, 2018.) Draw a sketch illustrating the chord definition of concavity in the box above. Explain why a function with <span class="math inline">\(\mathrm{f}&#39;&#39;(x) &lt; 0\)</span> satisfies it. Then, by choosing <span class="math inline">\(t = \frac13\)</span>, <span class="math inline">\(x_1 = u\)</span> and <span class="math inline">\(x_2 = \frac{v + w}{2}\)</span> suitably, show that a concave function satisfies Jensen’s inequality for three points.</p></li>
+<li><p><strong>A product of sines.</strong> (From STEP II, 2018.) By considering <span class="math inline">\(\ln(\sin x)\)</span>, show that if <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span> are the angles of a triangle then <span class="math inline">\(\sin A \sin B \sin C \leq \frac{3\sqrt3}{8}\)</span>.</p></li>
+<li><p><strong>Acute triangles.</strong> Show that <span class="math inline">\(\tan x\)</span> is convex on <span class="math inline">\((0, \frac\pi2)\)</span>, and deduce that in an acute-angled triangle, <span class="math inline">\(\tan A + \tan B + \tan C \geq 3\sqrt3\)</span>.</p></li>
+<li><p><strong>Power means.</strong> Show that <span class="math inline">\(x^2\)</span> is convex, and deduce that <span class="math inline">\(\left(\frac{a_1 + \cdots + a_n}{n}\right)^2 \leq \frac{a_1^2 + \cdots + a_n^2}{n}\)</span>. Interpret this as a statement about the variance of a set of numbers.</p></li>
+</ol>
+</div>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><p><strong>J. Michael Steele, <em>The Cauchy–Schwarz Master Class</em></strong> (Cambridge University Press). Chapter 6 is about convexity and Jensen’s inequality.</p></li>
+<li><p><strong>Claudi Alsina &amp; Roger Nelsen, <em>When Less Is More: Visualizing Basic Inequalities</em></strong> (Mathematical Association of America). Inequalities proved by pictures, many of them using convexity.</p></li>
+<li><p><strong>Stephen Boyd &amp; Lieven Vandenberghe, <em>Convex Optimization</em></strong> (Cambridge University Press). A modern classic, free online; the first chapters show why convexity matters in practice.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="am-gm-backwards.html">← 3.2 AM–GM, Backwards</a><a class="next" href="areas-inequalities.html">→ 3.4 Areas That Prove Inequalities</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+  </div>
+</footer>
+</body>
+</html>
