@@ -1,11 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>9.8 Nobody Gets Their Own Shirt — Beyond STEP</title>
-<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<title>Nobody Gets Their Own Shirt (STEP II 2016 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP II 2016 Question 12: guided solution and the university mathematics behind it. A football team of eleven players changes in a hurry and grabs shirts at random. What is the chance that nobody…">
 <link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ch09/derangements.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="Nobody Gets Their Own Shirt (STEP II 2016 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP II 2016 Question 12: guided solution and the university mathematics behind it. A football team of eleven players changes in a hurry and grabs shirts at random. What is the chance that nobody…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ch09/derangements.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: Past STEP questions as a doorway to university mathematics">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nobody Gets Their Own Shirt (STEP II 2016 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2016 Question 12: guided solution and the university mathematics behind it. A football team of eleven players changes in a hurry and grabs shirts at random. What is the chance that nobody…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Nobody Gets Their Own Shirt", "headline": "Nobody Gets Their Own Shirt", "description": "STEP II 2016 Question 12: guided solution and the university mathematics behind it. A football team of eleven players changes in a hurry and grabs shirts at random. What is the chance that nobody…", "url": "https://beyondstep.keithmcnulty.org/ch09/derangements.html", "inLanguage": "en-GB", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2016 Question 12", "Counting and Chance"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "Counting and Chance", "url": "https://beyondstep.keithmcnulty.org/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/"}, {"@type": "ListItem", "position": 2, "name": "Chapter 9: Counting and Chance", "item": "https://beyondstep.keithmcnulty.org/ch09/"}, {"@type": "ListItem", "position": 3, "name": "Nobody Gets Their Own Shirt", "item": "https://beyondstep.keithmcnulty.org/ch09/derangements.html"}]}</script>
 <script>
 window.MathJax = {
   tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
@@ -14,11 +36,11 @@ window.MathJax = {
 </script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
 </head>
-<body>
+<body data-root="../">
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="../index.html">Beyond STEP</a>
-    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+    <nav><a href="../introduction/index.html">Introduction</a><a href="../glossary/index.html">Glossary</a><a href="../symbols/index.html">Symbols</a><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a><a class="nav-search" href="../search/index.html" aria-label="Search">Search</a></nav>
   </div>
 </header>
 <main>
@@ -38,7 +60,10 @@ window.MathJax = {
   <article class="prose">
 <div class="stepquestion">
 <div class="box-title">The question</div>
-<p>Starting with the result <span class="math inline">\(\mathrm{P}(A \cup B) = \mathrm{P}(A) + \mathrm{P}(B) - \mathrm{P}(A \cap B)\)</span>, prove that <span class="math display">\[\mathrm{P}(A \cup B \cup C) = \mathrm{P}(A) + \mathrm{P}(B) + \mathrm{P}(C) - \mathrm{P}(A \cap B) - \mathrm{P}(B \cap C) - \mathrm{P}(C \cap A) + \mathrm{P}(A \cap B \cap C).\]</span> Write down, without proof, the corresponding result for four events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span>.</p>
+<p>Starting with the result <span class="math inline">\(\mathrm{P}(A \cup B) = \mathrm{P}(A) + \mathrm{P}(B) - \mathrm{P}(A \cap B)\)</span>, prove that <span class="math display">\[\begin{aligned}
+  \mathrm{P}(A \cup B \cup C) = {}&amp;\mathrm{P}(A) + \mathrm{P}(B) + \mathrm{P}(C) \\
+  &amp;- \mathrm{P}(A \cap B) - \mathrm{P}(B \cap C) - \mathrm{P}(C \cap A) + \mathrm{P}(A \cap B \cap C).
+\end{aligned}\]</span> Write down, without proof, the corresponding result for four events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span>.</p>
 <p>A pack of <span class="math inline">\(n\)</span> cards, numbered <span class="math inline">\(1, 2, \ldots, n\)</span>, is shuffled and laid out in a row. The result of the shuffle is that each card is equally likely to be in any position in the row. Let <span class="math inline">\(E_i\)</span> be the event that the card bearing the number <span class="math inline">\(i\)</span> is in the <span class="math inline">\(i\)</span>th position in the row. Write down the following probabilities:</p>
 <ol class="roman">
 <li><p><span class="math inline">\(\mathrm{P}(E_i)\)</span>;</p></li>
@@ -66,7 +91,10 @@ window.MathJax = {
 <div class="askyourself">
 <p>If card <span class="math inline">\(i\)</span> is in position <span class="math inline">\(i\)</span>, how many ways are there to arrange the rest? And if cards <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are both fixed?</p>
 </div>
-<p>There are <span class="math inline">\(n!\)</span> equally likely orders. If card <span class="math inline">\(i\)</span> is fixed in position <span class="math inline">\(i\)</span>, the other <span class="math inline">\(n - 1\)</span> cards can be in any order: <span class="math inline">\((n - 1)!\)</span> ways. So <span class="math display">\[\mathrm{P}(E_i) = \frac{(n - 1)!}{n!} = \frac{1}{n}, \qquad \mathrm{P}(E_i \cap E_j) = \frac{(n - 2)!}{n!} = \frac{1}{n(n - 1)}, \qquad \mathrm{P}(E_i \cap E_j \cap E_k) = \frac{1}{n(n - 1)(n - 2)}.\]</span> In general, the probability that <span class="math inline">\(k\)</span> specified cards are all in their own positions is <span class="math inline">\(\frac{(n - k)!}{n!}\)</span>.</p>
+<p>There are <span class="math inline">\(n!\)</span> equally likely orders. If card <span class="math inline">\(i\)</span> is fixed in position <span class="math inline">\(i\)</span>, the other <span class="math inline">\(n - 1\)</span> cards can be in any order: <span class="math inline">\((n - 1)!\)</span> ways. So <span class="math display">\[\begin{gathered}
+  \mathrm{P}(E_i) = \frac{(n - 1)!}{n!} = \frac{1}{n}, \qquad \mathrm{P}(E_i \cap E_j) = \frac{(n - 2)!}{n!} = \frac{1}{n(n - 1)}, \\
+  \mathrm{P}(E_i \cap E_j \cap E_k) = \frac{(n - 3)!}{n!} = \frac{1}{n(n - 1)(n - 2)}.
+\end{gathered}\]</span> In general, the probability that <span class="math inline">\(k\)</span> specified cards are all in their own positions is <span class="math inline">\(\frac{(n - k)!}{n!}\)</span>.</p>
 <h4 id="stagemark3-adding-it-up" class="stage"><span class="stage-n">Stage 3</span> Adding it up</h4>
 <div class="askyourself">
 <p>In the inclusion–exclusion formula for <span class="math inline">\(\mathrm{P}(E_1 \cup \cdots \cup E_n)\)</span>, how many terms are there involving intersections of <span class="math inline">\(k\)</span> events, and what is their total?</p>
@@ -110,9 +138,9 @@ window.MathJax = {
 </div>
 <h2 id="further-reading">Further reading</h2>
 <ul>
-<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <em>Probability: An Introduction</em></strong> (Oxford University Press). A first-year text that covers inclusion–exclusion and the matching problem.</p></li>
-<li><p><strong>William Feller, <em>An Introduction to Probability Theory and Its Applications</em>, Vol. 1</strong> (Wiley), Chapter IV. A classic, with many variations on the matching problem.</p></li>
-<li><p><strong>Miklós Bóna, <em>A Walk Through Combinatorics</em></strong> (World Scientific), the chapter on inclusion–exclusion.</p></li>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <a href="https://uk.bookshop.org/search?keywords=Probability%3A+An+Introduction+Grimmett+Welsh"><em>Probability: An Introduction</em></a></strong> (Oxford University Press). A first-year text that covers inclusion–exclusion and the matching problem.</p></li>
+<li><p><strong>William Feller, <a href="https://uk.bookshop.org/search?keywords=An+Introduction+to+Probability+Theory+and+Its+Applications+Feller"><em>An Introduction to Probability Theory and Its Applications</em></a>, Vol. 1</strong> (Wiley), Chapter IV. A classic, with many variations on the matching problem.</p></li>
+<li><p><strong>Miklós Bóna, <a href="https://uk.bookshop.org/search?keywords=A+Walk+Through+Combinatorics+Bona"><em>A Walk Through Combinatorics</em></a></strong> (World Scientific), on inclusion–exclusion.</p></li>
 </ul>
 
   </article>
@@ -121,8 +149,8 @@ window.MathJax = {
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
-    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+    <p>Text, solutions, figures and exercises by Keith McNulty, dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>. Corrections welcome as <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a>.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment and are not covered by the CC0 dedication.</p>
   </div>
 </footer>
 </body>

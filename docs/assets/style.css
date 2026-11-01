@@ -178,3 +178,35 @@ figure.stepfig figcaption { text-align: left; font-size: 0.93rem; line-height: 1
 @media print {
   .site-header, .site-footer, .downloads, .pager { display: none; }
 }
+
+.prose .flushright { text-align: right; margin-top: 2rem; }
+
+/* glossary (description lists) */
+.prose dl { margin: 0.6rem 0 1.2rem; }
+.prose dt { font-family: var(--sans); font-weight: 700; color: var(--teal); margin-top: 0.9rem; }
+.prose dd { margin: 0.15rem 0 0 1.4rem; }
+.front-matter td:first-child { font-family: inherit; font-weight: normal; color: inherit; white-space: nowrap; }
+
+/* ---------- search ---------- */
+.nav-search::before { content: ""; display: inline-block; width: 0.7em; height: 0.7em; border: 2px solid currentColor; border-radius: 50%; margin-right: 0.35em; vertical-align: -0.05em; box-sizing: border-box; }
+.hero-search { display: flex; gap: 0.5rem; max-width: 34rem; margin-top: 1.2rem; }
+.hero-search input, .search-form input { flex: 1; min-width: 0; font: inherit; font-size: 1rem; padding: 0.55rem 0.8rem; border: 1px solid var(--rule); border-radius: 4px; background: #fff; color: var(--ink); }
+.hero-search button { font-family: var(--sans); font-weight: 700; font-size: 0.95rem; padding: 0 1.1rem; border: 0; border-radius: 4px; background: var(--amber); color: #fff; cursor: pointer; }
+.hero-search button:hover { background: #9a5518; }
+.search-form { display: flex; margin: 1.6rem 0 0.4rem; }
+.search-form input { font-size: 1.1rem; padding: 0.7rem 0.9rem; }
+.search-form input:focus, .hero-search input:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
+.search-status { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-soft); margin: 0.4rem 0 1rem; }
+.search-results { list-style: none; padding: 0; margin: 0 0 3rem; }
+.search-results li { padding: 0.9rem 0; border-bottom: 1px solid var(--rule); }
+.sr-title { font-family: var(--sans); font-weight: 700; font-size: 1.05rem; text-decoration: none; }
+.sr-meta { font-family: var(--sans); font-size: 0.78rem; color: var(--amber); margin-top: 0.15rem; }
+.sr-snip { margin: 0.35rem 0 0; font-size: 0.95rem; color: var(--ink-soft); }
+.sr-snip mark { background: var(--amber-pale); color: var(--ink); padding: 0 1px; }
+
+/* header on narrow screens: brand above a scrollable nav */
+@media (max-width: 44rem) {
+  .site-header .wrap { height: auto; flex-wrap: wrap; row-gap: 0.2rem; padding-top: 0.55rem; padding-bottom: 0.45rem; }
+  .site-header nav { width: 100%; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+  .site-header nav a { margin: 0 1.1rem 0 0; }
+}

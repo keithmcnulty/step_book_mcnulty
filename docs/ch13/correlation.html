@@ -1,11 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>13.7 Manufacturing Correlation — Beyond STEP</title>
-<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<title>Manufacturing Correlation (STEP III 2010 Q13) — Beyond STEP</title>
+<meta name="description" content="STEP III 2010 Question 13: guided solution and the university mathematics behind it. A bank wants to know how likely it is to lose money on a portfolio of shares. Share prices move together: when one…">
 <link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ch13/correlation.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="Manufacturing Correlation (STEP III 2010 Q13) — Beyond STEP">
+<meta property="og:description" content="STEP III 2010 Question 13: guided solution and the university mathematics behind it. A bank wants to know how likely it is to lose money on a portfolio of shares. Share prices move together: when one…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ch13/correlation.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: Past STEP questions as a doorway to university mathematics">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Manufacturing Correlation (STEP III 2010 Q13) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2010 Question 13: guided solution and the university mathematics behind it. A bank wants to know how likely it is to lose money on a portfolio of shares. Share prices move together: when one…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Manufacturing Correlation", "headline": "Manufacturing Correlation", "description": "STEP III 2010 Question 13: guided solution and the university mathematics behind it. A bank wants to know how likely it is to lose money on a portfolio of shares. Share prices move together: when one…", "url": "https://beyondstep.keithmcnulty.org/ch13/correlation.html", "inLanguage": "en-GB", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2010 Question 13", "Statistics and Randomness in the World"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "Statistics and Randomness in the World", "url": "https://beyondstep.keithmcnulty.org/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/"}, {"@type": "ListItem", "position": 2, "name": "Chapter 13: Statistics and Randomness in the World", "item": "https://beyondstep.keithmcnulty.org/ch13/"}, {"@type": "ListItem", "position": 3, "name": "Manufacturing Correlation", "item": "https://beyondstep.keithmcnulty.org/ch13/correlation.html"}]}</script>
 <script>
 window.MathJax = {
   tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
@@ -14,11 +36,11 @@ window.MathJax = {
 </script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
 </head>
-<body>
+<body data-root="../">
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="../index.html">Beyond STEP</a>
-    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+    <nav><a href="../introduction/index.html">Introduction</a><a href="../glossary/index.html">Glossary</a><a href="../symbols/index.html">Symbols</a><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a><a class="nav-search" href="../search/index.html" aria-label="Search">Search</a></nav>
   </div>
 </header>
 <main>
@@ -105,9 +127,9 @@ window.MathJax = {
 </div>
 <h2 id="further-reading">Further reading</h2>
 <ul>
-<li><p><strong>Gilbert Strang, <em>Introduction to Linear Algebra</em></strong> (Wellesley-Cambridge), on positive definite matrices and the Cholesky factorisation.</p></li>
-<li><p><strong>Paul Glasserman, <em>Monte Carlo Methods in Financial Engineering</em></strong> (Springer). Simulating correlated variables in practice; advanced but the early chapters are readable.</p></li>
-<li><p><strong>Theodore Porter, <em>Karl Pearson: The Scientific Life in a Statistical Age</em></strong> (Princeton University Press).</p></li>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong> (Wellesley-Cambridge), on positive definite matrices and the Cholesky factorisation.</p></li>
+<li><p><strong>Paul Glasserman, <a href="https://uk.bookshop.org/search?keywords=Monte+Carlo+Methods+in+Financial+Engineering+Glasserman"><em>Monte Carlo Methods in Financial Engineering</em></a></strong> (Springer). Simulating correlated variables in practice; advanced but the early chapters are readable.</p></li>
+<li><p><strong>Theodore Porter, <a href="https://uk.bookshop.org/search?keywords=Karl+Pearson%3A+The+Scientific+Life+in+a+Statistical+Age+Porter"><em>Karl Pearson: The Scientific Life in a Statistical Age</em></a></strong> (Princeton University Press).</p></li>
 </ul>
 
   </article>
@@ -116,8 +138,8 @@ window.MathJax = {
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
-    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+    <p>Text, solutions, figures and exercises by Keith McNulty, dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>. Corrections welcome as <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a>.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment and are not covered by the CC0 dedication.</p>
   </div>
 </footer>
 </body>

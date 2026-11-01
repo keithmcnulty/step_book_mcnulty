@@ -1,11 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>1.5 Infinite Descent — Beyond STEP</title>
-<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<title>Infinite Descent (STEP III 2022 Q2) — Beyond STEP</title>
+<meta name="description" content="STEP III 2022 Question 2: guided solution and the university mathematics behind it. How can you prove that an equation has no whole-number solutions? You can’t try every possibility; there are…">
 <link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ch01/infinite-descent.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="Infinite Descent (STEP III 2022 Q2) — Beyond STEP">
+<meta property="og:description" content="STEP III 2022 Question 2: guided solution and the university mathematics behind it. How can you prove that an equation has no whole-number solutions? You can’t try every possibility; there are…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ch01/infinite-descent.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: Past STEP questions as a doorway to university mathematics">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Infinite Descent (STEP III 2022 Q2) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2022 Question 2: guided solution and the university mathematics behind it. How can you prove that an equation has no whole-number solutions? You can’t try every possibility; there are…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Infinite Descent", "headline": "Infinite Descent", "description": "STEP III 2022 Question 2: guided solution and the university mathematics behind it. How can you prove that an equation has no whole-number solutions? You can’t try every possibility; there are…", "url": "https://beyondstep.keithmcnulty.org/ch01/infinite-descent.html", "inLanguage": "en-GB", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2022 Question 2", "Number Theory and Proof"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "Number Theory and Proof", "url": "https://beyondstep.keithmcnulty.org/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/"}, {"@type": "ListItem", "position": 2, "name": "Chapter 1: Number Theory and Proof", "item": "https://beyondstep.keithmcnulty.org/ch01/"}, {"@type": "ListItem", "position": 3, "name": "Infinite Descent", "item": "https://beyondstep.keithmcnulty.org/ch01/infinite-descent.html"}]}</script>
 <script>
 window.MathJax = {
   tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
@@ -14,11 +36,11 @@ window.MathJax = {
 </script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
 </head>
-<body>
+<body data-root="../">
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="../index.html">Beyond STEP</a>
-    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+    <nav><a href="../introduction/index.html">Introduction</a><a href="../glossary/index.html">Glossary</a><a href="../symbols/index.html">Symbols</a><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a><a class="nav-search" href="../search/index.html" aria-label="Search">Search</a></nav>
   </div>
 </header>
 <main>
@@ -94,6 +116,7 @@ window.MathJax = {
 </div>
 <p>Here is the trick: <em>prove something stronger</em>. Consider all equations of the form <span class="math display">\[x^2 + y^2 + z^2 = 2^m\, xyz \qquad\text{with } m \geq 2.\]</span> For any such <span class="math inline">\(m\)</span>, the right-hand side is a multiple of <span class="math inline">\(4\)</span>, so exactly the same argument shows <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, <span class="math inline">\(z\)</span> are all even. Halving them gives a solution of the equation with <span class="math inline">\(2^{m+1}\)</span>, which is again of this form. So from a non-zero solution of the <span class="math inline">\(m\)</span> equation we get a smaller non-zero solution of the <span class="math inline">\(m+1\)</span> equation. Taking the solution, of <em>any</em> equation in the family, with <span class="math inline">\(|x|\)</span> smallest gives a contradiction. In particular, <span class="math inline">\(a^2 + b^2 + c^2 = 4abc\)</span> has no non-zero solutions.<span class="qed" aria-label="end of proof">■</span></p>
 <p>Sometimes the statement you want to prove is too weak to support its own induction, and the cure is to prove a more general statement that <em>is</em> self-supporting. This is a surprisingly common trick at university.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-5-1.svg" alt="Figure 1.5.1"><figcaption><span class="fig-label">Figure 1.5.1</span> The descent in part (i). From a solution of <span class="math inline">\(a^3 + 2b^3 + 4c^3 = 0\)</span>, three steps produce another solution with every entry halved. Repeating for ever would give an endless decreasing sequence of positive integers <span class="math inline">\(|a| &gt; |\frac a2| &gt; |\frac a4| &gt; \cdots\)</span>, which is impossible. So there was no solution to begin with.</figcaption></figure>
 <h2 id="looking-back">Looking back</h2>
 <ul>
 <li><p><strong>Descent needs a source of divisibility.</strong> Each time, we found a prime <span class="math inline">\(p\)</span> (here <span class="math inline">\(2\)</span> or <span class="math inline">\(3\)</span>) that was forced to divide all the variables, and divided it out.</p></li>
@@ -127,9 +150,9 @@ window.MathJax = {
 </div>
 <h2 id="further-reading">Further reading</h2>
 <ul>
-<li><p><strong>Harold Davenport, <em>The Higher Arithmetic</em></strong>, Chapters 2 and 5.</p></li>
-<li><p><strong>Joseph Silverman, <em>A Friendly Introduction to Number Theory</em></strong> (Pearson). Very readable; includes Fermat’s descent proof for <span class="math inline">\(x^4 + y^4 = z^2\)</span>.</p></li>
-<li><p><strong>Simon Singh, <em>Fermat’s Last Theorem</em></strong> (Fourth Estate). The story, from Fermat’s margin to Wiles’s proof, for a general reader.</p></li>
+<li><p><strong>Harold Davenport, <a href="https://uk.bookshop.org/search?keywords=The+Higher+Arithmetic+Davenport"><em>The Higher Arithmetic</em></a></strong>, Chapters 2 and 5.</p></li>
+<li><p><strong>Joseph Silverman, <a href="https://uk.bookshop.org/search?keywords=A+Friendly+Introduction+to+Number+Theory+Silverman"><em>A Friendly Introduction to Number Theory</em></a></strong> (Pearson). Very readable; includes Fermat’s descent proof for <span class="math inline">\(x^4 + y^4 = z^2\)</span>.</p></li>
+<li><p><strong>Simon Singh, <a href="https://uk.bookshop.org/search?keywords=Fermat%27s+Last+Theorem+Singh"><em>Fermat’s Last Theorem</em></a></strong> (Fourth Estate). The story, from Fermat’s margin to Wiles’s proof, for a general reader.</p></li>
 </ul>
 
   </article>
@@ -138,8 +161,8 @@ window.MathJax = {
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
-    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+    <p>Text, solutions, figures and exercises by Keith McNulty, dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>. Corrections welcome as <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a>.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment and are not covered by the CC0 dedication.</p>
   </div>
 </footer>
 </body>

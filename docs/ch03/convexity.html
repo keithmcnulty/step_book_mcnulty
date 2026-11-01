@@ -1,11 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>3.3 The Power of Convexity — Beyond STEP</title>
-<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<title>The Power of Convexity (STEP II 2007 Q7) — Beyond STEP</title>
+<meta name="description" content="STEP II 2007 Question 7: guided solution and the university mathematics behind it. In Section 3.2 we proved AM–GM with a clever induction. Here it falls out in one line, as a special case of…">
 <link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ch03/convexity.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="The Power of Convexity (STEP II 2007 Q7) — Beyond STEP">
+<meta property="og:description" content="STEP II 2007 Question 7: guided solution and the university mathematics behind it. In Section 3.2 we proved AM–GM with a clever induction. Here it falls out in one line, as a special case of…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ch03/convexity.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: Past STEP questions as a doorway to university mathematics">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Power of Convexity (STEP II 2007 Q7) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2007 Question 7: guided solution and the university mathematics behind it. In Section 3.2 we proved AM–GM with a clever induction. Here it falls out in one line, as a special case of…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "The Power of Convexity", "headline": "The Power of Convexity", "description": "STEP II 2007 Question 7: guided solution and the university mathematics behind it. In Section 3.2 we proved AM–GM with a clever induction. Here it falls out in one line, as a special case of…", "url": "https://beyondstep.keithmcnulty.org/ch03/convexity.html", "inLanguage": "en-GB", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2007 Question 7", "Functions, Inequalities and Rigour"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 3, "name": "Functions, Inequalities and Rigour", "url": "https://beyondstep.keithmcnulty.org/ch03/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/"}, {"@type": "ListItem", "position": 2, "name": "Chapter 3: Functions, Inequalities and Rigour", "item": "https://beyondstep.keithmcnulty.org/ch03/"}, {"@type": "ListItem", "position": 3, "name": "The Power of Convexity", "item": "https://beyondstep.keithmcnulty.org/ch03/convexity.html"}]}</script>
 <script>
 window.MathJax = {
   tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
@@ -14,11 +36,11 @@ window.MathJax = {
 </script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
 </head>
-<body>
+<body data-root="../">
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="../index.html">Beyond STEP</a>
-    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+    <nav><a href="../introduction/index.html">Introduction</a><a href="../glossary/index.html">Glossary</a><a href="../symbols/index.html">Symbols</a><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a><a class="nav-search" href="../search/index.html" aria-label="Search">Search</a></nav>
   </div>
 </header>
 <main>
@@ -96,7 +118,7 @@ window.MathJax = {
 <h3 id="convexity-everywhere">Convexity everywhere</h3>
 <p>Convexity appears throughout mathematics and its applications.</p>
 <ul>
-<li><p><strong>Probability.</strong> Jensen’s inequality says that for a concave <span class="math inline">\(\mathrm{f}\)</span> and any random variable <span class="math inline">\(X\)</span>, <span class="math inline">\(\mathbb{E}[\mathrm{f}(X)] \leq \mathrm{f}(\mathbb{E}[X])\)</span>. In economics, with <span class="math inline">\(\mathrm{f}\)</span> a concave “utility” function, this explains why people prefer a certain £100 to a fifty-fifty gamble on £0 or £200, and why insurance exists.</p></li>
+<li><p><strong>Probability.</strong> Jensen’s inequality says that for a concave <span class="math inline">\(\mathrm{f}\)</span> and any random variable <span class="math inline">\(X\)</span>, <span class="math inline">\(\mathrm{E}[\mathrm{f}(X)] \leq \mathrm{f}(\mathrm{E}[X])\)</span>. In economics, with <span class="math inline">\(\mathrm{f}\)</span> a concave “utility” function, this explains why people prefer a certain £100 to a fifty-fifty gamble on £0 or £200, and why insurance exists.</p></li>
 <li><p><strong>Information theory.</strong> The proof that entropy is maximised by the uniform distribution, which underlies data compression, is Jensen’s inequality for <span class="math inline">\(\ln\)</span>.</p></li>
 <li><p><strong>Optimisation.</strong> A convex function has no local minima except the global one, so “walk downhill” always finds the best answer. This is why convex optimisation problems can be solved efficiently, and why so much effort goes into recasting problems in convex form.</p></li>
 </ul>
@@ -118,9 +140,9 @@ window.MathJax = {
 </div>
 <h2 id="further-reading">Further reading</h2>
 <ul>
-<li><p><strong>J. Michael Steele, <em>The Cauchy–Schwarz Master Class</em></strong> (Cambridge University Press). Chapter 6 is about convexity and Jensen’s inequality.</p></li>
-<li><p><strong>Claudi Alsina &amp; Roger Nelsen, <em>When Less Is More: Visualizing Basic Inequalities</em></strong> (Mathematical Association of America). Inequalities proved by pictures, many of them using convexity.</p></li>
-<li><p><strong>Stephen Boyd &amp; Lieven Vandenberghe, <em>Convex Optimization</em></strong> (Cambridge University Press). A modern classic, free online; the first chapters show why convexity matters in practice.</p></li>
+<li><p><strong>J. Michael Steele, <a href="https://uk.bookshop.org/search?keywords=The+Cauchy-Schwarz+Master+Class+Steele"><em>The Cauchy–Schwarz Master Class</em></a></strong> (Cambridge University Press). Chapter 6 is about convexity and Jensen’s inequality.</p></li>
+<li><p><strong>Claudi Alsina &amp; Roger Nelsen, <a href="https://uk.bookshop.org/search?keywords=When+Less+Is+More%3A+Visualizing+Basic+Inequalities+Alsina+Nelsen"><em>When Less Is More: Visualizing Basic Inequalities</em></a></strong> (Mathematical Association of America). Inequalities proved by pictures, many of them using convexity.</p></li>
+<li><p><strong>Stephen Boyd &amp; Lieven Vandenberghe, <a href="https://uk.bookshop.org/search?keywords=Convex+Optimization+Boyd+Vandenberghe"><em>Convex Optimization</em></a></strong> (Cambridge University Press). A modern classic, free online; the first chapters show why convexity matters in practice.</p></li>
 </ul>
 
   </article>
@@ -129,8 +151,8 @@ window.MathJax = {
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
-    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+    <p>Text, solutions, figures and exercises by Keith McNulty, dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>. Corrections welcome as <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a>.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment and are not covered by the CC0 dedication.</p>
   </div>
 </footer>
 </body>

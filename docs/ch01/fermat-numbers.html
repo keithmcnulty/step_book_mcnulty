@@ -1,11 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>1.1 A Prime Factory — Beyond STEP</title>
-<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<title>A Prime Factory (STEP II 2002 Q3) — Beyond STEP</title>
+<meta name="description" content="STEP II 2002 Question 3: guided solution and the university mathematics behind it. You almost certainly already know that there are infinitely many primes. Euclid proved it around 300 BC, and it is…">
 <link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ch01/fermat-numbers.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="A Prime Factory (STEP II 2002 Q3) — Beyond STEP">
+<meta property="og:description" content="STEP II 2002 Question 3: guided solution and the university mathematics behind it. You almost certainly already know that there are infinitely many primes. Euclid proved it around 300 BC, and it is…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ch01/fermat-numbers.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: Past STEP questions as a doorway to university mathematics">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Prime Factory (STEP II 2002 Q3) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2002 Question 3: guided solution and the university mathematics behind it. You almost certainly already know that there are infinitely many primes. Euclid proved it around 300 BC, and it is…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "A Prime Factory", "headline": "A Prime Factory", "description": "STEP II 2002 Question 3: guided solution and the university mathematics behind it. You almost certainly already know that there are infinitely many primes. Euclid proved it around 300 BC, and it is…", "url": "https://beyondstep.keithmcnulty.org/ch01/fermat-numbers.html", "inLanguage": "en-GB", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2002 Question 3", "Number Theory and Proof"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "Number Theory and Proof", "url": "https://beyondstep.keithmcnulty.org/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/"}, {"@type": "ListItem", "position": 2, "name": "Chapter 1: Number Theory and Proof", "item": "https://beyondstep.keithmcnulty.org/ch01/"}, {"@type": "ListItem", "position": 3, "name": "A Prime Factory", "item": "https://beyondstep.keithmcnulty.org/ch01/fermat-numbers.html"}]}</script>
 <script>
 window.MathJax = {
   tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
@@ -14,11 +36,11 @@ window.MathJax = {
 </script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
 </head>
-<body>
+<body data-root="../">
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="../index.html">Beyond STEP</a>
-    <nav><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a></nav>
+    <nav><a href="../introduction/index.html">Introduction</a><a href="../glossary/index.html">Glossary</a><a href="../symbols/index.html">Symbols</a><a href="../index.html#chapters">Chapters</a><a href="../index.html#about">About</a><a class="nav-search" href="../search/index.html" aria-label="Search">Search</a></nav>
   </div>
 </header>
 <main>
@@ -120,6 +142,7 @@ window.MathJax = {
 </div>
 <p>Let <span class="math inline">\(p_n\)</span> be any prime that divides <span class="math inline">\(F_n\)</span>. If two of these were equal, say <span class="math inline">\(p_m = p_n\)</span> with <span class="math inline">\(m \neq n\)</span>, then that prime would be a common factor of <span class="math inline">\(F_m\)</span> and <span class="math inline">\(F_n\)</span> greater than <span class="math inline">\(1\)</span>, which we have just shown is impossible. So the primes <span class="math display">\[p_0,\; p_1,\; p_2,\; p_3,\; \ldots\]</span> are all <em>different</em>. There are infinitely many Fermat numbers, so there are infinitely many different primes.<span class="qed" aria-label="end of proof">■</span></p>
 <p>Notice that we never needed to know <em>which</em> prime divides each Fermat number, or even whether the Fermat numbers are themselves prime. All we needed was that they never share a factor. Each one is forced to “use up” at least one prime that no other can use.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-1-1.svg" alt="Figure 1.1.1"><figcaption><span class="fig-label">Figure 1.1.1</span> The first Fermat numbers. Fermat guessed that they are all prime, but Euler found the factor <span class="math inline">\(641\)</span> of <span class="math inline">\(F_5\)</span> in 1732, and no Fermat number beyond <span class="math inline">\(F_4\)</span> is known to be prime. Even so, the identity <span class="math inline">\((*)\)</span> shows that the factors of different Fermat numbers never overlap: each row brings new primes.</figcaption></figure>
 <h2 id="looking-back">Looking back</h2>
 <p>It is worth pausing to see what made this work, because the same ideas will come back many times in this book.</p>
 <ul>
@@ -174,10 +197,10 @@ window.MathJax = {
 </div>
 <h2 id="further-reading">Further reading</h2>
 <ul>
-<li><p><strong>Martin Aigner &amp; Günter M. Ziegler, <em>Proofs from THE BOOK</em></strong> (Springer), Chapter 1, “Six proofs of the infinity of primes”. It includes this proof alongside Euclid’s and four others, one of which uses topology. One of the best books you can read before university.</p></li>
-<li><p><strong>Harold Davenport, <em>The Higher Arithmetic</em></strong> (Cambridge University Press), Chapters 1–2. A beautifully written introduction to primes and factorisation, ideal for the summer before university.</p></li>
-<li><p><strong>Michal Křížek, Florian Luca &amp; Lawrence Somer, <em>17 Lectures on Fermat Numbers</em></strong> (Springer, 2001). Everything about Fermat numbers, from Euler’s factorisation to Gauss’s polygons. Dip into the early chapters.</p></li>
-<li><p><strong>Ian Stewart, <em>Why Beauty Is Truth</em></strong> (Basic Books), the chapter on Gauss. The story of the 17-gon told for a general reader.</p></li>
+<li><p><strong>Martin Aigner &amp; Günter M. Ziegler, <a href="https://uk.bookshop.org/search?keywords=Proofs+from+THE+BOOK+Aigner+Ziegler"><em>Proofs from THE BOOK</em></a></strong> (Springer), Chapter 1, “Six proofs of the infinity of primes”. It includes this proof alongside Euclid’s and four others, one of which uses topology. One of the best books you can read before university.</p></li>
+<li><p><strong>Harold Davenport, <a href="https://uk.bookshop.org/search?keywords=The+Higher+Arithmetic+Davenport"><em>The Higher Arithmetic</em></a></strong> (Cambridge University Press), Chapters 1–2. A beautifully written introduction to primes and factorisation, ideal for the summer before university.</p></li>
+<li><p><strong>Michal Křížek, Florian Luca &amp; Lawrence Somer, <a href="https://uk.bookshop.org/search?keywords=17+Lectures+on+Fermat+Numbers+K%C5%99%C3%AD%C5%BEek+Luca"><em>17 Lectures on Fermat Numbers</em></a></strong> (Springer, 2001). Everything about Fermat numbers, from Euler’s factorisation to Gauss’s polygons. Dip into the early chapters.</p></li>
+<li><p><strong>Ian Stewart, <a href="https://uk.bookshop.org/search?keywords=Why+Beauty+Is+Truth+Stewart"><em>Why Beauty Is Truth</em></a></strong> (Basic Books), the chapter on Gauss. The story of the 17-gon told for a general reader.</p></li>
 </ul>
 
   </article>
@@ -186,8 +209,8 @@ window.MathJax = {
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <p>&copy; Keith McNulty. Work in progress: drafts are published as they are completed.</p>
-    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment.</p>
+    <p>Text, solutions, figures and exercises by Keith McNulty, dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>. Corrections welcome as <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a>.</p>
+    <p>STEP questions are &copy; Cambridge University Press &amp; Assessment and are not covered by the CC0 dedication.</p>
   </div>
 </footer>
 </body>
