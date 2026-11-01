@@ -51,9 +51,12 @@
     b.setAttribute("role", "region");
     b.setAttribute("aria-label", "Analytics consent");
     b.innerHTML =
-      '<p>May we count your visit with Google Analytics? It helps us see which parts of the book are used. ' +
-      'Nothing is collected unless you accept. <a href="' + root + 'privacy/index.html">Privacy</a></p>' +
-      '<div class="consent-buttons"><button type="button" data-consent="denied">No thanks</button>' +
+      '<div class="consent-icon" aria-hidden="true"></div>' +
+      '<div class="consent-text"><p class="consent-title">Help improve Beyond STEP</p>' +
+      '<p>May we count your visit with Google Analytics? It shows which questions and worksheets are most used, ' +
+      'so we know what to improve. Nothing is collected unless you accept. ' +
+      '<a href="' + root + 'privacy/index.html">Read the privacy note</a>.</p></div>' +
+      '<div class="consent-buttons"><button type="button" data-consent="denied" class="consent-decline">No thanks</button>' +
       '<button type="button" data-consent="granted" class="consent-accept">Accept</button></div>';
     b.addEventListener("click", function (e) {
       var v = e.target.getAttribute && e.target.getAttribute("data-consent");
