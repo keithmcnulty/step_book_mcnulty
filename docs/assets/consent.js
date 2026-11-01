@@ -49,15 +49,17 @@
     b.id = "consent-banner";
     b.className = "consent-banner";
     b.setAttribute("role", "region");
-    b.setAttribute("aria-label", "Analytics consent");
+    b.setAttribute("aria-label", "Cookie consent");
     b.innerHTML =
       '<div class="consent-icon" aria-hidden="true"></div>' +
-      '<div class="consent-text"><p class="consent-title">Help improve Beyond STEP</p>' +
-      '<p>May we count your visit with Google Analytics? It shows which questions and worksheets are most used, ' +
-      'so we know what to improve. Nothing is collected unless you accept. ' +
-      '<a href="' + root + 'privacy/index.html">Read the privacy note</a>.</p></div>' +
-      '<div class="consent-buttons"><button type="button" data-consent="denied" class="consent-decline">No thanks</button>' +
-      '<button type="button" data-consent="granted" class="consent-accept">Accept</button></div>';
+      '<div class="consent-text"><p class="consent-title">Cookies and your privacy</p>' +
+      '<p>UK privacy law (PECR and UK GDPR) requires this site to ask your permission before setting analytics cookies. ' +
+      'If you accept, Google Analytics will record which pages you visit, so that we can see how the book is used. ' +
+      'If you reject, no analytics cookies are set and nothing is sent to Google. You can change your choice at any time ' +
+      'using the cookie settings link at the foot of every page. ' +
+      '<a href="' + root + 'privacy/index.html">Privacy notice</a></p></div>' +
+      '<div class="consent-buttons"><button type="button" data-consent="denied">Reject</button>' +
+      '<button type="button" data-consent="granted">Accept</button></div>';
     b.addEventListener("click", function (e) {
       var v = e.target.getAttribute && e.target.getAttribute("data-consent");
       if (!v) return;
