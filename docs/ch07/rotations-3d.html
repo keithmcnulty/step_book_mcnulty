@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rotating in Three Dimensions (STEP III 2022 Q7) — Beyond STEP</title>
-<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<meta name="description" content="STEP III 2022 Question 7: guided solution and the university mathematics behind it. In two dimensions, rotating a point is easy: multiply by e^iθ . In three dimensions it is much harder. There is no…">
 <link rel="stylesheet" href="../assets/style.css?v=45beb6a0bd">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -12,7 +12,22 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#1D5C63">
 <meta name="author" content="Keith McNulty">
-<!--HEADMETA-->
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ch07/rotations-3d.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="Rotating in Three Dimensions (STEP III 2022 Q7) — Beyond STEP">
+<meta property="og:description" content="STEP III 2022 Question 7: guided solution and the university mathematics behind it. In two dimensions, rotating a point is easy: multiply by e^iθ . In three dimensions it is much harder. There is no…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ch07/rotations-3d.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: Past STEP questions as a doorway to university mathematics">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rotating in Three Dimensions (STEP III 2022 Q7) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2022 Question 7: guided solution and the university mathematics behind it. In two dimensions, rotating a point is easy: multiply by e^iθ . In three dimensions it is much harder. There is no…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Rotating in Three Dimensions", "headline": "Rotating in Three Dimensions", "description": "STEP III 2022 Question 7: guided solution and the university mathematics behind it. In two dimensions, rotating a point is easy: multiply by e^iθ . In three dimensions it is much harder. There is no…", "url": "https://beyondstep.keithmcnulty.org/ch07/rotations-3d.html", "inLanguage": "en-GB", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2022 Question 7", "Linear Algebra and Geometry"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "Linear Algebra and Geometry", "url": "https://beyondstep.keithmcnulty.org/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/"}, {"@type": "ListItem", "position": 2, "name": "Chapter 7: Linear Algebra and Geometry", "item": "https://beyondstep.keithmcnulty.org/ch07/"}, {"@type": "ListItem", "position": 3, "name": "Rotating in Three Dimensions", "item": "https://beyondstep.keithmcnulty.org/ch07/rotations-3d.html"}]}</script>
 <script defer src="../assets/question.js?v=45beb6a0bd"></script>
 <script defer src="../assets/consent.js?v=45beb6a0bd" data-ga="G-M8RDPR4MXR"></script>
 <script>
@@ -98,7 +113,7 @@ window.MathJax = {
 <h2 id="try-this-next">Try this next</h2>
 <div class="exercises">
 <ol class="exercises">
-<li><p><strong>Rotations in the plane.</strong> (From STEP III, 2017.) Show that rotation by <span class="math inline">\(\theta\)</span> about the point <span class="math inline">\(a\)</span> in the complex plane sends <span class="math inline">\(z\)</span> to <span class="math inline">\(e^{\mathrm{i}\theta}z + a(1 - e^{\mathrm{i}\theta})\)</span>. Show that rotating by <span class="math inline">\(\theta\)</span> about <span class="math inline">\(a\)</span> and then by <span class="math inline">\(\phi\)</span> about <span class="math inline">\(b\)</span> is a rotation by <span class="math inline">\(\theta + \phi\)</span> about some point <span class="math inline">\(c\)</span>, provided <span class="math inline">\(\theta + \phi\)</span> is not a multiple of <span class="math inline">\(2\pi\)</span>. What is it when <span class="math inline">\(\theta + \phi = 2\pi\)</span>?</p></li>
+<li><p><strong>Rotations in the plane.</strong> Try <a href="https://step.maths.org/questions/17-s3-q2">STEP III 2017, Question 2</a>. Using complex numbers, it shows that two rotations of the plane combine to give a rotation, with one exception. Find the exception, and what the combination is then.</p></li>
 <li><p><strong>A specific rotation.</strong> Find the matrix of the rotation by <span class="math inline">\(120^\circ\)</span> about the axis in the direction <span class="math inline">\((1, 1, 1)\)</span>. Show that it permutes the coordinate axes cyclically.</p></li>
 <li><p><strong>Powers of <span class="math inline">\(\mathbf{K}\)</span>.</strong> Show that <span class="math inline">\(\mathbf{K}^2\mathbf{r} = (\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span> and <span class="math inline">\(\mathbf{K}^3 = -\mathbf{K}\)</span>, and deduce Rodrigues’ formula from the exponential series.</p></li>
 <li><p><strong>Two reflections make a rotation.</strong> Show that reflecting in two planes through the origin, at angle <span class="math inline">\(\alpha\)</span> to each other, is a rotation by <span class="math inline">\(2\alpha\)</span> about their line of intersection.</p></li>

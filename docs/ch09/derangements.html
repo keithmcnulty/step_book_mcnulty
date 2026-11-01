@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nobody Gets Their Own Shirt (STEP II 2016 Q12) — Beyond STEP</title>
-<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<meta name="description" content="STEP II 2016 Question 12: guided solution and the university mathematics behind it. A football team of eleven players changes in a hurry and grabs shirts at random. What is the chance that nobody…">
 <link rel="stylesheet" href="../assets/style.css?v=45beb6a0bd">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -12,7 +12,22 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#1D5C63">
 <meta name="author" content="Keith McNulty">
-<!--HEADMETA-->
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ch09/derangements.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="Nobody Gets Their Own Shirt (STEP II 2016 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP II 2016 Question 12: guided solution and the university mathematics behind it. A football team of eleven players changes in a hurry and grabs shirts at random. What is the chance that nobody…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ch09/derangements.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: Past STEP questions as a doorway to university mathematics">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nobody Gets Their Own Shirt (STEP II 2016 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2016 Question 12: guided solution and the university mathematics behind it. A football team of eleven players changes in a hurry and grabs shirts at random. What is the chance that nobody…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Nobody Gets Their Own Shirt", "headline": "Nobody Gets Their Own Shirt", "description": "STEP II 2016 Question 12: guided solution and the university mathematics behind it. A football team of eleven players changes in a hurry and grabs shirts at random. What is the chance that nobody…", "url": "https://beyondstep.keithmcnulty.org/ch09/derangements.html", "inLanguage": "en-GB", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2016 Question 12", "Counting and Chance"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "Counting and Chance", "url": "https://beyondstep.keithmcnulty.org/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/"}, {"@type": "ListItem", "position": 2, "name": "Chapter 9: Counting and Chance", "item": "https://beyondstep.keithmcnulty.org/ch09/"}, {"@type": "ListItem", "position": 3, "name": "Nobody Gets Their Own Shirt", "item": "https://beyondstep.keithmcnulty.org/ch09/derangements.html"}]}</script>
 <script defer src="../assets/question.js?v=45beb6a0bd"></script>
 <script defer src="../assets/consent.js?v=45beb6a0bd" data-ga="G-M8RDPR4MXR"></script>
 <script>
@@ -108,7 +123,7 @@ window.MathJax = {
 <h2 id="try-this-next">Try this next</h2>
 <div class="exercises">
 <ol class="exercises">
-<li><p><strong>Shirts.</strong> (From STEP III, 2004.) A team of <span class="math inline">\(m\)</span> players put on <span class="math inline">\(m\)</span> numbered shirts at random. Let <span class="math inline">\(C_i = 1\)</span> if player <span class="math inline">\(i\)</span> wears shirt <span class="math inline">\(i\)</span>, and <span class="math inline">\(0\)</span> otherwise. Find <span class="math inline">\(\mathrm{E}(C_1)\)</span>, <span class="math inline">\(\mathrm{Var}(C_1)\)</span> and <span class="math inline">\(\mathrm{Cov}(C_1, C_2)\)</span>, and show that <span class="math inline">\(N = C_1 + \cdots + C_m\)</span> has <span class="math inline">\(\mathrm{E}(N) = \mathrm{Var}(N) = 1\)</span>. For <span class="math inline">\(m = 4\)</span>, compare <span class="math inline">\(\mathrm{P}(N = 0)\)</span> with the Poisson approximation <span class="math inline">\(e^{-1}\)</span>.</p></li>
+<li><p><strong>Shirts.</strong> Try <a href="https://step.maths.org/questions/04-s3-q12">STEP III 2004, Question 12</a>. It counts the players wearing their own shirts with indicator variables, finds the mean and variance, and compares the result with a Poisson distribution.</p></li>
 <li><p><strong>A recurrence.</strong> Let <span class="math inline">\(D_n\)</span> be the number of derangements of <span class="math inline">\(n\)</span> objects. By considering where card <span class="math inline">\(1\)</span> goes, and whether the card in that position goes to position <span class="math inline">\(1\)</span>, show that <span class="math inline">\(D_n = (n - 1)(D_{n-1} + D_{n-2})\)</span>. Check it against <span class="math inline">\(D_3 = 2\)</span>, <span class="math inline">\(D_4 = 9\)</span>.</p></li>
 <li><p><strong>Exactly <span class="math inline">\(k\)</span>.</strong> Show that the probability that exactly <span class="math inline">\(k\)</span> cards are in their own places is <span class="math inline">\(\frac{1}{k!}d_{n-k}\)</span>, and that it tends to <span class="math inline">\(\frac{e^{-1}}{k!}\)</span>.</p></li>
 <li><p><strong>Coprime integers.</strong> Use inclusion–exclusion to count the integers from <span class="math inline">\(1\)</span> to <span class="math inline">\(30\)</span> divisible by none of <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> and <span class="math inline">\(5\)</span>. How does your answer relate to <span class="math inline">\(30\bigl(1 - \frac12\bigr)\bigl(1 - \frac13\bigr)\bigl(1 - \frac15\bigr)\)</span>?</p></li>

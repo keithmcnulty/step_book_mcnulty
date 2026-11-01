@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sequences as Functions (STEP I 2016 Q8) — Beyond STEP</title>
-<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<meta name="description" content="STEP I 2016 Question 8: guided solution and the university mathematics behind it. Work out 1/89 on a calculator: 0.011235955ldots . The digits begin 0, 1, 1, 2, 3, 5 , the Fibonacci numbers. Is this…">
 <link rel="stylesheet" href="../assets/style.css?v=45beb6a0bd">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -12,7 +12,22 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#1D5C63">
 <meta name="author" content="Keith McNulty">
-<!--HEADMETA-->
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ch09/generating-functions.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="Sequences as Functions (STEP I 2016 Q8) — Beyond STEP">
+<meta property="og:description" content="STEP I 2016 Question 8: guided solution and the university mathematics behind it. Work out 1/89 on a calculator: 0.011235955ldots . The digits begin 0, 1, 1, 2, 3, 5 , the Fibonacci numbers. Is this…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ch09/generating-functions.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: Past STEP questions as a doorway to university mathematics">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sequences as Functions (STEP I 2016 Q8) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2016 Question 8: guided solution and the university mathematics behind it. Work out 1/89 on a calculator: 0.011235955ldots . The digits begin 0, 1, 1, 2, 3, 5 , the Fibonacci numbers. Is this…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Sequences as Functions", "headline": "Sequences as Functions", "description": "STEP I 2016 Question 8: guided solution and the university mathematics behind it. Work out 1/89 on a calculator: 0.011235955ldots . The digits begin 0, 1, 1, 2, 3, 5 , the Fibonacci numbers. Is this…", "url": "https://beyondstep.keithmcnulty.org/ch09/generating-functions.html", "inLanguage": "en-GB", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2016 Question 8", "Counting and Chance"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "Counting and Chance", "url": "https://beyondstep.keithmcnulty.org/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/"}, {"@type": "ListItem", "position": 2, "name": "Chapter 9: Counting and Chance", "item": "https://beyondstep.keithmcnulty.org/ch09/"}, {"@type": "ListItem", "position": 3, "name": "Sequences as Functions", "item": "https://beyondstep.keithmcnulty.org/ch09/generating-functions.html"}]}</script>
 <script defer src="../assets/question.js?v=45beb6a0bd"></script>
 <script defer src="../assets/consent.js?v=45beb6a0bd" data-ga="G-M8RDPR4MXR"></script>
 <script>
@@ -106,8 +121,8 @@ window.MathJax = {
 <h2 id="try-this-next">Try this next</h2>
 <div class="exercises">
 <ol class="exercises">
-<li><p><strong>Two digits at a time.</strong> (From STEP II, 2022.) Using <span class="math inline">\(F_r \leq 2^{r-n}F_n\)</span> for <span class="math inline">\(r \geq n\)</span>, show that <span class="math inline">\(\sum_{r \geq 7}F_r/10^r &lt; 2 \times 10^{-6}\)</span>, and hence find the first six digits after the decimal point of <span class="math inline">\(1/89\)</span> with justification. Then find a fraction <span class="math inline">\(r/s\)</span>, with <span class="math inline">\(r\)</span> and <span class="math inline">\(s\)</span> positive integers less than <span class="math inline">\(10000\)</span>, whose decimal expansion starts <span class="math inline">\(0.0001010203050813213455\ldots\)</span>.</p></li>
-<li><p><strong>Solving a recurrence.</strong> (From STEP I, 2004.) Let <span class="math inline">\(a_0 = 2\)</span>, <span class="math inline">\(a_1 = 7\)</span> and <span class="math inline">\(a_n = 7a_{n-1} - 10a_{n-2}\)</span>. Show that the generating function is <span class="math inline">\(\frac{1}{1 - 2x} + \frac{1}{1 - 5x}\)</span>, and hence that <span class="math inline">\(a_n = 2^n + 5^n\)</span>. If <span class="math inline">\(b_0 = 5\)</span>, <span class="math inline">\(b_1 = 10\)</span>, <span class="math inline">\(b_2 = 40\)</span>, <span class="math inline">\(b_3 = 100\)</span> and <span class="math inline">\(b_n = pb_{n-1} + qb_{n-2}\)</span>, find <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(b_n\)</span>.</p></li>
+<li><p><strong>Two digits at a time.</strong> Try <a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">STEP II 2022, Question 3</a> (in OCR’s download of the 2022 papers, a zip file). It explains why the decimal expansion of <span class="math inline">\(\frac{1}{89}\)</span> begins with the Fibonacci numbers, and asks for a fraction whose decimals show the pattern two digits at a time.</p></li>
+<li><p><strong>Solving a recurrence.</strong> Try <a href="https://step.maths.org/questions/04-s1-q7">STEP I 2004, Question 7</a>. It solves a linear recurrence with a generating function and partial fractions, then runs the method in reverse.</p></li>
 <li><p><strong>Counting numbers.</strong> Show that <span class="math inline">\(\frac{1}{9801} = 0.00\,01\,02\,03\,04\ldots\)</span>, with the two-digit blocks counting upwards. Where does the pattern first go wrong, and why?</p></li>
 <li><p><strong>Sums of squares.</strong> Explain why <span class="math inline">\(\frac{1}{1-x}\mathrm{f}(x)\)</span> is the generating function of the partial sums <span class="math inline">\(u_0 + u_1 + \cdots + u_n\)</span>. Use this and the answer to part (i) to find a formula for <span class="math inline">\(1^2 + 2^2 + \cdots + n^2\)</span>.</p></li>
 </ol>

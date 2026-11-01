@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Matrices That Return to the Start (STEP II 2020 Q6) — Beyond STEP</title>
-<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<meta name="description" content="STEP II 2020 Question 6: guided solution and the university mathematics behind it. Some transformations, repeated enough times, bring everything back to where it started. A rotation by 90^circ does…">
 <link rel="stylesheet" href="../assets/style.css?v=45beb6a0bd">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -12,7 +12,22 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#1D5C63">
 <meta name="author" content="Keith McNulty">
-<!--HEADMETA-->
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ch07/finite-order.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="Matrices That Return to the Start (STEP II 2020 Q6) — Beyond STEP">
+<meta property="og:description" content="STEP II 2020 Question 6: guided solution and the university mathematics behind it. Some transformations, repeated enough times, bring everything back to where it started. A rotation by 90^circ does…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ch07/finite-order.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: Past STEP questions as a doorway to university mathematics">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Matrices That Return to the Start (STEP II 2020 Q6) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2020 Question 6: guided solution and the university mathematics behind it. Some transformations, repeated enough times, bring everything back to where it started. A rotation by 90^circ does…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Matrices That Return to the Start", "headline": "Matrices That Return to the Start", "description": "STEP II 2020 Question 6: guided solution and the university mathematics behind it. Some transformations, repeated enough times, bring everything back to where it started. A rotation by 90^circ does…", "url": "https://beyondstep.keithmcnulty.org/ch07/finite-order.html", "inLanguage": "en-GB", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2020 Question 6", "Linear Algebra and Geometry"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "Linear Algebra and Geometry", "url": "https://beyondstep.keithmcnulty.org/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/"}, {"@type": "ListItem", "position": 2, "name": "Chapter 7: Linear Algebra and Geometry", "item": "https://beyondstep.keithmcnulty.org/ch07/"}, {"@type": "ListItem", "position": 3, "name": "Matrices That Return to the Start", "item": "https://beyondstep.keithmcnulty.org/ch07/finite-order.html"}]}</script>
 <script defer src="../assets/question.js?v=45beb6a0bd"></script>
 <script defer src="../assets/consent.js?v=45beb6a0bd" data-ga="G-M8RDPR4MXR"></script>
 <script>
@@ -99,7 +114,7 @@ window.MathJax = {
 <h2 id="try-this-next">Try this next</h2>
 <div class="exercises">
 <ol class="exercises">
-<li><p><strong>Rotations of order three.</strong> (From STEP II, 2021.) The matrix <span class="math inline">\(\mathbf{R}\)</span> represents an anticlockwise rotation through angle <span class="math inline">\(\phi\)</span>, and <span class="math inline">\(\mathbf{R} + \mathbf{I}\)</span> also represents a rotation. Find the possible values of <span class="math inline">\(\phi\)</span> and deduce that <span class="math inline">\(\mathbf{R}^3 = \mathbf{I}\)</span>. Then show that if <span class="math inline">\(\mathbf{S}\)</span> is a real matrix with <span class="math inline">\(\mathbf{S}^3 = \mathbf{I}\)</span> but <span class="math inline">\(\mathbf{S} \neq \mathbf{I}\)</span>, then <span class="math inline">\(\det\mathbf{S} = 1\)</span> and <span class="math inline">\(\operatorname{tr}\mathbf{S} = -1\)</span>.</p></li>
+<li><p><strong>Rotations of order three.</strong> Try <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">STEP II 2021, Question 7</a> (in OCR’s download of the 2021 papers, a zip file). It starts from a rotation matrix with an unusual property and ends with a fact about every real <span class="math inline">\(2 \times 2\)</span> matrix whose cube is the identity.</p></li>
 <li><p><strong>Order six.</strong> Find a condition on the trace and determinant for <span class="math inline">\(\mathbf{M}^6 = \mathbf{I}\)</span> but <span class="math inline">\(\mathbf{M}^2 \neq \mathbf{I}\)</span> and <span class="math inline">\(\mathbf{M}^3 \neq \mathbf{I}\)</span>.</p></li>
 <li><p><strong>The crystallographic restriction.</strong> Show that if <span class="math inline">\(\mathbf{M}\)</span> has integer entries, <span class="math inline">\(\det\mathbf{M} = 1\)</span> and <span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span> for some <span class="math inline">\(n\)</span>, then <span class="math inline">\(\operatorname{tr}\mathbf{M} \in \{-2, -1, 0, 1, 2\}\)</span>. Find an integer matrix of order <span class="math inline">\(6\)</span>.</p></li>
 <li><p><strong>Cayley–Hamilton for powers.</strong> Use <span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I}\)</span> to express <span class="math inline">\(\mathbf{M}^3\)</span> and <span class="math inline">\(\mathbf{M}^4\)</span> in the form <span class="math inline">\(p\mathbf{M} + q\mathbf{I}\)</span>, and use this to rederive the condition for <span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span>.</p></li>

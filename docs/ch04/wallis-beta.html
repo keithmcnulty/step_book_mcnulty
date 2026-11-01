@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wallis, Beta and the Factorial of a Half (STEP II 1995 Q4) — Beyond STEP</title>
-<meta name="description" content="Past STEP questions as a doorway to university mathematics">
+<meta name="description" content="STEP II 1995 Question 4: guided solution and the university mathematics behind it. What is left(frac12right)! ? The question sounds like nonsense: n! means 1 × 2 × cdots × n , and you cannot multiply…">
 <link rel="stylesheet" href="../assets/style.css?v=45beb6a0bd">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -12,7 +12,22 @@
 <link rel="manifest" href="../site.webmanifest">
 <meta name="theme-color" content="#1D5C63">
 <meta name="author" content="Keith McNulty">
-<!--HEADMETA-->
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ch04/wallis-beta.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="Wallis, Beta and the Factorial of a Half (STEP II 1995 Q4) — Beyond STEP">
+<meta property="og:description" content="STEP II 1995 Question 4: guided solution and the university mathematics behind it. What is left(frac12right)! ? The question sounds like nonsense: n! means 1 × 2 × cdots × n , and you cannot multiply…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ch04/wallis-beta.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: Past STEP questions as a doorway to university mathematics">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wallis, Beta and the Factorial of a Half (STEP II 1995 Q4) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1995 Question 4: guided solution and the university mathematics behind it. What is left(frac12right)! ? The question sounds like nonsense: n! means 1 × 2 × cdots × n , and you cannot multiply…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Wallis, Beta and the Factorial of a Half", "headline": "Wallis, Beta and the Factorial of a Half", "description": "STEP II 1995 Question 4: guided solution and the university mathematics behind it. What is left(frac12right)! ? The question sounds like nonsense: n! means 1 × 2 × cdots × n , and you cannot multiply…", "url": "https://beyondstep.keithmcnulty.org/ch04/wallis-beta.html", "inLanguage": "en-GB", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1995 Question 4", "Calculus Done Properly"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 4, "name": "Calculus Done Properly", "url": "https://beyondstep.keithmcnulty.org/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/"}, {"@type": "ListItem", "position": 2, "name": "Chapter 4: Calculus Done Properly", "item": "https://beyondstep.keithmcnulty.org/ch04/"}, {"@type": "ListItem", "position": 3, "name": "Wallis, Beta and the Factorial of a Half", "item": "https://beyondstep.keithmcnulty.org/ch04/wallis-beta.html"}]}</script>
 <script defer src="../assets/question.js?v=45beb6a0bd"></script>
 <script defer src="../assets/consent.js?v=45beb6a0bd" data-ga="G-M8RDPR4MXR"></script>
 <script>
@@ -101,8 +116,8 @@ window.MathJax = {
 <div class="exercises">
 <ol class="exercises">
 <li><p><strong>Wallis’s product.</strong> Using the explicit values of <span class="math inline">\(u_{2m}\)</span> and <span class="math inline">\(u_{2m+1}\)</span>, and <span class="math inline">\(u_{2m+1} &lt; u_{2m} &lt; u_{2m-1}\)</span>, prove Wallis’s product.</p></li>
-<li><p><strong>A Beta integral.</strong> (From STEP II, 2013.) Let <span class="math inline">\(I_n = \int_0^1 x^n(1-x)^n\,\mathrm{d}x\)</span>. Show by integration by parts and symmetry that <span class="math inline">\(I_n = \frac{n}{2(2n+1)}I_{n-1}\)</span>, and deduce that <span class="math inline">\(I_n = \frac{(n!)^2}{(2n+1)!}\)</span>. Use <span class="math inline">\(x = \sin^2\theta\)</span> to show that <span class="math inline">\(I_{1/2} = \frac\pi8\)</span>. What does the formula <span class="math inline">\(I_n = \frac{(n!)^2}{(2n+1)!}\)</span> suggest <span class="math inline">\(\left(\frac12\right)!\)</span> should be?</p></li>
-<li><p><strong>The Beta function.</strong> (From STEP III, 2025.) For <span class="math inline">\(p, q &gt; 0\)</span> let <span class="math inline">\(\mathrm{b}(p, q) = \int_0^1 x^{p-1}(1-x)^{q-1}\,\mathrm{d}x\)</span>. Show that <span class="math inline">\(\mathrm{b}(p, q) = \mathrm{b}(q, p)\)</span>, that <span class="math inline">\(\mathrm{b}(p+1, q) = \mathrm{b}(p, q) - \mathrm{b}(p, q+1)\)</span>, and, with the substitution <span class="math inline">\(x = \frac{t}{1+t}\)</span>, that <span class="math inline">\(\mathrm{b}(p, q) = \int_0^\infty \frac{t^{p-1}}{(1+t)^{p+q}}\,\mathrm{d}t\)</span>. Hence evaluate <span class="math inline">\(\displaystyle\int_0^\infty \frac{t^{3/2}}{(1+t)^6}\,\mathrm{d}t\)</span>. (The answer is <span class="math inline">\(\frac{3\pi}{256}\)</span>.)</p></li>
+<li><p><strong>A Beta integral.</strong> Try <a href="https://step.maths.org/questions/13-s2-q2">STEP II 2013, Question 2</a>. It evaluates <span class="math inline">\(\int_0^1 x^n(1-x)^n\,\mathrm{d}x\)</span> with a reduction formula, then asks what the answer suggests when <span class="math inline">\(n = \frac12\)</span>: a first glimpse of the factorial of a half.</p></li>
+<li><p><strong>The Beta function.</strong> Try <a href="https://www.ocr.org.uk/Images/750486-2025-past-papers.zip">STEP III 2025, Question 1</a> (in OCR’s download of the 2025 papers, a zip file). It develops the general Beta integral <span class="math inline">\(\int_0^1 x^{p-1}(1-x)^{q-1}\,\mathrm{d}x\)</span>, its symmetry and a recurrence, and uses them to evaluate an integral over <span class="math inline">\([0, \infty)\)</span>.</p></li>
 <li><p><strong>Central binomial coefficients.</strong> <span class="hard">harder</span> Show that <span class="math inline">\(u_{2m} = \binom{2m}{m}\dfrac{\pi}{2^{2m+1}}\)</span>, and use <span class="math inline">\(nu_n^2 \to \frac\pi2\)</span> to deduce that <span class="math inline">\(\binom{2m}{m} \approx \dfrac{4^m}{\sqrt{\pi m}}\)</span> for large <span class="math inline">\(m\)</span>. Check this for <span class="math inline">\(m = 10\)</span>.</p></li>
 </ol>
 </div>
