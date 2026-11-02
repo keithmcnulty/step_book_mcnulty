@@ -10,16 +10,16 @@
     if (!form) return;
     form.hidden = false;
     var text = form.querySelector("#sol-q"), paper = form.querySelector("#sol-paper"),
-        section = form.querySelector("#sol-section"), avail = form.querySelector("#sol-avail"),
+        section = form.querySelector("#sol-section"),
         count = document.getElementById("sol-count");
     var rows = Array.prototype.slice.call(document.querySelectorAll("tr[data-k]"));
     var years = Array.prototype.slice.call(document.querySelectorAll(".sol-year"));
 
     function apply() {
       var words = text.value.toLowerCase().split(/\s+/).filter(Boolean), p = paper.value,
-          s = section.value, a = avail.checked, shown = 0;
+          s = section.value, shown = 0;
       rows.forEach(function (tr) {
-        var ok = (!p || tr.dataset.p === p) && (!s || tr.dataset.s === s) && (!a || tr.dataset.a === "1") &&
+        var ok = (!p || tr.dataset.p === p) && (!s || tr.dataset.s === s) &&
                  words.every(function (w) { return tr.dataset.k.indexOf(w) !== -1; });
         tr.hidden = !ok;
         if (ok) shown++;
