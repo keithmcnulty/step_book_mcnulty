@@ -57,7 +57,7 @@
       'If you accept, Google Analytics will record which pages you visit, so that we can see how the book is used. ' +
       'If you reject, no analytics cookies are set and nothing is sent to Google. You can change your choice at any time ' +
       'using the cookie settings link at the foot of every page. ' +
-      '<a href="' + root + 'privacy/index.html">Privacy notice</a></p></div>' +
+      '<a href="' + root + 'privacy/">Privacy notice</a></p></div>' +
       '<div class="consent-buttons"><button type="button" data-consent="denied">Reject</button>' +
       '<button type="button" data-consent="granted">Accept</button></div>';
     b.addEventListener("click", function (e) {
