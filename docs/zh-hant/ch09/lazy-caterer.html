@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>直線分割平面 (STEP II 1990 第 4 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 1990 第 4 題：引導式解答及其背後的大學數學。 用 n 刀直線把一個薄餅切開，各塊不必大小相同，最多可以切成多少塊？一刀得 2 塊，兩刀得 4 塊，三刀得 7 塊（不是 8 塊：不妨試試），四刀得 11 塊。數列 1, 2, 4, 7, 11, 16, ldots 稱為 懶惰宴會承辦人數列 （lazy caterer’s sequence），而本題要求的正是它的公式。…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/lazy-caterer.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="直線分割平面 (STEP II 1990 第 4 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 1990 第 4 題：引導式解答及其背後的大學數學。 用 n 刀直線把一個薄餅切開，各塊不必大小相同，最多可以切成多少塊？一刀得 2 塊，兩刀得 4 塊，三刀得 7 塊（不是 8 塊：不妨試試），四刀得 11 塊。數列 1, 2, 4, 7, 11, 16, ldots 稱為 懶惰宴會承辦人數列 （lazy caterer’s sequence），而本題要求的正是它的公式。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch09/lazy-caterer.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="直線分割平面 (STEP II 1990 第 4 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1990 第 4 題：引導式解答及其背後的大學數學。 用 n 刀直線把一個薄餅切開，各塊不必大小相同，最多可以切成多少塊？一刀得 2 塊，兩刀得 4 塊，三刀得 7 塊（不是 8 塊：不妨試試），四刀得 11 塊。數列 1, 2, 4, 7, 11, 16, ldots 稱為 懶惰宴會承辦人數列 （lazy caterer’s sequence），而本題要求的正是它的公式。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "直線分割平面", "headline": "直線分割平面", "description": "STEP II 1990 第 4 題：引導式解答及其背後的大學數學。 用 n 刀直線把一個薄餅切開，各塊不必大小相同，最多可以切成多少塊？一刀得 2 塊，兩刀得 4 塊，三刀得 7 塊（不是 8 塊：不妨試試），四刀得 11 塊。數列 1, 2, 4, 7, 11, 16, ldots 稱為 懶惰宴會承辦人數列 （lazy caterer’s sequence），而本題要求的正是它的公式。…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/lazy-caterer.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1990 第 4 題", "計數與機會"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "計數與機會", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 9 章：計數與機會", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/"}, {"@type": "ListItem", "position": 3, "name": "直線分割平面", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/lazy-caterer.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch09/lazy-caterer.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 9 章 · 計數與機會</a>
+    <div class="src">STEP II · 1990 · 第 4 題</div>
+    <div class="sec-head"><span class="sec-num">9.1</span><h1>直線分割平面</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-1-lazy-caterer.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 9 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 1990，第 4 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/90-s2-q4">step.maths.org/questions/90-s2-q4</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>用 <span class="math inline">\(n\)</span> 刀直線把一個薄餅切開，各塊不必大小相同，最多可以切成多少塊？一刀得 <span class="math inline">\(2\)</span> 塊，兩刀得 <span class="math inline">\(4\)</span> 塊，三刀得 <span class="math inline">\(7\)</span> 塊（不是 <span class="math inline">\(8\)</span> 塊：不妨試試），四刀得 <span class="math inline">\(11\)</span> 塊。數列 <span class="math inline">\(1, 2, 4, 7, 11, 16, \ldots\)</span> 稱為<em>懶惰宴會承辦人數列</em>（lazy caterer’s sequence），而本題要求的正是它的公式。</p>
+<p>這道題是一種貫穿整個組合數學（combinatorics）的技巧的第一課：不要試圖一次過把所有東西數完，而應該問：多加一個對象時，有甚麼改變？而答案原來是歐拉公式（Euler’s formula）<span class="math inline">\(V - E + F = 2\)</span> 的一個特殊情況，你在 <a href="../ch07/platonic-solids.html">第 7.9 節</a> 討論柏拉圖立體時已經見過這條公式。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="pausebox">
+<p>仔細畫出 <span class="math inline">\(n = 1, 2, 3, 4\)</span> 的情況，並保持各直線處於一般位置（general position）（沒有兩條平行，沒有三條共點）。數一數每種情況中線段和區域的數目。你能猜出當中的規律嗎？</p>
+</div>
+<p>你應該會得到：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(3\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(4\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">線段</td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(9\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(16\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">區域</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(7\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(11\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>線段的數目看來是 <span class="math inline">\(n^2\)</span>。區域的數目則依次增加 <span class="math inline">\(1, 2, 3, 4\)</span>：相鄰兩項之差正是自然數。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-數線段" class="stage"><span class="stage-n">階段 1</span> 數線段</h4>
+<div class="askyourself">
+<p>集中看其中一條直線。其餘的直線中有多少條與它相交？它們把這條直線切成多少段？</p>
+</div>
+<p>每條直線都與其餘 <span class="math inline">\(n - 1\)</span> 條直線逐一相交（沒有一條與它平行），而且交於 <span class="math inline">\(n - 1\)</span> 個不同的點（沒有三條直線交於同一點）。這 <span class="math inline">\(n - 1\)</span> 個點把該直線切成 <span class="math inline">\(n\)</span> 段：兩端各有一段無限長的，中間有 <span class="math inline">\(n - 2\)</span> 段有限長的。共有 <span class="math inline">\(n\)</span> 條直線，所以共有 <span class="math display">\[n \times n = n^2 \text{ 條線段}. \qed\]</span> 這是直接點算，無需使用歸納法（induction）：我們是逐條直線去數線段的。</p>
+<h4 id="stagemark2-加一條直線時會怎樣" class="stage"><span class="stage-n">階段 2</span> 加一條直線時會怎樣？</h4>
+<div class="askyourself">
+<p>假設已畫好 <span class="math inline">\(n - 1\)</span> 條直線，現在加上第 <span class="math inline">\(n\)</span> 條。它被其餘直線切成 <span class="math inline">\(n\)</span> 段。每一段對它所穿過的區域有甚麼影響？</p>
+</div>
+<p>畫出新直線時，它的 <span class="math inline">\(n\)</span> 段各自穿過一個原有的區域，並把該區域一分為二（圖 9.1.1）。不同的線段位於不同的區域內，因為新直線要由一個區域走到另一個區域，就必須越過一條原有的直線。因此，加上第 <span class="math inline">\(n\)</span> 條直線後，區域的數目恰好增加 <span class="math inline">\(n\)</span>： <span class="math display">\[R(n) = R(n - 1) + n.\]</span></p>
+<h4 id="stagemark3-解遞歸關係" class="stage"><span class="stage-n">階段 3</span> 解遞歸關係</h4>
+<p>由 <span class="math inline">\(R(0) = 1\)</span>（沒有直線，只有一個區域）開始， <span class="math display">\[R(n) = 1 + (1 + 2 + \cdots + n) = 1 + \frac{n(n + 1)}{2} = \frac{n^2 + n + 2}{2}.\]</span> 若要寫成歸納法證明：公式對 <span class="math inline">\(n = 1\)</span> 成立，因為 <span class="math inline">\(\frac12(1 + 1 + 2) = 2\)</span>；而若 <span class="math inline">\(R(n - 1) = \frac12\bigl((n - 1)^2 + (n - 1) + 2\bigr) = \frac12(n^2 - n + 2)\)</span>，則 <span class="math inline">\(R(n) = \frac12(n^2 - n + 2) + n = \frac12(n^2 + n + 2)\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-1-1.svg" alt="圖 9.1.1"><figcaption><span class="fig-label">圖 9.1.1</span> 三條直線（藍綠色）把平面分成 <span class="math inline">\(7\)</span> 個區域。第四條直線（紫紅色）與其餘三條相交於琥珀色的點，這些點把它切成四段，編號為 <span class="math inline">\(1\)</span> 至 <span class="math inline">\(4\)</span>。每一段把一個區域一分為二，所以第四條直線增加了 <span class="math inline">\(4\)</span> 個區域，合共 <span class="math inline">\(11\)</span> 個。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>每次只數一部分。</strong>線段是逐條直線去數的；區域則是按每條新直線所增加的數目去數的。</p></li>
+<li><p><strong>把幾何上的一步化為遞歸關係。</strong>「每條新線段把一個區域一分為二」這項觀察，化成了 <span class="math inline">\(R(n) = R(n - 1) + n\)</span>。</p></li>
+<li><p><strong>一般位置十分重要。</strong>若有平行的直線，或有三條直線共點，區域的數目就會較少。試找出每項假設在哪裏用過。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<h3 id="喬裝的歐拉公式">喬裝的歐拉公式</h3>
+<p>以下是第二個證明，它不僅推導出答案，更解釋了答案從何而來。把這些直線組成的圖形看成一幅地圖：交點是<em>頂點</em>（vertices），線段是<em>邊</em>（edges），區域是<em>面</em>（faces）。圖中有 <span class="math inline">\(V = \binom{n}{2}\)</span> 個頂點（每一對直線對應一個）和 <span class="math inline">\(E = n^2\)</span> 條邊。無限長的線段只有一個端點，所以我們額外加上一個「在無窮遠處」的頂點，讓它們全部在那裏相遇；這樣，整幅圖就成為畫在球面上的地圖（想像把平面包在一個球上，無窮遠點位於球頂）。由 <a href="../ch07/platonic-solids.html">第 7.9 節</a> 的歐拉公式 <span class="math inline">\(V - E + F = 2\)</span> 可得 <span class="math display">\[\Bigl(\binom{n}{2} + 1\Bigr) - n^2 + F = 2, \qquad\text{所以}\qquad F = n^2 - \frac{n(n - 1)}{2} + 1 = \frac{n^2 + n + 2}{2}.\]</span> 同一個數，卻來自完全不同的方向。這些區域還可以整齊地分成兩類：其中 <span class="math inline">\(2n\)</span> 個是無界的（每兩條相鄰的無限射線之間有一個），其餘 <span class="math inline">\(\frac12(n^2 + n + 2) - 2n = \binom{n - 1}{2}\)</span> 個是有界的。</p>
+<h3 id="二項式係數與高維空間">二項式係數與高維空間</h3>
+<p>這條公式可以寫成 <span class="math display">\[R(n) = \binom{n}{0} + \binom{n}{1} + \binom{n}{2},\]</span> 而這並非巧合。把圖形轉動，使得沒有一條直線是水平的。一個下方有界的區域必有一個最低點，而這個點必定是交點；每個交點又恰好是一個區域（即它正上方的那個）的最低點：這樣就得到 <span class="math inline">\(\binom{n}{2}\)</span> 個區域，每一對直線對應一個。其餘每個區域都向下無限延伸，因而會與一條畫在所有交點下方很遠處的水平線相遇；那 <span class="math inline">\(n\)</span> 條直線把這條水平線切成 <span class="math inline">\(n + 1\)</span> 個區間，每個這樣的區域內各有一個。合共 <span class="math inline">\(\binom{n}{2} + n + 1\)</span> 個。在三維空間中，<span class="math inline">\(n\)</span> 個處於一般位置的平面把空間切成 <span class="math display">\[\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \binom{n}{3} = \frac{n^3 + 5n + 6}{6}\]</span> 塊（即<em>蛋糕數</em>（cake numbers）<span class="math inline">\(1, 2, 4, 8, 15, 26, \ldots\)</span>），而這個規律在任何維數都成立。證明用的是同一個歸納法：新加的平面被其餘平面切成若干區域，其排列方式就如平面上的直線所分成的區域，而每個這樣的區域都把一塊空間一分為二。</p>
+<div class="historybox">
+<div class="box-title">施泰納與超平面排列</div>
+<p>直線和平面所分割出的區域數目的公式，是施泰納（Jakob Steiner）在 1826 年發現的。今天，它是<em>超平面排列</em>（hyperplane arrangements）理論的起點；這套理論點算任意一組直線、平面及其高維類比所形成的區域數目，包括並非處於一般位置的情況。Thomas Zaslavsky 在 1975 年證明了一條非凡的定理：利用一個記錄了哪些超平面相交的多項式，就可以數出任何排列的區域數目。同樣的想法也出現在機器學習之中：由「ReLU」單元構成的神經網絡，會用超平面把輸入空間切成多個區域，而區域的數目正好衡量它所能表示的函數有多複雜。</p>
+</div>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">問一問：多加一個時，有甚麼改變</div>
+<p><em>要點算由 <span class="math inline">\(n\)</span> 個對象組成的構形，可把它與 <span class="math inline">\(n - 1\)</span> 個對象的構形比較。點算其中的改變，往往比點算整體容易得多。</em></p>
+<p>這是把歸納法用作發現的工具，而不僅是證明的工具。它是組合數學中最常見的手法之一，能把幾何問題化為可以求解的遞歸關係（recurrence relation）。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>圓。</strong>證明：若 <span class="math inline">\(n\)</span> 個圓中每兩個都交於兩點，且沒有三個圓共點，則它們把平面分成 <span class="math inline">\(n^2 - n + 2\)</span> 個區域。</p></li>
+<li><p><strong>平行線。</strong>若 <span class="math inline">\(n\)</span> 條直線中有 <span class="math inline">\(k\)</span> 條互相平行（其餘方面均處於一般位置），共有多少個區域？</p></li>
+<li><p><strong>蛋糕數。</strong>用歸納法證明：<span class="math inline">\(n\)</span> 個處於一般位置的平面把空間分成 <span class="math inline">\(\frac16(n^3 + 5n + 6)\)</span> 個區域。</p></li>
+<li><p><strong>會失效的規律。</strong>在圓周上取 <span class="math inline">\(n\)</span> 個點，並把每一對點用弦連起來，其中沒有三條弦在圓內交於同一點。當 <span class="math inline">\(n = 1, 2, 3, 4, 5\)</span> 時，分別得到 <span class="math inline">\(1, 2, 4, 8, 16\)</span> 個區域。數一數 <span class="math inline">\(n = 6\)</span> 時的區域數目。（<em>提示：</em>使用歐拉公式；每四個點給出一個交點。）證明區域的數目是 <span class="math inline">\(1 + \binom{n}{2} + \binom{n}{4}\)</span>。</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Ronald Graham, Donald Knuth &amp; Oren Patashnik, <a href="https://uk.bookshop.org/search?keywords=Concrete+Mathematics+Graham+Knuth"><em>Concrete Mathematics</em></a></strong>（Addison-Wesley），第 1 章。開首討論的正是這個問題，還有「薄餅」和「之字形」的變化題。</p></li>
+<li><p><strong>Miklós Bóna, <a href="https://uk.bookshop.org/search?keywords=A+Walk+Through+Combinatorics+Bona"><em>A Walk Through Combinatorics</em></a></strong>（World Scientific）。一本平易近人的入門教材，設有歸納法、圖和歐拉公式等章節。</p></li>
+<li><p><strong>Richard Guy, “<a href="https://doi.org/10.1080/00029890.1988.11972074">The strong law of small numbers</a>”</strong>，<em>American Mathematical Monthly</em> 95 (1988)。收錄了許多看似明顯、其實不成立的規律，包括練習中的圓問題。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 本章導言</a><a class="next" href="ramsey.html">→ 9.2 小型版的拉姆齊定理</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

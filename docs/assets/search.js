@@ -8,6 +8,38 @@
 
   var root = document.body.getAttribute("data-root") || "../";
   var engine = null, docs = {};
+  // Chinese has no spaces between words: index every Chinese character and every pair of neighbouring
+  // characters, so a search for 質數 or 數學歸納法 matches; Latin words are split on spaces as usual.
+  var zh = /^zh/i.test(document.documentElement.lang || "");
+  var CJK = /[\u3400-\u9fff\uf900-\ufaff]/;
+  var L = zh ? {
+    results: function (n) { return "找到 " + n + " 項結果"; }, none: "沒有結果。請嘗試較少或不同的字詞。",
+    loading: "正在載入索引……", ready: function (n) { return "搜尋 " + n + " 個頁面：題目、解答、詞彙表等。"; },
+    failed: "抱歉，無法載入搜尋索引。"
+  } : {
+    results: function (n) { return n + (n === 1 ? " result" : " results"); }, none: "No results. Try fewer or different words.",
+    loading: "Loading the index…", ready: function (n) { return "Search " + n + " pages: questions, solutions, glossary and more."; },
+    failed: "Sorry, the search index could not be loaded."
+  };
+  function tokenize(text) {
+    var out = [];
+    String(text).split(/[\s\u3000-\u303f\uff00-\uffef.,;:!?()\[\]{}"'\u2018\u2019\u201c\u201d\u2014\u2013\/\\]+/).forEach(function (w) {
+      if (!w) return;
+      if (!CJK.test(w)) { out.push(w); return; }
+      var run = "";
+      for (var i = 0; i <= w.length; i++) {
+        var c = w.charAt(i);
+        if (c && CJK.test(c)) { run += c; continue; }
+        for (var j = 0; j < run.length; j++) {
+          out.push(run.charAt(j));
+          if (j + 1 < run.length) out.push(run.substr(j, 2));
+        }
+        run = "";
+        if (c) out.push(c);
+      }
+    });
+    return out;
+  }
 
   function esc(s) {
     return s.replace(/[&<>"]/g, function (c) {
@@ -34,9 +66,10 @@
   function render(q) {
     q = q.trim();
     if (!q) { results.innerHTML = ""; status.textContent = ""; return; }
-    var hits = engine.search(q, { prefix: true, fuzzy: 0.15, combineWith: "AND" });
-    if (!hits.length) hits = engine.search(q, { prefix: true, fuzzy: 0.2, combineWith: "OR" });
-    status.textContent = hits.length ? hits.length + (hits.length === 1 ? " result" : " results") : "No results. Try fewer or different words.";
+    var cjk = zh && CJK.test(q);
+    var hits = engine.search(q, { prefix: !cjk, fuzzy: cjk ? 0 : 0.15, combineWith: "AND" });
+    if (!hits.length) hits = engine.search(q, { prefix: !cjk, fuzzy: cjk ? 0 : 0.2, combineWith: "OR" });
+    status.textContent = hits.length ? L.results(hits.length) : L.none;
     results.innerHTML = hits.slice(0, 40).map(function (h) {
       var d = docs[h.id];
       return '<li><a class="sr-title" href="' + root + d.url + '">' + esc(d.title) + "</a>" +
@@ -51,26 +84,28 @@
     history[push ? "pushState" : "replaceState"](null, "", url);
   }
 
-  status.textContent = "Loading the index…";
+  status.textContent = L.loading;
   fetch(root + "assets/search-index.json")
     .then(function (r) { return r.json(); })
     .then(function (data) {
-      engine = new MiniSearch({
+      var opts = {
         fields: ["title", "headings", "text"],
         storeFields: [],
         searchOptions: { boost: { title: 4, headings: 2 } }
-      });
+      };
+      if (zh) { opts.tokenize = tokenize; opts.searchOptions.tokenize = tokenize; }
+      engine = new MiniSearch(opts);
       data.forEach(function (d) { docs[d.id] = d; });
       engine.addAll(data);
       var q = new URL(window.location.href).searchParams.get("q") || "";
       input.value = q;
       render(q);
-      if (!q) status.textContent = "Search " + data.length + " pages: questions, solutions, glossary and more.";
+      if (!q) status.textContent = L.ready(data.length);
       var timer;
       input.addEventListener("input", function () {
         clearTimeout(timer);
         timer = setTimeout(function () { render(input.value); setQuery(input.value.trim(), false); }, 120);
       });
     })
-    .catch(function () { status.textContent = "Sorry, the search index could not be loaded."; });
+    .catch(function () { status.textContent = L.failed; });
 })();

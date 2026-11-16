@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>把數列看成函數 (STEP I 2016 第 8 題) — Beyond STEP</title>
+<meta name="description" content="STEP I 2016 第 8 題：引導式解答及其背後的大學數學。 用計算機算一算 1/89 ： 0.011235955ldots 。開首的數字是 0, 1, 1, 2, 3, 5 ，正是斐波那契數（Fibonacci numbers）。這是巧合嗎？不是，而這道題目正好解釋了原因。 這個想法是組合數學（combinatorics）中最強大的想法之一。取一個無窮數列，把各項用作冪級數（power…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/generating-functions.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/generating-functions.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/generating-functions.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/generating-functions.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="把數列看成函數 (STEP I 2016 第 8 題) — Beyond STEP">
+<meta property="og:description" content="STEP I 2016 第 8 題：引導式解答及其背後的大學數學。 用計算機算一算 1/89 ： 0.011235955ldots 。開首的數字是 0, 1, 1, 2, 3, 5 ，正是斐波那契數（Fibonacci numbers）。這是巧合嗎？不是，而這道題目正好解釋了原因。 這個想法是組合數學（combinatorics）中最強大的想法之一。取一個無窮數列，把各項用作冪級數（power…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch09/generating-functions.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="把數列看成函數 (STEP I 2016 第 8 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2016 第 8 題：引導式解答及其背後的大學數學。 用計算機算一算 1/89 ： 0.011235955ldots 。開首的數字是 0, 1, 1, 2, 3, 5 ，正是斐波那契數（Fibonacci numbers）。這是巧合嗎？不是，而這道題目正好解釋了原因。 這個想法是組合數學（combinatorics）中最強大的想法之一。取一個無窮數列，把各項用作冪級數（power…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "把數列看成函數", "headline": "把數列看成函數", "description": "STEP I 2016 第 8 題：引導式解答及其背後的大學數學。 用計算機算一算 1/89 ： 0.011235955ldots 。開首的數字是 0, 1, 1, 2, 3, 5 ，正是斐波那契數（Fibonacci numbers）。這是巧合嗎？不是，而這道題目正好解釋了原因。 這個想法是組合數學（combinatorics）中最強大的想法之一。取一個無窮數列，把各項用作冪級數（power…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/generating-functions.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2016 第 8 題", "計數與機會"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "計數與機會", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 9 章：計數與機會", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/"}, {"@type": "ListItem", "position": 3, "name": "把數列看成函數", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/generating-functions.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch09/generating-functions.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 9 章 · 計數與機會</a>
+    <div class="src">STEP I · 2016 · 第 8 題</div>
+    <div class="sec-head"><span class="sec-num">9.4</span><h1>把數列看成函數</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-4-generating-functions.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 9 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP I 2016，第 8 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/16-s1-q8">step.maths.org/questions/16-s1-q8</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>用計算機算一算 <span class="math inline">\(1/89\)</span>：<span class="math inline">\(0.011235955\ldots\)</span>。開首的數字是 <span class="math inline">\(0, 1, 1, 2, 3, 5\)</span>，正是斐波那契數（Fibonacci numbers）。這是巧合嗎？不是，而這道題目正好解釋了原因。</p>
+<p>這個想法是組合數學（combinatorics）中最強大的想法之一。取一個無窮數列，把各項用作冪級數（power series）的係數，從而把整個數列包裝成單一個函數。這樣，關於數列的事實就變成關於函數的事實，你便可以用代數和微積分來處理。Herbert Wilf 有一句令人難忘的話：「生成函數（generating function）是一條晾衣繩，我們把一列數字掛在上面展示。」</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>哪個數列的生成函數是 <span class="math inline">\(\dfrac{1}{1 - x}\)</span>？<span class="math inline">\(\dfrac{1}{1 - 2x}\)</span> 又如何？如果把一個數列的生成函數乘以 <span class="math inline">\(x\)</span>，數列會有甚麼變化？</p>
+</div>
+<p>等比級數（geometric series）<span class="math inline">\(\frac{1}{1 - x} = 1 + x + x^2 + \cdots\)</span> 是 <span class="math inline">\(1, 1, 1, \ldots\)</span> 的生成函數，而 <span class="math inline">\(\frac{1}{1 - 2x} = 1 + 2x + 4x^2 + \cdots\)</span> 則是 <span class="math inline">\(2\)</span> 的各次冪的生成函數。乘以 <span class="math inline">\(x\)</span> 會把每一項向後移一位：<span class="math inline">\(x \cdot \frac{1}{1-x} = x + x^2 + \cdots\)</span> 對應的數列是 <span class="math inline">\(0, 1, 1, 1, \ldots\)</span>。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-自然數與三角形數" class="stage"><span class="stage-n">階段 1</span> 自然數與三角形數</h4>
+<div class="askyourself">
+<p>用二項級數（binomial series）展開 <span class="math inline">\((1 - x)^{-2}\)</span>。<span class="math inline">\(x^n\)</span> 的係數是甚麼？</p>
+</div>
+<p>由二項級數可得 <span class="math display">\[(1 - x)^{-2} = 1 + 2x + 3x^2 + 4x^3 + \cdots = \sum_{n \geq 0}(n + 1)x^n,\]</span> 所以 <span class="math inline">\(x(1 - x)^{-2} = x + 2x^2 + 3x^3 + \cdots = \sum n x^n\)</span>：這就是 <span class="math inline">\(u_n = n\)</span> 的生成函數。</p>
+<p>同樣地，<span class="math inline">\((1 - x)^{-3}\)</span> 中 <span class="math inline">\(x^n\)</span> 的係數是 <span class="math inline">\(\frac{(-3)(-4)\cdots(-3-n+1)}{n!}(-1)^n = \frac{(n + 1)(n + 2)}{2}\)</span>，所以 <span class="math display">\[x(1 - x)^{-3} = \sum_{n \geq 1}\frac{n(n + 1)}{2}\,x^n = x + 3x^2 + 6x^3 + 10x^4 + \cdots,\]</span> 這就是三角形數（triangle numbers）<span class="math inline">\(u_n = \frac12 n(n + 1)\)</span> 的生成函數。</p>
+<div class="askyourself">
+<p>怎樣用 <span class="math inline">\(n\)</span> 和 <span class="math inline">\(\frac12n(n + 1)\)</span> 來表示 <span class="math inline">\(n^2\)</span>？</p>
+</div>
+<p>由於 <span class="math inline">\(n^2 = 2 \cdot \frac12 n(n + 1) - n\)</span>，而生成函數可以像數列一樣相加， <span class="math display">\[\sum n^2 x^n = \frac{2x}{(1 - x)^3} - \frac{x}{(1 - x)^2} = \frac{2x - x(1 - x)}{(1 - x)^3} = \frac{x(1 + x)}{(1 - x)^3}. \qed\]</span></p>
+<h4 id="stagemark2-遞推關係變成方程" class="stage"><span class="stage-n">階段 2</span> 遞推關係變成方程</h4>
+<div class="askyourself">
+<p>把 <span class="math inline">\(u_n = ku_{n-1}\)</span> 乘以 <span class="math inline">\(x^n\)</span>，然後對所有 <span class="math inline">\(n \geq 1\)</span> 求和。兩邊用 <span class="math inline">\(\mathrm{f}\)</span> 表示，分別是甚麼？</p>
+</div>
+<p>左邊是 <span class="math inline">\(\sum_{n \geq 1}u_nx^n = \mathrm{f}(x) - u_0 = \mathrm{f}(x) - a\)</span>。右邊是 <span class="math inline">\(kx\sum_{n \geq 1}u_{n-1}x^{n-1} = kx\,\mathrm{f}(x)\)</span>。所以 <span class="math inline">\(\mathrm{f}(x) = a + kx\,\mathrm{f}(x)\)</span>，於是 <span class="math display">\[\mathrm{f}(x) = \frac{a}{1 - kx}. \qed\]</span> 當然，<span class="math inline">\(u_n = ak^n\)</span>；把 <span class="math inline">\(\frac{a}{1 - kx}\)</span> 展開成等比級數，便可確認這一點。</p>
+<h4 id="stagemark3-斐波那契數" class="stage"><span class="stage-n">階段 3</span> 斐波那契數</h4>
+<p>對 <span class="math inline">\(u_n = u_{n-1} + u_{n-2}\)</span>（其中 <span class="math inline">\(n \geq 2\)</span>）作同樣的處理： <span class="math display">\[\sum_{n \geq 2}u_nx^n = x\sum_{n \geq 2}u_{n-1}x^{n-1} + x^2\sum_{n \geq 2}u_{n-2}x^{n-2},\]</span> 即 <span class="math display">\[\mathrm{f}(x) - u_0 - u_1x = x\bigl(\mathrm{f}(x) - u_0\bigr) + x^2\,\mathrm{f}(x).\]</span> 代入 <span class="math inline">\(u_0 = 0\)</span> 和 <span class="math inline">\(u_1 = 1\)</span>，上式即 <span class="math inline">\(\mathrm{f}(x) - x = x\,\mathrm{f}(x) + x^2\,\mathrm{f}(x)\)</span>，所以 <span class="math display">\[\mathrm{f}(x) = \frac{x}{1 - x - x^2}. \qed\]</span></p>
+<h4 id="stagemark4-解釋-189" class="stage"><span class="stage-n">階段 4</span> 解釋 <span class="math inline">\(1/89\)</span></h4>
+<div class="pausebox">
+<p>暫且不理收斂（convergence）的問題（這裏沒有問題：級數在 <span class="math inline">\(|x| &lt; 0.618\)</span> 時收斂），把 <span class="math inline">\(x = \frac{1}{10}\)</span> 代入 <span class="math inline">\(\mathrm{f}\)</span>。你得到甚麼？</p>
+</div>
+<p><span class="math display">\[\frac{1}{10}F_1 + \frac{1}{100}F_2 + \frac{1}{1000}F_3 + \cdots = \mathrm{f}\Bigl(\frac{1}{10}\Bigr) = \frac{1/10}{1 - 1/10 - 1/100} = \frac{10}{89}.\]</span> 除以 <span class="math inline">\(10\)</span>，得 <span class="math inline">\(\frac{1}{89} = \sum F_n/10^{n+1}\)</span>。斐波那契數依次放在相繼的小數位上，當它們大於 <span class="math inline">\(9\)</span> 時便會互相重疊（圖 9.4.1）。<span class="math inline">\(1/89\)</span> 開首的數字顯示出斐波那契數；其後的數字則因進位而變得模糊。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-4-1.svg" alt="圖 9.4.1"><figcaption><span class="fig-label">圖 9.4.1</span> 把 <span class="math inline">\(F_n/10^{n+1}\)</span> 對 <span class="math inline">\(n = 1, 2, 3, \ldots\)</span> 相加。每個斐波那契數的末位都比前一個向右多移一個小數位。一旦它們有兩位數字，便會互相重疊，而進位會改變第七位起的數字：<span class="math inline">\(\frac{1}{89} = 0.01123595505\ldots\)</span>。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>把數列變成函數。</strong>整個無窮數列變成了一個有理函數（rational function）。</p></li>
+<li><p><strong>遞推關係變成方程。</strong>乘以 <span class="math inline">\(x^n\)</span> 再求和，便把規則 <span class="math inline">\(u_n = u_{n-1} + u_{n-2}\)</span> 變成一條關於 <span class="math inline">\(\mathrm{f}\)</span> 的方程，可以用代數方法解出。</p></li>
+<li><p><strong>從舊的造出新的。</strong>把生成函數相加、平移和求導，便能得出新的生成函數，無須從頭做起。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<h3 id="從生成函數到公式">從生成函數到公式</h3>
+<p>生成函數不只是把數列編碼：它還可以把數列解出來。分母可以因式分解為 <span class="math inline">\(1 - x - x^2 = (1 - \varphi x)(1 - \psi x)\)</span>，其中 <span class="math inline">\(\varphi = \frac{1 + \sqrt5}{2}\)</span> 和 <span class="math inline">\(\psi = \frac{1 - \sqrt5}{2}\)</span> 是 <span class="math inline">\(t^2 = t + 1\)</span> 的根。由部分分式（partial fractions）可得 <span class="math display">\[\frac{x}{1 - x - x^2} = \frac{1}{\sqrt5}\Bigl(\frac{1}{1 - \varphi x} - \frac{1}{1 - \psi x}\Bigr),\]</span> 再把每個分式展開成等比級數， <span class="math display">\[F_n = \frac{\varphi^n - \psi^n}{\sqrt5}.\]</span> 這就是<em>比內公式（Binet’s formula）</em>。由於 <span class="math inline">\(|\psi| &lt; 1\)</span>，第二項非常小，所以 <span class="math inline">\(F_n\)</span> 是最接近 <span class="math inline">\(\varphi^n/\sqrt5\)</span> 的整數，而相鄰兩個斐波那契數之比趨向黃金比（golden ratio）（這是 <a href="../ch02/golden-limit.html">第 2.2 節</a> 的主題）。同一方法可以解任何常係數線性遞推關係（linear recurrence with constant coefficients）；練習中有一個來自 STEP I 2004 的例子。</p>
+<h3 id="生成函數為何如此有用">生成函數為何如此有用</h3>
+<p>真正的威力在相乘時才顯現出來。乘積 <span class="math inline">\(\mathrm{f}(x)\mathrm{g}(x)\)</span> 中 <span class="math inline">\(x^n\)</span> 的係數是 <span class="math inline">\(\sum_k u_kv_{n-k}\)</span>，即對所有把 <span class="math inline">\(n\)</span> 拆成兩部分的方法求和。要數算由兩個部分組成的東西，這正是我們所需要的。接下來的兩節會用它來數算找換零錢的方法（<a href="../ch09/making-change.html">第 9.5 節</a>），以及找出點數古怪、但總和的分佈與普通骰子相同的骰子（<a href="../ch09/strange-dice.html">第 9.6 節</a>）。在概率中，同一想法給出<em>概率生成函數（probability generating function）</em>，它把獨立隨機變量之和變成乘積。</p>
+<div class="historybox">
+<div class="box-title">棣莫弗、歐拉與拉普拉斯</div>
+<p>棣莫弗（Abraham de Moivre）在 1720 年代用生成函數來解線性遞推關係，所用的方法基本上就是上面的方法。歐拉（Leonhard Euler）在 1748 年用它們來研究整數的分拆（partitions），而拉普拉斯（Pierre-Simon Laplace）則以它們作為其著作 <em>Théorie analytique des probabilités</em>（1812）的基礎。到了二十世紀，生成函數成為組合數學的核心，而解析方法（把生成函數看成複變數的函數來研究）如今能為複雜得無法精確求解的計數問題給出精確的估計。</p>
+</div>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">轉換表示方式</div>
+<p><em>一個關於數列的問題，在把數列變成函數、矩陣或圖形之後，可能會變得容易。</em></p>
+<p>生成函數把遞推關係翻譯成代數，把計數翻譯成乘法。在大學裏你會遇到許多這類翻譯：傅立葉級數（Fourier series）把函數變成數列，拉普拉斯變換（Laplace transforms）把微分方程變成代數，而矩陣則把幾何變成算術。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>每次兩位數字。</strong>試做 <a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">STEP II 2022，第 3 題</a> （載於 OCR 提供下載的 2022 年試卷 zip 檔案內）。它解釋了為何 <span class="math inline">\(\frac{1}{89}\)</span> 的小數展開式以斐波那契數開首，並要求找出一個分數，其小數每次兩位數字地顯示這個規律。</p></li>
+<li><p><strong>解遞推關係。</strong>試做 <a href="https://step.maths.org/questions/04-s1-q7">STEP I 2004，第 7 題</a>。它用生成函數和部分分式解一個線性遞推關係，然後把這個方法倒過來做。</p></li>
+<li><p><strong>逐一數數。</strong>證明 <span class="math inline">\(\frac{1}{9801} = 0.00\,01\,02\,03\,04\ldots\)</span>，其中每兩位數字為一組，逐一向上數。這個規律最先在哪裏出錯？為甚麼？</p></li>
+<li><p><strong>平方和。</strong>解釋為何 <span class="math inline">\(\frac{1}{1-x}\mathrm{f}(x)\)</span> 是部分和 <span class="math inline">\(u_0 + u_1 + \cdots + u_n\)</span> 的生成函數。利用這一點和第 (i) 部分的答案，求 <span class="math inline">\(1^2 + 2^2 + \cdots + n^2\)</span> 的公式。</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Herbert Wilf, <a href="https://www2.math.upenn.edu/~wilf/DownldGF.html"><em>generatingfunctionology</em></a></strong>（A K Peters；網上免費閱讀）。經典的入門書。讀完本節後，最適合接着讀第 1 章。</p></li>
+<li><p><strong>Ronald Graham, Donald Knuth &amp; Oren Patashnik, <a href="https://uk.bookshop.org/search?keywords=Concrete+Mathematics+Graham+Knuth"><em>Concrete Mathematics</em></a></strong>（Addison-Wesley），第 7 章。</p></li>
+<li><p><strong>Philippe Flajolet &amp; Robert Sedgewick, <a href="https://uk.bookshop.org/search?keywords=Analytic+Combinatorics+Flajolet+Sedgewick"><em>Analytic Combinatorics</em></a></strong>（Cambridge University Press；網上免費閱讀）。遠遠超出大學一年級的程度，但開首數頁展示了這門學問的去向。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="fence-posts.html">← 9.3 為籬笆樁着色</a><a class="next" href="making-change.html">→ 9.5 湊零錢</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

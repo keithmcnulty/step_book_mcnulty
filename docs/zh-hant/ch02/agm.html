@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>算術幾何平均 (STEP II 2024 第 8 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 2024 第 8 題：引導式解答及其背後的大學數學。 取兩個正數，例如 sqrt2 和 1 。把它們換成兩者的算術平均（arithmetic mean）和幾何平均（geometric mean）。再做一次，然後再做一次。結果如下： n x_n （算術） y_n （幾何） 0 1.4142135623730950488 1 1 1.2071067811865475244…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/agm.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/agm.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/agm.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/agm.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="算術幾何平均 (STEP II 2024 第 8 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 2024 第 8 題：引導式解答及其背後的大學數學。 取兩個正數，例如 sqrt2 和 1 。把它們換成兩者的算術平均（arithmetic mean）和幾何平均（geometric mean）。再做一次，然後再做一次。結果如下： n x_n （算術） y_n （幾何） 0 1.4142135623730950488 1 1 1.2071067811865475244…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch02/agm.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="算術幾何平均 (STEP II 2024 第 8 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2024 第 8 題：引導式解答及其背後的大學數學。 取兩個正數，例如 sqrt2 和 1 。把它們換成兩者的算術平均（arithmetic mean）和幾何平均（geometric mean）。再做一次，然後再做一次。結果如下： n x_n （算術） y_n （幾何） 0 1.4142135623730950488 1 1 1.2071067811865475244…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "算術幾何平均", "headline": "算術幾何平均", "description": "STEP II 2024 第 8 題：引導式解答及其背後的大學數學。 取兩個正數，例如 sqrt2 和 1 。把它們換成兩者的算術平均（arithmetic mean）和幾何平均（geometric mean）。再做一次，然後再做一次。結果如下： n x_n （算術） y_n （幾何） 0 1.4142135623730950488 1 1 1.2071067811865475244…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/agm.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2024 第 8 題", "數列、級數與收斂"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 2, "name": "數列、級數與收斂", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 2 章：數列、級數與收斂", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/"}, {"@type": "ListItem", "position": 3, "name": "算術幾何平均", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/agm.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch02/agm.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 2 章 · 數列、級數與收斂</a>
+    <div class="src">STEP II · 2024 · 第 8 題</div>
+    <div class="sec-head"><span class="sec-num">2.6</span><h1>算術幾何平均</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-6-agm.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 2 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 2024，第 8 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 OCR 提供下載的 2024 年 STEP 試卷（zip 檔案）內的 STEP II 試卷： <a href="https://www.ocr.org.uk/Images/725753-2024-past-papers.zip">www.ocr.org.uk/Images/725753-2024-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>取兩個正數，例如 <span class="math inline">\(\sqrt2\)</span> 和 <span class="math inline">\(1\)</span>。把它們換成兩者的算術平均（arithmetic mean）和幾何平均（geometric mean）。再做一次，然後再做一次。結果如下：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: left;"><span class="math inline">\(x_n\)</span>（算術）</th>
+<th style="text-align: left;"><span class="math inline">\(y_n\)</span>（幾何）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: left;"><span class="math inline">\(1.4142135623730950488\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1.2071067811865475244\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.1892071150027210667\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><span class="math inline">\(1.1981569480946342956\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.1981235214931201226\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><span class="math inline">\(1.1981402347938772091\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.1981402346773072058\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><span class="math inline">\(1.1981402347355922074\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.1981402347355922074\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>只需四步，兩個數便有二十位小數完全相同。它們的共同極限（limit）就是<em>算術幾何平均</em>（arithmetic–geometric mean，簡稱 AGM）<span class="math inline">\(M(\sqrt2, 1) = 1.19814\ldots\)</span></p>
+<p>1799 年 5 月 30 日，年僅 21 歲的高斯（Carl Friedrich Gauss）在日記中寫道，他發現 <span class="math inline">\(1/M(\sqrt2, 1)\)</span> 與一個常數有十一位小數相同，而這個常數出自一個完全不同的問題：一條稱為雙紐線（lemniscate）的曲線的弧長。他寫道：「這必定會開闢一個全新的分析領域。」事實果然如此。本題要證明的，正是高斯這項發現背後的關鍵事實：AGM 能求出一個用任何常規方法都計算不了的積分。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>為甚麼兩個不相等的正數的算術平均，總是大於它們的幾何平均？你能用一行證明嗎？</p>
+</div>
+<p>這就是算術幾何平均不等式（AM–GM inequality），而第 (i) 部分的提示正好給出這個一行證明：當 <span class="math inline">\(x \neq y\)</span> 時，<span class="math inline">\(\bigl(\sqrt{x} - \sqrt{y}\bigr)^2 &gt; 0\)</span>，展開後便是 <span class="math inline">\(x + y &gt; 2\sqrt{xy}\)</span>。第 (i) 部分的一切，都由這個不等式，以及「每個平均都介乎原來兩個數之間」這個事實推出。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-兩個數列互相夾緊" class="stage"><span class="stage-n">階段 1</span> 兩個數列互相夾緊</h4>
+<p>若 <span class="math inline">\(y_n &lt; x_n\)</span>，則 <span class="math inline">\(\sqrt{x_n} \neq \sqrt{y_n}\)</span>，所以 <span class="math inline">\(x_n - 2\sqrt{x_n y_n} + y_n &gt; 0\)</span>，即 <span class="math inline">\(x_{n+1} &gt; y_{n+1}\)</span>。由於 <span class="math inline">\(y_0 &lt; x_0\)</span>，用歸納法（induction）可知對所有 <span class="math inline">\(n\)</span> 都有 <span class="math inline">\(y_n &lt; x_n\)</span>。</p>
+<div class="askyourself">
+<p>為甚麼 <span class="math inline">\(x_n\)</span> 與 <span class="math inline">\(y_n\)</span> 的算術平均小於 <span class="math inline">\(x_n\)</span>，而幾何平均大於 <span class="math inline">\(y_n\)</span>？</p>
+</div>
+<p>因為 <span class="math inline">\(y_n &lt; x_n\)</span>：<span class="math inline">\(x_{n+1} = \frac{x_n + y_n}{2} &lt; \frac{x_n + x_n}{2} = x_n\)</span>，而 <span class="math inline">\(y_{n+1} = \sqrt{x_n y_n} &gt; \sqrt{y_n y_n} = y_n\)</span>。所以 <span class="math display">\[y_0 &lt; y_1 &lt; y_2 &lt; \cdots &lt; x_2 &lt; x_1 &lt; x_0.\]</span> <span class="math inline">\(y_n\)</span> 遞增，並以 <span class="math inline">\(x_0\)</span> 為上界（bounded above），所以根據題目所給的定理，它趨向一個極限 <span class="math inline">\(M\)</span>。</p>
+<p>至於兩者的差距， <span class="math display">\[x_{n+1} - y_{n+1} &lt; x_{n+1} - y_n = \frac{x_n + y_n}{2} - y_n = \frac12(x_n - y_n),\]</span> 而由第一部分可知它是正數。所以差距每次至少減半：<span class="math inline">\(0 &lt; x_n - y_n &lt; (x_0 - y_0)/2^n\)</span>，而後者趨向 <span class="math inline">\(0\)</span>。</p>
+<p>最後，<span class="math inline">\(x_n = y_n + (x_n - y_n)\)</span> 是一個趨向 <span class="math inline">\(M\)</span> 的數列與一個趨向 <span class="math inline">\(0\)</span> 的數列之和，所以 <span class="math inline">\(x_n \to M\)</span> 亦成立。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-代換" class="stage"><span class="stage-n">階段 2</span> 代換</h4>
+<p>這個代換（substitution）看來無緣無故，但它其實經過精心設計，令根號下的兩個括號都變成完全平方（或接近完全平方）。</p>
+<div class="askyourself">
+<p>設 <span class="math inline">\(t = \frac12\left(x - \frac{pq}{x}\right)\)</span>，計算 <span class="math inline">\(t^2 + pq\)</span>。然後計算 <span class="math inline">\(t^2 + \frac14(p + q)^2\)</span>。兩者之中，有沒有哪一個可以漂亮地因式分解？</p>
+</div>
+<p>首先， <span class="math display">\[t^2 + pq = \frac14\left(x^2 - 2pq + \frac{p^2q^2}{x^2}\right) + pq = \frac14\left(x + \frac{pq}{x}\right)^2.\]</span> 其次， <span class="math display">\[\begin{aligned}
+  t^2 + \tfrac14(p + q)^2 &amp;= \frac14\left(x^2 - 2pq + \frac{p^2q^2}{x^2} + p^2 + 2pq + q^2\right) \\
+  &amp;= \frac{x^4 + (p^2 + q^2)x^2 + p^2q^2}{4x^2} = \frac{(x^2 + p^2)(x^2 + q^2)}{4x^2}.
+\end{aligned}\]</span> 另外 <span class="math inline">\(\dfrac{\mathrm{d}t}{\mathrm{d}x} = \dfrac12\left(1 + \dfrac{pq}{x^2}\right) = \dfrac{x^2 + pq}{2x^2}\)</span>。</p>
+<div class="pausebox">
+<p>把以上結果合起來。當 <span class="math inline">\(x\)</span> 由 <span class="math inline">\(0\)</span> 走到 <span class="math inline">\(\infty\)</span> 時，<span class="math inline">\(t\)</span> 怎樣變化？關於 <span class="math inline">\(t\)</span> 的積分會變成甚麼？</p>
+</div>
+<p>當 <span class="math inline">\(x\)</span> 由 <span class="math inline">\(0\)</span> 增加至 <span class="math inline">\(\infty\)</span> 時，<span class="math inline">\(t\)</span> 由 <span class="math inline">\(-\infty\)</span> 遞增至 <span class="math inline">\(\infty\)</span>（因為它的導數是正數）。對 <span class="math inline">\(x &gt; 0\)</span>， <span class="math display">\[\sqrt{\bigl(t^2 + \tfrac14(p+q)^2\bigr)\bigl(t^2 + pq\bigr)} = \frac{\sqrt{(x^2+p^2)(x^2+q^2)}}{2x} \cdot \frac{x^2 + pq}{2x},\]</span> 所以 <span class="math display">\[\frac{\mathrm{d}t}{\sqrt{\cdots}} = \frac{x^2 + pq}{2x^2} \cdot \frac{4x^2}{(x^2 + pq)\sqrt{(x^2+p^2)(x^2+q^2)}}\,\mathrm{d}x = \frac{2\,\mathrm{d}x}{\sqrt{(x^2+p^2)(x^2+q^2)}}.\]</span> 因此關於 <span class="math inline">\(t\)</span> 的積分等於 <span class="math inline">\(2\,\mathrm{I}(p, q)\)</span>。</p>
+<p>另一方面，關於 <span class="math inline">\(t\)</span> 的積分與 <span class="math inline">\(\mathrm{I}\)</span> 的形式完全一樣，只是 <span class="math inline">\(p\)</span> 和 <span class="math inline">\(q\)</span> 分別換成了 <span class="math inline">\(\frac12(p+q) = \mathrm{a}(p, q)\)</span> 和 <span class="math inline">\(\sqrt{pq} = \mathrm{g}(p, q)\)</span>，而且積分範圍是整條實數線。被積函數（integrand）是 <span class="math inline">\(t\)</span> 的偶函數（even function），所以關於 <span class="math inline">\(t\)</span> 的積分等於 <span class="math inline">\(2\,\mathrm{I}\bigl(\mathrm{a}(p,q), \mathrm{g}(p,q)\bigr)\)</span>。兩者比較，得 <span class="math display">\[\mathrm{I}(p, q) = \mathrm{I}\bigl(\mathrm{a}(p, q), \mathrm{g}(p, q)\bigr). \qed\]</span></p>
+<h4 id="stagemark3-求積分的值" class="stage"><span class="stage-n">階段 3</span> 求積分的值</h4>
+<div class="askyourself">
+<p>由 <span class="math inline">\((x_0, y_0)\)</span> 開始，反覆應用這個恆等式。經過 <span class="math inline">\(n\)</span> 步之後，<span class="math inline">\(\mathrm{I}(x_0, y_0)\)</span> 等於甚麼？當 <span class="math inline">\(n \to \infty\)</span> 時又會怎樣？</p>
+</div>
+<p>對每個 <span class="math inline">\(n\)</span>，<span class="math inline">\(\mathrm{I}(x_0, y_0) = \mathrm{I}(x_1, y_1) = \mathrm{I}(x_2, y_2) = \cdots = \mathrm{I}(x_n, y_n)\)</span>。當 <span class="math inline">\(n \to \infty\)</span> 時，兩個變數都趨向 <span class="math inline">\(M\)</span>，而 <span class="math display">\[\mathrm{I}(M, M) = \int_0^\infty \frac{\mathrm{d}x}{M^2 + x^2} = \left[\frac1M \arctan\frac{x}{M}\right]_0^\infty = \frac{\pi}{2M}.\]</span> 所以 <span class="math display">\[\mathrm{I}(x_0, y_0) = \frac{\pi}{2M}. \qed\]</span></p>
+<p>題目容許我們直接接受「<span class="math inline">\(\mathrm{I}(x_n, y_n) \to \mathrm{I}(M, M)\)</span>」這一步，但其實可以簡潔地加以證明。把 <span class="math inline">\(p\)</span> 或 <span class="math inline">\(q\)</span> 增大，被積函數便會變小，而 <span class="math inline">\(y_n &lt; x_n\)</span>，所以 <span class="math display">\[\frac{\pi}{2x_n} = \mathrm{I}(x_n, x_n) &lt; \mathrm{I}(x_n, y_n) &lt; \mathrm{I}(y_n, y_n) = \frac{\pi}{2y_n}.\]</span> 上下兩個界都趨向 <span class="math inline">\(\frac{\pi}{2M}\)</span>，而對每個 <span class="math inline">\(n\)</span>，<span class="math inline">\(\mathrm{I}(x_n, y_n)\)</span> 都是同一個數 <span class="math inline">\(\mathrm{I}(x_0, y_0)\)</span>，所以它必定等於 <span class="math inline">\(\frac{\pi}{2M}\)</span>。這又是一次夾逼（squeeze），與 <a href="../ch02/basel.html">第 2.4 節</a> 中的做法一樣。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-2-6-1.svg" alt="圖 2.6.1"><figcaption><span class="fig-label">圖 2.6.1</span> <span class="math inline">\(x_0 = 1\)</span> 與 <span class="math inline">\(y_0 = 0.1\)</span> 的算術幾何平均。算術平均 <span class="math inline">\(x_n\)</span>（藍綠色）遞減，幾何平均 <span class="math inline">\(y_n\)</span>（紫紅色）遞增，兩者以驚人的速度逼近共同極限 <span class="math inline">\(M = 0.425040709\ldots\)</span>：一旦兩者接近，正確位數每一步大約增加一倍。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>兩個單調數列互相夾緊。</strong>一個上升，一個下降，而兩者的差距縮小至零。要證明兩個數列有共同極限，這是最乾淨利落的方法。</p></li>
+<li><p><strong>不變量（invariant）。</strong><span class="math inline">\(\mathrm{I}(x_n, y_n)\)</span> 這個量在每一步都保持不變。在其他一切都在變動時，找出某樣固定不變的東西，是數學中最有力的想法之一。</p></li>
+<li><p><strong>巧妙的代換是設計出來的，不是猜出來的。</strong>選用這個代換，正是為了令根號下的式子可以因式分解。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">比題目所說的還要快</div>
+<p>第 (i) 部分證明了差距每一步至少減半，這相當於每一步大約多得一個二進制位。引子中的表格所顯示的卻驚人得多：正確位數每一步大約<em>增加一倍</em>（<span class="math inline">\(2, 4, 10, 21, 43, \ldots\)</span>）。事實上 <span class="math display">\[x_{n+1} - y_{n+1} = \frac12\bigl(\sqrt{x_n} - \sqrt{y_n}\bigr)^2 = \frac{(x_n - y_n)^2}{2\bigl(\sqrt{x_n} + \sqrt{y_n}\bigr)^2},\]</span> 所以每個差距大約是一個常數乘以前一個差距的<em>平方</em>。這稱為<em>二次收斂</em>（quadratic convergence），我們會在 <a href="../ch02/newton-speed.html">第 2.7 節</a> 中仔細探討。</p>
+</div>
+<h3 id="橢圓積分">橢圓積分</h3>
+<p>我們的積分 <span class="math inline">\(\mathrm{I}(p, q)\)</span> 其實是一個喬裝了的<em>完全橢圓積分</em>（complete elliptic integral）。這類積分在計算橢圓的弧長時出現，而且不能用你所認識的函數表示。它最著名的應用是單擺。高級程度（A-level）課程中的週期公式 <span class="math inline">\(T = 2\pi\sqrt{L/g}\)</span> 只是小幅度擺動時的近似。由角度 <span class="math inline">\(\theta_0\)</span> 釋放的單擺，其準確週期是 <span class="math display">\[T = \frac{2\pi\sqrt{L/g}}{M\bigl(1, \cos\frac{\theta_0}{2}\bigr)},\]</span> 這是一個可用 AGM 求值的橢圓積分。當 <span class="math inline">\(\theta_0 = 90^\circ\)</span> 時，真正的週期比簡單公式所預測的長約 <span class="math inline">\(18\%\)</span>。高斯那則日記所談的是雙紐線，一條 8 字形的曲線，它的總弧長涉及 <span class="math inline">\(\int_0^1 \frac{\mathrm{d}t}{\sqrt{1-t^4}}\)</span>；這個積分其實就是喬裝了的 <span class="math inline">\(\mathrm{I}(\sqrt2, 1)\)</span>，所以可以用 AGM 求值。</p>
+<h3 id="計算-pi">計算 <span class="math inline">\(\pi\)</span></h3>
+<p>1976 年，Richard Brent 與 Eugene Salamin 各自獨立地把高斯的想法變成一個計算 <span class="math inline">\(\pi\)</span> 的算法（algorithm），每一步都令正確位數增加一倍。二十五步便可得出數千萬位。在 1980 及 1990 年代，這類算法曾用於多次刷新紀錄的 <span class="math inline">\(\pi\)</span> 計算；時至今日，凡是需要高精度的地方，類似的二次收斂算法已成為標準工具。試比較 <a href="../ch02/viete.html">第 2.5 節</a> 中的韋達（Viète）乘積，它每一步只多得約 <span class="math inline">\(0.6\)</span> 位。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">尋找不變量</div>
+<p><em>當一個過程同時改變許多東西時，找出一個不變的量。然後在過程的終點求它的值，因為那裏一切都很簡單。</em></p>
+<p>在這裏，過程就是 AGM 的每一步，而不變量就是積分 <span class="math inline">\(\mathrm{I}\)</span>。在過程的終點，兩個變數相等，積分變成初等積分。不變量在數學中隨處可見，由力學中的能量守恆（第 10 章），以至證明某些謎題無解。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>二次收斂。</strong>證明恆等式 <span class="math inline">\(x_{n+1} - y_{n+1} = \dfrac{(x_n - y_n)^2}{2(\sqrt{x_n} + \sqrt{y_n})^2}\)</span>，並由此推出 <span class="math inline">\(x_{n+1} - y_{n+1} \leq \dfrac{(x_n - y_n)^2}{8 y_0}\)</span>。</p></li>
+<li><p><strong>親手計算。</strong>用計算機求 <span class="math inline">\(M(2, 1)\)</span>，準確至六位小數。你需要多少步？</p></li>
+<li><p><strong>縮放。</strong>證明對 <span class="math inline">\(\lambda &gt; 0\)</span> 有 <span class="math inline">\(M(\lambda x, \lambda y) = \lambda M(x, y)\)</span>，以及 <span class="math inline">\(\mathrm{I}(\lambda p, \lambda q) = \lambda^{-1}\mathrm{I}(p, q)\)</span>。驗證這兩個事實與 <span class="math inline">\(\mathrm{I}(x_0, y_0) = \pi/(2M)\)</span> 互相吻合。</p></li>
+<li><p><strong>單擺。</strong>利用上面的公式，求由 <span class="math inline">\(60^\circ\)</span> 釋放的單擺的週期比小角度近似的預測值長多少，答案準確至三位有效數字。</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>David Cox, “<a href="https://doi.org/10.5169/seals-53831">The arithmetic–geometric mean of Gauss</a>”</strong>, <em>L’Enseignement Mathématique</em> 30 (1984)。講述這段歷史和有關數學的經典文章；開首幾節只需要微積分知識。</p></li>
+<li><p><strong>Jonathan Borwein &amp; Peter Borwein, <a href="https://uk.bookshop.org/search?keywords=Pi+and+the+AGM+Borwein+Borwein"><em>Pi and the AGM</em></a></strong> (Wiley)。關於 AGM 與 <span class="math inline">\(\pi\)</span> 的快速計算的權威著作。</p></li>
+<li><p><strong>Jonathan Borwein &amp; Keith Devlin, <a href="https://uk.bookshop.org/search?keywords=The+Computer+as+Crucible+Borwein+Devlin"><em>The Computer as Crucible</em></a></strong> (A. K. Peters)。講述實驗數學，包括像高斯那樣憑着留意數值上的巧合而得出的發現。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="viete.html">← 2.5 韋達乘積</a><a class="next" href="newton-speed.html">→ 2.7 六位還是六百位</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

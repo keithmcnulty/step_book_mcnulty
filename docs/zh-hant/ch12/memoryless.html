@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>無記憶性 (STEP III 2021 第 11 題) — Beyond STEP</title>
+<meta name="description" content="STEP III 2021 第 11 題：引導式解答及其背後的大學數學。 一顆放射性原子在實驗室裏待了一百萬年，一直沒有衰變。它是否「快要」衰變了？不是：它在下一秒內衰變的機會，與一顆剛剛產生的原子完全相同。放射性原子不會老化。直至衰變為止的等候時間服從 指數分佈（exponential distribution） ，而這個分佈的決定性特徵，就是它沒有記憶。…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/memoryless.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/memoryless.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/memoryless.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/memoryless.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="無記憶性 (STEP III 2021 第 11 題) — Beyond STEP">
+<meta property="og:description" content="STEP III 2021 第 11 題：引導式解答及其背後的大學數學。 一顆放射性原子在實驗室裏待了一百萬年，一直沒有衰變。它是否「快要」衰變了？不是：它在下一秒內衰變的機會，與一顆剛剛產生的原子完全相同。放射性原子不會老化。直至衰變為止的等候時間服從 指數分佈（exponential distribution） ，而這個分佈的決定性特徵，就是它沒有記憶。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch12/memoryless.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="無記憶性 (STEP III 2021 第 11 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2021 第 11 題：引導式解答及其背後的大學數學。 一顆放射性原子在實驗室裏待了一百萬年，一直沒有衰變。它是否「快要」衰變了？不是：它在下一秒內衰變的機會，與一顆剛剛產生的原子完全相同。放射性原子不會老化。直至衰變為止的等候時間服從 指數分佈（exponential distribution） ，而這個分佈的決定性特徵，就是它沒有記憶。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "無記憶性", "headline": "無記憶性", "description": "STEP III 2021 第 11 題：引導式解答及其背後的大學數學。 一顆放射性原子在實驗室裏待了一百萬年，一直沒有衰變。它是否「快要」衰變了？不是：它在下一秒內衰變的機會，與一顆剛剛產生的原子完全相同。放射性原子不會老化。直至衰變為止的等候時間服從 指數分佈（exponential distribution） ，而這個分佈的決定性特徵，就是它沒有記憶。…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/memoryless.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2021 第 11 題", "概率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/"}, {"@type": "ListItem", "position": 3, "name": "無記憶性", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/memoryless.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch12/memoryless.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 12 章 · 概率</a>
+    <div class="src">STEP III · 2021 · 第 11 題</div>
+    <div class="sec-head"><span class="sec-num">12.18</span><h1>無記憶性</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-18-memoryless.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 12 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP III 2021，第 11 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 OCR 提供下載的 2021 年 STEP 試卷（zip 檔案）內的 STEP III 試卷： <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">www.ocr.org.uk/Images/696588-2021-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>一顆放射性原子在實驗室裏待了一百萬年，一直沒有衰變。它是否「快要」衰變了？不是：它在下一秒內衰變的機會，與一顆剛剛產生的原子完全相同。放射性原子不會老化。直至衰變為止的等候時間服從<em>指數分佈（exponential distribution）</em>，而這個分佈的決定性特徵，就是它沒有記憶。</p>
+<p>這道題以一種令人印象深刻的形式展示了這種無記憶性（memorylessness）。把一個指數等候時間拆成整數個單位和小數部分。原來這兩部分是<em>獨立（independent）</em>的：知道你等了多少個完整的小時，對於分鐘數毫無提示。這道題還會在練習中解釋，為甚麼你等巴士的時間，可以顯得比兩班巴士之間的間隔還要長。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>對於 <span class="math inline">\(x \geq 0\)</span>，<span class="math inline">\(\mathrm{P}(X &gt; x)\)</span> 是甚麼？<span class="math inline">\(\mathrm{P}(X &gt; s + t \mid X &gt; s)\)</span> 又是甚麼？</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(X &gt; x) = \int_x^\infty\lambda e^{-\lambda u}\,\mathrm{d}u = e^{-\lambda x}\)</span>。於是 <span class="math inline">\(\mathrm{P}(X &gt; s + t \mid X &gt; s) = \frac{e^{-\lambda(s + t)}}{e^{-\lambda s}} = e^{-\lambda t} = \mathrm{P}(X &gt; t)\)</span>：已經等了 <span class="math inline">\(s\)</span> 之後，餘下的等候時間與從頭開始等候的分佈相同。這就是<em>無記憶性質（memoryless property）</em>。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-整數部分" class="stage"><span class="stage-n">階段 1</span> 整數部分</h4>
+<p><span class="math inline">\(Y = n\)</span> 當且僅當 <span class="math inline">\(n \leq X &lt; n + 1\)</span>： <span class="math display">\[\mathrm{P}(Y = n) = e^{-\lambda n} - e^{-\lambda(n + 1)} = (1 - e^{-\lambda})e^{-n\lambda}. \qed\]</span> 所以 <span class="math inline">\(Y\)</span> 服從幾何分佈（geometric distribution）：每一個完整單位都以概率 <span class="math inline">\(e^{-\lambda}\)</span> 被「捱過」。</p>
+<h4 id="stagemark2-小數部分" class="stage"><span class="stage-n">階段 2</span> 小數部分</h4>
+<div class="askyourself">
+<p><span class="math inline">\(Z &lt; z\)</span> 表示 <span class="math inline">\(X\)</span> 落在其中一個區間 <span class="math inline">\([n, n + z)\)</span> 內。把這些區間的概率加起來。</p>
+</div>
+<p><span class="math display">\[\mathrm{P}(Z &lt; z) = \sum_{n \geq 0}\bigl(e^{-\lambda n} - e^{-\lambda(n + z)}\bigr) = (1 - e^{-\lambda z})\sum_{n \geq 0}e^{-\lambda n} = \frac{1 - e^{-\lambda z}}{1 - e^{-\lambda}}. \qed\]</span></p>
+<h4 id="stagemark3-z-的平均值" class="stage"><span class="stage-n">階段 3</span> <span class="math inline">\(Z\)</span> 的平均值</h4>
+<div class="askyourself">
+<p>對於取值於 <span class="math inline">\([0, 1]\)</span> 的隨機變量（random variable），<span class="math inline">\(\mathrm{E}(Z) = \int_0^1\mathrm{P}(Z &gt; z)\,\mathrm{d}z\)</span>。運用這條公式。</p>
+</div>
+<p>設 <span class="math inline">\(c = 1 - e^{-\lambda}\)</span>，則 <span class="math inline">\(\mathrm{P}(Z &gt; z) = 1 - \frac{1 - e^{-\lambda z}}{c}\)</span>，所以 <span class="math display">\[\mathrm{E}(Z) = 1 - \frac1c\Bigl(1 - \frac{1 - e^{-\lambda}}{\lambda}\Bigr) = 1 - \frac1c + \frac1\lambda = \frac1\lambda - \frac{e^{-\lambda}}{1 - e^{-\lambda}} = \frac1\lambda - \frac{1}{e^\lambda - 1}. \qed\]</span> （當 <span class="math inline">\(\lambda\)</span> 很小，即等候時間很長時，這個值趨向 <span class="math inline">\(\frac12\)</span>：小數部分幾乎是均勻分佈的。當 <span class="math inline">\(\lambda\)</span> 很大時，它接近 <span class="math inline">\(\frac1\lambda\)</span>，因為 <span class="math inline">\(X\)</span> 幾乎總是小於 <span class="math inline">\(1\)</span>。）</p>
+<h4 id="stagemark4-獨立性" class="stage"><span class="stage-n">階段 4</span> 獨立性</h4>
+<p><span class="math display">\[\mathrm{P}(Y = n, z_1 &lt; Z &lt; z_2) = \mathrm{P}(n + z_1 &lt; X &lt; n + z_2) = e^{-\lambda n}\bigl(e^{-\lambda z_1} - e^{-\lambda z_2}\bigr).\]</span></p>
+<div class="askyourself">
+<p>利用第 (i) 及第 (ii) 部分，與 <span class="math inline">\(\mathrm{P}(Y = n)\,\mathrm{P}(z_1 &lt; Z &lt; z_2)\)</span> 作比較。</p>
+</div>
+<p>由 (i) 及 (ii)，<span class="math inline">\(\mathrm{P}(Y = n)\mathrm{P}(z_1 &lt; Z &lt; z_2) = (1 - e^{-\lambda})e^{-n\lambda}\cdot\frac{e^{-\lambda z_1} - e^{-\lambda z_2}}{1 - e^{-\lambda}}\)</span>，兩者相同。所以 <span class="math inline">\(Y\)</span> 與 <span class="math inline">\(Z\)</span> 獨立。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-18-1.svg" alt="圖 12.18.1"><figcaption><span class="fig-label">圖 12.18.1</span> <span class="math inline">\(\lambda = 1\)</span> 的指數密度，分割成單位寬度的長條。由於 <span class="math inline">\(e^{-(n + z)} = e^{-n}e^{-z}\)</span>，每一條長條的形狀都相同。<span class="math inline">\(X\)</span> 落在哪一條長條（整數部分 <span class="math inline">\(Y\)</span>），與它落在長條內的甚麼位置（小數部分 <span class="math inline">\(Z\)</span>），兩者是獨立的。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>逐段求和。</strong><span class="math inline">\(Z\)</span> 的分佈和聯合概率（joint probability），都是把各區間 <span class="math inline">\([n, n + 1)\)</span> 上的概率相加而得的。</p></li>
+<li><p><strong>尾部公式。</strong><span class="math inline">\(\mathrm{E}(Z) = \int\mathrm{P}(Z &gt; z)\,\mathrm{d}z\)</span> 讓我們不必求出密度。</p></li>
+<li><p><strong>能夠分解即是獨立。</strong>聯合概率分拆成一個 <span class="math inline">\(n\)</span> 的函數乘以一個 <span class="math inline">\(z_1\)</span>、<span class="math inline">\(z_2\)</span> 的函數。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<h3 id="指數分佈為何特別">指數分佈為何特別</h3>
+<p><span class="math inline">\(Y\)</span> 與 <span class="math inline">\(Z\)</span> 的獨立性直接來自 <span class="math inline">\(e^{-\lambda(n + z)} = e^{-\lambda n}e^{-\lambda z}\)</span>，而這正是無記憶性質的另一副面貌。事實上，指數分佈是<em>唯一</em>沒有記憶的連續分佈：若對所有 <span class="math inline">\(s, t \geq 0\)</span> 都有 <span class="math inline">\(\mathrm{P}(X &gt; s + t) = \mathrm{P}(X &gt; s)\mathrm{P}(X &gt; t)\)</span>，則 <span class="math inline">\(g(t) = \ln\mathrm{P}(X &gt; t)\)</span> 滿足 <span class="math inline">\(g(s + t) = g(s) + g(t)\)</span>，而（對於單調（monotonic）的 <span class="math inline">\(g\)</span>）這就迫使 <span class="math inline">\(g(t) = -\lambda t\)</span>。正因如此，指數分佈可用來描述那些「隨機」發生、沒有任何累積過程的事件的等候時間：放射性衰變、顧客的到達、不會損耗的電子元件的故障。</p>
+<h3 id="最小值與等候時間悖論">最小值與等候時間悖論</h3>
+<p>若 <span class="math inline">\(X_1\)</span> 與 <span class="math inline">\(X_2\)</span> 是獨立的指數隨機變量，率分別為 <span class="math inline">\(\lambda_1\)</span> 和 <span class="math inline">\(\lambda_2\)</span>，則 <span class="math inline">\(\mathrm{P}(\min &gt; x) = e^{-\lambda_1x}e^{-\lambda_2x}\)</span>，所以最小值服從率為 <span class="math inline">\(\lambda_1 + \lambda_2\)</span> 的指數分佈。等候兩個獨立隨機事件中最先發生的一個，就如同以合併後的率等候單一事件（STEP III 2002 Q13，見練習）。無記憶性也解釋了<em>等候時間悖論（waiting-time paradox）</em>：若巴士隨機到站，平均間隔為 <span class="math inline">\(10\)</span> 分鐘，則一位在隨機時刻到達的乘客平均要等 <span class="math inline">\(10\)</span> 分鐘，而不是 <span class="math inline">\(5\)</span> 分鐘，因為餘下的等候時間是無記憶的；而乘客到達時所處的那個間隔，平均長達 <span class="math inline">\(20\)</span> 分鐘，因為較長的間隔更容易被碰上。</p>
+<div class="historybox">
+<div class="box-title">盧瑟福（Rutherford）與泊松過程（Poisson process）</div>
+<p>1910 年，歐內斯特·盧瑟福與漢斯·蓋革（Hans Geiger）以 <span class="math inline">\(7.5\)</span> 秒為一個時段，數算一個放射源所放出的阿爾法粒子（alpha particles），發現這些計數服從泊松分佈（Poisson distribution）；數學家 Harry Bateman 證明了，只要各次放射以恆定的率獨立發生，結果就理應如此。這樣一來，相鄰兩次放射之間的時間便服從指數分佈。<em>泊松過程</em>，即間隔服從指數分佈的一連串事件，如今已成為描述時間上隨機性的基本模型，應用於電話通話、保險索償以及神經元的放電；下一節 <a href="../ch12/spatial-poisson.html">第 12.19 節</a> 會把它推廣到空間。</p>
+</div>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">以因式分解檢驗獨立性</div>
+<p><em>若兩個隨機變量的聯合概率可分解為其中一個變量的函數乘以另一個變量的函數，則這兩個隨機變量獨立。</em></p>
+<p>在大學裏，聯合密度（joint density）能否分解是檢驗獨立性的標準方法，你亦會藉此在多變量問題中辨認出獨立的分量，例如 <a href="../ch12/cauchy.html">第 12.22 節</a> 中服從正態分佈（normal distribution）的點的半徑與角度。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>兩條巴士路線。</strong>試做 <a href="https://step.maths.org/questions/02-s3-q13">STEP III 2002，第 13 題</a>。這道題利用兩個指數隨機變量的最小值，求出等候下一班巴士的時間。</p></li>
+<li><p><strong>離散的無記憶性。</strong>證明幾何分佈是無記憶的：<span class="math inline">\(\mathrm{P}(Y \geq m + n \mid Y \geq m) = \mathrm{P}(Y \geq n)\)</span>。</p></li>
+<li><p><strong>等候時間悖論。</strong>巴士的到站是一個率為 <span class="math inline">\(\lambda\)</span> 的泊松過程。證明包含某固定時刻 <span class="math inline">\(t\)</span>（<span class="math inline">\(t\)</span> 很大）的那個間隔，其期望長度為 <span class="math inline">\(\frac2\lambda\)</span>，即平均間隔的兩倍。</p></li>
+<li><p><strong><span class="math inline">\(Z\)</span> 的密度。</strong>求 <span class="math inline">\(Z\)</span> 的概率密度（probability density），並就 <span class="math inline">\(\lambda = 1\)</span> 和 <span class="math inline">\(\lambda = 5\)</span> 繪出其草圖。</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <a href="https://uk.bookshop.org/search?keywords=Probability%3A+An+Introduction+Grimmett+Welsh"><em>Probability: An Introduction</em></a></strong>（Oxford University Press），論及指數分佈與泊松過程。</p></li>
+<li><p><strong>Sheldon Ross, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Probability+Models+Ross"><em>Introduction to Probability Models</em></a></strong>（Academic Press）。指數分佈、泊松過程與排隊。</p></li>
+<li><p><strong>David Spiegelhalter, <a href="https://uk.bookshop.org/search?keywords=The+Art+of+Uncertainty+Spiegelhalter"><em>The Art of Uncertainty</em></a></strong>（Pelican）。日常生活中的隨機性與等候。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="matchboxes.html">← 12.17 巴拿赫的火柴盒</a><a class="next" href="spatial-poisson.html">→ 12.19 平面上的隨機點</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

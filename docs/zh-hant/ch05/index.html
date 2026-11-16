@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 5 章：複數 — Beyond STEP</title>
+<meta name="description" content="輻角與單位根，然後是複數幾何，再到視作映射的複函數。本章排在第 6 章之前，因為該章的代數以單位根為主軸。">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch05/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch05/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 5 章：複數 — Beyond STEP">
+<meta property="og:description" content="輻角與單位根，然後是複數幾何，再到視作映射的複函數。本章排在第 6 章之前，因為該章的代數以單位根為主軸。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch05/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 5 章：複數 — Beyond STEP">
+<meta name="twitter:description" content="輻角與單位根，然後是複數幾何，再到視作映射的複函數。本章排在第 6 章之前，因為該章的代數以單位根為主軸。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 5, "name": "複數", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch05/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "輻角與單位根，然後是複數幾何，再到視作映射的複函數。本章排在第 6 章之前，因為該章的代數以單位根為主軸。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 5 章：複數", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch05/"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch05/index.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">5</div>
+    <h1>複數</h1>
+    <p class="strap">實數域中兩個真理之間的最短路徑，要取道複數域。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下載整章</span><span class="dl-sub">PDF，專為列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章內容</h2>
+  <ol class="toc"><li><a class="toc-link" href="machin.html"><span class="toc-num">5.1</span>
+<span class="toc-title">梅欽公式</span>
+<span class="toc-src">STEP III 1987</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-1-machin.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="roots-filter.html"><span class="toc-num">5.2</span>
+<span class="toc-title">單位根篩選法</span>
+<span class="toc-src">STEP I 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-2-roots-filter.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="z2n-plus-one.html"><span class="toc-num">5.3</span>
+<span class="toc-title">因式分解 \(z^{2n} + 1\)</span>
+<span class="toc-src">STEP III 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-3-z2n-plus-one.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="polygon-distances.html"><span class="toc-num">5.4</span>
+<span class="toc-title">正多邊形中的距離</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-4-polygon-distances.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="rational-angles.html"><span class="toc-num">5.5</span>
+<span class="toc-title">名不副實的有理角</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-5-rational-angles.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="fermat-point.html"><span class="toc-num">5.6</span>
+<span class="toc-title">費馬點</span>
+<span class="toc-src">STEP III 2000</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-6-fermat-point.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="complex-exponential.html"><span class="toc-num">5.7</span>
+<span class="toc-title">作為映射的複指數函數</span>
+<span class="toc-src">STEP II 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-7-complex-exponential.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="poincare-disc.html"><span class="toc-num">5.8</span>
+<span class="toc-title">圓盤中隱藏的距離</span>
+<span class="toc-src">STEP III 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-8-poincare-disc.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顧：我們學到了甚麼</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「延伸練習」答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 5 章  \(\cdot\)  引言</div>
+    <h1 class="essay-title">虛數，實在的答案</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>實數域中兩個真理之間的最短路徑，要取道複數域。</p>
+<p class="who">— 阿達馬（Jacques Hadamard）</p>
+</div>
+<p>1545 年，卡爾達諾（Gerolamo Cardano）發表了一條解三次方程（cubic equation）的公式，卻發現了一件令人不安的事。有些三次方程明明有三個不折不扣的實根，公式在計算途中卻要求取負數的平方根。這些平方根到最後會互相抵消，留下實數答案，但在計算的中途，卻出現了一些按當時任何標準都不存在的量。卡爾達諾形容這種運算「既精妙，又無用」。其後兩個世紀，數學家用起這些「虛」數（imaginary number）時總是惴惴不安，只當它是一種碰巧行得通的竅門。</p>
+<p>要到十九世紀初，Caspar Wessel、Jean-Robert Argand 和高斯（Gauss）把複數（complex number）看成平面上的點，複數才得到認可。自此之後，人們發現複數並非竅門，而是一種啟示。複數解釋了實數世界的現象為何如此表現，而且不斷為有關實數的結果提供最短的路徑，正如阿達馬所言。</p>
+<h3 id="複數為何重要">複數為何重要</h3>
+<p>每一條多項式方程在複數中都有解：這就是<em>代數基本定理</em>（fundamental theorem of algebra）。因此，在一個確切的意義下，代數到了複數才算完備。複數也是描述旋轉和振盪的天然語言。乘以一個模（modulus）為 <span class="math inline">\(1\)</span> 的複數，就是把平面旋轉，所以凡是涉及角度、波動或週期現象的問題，用複數處理都會較為簡單。電機工程師用複數分析交流電；物理學家沒有複數就寫不出量子力學；由手提電話到磁力共振（MRI）掃描器，訊號處理全靠複數傅立葉變換（Fourier transform）運作。而在純數學中，複變函數原來有着驚人的剛性和美感：只要知道一個複函數在一小片區域上的取值，它在各處的取值就全部確定了。</p>
+<h3 id="你在大學會遇到甚麼">你在大學會遇到甚麼</h3>
+<p>你從第一個星期起就會用到複數，但真正的一大步是<em>複分析</em>（complex analysis），通常在二年級修讀。它的核心對象是<em>全純</em>（holomorphic）函數，即可以求導的複函數，而這套理論處處是驚喜。每個全純函數都自動地無限次可導，並且等於它的泰勒級數（Taylor series）。沿閉曲線的積分，只需察看函數趨向無窮的那些點便可求出（柯西留數定理，Cauchy’s residue theorem），讓你能夠計算其他方法都束手無策的實積分。這套理論再往前走，就通往保角映射（conformal map）（<a href="../ch05/complex-exponential.html">第 5.7 節</a>）、黎曼曲面（Riemann surface），以及支配質數的黎曼 zeta 函數（Riemann zeta function）（<a href="../ch01/prime-distribution.html">第 1.2 節</a>）。與此同時，單位根（roots of unity）的代數（<a href="../ch05/roots-filter.html">第 5.2 節</a>、<a href="../ch05/z2n-plus-one.html">第 5.3 節</a>）通往伽羅瓦理論（Galois theory），而複幾何則通往 <a href="../ch05/poincare-disc.html">第 5.8 節</a> 的非歐幾何（non-Euclidean geometry）。</p>
+<h3 id="貫穿本章的問題">貫穿本章的問題</h3>
+<div class="skillbox">
+<div class="box-title">三個大問題</div>
+<ol class="arabic">
+<li><p><strong>複數怎樣幫助解決實數問題？</strong>為甚麼繞道複平面（complex plane），竟能得出關於 <span class="math inline">\(\pi\)</span>、二項式係數（binomial coefficient）或餘弦的事實？</p></li>
+<li><p><strong>單位根有甚麼特別之處？</strong>為甚麼 <span class="math inline">\(z^n = 1\)</span> 的解不斷在求和、乘積、多邊形和角度之中出現？</p></li>
+<li><p><strong>複函數是甚麼模樣的？</strong>輸入和輸出都是平面上的點的函數，我們怎樣把它畫出來？它們又揭示了怎樣的幾何？</p></li>
+</ol>
+</div>
+<p>本章由輻角（argument）與乘法出發（梅欽公式），經過單位根的代數（篩選、因式分解、多邊形的距離和無理角），走到用複數處理的幾何（費馬點），最後到達作為映射的複函數（指數函數，以及單位圓盤中一個隱藏的距離）。</p>
+<h3 id="本章的主要想法">本章的主要想法</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">課題</th>
+<th style="text-align: left;">想法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">5.1</td>
+<td style="text-align: left;">梅欽（Machin）公式</td>
+<td style="text-align: left;">複數相乘時，輻角相加</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.2</td>
+<td style="text-align: left;">每隔三項的二項式係數</td>
+<td style="text-align: left;">對單位根取平均，可按餘數（residue）篩選</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.3</td>
+<td style="text-align: left;">餘弦的乘積</td>
+<td style="text-align: left;">按各根分解因式，然後代入</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.4</td>
+<td style="text-align: left;">正多邊形的弦</td>
+<td style="text-align: left;">距離就是模；<span class="math inline">\(z^n - 1 = \prod(z - \omega^k)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.5</td>
+<td style="text-align: left;"><span class="math inline">\(\cos^{-1}\frac13\)</span> 是無理的</td>
+<td style="text-align: left;">棣美弗（De Moivre）定理、奇偶性（parity）與最小反例（minimal counterexample）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.6</td>
+<td style="text-align: left;">費馬點（Fermat point）</td>
+<td style="text-align: left;">旋轉就是乘法；選取好的坐標</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.7</td>
+<td style="text-align: left;">把 <span class="math inline">\(e^w\)</span> 看成映射</td>
+<td style="text-align: left;">把複函數畫出來；多對一映射（many-to-one map）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.8</td>
+<td style="text-align: left;">一個隱藏的距離</td>
+<td style="text-align: left;">把不等式看成雙曲幾何（hyperbolic geometry）中的三角不等式（triangle inequality）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="怎樣閱讀本章">怎樣閱讀本章</h3>
+<p>動手畫圖。本章幾乎每一個結果都有幾何意義，隨手畫一幅複平面的草圖（單位根在哪裏、某個乘法把平面轉向哪一邊、網格線落在何處），往往在動用任何代數之前，就已經告訴你該怎樣做。然後要小心地做代數運算，因為在正負號和 <span class="math inline">\(2\pi\)</span> 的倍數上，圖形可能會誤導你。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="machin.html">→ 開始： 5.1 梅欽公式</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

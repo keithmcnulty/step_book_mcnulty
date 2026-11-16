@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>順向與逆向的馬可夫鏈 (STEP III 1996 第 12 題) — Beyond STEP</title>
+<meta name="description" content="STEP III 1996 第 12 題：引導式解答及其背後的大學數學。 Ecks 教授的定理有一個規律：她下一個證明甚麼，只取決於她上一個證明了甚麼。一個過程的未來若只取決於現在而與過去無關，就稱為 馬可夫鏈（Markov chain） 。馬可夫鏈無處不在：天氣模型、蛇梯棋這種圖版遊戲、DNA 模型、Google 最初的 PageRank…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/markov.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/markov.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/markov.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/markov.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="順向與逆向的馬可夫鏈 (STEP III 1996 第 12 題) — Beyond STEP">
+<meta property="og:description" content="STEP III 1996 第 12 題：引導式解答及其背後的大學數學。 Ecks 教授的定理有一個規律：她下一個證明甚麼，只取決於她上一個證明了甚麼。一個過程的未來若只取決於現在而與過去無關，就稱為 馬可夫鏈（Markov chain） 。馬可夫鏈無處不在：天氣模型、蛇梯棋這種圖版遊戲、DNA 模型、Google 最初的 PageRank…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch12/markov.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="順向與逆向的馬可夫鏈 (STEP III 1996 第 12 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1996 第 12 題：引導式解答及其背後的大學數學。 Ecks 教授的定理有一個規律：她下一個證明甚麼，只取決於她上一個證明了甚麼。一個過程的未來若只取決於現在而與過去無關，就稱為 馬可夫鏈（Markov chain） 。馬可夫鏈無處不在：天氣模型、蛇梯棋這種圖版遊戲、DNA 模型、Google 最初的 PageRank…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "順向與逆向的馬可夫鏈", "headline": "順向與逆向的馬可夫鏈", "description": "STEP III 1996 第 12 題：引導式解答及其背後的大學數學。 Ecks 教授的定理有一個規律：她下一個證明甚麼，只取決於她上一個證明了甚麼。一個過程的未來若只取決於現在而與過去無關，就稱為 馬可夫鏈（Markov chain） 。馬可夫鏈無處不在：天氣模型、蛇梯棋這種圖版遊戲、DNA 模型、Google 最初的 PageRank…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/markov.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1996 第 12 題", "概率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/"}, {"@type": "ListItem", "position": 3, "name": "順向與逆向的馬可夫鏈", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/markov.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch12/markov.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 12 章 · 概率</a>
+    <div class="src">STEP III · 1996 · 第 12 題</div>
+    <div class="sec-head"><span class="sec-num">12.16</span><h1>順向與逆向的馬可夫鏈</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-16-markov.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 12 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP III 1996，第 12 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/96-s3-q12">step.maths.org/questions/96-s3-q12</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>Ecks 教授的定理有一個規律：她下一個證明甚麼，只取決於她上一個證明了甚麼。一個過程的未來若只取決於現在而與過去無關，就稱為<em>馬可夫鏈（Markov chain）</em>。馬可夫鏈無處不在：天氣模型、蛇梯棋這種圖版遊戲、DNA 模型、Google 最初的 PageRank 演算法，以至統計學家用來模擬複雜概率分佈的方法，全都用得上它。</p>
+<p>本題要求出各類定理在長遠而言所佔的比例，即<em>平穩分佈（stationary distribution）</em>：長遠來說，她的定理每六個之中有一個是新而正確的，而有一半是錯的。然後題目把這條鏈在時間上倒過來運行，並問：已知今天的定理，昨天的定理是哪一類？</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>「每一行（row）之和為 <span class="math inline">\(1\)</span>」這個條件是甚麼意思？各列（column）之和是否也是 <span class="math inline">\(1\)</span>？</p>
+</div>
+<p>第 <span class="math inline">\(i\)</span> 行列出的是：已知現時的類型為 <span class="math inline">\(i\)</span>，下一個定理屬於各類型的概率；三者必有其一發生，所以每一行之和為 <span class="math inline">\(1\)</span>。各列則不一定：第二列之和恰好是 <span class="math inline">\(1\)</span>，但第一列之和是 <span class="math inline">\(0.6\)</span>，第三列之和是 <span class="math inline">\(1.4\)</span>。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-一步" class="stage"><span class="stage-n">階段 1</span> 一步</h4>
+<p>根據全概率定律（law of total probability），以現時定理的類型 <span class="math inline">\(i\)</span> 為條件， <span class="math display">\[b_j = \sum_i\mathrm{P}(\text{現時 } i)\,\mathrm{P}(\text{下一個 } j \mid \text{現時 } i) = a_1p_{1j} + a_2p_{2j} + a_3p_{3j}. \qed\]</span> 用矩陣的語言來說，行向量（row vector）<span class="math inline">\(\mathbf b = \mathbf aP\)</span>。</p>
+<h4 id="stagemark2-平穩分佈" class="stage"><span class="stage-n">階段 2</span> 平穩分佈</h4>
+<div class="askyourself">
+<p>我們要求 <span class="math inline">\(\mathbf a = \mathbf aP\)</span>，且 <span class="math inline">\(a_1 + a_2 + a_3 = 1\)</span>。把各方程寫出來。哪些最簡單？</p>
+</div>
+<p>各方程為 <span class="math display">\[\begin{aligned}
+  a_1 &amp;= 0.3a_1 + 0.2a_2 + 0.1a_3, \\
+  a_2 &amp;= 0.3a_1 + 0.4a_2 + 0.3a_3, \\
+  a_3 &amp;= 0.4a_1 + 0.4a_2 + 0.6a_3.
+\end{aligned}\]</span> （它們並非獨立：把三式相加，兩邊都得 <span class="math inline">\(a_1 + a_2 + a_3\)</span>。）由第二式得 <span class="math inline">\(0.6a_2 = 0.3(a_1 + a_3) = 0.3(1 - a_2)\)</span>，所以 <span class="math inline">\(a_2 = \frac13\)</span>。由第一式得 <span class="math inline">\(7a_1 = 2a_2 + a_3 = \frac23 + a_3\)</span>，而 <span class="math inline">\(a_1 + a_3 = \frac23\)</span>，所以 <span class="math inline">\(8a_1 = \frac43\)</span>，<span class="math inline">\(a_1 = \frac16\)</span>，<span class="math inline">\(a_3 = \frac12\)</span>： <span class="math display">\[(a_1, a_2, a_3) = \bigl(\tfrac16, \tfrac13, \tfrac12\bigr). \qed\]</span></p>
+<h4 id="stagemark3-把鏈倒過來運行" class="stage"><span class="stage-n">階段 3</span> 把鏈倒過來運行</h4>
+<div class="askyourself">
+<p><span class="math inline">\(q_{ij} = \mathrm{P}(\text{上一個 } i \mid \text{現時 } j)\)</span>。運用貝葉斯定理（Bayes’ theorem），上一個定理和現時的定理都採用平穩分佈。</p>
+</div>
+<p>根據貝葉斯定理， <span class="math display">\[q_{ij} = \frac{\mathrm{P}(\text{上一個 } i)\,\mathrm{P}(\text{現時 } j \mid \text{上一個 } i)}{\mathrm{P}(\text{現時 } j)} = \frac{a_ip_{ij}}{a_j}.\]</span> 例如 <span class="math inline">\(q_{11} = \frac{\frac16 \times 0.3}{\frac16} = 0.3\)</span> 及 <span class="math inline">\(q_{21} = \frac{\frac13 \times 0.2}{\frac16} = 0.4\)</span>。全部結果如下（以 <span class="math inline">\(i\)</span> 標示行，<span class="math inline">\(j\)</span> 標示列）： <span class="math display">\[(q_{ij}) = \begin{pmatrix} 0.3 &amp; 0.15 &amp; \frac{2}{15} \\ 0.4 &amp; 0.4 &amp; \frac{4}{15} \\ 0.3 &amp; 0.45 &amp; 0.6 \end{pmatrix}. \qed\]</span> 現在是每一<em>列</em>之和為 <span class="math inline">\(1\)</span>，因為第 <span class="math inline">\(j\)</span> 列列出的是上一個定理各種可能的類型。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-16-1.svg" alt="圖 12.16.1"><figcaption><span class="fig-label">圖 12.16.1</span> 把 Ecks 教授的定理看成一條馬可夫鏈。箭頭顯示下一個定理屬於各類型的概率。圓圈內的分數是平穩分佈：長遠來說，每六個定理有一個是新而正確的，每三個有一個是已知的，而有一半是錯的。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>以矩陣表達全概率定律。</strong>鏈每走一步，就是把一個行向量乘以矩陣 <span class="math inline">\(P\)</span>。</p></li>
+<li><p><strong>平穩即特徵向量（eigenvector）。</strong><span class="math inline">\(\mathbf a = \mathbf aP\)</span> 說明 <span class="math inline">\(\mathbf a\)</span> 是 <span class="math inline">\(P\)</span> 的左特徵向量，對應的特徵值（eigenvalue）為 <span class="math inline">\(1\)</span>。</p></li>
+<li><p><strong>用貝葉斯定理倒推。</strong>逆向概率構成另一個隨機矩陣（stochastic matrix），由正向的隨機矩陣和平穩分佈構造而成。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<h3 id="收斂至平衡">收斂至平衡</h3>
+<p>讓 Ecks 教授從任何一個定理開始；再證明 <span class="math inline">\(n\)</span> 個之後，類型的分佈是 <span class="math inline">\(\mathbf a_0P^n\)</span>。對於像這樣的一條鏈，即每種類型都可以緊接在任何一種類型之後，不論起點為何，<span class="math inline">\(P^n\)</span> 都會收斂至一個每一行均等於平穩分佈 <span class="math inline">\((\frac16, \frac13, \frac12)\)</span> 的矩陣。收斂的速度由 <span class="math inline">\(P\)</span> 的其他特徵值（這裏是 <span class="math inline">\(0.2\)</span> 和 <span class="math inline">\(0.1\)</span>）決定，它們以幾何方式縮小：只需幾個定理之後，她的過去就被遺忘了。這個關於馬可夫鏈的<em>遍歷定理（ergodic theorem）</em>是大學二年級概率課程的核心結果，馬可夫鏈蒙地卡羅（Markov chain Monte Carlo）方法之所以行得通，靠的正是它：要從一個複雜的分佈中抽樣，就設計一條以該分佈為平穩分佈的馬可夫鏈，然後讓它運行一段長時間。</p>
+<h3 id="可逆性">可逆性</h3>
+<p>逆向鏈 <span class="math inline">\((q_{ij})\)</span> 與正向鏈 <span class="math inline">\((p_{ij})\)</span> 並不相同：從她的定理的一份長紀錄中，你可以分辨出時間的方向。若一條鏈的逆向版本與正向版本一致，即對所有 <span class="math inline">\(i\)</span>、<span class="math inline">\(j\)</span> 都有 <span class="math inline">\(a_ip_{ij} = a_jp_{ji}\)</span>，就稱為<em>可逆（reversible）</em>；網絡上的隨機遊走（random walk）以及處於熱平衡的物理系統的模型都屬此類。可逆性是一個威力強大的性質，因為它令平穩分佈很容易求出。</p>
+<div class="historybox">
+<div class="box-title">馬可夫與普希金</div>
+<p>馬可夫（Andrey Markov）在 1906 年引入他的鏈，部分原因是要證明大數定律（law of large numbers）並不需要獨立性；當時他正與數學家 Pavel Nekrasov 爭論，後者聲稱獨立性是必需的。1913 年，馬可夫把他的想法應用於普希金（Pushkin）的詩體小說《葉甫蓋尼·奧涅金》（<em>Eugene Onegin</em>）的首 <span class="math inline">\(20\,000\)</span> 個字母，把每個字母分為元音或輔音，並證明每個字母的類型取決於前一個字母的類型，而這種關係可用一條兩個狀態的鏈很好地描述。這是史上第一次對文本作統計分析，也是所有預測輸入系統的始祖。</p>
+</div>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">概率作向量，轉移作矩陣</div>
+<p><em>當一個系統以固定的概率在各狀態之間轉移時，把分佈寫成向量，把轉移寫成矩陣。這樣，長遠行為就變成一個關於特徵向量的問題。</em></p>
+<p>在大學裏，這樣做會把第 7 章的線性代數帶進概率論。佩龍－弗羅賓尼斯定理（Perron–Frobenius theorem）保證平穩分佈存在，而其他特徵值則量度到達平穩分佈有多快。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>兔子窩。</strong>試做 <a href="https://step.maths.org/questions/03-s3-q13">STEP III 2003，第 13 題</a>：在一個正方形的四個頂點上的隨機遊走，每個頂點各有一個出口，以首步方程求解。</p></li>
+<li><p><strong>兩步。</strong>若 Ecks 教授上一個定理是新而正確的，求再下一個定理屬於三種類型的概率。</p></li>
+<li><p><strong>特徵值。</strong>證明 <span class="math inline">\(P\)</span> 的特徵值為 <span class="math inline">\(1\)</span>、<span class="math inline">\(0.2\)</span> 和 <span class="math inline">\(0.1\)</span>。</p></li>
+<li><p><strong>可逆嗎？</strong>檢查 Ecks 教授的鏈是否滿足 <span class="math inline">\(a_ip_{ij} = a_jp_{ji}\)</span>。答案告訴你甚麼？</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>James Norris, <a href="https://uk.bookshop.org/search?keywords=Markov+Chains+Norris"><em>Markov Chains</em></a></strong>（Cambridge University Press）。標準的大學本科教科書。</p></li>
+<li><p><strong>Olle Häggström, <a href="https://uk.bookshop.org/search?keywords=Finite+Markov+Chains+and+Algorithmic+Applications+Haggstrom"><em>Finite Markov Chains and Algorithmic Applications</em></a></strong>（Cambridge University Press）。篇幅短小，講馬可夫鏈蒙地卡羅尤其出色。</p></li>
+<li><p><strong>Brian Hayes, 「First links in the Markov chain」</strong>，<em>American Scientist</em> 101 (2013)。重述馬可夫對普希金作品的分析。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="branching.html">← 12.15 滅絕還是爆發</a><a class="next" href="matchboxes.html">→ 12.17 巴拿赫的火柴盒</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>平面上的隨機點 (STEP II 2012 第 13 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 2012 第 13 題：引導式解答及其背後的大學數學。 假如超級市場、樹木、恆星或流動電話發射站「隨機」散佈在某個區域內，你要走多遠才到達最近的一個？答案只取決於密度 k （每單位面積的平均數目），而且有一個獨特的形狀，就是 瑞利分佈（Rayleigh distribution） 。平均而言，最近的一個位於距離 (1)/(2sqrt k)…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/spatial-poisson.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/spatial-poisson.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/spatial-poisson.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/spatial-poisson.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="平面上的隨機點 (STEP II 2012 第 13 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 2012 第 13 題：引導式解答及其背後的大學數學。 假如超級市場、樹木、恆星或流動電話發射站「隨機」散佈在某個區域內，你要走多遠才到達最近的一個？答案只取決於密度 k （每單位面積的平均數目），而且有一個獨特的形狀，就是 瑞利分佈（Rayleigh distribution） 。平均而言，最近的一個位於距離 (1)/(2sqrt k)…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch12/spatial-poisson.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="平面上的隨機點 (STEP II 2012 第 13 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2012 第 13 題：引導式解答及其背後的大學數學。 假如超級市場、樹木、恆星或流動電話發射站「隨機」散佈在某個區域內，你要走多遠才到達最近的一個？答案只取決於密度 k （每單位面積的平均數目），而且有一個獨特的形狀，就是 瑞利分佈（Rayleigh distribution） 。平均而言，最近的一個位於距離 (1)/(2sqrt k)…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "平面上的隨機點", "headline": "平面上的隨機點", "description": "STEP II 2012 第 13 題：引導式解答及其背後的大學數學。 假如超級市場、樹木、恆星或流動電話發射站「隨機」散佈在某個區域內，你要走多遠才到達最近的一個？答案只取決於密度 k （每單位面積的平均數目），而且有一個獨特的形狀，就是 瑞利分佈（Rayleigh distribution） 。平均而言，最近的一個位於距離 (1)/(2sqrt k)…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/spatial-poisson.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2012 第 13 題", "概率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/"}, {"@type": "ListItem", "position": 3, "name": "平面上的隨機點", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/spatial-poisson.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch12/spatial-poisson.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 12 章 · 概率</a>
+    <div class="src">STEP II · 2012 · 第 13 題</div>
+    <div class="sec-head"><span class="sec-num">12.19</span><h1>平面上的隨機點</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-19-spatial-poisson.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 12 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 2012，第 13 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/12-s2-q13">step.maths.org/questions/12-s2-q13</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>假如超級市場、樹木、恆星或流動電話發射站「隨機」散佈在某個區域內，你要走多遠才到達最近的一個？答案只取決於密度 <span class="math inline">\(k\)</span>（每單位面積的平均數目），而且有一個獨特的形狀，就是<em>瑞利分佈（Rayleigh distribution）</em>。平均而言，最近的一個位於距離 <span class="math inline">\(\frac{1}{2\sqrt k}\)</span> 處：若每平方公里有一間超級市場，這距離就是 <span class="math inline">\(500\)</span> 米。</p>
+<p>這個模型稱為<em>空間泊松過程（spatial Poisson process）</em>，即時間上隨機到達（<a href="../ch12/memoryless.html">第 12.18 節</a>）的二維版本。計算過程簡短而優美，但它真正的價值在於充當基準：生態學家把實際的最近鄰距離與這條公式比較，以判斷樹木或鳥巢究竟是聚集成羣、隨機散佈，還是刻意彼此隔開。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>一個平均值為 <span class="math inline">\(\mu\)</span> 的泊松隨機變量（Poisson random variable），取值 <span class="math inline">\(0\)</span> 的概率是多少？</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(0) = e^{-\mu}\)</span>。半徑為 <span class="math inline">\(y\)</span> 的圓面積是 <span class="math inline">\(\pi y^2\)</span>，所以圓內超級市場數目的平均值為 <span class="math inline">\(k\pi y^2\)</span>。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-附近沒有超級市場" class="stage"><span class="stage-n">階段 1</span> 附近沒有超級市場</h4>
+<p>在距離 <span class="math inline">\(y\)</span> 以內沒有超級市場的概率是 <span class="math inline">\(e^{-\pi ky^2}\)</span>。</p>
+<h4 id="stagemark2-最近距離的分佈" class="stage"><span class="stage-n">階段 2</span> 最近距離的分佈</h4>
+<div class="askyourself">
+<p><span class="math inline">\(Y \geq y\)</span> 表示在距離 <span class="math inline">\(y\)</span> 以內沒有超級市場。那麼 <span class="math inline">\(\mathrm{P}(Y &lt; y)\)</span> 是甚麼？</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(Y &lt; y) = 1 - e^{-\pi ky^2}\)</span>，求導後便得到密度函數（density） <span class="math display">\[\mathrm{f}(y) = 2\pi kye^{-\pi ky^2}, \qquad y \geq 0. \qed\]</span></p>
+<h4 id="stagemark3-平均值" class="stage"><span class="stage-n">階段 3</span> 平均值</h4>
+<div class="askyourself">
+<p>可以用分部積分法（integration by parts）計算 <span class="math inline">\(y\,\mathrm{f}(y)\)</span> 的積分，也可以利用 <span class="math inline">\(\mathrm{E}(Y) = \int_0^\infty\mathrm{P}(Y &gt; y)\,\mathrm{d}y\)</span>。然後作代換，以便使用題目給出的高斯積分（Gaussian integral）。</p>
+</div>
+<p><span class="math display">\[\mathrm{E}(Y) = \int_0^\infty e^{-\pi ky^2}\,\mathrm{d}y.\]</span> 代入 <span class="math inline">\(x = y\sqrt{2\pi k}\)</span>，使得 <span class="math inline">\(\pi ky^2 = \frac12x^2\)</span>，便得 <span class="math inline">\(\mathrm{E}(Y) = \frac{1}{\sqrt{2\pi k}}\sqrt{\frac\pi2} = \frac{1}{2\sqrt k}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-方差" class="stage"><span class="stage-n">階段 4</span> 方差</h4>
+<p><span class="math display">\[\mathrm{E}(Y^2) = \int_0^\infty y^2\cdot2\pi kye^{-\pi ky^2}\,\mathrm{d}y.\]</span> 代入 <span class="math inline">\(u = \pi ky^2\)</span>（因此 <span class="math inline">\(\mathrm{d}u = 2\pi ky\,\mathrm{d}y\)</span>），上式變成 <span class="math inline">\(\int_0^\infty\frac{u}{\pi k}e^{-u}\,\mathrm{d}u = \frac{1}{\pi k}\)</span>。因此 <span class="math display">\[\mathrm{Var}(Y) = \frac{1}{\pi k} - \frac{1}{4k} = \frac{4 - \pi}{4\pi k}. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-19-1.svg" alt="圖 12.19.1"><figcaption><span class="fig-label">圖 12.19.1</span> 左：六十個點隨機散佈在面積為 <span class="math inline">\(24\)</span> 的區域內（所以 <span class="math inline">\(k = 2.5\)</span>），以及由選定的一點到其中最近一點的距離（琥珀色）。右：該距離的瑞利密度函數 <span class="math inline">\(2\pi kye^{-\pi ky^2}\)</span>，距離以 <span class="math inline">\(1/\sqrt k\)</span> 為單位。其平均值為 <span class="math inline">\(\frac{1}{2\sqrt k}\)</span>。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>把距離問題化為計數問題。</strong>「最近的一個比 <span class="math inline">\(y\)</span> 更遠」就是「在 <span class="math inline">\(y\)</span> 以內一個也沒有」。</p></li>
+<li><p><strong>先求累積分佈，再求密度。</strong><span class="math inline">\(\mathrm{P}(Y &lt; y)\)</span> 可以直接寫出；求導後便得到密度函數。</p></li>
+<li><p><strong>以代換化為已知積分。</strong>每個矩（moment）都化成了高斯積分或指數積分。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<h3 id="平面上的泊松過程">平面上的泊松過程</h3>
+<p>強度（intensity）為 <span class="math inline">\(k\)</span> 的空間泊松過程，是一種隨機散佈的點集，滿足：互不相交的區域內的點數彼此獨立，而面積為 <span class="math inline">\(A\)</span> 的區域內的點數服從平均值為 <span class="math inline">\(kA\)</span> 的泊松分佈。把極大量的點獨立而均勻地投放到一片極大的區域上，並保持適當的平均密度，得到的就是這種過程：這正是「稀有事件定律」（law of rare events），它同樣解釋了錯排（derangement）的現象（<a href="../ch09/derangements.html">第 9.8 節</a>）。它是完全空間隨機性（complete spatial randomness）的自然模型，實際的分佈形態都以它為比較標準。<em>Clark–Evans 檢驗（Clark–Evans test）</em>由兩位生態學家於 1954 年提出，把觀察所得的平均最近鄰距離與 <span class="math inline">\(\frac{1}{2\sqrt k}\)</span> 比較：小得多表示有聚集現象（種子落在母樹附近），大得多則表示間隔規則（有領域行為的鳥類，或植物之間爭奪水分）。</p>
+<h3 id="三維的情況">三維的情況</h3>
+<p>在三維空間中作同樣的計算，可得到最近的恆星、分子或星系的距離滿足 <span class="math inline">\(\mathrm{P}(Y &gt; y) = e^{-\frac43\pi ky^3}\)</span>。錢德拉塞卡（Subrahmanyan Chandrasekhar）在 1943 年用它來研究一顆恆星受隨機分佈的鄰近恆星所施的引力，物理學家則用它來計算氣體分子的平均自由程（mean free path）。</p>
+<div class="historybox">
+<div class="box-title">瑞利</div>
+<p>密度函數 <span class="math inline">\(\frac{y}{\sigma^2}e^{-y^2/(2\sigma^2)}\)</span> 以瑞利勳爵（Lord Rayleigh）命名，他在 1880 年研究聲學理論時遇上它：它描述了許多相位隨機的波疊加後的振幅。若一點的兩個坐標是獨立的正態隨機變量（normal random variable），它也給出該點與原點距離的分佈，這是理解它為何在這裏出現的另一個角度（練習 3）。今天，它用來模擬流動電話訊號的衰落，因為訊號是沿着許多相位隨機的路徑到達接收器的。</p>
+</div>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">先求分佈函數</div>
+<p><em>要求最小值、最大值或最近距離的分佈時，<span class="math inline">\(\mathrm{P}(Y &gt; y)\)</span> 往往很容易直接寫出。求導便得到密度函數。</em></p>
+<p>這個方法會在 <a href="../ch12/extremes.html">第 12.25 節</a> 再次出現，用來處理許多隨機壽命中最長的一個。在大學裏，這是處理任何「順序統計量」（order statistic）的標準第一步。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>中位數。</strong>求到最近超級市場的距離的中位數（median），並與平均值比較。</p></li>
+<li><p><strong>第二近的。</strong>求到<em>第二</em>近的超級市場的距離的分佈。（<em>提示：</em><span class="math inline">\(\mathrm{P}(Y_2 &gt; y)\)</span> 是在 <span class="math inline">\(y\)</span> 以內最多只有一間超級市場的概率。）</p></li>
+<li><p><strong>正態坐標。</strong>若 <span class="math inline">\(U\)</span> 和 <span class="math inline">\(V\)</span> 是獨立的 <span class="math inline">\(\mathrm{N}(0, \sigma^2)\)</span> 隨機變量，證明 <span class="math inline">\(\sqrt{U^2 + V^2}\)</span> 的密度函數為 <span class="math inline">\(\frac{r}{\sigma^2}e^{-r^2/(2\sigma^2)}\)</span>。<span class="math inline">\(\sigma\)</span> 取何值時會得到超級市場的分佈？</p></li>
+<li><p><strong>Clark–Evans。</strong>在一項調查中，一片面積 <span class="math inline">\(1\)</span> km<span class="math inline">\(^2\)</span> 的樹林內有 <span class="math inline">\(400\)</span> 棵樹，而一棵樹到其最近鄰的平均距離為 <span class="math inline">\(35\)</span> m。這與完全空間隨機性相符嗎？還是顯示有聚集或間隔的現象？</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Peter Diggle, <a href="https://uk.bookshop.org/search?keywords=Statistical+Analysis+of+Spatial+Point+Patterns+Diggle"><em>Statistical Analysis of Spatial Point Patterns</em></a></strong>（Arnold）。這方面的標準參考書，載有 Clark–Evans 檢驗及其後續發展的方法。</p></li>
+<li><p><strong>John Kingman, <a href="https://uk.bookshop.org/search?keywords=Poisson+Processes+Kingman"><em>Poisson Processes</em></a></strong>（Oxford University Press）。一本優美的短篇著作，討論任意維數的泊松過程。</p></li>
+<li><p><strong>Geoffrey Grimmett &amp; David Stirzaker, <a href="https://uk.bookshop.org/search?keywords=Probability+and+Random+Processes+Grimmett+Stirzaker"><em>Probability and Random Processes</em></a></strong>（Oxford University Press），論泊松過程的一章。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="memoryless.html">← 12.18 無記憶性</a><a class="next" href="buffon.html">→ 12.20 蒲豐投針</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

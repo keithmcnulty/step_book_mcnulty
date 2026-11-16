@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>隨機子集 (STEP III 2019 第 12 題) — Beyond STEP</title>
+<meta name="description" content="STEP III 2019 第 12 題：引導式解答及其背後的大學數學。 完全隨機地選出 \1, 2, ldots, 100\ 的兩個子集（subset）。它們沒有任何共同元素的可能性有多大？直覺也許會告訴你：「相當大：大多數成對的集合都不相同」。事實上，這個概率是 bigl(frac34bigr)^100 ，約為 3 × 10^-13…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/random-subsets.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/random-subsets.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/random-subsets.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/random-subsets.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="隨機子集 (STEP III 2019 第 12 題) — Beyond STEP">
+<meta property="og:description" content="STEP III 2019 第 12 題：引導式解答及其背後的大學數學。 完全隨機地選出 \1, 2, ldots, 100\ 的兩個子集（subset）。它們沒有任何共同元素的可能性有多大？直覺也許會告訴你：「相當大：大多數成對的集合都不相同」。事實上，這個概率是 bigl(frac34bigr)^100 ，約為 3 × 10^-13…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch09/random-subsets.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="隨機子集 (STEP III 2019 第 12 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2019 第 12 題：引導式解答及其背後的大學數學。 完全隨機地選出 \1, 2, ldots, 100\ 的兩個子集（subset）。它們沒有任何共同元素的可能性有多大？直覺也許會告訴你：「相當大：大多數成對的集合都不相同」。事實上，這個概率是 bigl(frac34bigr)^100 ，約為 3 × 10^-13…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "隨機子集", "headline": "隨機子集", "description": "STEP III 2019 第 12 題：引導式解答及其背後的大學數學。 完全隨機地選出 \\1, 2, ldots, 100\\ 的兩個子集（subset）。它們沒有任何共同元素的可能性有多大？直覺也許會告訴你：「相當大：大多數成對的集合都不相同」。事實上，這個概率是 bigl(frac34bigr)^100 ，約為 3 × 10^-13…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/random-subsets.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2019 第 12 題", "計數與機會"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "計數與機會", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 9 章：計數與機會", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/"}, {"@type": "ListItem", "position": 3, "name": "隨機子集", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/random-subsets.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch09/random-subsets.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 9 章 · 計數與機會</a>
+    <div class="src">STEP III · 2019 · 第 12 題</div>
+    <div class="sec-head"><span class="sec-num">9.12</span><h1>隨機子集</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-12-random-subsets.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 9 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP III 2019，第 12 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 OCR 提供下載的 2019 年 STEP 試卷（zip 檔案）內的 STEP III 試卷： <a href="https://www.ocr.org.uk/Images/696590-2019-past-papers.zip">www.ocr.org.uk/Images/696590-2019-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>完全隨機地選出 <span class="math inline">\(\{1, 2, \ldots, 100\}\)</span> 的兩個子集（subset）。它們沒有任何共同元素的可能性有多大？直覺也許會告訴你：「相當大：大多數成對的集合都不相同」。事實上，這個概率是 <span class="math inline">\(\bigl(\frac34\bigr)^{100}\)</span>，約為 <span class="math inline">\(3 \times 10^{-13}\)</span>。隨機集合很大（大約佔全部元素的一半），所以它們幾乎總會重疊。</p>
+<p>這道題很短，當中唯一的想法卻很有威力：不要把集合當作整體來想，而要每次只想一個元素。一個隨機子集不過是 <span class="math inline">\(n\)</span> 次獨立（independent）的擲硬幣，每個元素擲一次；於是，凡是關於隨機子集的問題，都變成關於這些擲硬幣結果的問題。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>怎樣用 <span class="math inline">\(n\)</span> 條是非題的一串答案，來描述 <span class="math inline">\(\{1, \ldots, n\}\)</span> 的一個子集？</p>
+</div>
+<p>對每個元素 <span class="math inline">\(i\)</span>，回答「<span class="math inline">\(i\)</span> 在集合裏嗎？」這條問題。子集決定了答案，答案也決定了子集。每個元素有 <span class="math inline">\(2\)</span> 個選擇，所以一共有 <span class="math inline">\(2^n\)</span> 個子集。均勻隨機（uniformly at random）地選一個子集，就等於獨立地擲一枚公平硬幣來回答每條問題。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-一個元素" class="stage"><span class="stage-n">階段 1</span> 一個元素</h4>
+<p>按照擲硬幣的描述，<span class="math inline">\(\mathrm{P}(1 \in A_1) = \frac12\)</span>。事實上，<span class="math inline">\(2^n\)</span> 個子集中恰好有一半包含 <span class="math inline">\(1\)</span>：把每個不包含 <span class="math inline">\(1\)</span> 的子集，與加入 <span class="math inline">\(1\)</span> 之後所得的子集配成一對即可。</p>
+<h4 id="stagemark2-不相交的集合" class="stage"><span class="stage-n">階段 2</span> 不相交的集合</h4>
+<div class="askyourself">
+<p>要使 <span class="math inline">\(A_1 \cap A_2 = \varnothing\)</span>，每個元素 <span class="math inline">\(i\)</span> 必須滿足甚麼條件？就單一個元素而言，這件事的概率是多少？為甚麼可以把各個元素的概率相乘？</p>
+</div>
+<p><span class="math inline">\(A_1\)</span> 與 <span class="math inline">\(A_2\)</span> 不相交（disjoint），當且僅當沒有元素同時屬於兩者。對單一個元素 <span class="math inline">\(i\)</span> 來說，有四種等可能的情況：兩個集合都不在、只在 <span class="math inline">\(A_1\)</span>、只在 <span class="math inline">\(A_2\)</span>、兩個都在（圖 9.12.1 左）。只有最後一種是禁止的，所以 <span class="math inline">\(i\)</span> 不同時屬於兩者的概率是 <span class="math inline">\(\frac34\)</span>。不同的元素由不同而且獨立的擲硬幣結果決定，所以 <span class="math display">\[\mathrm{P}(A_1 \cap A_2 = \varnothing) = \Bigl(\frac34\Bigr)^n. \qed\]</span> 對三個集合而言，元素 <span class="math inline">\(i\)</span> 同時屬於三者的概率是 <span class="math inline">\(\frac18\)</span>，所以 <span class="math inline">\(\mathrm{P}(A_1 \cap A_2 \cap A_3 = \varnothing) = \bigl(\frac78\bigr)^n\)</span>。一般而言， <span class="math display">\[\mathrm{P}(A_1 \cap \cdots \cap A_m = \varnothing) = \Bigl(1 - \frac{1}{2^m}\Bigr)^n. \qed\]</span></p>
+<h4 id="stagemark3-子集" class="stage"><span class="stage-n">階段 3</span> 子集</h4>
+<div class="askyourself">
+<p>要使 <span class="math inline">\(A_1 \subseteq A_2\)</span>，一個元素的四種情況之中，哪一種是禁止的？</p>
+</div>
+<p><span class="math inline">\(A_1 \subseteq A_2\)</span> 不成立，當且僅當有某個元素在 <span class="math inline">\(A_1\)</span> 裏而不在 <span class="math inline">\(A_2\)</span> 裏。同樣是四種模式中有一種被禁止，所以 <span class="math display">\[\mathrm{P}(A_1 \subseteq A_2) = \Bigl(\frac34\Bigr)^n,\]</span> 與不相交的情況相同。這並非巧合：<span class="math inline">\(A_1 \subseteq A_2\)</span> 當且僅當 <span class="math inline">\(A_1\)</span> 與 <span class="math inline">\(A_2\)</span> 的補集（complement）不相交，而隨機集合的補集也是一個隨機集合。</p>
+<div class="askyourself">
+<p>要使 <span class="math inline">\(A_1 \subseteq A_2 \subseteq A_3\)</span>，一個元素的 <span class="math inline">\(8\)</span> 種歸屬模式（在或不在每個集合裏）之中，哪些是容許的？</p>
+</div>
+<p>沿着 <span class="math inline">\(A_1, A_2, A_3\)</span> 這條鏈（chain）走，一個元素一旦進入，就必須一直留在裏面。所以容許的模式是「不在、不在、不在」、「不在、不在、在」、「不在、在、在」和「在、在、在」：<span class="math inline">\(8\)</span> 種之中的 <span class="math inline">\(4\)</span> 種（圖 9.12.1 右）。因此 <span class="math inline">\(\mathrm{P}(A_1 \subseteq A_2 \subseteq A_3) = \bigl(\frac48\bigr)^n = \bigl(\frac12\bigr)^n\)</span>。</p>
+<p>對於由 <span class="math inline">\(m\)</span> 個集合組成的鏈，一個容許的模式取決於該元素最先進入哪一個集合（<span class="math inline">\(A_1, \ldots, A_m\)</span> 其中之一，或者從不進入），所以 <span class="math inline">\(2^m\)</span> 種模式之中有 <span class="math inline">\(m + 1\)</span> 種是容許的： <span class="math display">\[\mathrm{P}(A_1 \subseteq A_2 \subseteq \cdots \subseteq A_m) = \Bigl(\frac{m + 1}{2^m}\Bigr)^n. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-12-1.svg" alt="圖 9.12.1"><figcaption><span class="fig-label">圖 9.12.1</span> 左：<span class="math inline">\(S\)</span> 的一個元素相對於 <span class="math inline">\(A_1\)</span> 和 <span class="math inline">\(A_2\)</span> 可以處於四個位置之一，每個位置的概率都是 <span class="math inline">\(\frac14\)</span>。不相交這個條件禁止「兩者都在」（琥珀色）；<span class="math inline">\(A_1 \subseteq A_2\)</span> 則禁止「只在 <span class="math inline">\(A_1\)</span>」。右：元素對 <span class="math inline">\(A_1\)</span>、<span class="math inline">\(A_2\)</span>、<span class="math inline">\(A_3\)</span> 的八種歸屬模式（實心圓表示「在」）。鏈 <span class="math inline">\(A_1 \subseteq A_2 \subseteq A_3\)</span> 只容許加了方框的四種模式，即元素一旦進入便一直留在裏面。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>按元素分解。</strong>每個集合層面的條件（不相交、子集、鏈），都是分別加在每個元素上的條件。</p></li>
+<li><p><strong>元素之間互相獨立。</strong>由於各個元素由獨立的擲硬幣結果決定，概率可以相乘。</p></li>
+<li><p><strong>數算模式。</strong>每個答案都是（容許的模式數 <span class="math inline">\(\div\)</span> 全部模式數）<span class="math inline">\(^n\)</span>。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<h3 id="不用概率的計數">不用概率的計數</h3>
+<p>把每個概率乘以選擇的總數，就得到一個計數。滿足 <span class="math inline">\(A_1 \subseteq A_2\)</span> 的有序對 <span class="math inline">\((A_1, A_2)\)</span> 的數目是 <span class="math inline">\(4^n \times \bigl(\frac34\bigr)^n = 3^n\)</span>。你也可以直接數算這些有序對：先選定 <span class="math inline">\(A_2\)</span> 的大小 <span class="math inline">\(k\)</span>，然後以 <span class="math inline">\(\binom nk\)</span> 種方法選出 <span class="math inline">\(A_2\)</span> 本身，再從它的 <span class="math inline">\(2^k\)</span> 個子集中任選一個作為 <span class="math inline">\(A_1\)</span>。所以 <span class="math display">\[\sum_{k=0}^{n}\binom{n}{k}2^k = 3^n,\]</span> 這正是 <span class="math inline">\((1 + 2)^n\)</span> 的二項式定理（binomial theorem）。用兩種方法數算同一樣東西，一次按元素、一次按大小，便證明了一條恆等式：這就是<em>算兩次</em>（double counting）的方法，你在 <a href="../ch07/platonic-solids.html">第 7.9 節</a> 討論柏拉圖立體時已經見過。同樣地，鏈 <span class="math inline">\(A_1 \subseteq \cdots \subseteq A_m\)</span> 的數目是 <span class="math inline">\((m + 1)^n\)</span>。</p>
+<h3 id="子集的格">子集的格</h3>
+<p><span class="math inline">\(\{1, \ldots, n\}\)</span> 的所有子集按包含關係排序，形成一個稱為<em>布爾格</em>（Boolean lattice）的結構，可以把它想像成一個 <span class="math inline">\(n\)</span> 維立方體：每個子集是一個頂點，以它那一串是非題的答案作標記，而沿着一條棱移動，就是加入或移走一個元素。鏈就是向上走的路徑。有些深刻的結果描述了在給定條件下，子集族可以有多大。<em>施佩納定理</em>（Sperner’s theorem，1928 年）指出，在沒有一個集合包含另一個集合的子集族之中，最大的一族有 <span class="math inline">\(\binom{n}{\lfloor n/2\rfloor}\)</span> 個集合；<em>艾狄胥–柯–拉多定理</em>（Erdős–Ko–Rado theorem，1961 年）則說明，最多可以選出多少個 <span class="math inline">\(k\)</span> 元集合，使得任意兩個都有共同元素。兩者都是組合數學（combinatorics）入門課程的標準內容，而把子集看成擲硬幣的觀點，給出了其中一些最漂亮的證明。</p>
+<div class="historybox">
+<div class="box-title">布爾的代數</div>
+<p>布爾（George Boole）的 <em>The Laws of Thought</em>（《思維規律》，1854 年）把邏輯命題當作集合，把「與」、「或」、「非」當作交集、併集和補集。把一個集合編碼成一串是非題的答案，正是電腦表示集合的方法：<span class="math inline">\(\{1, \ldots, 64\}\)</span> 的一個子集就是單獨一個 <span class="math inline">\(64\)</span> 位元的數，而交集就是「逐位元 AND」（bitwise AND）指令。本題的方法，即每次只看一個元素（一個位元），正是分析這類運算的方法。</p>
+</div>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">每次只想一個元素</div>
+<p><em>當對象是由每個元素各自的獨立選擇構成時，一個分別加在每個元素上的條件，其概率等於一個乘積。</em></p>
+<p>這個方法把一個關於 <span class="math inline">\(2^n\)</span> 個子集的問題，變成一個關於 <span class="math inline">\(4\)</span> 種或 <span class="math inline">\(8\)</span> 種模式的問題。到了大學，它會在組合數學（集合與多重集的生成函數（generating functions））、概率論（獨立的坐標）和計算機科學（逐位元的推理）中再次出現。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>覆蓋。</strong>求 <span class="math inline">\(\mathrm{P}(A_1 \cup A_2 = S)\)</span> 和 <span class="math inline">\(\mathrm{P}(A_1 \cup A_2 \cup \cdots \cup A_m = S)\)</span>。</p></li>
+<li><p><strong>大小相同。</strong>證明 <span class="math inline">\(\mathrm{P}(|A_1| = |A_2|) = \binom{2n}{n}\big/4^n\)</span>。（<em>提示：</em><span class="math inline">\(|A_1| = |A_2|\)</span> 當且僅當 <span class="math inline">\(|A_1| + |S \setminus A_2| = n\)</span>。）證明當 <span class="math inline">\(n\)</span> 很大時，這個概率約為 <span class="math inline">\(1/\sqrt{\pi n}\)</span>。</p></li>
+<li><p><strong>分成三份。</strong>證明 <span class="math inline">\(S\)</span> 的不相交子集所組成的有序對 <span class="math inline">\((A, B)\)</span> 的數目是 <span class="math inline">\(3^n\)</span>，並求由不相交子集所組成的無序對 <span class="math inline">\(\{A, B\}\)</span> 的數目。</p></li>
+<li><p><strong>小 <span class="math inline">\(n\)</span> 的施佩納定理。</strong>對 <span class="math inline">\(n = 3\)</span> 和 <span class="math inline">\(n = 4\)</span>，求 <span class="math inline">\(\{1, \ldots, n\}\)</span> 的子集族中，沒有一個集合包含另一個集合的最大一族。</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Miklós Bóna, <a href="https://uk.bookshop.org/search?keywords=A+Walk+Through+Combinatorics+Bona"><em>A Walk Through Combinatorics</em></a></strong>（World Scientific），其中關於子集和偏序集（partially ordered sets）的章節。</p></li>
+<li><p><strong>Béla Bollobás, <a href="https://uk.bookshop.org/search?keywords=Combinatorics%3A+Set+Systems%2C+Hypergraphs%2C+Families+of+Vectors+and+Combinatorial+Probability+Bollobas"><em>Combinatorics: Set Systems, Hypergraphs, Families of Vectors and Combinatorial Probability</em></a></strong>（Cambridge University Press）。一本簡短而優雅的書，講述子集族，由施佩納定理說起。</p></li>
+<li><p><strong>Peter Cameron, <a href="https://uk.bookshop.org/search?keywords=Combinatorics%3A+Topics%2C+Techniques%2C+Algorithms+Cameron"><em>Combinatorics: Topics, Techniques, Algorithms</em></a></strong>（Cambridge University Press）。一門入門課程，特別着重用兩種方法計數。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="coupon-collector.html">← 9.11 集齊一套</a><a class="next" href="loaded-dice.html">→ 9.13 做了手腳的骰子</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

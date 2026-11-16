@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>最小反例 (STEP III 2015 第 5 題) — Beyond STEP</title>
+<meta name="description" content="STEP III 2015 第 5 題：引導式解答及其背後的大學數學。 你大概見過 sqrt2 是無理數（irrational）的證明：假設 sqrt2 = a/b 為最簡分數（lowest terms），兩邊平方，推出 a 是偶數，繼而推出 b 也是偶數，於是得出矛盾（contradiction）。這是個漂亮的證明，但它依賴一個關於 偶數 的技巧，而這個技巧看不出可以怎樣推廣。換成…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/well-ordering.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/well-ordering.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/well-ordering.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/well-ordering.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="最小反例 (STEP III 2015 第 5 題) — Beyond STEP">
+<meta property="og:description" content="STEP III 2015 第 5 題：引導式解答及其背後的大學數學。 你大概見過 sqrt2 是無理數（irrational）的證明：假設 sqrt2 = a/b 為最簡分數（lowest terms），兩邊平方，推出 a 是偶數，繼而推出 b 也是偶數，於是得出矛盾（contradiction）。這是個漂亮的證明，但它依賴一個關於 偶數 的技巧，而這個技巧看不出可以怎樣推廣。換成…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch01/well-ordering.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="最小反例 (STEP III 2015 第 5 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2015 第 5 題：引導式解答及其背後的大學數學。 你大概見過 sqrt2 是無理數（irrational）的證明：假設 sqrt2 = a/b 為最簡分數（lowest terms），兩邊平方，推出 a 是偶數，繼而推出 b 也是偶數，於是得出矛盾（contradiction）。這是個漂亮的證明，但它依賴一個關於 偶數 的技巧，而這個技巧看不出可以怎樣推廣。換成…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "最小反例", "headline": "最小反例", "description": "STEP III 2015 第 5 題：引導式解答及其背後的大學數學。 你大概見過 sqrt2 是無理數（irrational）的證明：假設 sqrt2 = a/b 為最簡分數（lowest terms），兩邊平方，推出 a 是偶數，繼而推出 b 也是偶數，於是得出矛盾（contradiction）。這是個漂亮的證明，但它依賴一個關於 偶數 的技巧，而這個技巧看不出可以怎樣推廣。換成…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/well-ordering.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2015 第 5 題", "數論與證明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "數論與證明", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 1 章：數論與證明", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/"}, {"@type": "ListItem", "position": 3, "name": "最小反例", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/well-ordering.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch01/well-ordering.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 1 章 · 數論與證明</a>
+    <div class="src">STEP III · 2015 · 第 5 題</div>
+    <div class="sec-head"><span class="sec-num">1.3</span><h1>最小反例</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-3-well-ordering.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 1 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP III 2015，第 5 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/15-s3-q5">step.maths.org/questions/15-s3-q5</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>你大概見過 <span class="math inline">\(\sqrt2\)</span> 是無理數（irrational）的證明：假設 <span class="math inline">\(\sqrt2 = a/b\)</span> 為最簡分數（lowest terms），兩邊平方，推出 <span class="math inline">\(a\)</span> 是偶數，繼而推出 <span class="math inline">\(b\)</span> 也是偶數，於是得出矛盾（contradiction）。這是個漂亮的證明，但它依賴一個關於<em>偶數</em>的技巧，而這個技巧看不出可以怎樣推廣。換成 <span class="math inline">\(\sqrt[3]{2}\)</span> 又如何？<span class="math inline">\(\sqrt{7}\)</span> 呢？</p>
+<p>本題給出另一個證明，它的核心想法簡單得近乎荒謬：<em>看看最小的那一個</em>。在本章裏，同一個想法還會改頭換面地出現好幾次。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<p>這是一道不尋常的 STEP 題目：它給你一個證明的骨架，要你補上當中欠缺的理據。大學生正是這樣學習閱讀數學的。課本裏的證明常常說「顯然」或「由此可得」，而你的部分工作，就是查證事實是否真的如此。</p>
+<div class="askyourself">
+<p>第 4 步說「定義 <span class="math inline">\(k\)</span> 為 <span class="math inline">\(S\)</span> 中最小的正整數」。我們憑甚麼可以這樣做？假如 <span class="math inline">\(S\)</span> 是一個由正<em>實</em>數組成的集合，這樣做還可以嗎？</p>
+</div>
+<p>任何由正整數組成的非空集合都有最小元素。這稱為<em>良序原理</em>（well-ordering principle），它與數學歸納法（mathematical induction）原理等價。對於由正實數組成的集合，這個原理<em>並不成立</em>：集合 <span class="math inline">\(\{x : x &gt; 0\}\)</span> 就沒有最小元素。所以第 4 步既依賴第 3 步（集合必須非空），也依賴 <span class="math inline">\(S\)</span> 由整數組成這一點。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-第-3-步s-非空" class="stage"><span class="stage-n">階段 1</span> 第 3 步：<span class="math inline">\(S\)</span> 非空</h4>
+<div class="askyourself">
+<p>若 <span class="math inline">\(\sqrt2 = a/b\)</span>，其中 <span class="math inline">\(a\)</span> 和 <span class="math inline">\(b\)</span> 是正整數，你能寫出 <span class="math inline">\(S\)</span> 的一個元素嗎？</p>
+</div>
+<p>若 <span class="math inline">\(\sqrt2 = a/b\)</span>，則 <span class="math inline">\(b\sqrt2 = a\)</span>，是一個整數。所以 <span class="math inline">\(b\)</span> 屬於 <span class="math inline">\(S\)</span>，<span class="math inline">\(S\)</span> 非空。</p>
+<h4 id="stagemark2-第-5-步一個更小的元素" class="stage"><span class="stage-n">階段 2</span> 第 5 步：一個更小的元素</h4>
+<p>現在 <span class="math inline">\(k\)</span> 是 <span class="math inline">\(S\)</span> 的最小元素，所以 <span class="math inline">\(k\sqrt2\)</span> 是整數，記為 <span class="math inline">\(j\)</span>。</p>
+<div class="pausebox">
+<p>要證明 <span class="math inline">\((\sqrt2 - 1)k\)</span> 屬於 <span class="math inline">\(S\)</span>，你必須檢查三件事。是哪三件？</p>
+</div>
+<p>我們需要 <span class="math inline">\((\sqrt2-1)k\)</span> 滿足：(a) 是整數；(b) 是正數；(c) 乘以 <span class="math inline">\(\sqrt2\)</span> 後得到整數。</p>
+<ul>
+<li><p>(a) <span class="math inline">\((\sqrt2 - 1)k = k\sqrt2 - k = j - k\)</span>，是兩個整數之差。</p></li>
+<li><p>(b) <span class="math inline">\(\sqrt2 &gt; 1\)</span>，所以 <span class="math inline">\(\sqrt2 - 1 &gt; 0\)</span>，因此 <span class="math inline">\((\sqrt2-1)k &gt; 0\)</span>。</p></li>
+<li><p>(c) <span class="math inline">\((\sqrt2-1)k \cdot \sqrt2 = 2k - k\sqrt2 = 2k - j\)</span>，是整數。</p></li>
+</ul>
+<p>所以 <span class="math inline">\((\sqrt2 - 1)k \in S\)</span>。</p>
+<h4 id="stagemark3-第-6-步矛盾" class="stage"><span class="stage-n">階段 3</span> 第 6 步：矛盾</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\sqrt2 - 1\)</span> 有多大？</p>
+</div>
+<p>由於 <span class="math inline">\(1 &lt; \sqrt2 &lt; 2\)</span>，我們有 <span class="math inline">\(0 &lt; \sqrt2 - 1 &lt; 1\)</span>，所以 <span class="math inline">\((\sqrt2 - 1)k &lt; k\)</span>。我們找到了 <span class="math inline">\(S\)</span> 的一個元素，它比 <span class="math inline">\(S\)</span> 的最小元素 <span class="math inline">\(k\)</span> 還要小。這是不可能的，所以第 1 步的假設不成立：<span class="math inline">\(\sqrt2\)</span> 是無理數。<span class="qed" aria-label="end of proof">■</span></p>
+<p>留意我們從頭到尾都不需要「最簡分數」，也不需要任何關於奇偶數的事實。整個證明只建基於三個事實：<span class="math inline">\(\sqrt2 \cdot \sqrt2\)</span> 是整數；<span class="math inline">\(\sqrt2\)</span> 嚴格地介乎兩個連續整數之間；整數具有良序性。</p>
+<h4 id="stagemark4-立方根把兩個數聯繫起來" class="stage"><span class="stage-n">階段 4</span> 立方根：把兩個數聯繫起來</h4>
+<p>設 <span class="math inline">\(c = 2^{1/3}\)</span>，則 <span class="math inline">\(c^2 = 2^{2/3}\)</span> 且 <span class="math inline">\(c^3 = 2\)</span>。</p>
+<div class="askyourself">
+<p>若 <span class="math inline">\(c\)</span> 是有理數（rational），<span class="math inline">\(c^2\)</span> 是否也是？反過來，若 <span class="math inline">\(c^2\)</span> 是有理數，你能否只用乘法和除法回到 <span class="math inline">\(c\)</span>？</p>
+</div>
+<p>若 <span class="math inline">\(c\)</span> 是有理數，則 <span class="math inline">\(c^2 = c \times c\)</span> 也是有理數。反之，若 <span class="math inline">\(c^2\)</span> 是有理數，則 <span class="math inline">\(2 / c^2 = c^3 / c^2 = c\)</span> 也是有理數。所以 <span class="math inline">\(2^{1/3}\)</span> 是有理數，當且僅當 <span class="math inline">\(2^{2/3}\)</span> 是有理數。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark5-改造論證" class="stage"><span class="stage-n">階段 5</span> 改造論證</h4>
+<div class="askyourself">
+<p>在第 (i) 部分，關鍵在於 <span class="math inline">\((\sqrt2)^2 = 2\)</span> 是整數，所以把 <span class="math inline">\(S\)</span> 的元素乘以 <span class="math inline">\(\sqrt2\)</span> 兩次，就會回到整數。對於 <span class="math inline">\(c = 2^{1/3}\)</span>，你需要乘<em>三</em>次。集合 <span class="math inline">\(S\)</span> 應該怎樣修改？</p>
+</div>
+<p>假設 <span class="math inline">\(c\)</span> 是有理數，則 <span class="math inline">\(c^2\)</span> 也是。定義 <span class="math display">\[S = \{ n \text{ 為正整數} : nc \text{ 和 } nc^2 \text{ 都是整數} \}.\]</span></p>
+<ul>
+<li><p><strong><span class="math inline">\(S\)</span> 非空。</strong>若 <span class="math inline">\(c = a/b\)</span> 且 <span class="math inline">\(c^2 = a&#39;/b&#39;\)</span>，則 <span class="math inline">\(bb&#39;\)</span> 屬於 <span class="math inline">\(S\)</span>。</p></li>
+<li><p><strong>設 <span class="math inline">\(k\)</span> 為它的最小元素</strong>，並考慮 <span class="math inline">\((c - 1)k\)</span>。我們有 <span class="math inline">\(1 &lt; c &lt; 2\)</span>（因為 <span class="math inline">\(1^3 &lt; 2 &lt; 2^3\)</span>），所以 <span class="math inline">\(0 &lt; (c-1)k &lt; k\)</span>。</p></li>
+<li><p><strong>它是整數：</strong><span class="math inline">\((c-1)k = kc - k\)</span>。</p></li>
+<li><p><strong>乘以 <span class="math inline">\(c\)</span>：</strong><span class="math inline">\((c-1)k \cdot c = kc^2 - kc\)</span>，是整數。</p></li>
+<li><p><strong>乘以 <span class="math inline">\(c^2\)</span>：</strong><span class="math inline">\((c-1)k \cdot c^2 = kc^3 - kc^2 = 2k - kc^2\)</span>，是整數。</p></li>
+</ul>
+<p>所以 <span class="math inline">\((c-1)k \in S\)</span>，而且比 <span class="math inline">\(k\)</span> 小：矛盾。因此 <span class="math inline">\(2^{1/3}\)</span> 是無理數，而根據第 4 階段，<span class="math inline">\(2^{2/3}\)</span> 也是無理數。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>「取最小的那一個」是一種證明技巧。</strong>假設反例存在，取其中最小的一個，再由它造出一個更小的。這稱為<em>極端原理</em>（extremal principle），或稱<em>最小反例</em>（minimal counterexample）論證。</p></li>
+<li><p><strong>集合 <span class="math inline">\(S\)</span> 替我們記帳。</strong>我們不必周旋於分子和分母之間，而是把所有「好」的乘數收進同一個集合。</p></li>
+<li><p><strong>推廣，就是追問證明真正行得通的原因。</strong>對於 <span class="math inline">\(\sqrt2\)</span>，需要乘以 <span class="math inline">\(\sqrt2\)</span> 一次；對於 <span class="math inline">\(\sqrt[3]{2}\)</span>，則需要乘兩次。看出這一點，我們就清楚知道該怎樣重新定義 <span class="math inline">\(S\)</span>。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">一個畫得出來的證明</div>
+<p>第 (i) 部分背後有一幅優美的圖，出自 Stanley Tennenbaum。若 <span class="math inline">\(\sqrt2 = a/b\)</span>，則 <span class="math inline">\(a^2 = 2b^2\)</span>：一個邊長為 <span class="math inline">\(a\)</span> 的正方形，面積等於兩個邊長為 <span class="math inline">\(b\)</span> 的正方形面積之和。如圖 1.3.1 所示，把兩個邊長為 <span class="math inline">\(b\)</span> 的正方形放在邊長為 <span class="math inline">\(a\)</span> 的正方形的兩個對角。它們重疊之處是一個小正方形，另外還有兩個小正方形沒有被蓋住。由於面積相等，重疊部分必定等於兩個未被蓋住的正方形之和，於是得到一對<em>更小</em>而具有同樣性質的整數。整數對不可能無止境地愈變愈小，所以這樣的正方形並不存在。這對較小的整數正是 <span class="math inline">\((2b - a,\; a - b)\)</span>，也就是我們那一步 <span class="math inline">\((\sqrt2 - 1)k\)</span> 的化身。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-1-3-1.svg" alt="圖 1.3.1"><figcaption><span class="fig-label">圖 1.3.1</span> Tennenbaum 的證明。兩個邊長為 <span class="math inline">\(b\)</span> 的正方形（藍綠色）放在邊長為 <span class="math inline">\(a\)</span> 的正方形的兩個對角。若 <span class="math inline">\(a^2 = 2b^2\)</span>，則被計算了兩次的面積（紫紅色的重疊部分）必定等於沒有計算到的面積（兩個琥珀色的角落），所以 <span class="math inline">\((2b-a)^2 = 2(a-b)^2\)</span>：一個更小的解。</figcaption></figure>
+<h3 id="良序歸納與遞降">良序、歸納與遞降</h3>
+<p>良序原理與歸納法原理在邏輯上等價：兩者可以互相推導。到了大學，你會看到兩者都被用作自然數的基礎。在 <a href="../ch01/infinite-descent.html">第 1.5 節</a> 中，我們會以另一種形式運用同一個原理，那就是費馬（Fermat）的<em>無窮遞降法</em>（method of infinite descent）：不存在由正整數組成的無窮嚴格遞減數列。</p>
+<h3 id="它能走多遠">它能走多遠？</h3>
+<p>這個論證可以證明，只要 <span class="math inline">\(N\)</span> 不是完全平方數（perfect square），<span class="math inline">\(\sqrt N\)</span> 就是無理數（見練習）；更一般地，一個整數的 <span class="math inline">\(n\)</span> 次方根要麼是整數，要麼是無理數。到了大學，這會變成一個關於<em>代數整數</em>（algebraic integers）的命題：若一個有理數滿足某個整數係數的首一多項式（monic polynomial）方程，例如 <span class="math inline">\(x^3 - 2 = 0\)</span>，它就必定是整數。你會在 <a href="../ch06/field-extensions.html">第 6.3 節</a> 再次遇到這個想法。</p>
+<p>相傳畢達哥拉斯學派（Pythagoreans）因為希帕索斯（Hippasus）洩露了 <span class="math inline">\(\sqrt2\)</span> 是無理數而把他淹死，這個傳說多半並不屬實。屬實的是，這個發現迫使希臘數學家把對數的研究與對長度的研究分開；這道裂痕要等到十九世紀，待戴德金（Dedekind）構造出實數，才得以彌合。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">極端原理</div>
+<p><em>如果你想證明某件事永遠不會發生，就假設它會發生，選出最小（或最大、或最簡單）的例子，再用它造出一個更小的例子。</em></p>
+<p>決定「最小」是甚麼意思，正是需要創意的一步。在這裏，它是使 <span class="math inline">\(n\sqrt2\)</span> 成為整數的最小的 <span class="math inline">\(n\)</span>。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>其他平方根。</strong>改造這個論證，證明 <span class="math inline">\(\sqrt3\)</span> 是無理數。哪一個數擔當了 <span class="math inline">\(\sqrt2 - 1\)</span> 的角色？</p></li>
+<li><p><strong>所有非平方數。</strong>設 <span class="math inline">\(N\)</span> 為一個不是完全平方數的正整數，並設 <span class="math inline">\(m\)</span> 為滿足 <span class="math inline">\(m &lt; \sqrt N &lt; m+1\)</span> 的整數。考慮 <span class="math inline">\((\sqrt N - m)k\)</span>，從而證明 <span class="math inline">\(\sqrt N\)</span> 是無理數。</p></li>
+<li><p><strong>找出漏洞。</strong>試把這個論證套用於 <span class="math inline">\(\sqrt 4\)</span>。究竟是哪一步行不通？</p></li>
+<li><p><strong>Tennenbaum 的圖。</strong>利用圖 1.3.1 證明：若 <span class="math inline">\(a^2 = 2b^2\)</span>，則 <span class="math inline">\((2b-a)^2 = 2(a-b)^2\)</span>。再用代數方法驗證這個恆等式。</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Daniel Velleman, <a href="https://uk.bookshop.org/search?keywords=How+to+Prove+It+Velleman"><em>How to Prove It</em></a></strong>（Cambridge University Press）。一本全面的證明入門書，內容包括歸納法和良序原理。</p></li>
+<li><p><strong>R. P. Burn, <a href="https://uk.bookshop.org/search?keywords=A+Pathway+into+Number+Theory+Burn"><em>A Pathway into Number Theory</em></a></strong>（Cambridge University Press）。全書由精心編排次序的問題組成，是修讀大學一年級課程前的理想準備。</p></li>
+<li><p><strong>John Conway &amp; Joseph Shipman, “<a href="https://doi.org/10.1007/s00283-013-9373-9">Extreme proofs I: the irrationality of <span class="math inline">\(\sqrt2\)</span></a>”</strong>（<em>Mathematical Intelligencer</em>，2013）。同一個事實的多個證明，比較得妙趣橫生。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="prime-distribution.html">← 1.2 質數分佈得有多稀疏？</a><a class="next" href="e-irrational.html">→ 1.4 e 是無理數，e² 也是</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

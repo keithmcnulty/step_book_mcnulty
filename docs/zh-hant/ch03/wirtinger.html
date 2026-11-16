@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>π² ≤ 10 (STEP II 2014 第 2 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 2014 第 2 題：引導式解答及其背後的大學數學。 每個中學生都知道 π 比 3 大一點。但你會怎樣 證明 它的一個上界（upper bound）呢？阿基米德（Archimedes）用的是多邊形。這道題的做法卻完全出人意表：取一條關於函數的一般不等式，代入一條簡單的拋物線（parabola），便直接讀出 π^2 ≤ 10 。換另一個函數，更可得出著名的近似值 π ≤…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/wirtinger.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/wirtinger.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch03/wirtinger.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch03/wirtinger.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="π² ≤ 10 (STEP II 2014 第 2 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 2014 第 2 題：引導式解答及其背後的大學數學。 每個中學生都知道 π 比 3 大一點。但你會怎樣 證明 它的一個上界（upper bound）呢？阿基米德（Archimedes）用的是多邊形。這道題的做法卻完全出人意表：取一條關於函數的一般不等式，代入一條簡單的拋物線（parabola），便直接讀出 π^2 ≤ 10 。換另一個函數，更可得出著名的近似值 π ≤…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch03/wirtinger.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="π² ≤ 10 (STEP II 2014 第 2 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2014 第 2 題：引導式解答及其背後的大學數學。 每個中學生都知道 π 比 3 大一點。但你會怎樣 證明 它的一個上界（upper bound）呢？阿基米德（Archimedes）用的是多邊形。這道題的做法卻完全出人意表：取一條關於函數的一般不等式，代入一條簡單的拋物線（parabola），便直接讀出 π^2 ≤ 10 。換另一個函數，更可得出著名的近似值 π ≤…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "π^2 ≤ 10", "headline": "π^2 ≤ 10", "description": "STEP II 2014 第 2 題：引導式解答及其背後的大學數學。 每個中學生都知道 π 比 3 大一點。但你會怎樣 證明 它的一個上界（upper bound）呢？阿基米德（Archimedes）用的是多邊形。這道題的做法卻完全出人意表：取一條關於函數的一般不等式，代入一條簡單的拋物線（parabola），便直接讀出 π^2 ≤ 10 。換另一個函數，更可得出著名的近似值 π ≤…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch03/wirtinger.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2014 第 2 題", "函數、不等式與嚴謹"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 3, "name": "函數、不等式與嚴謹", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch03/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 3 章：函數、不等式與嚴謹", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch03/"}, {"@type": "ListItem", "position": 3, "name": "π^2 ≤ 10", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch03/wirtinger.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch03/wirtinger.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 3 章 · 函數、不等式與嚴謹</a>
+    <div class="src">STEP II · 2014 · 第 2 題</div>
+    <div class="sec-head"><span class="sec-num">3.7</span><h1>\(\pi^2 \leq 10\)</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-7-wirtinger.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 3 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 2014，第 2 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/14-s2-q2">step.maths.org/questions/14-s2-q2</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>每個中學生都知道 <span class="math inline">\(\pi\)</span> 比 <span class="math inline">\(3\)</span> 大一點。但你會怎樣<em>證明</em>它的一個上界（upper bound）呢？阿基米德（Archimedes）用的是多邊形。這道題的做法卻完全出人意表：取一條關於函數的一般不等式，代入一條簡單的拋物線（parabola），便直接讀出 <span class="math inline">\(\pi^2 \leq 10\)</span>。換另一個函數，更可得出著名的近似值 <span class="math inline">\(\pi \leq \frac{22}{7}\)</span>。</p>
+<p>不等式 <span class="math inline">\((*)\)</span> 稱為<em>Wirtinger 不等式</em>（Wirtinger’s inequality）。它說的是：一個兩端都固定為零的函數，不可能只「大」而不「陡」。它的背後是數學物理中最核心的思想之一：弦的振動、量子粒子的能級，以及特徵值（eigenvalue）理論。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>一個在 <span class="math inline">\([0, \pi]\)</span> 兩端都為零的函數，如果在中間取值很大，為甚麼就必須很陡？條件 <span class="math inline">\(\mathrm{f}(0) = \mathrm{f}(\pi) = 0\)</span> 為甚麼重要？</p>
+</div>
+<p>要在長度為 <span class="math inline">\(\pi\)</span> 的距離之內，由 <span class="math inline">\(0\)</span> 升到某個高度 <span class="math inline">\(H\)</span> 再降回 <span class="math inline">\(0\)</span>，函數上升的平均速率至少要有 <span class="math inline">\(H/(\pi/2)\)</span>。因此它的導數（derivative）不可能處處都小。若沒有兩端的條件，就沒有這種限制：常數函數可以任意大，而導數為零。不等式 <span class="math inline">\((*)\)</span> 把這個想法精確化，以平方的積分（integral）來量度「大小」和「陡峭程度」。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-正弦波" class="stage"><span class="stage-n">階段 1</span> 正弦波</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\int_0^\pi \sin^2 nx\,\mathrm{d}x\)</span> 等於甚麼？<span class="math inline">\(\int_0^\pi \cos^2 nx\,\mathrm{d}x\)</span> 呢？（利用 <span class="math inline">\(\sin^2\theta = \frac12(1 - \cos 2\theta)\)</span>。）</p>
+</div>
+<p>兩者都等於 <span class="math inline">\(\frac\pi2\)</span>，因為 <span class="math inline">\(\int_0^\pi \cos 2nx\,\mathrm{d}x = 0\)</span>。取 <span class="math inline">\(\mathrm{f}(x) = \sin nx\)</span>，則 <span class="math inline">\(\mathrm{f}&#39;(x) = n\cos nx\)</span>，所以 <span class="math display">\[\int_0^\pi \mathrm{f}^2 = \frac\pi2 \leq \frac{n^2\pi}{2} = \int_0^\pi (\mathrm{f}&#39;)^2,\]</span> 因為 <span class="math inline">\(n \geq 1\)</span>。<span class="qed" aria-label="end of proof">■</span> 留意 <span class="math inline">\(n = 1\)</span> 時等號成立，所以這條不等式已經緊得不能再緊。</p>
+<h4 id="stagemark2-端點條件不可或缺" class="stage"><span class="stage-n">階段 2</span> 端點條件不可或缺</h4>
+<div class="askyourself">
+<p>找一個簡單的函數，滿足 <span class="math inline">\(\mathrm{f}(0) \neq 0\)</span>，而 <span class="math inline">\((*)\)</span> 對它不成立。然後再找一個滿足 <span class="math inline">\(\mathrm{f}(0) = 0\)</span> 但 <span class="math inline">\(\mathrm{f}(\pi) \neq 0\)</span> 的。</p>
+</div>
+<p>常數函數 <span class="math inline">\(\mathrm{f}(x) = 1\)</span> 有 <span class="math inline">\(\mathrm{f}(0) = 1 \neq 0\)</span>，而且 <span class="math inline">\(\int_0^\pi 1\,\mathrm{d}x = \pi &gt; 0 = \int_0^\pi 0\,\mathrm{d}x\)</span>。</p>
+<p>至於第二個，<span class="math inline">\(\mathrm{f}(x) = x\)</span> 有 <span class="math inline">\(\mathrm{f}(0) = 0\)</span> 但 <span class="math inline">\(\mathrm{f}(\pi) = \pi\)</span>，而且 <span class="math display">\[\int_0^\pi x^2\,\mathrm{d}x = \frac{\pi^3}{3} \approx 10.3 &gt; \pi = \int_0^\pi 1^2\,\mathrm{d}x.\]</span> 所以 <span class="math inline">\((*)\)</span> 在兩種情況下都不成立。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-拋物線" class="stage"><span class="stage-n">階段 3</span> 拋物線</h4>
+<div class="askyourself">
+<p>哪個二次函數在 <span class="math inline">\(x = 0\)</span> 和 <span class="math inline">\(x = \pi\)</span> 處都等於零？（若不計常數倍，就只有一個。為甚麼這個倍數無關緊要？）</p>
+</div>
+<p>這個二次函數必定是 <span class="math inline">\(x(\pi - x)\)</span> 的倍數，而把 <span class="math inline">\(\mathrm{f}\)</span> 乘以常數 <span class="math inline">\(k\)</span>，<span class="math inline">\((*)\)</span> 的兩邊都會乘以 <span class="math inline">\(k^2\)</span>，所以我們可以取 <span class="math inline">\(\mathrm{f}(x) = x(\pi - x)\)</span>，即 <span class="math inline">\(a = -1\)</span>、<span class="math inline">\(b = \pi\)</span>、<span class="math inline">\(c = 0\)</span>。於是 <span class="math inline">\(\mathrm{f}&#39;(x) = \pi - 2x\)</span>，再用代換（substitution）<span class="math inline">\(u = x - \frac\pi2\)</span>（這樣兩個被積函數都變成偶函數）， <span class="math display">\[\begin{aligned}
+  \int_0^\pi x^2(\pi - x)^2\,\mathrm{d}x &amp;= \int_{-\pi/2}^{\pi/2} \left( \frac{\pi^2}{4} - u^2 \right)^2 \mathrm{d}u = \frac{\pi^5}{30}, \\
+  \int_0^\pi (\pi - 2x)^2\,\mathrm{d}x &amp;= \int_{-\pi/2}^{\pi/2} 4u^2\,\mathrm{d}u = \frac{\pi^3}{3}.
+\end{aligned}\]</span> （第一個積分：<span class="math inline">\(\int_{-h}^{h}(h^2 - u^2)^2\,\mathrm{d}u = 2\bigl(h^5 - \frac23 h^5 + \frac15 h^5\bigr) = \frac{16}{15}h^5\)</span>，其中 <span class="math inline">\(h = \frac\pi2\)</span>。）所以 <span class="math inline">\((*)\)</span> 給出 <span class="math inline">\(\frac{\pi^5}{30} \leq \frac{\pi^3}{3}\)</span>，即 <span class="math display">\[\pi^2 \leq 10. \qed\]</span></p>
+<h4 id="stagemark4-三角函數的選擇" class="stage"><span class="stage-n">階段 4</span> 三角函數的選擇</h4>
+<div class="askyourself">
+<p>對於 <span class="math inline">\(\mathrm{f}(x) = p\sin\frac12 x + q\cos\frac12 x + r\)</span>，<span class="math inline">\(\mathrm{f}(0) = 0\)</span> 和 <span class="math inline">\(\mathrm{f}(\pi) = 0\)</span> 對 <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span>、<span class="math inline">\(r\)</span> 施加了甚麼條件？</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(0) = q + r = 0\)</span> 及 <span class="math inline">\(\mathrm{f}(\pi) = p + r = 0\)</span>。所以 <span class="math inline">\(p = q = -r\)</span>，經縮放後，我們取 <span class="math inline">\(\mathrm{f}(x) = \sin\frac x2 + \cos\frac x2 - 1\)</span>。</p>
+<div class="pausebox">
+<p>對這個函數計算 <span class="math inline">\(\int_0^\pi \mathrm{f}^2\)</span> 和 <span class="math inline">\(\int_0^\pi (\mathrm{f}&#39;)^2\)</span>。由此得出關於 <span class="math inline">\(\pi\)</span> 的甚麼不等式？</p>
+</div>
+<p>記 <span class="math inline">\(s = \sin\frac x2\)</span> 及 <span class="math inline">\(c = \cos\frac x2\)</span>。則 <span class="math inline">\((s + c)^2 = 1 + 2sc = 1 + \sin x\)</span>，所以 <span class="math display">\[\mathrm{f}^2 = (s + c)^2 - 2(s + c) + 1 = 2 + \sin x - 2\sin\tfrac x2 - 2\cos\tfrac x2.\]</span> 利用 <span class="math inline">\(\int_0^\pi \sin x = 2\)</span>、<span class="math inline">\(\int_0^\pi \sin\frac x2 = 2\)</span> 及 <span class="math inline">\(\int_0^\pi \cos\frac x2 = 2\)</span>， <span class="math display">\[\int_0^\pi \mathrm{f}^2\,\mathrm{d}x = 2\pi + 2 - 4 - 4 = 2\pi - 6.\]</span> 另外 <span class="math inline">\(\mathrm{f}&#39; = \frac12(c - s)\)</span>，所以 <span class="math inline">\((\mathrm{f}&#39;)^2 = \frac14(1 - \sin x)\)</span>，而 <span class="math inline">\(\int_0^\pi (\mathrm{f}&#39;)^2\,\mathrm{d}x = \frac14(\pi - 2)\)</span>。於是 <span class="math inline">\((*)\)</span> 給出 <span class="math display">\[2\pi - 6 \leq \frac{\pi - 2}{4} \quad\Longrightarrow\quad 8\pi - 24 \leq \pi - 2 \quad\Longrightarrow\quad \pi \leq \frac{22}{7}. \qed\]</span></p>
+<h4 id="stagemark5-哪個較好" class="stage"><span class="stage-n">階段 5</span> 哪個較好？</h4>
+<p>由 <span class="math inline">\(\pi \leq \frac{22}{7}\)</span> 可得 <span class="math inline">\(\pi^2 \leq \frac{484}{49} \approx 9.878\)</span>，比 <span class="math inline">\(\pi^2 \leq 10\)</span> 更好。（真實值是 <span class="math inline">\(\pi^2 \approx 9.870\)</span>。）留意這裏證明的是 <span class="math inline">\(\frac{22}{7}\)</span> 為 <span class="math inline">\(\pi\)</span> 的一個<em>上</em>界；而 <a href="../ch04/twenty-two-sevenths.html">第 4.3 節</a> 中一個截然不同的積分，則證明它並不等於 <span class="math inline">\(\pi\)</span>。</p>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>一般的不等式，特定的函數。</strong>選定一個測試函數（test function），就把一個關於所有函數的命題，變成一個關於某個數的命題。</p></li>
+<li><p><strong>縮放。</strong><span class="math inline">\((*)\)</span> 的兩邊按同一個因子縮放，所以在每一族函數中，我們都可以把那個自由常數固定下來。</p></li>
+<li><p><strong>測試函數愈好，界愈好。</strong>測試函數愈接近極端情況 <span class="math inline">\(\sin x\)</span>，不等式就愈接近等式，估計也就愈準確（圖 3.7.1）。</p></li>
+</ul>
+<figure class="stepfig"><img src="../assets/fig/fig-3-7-1.svg" alt="圖 3.7.1"><figcaption><span class="fig-label">圖 3.7.1</span> 本節的三個函數，各自縮放至最大值為 <span class="math inline">\(1\)</span>：極端情況 <span class="math inline">\(\sin x\)</span>（實線），它令 <span class="math inline">\((*)\)</span> 的等號成立；拋物線 <span class="math inline">\(x(\pi - x)\)</span>（虛線），它給出 <span class="math inline">\(\pi^2 \leq 10\)</span>；以及 <span class="math inline">\(\sin\frac x2 + \cos\frac x2 - 1\)</span>（點線），它給出 <span class="math inline">\(\pi \leq \frac{22}{7}\)</span>。兩個測試函數都非常接近 <span class="math inline">\(\sin x\)</span>，所以得出的界才這樣好。</figcaption></figure>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">用傅立葉級數的證明</div>
+<p>為甚麼 <span class="math inline">\((*)\)</span> 成立？到了大學你會學到，<span class="math inline">\([0, \pi]\)</span> 上任何在兩端都為零的合理函數，都可以寫成<em>傅立葉正弦級數</em>（Fourier sine series）： <span class="math display">\[\mathrm{f}(x) = b_1\sin x + b_2\sin 2x + b_3\sin 3x + \cdots.\]</span> 由於當 <span class="math inline">\(m \neq n\)</span> 時 <span class="math inline">\(\int_0^\pi \sin mx\sin nx\,\mathrm{d}x = 0\)</span>，平方後再積分，所有交叉項都會消失，得出 <span class="math display">\[\int_0^\pi \mathrm{f}^2 = \frac\pi2\bigl(b_1^2 + b_2^2 + b_3^2 + \cdots\bigr), \qquad \int_0^\pi (\mathrm{f}&#39;)^2 = \frac\pi2\bigl(1^2 b_1^2 + 2^2 b_2^2 + 3^2 b_3^2 + \cdots\bigr).\]</span> 右式的每一項都不小於左式的對應項，這就證明了 <span class="math inline">\((*)\)</span>，同時說明等號只在 <span class="math inline">\(\mathrm{f}\)</span> 是 <span class="math inline">\(\sin x\)</span> 的倍數時成立。題目的第 (i) 部分就是只有一項的情況。</p>
+</div>
+<h3 id="振動的弦與量子粒子">振動的弦與量子粒子</h3>
+<p>比值 <span class="math inline">\(\int (\mathrm{f}&#39;)^2 \big/ \int \mathrm{f}^2\)</span> 稱為<em>瑞利商</em>（Rayleigh quotient），而 <span class="math inline">\((*)\)</span> 說的是：對於固定在 <span class="math inline">\(0\)</span> 和 <span class="math inline">\(\pi\)</span> 的函數，它的最小可能值是 <span class="math inline">\(1\)</span>。這個數有物理意義。對一條兩端固定的弦來說，<span class="math inline">\(\int (\mathrm{f}&#39;)^2\)</span> 量度拉伸的能量，<span class="math inline">\(\int \mathrm{f}^2\)</span> 量度位移的大小，而這個比值的最小值決定了弦所能奏出的最低音。在量子力學（quantum mechanics）中，同一個最小值就是困在盒子裏的粒子的最低能量：它不可能是零，因為兩端固定的波必須彎曲。瑞利勳爵（Lord Rayleigh）正是用這一招——猜一個測試函數，再計算比值——來估計振動系統的頻率；由於極端情況給出最小值，任何猜測都會給出真正最低頻率的一個上界，而好的猜測更會給出非常準確的上界。</p>
+<h3 id="變分法">變分法</h3>
+<p>找出令某個積分之比取得最小值的函數，是<em>變分法</em>（calculus of variations）的問題，當中的未知量是整個函數，而不是一個數。這裏取得最小值的函數 <span class="math inline">\(\sin x\)</span> 滿足微分方程（differential equation）<span class="math inline">\(\mathrm{f}&#39;&#39; + \mathrm{f} = 0\)</span>，而這並非巧合：求積分的最小值，總會導出一條由取得最小值的函數所滿足的微分方程。我們會在 <a href="../ch04/variations.html">第 4.7 節</a> 再談這個想法。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">測試函數</div>
+<p><em>一條對某類函數中每一個都成立的不等式，可以套用在一個巧妙選取的函數上，從而得到關於某個特定數的資訊。</em></p>
+<p>箇中藝術在於選擇：接近極端情況的測試函數，會給出近乎最佳的結果。這個想法貫穿分析學、物理學和工程學，由估計特徵值到有限元法（finite element method）皆然。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>四次函數。</strong>在 <span class="math inline">\((*)\)</span> 中取 <span class="math inline">\(\mathrm{f}(x) = x^2(\pi - x)^2\)</span>。證明它只能給出 <span class="math inline">\(\pi^2 \leq 12\)</span>。為甚麼這個測試函數比拋物線差？（把它的形狀與 <span class="math inline">\(\sin x\)</span> 比較。）</p></li>
+<li><p><strong>兩個正弦波。</strong>對 <span class="math inline">\(\mathrm{f}(x) = \sin x + \sin 2x\)</span> 直接驗證 <span class="math inline">\((*)\)</span>，把兩邊都計算出來。</p></li>
+<li><p><strong>另一個區間。</strong>用代換證明：若 <span class="math inline">\(\mathrm{g}(0) = \mathrm{g}(L) = 0\)</span>，則 <span class="math inline">\(\displaystyle\int_0^L \mathrm{g}^2 \leq \frac{L^2}{\pi^2}\int_0^L (\mathrm{g}&#39;)^2\)</span>。這對不同長度的弦說明了甚麼？</p></li>
+<li><p><strong>瑞利法。</strong> <span class="hard">較難</span> 取 <span class="math inline">\(\mathrm{f}(x) = x(\pi - x) + \lambda x^2(\pi - x)^2\)</span>，並選取 <span class="math inline">\(\lambda\)</span> 使 <span class="math inline">\(\pi^2\)</span> 的界盡可能好。（代數運算相當繁重，用電腦代數系統會有幫助。）</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>T. W. Körner, <a href="https://uk.bookshop.org/search?keywords=Fourier+Analysis+Korner"><em>Fourier Analysis</em></a></strong>（Cambridge University Press）。一本精彩而旁徵博引的書，講述傅立葉級數及其應用，作者是劍橋的分析學家。</p></li>
+<li><p><strong>Hardy, Littlewood &amp; Pólya, <a href="https://uk.bookshop.org/search?keywords=Inequalities+Hardy+Littlewood"><em>Inequalities</em></a></strong>（Cambridge University Press）。第 7 章討論 Wirtinger 不等式及相關的不等式。</p></li>
+<li><p><strong>Richard Feynman, <a href="https://www.feynmanlectures.caltech.edu/"><em>The Feynman Lectures on Physics</em></a></strong>，第 II 卷第 19 章（「The principle of least action」，最小作用量原理）。費曼（Feynman）關於求積分最小值的一講，通篇貫穿物理直覺。可於網上免費閱讀。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="markov-bound.html">← 3.6 斜率的界</a><a class="next" href="addition-laws.html">→ 3.8 由加法公式決定的函數</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

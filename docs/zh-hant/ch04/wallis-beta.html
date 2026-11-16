@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>沃利斯、Beta 與二分之一的階乘 (STEP II 1995 第 4 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 1995 第 4 題：引導式解答及其背後的大學數學。 left(frac12right)! 是甚麼？這個問題聽來毫無道理： n! 的意思是 1 × 2 × cdots × n ，而你不可能把「半個數那麼多」的項相乘。然而它確有一個自然的答案，就是 left(tfrac12right)! = (sqrtπ)/(2). π 從何而來？來自 sin t…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/wallis-beta.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="沃利斯、Beta 與二分之一的階乘 (STEP II 1995 第 4 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 1995 第 4 題：引導式解答及其背後的大學數學。 left(frac12right)! 是甚麼？這個問題聽來毫無道理： n! 的意思是 1 × 2 × cdots × n ，而你不可能把「半個數那麼多」的項相乘。然而它確有一個自然的答案，就是 left(tfrac12right)! = (sqrtπ)/(2). π 從何而來？來自 sin t…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch04/wallis-beta.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="沃利斯、Beta 與二分之一的階乘 (STEP II 1995 第 4 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1995 第 4 題：引導式解答及其背後的大學數學。 left(frac12right)! 是甚麼？這個問題聽來毫無道理： n! 的意思是 1 × 2 × cdots × n ，而你不可能把「半個數那麼多」的項相乘。然而它確有一個自然的答案，就是 left(tfrac12right)! = (sqrtπ)/(2). π 從何而來？來自 sin t…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "沃利斯、Beta 與二分之一的階乘", "headline": "沃利斯、Beta 與二分之一的階乘", "description": "STEP II 1995 第 4 題：引導式解答及其背後的大學數學。 left(frac12right)! 是甚麼？這個問題聽來毫無道理： n! 的意思是 1 × 2 × cdots × n ，而你不可能把「半個數那麼多」的項相乘。然而它確有一個自然的答案，就是 left(tfrac12right)! = (sqrtπ)/(2). π 從何而來？來自 sin t…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch04/wallis-beta.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1995 第 4 題", "嚴謹的微積分"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 4, "name": "嚴謹的微積分", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 4 章：嚴謹的微積分", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch04/"}, {"@type": "ListItem", "position": 3, "name": "沃利斯、Beta 與二分之一的階乘", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch04/wallis-beta.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch04/wallis-beta.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 4 章 · 嚴謹的微積分</a>
+    <div class="src">STEP II · 1995 · 第 4 題</div>
+    <div class="sec-head"><span class="sec-num">4.4</span><h1>沃利斯、Beta 與二分之一的階乘</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-4-wallis-beta.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 4 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 1995，第 4 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/95-s2-q4">step.maths.org/questions/95-s2-q4</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p><span class="math inline">\(\left(\frac12\right)!\)</span> 是甚麼？這個問題聽來毫無道理：<span class="math inline">\(n!\)</span> 的意思是 <span class="math inline">\(1 \times 2 \times \cdots \times n\)</span>，而你不可能把「半個數那麼多」的項相乘。然而它確有一個自然的答案，就是 <span class="math display">\[\left(\tfrac12\right)! = \frac{\sqrt\pi}{2}.\]</span> <span class="math inline">\(\pi\)</span> 從何而來？來自 <span class="math inline">\(\sin t\)</span> 的冪的積分（integral），這正是本題研究的對象。過程中，本題證明了關於 <span class="math inline">\(\pi\)</span> 的其中一條最古老、最奇特的公式，即沃利斯（John Wallis）在 1655 年提出的無窮乘積（infinite product） <span class="math display">\[\frac\pi2 = \frac21 \cdot \frac23 \cdot \frac43 \cdot \frac45 \cdot \frac65 \cdot \frac67 \cdots,\]</span> 並且找出 <span class="math inline">\(n!\)</span> 的斯特靈公式（Stirling’s formula）中隱藏的常數，這條公式是每一位概率學家和統計學家都會用到的。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p><span class="math inline">\(u_0\)</span> 和 <span class="math inline">\(u_1\)</span> 是甚麼？當 <span class="math inline">\(n\)</span> 很大時，<span class="math inline">\(\sin^n t\)</span> 在 <span class="math inline">\([0, \frac\pi2]\)</span> 上的圖像大致是甚麼樣子？</p>
+</div>
+<p><span class="math inline">\(u_0 = \int_0^{\pi/2} 1\,\mathrm{d}t = \frac\pi2\)</span>，而 <span class="math inline">\(u_1 = \int_0^{\pi/2}\sin t\,\mathrm{d}t = 1\)</span>。當 <span class="math inline">\(n\)</span> 很大時，<span class="math inline">\(\sin^n t\)</span> 極小，只有在 <span class="math inline">\(t = \frac\pi2\)</span> 附近例外，因為那裏 <span class="math inline">\(\sin t\)</span> 接近 <span class="math inline">\(1\)</span>：圖像變成緊貼右邊界的一個狹窄尖峯（圖 4.4.1）。所以 <span class="math inline">\(u_n\)</span> 隨 <span class="math inline">\(n\)</span> 增大而縮小。本題準確地找出它縮小得有多快：與 <span class="math inline">\(\sqrt{\pi/(2n)}\)</span> 相若。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-一條遞推公式" class="stage"><span class="stage-n">階段 1</span> 一條遞推公式</h4>
+<div class="askyourself">
+<p>用分部積分法（integration by parts）計算 <span class="math inline">\(\int \sin t \cdot \sin^{n-1}t\,\mathrm{d}t\)</span>：對 <span class="math inline">\(\sin t\)</span> 積分，對 <span class="math inline">\(\sin^{n-1}t\)</span> 求導。新的被積函數（integrand）含有 <span class="math inline">\(\cos^2 t\)</span>；怎樣才能變回 <span class="math inline">\(\sin t\)</span> 的冪？</p>
+</div>
+<p>取 <span class="math inline">\(\mathrm{d}v = \sin t\,\mathrm{d}t\)</span>（故 <span class="math inline">\(v = -\cos t\)</span>）及 <span class="math inline">\(w = \sin^{n-1}t\)</span>（故 <span class="math inline">\(w&#39; = (n-1)\sin^{n-2}t\cos t\)</span>）， <span class="math display">\[u_n = \Bigl[-\cos t\sin^{n-1}t\Bigr]_0^{\pi/2} + (n-1)\int_0^{\pi/2}\sin^{n-2}t\cos^2 t\,\mathrm{d}t.\]</span> 當 <span class="math inline">\(n \geq 2\)</span> 時，邊界項為零。寫成 <span class="math inline">\(\cos^2 t = 1 - \sin^2 t\)</span>，該積分便是 <span class="math inline">\(u_{n-2} - u_n\)</span>，所以 <span class="math inline">\(u_n = (n-1)(u_{n-2} - u_n)\)</span>，即 <span class="math display">\[nu_n = (n-1)u_{n-2}. \qed\]</span> 兩邊同乘以 <span class="math inline">\(u_{n-1}\)</span>，得 <span class="math inline">\(nu_nu_{n-1} = (n-1)u_{n-1}u_{n-2}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-一個不變量" class="stage"><span class="stage-n">階段 2</span> 一個不變量</h4>
+<div class="askyourself">
+<p>這個關係式說明，當 <span class="math inline">\(n\)</span> 減一時，<span class="math inline">\(nu_nu_{n-1}\)</span> 這個量保持不變。它在 <span class="math inline">\(n = 1\)</span> 時等於甚麼？</p>
+</div>
+<p>反覆運用，<span class="math inline">\(nu_nu_{n-1} = (n-1)u_{n-1}u_{n-2} = \cdots = 1 \cdot u_1u_0 = 1 \cdot 1 \cdot \frac\pi2\)</span>。所以對所有 <span class="math inline">\(n \geq 1\)</span>，<span class="math inline">\(nu_nu_{n-1} = \frac12\pi\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-夾逼" class="stage"><span class="stage-n">階段 3</span> 夾逼</h4>
+<p>對於 <span class="math inline">\(0 &lt; t &lt; \frac\pi2\)</span>，我們有 <span class="math inline">\(0 &lt; \sin t &lt; 1\)</span>，所以 <span class="math inline">\(\sin^n t &lt; \sin^{n-1}t\)</span>：除端點外，<span class="math inline">\(\sin^n t\)</span> 的圖像位於 <span class="math inline">\(\sin^{n-1}t\)</span> 的圖像之下。積分後得 <span class="math inline">\(0 &lt; u_n &lt; u_{n-1}\)</span>。</p>
+<div class="pausebox">
+<p>利用 <span class="math inline">\(u_n &lt; u_{n-1}\)</span> 和 <span class="math inline">\(nu_nu_{n-1} = \frac12\pi\)</span> 把 <span class="math inline">\(nu_n^2\)</span> 夾住。</p>
+</div>
+<p>把 <span class="math inline">\(u_{n-1}\)</span> 換成較小的 <span class="math inline">\(u_n\)</span>，得 <span class="math inline">\(nu_n^2 &lt; nu_nu_{n-1} = \frac12\pi\)</span>。把 <span class="math inline">\(u_n\)</span> 換成較大的 <span class="math inline">\(u_{n-1}\)</span>，得 <span class="math inline">\(\frac12\pi = nu_nu_{n-1} &lt; nu_{n-1}^2\)</span>。所以 <span class="math inline">\(nu_n^2 &lt; \frac12\pi &lt; nu_{n-1}^2\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<p>在右邊的不等式中以 <span class="math inline">\(n + 1\)</span> 代替 <span class="math inline">\(n\)</span>：<span class="math inline">\(\frac12\pi &lt; (n+1)u_n^2\)</span>，所以 <span class="math inline">\(nu_n^2 &gt; \frac{n}{n+1}\cdot\frac12\pi\)</span>。合起來， <span class="math display">\[\left(\frac{n}{n+1}\right)\tfrac12\pi &lt; nu_n^2 &lt; \tfrac12\pi. \qed\]</span> 由於 <span class="math inline">\(\frac{n}{n+1} \to 1\)</span>，由夾逼可得 <span class="math inline">\(nu_n^2 \to \frac12\pi\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-4-1.svg" alt="圖 4.4.1"><figcaption><span class="fig-label">圖 4.4.1</span> <span class="math inline">\(n = 1, 2, 4, 16, 64\)</span> 時 <span class="math inline">\(\sin^n t\)</span> 的圖像。隨着 <span class="math inline">\(n\)</span> 增大，曲線下的面積 <span class="math inline">\(u_n\)</span> 不斷縮小，並集中在 <span class="math inline">\(t = \frac\pi2\)</span> 附近。本題證明 <span class="math inline">\(u_n \approx \sqrt{\pi/(2n)}\)</span>；當 <span class="math inline">\(n = 64\)</span> 時，這個值約為 <span class="math inline">\(0.157\)</span>。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>遞推公式（reduction formulae）。</strong>分部積分法把 <span class="math inline">\(u_n\)</span> 化為 <span class="math inline">\(u_{n-2}\)</span>，所以所有 <span class="math inline">\(u_n\)</span> 都由 <span class="math inline">\(u_0\)</span> 和 <span class="math inline">\(u_1\)</span> 決定。</p></li>
+<li><p><strong>尋找不變量（invariant）。</strong>乘積 <span class="math inline">\(nu_nu_{n-1}\)</span> 保持不變，正如 <a href="../ch02/agm.html">第 2.6 節</a> 中的積分在 AGM 步驟下保持不變一樣。</p></li>
+<li><p><strong>單調性（monotonicity）加上不變量，便得出夾逼（squeeze）。</strong>知道 <span class="math inline">\(u_n &lt; u_{n-1}\)</span> 以及 <span class="math inline">\(nu_nu_{n-1}\)</span> 的準確值，便把 <span class="math inline">\(nu_n^2\)</span> 夾在兩個極限相同的量之間。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">沃利斯乘積</div>
+<p>把遞推公式一直用到 <span class="math inline">\(u_0\)</span> 或 <span class="math inline">\(u_1\)</span>，便得到明確的值： <span class="math display">\[u_{2m} = \frac{1 \cdot 3 \cdot 5 \cdots (2m-1)}{2 \cdot 4 \cdot 6 \cdots 2m}\cdot\frac\pi2, \qquad u_{2m+1} = \frac{2 \cdot 4 \cdot 6 \cdots 2m}{3 \cdot 5 \cdot 7 \cdots (2m+1)}.\]</span> 由夾逼可知 <span class="math inline">\(u_{2m}/u_{2m+1} \to 1\)</span>。把這個比寫出來再整理，便得到沃利斯乘積 <span class="math display">\[\frac\pi2 = \lim_{m \to \infty} \frac{2 \cdot 2}{1 \cdot 3}\cdot\frac{4 \cdot 4}{3 \cdot 5}\cdots\frac{2m \cdot 2m}{(2m-1)(2m+1)}.\]</span> 沃利斯在 1655 年以一種大膽的插值（interpolation）方法發現了它：他把 <span class="math inline">\(\int_0^1 (1 - x^2)^{1/2}\,\mathrm{d}x\)</span> 放進一個指數為整數的積分表中，從而猜出它「應該」是甚麼。這是數學史上最早的無窮乘積之一，僅次於韋達（Viète）的乘積（<a href="../ch02/viete.html">第 2.5 節</a>），也是第一個只用有理數的無窮乘積。</p>
+</div>
+<h3 id="二分之一的階乘">二分之一的階乘</h3>
+<p>沃利斯的插值想法，在 1729 年由歐拉（Euler）賦予了嚴格的意義。他找到一個函數，現稱為<em>伽瑪函數</em>（Gamma function）， <span class="math display">\[\Gamma(s) = \int_0^\infty t^{s-1}e^{-t}\,\mathrm{d}t,\]</span> 它滿足 <span class="math inline">\(\Gamma(s + 1) = s\,\Gamma(s)\)</span>（用分部積分法），而且對整數 <span class="math inline">\(n\)</span> 有 <span class="math inline">\(\Gamma(n + 1) = n!\)</span>。它把階乘（factorial）平滑地延拓至所有正實數。與它密切相關的<em>貝塔函數</em>（Beta function） <span class="math display">\[\mathrm{B}(p, q) = \int_0^1 x^{p-1}(1-x)^{q-1}\,\mathrm{d}x = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}\]</span> 包含了 <a href="../ch04/twenty-two-sevenths.html">第 4.3 節</a> 和 <a href="../ch02/e-approximations.html">第 2.9 節</a> 中的積分，而且經代換 <span class="math inline">\(x = \sin^2 t\)</span> 之後，也包含我們的 <span class="math inline">\(u_n\)</span>。特別地，<span class="math inline">\(\int_0^1 x^{1/2}(1-x)^{1/2}\,\mathrm{d}x = \frac\pi8\)</span>（練習 2），由此得 <span class="math inline">\(\Gamma(\frac32)^2/\Gamma(3) = \frac\pi8\)</span>，即 <span class="math inline">\(\left(\frac12\right)! = \Gamma(\frac32) = \frac{\sqrt\pi}{2}\)</span>。等價地，<span class="math inline">\(\Gamma(\frac12) = \sqrt\pi\)</span>，這與著名的高斯積分（Gaussian integral）<span class="math inline">\(\int_{-\infty}^\infty e^{-x^2}\,\mathrm{d}x = \sqrt\pi\)</span> 是同一個事實，也正是 <span class="math inline">\(\pi\)</span> 出現在正態分佈（normal distribution）公式中的原因。</p>
+<h3 id="斯特靈公式">斯特靈公式</h3>
+<p>斯特靈公式說 <span class="math inline">\(n! \approx \sqrt{2\pi n}\,(n/e)^n\)</span>。其中 <span class="math inline">\((n/e)^n\)</span> 的部分相對容易得到，但常數 <span class="math inline">\(\sqrt{2\pi}\)</span> 則較難，而求出它的標準方法正是本題：<span class="math inline">\(u_{2m}\)</span> 的明確值涉及 <span class="math inline">\((2m)!/(m!)^2\)</span>，而極限 <span class="math inline">\(nu_n^2 \to \frac\pi2\)</span> 則把這個常數確定下來。另有一條截然不同的途徑，通過概率得到同一個常數，見 <a href="../ch12/stirling-probability.html">第 12.23 節</a>。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">由積分得出遞推關係</div>
+<p><em>分部積分法往往把帶有參數 <span class="math inline">\(n\)</span> 的積分，與參數較小的同一類積分聯繫起來。這個遞推關係（recurrence）隨後可以解出，或用來分析 <span class="math inline">\(n \to \infty\)</span> 時的表現。</em></p>
+<p>留意遞推關係下保持不變的量，以及對 <span class="math inline">\(n\)</span> 的單調性；兩者結合，往往不需要任何明確公式便能求出極限。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>沃利斯乘積。</strong>利用 <span class="math inline">\(u_{2m}\)</span> 和 <span class="math inline">\(u_{2m+1}\)</span> 的明確值，以及 <span class="math inline">\(u_{2m+1} &lt; u_{2m} &lt; u_{2m-1}\)</span>，證明沃利斯乘積。</p></li>
+<li><p><strong>一個貝塔積分。</strong>試做 <a href="https://step.maths.org/questions/13-s2-q2">STEP II 2013，第 2 題</a>。這題用遞推公式計算 <span class="math inline">\(\int_0^1 x^n(1-x)^n\,\mathrm{d}x\)</span>，然後問當 <span class="math inline">\(n = \frac12\)</span> 時答案有何啟示：這是對二分之一的階乘的初次一瞥。</p></li>
+<li><p><strong>貝塔函數。</strong>試做 <a href="https://www.ocr.org.uk/Images/750486-2025-past-papers.zip">STEP III 2025，第 1 題</a> （載於 OCR 提供下載的 2025 年試卷 zip 檔案內）。這題建立一般的貝塔積分 <span class="math inline">\(\int_0^1 x^{p-1}(1-x)^{q-1}\,\mathrm{d}x\)</span>、它的對稱性和一個遞推關係，並用它們計算一個在 <span class="math inline">\([0, \infty)\)</span> 上的積分。</p></li>
+<li><p><strong>中心二項式係數（central binomial coefficients）。</strong> <span class="hard">較難</span> 證明 <span class="math inline">\(u_{2m} = \binom{2m}{m}\dfrac{\pi}{2^{2m+1}}\)</span>，並利用 <span class="math inline">\(nu_n^2 \to \frac\pi2\)</span> 推導出當 <span class="math inline">\(m\)</span> 很大時 <span class="math inline">\(\binom{2m}{m} \approx \dfrac{4^m}{\sqrt{\pi m}}\)</span>。就 <span class="math inline">\(m = 10\)</span> 驗證這個結果。</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Julian Havil, <a href="https://uk.bookshop.org/search?keywords=Gamma+Havil"><em>Gamma</em></a></strong>（Princeton University Press）。內容包括伽瑪函數及其歷史。</p></li>
+<li><p><strong>Philip J. Davis, “<a href="https://doi.org/10.1080/00029890.1959.11989422">Leonhard Euler’s integral: a historical profile of the Gamma function</a>”</strong>, <em>American Mathematical Monthly</em> 66 (1959)。一篇獲獎的經典文章，讀過本節之後便能看懂。</p></li>
+<li><p><strong>Emil Artin, <a href="https://uk.bookshop.org/search?keywords=The+Gamma+Function+Artin"><em>The Gamma Function</em></a></strong>（Dover）。一本簡短而優美的專著，適合學過一些分析之後閱讀。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="twenty-two-sevenths.html">← 4.3 22/7 大於 π</a><a class="next" href="sophomores-dream.html">→ 4.5 大二學生之夢</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

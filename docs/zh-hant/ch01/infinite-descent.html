@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>無窮遞降法 (STEP III 2022 第 2 題) — Beyond STEP</title>
+<meta name="description" content="STEP III 2022 第 2 題：引導式解答及其背後的大學數學。 怎樣才能證明一條方程 沒有 整數解？你不可能逐一試遍所有可能，因為可能性有無窮多個。費馬（Pierre de Fermat）在 1630 年代找到了一個方法：證明任何一個解都會產生另一個數字 更小 的解，然後又產生一個更小的，如此無休止地繼續下去。可是正整數不可能永無止境地愈變愈小。所以，從一開始就根本沒有解。…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/infinite-descent.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/infinite-descent.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/infinite-descent.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/infinite-descent.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="無窮遞降法 (STEP III 2022 第 2 題) — Beyond STEP">
+<meta property="og:description" content="STEP III 2022 第 2 題：引導式解答及其背後的大學數學。 怎樣才能證明一條方程 沒有 整數解？你不可能逐一試遍所有可能，因為可能性有無窮多個。費馬（Pierre de Fermat）在 1630 年代找到了一個方法：證明任何一個解都會產生另一個數字 更小 的解，然後又產生一個更小的，如此無休止地繼續下去。可是正整數不可能永無止境地愈變愈小。所以，從一開始就根本沒有解。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch01/infinite-descent.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="無窮遞降法 (STEP III 2022 第 2 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2022 第 2 題：引導式解答及其背後的大學數學。 怎樣才能證明一條方程 沒有 整數解？你不可能逐一試遍所有可能，因為可能性有無窮多個。費馬（Pierre de Fermat）在 1630 年代找到了一個方法：證明任何一個解都會產生另一個數字 更小 的解，然後又產生一個更小的，如此無休止地繼續下去。可是正整數不可能永無止境地愈變愈小。所以，從一開始就根本沒有解。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "無窮遞降法", "headline": "無窮遞降法", "description": "STEP III 2022 第 2 題：引導式解答及其背後的大學數學。 怎樣才能證明一條方程 沒有 整數解？你不可能逐一試遍所有可能，因為可能性有無窮多個。費馬（Pierre de Fermat）在 1630 年代找到了一個方法：證明任何一個解都會產生另一個數字 更小 的解，然後又產生一個更小的，如此無休止地繼續下去。可是正整數不可能永無止境地愈變愈小。所以，從一開始就根本沒有解。…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/infinite-descent.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2022 第 2 題", "數論與證明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "數論與證明", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 1 章：數論與證明", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/"}, {"@type": "ListItem", "position": 3, "name": "無窮遞降法", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/infinite-descent.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch01/infinite-descent.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 1 章 · 數論與證明</a>
+    <div class="src">STEP III · 2022 · 第 2 題</div>
+    <div class="sec-head"><span class="sec-num">1.5</span><h1>無窮遞降法</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-5-infinite-descent.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 1 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP III 2022，第 2 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 OCR 提供下載的 2022 年 STEP 試卷（zip 檔案）內的 STEP III 試卷： <a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">www.ocr.org.uk/Images/696587-2022-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>怎樣才能證明一條方程<em>沒有</em>整數解？你不可能逐一試遍所有可能，因為可能性有無窮多個。費馬（Pierre de Fermat）在 1630 年代找到了一個方法：證明任何一個解都會產生另一個數字<em>更小</em>的解，然後又產生一個更小的，如此無休止地繼續下去。可是正整數不可能永無止境地愈變愈小。所以，從一開始就根本沒有解。</p>
+<p>費馬把這個方法稱為<em>無窮遞降法</em>（method of infinite descent），並且深以為傲。它是 <a href="../ch01/well-ordering.html">第 1.3 節</a> 中良序原理（well-ordering principle）的另一面，至今仍是證明方程無解的主要工具之一。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<p>四個部分的格局都一樣：假設有解，把解縮小，得出矛盾（contradiction）。問題在於<em>怎樣</em>縮小。</p>
+<div class="askyourself">
+<p>在第 (i) 部分，看看 <span class="math inline">\(a^3 + 2b^3 + 4c^3 = 0\)</span>。三項之中有兩項明顯是偶數。這告訴你第三項有甚麼性質？</p>
+</div>
+<p>每一次遞降都是由這類觀察開始的：某種整除性（divisibility）是你無法迴避的。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-第一次遞降" class="stage"><span class="stage-n">階段 1</span> 第一次遞降</h4>
+<p>由於 <span class="math inline">\(a^3 = -2b^3 - 4c^3\)</span>，<span class="math inline">\(a^3\)</span> 這個數是偶數，所以 <span class="math inline">\(a\)</span> 是偶數（奇數的立方是奇數）。設 <span class="math inline">\(a = 2p\)</span>。那麼 <span class="math inline">\(|p| = |a|/2 &lt; |a|\)</span>，代入後得 <span class="math display">\[8p^3 + 2b^3 + 4c^3 = 0 \quad\Longrightarrow\quad 4p^3 + b^3 + 2c^3 = 0.\]</span></p>
+<div class="askyourself">
+<p>新的方程是 <span class="math inline">\(4p^3 + b^3 + 2c^3 = 0\)</span>。它的係數和原來一樣，只是輪換了位置。你可以再用同一招嗎？</p>
+</div>
+<p>現在 <span class="math inline">\(b^3 = -4p^3 - 2c^3\)</span> 是偶數，所以 <span class="math inline">\(b = 2q\)</span>，其中 <span class="math inline">\(|q| &lt; |b|\)</span>，再除以 <span class="math inline">\(2\)</span> 便得 <span class="math inline">\(2p^3 + 4q^3 + c^3 = 0\)</span>。同樣地，<span class="math inline">\(c\)</span> 必定是偶數：<span class="math inline">\(c = 2r\)</span>，其中 <span class="math inline">\(|r| &lt; |c|\)</span>，再除以 <span class="math inline">\(2\)</span>， <span class="math display">\[p^3 + 2q^3 + 4r^3 = 0.\]</span> 這正是<em>原來的</em>方程，只是以 <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span>、<span class="math inline">\(r\)</span> 取代了 <span class="math inline">\(a\)</span>、<span class="math inline">\(b\)</span>、<span class="math inline">\(c\)</span>。每個數的大小都減半，而且沒有一個是零，因為把非零的數減半不可能得到零。</p>
+<div class="pausebox">
+<p>把以上論證寫成一個證明（proof），說明非零解並不存在。你究竟應該假設甚麼是「最小」的？</p>
+</div>
+<p>在所有非零整數解之中，選取 <span class="math inline">\(|a|\)</span> 最小的一個。（只要有解存在，良序原理就容許我們這樣做。）上述論證會產生另一個非零解，並且 <span class="math inline">\(|p| &lt; |a|\)</span>，與最小性矛盾。所以沒有非零解。<span class="qed" aria-label="end of proof">■</span></p>
+<p>另一個等價的說法是：由一個解出發，我們可以構造出無窮多個解，它們滿足 <span class="math inline">\(|a| &gt; |p| &gt; \cdots\)</span>，即一個嚴格遞減的無窮正整數數列，而這是不可能的。</p>
+<h4 id="stagemark2-換一個質數" class="stage"><span class="stage-n">階段 2</span> 換一個質數</h4>
+<div class="askyourself">
+<p>在 <span class="math inline">\(9a^3 + 10b^3 + 6c^3 = 0\)</span> 中，奇偶性（parity）看來幫不上忙。看看係數 <span class="math inline">\(9\)</span>、<span class="math inline">\(10\)</span>、<span class="math inline">\(6\)</span>。哪一個質數（prime）整除其中兩個？</p>
+</div>
+<p>質數 <span class="math inline">\(3\)</span> 整除 <span class="math inline">\(9\)</span> 和 <span class="math inline">\(6\)</span>，所以 <span class="math inline">\(3\)</span> 整除 <span class="math inline">\(10b^3\)</span>，因此 <span class="math inline">\(3\)</span> 整除 <span class="math inline">\(b\)</span>。設 <span class="math inline">\(b = 3q\)</span> 並除以 <span class="math inline">\(3\)</span>： <span class="math display">\[3a^3 + 90q^3 + 2c^3 = 0.\]</span> 現在 <span class="math inline">\(3\)</span> 整除 <span class="math inline">\(2c^3\)</span>，所以 <span class="math inline">\(c = 3r\)</span>；再除以 <span class="math inline">\(3\)</span> 得 <span class="math inline">\(a^3 + 30q^3 + 18r^3 = 0\)</span>。於是 <span class="math inline">\(3\)</span> 整除 <span class="math inline">\(a\)</span>：<span class="math inline">\(a = 3p\)</span>，再除以 <span class="math inline">\(3\)</span> 一次， <span class="math display">\[9p^3 + 10q^3 + 6r^3 = 0.\]</span> 這與原來的方程完全相同，只是換成了較小的非零數。根據同樣的遞降論證，方程沒有非零解。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-模-3-下的平方數" class="stage"><span class="stage-n">階段 3</span> 模 3 下的平方數</h4>
+<div class="askyourself">
+<p>每個整數都可寫成 <span class="math inline">\(3n\)</span>、<span class="math inline">\(3n+1\)</span> 或 <span class="math inline">\(3n-1\)</span> 的形式。它們的平方模（modulo）<span class="math inline">\(3\)</span> 是甚麼？</p>
+</div>
+<p><span class="math inline">\((3n \pm 1)^2 = 9n^2 \pm 6n + 1 = 3(3n^2 \pm 2n) + 1\)</span>，比 <span class="math inline">\(3\)</span> 的倍數多一。而 <span class="math inline">\((3n)^2\)</span> 是 <span class="math inline">\(3\)</span> 的倍數。所以平方數除以 <span class="math inline">\(3\)</span> 的餘數（remainder）是 <span class="math inline">\(0\)</span> 或 <span class="math inline">\(1\)</span>，永遠不會是 <span class="math inline">\(2\)</span>。</p>
+<p>現在如果 <span class="math inline">\(a^2 + b^2\)</span> 是 <span class="math inline">\(3\)</span> 的倍數，餘數的可能組合是 <span class="math inline">\(0+0\)</span>、<span class="math inline">\(0+1\)</span>、<span class="math inline">\(1+0\)</span> 和 <span class="math inline">\(1+1\)</span>，分別得出 <span class="math inline">\(0\)</span>、<span class="math inline">\(1\)</span>、<span class="math inline">\(1\)</span>、<span class="math inline">\(2\)</span>。只有第一種是 <span class="math inline">\(3\)</span> 的倍數，所以 <span class="math inline">\(a\)</span> 和 <span class="math inline">\(b\)</span> 都必定是 <span class="math inline">\(3\)</span> 的倍數。</p>
+<div class="askyourself">
+<p>如果 <span class="math inline">\(a^2 + b^2 = 3c^2\)</span>，而 <span class="math inline">\(a = 3p\)</span>、<span class="math inline">\(b = 3q\)</span>，你對 <span class="math inline">\(c\)</span> 有甚麼結論？</p>
+</div>
+<p>我們得到 <span class="math inline">\(9p^2 + 9q^2 = 3c^2\)</span>，所以 <span class="math inline">\(c^2 = 3(p^2 + q^2)\)</span> 是 <span class="math inline">\(3\)</span> 的倍數，因此 <span class="math inline">\(c = 3r\)</span>。於是 <span class="math inline">\(9p^2 + 9q^2 = 27r^2\)</span>，即 <span class="math inline">\(p^2 + q^2 = 3r^2\)</span>：同一條方程，較小的數。又是遞降。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-變奏方程變了" class="stage"><span class="stage-n">階段 4</span> 變奏：方程變了</h4>
+<div class="askyourself">
+<p>在 <span class="math inline">\(a^2 + b^2 + c^2 = 4abc\)</span> 中，右邊是 <span class="math inline">\(4\)</span> 的倍數。平方數模 <span class="math inline">\(4\)</span> 是甚麼？</p>
+</div>
+<p>偶數的平方是 <span class="math inline">\(4\)</span> 的倍數，奇數的平方則比 <span class="math inline">\(4\)</span> 的倍數多一（<span class="math inline">\((2n+1)^2 = 4n^2 + 4n + 1\)</span>）。所以 <span class="math inline">\(a^2 + b^2 + c^2\)</span> 除以 <span class="math inline">\(4\)</span> 的餘數是 <span class="math inline">\(0\)</span>、<span class="math inline">\(1\)</span>、<span class="math inline">\(2\)</span> 或 <span class="math inline">\(3\)</span>，視乎 <span class="math inline">\(a\)</span>、<span class="math inline">\(b\)</span>、<span class="math inline">\(c\)</span> 之中有多少個是奇數。由於右邊是 <span class="math inline">\(4\)</span> 的倍數，它們<em>沒有一個</em>可以是奇數。設 <span class="math inline">\(a = 2p\)</span>、<span class="math inline">\(b = 2q\)</span>、<span class="math inline">\(c = 2r\)</span>： <span class="math display">\[4(p^2 + q^2 + r^2) = 32\,pqr \quad\Longrightarrow\quad p^2 + q^2 + r^2 = 8\,pqr.\]</span></p>
+<div class="askyourself">
+<p>這<em>並不是</em>同一條方程：<span class="math inline">\(4\)</span> 變成了 <span class="math inline">\(8\)</span>。遞降法還行得通嗎？</p>
+</div>
+<p>竅門在這裏：<em>證明一個更強的命題</em>。考慮所有以下形式的方程 <span class="math display">\[x^2 + y^2 + z^2 = 2^m\, xyz \qquad\text{其中 } m \geq 2.\]</span> 對任何這樣的 <span class="math inline">\(m\)</span>，右邊都是 <span class="math inline">\(4\)</span> 的倍數，所以完全相同的論證顯示 <span class="math inline">\(x\)</span>、<span class="math inline">\(y\)</span>、<span class="math inline">\(z\)</span> 全是偶數。把它們減半，便得到含 <span class="math inline">\(2^{m+1}\)</span> 的方程的一個解，而這條方程仍屬這種形式。因此，由 <span class="math inline">\(m\)</span> 方程的一個非零解，我們得到 <span class="math inline">\(m+1\)</span> 方程的一個較小的非零解。在這個方程族中<em>任何</em>一條方程的所有解之中，取 <span class="math inline">\(|x|\)</span> 最小的一個，便得出矛盾。特別地，<span class="math inline">\(a^2 + b^2 + c^2 = 4abc\)</span> 沒有非零解。<span class="qed" aria-label="end of proof">■</span></p>
+<p>有時候，你想證明的命題太弱，不足以支撐它自身的歸納（induction），補救的方法是證明一個更一般、<em>能夠</em>自我支撐的命題。這個技巧在大學裏出奇地常見。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-5-1.svg" alt="圖 1.5.1"><figcaption><span class="fig-label">圖 1.5.1</span> 第 (i) 部分的遞降。由 <span class="math inline">\(a^3 + 2b^3 + 4c^3 = 0\)</span> 的一個解出發，三步之後得到另一個解，每個分量都減半。無休止地重複下去，便會得出一個沒有盡頭的遞減正整數數列 <span class="math inline">\(|a| &gt; |\frac a2| &gt; |\frac a4| &gt; \cdots\)</span>，而這是不可能的。所以一開始就沒有解。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>遞降需要整除性的來源。</strong>每一次，我們都找到一個質數 <span class="math inline">\(p\)</span>（這裏是 <span class="math inline">\(2\)</span> 或 <span class="math inline">\(3\)</span>），它必然整除所有變數，然後把它除去。</p></li>
+<li><p><strong>模 <span class="math inline">\(n\)</span> 運算正是找出它的方法。</strong>考察模 <span class="math inline">\(2\)</span>、<span class="math inline">\(3\)</span> 或 <span class="math inline">\(4\)</span> 的餘數，把「有沒有任何可能行得通？」變成一個簡短的有限驗證。</p></li>
+<li><p><strong>如果方程變了，就推廣。</strong>第 (iv) 部分需要一整族方程，而這一族方程在遞降步驟下是封閉的。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">費馬、遞降法與他的最後定理</div>
+<p>費馬用無窮遞降法證明了 <span class="math inline">\(x^4 + y^4 = z^2\)</span> 沒有正整數解。在他著名的「最後定理」之中，這是他唯一留下證明的情況，它解決了 <span class="math inline">\(x^n + y^n = z^n\)</span> 在 <span class="math inline">\(n = 4\)</span> 時的情形。歐拉（Euler）其後用遞降法處理 <span class="math inline">\(n = 3\)</span> 的情形，當中有一個漏洞，後來才被補上。遞降法至今仍是現代理論的起點：關於 <a href="../ch01/tangents-cubic.html">第 1.9 節</a> 中那類曲線的莫德爾–韋伊定理（Mordell–Weil theorem），其證明就是一個精密的遞降。</p>
+</div>
+<h3 id="局部障礙">局部障礙</h3>
+<p>本節的每一個證明，都是靠考察模某個數的餘數來完成的。如果一條方程對某個 <span class="math inline">\(n\)</span> 而言模 <span class="math inline">\(n\)</span> 無解，或者沒有實數解，它當然沒有整數解。這類理由稱為<em>局部障礙</em>（local obstructions）；到了大學，你會遇到<em><span class="math inline">\(p\)</span> 進數</em>（p-adic numbers），那是一種同時研究模 <span class="math inline">\(p, p^2, p^3, \ldots\)</span> 所有餘數的方法。</p>
+<p>哈塞（Hasse）與閔可夫斯基（Minkowski）有一個精彩的定理：對於像 <span class="math inline">\(a^2 + b^2 = 3c^2\)</span> 這樣的<em>二次</em>方程，局部障礙就是僅有的障礙——如果沒有任何「局部」的理由令它無解，它就確實有有理數解。對三次方程而言，這個結論卻徹底失效。Ernst Selmer 在 1951 年證明了 <span class="math display">\[3x^3 + 4y^3 + 5z^3 = 0\]</span> 模任何整數都有解，在實數中也有解，但沒有非零整數解。解釋「局部到整體」原理何時失效、為何失效，是現代數論的一大主題。</p>
+<h3 id="一條確實有解的方程">一條<em>確實</em>有解的方程</h3>
+<p>第 (iv) 部分有一個著名的近親：<span class="math inline">\(x^2 + y^2 + z^2 = 3xyz\)</span>，即<em>馬爾可夫方程</em>（Markov equation）。它有無窮多個正整數解，由 <span class="math inline">\((1,1,1)\)</span>、<span class="math inline">\((1,1,2)\)</span>、<span class="math inline">\((1,2,5)\)</span>、<span class="math inline">\((1,5,13)\)</span> 和 <span class="math inline">\((2,5,29)\)</span> 開始，而這些解與無理數能被分數逼近到甚麼程度有關。見練習 4。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">無窮遞降法</div>
+<p><em>要證明一條方程無解，可證明任何一個解都會產生一個嚴格更小的解。這樣，最小的解便不可能存在。</em></p>
+<p>把它與模 <span class="math inline">\(n\)</span> 運算配合使用，找出推動遞降的整除性；如果命題在遞降步驟下不能保持，就要準備把命題推廣。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>STEP I 熱身題。</strong><em>（STEP I 2010 第 8 題。）</em>證明 <span class="math inline">\(a^3 + 3b^3 = 9c^3\)</span> 的唯一整數解是 <span class="math inline">\(a = b = c = 0\)</span>。然後，藉考慮末位數字，證明 <span class="math inline">\(p^4 + 2q^4 = 5r^4\)</span> 也有同樣的結論。</p></li>
+<li><p><strong>只用模運算，毋須遞降。</strong>只用模 <span class="math inline">\(4\)</span> 運算，證明 <span class="math inline">\(x^2 + y^2 = 4z + 3\)</span> 完全沒有整數解。</p></li>
+<li><p><strong>有理點。</strong>利用第 (iii) 部分，證明圓 <span class="math inline">\(x^2 + y^2 = 3\)</span> 上沒有坐標為<em>有理數</em>的點。（試與 <span class="math inline">\(x^2 + y^2 = 2\)</span> 對比，後者包含 <span class="math inline">\((1,1)\)</span>。）</p></li>
+<li><p><strong>馬爾可夫三元組。</strong>證明若 <span class="math inline">\((x, y, z)\)</span> 滿足 <span class="math inline">\(x^2 + y^2 + z^2 = 3xyz\)</span>，則 <span class="math inline">\((x, y, 3xy - z)\)</span> 亦滿足。由 <span class="math inline">\((1,1,1)\)</span> 出發，生成上文列出的三元組。（這個「跳躍」技巧正好與遞降相反。）</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Harold Davenport, <a href="https://uk.bookshop.org/search?keywords=The+Higher+Arithmetic+Davenport"><em>The Higher Arithmetic</em></a></strong>，第 2 及第 5 章。</p></li>
+<li><p><strong>Joseph Silverman, <a href="https://uk.bookshop.org/search?keywords=A+Friendly+Introduction+to+Number+Theory+Silverman"><em>A Friendly Introduction to Number Theory</em></a></strong>（Pearson）。非常易讀；包括費馬對 <span class="math inline">\(x^4 + y^4 = z^2\)</span> 的遞降證明。</p></li>
+<li><p><strong>Simon Singh, <a href="https://uk.bookshop.org/search?keywords=Fermat%27s+Last+Theorem+Singh"><em>Fermat’s Last Theorem</em></a></strong>（Fourth Estate）。為一般讀者而寫的故事，由費馬的頁邊筆記講到懷爾斯（Wiles）的證明。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="e-irrational.html">← 1.4 e 是無理數，e² 也是</a><a class="next" href="two-squares.html">→ 1.6 兩個平方數之和</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

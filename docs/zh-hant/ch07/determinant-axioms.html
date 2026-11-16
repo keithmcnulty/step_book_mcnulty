@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>甚麼才算行列式 (STEP II 2019 第 8 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 2019 第 8 題：引導式解答及其背後的大學數學。 2 × 2 矩陣（matrix）的行列式（determinant）是 ad - bc 。這條公式從何而來？它為甚麼如此重要？一個答案是：它是矩陣把面積放大或縮小的倍數。另一個答案，也就是本題要探討的，是行列式基本上是矩陣上 唯一 能把矩陣乘法變成普通乘法的函數： det(MN) = detMdetN 。 題目給你一個未知函數…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/determinant-axioms.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/determinant-axioms.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/determinant-axioms.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/determinant-axioms.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="甚麼才算行列式 (STEP II 2019 第 8 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 2019 第 8 題：引導式解答及其背後的大學數學。 2 × 2 矩陣（matrix）的行列式（determinant）是 ad - bc 。這條公式從何而來？它為甚麼如此重要？一個答案是：它是矩陣把面積放大或縮小的倍數。另一個答案，也就是本題要探討的，是行列式基本上是矩陣上 唯一 能把矩陣乘法變成普通乘法的函數： det(MN) = detMdetN 。 題目給你一個未知函數…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch07/determinant-axioms.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="甚麼才算行列式 (STEP II 2019 第 8 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2019 第 8 題：引導式解答及其背後的大學數學。 2 × 2 矩陣（matrix）的行列式（determinant）是 ad - bc 。這條公式從何而來？它為甚麼如此重要？一個答案是：它是矩陣把面積放大或縮小的倍數。另一個答案，也就是本題要探討的，是行列式基本上是矩陣上 唯一 能把矩陣乘法變成普通乘法的函數： det(MN) = detMdetN 。 題目給你一個未知函數…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "甚麼才算行列式", "headline": "甚麼才算行列式", "description": "STEP II 2019 第 8 題：引導式解答及其背後的大學數學。 2 × 2 矩陣（matrix）的行列式（determinant）是 ad - bc 。這條公式從何而來？它為甚麼如此重要？一個答案是：它是矩陣把面積放大或縮小的倍數。另一個答案，也就是本題要探討的，是行列式基本上是矩陣上 唯一 能把矩陣乘法變成普通乘法的函數： det(MN) = detMdetN 。 題目給你一個未知函數…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/determinant-axioms.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2019 第 8 題", "線性代數與幾何"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "線性代數與幾何", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 7 章：線性代數與幾何", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/"}, {"@type": "ListItem", "position": 3, "name": "甚麼才算行列式", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/determinant-axioms.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch07/determinant-axioms.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 7 章 · 線性代數與幾何</a>
+    <div class="src">STEP II · 2019 · 第 8 題</div>
+    <div class="sec-head"><span class="sec-num">7.3</span><h1>甚麼才算行列式</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-3-determinant-axioms.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 7 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 2019，第 8 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 OCR 提供下載的 2019 年 STEP 試卷（zip 檔案）內的 STEP II 試卷： <a href="https://www.ocr.org.uk/Images/696590-2019-past-papers.zip">www.ocr.org.uk/Images/696590-2019-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p><span class="math inline">\(2 \times 2\)</span> 矩陣（matrix）的行列式（determinant）是 <span class="math inline">\(ad - bc\)</span>。這條公式從何而來？它為甚麼如此重要？一個答案是：它是矩陣把面積放大或縮小的倍數。另一個答案，也就是本題要探討的，是行列式基本上是矩陣上<em>唯一</em>能把矩陣乘法變成普通乘法的函數：<span class="math inline">\(\det(\mathbf{MN}) = \det\mathbf{M}\det\mathbf{N}\)</span>。</p>
+<p>題目給你一個未知函數 <span class="math inline">\(\mathrm{f}\)</span>，它具有這一個性質（另加兩個用來排除平凡情況的寬鬆條件），然後要求你一步一步推導出它必然有怎樣的表現。與 <a href="../ch06/derivations.html">第 6.5 節</a> 的導子一樣，這是一道單憑性質來確定一個對象的練習。到最後，<span class="math inline">\(\mathrm{f}\)</span> 被迫在兩行對調時變號、在奇異矩陣（singular matrix）上取值為零、在錯切（shear）上等於 <span class="math inline">\(1\)</span>：這正是行列式的表現。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>題目中每個特殊矩陣各有甚麼作用？對一般的 <span class="math inline">\(\mathbf{M} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span>，計算 <span class="math inline">\(\mathbf{JM}\)</span>、<span class="math inline">\(\mathbf{MJ}\)</span>、<span class="math inline">\(\mathbf{KM}\)</span> 和 <span class="math inline">\(\mathbf{PM}\)</span>。</p>
+</div>
+<p><span class="math inline">\(\mathbf{JM}\)</span> 把 <span class="math inline">\(\mathbf{M}\)</span> 的兩行對調；<span class="math inline">\(\mathbf{MJ}\)</span> 把它的兩列對調。<span class="math inline">\(\mathbf{KM}\)</span> 把第二行乘以 <span class="math inline">\(k\)</span>。<span class="math inline">\(\mathbf{PM}\)</span> 把第二行加到第一行上。這些就是高斯消元法（Gaussian elimination）中的<em>初等行運算</em>（elementary row operations）。由於 <span class="math inline">\(\mathrm{f}\)</span> 把乘積變成乘積，只要知道 <span class="math inline">\(\mathrm{f}\)</span> 在這些特殊矩陣上的值，就知道 <span class="math inline">\(\mathrm{f}\)</span> 對每種行運算有何反應。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-單位矩陣" class="stage"><span class="stage-n">階段 1</span> 單位矩陣</h4>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{M}) = \mathrm{f}(\mathbf{MI}) = \mathrm{f}(\mathbf{M})\,\mathrm{f}(\mathbf{I})\)</span>。由於 <span class="math inline">\(\mathrm{f}(\mathbf{M}) \neq 0\)</span>，兩邊相除即得 <span class="math inline">\(\mathrm{f}(\mathbf{I}) = 1\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-對調" class="stage"><span class="stage-n">階段 2</span> 對調</h4>
+<p><span class="math inline">\(\mathbf{J}^2 = \mathbf{I}\)</span>，所以 <span class="math inline">\(\mathrm{f}(\mathbf{J})^2 = \mathrm{f}(\mathbf{I}) = 1\)</span>，由此得 <span class="math inline">\(\mathrm{f}(\mathbf{J}) = \pm1\)</span>。由於 <span class="math inline">\(\mathrm{f}(\mathbf{J}) \neq 1\)</span>，故 <span class="math inline">\(\mathrm{f}(\mathbf{J}) = -1\)</span>。</p>
+<p>現在 <span class="math inline">\(\begin{pmatrix} c &amp; d \\ a &amp; b \end{pmatrix} = \mathbf{JM}\)</span>，所以它的值是 <span class="math inline">\(\mathrm{f}(\mathbf{J})\mathrm{f}(\mathbf{M}) = -\mathrm{f}(\mathbf{M})\)</span>。而 <span class="math inline">\(\begin{pmatrix} d &amp; c \\ b &amp; a \end{pmatrix} = \mathbf{JMJ}\)</span>（先對調兩行，再對調兩列），所以它的值是 <span class="math inline">\(\mathrm{f}(\mathbf{J})^2\mathrm{f}(\mathbf{M}) = \mathrm{f}(\mathbf{M})\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-線性相關的兩行" class="stage"><span class="stage-n">階段 3</span> 線性相關的兩行</h4>
+<div class="askyourself">
+<p>先考慮一個兩行<em>相等</em>的矩陣 <span class="math inline">\(\mathbf{B}\)</span>。<span class="math inline">\(\mathbf{JB}\)</span> 是甚麼？這對 <span class="math inline">\(\mathrm{f}(\mathbf{B})\)</span> 說明了甚麼？</p>
+</div>
+<p>若 <span class="math inline">\(\mathbf{B}\)</span> 的兩行都是 <span class="math inline">\((a, b)\)</span>，把它們對調不會帶來任何改變：<span class="math inline">\(\mathbf{JB} = \mathbf{B}\)</span>。所以 <span class="math inline">\(\mathrm{f}(\mathbf{B}) = \mathrm{f}(\mathbf{J})\mathrm{f}(\mathbf{B}) = -\mathrm{f}(\mathbf{B})\)</span>，這就迫使 <span class="math inline">\(\mathrm{f}(\mathbf{B}) = 0\)</span>。</p>
+<p>現在若 <span class="math inline">\(\mathbf{A}\)</span> 的兩行是 <span class="math inline">\((a, b)\)</span> 和 <span class="math inline">\(k(a, b)\)</span>，則 <span class="math inline">\(\mathbf{A} = \mathbf{KB}\)</span>，其中 <span class="math inline">\(\mathbf{B}\)</span> 的兩行都等於 <span class="math inline">\((a, b)\)</span>。所以 <span class="math inline">\(\mathrm{f}(\mathbf{A}) = \mathrm{f}(\mathbf{K})\mathrm{f}(\mathbf{B}) = 0\)</span>。<span class="qed" aria-label="end of proof">■</span> （這包括 <span class="math inline">\(k = 0\)</span> 的情況，此時第二行為零。）</p>
+<h4 id="stagemark4-錯切" class="stage"><span class="stage-n">階段 4</span> 錯切</h4>
+<div class="pausebox">
+<p>計算 <span class="math inline">\(\mathbf{P}^2\)</span> 和 <span class="math inline">\(\mathbf{K}^{-1}\mathbf{PK}\)</span>。選取 <span class="math inline">\(k\)</span> 使兩者相等。由此可得 <span class="math inline">\(\mathrm{f}(\mathbf{P})\)</span> 是甚麼？</p>
+</div>
+<p><span class="math inline">\(\mathbf{P}^2 = \begin{pmatrix} 1 &amp; 2 \\ 0 &amp; 1 \end{pmatrix}\)</span>，而當 <span class="math inline">\(k \neq 0\)</span> 時， <span class="math display">\[\mathbf{K}^{-1}\mathbf{PK} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; \frac1k \end{pmatrix}\begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; k \end{pmatrix} = \begin{pmatrix} 1 &amp; k \\ 0 &amp; 1 \end{pmatrix}.\]</span> 取 <span class="math inline">\(k = 2\)</span>，則 <span class="math inline">\(\mathbf{K}^{-1}\mathbf{PK} = \mathbf{P}^2\)</span>。對兩邊取 <span class="math inline">\(\mathrm{f}\)</span>，並利用 <span class="math inline">\(\mathrm{f}(\mathbf{K}^{-1})\mathrm{f}(\mathbf{K}) = \mathrm{f}(\mathbf{I}) = 1\)</span>，得 <span class="math display">\[\mathrm{f}(\mathbf{P}) = \mathrm{f}(\mathbf{P})^2,\]</span> 所以 <span class="math inline">\(\mathrm{f}(\mathbf{P}) = 0\)</span> 或 <span class="math inline">\(1\)</span>。但 <span class="math inline">\(\mathbf{P}\)</span> 是可逆的（invertible），而 <span class="math inline">\(\mathrm{f}(\mathbf{P})\mathrm{f}(\mathbf{P}^{-1}) = \mathrm{f}(\mathbf{I}) = 1\)</span>，所以 <span class="math inline">\(\mathrm{f}(\mathbf{P}) \neq 0\)</span>。因此 <span class="math inline">\(\mathrm{f}(\mathbf{P}) = 1\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>特殊元素揭示函數的面貌。</strong>把乘法性質應用於 <span class="math inline">\(\mathbf{I}\)</span>、<span class="math inline">\(\mathbf{J}\)</span>、<span class="math inline">\(\mathbf{K}\)</span> 和 <span class="math inline">\(\mathbf{P}\)</span>，便得出 <span class="math inline">\(\mathrm{f}\)</span> 在每個矩陣上的值，以及它對每種行運算的影響。</p></li>
+<li><p><strong>與自身的變換相等的元素。</strong>兩行相等的矩陣經行對調後保持不變，而行對調會改變 <span class="math inline">\(\mathrm{f}\)</span> 的符號；所以 <span class="math inline">\(\mathrm{f}\)</span> 在該處必為零。</p></li>
+<li><p><strong>共軛（conjugation）保持 <span class="math inline">\(\mathrm{f}\)</span> 不變。</strong><span class="math inline">\(\mathrm{f}(\mathbf{K}^{-1}\mathbf{PK}) = \mathrm{f}(\mathbf{P})\)</span>，這個事實在代數中一再用到。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">每個乘性函數都是行列式的函數</div>
+<p>題目在 <span class="math inline">\(\mathrm{f}(\mathbf{P}) = 1\)</span> 處便停下，但這個論證是可以完成的。每個可逆矩陣都是初等矩陣（elementary matrices，即行對調、行縮放和錯切）的乘積，而題目已說明 <span class="math inline">\(\mathrm{f}\)</span> 在每一種上的表現。由此可知 <span class="math inline">\(\mathrm{f}(\mathbf{M}) = \phi(\det\mathbf{M})\)</span>，其中 <span class="math inline">\(\phi\)</span> 是某個單一實數變量的函數，並滿足 <span class="math inline">\(\phi(xy) = \phi(x)\phi(y)\)</span>。行列式本身就是 <span class="math inline">\(\phi(x) = x\)</span> 的情況，但 <span class="math inline">\(\phi(x) = x^3\)</span> 或 <span class="math inline">\(\phi(x) = |x|^{1/2}\,\mathrm{sign}(x)\)</span> 同樣可行。換言之，<em>行列式是矩陣上唯一真正嶄新的乘性函數</em>。用羣論（group theory）的語言來說，可逆矩陣所成的羣之中，凡是交換羣（commutative group）所能看見的一切，行列式都已盡數捕捉。</p>
+</div>
+<h3 id="行列式作為面積">行列式作為面積</h3>
+<p>從幾何上看，<span class="math inline">\(2 \times 2\)</span> 矩陣把單位正方形變成一個平行四邊形，而 <span class="math inline">\(\det\mathbf{M}\)</span> 就是它的<em>有向面積</em>（signed area）：若定向（orientation）保持不變則為正，若定向反轉則為負（圖 7.3.1）。這樣，乘法性質的意義便一目了然：相繼進行兩個變換，面積的比例因子便會相乘。行對調會反轉定向，所以 <span class="math inline">\(\det\mathbf{J} = -1\)</span>；錯切把正方形推斜成面積相同的平行四邊形，所以 <span class="math inline">\(\det\mathbf{P} = 1\)</span>；而兩行線性相關的矩陣會把正方形壓扁，所以它的行列式為零。題目的每一步都有對應的圖像。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-3-1.svg" alt="圖 7.3.1"><figcaption><span class="fig-label">圖 7.3.1</span> 行列式作為有向面積。兩個基向量（basis vectors）的像（琥珀色、梅紫色）張成一個平行四邊形。錯切保持面積不變；對調基向量會反轉定向；線性相關的兩行（或兩列）把正方形壓縮到一條直線上。相繼進行兩個變換，有向面積便會相乘，這正是性質 <span class="math inline">\(\mathrm{f}(\mathbf{MN}) = \mathrm{f}(\mathbf{M})\mathrm{f}(\mathbf{N})\)</span>。</figcaption></figure>
+<h3 id="高維的行列式">高維的行列式</h3>
+<p>對於 <span class="math inline">\(n \times n\)</span> 矩陣，行列式是有向體積的比例因子，並由三個性質所刻劃：它對每一行都是線性的，兩行對調時它會變號，而且它在單位矩陣上等於 <span class="math inline">\(1\)</span>。單憑這三點，你就能推導出熟悉的展開公式，而高斯消元法則提供了一個高效的計算方法。行列式出現在多重積分的換元公式（<em>雅可比行列式</em>，Jacobian）之中，出現在逆矩陣的公式之中，並且如我們在 <a href="../ch05/polygon-distances.html">第 5.4 節</a> 所見，也出現在多項式的判別式（discriminant）之中。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">用特殊輸入探測未知函數</div>
+<p><em>當一個函數只能透過某個性質來認識時，把這個性質應用於你能想到的最簡單的特殊輸入，看看它會迫使甚麼結果成立。</em></p>
+<p>在這裏，單位矩陣、一個對調、一個縮放和一個錯切，已足以確定幾乎一切。選取那些等於自身的平方、逆或共軛的輸入，尤其有效。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>其他例子。</strong>證明 <span class="math inline">\(\mathrm{f}(\mathbf{M}) = (\det\mathbf{M})^3\)</span> 滿足題目的所有條件，並證明 <span class="math inline">\(\mathrm{f}(\mathbf{M}) = |\det\mathbf{M}|\)</span> 滿足乘法性質，但不滿足 <span class="math inline">\(\mathrm{f}(\mathbf{J}) \neq 1\)</span>。</p></li>
+<li><p><strong>列運算。</strong>證明對於任何第二列是第一列的倍數的矩陣，<span class="math inline">\(\mathrm{f}\)</span> 的值同樣為零。</p></li>
+<li><p><strong>縮放。</strong>設 <span class="math inline">\(\mathbf{K}_k = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; k \end{pmatrix}\)</span>。證明 <span class="math inline">\(\mathrm{f}\begin{pmatrix} k &amp; 0 \\ 0 &amp; 1 \end{pmatrix} = \mathrm{f}(\mathbf{K}_k)\)</span>，並證明 <span class="math inline">\(\mathrm{f}(\mathbf{K}_k)\mathrm{f}(\mathbf{K}_l) = \mathrm{f}(\mathbf{K}_{kl})\)</span>。</p></li>
+<li><p><strong>歸結為行列式。</strong> <span class="hard">較難</span> 證明每個可逆的 <span class="math inline">\(2 \times 2\)</span> 矩陣都可以寫成形如 <span class="math inline">\(\mathbf{J}\)</span>、<span class="math inline">\(\mathbf{K}_k\)</span> 和 <span class="math inline">\(\begin{pmatrix} 1 &amp; t \\ 0 &amp; 1 \end{pmatrix}\)</span> 的矩陣的乘積。由此推導出 <span class="math inline">\(\mathrm{f}(\mathbf{M})\)</span> 只取決於 <span class="math inline">\(\det\mathbf{M}\)</span>。</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Sheldon Axler, <a href="https://uk.bookshop.org/search?keywords=Linear+Algebra+Done+Right+Axler"><em>Linear Algebra Done Right</em></a></strong>（Springer；網上免費閱覽）。從行列式的性質出發來定義行列式，與本題的精神一脈相承。</p></li>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong>（Wellesley-Cambridge）。第 5 章從三條規則出發建立行列式的理論。</p></li>
+<li><p><strong>3Blue1Brown, 「The determinant」</strong>（影片，網上免費觀看）。以精美的動畫呈現行列式的面積詮釋。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="eigenvectors.html">← 7.2 只伸縮，不轉向</a><a class="next" href="finite-order.html">→ 7.4 回到起點的矩陣</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

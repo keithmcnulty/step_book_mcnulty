@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 9 章：計數與機會 — Beyond STEP</title>
+<meta name="description" content="純組合數學與生成函數，其後是選自概率試卷的經典計數問題。">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 9 章：計數與機會 — Beyond STEP">
+<meta property="og:description" content="純組合數學與生成函數，其後是選自概率試卷的經典計數問題。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch09/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 9 章：計數與機會 — Beyond STEP">
+<meta name="twitter:description" content="純組合數學與生成函數，其後是選自概率試卷的經典計數問題。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 9, "name": "計數與機會", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "純組合數學與生成函數，其後是選自概率試卷的經典計數問題。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 9 章：計數與機會", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch09/index.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">9</div>
+    <h1>計數與機會</h1>
+    <p class="strap">計數是最古老的數學，但要數得巧妙，至今仍是最困難的事情之一。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下載整章</span><span class="dl-sub">PDF，專為列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章內容</h2>
+  <ol class="toc"><li><a class="toc-link" href="lazy-caterer.html"><span class="toc-num">9.1</span>
+<span class="toc-title">直線分割平面</span>
+<span class="toc-src">STEP II 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-1-lazy-caterer.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="ramsey.html"><span class="toc-num">9.2</span>
+<span class="toc-title">小型版的拉姆齊定理</span>
+<span class="toc-src">STEP I 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-2-ramsey.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="fence-posts.html"><span class="toc-num">9.3</span>
+<span class="toc-title">為籬笆樁着色</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-3-fence-posts.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="generating-functions.html"><span class="toc-num">9.4</span>
+<span class="toc-title">把數列看成函數</span>
+<span class="toc-src">STEP I 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-4-generating-functions.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="making-change.html"><span class="toc-num">9.5</span>
+<span class="toc-title">湊零錢</span>
+<span class="toc-src">STEP I 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-5-making-change.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="strange-dice.html"><span class="toc-num">9.6</span>
+<span class="toc-title">奇怪的骰子</span>
+<span class="toc-src">STEP I 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-6-strange-dice.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="equal-power-sums.html"><span class="toc-num">9.7</span>
+<span class="toc-title">相等的冪和</span>
+<span class="toc-src">STEP I 1992</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-7-equal-power-sums.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="derangements.html"><span class="toc-num">9.8</span>
+<span class="toc-title">沒有人拿到自己的恤衫</span>
+<span class="toc-src">STEP II 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-8-derangements.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="birthday.html"><span class="toc-num">9.9</span>
+<span class="toc-title">生日問題</span>
+<span class="toc-src">STEP II 2007</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-9-birthday.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="ballot.html"><span class="toc-num">9.10</span>
+<span class="toc-title">總能找贖</span>
+<span class="toc-src">STEP I 2011</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-10-ballot.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="coupon-collector.html"><span class="toc-num">9.11</span>
+<span class="toc-title">集齊一套</span>
+<span class="toc-src">STEP II 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-11-coupon-collector.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="random-subsets.html"><span class="toc-num">9.12</span>
+<span class="toc-title">隨機子集</span>
+<span class="toc-src">STEP III 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-12-random-subsets.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="loaded-dice.html"><span class="toc-num">9.13</span>
+<span class="toc-title">做了手腳的骰子</span>
+<span class="toc-src">STEP I 1999</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-13-loaded-dice.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顧：我們學到了甚麼</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「延伸練習」答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 9 章  \(\cdot\)  引言</div>
+    <h1 class="essay-title">計數的藝術</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>組合數學是拓撲學的貧民窟。</p>
+<p class="who">— J. H. C. Whitehead，說於 1950 年代。今天已經沒有人抱持這種看法。</p>
+</div>
+<p>人人都會數數。但若要問：用硬幣湊出 £1 有多少種方法？安排十個人入座，使得沒有人坐在自己的位子上，有多少種方法？用四種顏色為一幅地圖着色，又有多少種方法？單純的點算很快就行不通了。情況多得無法逐一列出，而且各種情況還會互相重疊。<em>組合數學</em>（combinatorics）是關於計數與排列的數學，它是一門藝術：把這類問題整理得井井有條，使我們不必逐一列舉也能解決。</p>
+<p>正如 Whitehead 那句話所反映的，在很長一段時間裏，組合數學只被視為一堆巧妙技巧的集合，而不是一門嚴肅的學科。這種情況在二十世紀下半葉改變了，推動力一方面來自計算機科學（computer science），因為點算一個算法（algorithm）所需的步驟數目，本身就是一個組合問題；另一方面則來自人們發現它與代數、幾何和概率（probability）之間有深刻的聯繫。今天，它是數學中最活躍的領域之一。2022 年，許埈珥（June Huh）獲頒數學界的最高榮譽菲爾茲獎（Fields Medal），部分原因是他運用代數幾何（algebraic geometry）的思想，證明了一個 1968 年提出的猜想，這個猜想所涉及的，正是 <a href="../ch09/fence-posts.html">第 9.3 節</a> 中的色多項式（chromatic polynomial）。</p>
+<h3 id="計數為何重要">計數為何重要</h3>
+<p>概率最簡單的形式就是計數：當所有結果的可能性均等時，一個事件的概率等於有利結果的數目除以結果的總數。因此，每一條關於紙牌、骰子和彩票的問題，都是計數問題；本章後半部分取材自概率試卷，正是這個緣故。但計數的重要性遠遠不止於遊戲。計算機科學家要點算一個算法所需的運算次數，以及它可能出錯的方式。化學家要點算分子可能具有的結構。生物學家要點算一條 DNA 鏈可以摺疊的方式。密碼學家要點算攻擊者必須嘗試的密鑰數目，以及（如 <a href="../ch09/birthday.html">第 9.9 節</a> 所示）要有多少個，才會出現兩個相同的情況。</p>
+<h3 id="你在大學會遇到甚麼">你在大學會遇到甚麼</h3>
+<p>大多數大學都會在一年級或二年級開設組合數學或離散數學（discrete mathematics）的課程，其主題正是本章的主題。你會學到基本的計數原理（乘法原理（product rule）、雙射（bijection）、容斥原理（inclusion–exclusion）、鴿巢原理（pigeonhole principle）），以及怎樣建立和求解遞推關係（recurrence relation）。你會遇到<em>生成函數</em>（generating function），它把數列變成函數，把計數變成代數。你會研究圖（graph），從着色（colouring）到拉姆齊理論（Ramsey theory），還有偏序集（partially ordered set），例如子集所構成的格（lattice）。概率課程也會運用同樣的工具，再加上期望值的線性性質（linearity of expectation），來分析隨機結構。再往後，組合數學會與代數（對稱函數、表示論）、數論（分拆、加性組合）以及計算機科學（算法分析、複雜度理論）連繫起來。</p>
+<h3 id="貫穿本章的問題">貫穿本章的問題</h3>
+<div class="skillbox">
+<div class="box-title">三大問題</div>
+<ol class="arabic">
+<li><p><strong>怎樣不逐一列舉而完成計數？</strong>有哪些結構（遞推關係、雙射、生成函數）能讓你準確地點算龐大的集合？</p></li>
+<li><p><strong>甚麼時候某件事必然發生？</strong>甚麼時候單憑數量之大，就足以迫使某種規律、巧合或配對出現？</p></li>
+<li><p><strong>計數與概率怎樣互相幫助？</strong>甚麼時候最好用計數來求概率，甚麼時候又最好用概率來求數目？</p></li>
+</ol>
+</div>
+<p>本章分為兩半。前七節取材自純數學試卷，先講遞推關係（直線分割平面、為籬笆樁着色）和鴿巢原理（拉姆齊定理），然後建立生成函數，並用它來點算硬幣、設計奇特的骰子，以及把數字分成冪和相等的隊伍。後六節是概率試卷中的經典計數問題：錯排（derangement）與 <span class="math inline">\(1/e\)</span> 的出現、生日問題、選票問題及其反射原理（reflection principle）、優惠券收集問題（coupon collector）、隨機子集，以及為何不可能把骰子灌鉛，使得每個總和出現的可能性均等。</p>
+<h3 id="本章的思想">本章的思想</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">課題</th>
+<th style="text-align: left;">思想</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">9.1</td>
+<td style="text-align: left;">平面的區域</td>
+<td style="text-align: left;">多加一個時，有甚麼改變</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.2</td>
+<td style="text-align: left;">拉姆齊理論</td>
+<td style="text-align: left;">鴿巢原理</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.3</td>
+<td style="text-align: left;">圖着色</td>
+<td style="text-align: left;">耦合遞推關係；色多項式</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.4</td>
+<td style="text-align: left;">生成函數</td>
+<td style="text-align: left;">數列變成函數</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.5</td>
+<td style="text-align: left;">分拆（partition）</td>
+<td style="text-align: left;">透過係數來計數</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.6</td>
+<td style="text-align: left;">Sicherman 骰子</td>
+<td style="text-align: left;">多項式的因式分解</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.7</td>
+<td style="text-align: left;">Thue–Morse</td>
+<td style="text-align: left;">重根帶來平衡的和</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.8</td>
+<td style="text-align: left;">錯排</td>
+<td style="text-align: left;">容斥原理；<span class="math inline">\(1/e\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.9</td>
+<td style="text-align: left;">巧合</td>
+<td style="text-align: left;">補事件；平方根定律</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.10</td>
+<td style="text-align: left;">選票問題</td>
+<td style="text-align: left;">反射原理</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.11</td>
+<td style="text-align: left;">優惠券收集問題</td>
+<td style="text-align: left;">期望值的線性性質；<span class="math inline">\(n\ln n\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.12</td>
+<td style="text-align: left;">隨機子集</td>
+<td style="text-align: left;">每次只看一個元素</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.13</td>
+<td style="text-align: left;">灌鉛骰子</td>
+<td style="text-align: left;">以算術—幾何平均不等式（AM–GM）證明不可能</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="怎樣閱讀本章">怎樣閱讀本章</h3>
+<p>永遠從小的情況入手。畫三條直線，列出三張牌的六種次序，數一數湊出 <span class="math inline">\(5\)</span>p 的方法。小的情況能給你數據去猜想，最後也可以用來檢驗你的公式。但在找到理由之前，不要輕信任何規律：<a href="../ch09/lazy-caterer.html">第 9.1 節</a> 中有一個著名的數列 <span class="math inline">\(1, 2, 4, 8, 16, \ldots\)</span>，它的下一項是 <span class="math inline">\(31\)</span>。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="lazy-caterer.html">→ 開始： 9.1 直線分割平面</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

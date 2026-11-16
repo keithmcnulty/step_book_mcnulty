@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>由一個積分建立三角學 (STEP III 2017 第 6 題) — Beyond STEP</title>
+<meta name="description" content="STEP III 2017 第 6 題：引導式解答及其背後的大學數學。 π 究竟是甚麼？在中學，它是圓周與直徑之比，而 sin 和 cos 則用三角形來定義。這對幾何來說已經足夠，卻留下了一些棘手的問題。沿着曲線的「長度」到底是甚麼？為甚麼 sin x 的麥克勞林級數（Maclaurin series）偏偏是那個樣子？我們又怎樣知道加法公式（addition…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/trig-from-integral.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="由一個積分建立三角學 (STEP III 2017 第 6 題) — Beyond STEP">
+<meta property="og:description" content="STEP III 2017 第 6 題：引導式解答及其背後的大學數學。 π 究竟是甚麼？在中學，它是圓周與直徑之比，而 sin 和 cos 則用三角形來定義。這對幾何來說已經足夠，卻留下了一些棘手的問題。沿着曲線的「長度」到底是甚麼？為甚麼 sin x 的麥克勞林級數（Maclaurin series）偏偏是那個樣子？我們又怎樣知道加法公式（addition…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch04/trig-from-integral.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="由一個積分建立三角學 (STEP III 2017 第 6 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2017 第 6 題：引導式解答及其背後的大學數學。 π 究竟是甚麼？在中學，它是圓周與直徑之比，而 sin 和 cos 則用三角形來定義。這對幾何來說已經足夠，卻留下了一些棘手的問題。沿着曲線的「長度」到底是甚麼？為甚麼 sin x 的麥克勞林級數（Maclaurin series）偏偏是那個樣子？我們又怎樣知道加法公式（addition…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "由一個積分建立三角學", "headline": "由一個積分建立三角學", "description": "STEP III 2017 第 6 題：引導式解答及其背後的大學數學。 π 究竟是甚麼？在中學，它是圓周與直徑之比，而 sin 和 cos 則用三角形來定義。這對幾何來說已經足夠，卻留下了一些棘手的問題。沿着曲線的「長度」到底是甚麼？為甚麼 sin x 的麥克勞林級數（Maclaurin series）偏偏是那個樣子？我們又怎樣知道加法公式（addition…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch04/trig-from-integral.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2017 第 6 題", "嚴謹的微積分"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 4, "name": "嚴謹的微積分", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 4 章：嚴謹的微積分", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch04/"}, {"@type": "ListItem", "position": 3, "name": "由一個積分建立三角學", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch04/trig-from-integral.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch04/trig-from-integral.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 4 章 · 嚴謹的微積分</a>
+    <div class="src">STEP III · 2017 · 第 6 題</div>
+    <div class="sec-head"><span class="sec-num">4.2</span><h1>由一個積分建立三角學</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-2-trig-from-integral.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 4 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP III 2017，第 6 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/17-s3-q6">step.maths.org/questions/17-s3-q6</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p><span class="math inline">\(\pi\)</span> 究竟是甚麼？在中學，它是圓周與直徑之比，而 <span class="math inline">\(\sin\)</span> 和 <span class="math inline">\(\cos\)</span> 則用三角形來定義。這對幾何來說已經足夠，卻留下了一些棘手的問題。沿着曲線的「長度」到底是甚麼？為甚麼 <span class="math inline">\(\sin x\)</span> 的麥克勞林級數（Maclaurin series）偏偏是那個樣子？我們又怎樣知道加法公式（addition formulas）對所有角都成立，而不只限於畫得出來的角？</p>
+<p>這道題展示了一條截然不同的入門途徑。忘掉三角形和圓吧。只從一個積分 <span class="math inline">\(\mathrm{T}(x) = \int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span> 出發，它所需要的不過是 <a href="../ch04/riemann.html">第 4.1 節</a> 中積分的定義。把 <span class="math inline">\(\pi\)</span> 定義為 <span class="math inline">\(2\mathrm{T}_\infty\)</span>。然後只用代換法（substitution），證明 <span class="math inline">\(\mathrm{T}(\sqrt3) = \frac{\pi}{3}\)</span> 和 <span class="math inline">\(\mathrm{T}(\sqrt2 - 1) = \frac{\pi}{8}\)</span>，也就是你所熟悉的 <span class="math inline">\(\arctan\sqrt3 = 60^\circ\)</span> 和 <span class="math inline">\(\tan 22\tfrac12^\circ = \sqrt2 - 1\)</span>。三角學就這樣從無到有地重建起來。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<p>你心裏其實知道 <span class="math inline">\(\mathrm{T}(x) = \arctan x\)</span> 和 <span class="math inline">\(\mathrm{T}_\infty = \frac\pi2\)</span>。題目不准你使用這些事實，而這正是用意所在：一切都必須由積分推導出來。不過，這點心照不宣的知識是很有用的嚮導。</p>
+<div class="askyourself">
+<p>第 (i) 和第 (ii) 部分分別對應哪些三角恆等式（trigonometric identities）？（想想 <span class="math inline">\(\arctan x + \arctan\frac1x\)</span>，以及 <span class="math inline">\(\tan(A + B)\)</span> 的公式。）</p>
+</div>
+<p>第 (i) 部分就是 <span class="math inline">\(\arctan x + \arctan\frac1x = \frac\pi2\)</span>。第 (ii) 部分則是喬裝了的加法公式 <span class="math inline">\(\tan(A + B) = \frac{\tan A + \tan B}{1 - \tan A\tan B}\)</span>：設 <span class="math inline">\(u = \tan A\)</span> 和 <span class="math inline">\(a = \tan B\)</span>，則 <span class="math inline">\(v = \tan(A + B)\)</span>。這道題不靠任何幾何，單憑積分就證明了這些恆等式。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-反射-u-mapsto-1u" class="stage"><span class="stage-n">階段 1</span> 反射 <span class="math inline">\(u \mapsto 1/u\)</span></h4>
+<p>在 <span class="math inline">\(\mathrm{T}(x)\)</span> 中代入 <span class="math inline">\(u = 1/w\)</span>。於是 <span class="math inline">\(\mathrm{d}u = -\mathrm{d}w/w^2\)</span>，而 <span class="math inline">\(\dfrac{1}{1 + u^2} = \dfrac{w^2}{w^2 + 1}\)</span>，所以 <span class="math display">\[\mathrm{T}(x) = \int_{\infty}^{1/x} \frac{w^2}{w^2 + 1}\cdot\left(-\frac{1}{w^2}\right)\mathrm{d}w = \int_{1/x}^{\infty} \frac{\mathrm{d}w}{1 + w^2} = \mathrm{T}_\infty - \mathrm{T}(x^{-1}). \qed\]</span> 換句話說，<span class="math inline">\(\frac{1}{1+u^2}\)</span> 之下由 <span class="math inline">\(0\)</span> 到 <span class="math inline">\(x\)</span> 的面積，等於由 <span class="math inline">\(\frac1x\)</span> 到 <span class="math inline">\(\infty\)</span> 的面積（圖 4.2.1）。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-2-1.svg" alt="圖 4.2.1"><figcaption><span class="fig-label">圖 4.2.1</span> 代換 <span class="math inline">\(u = 1/w\)</span> 顯示 <span class="math inline">\(\frac{1}{1+u^2}\)</span> 之下的兩塊陰影面積相等：由 <span class="math inline">\(0\)</span> 到 <span class="math inline">\(x\)</span> 的面積（藍綠色），以及由 <span class="math inline">\(\frac1x\)</span> 起無限伸延的面積（琥珀色）。圖中 <span class="math inline">\(x = \frac12\)</span>。</figcaption></figure>
+<h4 id="stagemark2-加法代換" class="stage"><span class="stage-n">階段 2</span> 加法代換</h4>
+<div class="askyourself">
+<p>用商法則（quotient rule）對 <span class="math inline">\(v = \dfrac{u + a}{1 - au}\)</span> 求導。然後把 <span class="math inline">\(1 + v^2\)</span> 化成單一分式，再作比較。</p>
+</div>
+<p><span class="math display">\[\begin{aligned}
+  \frac{\mathrm{d}v}{\mathrm{d}u} &amp;= \frac{(1 - au) + a(u + a)}{(1 - au)^2} = \frac{1 + a^2}{(1 - au)^2},
+ \\
+  1 + v^2 &amp;= \frac{(1 - au)^2 + (u + a)^2}{(1 - au)^2} = \frac{(1 + a^2)(1 + u^2)}{(1 - au)^2}.
+\end{aligned}\]</span> 兩式相除，得 <span class="math inline">\(\dfrac{1 + v^2}{1 + u^2} = \dfrac{1 + a^2}{(1 - au)^2} = \dfrac{\mathrm{d}v}{\mathrm{d}u}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>這表示 <span class="math inline">\(\dfrac{\mathrm{d}u}{1 + u^2} = \dfrac{\mathrm{d}v}{1 + v^2}\)</span>。所以代換 <span class="math inline">\(u \mapsto v\)</span> 完全沒有改變被積函數（integrand）。那麼它對 <span class="math inline">\(\mathrm{T}(x)\)</span> 的積分上下限有甚麼影響？</p>
+</div>
+<p>當 <span class="math inline">\(u\)</span> 由 <span class="math inline">\(0\)</span> 變到 <span class="math inline">\(x\)</span> 時（其中 <span class="math inline">\(x &lt; \frac1a\)</span>，故 <span class="math inline">\(1 - au &gt; 0\)</span> 始終成立，而 <span class="math inline">\(v\)</span> 連續且遞增），<span class="math inline">\(v\)</span> 由 <span class="math inline">\(a\)</span> 變到 <span class="math inline">\(\frac{x + a}{1 - ax}\)</span>。所以 <span class="math display">\[\mathrm{T}(x) = \int_0^x \frac{\mathrm{d}u}{1 + u^2} = \int_a^{(x+a)/(1-ax)} \frac{\mathrm{d}v}{1 + v^2} = \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) - \mathrm{T}(a). \qed\]</span></p>
+<h4 id="stagemark3-再多兩個恆等式" class="stage"><span class="stage-n">階段 3</span> 再多兩個恆等式</h4>
+<p>結合第 (i) 部分，並使用兩次： <span class="math display">\[\mathrm{T}(x^{-1}) = \mathrm{T}_\infty - \mathrm{T}(x) = \mathrm{T}_\infty - \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) + \mathrm{T}(a) = 2\mathrm{T}_\infty - \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) - \mathrm{T}(a^{-1}). \qed\]</span> 現在更換變數名稱：設 <span class="math inline">\(y = 1/x\)</span> 和 <span class="math inline">\(b = 1/a\)</span>。條件 <span class="math inline">\(x &lt; 1/a\)</span> 變成 <span class="math inline">\(1/y &lt; b\)</span>，即 <span class="math inline">\(y &gt; 1/b\)</span>，而 <span class="math display">\[\frac{x + a}{1 - ax} = \frac{1/y + 1/b}{1 - 1/(by)} = \frac{b + y}{by - 1}.\]</span> 所以 <span class="math inline">\(\mathrm{T}(y) = 2\mathrm{T}_\infty - \mathrm{T}\!\left(\dfrac{y + b}{by - 1}\right) - \mathrm{T}(b)\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-特殊值" class="stage"><span class="stage-n">階段 4</span> 特殊值</h4>
+<div class="pausebox">
+<p>在最後一個恆等式中選取 <span class="math inline">\(y\)</span> 和 <span class="math inline">\(b\)</span>，使自變量 <span class="math inline">\(\frac{y + b}{by - 1}\)</span> 剛好等於 <span class="math inline">\(y\)</span> 本身。你會得到甚麼？</p>
+</div>
+<p>取 <span class="math inline">\(y = b = \sqrt3\)</span>：這時 <span class="math inline">\(y &gt; \frac1b\)</span>，而 <span class="math inline">\(\dfrac{\sqrt3 + \sqrt3}{3 - 1} = \sqrt3\)</span>。恆等式變成 <span class="math inline">\(\mathrm{T}(\sqrt3) = 2\mathrm{T}_\infty - 2\mathrm{T}(\sqrt3)\)</span>，所以 <span class="math display">\[\mathrm{T}(\sqrt3) = \tfrac23\mathrm{T}_\infty. \qed\]</span></p>
+<div class="askyourself">
+<p>至於 <span class="math inline">\(\sqrt2 - 1\)</span>，試在加法恆等式中取 <span class="math inline">\(x = a = \sqrt2 - 1\)</span>。<span class="math inline">\(\frac{2x}{1 - x^2}\)</span> 是多少？<span class="math inline">\(\mathrm{T}(1)\)</span> 又是多少？</p>
+</div>
+<p>取 <span class="math inline">\(x = a = \sqrt2 - 1\)</span>（由於 <span class="math inline">\(x^2 = 3 - 2\sqrt2 &lt; 1\)</span>，故 <span class="math inline">\(x &lt; \frac1a\)</span>），加法恆等式給出 <span class="math inline">\(2\mathrm{T}(x) = \mathrm{T}\!\left(\frac{2x}{1 - x^2}\right)\)</span>。而 <span class="math inline">\(1 - x^2 = 2\sqrt2 - 2 = 2(\sqrt2 - 1) = 2x\)</span>，所以 <span class="math inline">\(\frac{2x}{1 - x^2} = 1\)</span>，於是 <span class="math inline">\(2\mathrm{T}(\sqrt2 - 1) = \mathrm{T}(1)\)</span>。最後，在第 (i) 部分取 <span class="math inline">\(x = 1\)</span>，得 <span class="math inline">\(\mathrm{T}(1) = \mathrm{T}_\infty - \mathrm{T}(1)\)</span>，所以 <span class="math inline">\(\mathrm{T}(1) = \frac12\mathrm{T}_\infty\)</span>。因此 <span class="math display">\[\mathrm{T}(\sqrt2 - 1) = \tfrac14\mathrm{T}_\infty. \qed\]</span></p>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>保持被積函數不變的代換。</strong>兩個關鍵步驟所用的代換，都令 <span class="math inline">\(\frac{\mathrm{d}u}{1+u^2}\)</span> 保持不變，只有積分上下限移動了。積分的這類「對稱性」（symmetry）威力強大。</p></li>
+<li><p><strong>不動點（fixed point）。</strong><span class="math inline">\(\mathrm{T}(\sqrt3)\)</span> 的值，來自選取適當的數，使某個表達式等於它本身，於是恆等式變成了方程。</p></li>
+<li><p><strong>定義可以來自分析。</strong>我們從沒有用過三角形，卻重新得到了 <span class="math inline">\(\frac\pi3\)</span> 和 <span class="math inline">\(\frac\pi8\)</span>（其中 <span class="math inline">\(\pi\)</span> 定義為 <span class="math inline">\(2\mathrm{T}_\infty\)</span>）。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">建構初等函數</div>
+<p>在嚴格的分析課程中，函數 <span class="math inline">\(\exp\)</span>、<span class="math inline">\(\sin\)</span>、<span class="math inline">\(\cos\)</span> 和 <span class="math inline">\(\ln\)</span> 不能隨便假設存在；它們必須被<em>建構</em>出來，其性質也必須加以證明。標準的做法有三種。你可以用冪級數（power series）來定義它們（<span class="math inline">\(\sin x = x - \frac{x^3}{3!} + \cdots\)</span>）。你可以把它們定義為微分方程（differential equation）的解，就如練習中那道 1986 年樣本試卷的題目（<span class="math inline">\(\mathrm{f}&#39; = \mathrm{f}\)</span>、<span class="math inline">\(\mathrm{f}(0) = 1\)</span> 定義了 <span class="math inline">\(\exp\)</span>）。你也可以像這裏一樣，用積分來定義反函數（inverse function）：<span class="math inline">\(\ln x = \int_1^x \frac{\mathrm{d}u}{u}\)</span> 和 <span class="math inline">\(\arctan x = \int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span>，然後定義 <span class="math inline">\(\pi = 2\int_0^\infty \frac{\mathrm{d}u}{1+u^2}\)</span>。每種做法各有所長，而證明它們全都給出相同的函數，是一道令人滿足的練習。試與 <a href="../ch03/addition-laws.html">第 3.8 節</a> 的函數方程（functional equation）做法比較。</p>
+</div>
+<h3 id="圓以外橢圓積分">圓以外：橢圓積分</h3>
+<p>積分的做法可以推廣，而三角形的做法卻做不到。1718 年，Giulio Fagnano 研究<em>雙紐線</em>（lemniscate）這條 8 字形曲線的弧長（arc length），由此引出 <span class="math inline">\(\int_0^x \frac{\mathrm{d}u}{\sqrt{1 - u^4}}\)</span>，並找到一個能把弧長加倍的代換，正如我們的代換把 <span class="math inline">\(\mathrm{T}\)</span> 加倍一樣。歐拉（Euler）在 1751 年讀到 Fagnano 的著作，找出了完整的加法公式；這最終經由阿貝爾（Abel）和雅可比（Jacobi），發展成<em>橢圓函數</em>（elliptic functions）的理論：橢圓函數就是這類積分的反函數，它們之於雙紐線，正如 <span class="math inline">\(\sin\)</span> 和 <span class="math inline">\(\cos\)</span> 之於圓。我們在高斯（Gauss）關於算術幾何平均（AGM）的工作中（<a href="../ch02/agm.html">第 2.6 節</a>）遇過同一個積分。橢圓函數如今是數論的核心；<a href="../ch01/tangents-cubic.html">第 1.9 節</a> 的橢圓曲線（elliptic curves）就是它們在幾何上的投影。</p>
+<h3 id="計算-pi">計算 <span class="math inline">\(\pi\)</span></h3>
+<p>加法恆等式也是計算 <span class="math inline">\(\pi\)</span> 的那些最著名公式的基礎。舉例說，反覆運用它可以證明 <span class="math inline">\(\mathrm{T}(1) = 4\mathrm{T}(\frac15) - \mathrm{T}(\frac{1}{239})\)</span>，這就是 1706 年的梅欽公式（Machin’s formula）；配合級數 <span class="math inline">\(\mathrm{T}(x) = x - \frac{x^3}{3} + \frac{x^5}{5} - \cdots\)</span>，它算出了 <span class="math inline">\(\pi\)</span> 的 <span class="math inline">\(100\)</span> 位數字，並在其後兩個半世紀一直是首選的方法。這是 <a href="../ch05/machin.html">第 5.1 節</a> 的主題。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">積分的對稱性</div>
+<p><em>尋找令被積函數保持不變的代換。它們會化為該積分所定義的函數的恆等式。</em></p>
+<p>這裏 <span class="math inline">\(u \mapsto 1/u\)</span> 和 <span class="math inline">\(u \mapsto \frac{u+a}{1-au}\)</span> 都保持 <span class="math inline">\(\frac{\mathrm{d}u}{1+u^2}\)</span> 不變，並分別給出反射公式和加法公式。同一個想法用於其他積分，正是特殊函數（special functions）理論的基礎。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>指數函數與餘弦。</strong>試做 <a href="https://step.maths.org/questions/spec-s2-q6">STEP II Specimen paper，第 6 題</a>。這道題只憑指數函數和餘弦各自的微分方程，推導出它們的加法公式。（<em>提示：</em>對於餘弦，找出兩個理應為零的組合，並證明它們的平方和是常數。）</p></li>
+<li><p><strong>反正弦。</strong>試做 <a href="https://step.maths.org/questions/07-s3-q7">STEP III 2007，第 7 題</a>。這道題用處理本節積分的同一手法來處理反正弦（inverse sine），並以一個代換把兩者聯繫起來。</p></li>
+<li><p><strong>一條早期的梅欽型公式。</strong>利用加法恆等式證明 <span class="math inline">\(\mathrm{T}(\frac12) + \mathrm{T}(\frac13) = \mathrm{T}(1) = \frac12\mathrm{T}_\infty\)</span>。</p></li>
+<li><p><strong><span class="math inline">\(\mathrm{T}_\infty\)</span> 是有限的。</strong>證明對所有 <span class="math inline">\(x \geq 1\)</span> 都有 <span class="math inline">\(\mathrm{T}(x) \leq 1 + \int_1^x \frac{\mathrm{d}u}{u^2} &lt; 2\)</span>，解釋為甚麼當 <span class="math inline">\(0 &lt; x &lt; 1\)</span> 時同樣有 <span class="math inline">\(\mathrm{T}(x) &lt; 2\)</span>，並由單調收斂定理（monotone convergence theorem）（<a href="../ch02/golden-limit.html">第 2.2 節</a>）推斷 <span class="math inline">\(\mathrm{T}_\infty\)</span> 存在。</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Tom Körner, <a href="https://uk.bookshop.org/search?keywords=Calculus+for+the+Ambitious+Korner"><em>Calculus for the Ambitious</em></a></strong>（Cambridge University Press）。嚴格地建構初等函數，並討論各種不同的做法。</p></li>
+<li><p><strong>Walter Rudin, <a href="https://uk.bookshop.org/search?keywords=Principles+of+Mathematical+Analysis+Rudin"><em>Principles of Mathematical Analysis</em></a></strong>（McGraw-Hill）。即著名的「baby Rudin」；第 8 章的引言只用寥寥數頁，便優雅地由冪級數建構出 <span class="math inline">\(\exp\)</span>、<span class="math inline">\(\sin\)</span> 和 <span class="math inline">\(\cos\)</span>。程度較深。</p></li>
+<li><p><strong>Victor Prasolov &amp; Yuri Solovyev, <a href="https://uk.bookshop.org/search?keywords=Elliptic+Functions+and+Elliptic+Integrals+Prasolov+Solovyev"><em>Elliptic Functions and Elliptic Integrals</em></a></strong>（American Mathematical Society）。想知道雙紐線通往何處，可讀此書。程度較深。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="riemann.html">← 4.1 甚麼是積分？</a><a class="next" href="twenty-two-sevenths.html">→ 4.3 22/7 大於 π</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

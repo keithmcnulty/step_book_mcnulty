@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>累積起來的誤差 (STEP II 1993 第 15 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 1993 第 15 題：引導式解答及其背後的大學數學。 1982 年，溫哥華證券交易所推出了一個新指數，起始值為 1000 。每當有股價變動，指數便會重新計算，並 截斷 （truncate）至小數點後三位。每次截斷平均損失 0.0005 ，看來微不足道。可是每天大約要重新計算 3000 次，二十二個月後，儘管大市上升，指數卻只剩下約 520 。經正確重算後，指數一夜之間躍升至約…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch13/errors-add-up.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="累積起來的誤差 (STEP II 1993 第 15 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 1993 第 15 題：引導式解答及其背後的大學數學。 1982 年，溫哥華證券交易所推出了一個新指數，起始值為 1000 。每當有股價變動，指數便會重新計算，並 截斷 （truncate）至小數點後三位。每次截斷平均損失 0.0005 ，看來微不足道。可是每天大約要重新計算 3000 次，二十二個月後，儘管大市上升，指數卻只剩下約 520 。經正確重算後，指數一夜之間躍升至約…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch13/errors-add-up.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="累積起來的誤差 (STEP II 1993 第 15 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1993 第 15 題：引導式解答及其背後的大學數學。 1982 年，溫哥華證券交易所推出了一個新指數，起始值為 1000 。每當有股價變動，指數便會重新計算，並 截斷 （truncate）至小數點後三位。每次截斷平均損失 0.0005 ，看來微不足道。可是每天大約要重新計算 3000 次，二十二個月後，儘管大市上升，指數卻只剩下約 520 。經正確重算後，指數一夜之間躍升至約…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "累積起來的誤差", "headline": "累積起來的誤差", "description": "STEP II 1993 第 15 題：引導式解答及其背後的大學數學。 1982 年，溫哥華證券交易所推出了一個新指數，起始值為 1000 。每當有股價變動，指數便會重新計算，並 截斷 （truncate）至小數點後三位。每次截斷平均損失 0.0005 ，看來微不足道。可是每天大約要重新計算 3000 次，二十二個月後，儘管大市上升，指數卻只剩下約 520 。經正確重算後，指數一夜之間躍升至約…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch13/errors-add-up.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1993 第 15 題", "統計與現實世界中的隨機性"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "統計與現實世界中的隨機性", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 13 章：統計與現實世界中的隨機性", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch13/"}, {"@type": "ListItem", "position": 3, "name": "累積起來的誤差", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch13/errors-add-up.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch13/errors-add-up.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 13 章 · 統計與現實世界中的隨機性</a>
+    <div class="src">STEP II · 1993 · 第 15 題</div>
+    <div class="sec-head"><span class="sec-num">13.6</span><h1>累積起來的誤差</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-6-errors-add-up.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 13 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 1993，第 15 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/93-s2-q15">step.maths.org/questions/93-s2-q15</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>1982 年，溫哥華證券交易所推出了一個新指數，起始值為 <span class="math inline">\(1000\)</span>。每當有股價變動，指數便會重新計算，並<em>截斷</em>（truncate）至小數點後三位。每次截斷平均損失 <span class="math inline">\(0.0005\)</span>，看來微不足道。可是每天大約要重新計算 <span class="math inline">\(3000\)</span> 次，二十二個月後，儘管大市上升，指數卻只剩下約 <span class="math inline">\(520\)</span>。經正確重算後，指數一夜之間躍升至約 <span class="math inline">\(1100\)</span>。</p>
+<p>這道題目解釋了箇中原因。截斷誤差（truncation error）全部朝同一方向，因此會穩步累積，與運算次數成正比。捨入誤差（rounding error）則有正有負，大部分互相抵銷：它們的增長速度只相當於運算次數的平方根，這正是中心極限定理（central limit theorem）（<a href="../ch12/clt.html">第 12.24 節</a>）所預測的隨機漫步（random walk）行為。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>若某數的小數部分 <span class="math inline">\(U\)</span> 在 <span class="math inline">\([0, 1)\)</span> 上均勻分佈（uniform），把該數截斷時誤差是多少？捨入時又是多少？兩者的平均值（mean）和方差（variance）各是多少？</p>
+</div>
+<p>截斷是以 <span class="math inline">\(\lfloor a\rfloor\)</span> 取代 <span class="math inline">\(a\)</span>，誤差（真確值減近似值）為 <span class="math inline">\(U\)</span>，在 <span class="math inline">\([0, 1)\)</span> 上均勻分佈：平均值為 <span class="math inline">\(\frac12\)</span>，方差為 <span class="math inline">\(\frac{1}{12}\)</span>。捨入所得的誤差在 <span class="math inline">\((-\frac12, \frac12]\)</span> 上均勻分佈：平均值為 <span class="math inline">\(0\)</span>，方差為 <span class="math inline">\(\frac{1}{12}\)</span>。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-總誤差" class="stage"><span class="stage-n">階段 1</span> 總誤差</h4>
+<p>加了 <span class="math inline">\(1500\)</span> 個數之後，總誤差是 <span class="math inline">\(1500\)</span> 個獨立（independent）誤差之和，根據中心極限定理，它近似於正態分佈（normal distribution）：</p>
+<ul>
+<li><p>LEP（捨入）：平均值為 <span class="math inline">\(0\)</span>，方差為 <span class="math inline">\(\frac{1500}{12} = 125\)</span>，標準差（standard deviation）為 <span class="math inline">\(\sqrt{125} \approx 11.18\)</span>。</p></li>
+<li><p>VOZ（截斷）：平均值為 <span class="math inline">\(\frac{1500}{2} = 750\)</span>，標準差同樣是 <span class="math inline">\(11.18\)</span>。</p></li>
+</ul>
+<h4 id="stagemark2-出現大誤差的概率" class="stage"><span class="stage-n">階段 2</span> 出現大誤差的概率</h4>
+<div class="askyourself">
+<p>對 LEP 而言，若 <span class="math inline">\(E \sim \mathrm{N}(0, 125)\)</span>，<span class="math inline">\(\mathrm{P}(|E| &gt; 15)\)</span> 是多少？對 VOZ 而言，誤差幾乎必然落在哪裏？</p>
+</div>
+<p>對 LEP 而言，<span class="math inline">\(\frac{15}{11.18} \approx 1.342\)</span>，所以 <span class="math display">\[\mathrm{P}(|E| &gt; 15) \approx 2\bigl(1 - \Phi(1.342)\bigr) \approx 2 \times 0.090 = 0.18.\]</span> 對 VOZ 而言，誤差約為 <span class="math inline">\(750 \pm 11\)</span>；其絕對值小於 <span class="math inline">\(15\)</span> 的概率基本上是零，所以 <span class="math inline">\(\mathrm{P}(|E| &gt; 15) \approx 1\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-可以做多少次加法" class="stage"><span class="stage-n">階段 3</span> 可以做多少次加法？</h4>
+<div class="askyourself">
+<p>做了 <span class="math inline">\(n\)</span> 次加法後，LEP 的誤差的標準差為 <span class="math inline">\(\sqrt{n/12}\)</span>。何時有 <span class="math inline">\(\mathrm{P}(|E| &lt; 10) \geq 0.9\)</span>？</p>
+</div>
+<p>我們需要 <span class="math inline">\(\frac{10}{\sqrt{n/12}} \geq 1.645\)</span>（因為 <span class="math inline">\(\mathrm{P}(|Z| &lt; 1.645) = 0.9\)</span>），即 <span class="math inline">\(\frac{n}{12} \leq \bigl(\frac{10}{1.645}\bigr)^2 \approx 36.95\)</span>，所以 <span class="math inline">\(n \leq 443\)</span>。LEP 可以做大約 <span class="math inline">\(443\)</span> 次加法。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-6-1.svg" alt="圖 13.6.1"><figcaption><span class="fig-label">圖 13.6.1</span> 誤差如何累積。截斷誤差（紫紅色）全部同號，與 <span class="math inline">\(n\)</span> 成正比增長：做了 <span class="math inline">\(1500\)</span> 次加法後，總誤差約為 <span class="math inline">\(750\)</span>。捨入誤差（藍綠色帶狀區域，即零的兩側各兩個標準差）平均而言互相抵銷，增長速度只相當於 <span class="math inline">\(\sqrt n\)</span>：做了 <span class="math inline">\(1500\)</span> 次加法後，誤差通常在約 <span class="math inline">\(\pm22\)</span> 之內。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>為每個誤差建立模型。</strong>小數部分均勻分佈，令每個誤差都有簡單的分佈。</p></li>
+<li><p><strong>把平均值和方差相加。</strong>平均值可以相加（得出偏差 <span class="math inline">\(\frac n2\)</span>），而對於獨立的誤差，方差同樣可以相加。</p></li>
+<li><p><strong>正態近似。</strong>中心極限定理把 <span class="math inline">\(1500\)</span> 個均勻誤差之和化為正態分佈。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<h3 id="偏差與方差">偏差與方差</h3>
+<p>截斷是<em>有偏</em>（biased）的：其誤差的平均值不是零，而偏差（bias）會線性累積。捨入是<em>無偏</em>（unbiased）的，其誤差的表現有如隨機漫步，增長速度相當於 <span class="math inline">\(\sqrt n\)</span>。經過一百萬次運算後，兩者的分別就是數量級為 <span class="math inline">\(500\,000\)</span> 的誤差與數量級為 <span class="math inline">\(300\)</span> 的誤差之別。這與實驗中系統誤差（systematic error，例如儀器校準失準）和隨機測量誤差（random error）之間的區別如出一轍：把多次測量結果取平均，可以減少隨機誤差，對系統誤差卻毫無作用。</p>
+<h3 id="浮點數">浮點數</h3>
+<p>所有電腦都只能以有限的精確度儲存實數，每次算術運算都要把結果捨入。現代電腦遵從 IEEE 754 標準，把結果捨入至最接近的可表示數；若剛好位於兩數正中，則取末位為偶數的一個，目的正是令捨入平均而言無偏。即使如此，把大量數字相加時若不小心處理，仍會損失準確度；William Kahan 的<em>補償求和</em>（compensated summation）算法（1965 年）會記錄失去的低位數字，再把它們加回去。1991 年波斯灣戰爭期間，一個愛國者導彈連未能攔截一枚來襲導彈，原因是它的時鐘以十分之一秒為單位計時，而這個數無法以二進制準確儲存；連續運作 <span class="math inline">\(100\)</span> 小時後，截斷誤差已增至約三分之一秒，足以令目標位置的估算偏差超過半公里。</p>
+<div class="historybox">
+<div class="box-title">溫哥華指數</div>
+<p>溫哥華證券交易所指數於 1982 年 1 月設立，起始值為 <span class="math inline">\(1000.000\)</span>。到 1983 年 11 月，儘管大市普遍上升，指數卻已跌至約 <span class="math inline">\(524\)</span>。顧問發現，指數每天重新計算數千次，而每次都截斷（而非捨入）至小數點後三位。經過一個周末的正確重算，指數重開時約為 <span class="math inline">\(1098\)</span>。這件事已成為數值計算課程中的經典警示。</p>
+</div>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">分清系統誤差與隨機誤差</div>
+<p><em>正負號一致的誤差會線性累積；平均值為零的獨立誤差則按平方根的速度累積。先認清你面對的是哪一種。</em></p>
+<p>在大學，數值分析（numerical analysis）研究誤差如何在計算過程中傳播，統計學則區分偏差與方差；「偏差–方差權衡」（bias–variance trade-off）是現代機器學習的核心概念。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>修正 VOZ。</strong>若 VOZ 在最後把 <span class="math inline">\(\frac n2\)</span> 加到答案上，其誤差的分佈是甚麼？它現在是否與 LEP 一樣好？</p></li>
+<li><p><strong>捨入至小數點後一位。</strong>若把各數捨入至小數點後一位，而被捨去的數字均勻分佈，求把 <span class="math inline">\(10\,000\)</span> 個數相加時總誤差的標準差。</p></li>
+<li><p><strong>溫哥華指數。</strong>若指數每天重新計算 <span class="math inline">\(3000\)</span> 次，每次截斷平均損失 <span class="math inline">\(0.0005\)</span>，那麼在一年 <span class="math inline">\(250\)</span> 個交易日內，指數會損失多少？</p></li>
+<li><p><strong>精確分佈。</strong>求兩個捨入誤差之和的精確密度函數（density，呈三角形）。若是三個誤差之和，試繪出其草圖。它多快便開始貌似正態分佈？</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Nicholas Higham, <a href="https://uk.bookshop.org/search?keywords=Accuracy+and+Stability+of+Numerical+Algorithms+Higham"><em>Accuracy and Stability of Numerical Algorithms</em></a></strong>（SIAM）。關於捨入誤差的權威著作；第一章淺白易讀。</p></li>
+<li><p><strong>David Goldberg, “<a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html">What every computer scientist should know about floating-point arithmetic</a>”</strong>, <em>ACM Computing Surveys</em> 23 (1991)。經典之作，可在網上免費閱讀。</p></li>
+<li><p><strong>Tim Harford, <a href="https://uk.bookshop.org/search?keywords=How+to+Make+the+World+Add+Up+Harford"><em>How to Make the World Add Up</em></a></strong>（Bridge Street），探討數據中的系統誤差。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="awkward-questions.html">← 13.5 問尷尬的問題</a><a class="next" href="correlation.html">→ 13.7 製造相關性</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

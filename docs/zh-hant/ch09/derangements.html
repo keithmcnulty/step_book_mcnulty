@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>沒有人拿到自己的恤衫 (STEP II 2016 第 12 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 2016 第 12 題：引導式解答及其背後的大學數學。 一支十一人的足球隊匆忙更衣，各人隨手抓起一件球衣就穿。沒有任何人穿上自己球衣的機會有多大？再設想那是一支五十人的大軍，甚至是一百萬人的人羣。人多了，出錯的人也多了，機會是否隨之上升？還是因為有更多人可能碰巧拿對，機會反而下降？出人意料的是，這個機會幾乎完全不變：由五個人開始，它與 1/e approx 0.368…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/derangements.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/derangements.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/derangements.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/derangements.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="沒有人拿到自己的恤衫 (STEP II 2016 第 12 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 2016 第 12 題：引導式解答及其背後的大學數學。 一支十一人的足球隊匆忙更衣，各人隨手抓起一件球衣就穿。沒有任何人穿上自己球衣的機會有多大？再設想那是一支五十人的大軍，甚至是一百萬人的人羣。人多了，出錯的人也多了，機會是否隨之上升？還是因為有更多人可能碰巧拿對，機會反而下降？出人意料的是，這個機會幾乎完全不變：由五個人開始，它與 1/e approx 0.368…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch09/derangements.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="沒有人拿到自己的恤衫 (STEP II 2016 第 12 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2016 第 12 題：引導式解答及其背後的大學數學。 一支十一人的足球隊匆忙更衣，各人隨手抓起一件球衣就穿。沒有任何人穿上自己球衣的機會有多大？再設想那是一支五十人的大軍，甚至是一百萬人的人羣。人多了，出錯的人也多了，機會是否隨之上升？還是因為有更多人可能碰巧拿對，機會反而下降？出人意料的是，這個機會幾乎完全不變：由五個人開始，它與 1/e approx 0.368…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "沒有人拿到自己的恤衫", "headline": "沒有人拿到自己的恤衫", "description": "STEP II 2016 第 12 題：引導式解答及其背後的大學數學。 一支十一人的足球隊匆忙更衣，各人隨手抓起一件球衣就穿。沒有任何人穿上自己球衣的機會有多大？再設想那是一支五十人的大軍，甚至是一百萬人的人羣。人多了，出錯的人也多了，機會是否隨之上升？還是因為有更多人可能碰巧拿對，機會反而下降？出人意料的是，這個機會幾乎完全不變：由五個人開始，它與 1/e approx 0.368…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/derangements.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2016 第 12 題", "計數與機會"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "計數與機會", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 9 章：計數與機會", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/"}, {"@type": "ListItem", "position": 3, "name": "沒有人拿到自己的恤衫", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch09/derangements.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch09/derangements.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 9 章 · 計數與機會</a>
+    <div class="src">STEP II · 2016 · 第 12 題</div>
+    <div class="sec-head"><span class="sec-num">9.8</span><h1>沒有人拿到自己的恤衫</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-8-derangements.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 9 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 2016，第 12 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/16-s2-q12">step.maths.org/questions/16-s2-q12</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>一支十一人的足球隊匆忙更衣，各人隨手抓起一件球衣就穿。沒有任何人穿上自己球衣的機會有多大？再設想那是一支五十人的大軍，甚至是一百萬人的人羣。人多了，出錯的人也多了，機會是否隨之上升？還是因為有更多人可能碰巧拿對，機會反而下降？出人意料的是，這個機會幾乎完全不變：由五個人開始，它與 <span class="math inline">\(1/e \approx 0.368\)</span> 的差距不超過半個百分點。</p>
+<p>這是組合概率（combinatorial probability）中最古老的問題，由 Pierre de Montmort 於 1708 年提出，稱為 <em>problème des rencontres</em>（相遇問題）。本題以<em>容斥原理</em>（inclusion–exclusion principle）解決這個問題；容斥原理是點算互相重疊的事物的工具，而所得的答案，是 <span class="math inline">\(e\)</span> 在數學中最令人意想不到的現身之一。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="pausebox">
+<p>先試 <span class="math inline">\(n = 3\)</span>：列出卡 <span class="math inline">\(1, 2, 3\)</span> 的全部六種次序，數一數其中有多少種是沒有任何一張卡在自己位置上的。如果你有耐性，再試 <span class="math inline">\(n = 4\)</span>（共有 <span class="math inline">\(24\)</span> 種次序）。</p>
+</div>
+<p>當 <span class="math inline">\(n = 3\)</span> 時，只有 <span class="math inline">\(231\)</span> 和 <span class="math inline">\(312\)</span> 沒有任何卡在自己的位置上，所以概率是 <span class="math inline">\(\frac26 = \frac13\)</span>。當 <span class="math inline">\(n = 4\)</span> 時，<span class="math inline">\(24\)</span> 種次序中有 <span class="math inline">\(9\)</span> 種符合條件，概率為 <span class="math inline">\(\frac38 = 0.375\)</span>。沒有任何一張卡留在原位的排列，稱為<em>錯排</em>（derangement）。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-三個事件的容斥原理" class="stage"><span class="stage-n">階段 1</span> 三個事件的容斥原理</h4>
+<div class="askyourself">
+<p>怎樣把 <span class="math inline">\(A \cup B \cup C\)</span> 寫成兩個事件的併集（union），使兩個事件的公式可以派上用場？</p>
+</div>
+<p>把 <span class="math inline">\(A \cup B\)</span> 看成單一事件，對它和 <span class="math inline">\(C\)</span> 應用公式： <span class="math display">\[\mathrm{P}(A \cup B \cup C) = \mathrm{P}(A \cup B) + \mathrm{P}(C) - \mathrm{P}\bigl((A \cup B) \cap C\bigr).\]</span> 現在 <span class="math inline">\((A \cup B) \cap C = (A \cap C) \cup (B \cap C)\)</span>，再應用一次公式，得 <span class="math inline">\(\mathrm{P}\bigl((A \cap C) \cup (B \cap C)\bigr) = \mathrm{P}(A \cap C) + \mathrm{P}(B \cap C) - \mathrm{P}(A \cap B \cap C)\)</span>。把 <span class="math inline">\(\mathrm{P}(A \cup B)\)</span> 也展開，再合併各項，便得出結果。<span class="qed" aria-label="end of proof">■</span></p>
+<p>四個事件時，規律依舊：把四個單一事件的概率相加，減去六個兩兩交集（intersection）的概率，加上四個三重交集的概率，再減去 <span class="math inline">\(\mathrm{P}(A \cap B \cap C \cap D)\)</span>。</p>
+<h4 id="stagemark2-各個概率" class="stage"><span class="stage-n">階段 2</span> 各個概率</h4>
+<div class="askyourself">
+<p>如果卡 <span class="math inline">\(i\)</span> 在位置 <span class="math inline">\(i\)</span>，其餘的卡有多少種排法？如果卡 <span class="math inline">\(i\)</span> 和卡 <span class="math inline">\(j\)</span> 都固定了呢？</p>
+</div>
+<p>共有 <span class="math inline">\(n!\)</span> 種機會均等的次序。如果卡 <span class="math inline">\(i\)</span> 固定在位置 <span class="math inline">\(i\)</span>，其餘 <span class="math inline">\(n - 1\)</span> 張卡可以任意排列：共 <span class="math inline">\((n - 1)!\)</span> 種排法。所以 <span class="math display">\[\begin{gathered}
+  \mathrm{P}(E_i) = \frac{(n - 1)!}{n!} = \frac{1}{n}, \qquad \mathrm{P}(E_i \cap E_j) = \frac{(n - 2)!}{n!} = \frac{1}{n(n - 1)}, \\
+  \mathrm{P}(E_i \cap E_j \cap E_k) = \frac{(n - 3)!}{n!} = \frac{1}{n(n - 1)(n - 2)}.
+\end{gathered}\]</span> 一般而言，指定的 <span class="math inline">\(k\)</span> 張卡全部在自己位置上的概率是 <span class="math inline">\(\frac{(n - k)!}{n!}\)</span>。</p>
+<h4 id="stagemark3-加起來" class="stage"><span class="stage-n">階段 3</span> 加起來</h4>
+<div class="askyourself">
+<p>在 <span class="math inline">\(\mathrm{P}(E_1 \cup \cdots \cup E_n)\)</span> 的容斥公式中，涉及 <span class="math inline">\(k\)</span> 個事件交集的項有多少個？它們的總和是多少？</p>
+</div>
+<p>從這些事件中選出 <span class="math inline">\(k\)</span> 個，有 <span class="math inline">\(\binom{n}{k}\)</span> 種方法，而每個交集的概率都是 <span class="math inline">\(\frac{(n - k)!}{n!}\)</span>。所以各個 <span class="math inline">\(k\)</span> 重項的總和是 <span class="math display">\[\binom{n}{k}\frac{(n - k)!}{n!} = \frac{n!}{k!\,(n - k)!}\cdot\frac{(n - k)!}{n!} = \frac{1}{k!}.\]</span> 除了 <span class="math inline">\(k!\)</span> 之外，全部約去。配上正負相間的符號， <span class="math display">\[\mathrm{P}(\text{最少有一張卡在自己的位置上}) = 1 - \frac{1}{2!} + \frac{1}{3!} - \cdots + (-1)^{n+1}\frac{1}{n!}. \qed\]</span> 所以出現錯排的概率是 <span class="math display">\[d_n = 1 - 1 + \frac{1}{2!} - \frac{1}{3!} + \cdots + (-1)^n\frac{1}{n!} = \sum_{k=0}^{n}\frac{(-1)^k}{k!}.\]</span></p>
+<h4 id="stagemark4-恰好一張" class="stage"><span class="stage-n">階段 4</span> 恰好一張</h4>
+<div class="askyourself">
+<p>要恰好有一張卡在原位，是哪一張卡？其餘的卡又必須怎樣？</p>
+</div>
+<p>先選定哪一張卡在自己的位置上（<span class="math inline">\(n\)</span> 種選法）。卡 <span class="math inline">\(i\)</span> 在原位的概率是 <span class="math inline">\(\frac1n\)</span>；在這個條件下，其餘 <span class="math inline">\(n - 1\)</span> 張卡必須在它們之間形成一個錯排，其概率為 <span class="math inline">\(d_{n-1}\)</span>。所以 <span class="math display">\[\mathrm{P}(\text{恰好一張}) = n \cdot \frac{1}{n} \cdot d_{n-1} = \sum_{k=0}^{n-1}\frac{(-1)^k}{k!}. \qed\]</span></p>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>先多算，再修正。</strong>把各個 <span class="math inline">\(\mathrm{P}(E_i)\)</span> 相加，會把有兩張卡固定的排列算了兩次；減去兩兩交集的項可以修正，但對三張卡固定的情況又減得太多；如此類推。</p></li>
+<li><p><strong>對稱性令各項相等。</strong>每個 <span class="math inline">\(k\)</span> 重交集的概率都相同，所以公式的每一層都是一個數乘以一個二項式係數（binomial coefficient）。</p></li>
+<li><p><strong>化為較小的情況。</strong>「恰好一張」變成了 <span class="math inline">\(n - 1\)</span> 張卡的錯排。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<h3 id="e-從何而來"><span class="math inline">\(e\)</span> 從何而來</h3>
+<p>級數 <span class="math inline">\(\sum (-1)^k/k!\)</span> 就是指數級數（exponential series）<span class="math inline">\(e^x = \sum x^k/k!\)</span> 在 <span class="math inline">\(x = -1\)</span> 時的值。所以當 <span class="math inline">\(n \to \infty\)</span> 時， <span class="math display">\[d_n \to e^{-1} \approx 0.3679,\]</span> 而恰好有一張卡對上的概率也趨向同一個極限。收斂（convergence）的速度快得驚人（圖 9.8.1）：在 <span class="math inline">\(1/n!\)</span> 一項停下來所產生的誤差小於 <span class="math inline">\(1/(n + 1)!\)</span>，所以在 <span class="math inline">\(n = 7\)</span> 時，答案已經與 <span class="math inline">\(1/e\)</span> 吻合至小數點後四位。事實上，<span class="math inline">\(n\)</span> 件物件的錯排數目 <span class="math inline">\(n!\,d_n\)</span> 恰好是最接近 <span class="math inline">\(n!/e\)</span> 的整數。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-8-1.svg" alt="圖 9.8.1"><figcaption><span class="fig-label">圖 9.8.1</span> 把 <span class="math inline">\(n\)</span> 張卡隨機洗勻後，沒有任何一張卡留在自己位置上的概率。它在 <span class="math inline">\(1/e\)</span> 的上下交替出現，而由 <span class="math inline">\(n = 6\)</span> 開始，在這個比例尺下已經與 <span class="math inline">\(1/e\)</span> 無法分辨。</figcaption></figure>
+<h3 id="對上的數目服從泊松分佈">對上的數目服從泊松分佈</h3>
+<p>結論還不止於此。設 <span class="math inline">\(N\)</span> 為在自己位置上的卡的數目。那麼對每個 <span class="math inline">\(k\)</span>，都有 <span class="math inline">\(\mathrm{P}(N = k) \to \frac{e^{-1}}{k!}\)</span>：在極限之下，對上的數目服從平均值為 <span class="math inline">\(1\)</span> 的<em>泊松分佈</em>（Poisson distribution）。平均值為甚麼是 <span class="math inline">\(1\)</span>，不用任何計算也看得出來：<span class="math inline">\(N\)</span> 是 <span class="math inline">\(E_1, \ldots, E_n\)</span> 的指示變量（indicator）之和，每個的期望值（expectation）都是 <span class="math inline">\(\frac1n\)</span>，而即使這些事件並非獨立，期望值仍然可以相加。STEP III 2004 Q12（見練習）證明方差（variance）同樣是 <span class="math inline">\(1\)</span>。每當有許多機會很微、又近乎獨立的事件時，泊松分佈就會出現；錯排是一個經典例子，也是第 12 章 <a href="../ch12/stamps-and-e.html">第 12.11 節</a> 的主題。</p>
+<div class="historybox">
+<div class="box-title">Montmort 的 <em>treize</em> 遊戲</div>
+<p>Pierre Rémond de Montmort 是一位法國貴族，他在著作 <em>Essay d’analyse sur les jeux de hazard</em>（1708）中研究各種博彩遊戲。在 <em>treize</em>（十三）這個遊戲中，玩家派出十三張牌，同時口中數着「一、二、三……」，只要有一次派出的牌與所數的數字相同，便算勝出。Montmort 求出了勝出的概率，並在與尼古拉·伯努利（Nicolaus Bernoulli）的通信中，於 1713 年或之前確立了一般公式。歐拉（Euler）在 1753 年重新發現了這條公式。容斥原理其後由棣莫弗（Abraham de Moivre）加以形式化，而它的一般形式則由西爾維斯特（James Joseph Sylvester）在十九世紀建立。</p>
+</div>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">容斥原理</div>
+<p><em>要點算互相重疊的集合的併集，先把各集合的大小相加，減去兩兩重疊的部分，加上三重重疊的部分，如此類推。</em></p>
+<p>當對稱性令同一大小的重疊部分全部相等時，這個方法最見威力，本題正是如此。在大學裏，它會在組合數學（combinatorics）、概率論和數論（number theory）中出現；在數論中，它用來點算不能被一系列質數中任何一個整除的整數，並由此引出歐拉函數（Euler’s totient function）和默比烏斯函數（Möbius function）。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>球衣。</strong>試做 <a href="https://step.maths.org/questions/04-s3-q12">STEP III 2004，第 12 題</a>。這道題用指示變量點算穿上自己球衣的球員人數，求出平均值和方差，並把結果與泊松分佈比較。</p></li>
+<li><p><strong>遞推關係。</strong>設 <span class="math inline">\(D_n\)</span> 為 <span class="math inline">\(n\)</span> 件物件的錯排數目。考慮卡 <span class="math inline">\(1\)</span> 去了哪個位置，以及原本在該位置的卡是否去了位置 <span class="math inline">\(1\)</span>，證明 <span class="math inline">\(D_n = (n - 1)(D_{n-1} + D_{n-2})\)</span>。用 <span class="math inline">\(D_3 = 2\)</span>、<span class="math inline">\(D_4 = 9\)</span> 驗算。</p></li>
+<li><p><strong>恰好 <span class="math inline">\(k\)</span> 張。</strong>證明恰好有 <span class="math inline">\(k\)</span> 張卡在自己位置上的概率是 <span class="math inline">\(\frac{1}{k!}d_{n-k}\)</span>，並且它趨向 <span class="math inline">\(\frac{e^{-1}}{k!}\)</span>。</p></li>
+<li><p><strong>互質的整數。</strong>用容斥原理點算由 <span class="math inline">\(1\)</span> 至 <span class="math inline">\(30\)</span> 的整數中，不能被 <span class="math inline">\(2\)</span>、<span class="math inline">\(3\)</span> 和 <span class="math inline">\(5\)</span> 任何一個整除的有多少個。你的答案與 <span class="math inline">\(30\bigl(1 - \frac12\bigr)\bigl(1 - \frac13\bigr)\bigl(1 - \frac15\bigr)\)</span> 有甚麼關係？</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <a href="https://uk.bookshop.org/search?keywords=Probability%3A+An+Introduction+Grimmett+Welsh"><em>Probability: An Introduction</em></a></strong>（Oxford University Press）。大學一年級教科書，涵蓋容斥原理和配對問題。</p></li>
+<li><p><strong>William Feller, <a href="https://uk.bookshop.org/search?keywords=An+Introduction+to+Probability+Theory+and+Its+Applications+Feller"><em>An Introduction to Probability Theory and Its Applications</em></a>, Vol. 1</strong>（Wiley），第 IV 章。經典之作，載有配對問題的許多變化。</p></li>
+<li><p><strong>Miklós Bóna, <a href="https://uk.bookshop.org/search?keywords=A+Walk+Through+Combinatorics+Bona"><em>A Walk Through Combinatorics</em></a></strong>（World Scientific），關於容斥原理的部分。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="equal-power-sums.html">← 9.7 相等的冪和</a><a class="next" href="birthday.html">→ 9.9 生日問題</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

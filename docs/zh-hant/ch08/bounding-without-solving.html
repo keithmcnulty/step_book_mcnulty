@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>不求解而估界 (STEP III 2013 第 7 題) — Beyond STEP</title>
+<meta name="description" content="STEP III 2013 第 7 題：引導式解答及其背後的大學數學。 大多數微分方程（differential equation）都是解不出來的。 y&#x27;&#x27; + y^3 = 0 的解無法用我們熟悉的函數寫成公式，第 (iii) 部分那頭怪物就更不用說了。然而，我們仍然可以對這些解說出很多東西：它們保持有界（bounded）、它們會振盪、它們會漸趨平穩。訣竅在於找出一個由解及其導數（derivati…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/bounding-without-solving.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/bounding-without-solving.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/bounding-without-solving.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/bounding-without-solving.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="不求解而估界 (STEP III 2013 第 7 題) — Beyond STEP">
+<meta property="og:description" content="STEP III 2013 第 7 題：引導式解答及其背後的大學數學。 大多數微分方程（differential equation）都是解不出來的。 y&#x27;&#x27; + y^3 = 0 的解無法用我們熟悉的函數寫成公式，第 (iii) 部分那頭怪物就更不用說了。然而，我們仍然可以對這些解說出很多東西：它們保持有界（bounded）、它們會振盪、它們會漸趨平穩。訣竅在於找出一個由解及其導數（derivati…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch08/bounding-without-solving.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="不求解而估界 (STEP III 2013 第 7 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2013 第 7 題：引導式解答及其背後的大學數學。 大多數微分方程（differential equation）都是解不出來的。 y&#x27;&#x27; + y^3 = 0 的解無法用我們熟悉的函數寫成公式，第 (iii) 部分那頭怪物就更不用說了。然而，我們仍然可以對這些解說出很多東西：它們保持有界（bounded）、它們會振盪、它們會漸趨平穩。訣竅在於找出一個由解及其導數（derivati…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "不求解而估界", "headline": "不求解而估界", "description": "STEP III 2013 第 7 題：引導式解答及其背後的大學數學。 大多數微分方程（differential equation）都是解不出來的。 y'' + y^3 = 0 的解無法用我們熟悉的函數寫成公式，第 (iii) 部分那頭怪物就更不用說了。然而，我們仍然可以對這些解說出很多東西：它們保持有界（bounded）、它們會振盪、它們會漸趨平穩。訣竅在於找出一個由解及其導數（derivati…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch08/bounding-without-solving.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2013 第 7 題", "微分方程與動力系統"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 8, "name": "微分方程與動力系統", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 8 章：微分方程與動力系統", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch08/"}, {"@type": "ListItem", "position": 3, "name": "不求解而估界", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch08/bounding-without-solving.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch08/bounding-without-solving.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 8 章 · 微分方程與動力系統</a>
+    <div class="src">STEP III · 2013 · 第 7 題</div>
+    <div class="sec-head"><span class="sec-num">8.2</span><h1>不求解而估界</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-2-bounding-without-solving.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 8 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP III 2013，第 7 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/13-s3-q7">step.maths.org/questions/13-s3-q7</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>大多數微分方程（differential equation）都是解不出來的。<span class="math inline">\(y&#39;&#39; + y^3 = 0\)</span> 的解無法用我們熟悉的函數寫成公式，第 (iii) 部分那頭怪物就更不用說了。然而，我們仍然可以對這些解說出很多東西：它們保持有界（bounded）、它們會振盪、它們會漸趨平穩。訣竅在於找出一個由解及其導數（derivative）構成、而且永不增加的量。這樣一來，解就被困住了。</p>
+<p>在物理學中，這個量通常就是<em>能量</em>（energy）。在碗中滾動的球不可能爬到比起始高度更高的地方，因為能量守恆，而在有摩擦時能量更會減少。本題把同樣的推理用於三條方程，其中最後一條是特意挑選的，要你自己發明那個「能量」。這個方法由李雅普諾夫（Aleksandr Lyapunov）於 1892 年提出，是研究微分方程最重要的工具之一。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>在第 (i) 部分，把 <span class="math inline">\(y\)</span> 看成質點的位置，把 <span class="math inline">\(x\)</span> 看成時間。那麼 <span class="math inline">\(y&#39;&#39; = -y^3\)</span> 就是牛頓定律，其中力為 <span class="math inline">\(-y^3\)</span>。動能（kinetic energy）和勢能（potential energy）分別是甚麼？</p>
+</div>
+<p>動能是 <span class="math inline">\(\frac12(y&#39;)^2\)</span>（取質量為 <span class="math inline">\(1\)</span>），而力 <span class="math inline">\(-y^3\)</span> 來自勢函數 <span class="math inline">\(V(y) = \frac14y^4\)</span>，因為力等於 <span class="math inline">\(-V&#39;(y)\)</span>。總能量是 <span class="math inline">\(\frac12(y&#39;)^2 + \frac14y^4\)</span>，即 <span class="math inline">\(\mathrm{E}\)</span> 的一半。能量守恆（conservation of energy）所說的，正正就是 <span class="math inline">\(\mathrm{E}\)</span> 為常數。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-守恆" class="stage"><span class="stage-n">階段 1</span> 守恆</h4>
+<p>由鏈式法則（chain rule）， <span class="math display">\[\frac{\mathrm{d}\mathrm{E}}{\mathrm{d}x} = 2y&#39;y&#39;&#39; + 2y^3y&#39; = 2y&#39;\bigl(y&#39;&#39; + y^3\bigr) = 0.\]</span> 所以 <span class="math inline">\(\mathrm{E}\)</span> 是常數，等於它在 <span class="math inline">\(x = 0\)</span> 時的值：<span class="math inline">\(\mathrm{E} = 0 + \frac12 = \frac12\)</span>。由於 <span class="math inline">\((y&#39;)^2 \geq 0\)</span>，我們得到 <span class="math inline">\(\frac12y^4 \leq \frac12\)</span>，所以 <span class="math inline">\(y^4 \leq 1\)</span>，即 <span class="math inline">\(|y| \leq 1\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<p>這個解在 <span class="math inline">\(-1\)</span> 與 <span class="math inline">\(1\)</span> 之間振盪，在 <span class="math inline">\((y, y&#39;)\)</span> 平面上描出閉曲線 <span class="math inline">\((y&#39;)^2 + \frac12y^4 = \frac12\)</span>（圖 8.2.1）。</p>
+<h4 id="stagemark2-耗散" class="stage"><span class="stage-n">階段 2</span> 耗散</h4>
+<div class="askyourself">
+<p>對 <span class="math inline">\(\mathrm{E} = (v&#39;)^2 + 2\cosh v\)</span> 求導。利用微分方程把 <span class="math inline">\(v&#39;&#39;\)</span> 換掉。結果的正負號是甚麼？</p>
+</div>
+<p><span class="math display">\[\frac{\mathrm{d}\mathrm{E}}{\mathrm{d}x} = 2v&#39;v&#39;&#39; + 2\sinh v\,v&#39; = 2v&#39;\bigl(v&#39;&#39; + \sinh v\bigr) = 2v&#39;\bigl(-xv&#39;\bigr) = -2x(v&#39;)^2 \leq 0 \quad\text{當 } x \geq 0.\]</span> <span class="math inline">\(xv&#39;\)</span> 這一項的作用有如摩擦，會帶走能量。所以當 <span class="math inline">\(x \geq 0\)</span> 時，<span class="math inline">\(\mathrm{E}(x) \leq \mathrm{E}(0)\)</span>。在 <span class="math inline">\(x = 0\)</span> 處，<span class="math inline">\(\cosh(\ln 3) = \frac{3 + \frac13}{2} = \frac53\)</span>，所以 <span class="math inline">\(\mathrm{E}(0) = \frac{10}{3}\)</span>。因此 <span class="math display">\[2\cosh v \leq (v&#39;)^2 + 2\cosh v = \mathrm{E}(x) \leq \tfrac{10}{3}, \qquad\text{所以}\qquad \cosh v(x) \leq \tfrac53. \qed\]</span></p>
+<h4 id="stagemark3-發明能量" class="stage"><span class="stage-n">階段 3</span> 發明能量</h4>
+<p>第 (iii) 部分沒有給任何提示。我們需要一個不會增加的函數 <span class="math inline">\(\mathrm{E} = (w&#39;)^2 + F(w)\)</span>。</p>
+<div class="askyourself">
+<p>若 <span class="math inline">\(\mathrm{E} = (w&#39;)^2 + F(w)\)</span>，則 <span class="math inline">\(\mathrm{E}&#39; = 2w&#39;w&#39;&#39; + F&#39;(w)w&#39;\)</span>。<span class="math inline">\(F&#39;(w)\)</span> 應該是甚麼，才可以利用方程把 <span class="math inline">\(w&#39;&#39;\)</span> 換掉，最後只剩下 <span class="math inline">\((w&#39;)^2\)</span> 的倍數？</p>
+</div>
+<p>我們希望 <span class="math inline">\(\mathrm{E}&#39; = 2w&#39;\bigl(w&#39;&#39; + w\cosh w + 2\sinh w\bigr)\)</span>，所以需要 <span class="math inline">\(F&#39;(w) = 2(w\cosh w + 2\sinh w)\)</span>。由於 <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}w}(w\sinh w) = \sinh w + w\cosh w\)</span>，我們可以取 <span class="math display">\[F(w) = 2w\sinh w + 2\cosh w, \qquad \mathrm{E} = (w&#39;)^2 + 2w\sinh w + 2\cosh w.\]</span> 於是，利用方程可得 <span class="math display">\[\frac{\mathrm{d}\mathrm{E}}{\mathrm{d}x} = -2(5\cosh x - 4\sinh x - 3)(w&#39;)^2.\]</span></p>
+<div class="pausebox">
+<p>證明對所有 <span class="math inline">\(x\)</span> 都有 <span class="math inline">\(5\cosh x - 4\sinh x - 3 \geq 0\)</span>。（把它用 <span class="math inline">\(e^x\)</span> 表示，然後找出一個完全平方。）然後完成整個論證。</p>
+</div>
+<p><span class="math inline">\(5\cosh x - 4\sinh x - 3 = \frac52(e^x + e^{-x}) - 2(e^x - e^{-x}) - 3 = \frac12e^x - 3 + \frac92e^{-x} = \frac12\bigl(e^{x/2} - 3e^{-x/2}\bigr)^2 \geq 0\)</span>。所以 <span class="math inline">\(\mathrm{E}\)</span> 永不增加。在 <span class="math inline">\(x = 0\)</span> 處，<span class="math inline">\(\mathrm{E}(0) = \frac12 + 0 + 2 = \frac52\)</span>。由於對任何 <span class="math inline">\(w\)</span> 都有 <span class="math inline">\(w\sinh w \geq 0\)</span>（兩個因子同號）， <span class="math display">\[2\cosh w \leq (w&#39;)^2 + 2w\sinh w + 2\cosh w = \mathrm{E}(x) \leq \tfrac52, \qquad\text{所以}\qquad \cosh w(x) \leq \tfrac54. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-2-1.svg" alt="圖 8.2.1"><figcaption><span class="fig-label">圖 8.2.1</span> 能量 <span class="math inline">\(\mathrm{E} = (y&#39;)^2 + \frac12y^4\)</span> 在 <span class="math inline">\((y, y&#39;)\)</span> 平面上的等高線。由於 <span class="math inline">\(\mathrm{E}\)</span> 是常數，第 (i) 部分的解從 <span class="math inline">\(y = 1\)</span>、<span class="math inline">\(y&#39; = 0\)</span> 出發，永遠留在曲線 <span class="math inline">\(\mathrm{E} = \frac12\)</span>（琥珀色）上，因而永不離開帶狀區域 <span class="math inline">\(|y| \leq 1\)</span>（虛線）。我們根本不必找出 <span class="math inline">\(y\)</span> 的公式，就已經知道這一點。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>乘以 <span class="math inline">\(y&#39;\)</span>。</strong>在每一部分，<span class="math inline">\(\mathrm{E}&#39;\)</span> 都是 <span class="math inline">\(2y&#39;\)</span> 乘以方程的左方，再加上餘下的項。正是這個餘下的項決定了 <span class="math inline">\(\mathrm{E}\)</span> 是守恆還是遞減。</p></li>
+<li><p><strong>能量限制位置。</strong>由於動能部分 <span class="math inline">\((y&#39;)^2\)</span> 非負，<span class="math inline">\(\mathrm{E}\)</span> 的上界就是勢能部分的上界，從而也給出 <span class="math inline">\(y\)</span> 的界。</p></li>
+<li><p><strong>留意隱藏的平方。</strong>第 (iii) 部分的阻尼係數看來可能會變號，但它其實是一個經過偽裝的完全平方。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">李雅普諾夫函數</div>
+<p>李雅普諾夫在 1892 年的博士論文中研究運動的<em>穩定性</em>（stability）：如果一個系統受到輕微擾動而偏離平衡，它會回到平衡，還是愈走愈遠？他的「第二方法」是找出一個函數，它在平衡點處取最小值，而且沿着解永不增加；這種函數現在稱為<em>李雅普諾夫函數</em>（Lyapunov function）。這樣，從平衡點附近出發的解就會一直留在平衡點附近。這個方法的美妙之處，在於它不需要解的公式，只需要微分方程本身，而這正是本題所展示的。現今，從飛機控制系統、電網以至生態系統，各種各樣事物的穩定性都是用李雅普諾夫函數來證明的。</p>
+</div>
+<h3 id="物理與工程中的能量">物理與工程中的能量</h3>
+<p>第 (i) 部分是一個非線性振子（nonlinear oscillator）：它像彈簧，但回復力與位移的立方成正比。與簡諧振子不同，它的週期取決於振幅（振盪愈大，速度愈快），但能量守恆仍然把它困住。第 (ii) 部分加入了隨時間增強的阻尼（damping），能量因而逐漸流失。在工程學中，人們用能量方法來證明結構不會把自己搖散，以及控制系統不會振盪至失控。在偏微分方程（partial differential equation）的理論中，這類「能量估計」是證明解存在而且性質良好的主要工具；有關流體流動方程的問題，包括千禧年大獎難題（Millennium Prize Problems）之一的納維－斯托克斯（Navier–Stokes）問題，歸根究底就是能否找到這樣的界。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">找出一個不能增加的量</div>
+<p><em>如果你解不出一條方程，就找一個由解構成、而且導數有確定正負號的量。它會給出解的界。</em></p>
+<p>這種尋找一方面由物理引導（「能量是甚麼？」），另一方面由代數引導（「我要加上甚麼，導數才會化簡？」）。第 (iii) 部分示範了在沒有物理直覺可以依靠時，如何走代數這條路。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>簡諧運動。</strong>對於 <span class="math inline">\(y&#39;&#39; + y = 0\)</span>，其中 <span class="math inline">\(y(0) = A\)</span>、<span class="math inline">\(y&#39;(0) = 0\)</span>，求守恆的能量，並由此推出 <span class="math inline">\(|y| \leq A\)</span>。用精確解核對。</p></li>
+<li><p><strong>單擺。</strong>單擺的角度 <span class="math inline">\(\theta\)</span> 滿足 <span class="math inline">\(\theta&#39;&#39; + \sin\theta = 0\)</span>（採用適當的單位）。證明 <span class="math inline">\((\theta&#39;)^2 - 2\cos\theta\)</span> 是常數。若單擺在角度 <span class="math inline">\(\theta_0\)</span> 處由靜止開始，其中 <span class="math inline">\(|\theta_0| \leq \pi\)</span>，證明 <span class="math inline">\(|\theta|\)</span> 永不超過 <span class="math inline">\(|\theta_0|\)</span>。若 <span class="math inline">\(|\theta_0| &gt; \pi\)</span>，哪裏會出問題？</p></li>
+<li><p><strong>阻尼。</strong>對於 <span class="math inline">\(y&#39;&#39; + 2ky&#39; + y = 0\)</span>，其中 <span class="math inline">\(k &gt; 0\)</span>，證明 <span class="math inline">\((y&#39;)^2 + y^2\)</span> 遞減。它是否必定趨向零？</p></li>
+<li><p><strong>逃逸。</strong>對於 <span class="math inline">\(y&#39;&#39; - y^3 = 0\)</span>，其中 <span class="math inline">\(y(0) = 1\)</span>、<span class="math inline">\(y&#39;(0) = 0\)</span>，求一個守恆量，並證明它不能給出 <span class="math inline">\(y\)</span> 的界。哪裏出了問題？</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Steven Strogatz, <a href="https://uk.bookshop.org/search?keywords=Nonlinear+Dynamics+and+Chaos+Strogatz"><em>Nonlinear Dynamics and Chaos</em></a></strong>（CRC Press）。第 6 章和第 7 章講述相平面、保守系統和李雅普諾夫函數。</p></li>
+<li><p><strong>D. W. Jordan &amp; P. Smith, <a href="https://uk.bookshop.org/search?keywords=Nonlinear+Ordinary+Differential+Equations+Jordan+Smith"><em>Nonlinear Ordinary Differential Equations</em></a></strong>（Oxford University Press）。一本標準的大學本科教科書，載有大量能量方法的例子。</p></li>
+<li><p><strong>Keith Devlin, <a href="https://uk.bookshop.org/search?keywords=The+Millennium+Problems+Devlin"><em>The Millennium Problems</em></a></strong>（Basic Books）。書中有一篇關於納維－斯托克斯問題的淺白介紹。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="non-uniqueness.html">← 8.1 當解不唯一</a><a class="next" href="harvesting.html">→ 8.3 收穫種羣</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

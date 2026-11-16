@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 2 章：數列、級數與收斂 — Beyond STEP</title>
+<meta name="description" content="先釐清極限的真正意義，再看著名的無窮級數與無窮乘積，最後探討收斂的快慢。">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 2 章：數列、級數與收斂 — Beyond STEP">
+<meta property="og:description" content="先釐清極限的真正意義，再看著名的無窮級數與無窮乘積，最後探討收斂的快慢。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch02/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 2 章：數列、級數與收斂 — Beyond STEP">
+<meta name="twitter:description" content="先釐清極限的真正意義，再看著名的無窮級數與無窮乘積，最後探討收斂的快慢。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 2, "name": "數列、級數與收斂", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "先釐清極限的真正意義，再看著名的無窮級數與無窮乘積，最後探討收斂的快慢。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 2 章：數列、級數與收斂", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch02/index.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">2</div>
+    <h1>數列、級數與收斂</h1>
+    <p class="strap">無窮是數學變得有趣的地方，也是最容易出錯的地方。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下載整章</span><span class="dl-sub">PDF，專為列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章內容</h2>
+  <ol class="toc"><li><a class="toc-link" href="eventually.html"><span class="toc-num">2.1</span>
+<span class="toc-title">「最終」是甚麼意思</span>
+<span class="toc-src">STEP III 2015</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-1-eventually.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="golden-limit.html"><span class="toc-num">2.2</span>
+<span class="toc-title">作為極限的黃金比例</span>
+<span class="toc-src">STEP II 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-2-golden-limit.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="kempner.html"><span class="toc-num">2.3</span>
+<span class="toc-title">一個發散級數與它的收斂近親</span>
+<span class="toc-src">STEP III 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-3-kempner.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="basel.html"><span class="toc-num">2.4</span>
+<span class="toc-title">\(\pi^2/6\)</span>
+<span class="toc-src">STEP III 2018</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-4-basel.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="viete.html"><span class="toc-num">2.5</span>
+<span class="toc-title">韋達乘積</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-5-viete.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="agm.html"><span class="toc-num">2.6</span>
+<span class="toc-title">算術幾何平均</span>
+<span class="toc-src">STEP II 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-6-agm.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="newton-speed.html"><span class="toc-num">2.7</span>
+<span class="toc-title">六位還是六百位</span>
+<span class="toc-src">STEP II 2023</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-7-newton-speed.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="squaring-minus-two.html"><span class="toc-num">2.8</span>
+<span class="toc-title">平方再減二</span>
+<span class="toc-src">STEP III 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-8-squaring-minus-two.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="e-approximations.html"><span class="toc-num">2.9</span>
+<span class="toc-title">逐步逼近 e 的分數</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-9-e-approximations.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顧：我們學到了甚麼</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「延伸練習」答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 2 章  \(\cdot\)  引言</div>
+    <h1 class="essay-title">馴服無窮</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>無窮！從來沒有別的問題如此深刻地觸動人類的心靈。</p>
+<p class="who">— 希爾伯特（David Hilbert）</p>
+</div>
+<p>兩千五百年前，埃利亞的芝諾（Zeno of Elea）論證說運動是不可能的。要走過一個房間，你必須先走一半路程，然後走餘下路程的一半，再走那餘下的一半，如此類推，永無止境：這是無窮多項任務，肯定無法在有限時間內完成。人人都知道芝諾錯了，因為人們確實能走過房間，但在很長的一段時間裏，沒有人能確切說出他<em>為甚麼</em>錯。答案是：無窮和 <span class="math inline">\(\frac12 + \frac14 + \frac18 + \cdots\)</span> 有一個有限的值，就是 <span class="math inline">\(1\)</span>。可是，無窮多個數加起來等於某個數，這句話究竟是甚麼<em>意思</em>？</p>
+<p>這個問題佔據數學的核心達兩千年之久。十七世紀時，牛頓（Newton）和萊布尼茲（Leibniz）在它之上建立了微積分（calculus），卻始終沒有真正回答它；他們的後繼者既得出了許多精彩的結果，也製造了一些荒謬絕倫的謬論。歐拉（Euler）是有史以來最偉大的計算家，他毫不猶豫地寫下 <span class="math inline">\(1 - 1 + 1 - 1 + \cdots = \frac12\)</span>。另一些人則就同一個無窮級數（infinite series）「證明」出互相矛盾的結論。直到十九世紀，經過柯西（Cauchy）、魏爾斯特拉斯（Weierstrass）等人的努力，數學家才有了足夠精確的定義，可以分辨哪些結果是真、哪些是假。這些定義就是本章的主題。</p>
+<h3 id="為甚麼重要">為甚麼重要</h3>
+<p>你一生中用來計算的數，幾乎每一個都是某樣東西的極限（limit）。你的計算機並不知道 <span class="math inline">\(\sqrt2\)</span>、<span class="math inline">\(\pi\)</span> 或 <span class="math inline">\(e\)</span> 是甚麼：它只知道一些能夠愈來愈接近這些數的計算步驟，並在足夠接近時停下來。明白一套步驟逼近得<em>有多快</em>，正是一毫秒內完成的演算法與永遠算不完的演算法之間的分別。用來預測天氣、設計飛機和為金融產品定價的電腦模擬，背後也是同樣的想法。而在最純粹的一面，對極限的研究引出了數學中一些最優美的公式：在本章中，你將會證明 <span class="math display">\[1 + \frac14 + \frac19 + \frac1{16} + \cdots = \frac{\pi^2}{6},\]</span> 這個結果令歐拉一舉成名，至今看來仍然近乎神奇。</p>
+<h3 id="你在大學會遇到甚麼">你在大學會遇到甚麼</h3>
+<p>幾乎在每一所大學，<em>數學分析</em>（Analysis）都是你最先修讀的課程之一，而對許多學生來說，它帶來的衝擊也最大。在中學數學裏，你學的是計算極限；在數學分析裏，你學的是從精確的定義出發，<em>證明</em>關於極限的命題。你會定義數列（sequence）收斂（converge）是甚麼意思，用的正是 <a href="../ch02/eventually.html">第 2.1 節</a> 中出現的「對於每一個 <span class="math inline">\(\varepsilon &gt; 0\)</span>」和「存在 <span class="math inline">\(N\)</span>」這些說法。你會證明每一個有界遞增數列都收斂，並發現這有賴於實數的一項性質——<em>完備性</em>（completeness），而有理數並不具備這項性質。你會學習判別級數是否收斂的各種方法，然後運用同樣的想法，為連續性、微分和積分賦予嚴格的意義。</p>
+<p>往後的課程會在這個基礎上向多個方向發展。<em>數值分析</em>（Numerical analysis）探討近似值收斂得有多快，以及怎樣令它們收斂得更快（<a href="../ch02/newton-speed.html">第 2.7 節</a>、<a href="../ch02/agm.html">第 2.6 節</a>）。<em>動力系統</em>（Dynamical systems）研究反覆套用同一條規則時會發生甚麼事，有時會趨向一個極限，有時則產生混沌（chaos）（<a href="../ch02/golden-limit.html">第 2.2 節</a>、<a href="../ch02/squaring-minus-two.html">第 2.8 節</a>）。<em>複分析</em>（Complex analysis）解釋了為甚麼 <span class="math inline">\(\pi\)</span> 會在那麼多無窮和與無窮乘積中出現（<a href="../ch02/basel.html">第 2.4 節</a>、<a href="../ch02/viete.html">第 2.5 節</a>）。而<em>解析數論</em>（analytic number theory）則利用極限來回答關於整數的問題，例如 <a href="../ch02/e-approximations.html">第 2.9 節</a>。</p>
+<h3 id="貫穿本章的問題">貫穿本章的問題</h3>
+<div class="skillbox">
+<div class="box-title">三大問題</div>
+<ol class="arabic">
+<li><p><strong>一個無窮的過程有答案，是甚麼意思？</strong>我們怎樣才能精確地說一個數列「趨近」某個極限，或者一個無窮和「加起來等於」某個數？</p></li>
+<li><p><strong>怎樣在不知道極限是甚麼的情況下，證明某樣東西收斂？</strong>而一旦知道極限存在，又怎樣把它求出來？</p></li>
+<li><p><strong>有多快？</strong>兩個過程可以有相同的極限，逼近的速度卻有天壤之別。為甚麼會這樣？我們又怎樣量度這種速度？</p></li>
+</ol>
+</div>
+<p>第一節（<a href="../ch02/eventually.html">第 2.1 節</a>）談的是語言：數學家怎樣精確地表達「最終」這個概念。接着的五節談的是著名的極限：以連分數（continued fraction）表示的黃金比（golden ratio）、一個發散（divergent）級數和它那個收斂的近親、<span class="math inline">\(\pi^2/6\)</span>、韋達（Viète）關於 <span class="math inline">\(2/\pi\)</span> 的乘積，以及高斯（Gauss）的算術幾何平均（arithmetic–geometric mean）。最後三節談的是速度與結構：線性收斂與二次收斂的對比、一個要麼爆炸式增長要麼混沌地遊走的迭代（iteration），以及一族逐步逼近 <span class="math inline">\(e\)</span> 的積分。</p>
+<h3 id="處理收斂的工具">處理收斂的工具</h3>
+<p>有少數幾種工具，你會一再遇到，每次的場合都不一樣。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">主題</th>
+<th style="text-align: left;">工具</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2.1</td>
+<td style="text-align: left;">「最終較小」</td>
+<td style="text-align: left;">量詞（quantifiers）：找出 <span class="math inline">\(m\)</span>、否定命題</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.2</td>
+<td style="text-align: left;">黃金比</td>
+<td style="text-align: left;">單調有界子數列（monotone bounded subsequences）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.3</td>
+<td style="text-align: left;">調和級數（harmonic series）與 Kempner 級數</td>
+<td style="text-align: left;">分段比較</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.4</td>
+<td style="text-align: left;"><span class="math inline">\(\pi^2/6\)</span></td>
+<td style="text-align: left;">多項式的根，然後用夾逼法（squeeze）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.5</td>
+<td style="text-align: left;">韋達乘積</td>
+<td style="text-align: left;">裂項相消（telescoping），然後求一個簡單的極限</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.6</td>
+<td style="text-align: left;">算術幾何平均（AGM）</td>
+<td style="text-align: left;">兩個數列互相夾逼；一個不變量（invariant）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.7</td>
+<td style="text-align: left;">逼近 <span class="math inline">\(\sqrt2\)</span></td>
+<td style="text-align: left;">誤差的遞推關係（recurrences）：線性與二次</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.8</td>
+<td style="text-align: left;"><span class="math inline">\(x \mapsto x^2 - 2\)</span></td>
+<td style="text-align: left;">一個令映射變得簡單的代換（substitution）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.9</td>
+<td style="text-align: left;">逼近 <span class="math inline">\(e\)</span> 的分數</td>
+<td style="text-align: left;">很小但不為零的積分</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="怎樣閱讀本章">怎樣閱讀本章</h3>
+<p>與第 1 章一樣，每一節都以一道 STEP 原題開始。請先自己嘗試，然後才往下讀。本章的題目往往會告訴你該用哪一種工具（「考慮……」、「你可以使用以下定理……」）；在解題的過程中，請留意同樣的幾種工具出現得有多頻密，因為到了大學，你便要自己作出選擇。</p>
+<p>有好幾道題目要求你假設極限存在，或者假設無窮和與無窮乘積收斂。遇到這種情況時，該節會解釋要證明這一點還需要些甚麼。意識到「這顯然行得通」與「我能證明這行得通」之間的差距，是學會像分析學家那樣思考的第一步。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="eventually.html">→ 開始： 2.1 「最終」是甚麼意思</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

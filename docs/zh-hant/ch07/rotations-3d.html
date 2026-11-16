@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三維空間中的旋轉 (STEP III 2022 第 7 題) — Beyond STEP</title>
+<meta name="description" content="STEP III 2022 第 7 題：引導式解答及其背後的大學數學。 在二維空間中，旋轉（rotation）一個點很容易：乘以 e^iθ 便可。到了三維空間，事情就困難得多。沒有一個複數可以讓我們直接相乘，繞不同軸的旋轉不可交換（commute），而要寫出「繞通過 (1, 2, 2) 的軸旋轉 37^circ 」的矩陣，看來更是令人卻步。 本題利用叉積（cross…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/rotations-3d.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="三維空間中的旋轉 (STEP III 2022 第 7 題) — Beyond STEP">
+<meta property="og:description" content="STEP III 2022 第 7 題：引導式解答及其背後的大學數學。 在二維空間中，旋轉（rotation）一個點很容易：乘以 e^iθ 便可。到了三維空間，事情就困難得多。沒有一個複數可以讓我們直接相乘，繞不同軸的旋轉不可交換（commute），而要寫出「繞通過 (1, 2, 2) 的軸旋轉 37^circ 」的矩陣，看來更是令人卻步。 本題利用叉積（cross…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch07/rotations-3d.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="三維空間中的旋轉 (STEP III 2022 第 7 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2022 第 7 題：引導式解答及其背後的大學數學。 在二維空間中，旋轉（rotation）一個點很容易：乘以 e^iθ 便可。到了三維空間，事情就困難得多。沒有一個複數可以讓我們直接相乘，繞不同軸的旋轉不可交換（commute），而要寫出「繞通過 (1, 2, 2) 的軸旋轉 37^circ 」的矩陣，看來更是令人卻步。 本題利用叉積（cross…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "三維空間中的旋轉", "headline": "三維空間中的旋轉", "description": "STEP III 2022 第 7 題：引導式解答及其背後的大學數學。 在二維空間中，旋轉（rotation）一個點很容易：乘以 e^iθ 便可。到了三維空間，事情就困難得多。沒有一個複數可以讓我們直接相乘，繞不同軸的旋轉不可交換（commute），而要寫出「繞通過 (1, 2, 2) 的軸旋轉 37^circ 」的矩陣，看來更是令人卻步。 本題利用叉積（cross…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/rotations-3d.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2022 第 7 題", "線性代數與幾何"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "線性代數與幾何", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 7 章：線性代數與幾何", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/"}, {"@type": "ListItem", "position": 3, "name": "三維空間中的旋轉", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/rotations-3d.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch07/rotations-3d.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 7 章 · 線性代數與幾何</a>
+    <div class="src">STEP III · 2022 · 第 7 題</div>
+    <div class="sec-head"><span class="sec-num">7.5</span><h1>三維空間中的旋轉</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-5-rotations-3d.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 7 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP III 2022，第 7 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 OCR 提供下載的 2022 年 STEP 試卷（zip 檔案）內的 STEP III 試卷： <a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">www.ocr.org.uk/Images/696587-2022-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>在二維空間中，旋轉（rotation）一個點很容易：乘以 <span class="math inline">\(e^{\mathrm{i}\theta}\)</span> 便可。到了三維空間，事情就困難得多。沒有一個複數可以讓我們直接相乘，繞不同軸的旋轉不可交換（commute），而要寫出「繞通過 <span class="math inline">\((1, 2, 2)\)</span> 的軸旋轉 <span class="math inline">\(37^\circ\)</span>」的矩陣，看來更是令人卻步。</p>
+<p>本題利用叉積（cross product），為任意的軸和任意的角構造出這個矩陣。所得的結果就是<em>羅德里格旋轉公式</em>（Rodrigues’ rotation formula），由羅德里格（Olinde Rodrigues）於 1840 年發表。機械人技術、電腦圖像和太空船導航每天都用到它，而它亦揭示了一個優美的事實：與 <span class="math inline">\(\mathbf{n}\)</span> 作叉積，就是「繞 <span class="math inline">\(\mathbf{n}\)</span> 旋轉 <span class="math inline">\(90^\circ\)</span>」，而每一個繞 <span class="math inline">\(\mathbf{n}\)</span> 的旋轉都由它構成，正如 <span class="math inline">\(e^{\mathrm{i}\theta} = \cos\theta + \mathrm{i}\sin\theta\)</span> 是由乘以 <span class="math inline">\(\mathrm{i}\)</span> 構成一樣。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>當 <span class="math inline">\(\mathbf{r}\)</span> 垂直於 <span class="math inline">\(\mathbf{n}\)</span> 時，<span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span> 在幾何上是甚麼樣子？當 <span class="math inline">\(\mathbf{r}\)</span> 平行於 <span class="math inline">\(\mathbf{n}\)</span> 時又如何？</p>
+</div>
+<p>若 <span class="math inline">\(\mathbf{r} \parallel \mathbf{n}\)</span>，則 <span class="math inline">\(\mathbf{n} \times \mathbf{r} = \mathbf{0}\)</span>。若 <span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span>，則 <span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span> 的長度與 <span class="math inline">\(\mathbf{r}\)</span> 相同（因為 <span class="math inline">\(|\mathbf{n}| = 1\)</span>，而夾角是 <span class="math inline">\(90^\circ\)</span>），與兩者皆垂直，而且根據右手定則（right-hand rule），它就是 <span class="math inline">\(\mathbf{r}\)</span> 繞 <span class="math inline">\(\mathbf{n}\)</span> 逆時針旋轉 <span class="math inline">\(90^\circ\)</span> 的結果（沿 <span class="math inline">\(\mathbf{n}\)</span> 向下看）。因此 <span class="math inline">\(\mathrm{f}\)</span> 消去 <span class="math inline">\(\mathbf{r}\)</span> 沿 <span class="math inline">\(\mathbf{n}\)</span> 方向的分量（component），並把垂直的分量旋轉 <span class="math inline">\(90^\circ\)</span>。這幅圖像足以解釋整條題目。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-作兩次叉積" class="stage"><span class="stage-n">階段 1</span> 作兩次叉積</h4>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{r}) = \mathbf{n} \times \mathbf{r} = (bz - cy,\ cx - az,\ ay - bx)\)</span>。再與 <span class="math inline">\(\mathbf{n} = (a, b, c)\)</span> 作一次叉積，<span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r}))\)</span> 的 <span class="math inline">\(x\)</span> 分量是 <span class="math display">\[b(ay - bx) - c(cx - az) = -x(b^2 + c^2) + aby + acz. \qed\]</span> 由於 <span class="math inline">\(a^2 + b^2 + c^2 = 1\)</span>，上式等於 <span class="math inline">\(-x(1 - a^2) + aby + acz = a(ax + by + cz) - x\)</span>，這正是 <span class="math inline">\((\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span> 的 <span class="math inline">\(x\)</span> 分量。其餘分量可由對稱性得出，所以 <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = (\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>設 <span class="math inline">\(\mathbf{r} = \mathbf{r}_\parallel + \mathbf{r}_\perp\)</span>，其中 <span class="math inline">\(\mathbf{r}_\parallel = (\mathbf{n}.\mathbf{r})\mathbf{n}\)</span> 是沿 <span class="math inline">\(\mathbf{n}\)</span> 方向的分量。用這兩部分表示，<span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r}))\)</span> 是甚麼？</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = \mathbf{r}_\parallel - \mathbf{r} = -\mathbf{r}_\perp\)</span>。施行 <span class="math inline">\(\mathrm{f}\)</span> 兩次，會消去平行的部分，並把垂直的部分繞 <span class="math inline">\(\mathbf{n}\)</span> 旋轉 <span class="math inline">\(180^\circ\)</span>，亦即把它反向（圖 7.5.1）。這就是 <span class="math inline">\(\mathrm{i}^2 = -1\)</span> 的類比。</p>
+<h4 id="stagemark2-旋轉" class="stage"><span class="stage-n">階段 2</span> 旋轉</h4>
+<div class="askyourself">
+<p>計算 <span class="math inline">\(\mathrm{g}(\mathbf{n})\)</span>。然後對於 <span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span> 的情況計算 <span class="math inline">\(\mathrm{g}(\mathbf{r})\)</span>，並利用 <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = -\mathbf{r}\)</span> 對這樣的 <span class="math inline">\(\mathbf{r}\)</span> 成立這一點。</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{n}) = \mathbf{n} \times \mathbf{n} = \mathbf{0}\)</span>，所以 <span class="math inline">\(\mathrm{g}(\mathbf{n}) = \mathbf{n}\)</span>：軸保持不動。若 <span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span>，則 <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = -\mathbf{r}\)</span>，於是 <span class="math display">\[\mathrm{g}(\mathbf{r}) = \mathbf{r} + \sin\theta\,(\mathbf{n} \times \mathbf{r}) - (1 - \cos\theta)\mathbf{r} = \cos\theta\,\mathbf{r} + \sin\theta\,(\mathbf{n} \times \mathbf{r}).\]</span> 由於 <span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span> 是 <span class="math inline">\(\mathbf{r}\)</span> 繞 <span class="math inline">\(\mathbf{n}\)</span> 轉過 <span class="math inline">\(90^\circ\)</span> 的結果，長度不變，所以上式就是 <span class="math inline">\(\mathbf{r}\)</span> 繞 <span class="math inline">\(\mathbf{n}\)</span> 旋轉 <span class="math inline">\(\theta\)</span> 的結果，與平面上的 <span class="math inline">\((\cos\theta + \mathrm{i}\sin\theta)z\)</span> 如出一轍。由於 <span class="math inline">\(\mathrm{g}\)</span> 是線性（linear）的，而每個向量都可寫成 <span class="math inline">\(\mathbf{n}\)</span> 的倍數與一個垂直於 <span class="math inline">\(\mathbf{n}\)</span> 的向量之和，所以 <span class="math inline">\(\mathrm{g}\)</span> 就是<strong>繞通過原點、方向為 <span class="math inline">\(\mathbf{n}\)</span> 的軸旋轉角 <span class="math inline">\(\theta\)</span> 的旋轉</strong>（從 <span class="math inline">\(\mathbf{n}\)</span> 的尖端望去為逆時針方向）。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-5-1.svg" alt="圖 7.5.1"><figcaption><span class="fig-label">圖 7.5.1</span> 羅德里格公式。向量 <span class="math inline">\(\mathbf{r}\)</span> 分解為沿軸 <span class="math inline">\(\mathbf{n}\)</span> 的部分和與軸垂直的部分 <span class="math inline">\(\mathbf{r}_\perp\)</span>，後者掃出一個圓。與 <span class="math inline">\(\mathbf{n}\)</span> 作叉積，會把 <span class="math inline">\(\mathbf{r}_\perp\)</span> 轉過 <span class="math inline">\(90^\circ\)</span>（琥珀色）；作兩次叉積則得 <span class="math inline">\(-\mathbf{r}_\perp\)</span>（紫紅色）。旋轉後的向量 <span class="math inline">\(\mathrm{g}(\mathbf{r})\)</span> 是 <span class="math inline">\(\mathbf{r}_\parallel + \cos\theta\,\mathbf{r}_\perp + \sin\theta\,(\mathbf{n} \times \mathbf{r})\)</span>。</figcaption></figure>
+<h4 id="stagemark3-反射" class="stage"><span class="stage-n">階段 3</span> 反射</h4>
+<div class="pausebox">
+<p>利用第 (i) 部分化簡 <span class="math inline">\(\mathrm{h}(\mathbf{s}) = -\mathbf{s} - 2\mathrm{f}(\mathrm{f}(\mathbf{s}))\)</span>。它對沿 <span class="math inline">\(\mathbf{n}\)</span> 方向的向量有甚麼作用？對垂直於 <span class="math inline">\(\mathbf{n}\)</span> 的向量又有甚麼作用？</p>
+</div>
+<p><span class="math inline">\(\mathrm{h}(\mathbf{s}) = -\mathbf{s} - 2\bigl((\mathbf{n}.\mathbf{s})\mathbf{n} - \mathbf{s}\bigr) = \mathbf{s} - 2(\mathbf{n}.\mathbf{s})\mathbf{n}\)</span>。垂直於 <span class="math inline">\(\mathbf{n}\)</span> 的向量保持不變，而 <span class="math inline">\(\mathrm{h}(\mathbf{n}) = -\mathbf{n}\)</span>。所以 <span class="math inline">\(\mathrm{h}\)</span> 是<strong>對通過原點且垂直於 <span class="math inline">\(\mathbf{n}\)</span> 的平面的反射（reflection）</strong>。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>分解為平行和垂直的部分。</strong>一旦把 <span class="math inline">\(\mathbf{r}\)</span> 分解為沿 <span class="math inline">\(\mathbf{n}\)</span> 方向和與之垂直的分量，每一步都變得清晰。</p></li>
+<li><p><strong>線性減省工夫。</strong>要辨認一個線性映射（linear map），只需知道它對幾個精心挑選的向量有甚麼作用便足夠。</p></li>
+<li><p><strong>複數的類比。</strong>在垂直於 <span class="math inline">\(\mathbf{n}\)</span> 的向量上，<span class="math inline">\(\mathrm{f}\)</span> 的表現就像乘以 <span class="math inline">\(\mathrm{i}\)</span>：<span class="math inline">\(\mathrm{f}^2 = -1\)</span>，而 <span class="math inline">\(\mathrm{g} = \cos\theta + \sin\theta\,\mathrm{f}\)</span>。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">歐拉旋轉定理</div>
+<p>三維空間中每一個固定原點的旋轉，都是繞某條通過原點的軸的旋轉。歐拉（Euler）於 1775 年證明了這一點。用矩陣的語言來說，每個 <span class="math inline">\(3 \times 3\)</span> 旋轉矩陣都有一個特徵值（eigenvalue）為 <span class="math inline">\(1\)</span> 的特徵向量（eigenvector），也就是旋轉軸。羅德里格公式給出其逆命題：對每一條軸 <span class="math inline">\(\mathbf{n}\)</span> 和每一個角 <span class="math inline">\(\theta\)</span>，旋轉矩陣是 <span class="math display">\[\mathbf{R} = \mathbf{I} + \sin\theta\,\mathbf{K} + (1 - \cos\theta)\,\mathbf{K}^2, \qquad \mathbf{K} = \begin{pmatrix} 0 &amp; -c &amp; b \\ c &amp; 0 &amp; -a \\ -b &amp; a &amp; 0 \end{pmatrix},\]</span> 其中 <span class="math inline">\(\mathbf{K}\)</span> 是 <span class="math inline">\(\mathbf{r} \mapsto \mathbf{n} \times \mathbf{r}\)</span> 的矩陣。由於 <span class="math inline">\(\mathbf{K}^3 = -\mathbf{K}\)</span>，指數級數（exponential series）<span class="math inline">\(e^{\theta\mathbf{K}} = \mathbf{I} + \theta\mathbf{K} + \frac{\theta^2}{2!}\mathbf{K}^2 + \cdots\)</span> 恰好化簡成這條公式，它就是 <span class="math inline">\(e^{\mathrm{i}\theta} = \cos\theta + \mathrm{i}\sin\theta\)</span> 的三維版本。旋轉與「無窮小旋轉」<span class="math inline">\(\mathbf{K}\)</span> 的指數之間的這種聯繫，正是<em>李羣</em>（Lie groups）理論的起點。</p>
+</div>
+<h3 id="旋轉不可交換">旋轉不可交換</h3>
+<p>把一本書平放，先繞垂直軸旋轉 <span class="math inline">\(90^\circ\)</span>，再繞水平軸旋轉 <span class="math inline">\(90^\circ\)</span>；然後從頭再來，以相反的次序做這兩個旋轉。書最終的位置並不相同。三維空間中旋轉的複合（composition）不符合交換律，與二維的情況不同。這正是 <a href="../ch06/quaternions.html">第 6.7 節</a> 的四元數（quaternion）有用的原因之一：繞 <span class="math inline">\(\mathbf{n}\)</span> 旋轉 <span class="math inline">\(\theta\)</span> 對應於四元數 <span class="math inline">\(\cos\frac\theta2 + \sin\frac\theta2(a\mathrm{i} + b\mathrm{j} + c\mathrm{k})\)</span>，而複合旋轉就是把四元數相乘，不可交換性已包含在其中。羅德里格本人在 1840 年的論文中，已找到旋轉的複合公式，比哈密頓（Hamilton）發明四元數還早三年。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">分解為不變的部分</div>
+<p><em>要理解一個變換，可把空間分成變換處理得簡單的幾塊：在這裏，就是軸（保持不動）和與軸垂直的平面（被旋轉）。</em></p>
+<p>這與 <a href="../ch07/eigenvectors.html">第 7.2 節</a> 中特徵向量的想法相同：找出變換所保持的子空間（subspace），然後在每一塊上分別研究它。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>平面上的旋轉。</strong>試做 <a href="https://step.maths.org/questions/17-s3-q2">STEP III 2017，第 2 題</a>。該題利用複數，證明平面上的兩個旋轉複合起來仍是一個旋轉，只有一種例外。找出這個例外，以及此時複合的結果是甚麼。</p></li>
+<li><p><strong>一個具體的旋轉。</strong>求繞方向為 <span class="math inline">\((1, 1, 1)\)</span> 的軸旋轉 <span class="math inline">\(120^\circ\)</span> 的矩陣。證明它把各坐標軸循環置換。</p></li>
+<li><p><strong><span class="math inline">\(\mathbf{K}\)</span> 的冪。</strong>證明 <span class="math inline">\(\mathbf{K}^2\mathbf{r} = (\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span> 及 <span class="math inline">\(\mathbf{K}^3 = -\mathbf{K}\)</span>，並由指數級數推導出羅德里格公式。</p></li>
+<li><p><strong>兩次反射構成一個旋轉。</strong>證明先後對兩個通過原點、互成 <span class="math inline">\(\alpha\)</span> 角的平面作反射，結果是繞兩平面的交線旋轉 <span class="math inline">\(2\alpha\)</span>。</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Simon Altmann, <a href="https://uk.bookshop.org/search?keywords=Rotations%2C+Quaternions%2C+and+Double+Groups+Altmann"><em>Rotations, Quaternions, and Double Groups</em></a></strong>（Dover）。關於三維旋轉的權威論著，當中包括羅德里格的貢獻。</p></li>
+<li><p><strong>Simon Altmann, “<a href="https://doi.org/10.1080/0025570x.1989.11977459">Hamilton, Rodrigues, and the quaternion scandal</a>”</strong>, <em>Mathematics Magazine</em> 62 (1989)。一篇簡短而生動的歷史敍述。</p></li>
+<li><p><strong>John Stillwell, <a href="https://uk.bookshop.org/search?keywords=Naive+Lie+Theory+Stillwell"><em>Naive Lie Theory</em></a></strong>（Springer）。為大學本科生而寫的旋轉、四元數與李羣入門。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="finite-order.html">← 7.4 回到起點的矩陣</a><a class="next" href="hyperbolic-rotations.html">→ 7.6 雙曲旋轉與相對論</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

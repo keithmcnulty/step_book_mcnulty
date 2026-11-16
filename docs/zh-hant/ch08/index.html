@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 8 章：微分方程與動力系統 — Beyond STEP</title>
+<meta name="description" content="先談存在性與定性行為，再談模型，最後是離散映射中的混沌。">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 8 章：微分方程與動力系統 — Beyond STEP">
+<meta property="og:description" content="先談存在性與定性行為，再談模型，最後是離散映射中的混沌。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch08/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 8 章：微分方程與動力系統 — Beyond STEP">
+<meta name="twitter:description" content="先談存在性與定性行為，再談模型，最後是離散映射中的混沌。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 8, "name": "微分方程與動力系統", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "先談存在性與定性行為，再談模型，最後是離散映射中的混沌。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 8 章：微分方程與動力系統", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch08/"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch08/index.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">8</div>
+    <h1>微分方程與動力系統</h1>
+    <p class="strap">絕大多數微分方程都解不出來。學問就在於：解不出來，也要讀懂它。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下載整章</span><span class="dl-sub">PDF，專為列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章內容</h2>
+  <ol class="toc"><li><a class="toc-link" href="non-uniqueness.html"><span class="toc-num">8.1</span>
+<span class="toc-title">當解不唯一</span>
+<span class="toc-src">STEP III 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-1-non-uniqueness.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="bounding-without-solving.html"><span class="toc-num">8.2</span>
+<span class="toc-title">不求解而估界</span>
+<span class="toc-src">STEP III 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-2-bounding-without-solving.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="harvesting.html"><span class="toc-num">8.3</span>
+<span class="toc-title">收穫種羣</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-3-harvesting.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="limit-cycle.html"><span class="toc-num">8.4</span>
+<span class="toc-title">盤旋趨向圓</span>
+<span class="toc-src">STEP III 2015</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-4-limit-cycle.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="pursuit.html"><span class="toc-num">8.5</span>
+<span class="toc-title">格力犬追逐格力犬</span>
+<span class="toc-src">STEP III 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-5-pursuit.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="quantum-oscillator.html"><span class="toc-num">8.6</span>
+<span class="toc-title">量子振子</span>
+<span class="toc-src">STEP III 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-6-quantum-oscillator.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="solvable-chaos.html"><span class="toc-num">8.7</span>
+<span class="toc-title">可以解出的混沌</span>
+<span class="toc-src">STEP I 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-7-solvable-chaos.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="period-three.html"><span class="toc-num">8.8</span>
+<span class="toc-title">週期三蘊含混沌</span>
+<span class="toc-src">STEP III 2025</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-8-period-three.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顧：我們學到了甚麼</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「延伸練習」答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 8 章  \(\cdot\)  引言</div>
+    <h1 class="essay-title">變化的法則</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>大自然對積分的種種困難一笑置之。</p>
+<p class="who">— 相傳為拉普拉斯（Pierre-Simon Laplace）所言</p>
+</div>
+<p>在中學，微分方程（differential equation）是拿來解的。你把變量分離，或者找一個積分因子（integrating factor），又或者猜一個形如 <span class="math inline">\(e^{\lambda x}\)</span> 的解，最後得到一條公式。課本裏的方程都是特意挑選的，所以這些方法才行得通。可惜的是，來自現實世界的微分方程（三顆行星的運動、天氣、捕食者與獵物的種羣數量、大幅度擺動的單擺），幾乎全都沒有可以用我們熟悉的函數寫出來的解。</p>
+<p>本章要談的，就是這時候該怎麼辦。我們不再問「公式是甚麼？」，而是問一些不靠公式也能回答的問題。解到底存在嗎？是否只有一個？它會保持有界（bounded）嗎？它會趨於一個穩定狀態，還是趨於一個周而復始的循環，抑或永遠游移不定？長遠來說它會怎樣？這種由「求解」轉為「理解」的觀點，始於 1880 年代的龐加萊（Henri Poincaré），並由此開創了今天稱為<em>動力系統</em>（dynamical systems）的學科。</p>
+<h3 id="微分方程為何重要">微分方程為何重要</h3>
+<p>微分方程是科學的語言。牛頓（Newton）第二定律是一條微分方程；麥克斯韋（Maxwell）的電磁學方程組、量子力學的薛定諤（Schrödinger）方程，以及用來預測天氣和設計飛機的流體流動方程，也都是微分方程。流行病學家用它們為疾病的傳播建立模型，生態學家用來描述魚類資源的數量，經濟學家用來描述經濟增長，工程師則用來描述各種控制系統的響應，由恆溫器到自動駕駛儀無一例外。凡是一個量的變化率取決於它當前的狀態，就有一條微分方程，而且通常是一條沒有人能精確解出的方程。</p>
+<p>與這些連續模型並列的還有離散模型，其中時間是一步一步推進的：今年的種羣數量決定明年的種羣數量。這些<em>迭代映射</em>（iterated maps）寫起來比較簡單，但最後兩節會說明，它們的行為可以同樣狂野。1970 年代的重大發現之一，就是非常簡單的法則也能產生<em>混沌</em>（chaos）：這種行為完全是確定的，實際上卻無法預測。</p>
+<h3 id="你在大學會遇到甚麼">你在大學會遇到甚麼</h3>
+<p>大學一年級的微分方程課程會講授標準的求解方法，但也會引入本章的這些問題。你會遇到存在性與唯一性定理（existence and uniqueness theorems），它們告訴你解在甚麼時候存在，又在甚麼時候由初始值決定。你會學習繪畫<em>相圖</em>（phase portraits），即把所有解一次過畫出來的圖，並學習透過線性化（linearising）把平衡點（equilibria）分類為穩定或不穩定。往後的課程會走得遠得多：<em>非線性動力學</em>（nonlinear dynamics）研究極限環（limit cycles）、分歧（bifurcations）和混沌；<em>數學生物學</em>（mathematical biology）把這些概念應用於種羣和流行病；而偏微分方程（partial differential equations）、傅立葉級數（Fourier series）和正交函數（orthogonal functions）的理論（在 <a href="../ch08/quantum-oscillator.html">第 8.6 節</a> 可以略窺一二）則是量子力學和大部分應用數學的基礎。</p>
+<h3 id="貫穿本章的問題">貫穿本章的問題</h3>
+<div class="skillbox">
+<div class="box-title">三大問題</div>
+<ol class="arabic">
+<li><p><strong>現在能決定將來嗎？</strong>一條微分方程配上一個初始值，在甚麼時候恰好只有一個解？</p></li>
+<li><p><strong>不求解，我們能知道甚麼？</strong>在沒有公式的情況下，怎樣為解定出上下界、找出它最終停留在哪裏，或者描述它的形狀？</p></li>
+<li><p><strong>長遠來說會怎樣？</strong>解會趨於穩定狀態、趨近一個循環，還是呈現混沌的行為？我們又怎樣分辨？</p></li>
+</ol>
+</div>
+<p>本章首先討論唯一性，以及唯一性不成立時會發生甚麼事（<a href="../ch08/non-uniqueness.html">第 8.1 節</a>），然後發展一些不必求解也能理解方程的工具：不會增加的類能量的量、平衡點及其穩定性，以及配合問題對稱性的坐標。有兩節把這些想法應用於物理問題：在正方形內互相追逐的幾隻狗，以及量子諧振子（quantum harmonic oscillator）。本章最後討論離散映射：在那裏，一條公式揭示了混沌，而單單一個長度為三的循環，就迫使任何長度的循環都必然存在。</p>
+<h3 id="本章的概念">本章的概念</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">課題</th>
+<th style="text-align: left;">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">8.1</td>
+<td style="text-align: left;">唯一性</td>
+<td style="text-align: left;">包絡線（envelopes）與奇解（singular solutions）；黏合</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.2</td>
+<td style="text-align: left;">能量方法</td>
+<td style="text-align: left;">一個永不增加的量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.3</td>
+<td style="text-align: left;">種羣模型</td>
+<td style="text-align: left;">平衡點、穩定性與臨界點（tipping point）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.4</td>
+<td style="text-align: left;">極限環</td>
+<td style="text-align: left;">極坐標與伯努利代換（Bernoulli substitution）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.5</td>
+<td style="text-align: left;">追逐曲線（pursuit curves）</td>
+<td style="text-align: left;">對稱性把四個物體化約為一個</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.6</td>
+<td style="text-align: left;">正交函數</td>
+<td style="text-align: left;">朗斯基行列式（Wronskian）與正交性</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.7</td>
+<td style="text-align: left;">混沌</td>
+<td style="text-align: left;">變量代換：邏輯斯諦映射（logistic map）其實是喬裝了的倍角映射</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.8</td>
+<td style="text-align: left;">週期軌道（periodic orbits）</td>
+<td style="text-align: left;">區間覆蓋；沙可夫斯基定理（Sharkovskii’s theorem）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="如何閱讀本章">如何閱讀本章</h3>
+<p>在動手解任何東西之前，先畫草圖。對於微分方程 <span class="math inline">\(y&#39; = F(y)\)</span>，標出 <span class="math inline">\(F\)</span> 在哪裏為正、為負和為零，並在 <span class="math inline">\(y\)</span> 軸上畫上箭頭；對於映射 <span class="math inline">\(x \mapsto \mathrm{f}(x)\)</span>，把它的圖像連同直線 <span class="math inline">\(y = x\)</span> 一起畫出來，再用蛛網圖法（cobweb method）追蹤幾個數列。這些圖只需一分鐘就能畫好，而且往往在代數運算開始之前，就已經告訴你答案應該是甚麼模樣。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="non-uniqueness.html">→ 開始： 8.1 當解不唯一</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

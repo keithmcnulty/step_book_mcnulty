@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>創造一個新函數 (STEP II 2021 第 4 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 2021 第 4 題：引導式解答及其背後的大學數學。 你能解 e^-x = 5x 嗎？計算機上沒有任何一個函數幫得上忙。移項整理也無濟於事： x 同時困在指數函數的裏面和外面。你可以用試誤法（trial and improvement）求出數值答案，但並沒有甚麼「公式」。 真的沒有嗎？這道題踏出了大膽的一步：如果某一族方程無法用已知的函數解出來，那就 發明一個新函數…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/lambert-w.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/lambert-w.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch03/lambert-w.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch03/lambert-w.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="創造一個新函數 (STEP II 2021 第 4 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 2021 第 4 題：引導式解答及其背後的大學數學。 你能解 e^-x = 5x 嗎？計算機上沒有任何一個函數幫得上忙。移項整理也無濟於事： x 同時困在指數函數的裏面和外面。你可以用試誤法（trial and improvement）求出數值答案，但並沒有甚麼「公式」。 真的沒有嗎？這道題踏出了大膽的一步：如果某一族方程無法用已知的函數解出來，那就 發明一個新函數…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch03/lambert-w.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="創造一個新函數 (STEP II 2021 第 4 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2021 第 4 題：引導式解答及其背後的大學數學。 你能解 e^-x = 5x 嗎？計算機上沒有任何一個函數幫得上忙。移項整理也無濟於事： x 同時困在指數函數的裏面和外面。你可以用試誤法（trial and improvement）求出數值答案，但並沒有甚麼「公式」。 真的沒有嗎？這道題踏出了大膽的一步：如果某一族方程無法用已知的函數解出來，那就 發明一個新函數…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "創造一個新函數", "headline": "創造一個新函數", "description": "STEP II 2021 第 4 題：引導式解答及其背後的大學數學。 你能解 e^-x = 5x 嗎？計算機上沒有任何一個函數幫得上忙。移項整理也無濟於事： x 同時困在指數函數的裏面和外面。你可以用試誤法（trial and improvement）求出數值答案，但並沒有甚麼「公式」。 真的沒有嗎？這道題踏出了大膽的一步：如果某一族方程無法用已知的函數解出來，那就 發明一個新函數…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch03/lambert-w.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2021 第 4 題", "函數、不等式與嚴謹"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 3, "name": "函數、不等式與嚴謹", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch03/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 3 章：函數、不等式與嚴謹", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch03/"}, {"@type": "ListItem", "position": 3, "name": "創造一個新函數", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch03/lambert-w.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch03/lambert-w.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 3 章 · 函數、不等式與嚴謹</a>
+    <div class="src">STEP II · 2021 · 第 4 題</div>
+    <div class="sec-head"><span class="sec-num">3.9</span><h1>創造一個新函數</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-9-lambert-w.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 3 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 2021，第 4 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 OCR 提供下載的 2021 年 STEP 試卷（zip 檔案）內的 STEP II 試卷： <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">www.ocr.org.uk/Images/696588-2021-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>你能解 <span class="math inline">\(e^{-x} = 5x\)</span> 嗎？計算機上沒有任何一個函數幫得上忙。移項整理也無濟於事：<span class="math inline">\(x\)</span> 同時困在指數函數的裏面和外面。你可以用試誤法（trial and improvement）求出數值答案，但並沒有甚麼「公式」。</p>
+<p>真的沒有嗎？這道題踏出了大膽的一步：如果某一族方程無法用已知的函數解出來，那就<em>發明一個新函數</em>來解它們。數學家當年正是這樣得到 <span class="math inline">\(\sqrt{x}\)</span>（<span class="math inline">\(x^2\)</span> 的反函數）、<span class="math inline">\(\ln x\)</span>（<span class="math inline">\(e^x\)</span> 的反函數）和 <span class="math inline">\(\arcsin x\)</span> 的。這裏的新函數是 <span class="math inline">\(xe^x\)</span> 的反函數（inverse function），現稱為<em>蘭伯特 W 函數</em>（Lambert W function）。有了它，從 <span class="math inline">\(x^x = 10\)</span> 到一條物理定律，範圍廣得出人意料的各種方程都可以精確地解出來。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>「解」一條方程，究竟是甚麼意思？<span class="math inline">\(x = \sqrt{2}\)</span> 是 <span class="math inline">\(x^2 = 2\)</span> 的解，還是只不過是那個解的名字？</p>
+</div>
+<p>兩者皆是。<span class="math inline">\(\sqrt2\)</span> 是「平方等於 <span class="math inline">\(2\)</span> 的那個正數」的名字；我們接受它作為答案，是因為函數 <span class="math inline">\(\sqrt{\phantom{x}}\)</span> 已為人熟知、容易計算，而且性質清楚。一個答案算不算「公式」，取決於我們約定了為哪些函數命名。這道題為這份名單再添一個。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-曲線-y-xex" class="stage"><span class="stage-n">階段 1</span> 曲線 <span class="math inline">\(y = xe^x\)</span></h4>
+<p><span class="math inline">\(\frac{\mathrm{d}y}{\mathrm{d}x} = e^x + xe^x = (1 + x)e^x\)</span>，它只在 <span class="math inline">\(x = -1\)</span> 處為零，此時 <span class="math inline">\(y = -e^{-1}\)</span>。導數（derivative）在 <span class="math inline">\(x &lt; -1\)</span> 時為負，在 <span class="math inline">\(x &gt; -1\)</span> 時為正，所以這是一個極小值（minimum）。</p>
+<div class="askyourself">
+<p>當 <span class="math inline">\(x \to +\infty\)</span> 和 <span class="math inline">\(x \to -\infty\)</span> 時，<span class="math inline">\(xe^x\)</span> 會怎樣？曲線在哪裏與坐標軸相交？</p>
+</div>
+<p>當 <span class="math inline">\(x \to \infty\)</span> 時，<span class="math inline">\(xe^x \to \infty\)</span>。當 <span class="math inline">\(x \to -\infty\)</span> 時，<span class="math inline">\(xe^x \to 0\)</span>（從下方趨近），因為指數衰減勝過線性增長。曲線通過原點。所以它從負 <span class="math inline">\(x\)</span> 軸的稍下方進來，下降至極小點 <span class="math inline">\((-1, -\frac1e)\)</span>，然後上升穿過 <span class="math inline">\((0, 0)\)</span>，再急速向上（圖 3.9.1）。</p>
+<h4 id="stagemark2-反函數" class="stage"><span class="stage-n">階段 2</span> 反函數</h4>
+<p>要有反函數，<span class="math inline">\(\mathrm{f}\)</span> 必須是一對一（one-to-one）的，所以必須把它限制在一個嚴格遞增（strictly increasing）或嚴格遞減的區域上。包含右邊部分的最大區間是 <span class="math inline">\([-1, \infty)\)</span>，所以 <span class="math inline">\(a = -1\)</span>。在 <span class="math inline">\([-1, \infty)\)</span> 上，<span class="math inline">\(\mathrm{f}\)</span> 由 <span class="math inline">\(-\frac1e\)</span> 遞增至 <span class="math inline">\(\infty\)</span>，所以反函數 <span class="math inline">\(\mathrm{g}\)</span> 定義在 <span class="math inline">\([-\frac1e, \infty)\)</span> 上，由 <span class="math inline">\(\mathrm{g}(-\frac1e) = -1\)</span> 開始遞增，經過 <span class="math inline">\(\mathrm{g}(0) = 0\)</span>，並且增長緩慢（當 <span class="math inline">\(x\)</span> 很大時，比 <span class="math inline">\(\ln x\)</span> 還要慢）。它的圖像是 <span class="math inline">\(y = xe^x\)</span> 右邊部分關於直線 <span class="math inline">\(y = x\)</span> 的反射，在 <span class="math inline">\((-\frac1e, -1)\)</span> 處有一條垂直切線。</p>
+<p><span class="math inline">\(\mathrm{g}\)</span> 的定義性質是 <span class="math display">\[\mathrm{g}(z)\,e^{\mathrm{g}(z)} = z, \qquad \mathrm{g}(z) \geq -1.\]</span> 所以 (iii) 中每一部分的策略都一樣：把方程整理成 <span class="math inline">\((\text{某個式子})\,e^{(\text{同一個式子})} = (\text{一個數})\)</span> 的形式。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-3-9-1.svg" alt="圖 3.9.1"><figcaption><span class="fig-label">圖 3.9.1</span> 曲線 <span class="math inline">\(y = xe^x\)</span>（藍綠色）在 <span class="math inline">\((-1, -\frac1e)\)</span> 處有極小值。限制在 <span class="math inline">\(x \geq -1\)</span> 上，再關於 <span class="math inline">\(y = x\)</span> 反射，便得到反函數 <span class="math inline">\(\mathrm{g}\)</span>（琥珀色實線），即蘭伯特 W 函數。琥珀色虛線是 <span class="math inline">\(y = xe^x\)</span> 左邊部分的反射：這是第二個分支，第 (iii) 部分的第二個根要用到它。</figcaption></figure>
+<h4 id="stagemark3-四條方程" class="stage"><span class="stage-n">階段 3</span> 四條方程</h4>
+<p><strong>(a)</strong> <span class="math inline">\(e^{-x} = 5x\)</span>。乘以 <span class="math inline">\(e^x\)</span> 再除以 <span class="math inline">\(5\)</span>：<span class="math inline">\(xe^x = \frac15\)</span>。所以 <span class="math inline">\(x = \mathrm{g}\bigl(\frac15\bigr) \approx 0.169\)</span>。由於 <span class="math inline">\(xe^x\)</span> 在 <span class="math inline">\(x &lt; 0\)</span> 時為負，任何根都是正數，而 <span class="math inline">\(xe^x\)</span> 在 <span class="math inline">\(x &gt; 0\)</span> 時遞增，所以這是唯一的根。</p>
+<div class="askyourself">
+<p>在 (b) 和 (c) 中，未知數以 <span class="math inline">\(x\ln x\)</span> 的形式出現。用甚麼代換（substitution）可以把 <span class="math inline">\(x\ln x\)</span> 變成 <span class="math inline">\(ue^u\)</span> 的形式？</p>
+</div>
+<p>設 <span class="math inline">\(x = e^u\)</span>，則 <span class="math inline">\(\ln x = u\)</span>，而 <span class="math inline">\(x\ln x = ue^u\)</span>。</p>
+<p><strong>(b)</strong> <span class="math inline">\(2x\ln x + 1 = 0\)</span> 變成 <span class="math inline">\(ue^u = -\frac12\)</span>。但對所有實數 <span class="math inline">\(u\)</span> 都有 <span class="math inline">\(ue^u \geq -\frac1e \approx -0.368\)</span>，而 <span class="math inline">\(-\frac12 &lt; -\frac1e\)</span>。所以<strong>沒有實根</strong>。</p>
+<p><strong>(c)</strong> <span class="math inline">\(3x\ln x + 1 = 0\)</span> 變成 <span class="math inline">\(ue^u = -\frac13\)</span>，而 <span class="math inline">\(-\frac1e &lt; -\frac13 &lt; 0\)</span>。高度為 <span class="math inline">\(-\frac13\)</span> 的水平線與 <span class="math inline">\(y = ue^u\)</span> 相交<em>兩次</em>，在極小點 <span class="math inline">\(u = -1\)</span> 的兩側各一次。右邊的根是 <span class="math inline">\(u = \mathrm{g}\bigl(-\frac13\bigr)\)</span>，由此得 <span class="math display">\[x = e^{\mathrm{g}(-1/3)} \approx 0.538.\]</span> 另一個根滿足 <span class="math inline">\(u &lt; -1 &lt; \mathrm{g}\bigl(-\frac13\bigr)\)</span>，而 <span class="math inline">\(x = e^u\)</span> 隨 <span class="math inline">\(u\)</span> 遞增，所以我們找到的根是兩者之中<strong>較大</strong>的一個。（另一個約為 <span class="math inline">\(0.220\)</span>。）</p>
+<div class="pausebox">
+<p>現在試做 (d)，<span class="math inline">\(x = 3\ln x\)</span>。（<em>提示：</em>兩邊取指數，設法湊成 <span class="math inline">\((\text{某個式子})\,e^{\text{某個式子}}\)</span> 的形式，其中「某個式子」是 <span class="math inline">\(x\)</span> 的倍數。）</p>
+</div>
+<p><strong>(d)</strong> <span class="math inline">\(x = 3\ln x\)</span> 即 <span class="math inline">\(e^{x/3} = x\)</span>，所以 <span class="math inline">\(xe^{-x/3} = 1\)</span>，再乘以 <span class="math inline">\(-\frac13\)</span>， <span class="math display">\[\left(-\frac x3\right)e^{-x/3} = -\frac13.\]</span> 所以 <span class="math inline">\(-\frac x3\)</span> 是在 (c) 中找到的 <span class="math inline">\(ue^u = -\frac13\)</span> 的兩個解之一。取由 <span class="math inline">\(\mathrm{g}\)</span> 給出的那一個，<span class="math inline">\(x = -3\,\mathrm{g}\bigl(-\frac13\bigr) \approx 1.857\)</span>。另一個根來自另一個解 <span class="math inline">\(u &lt; \mathrm{g}(-\frac13)\)</span>，它給出較大的 <span class="math inline">\(x = -3u\)</span>。所以這一次我們找到的根是兩者之中<strong>較小</strong>的一個。（另一個約為 <span class="math inline">\(4.536\)</span>。）<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-xx-10" class="stage"><span class="stage-n">階段 4</span> <span class="math inline">\(x^x = 10\)</span></h4>
+<p>取對數，<span class="math inline">\(x\ln x = \ln 10\)</span>。設 <span class="math inline">\(x = e^u\)</span>，這就是 <span class="math inline">\(ue^u = \ln 10\)</span>，所以 <span class="math inline">\(u = \mathrm{g}(\ln 10)\)</span>，而 <span class="math display">\[x = e^{\mathrm{g}(\ln 10)} \approx 2.506.\]</span> 由於 <span class="math inline">\(\mathrm{g}(z)e^{\mathrm{g}(z)} = z\)</span>，我們也可以把它寫成 <span class="math inline">\(x = \dfrac{\ln 10}{\mathrm{g}(\ln 10)}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>為缺少的函數命名。</strong>當一條方程無法用已知函數解出時，把一個新函數定義為反函數，是正當的做法，而且往往富有啟發性。</p></li>
+<li><p><strong>整理成標準形式。</strong>(iii) 和 (iv) 的每一部分最終都歸結為 <span class="math inline">\(ue^u = \text{常數}\)</span>，用的是 <span class="math inline">\(x = e^u\)</span> 或 <span class="math inline">\(u = -\frac x3\)</span> 之類的代換。</p></li>
+<li><p><strong>用圖像數根的個數。</strong><span class="math inline">\(ue^u = c\)</span> 有零個、一個還是兩個解，只取決於 <span class="math inline">\(c\)</span> 相對於極小值 <span class="math inline">\(-\frac1e\)</span> 的位置。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">歷史悠久、名字卻很新的函數</div>
+<p>蘭伯特（Johann Heinrich Lambert）在 1758 年研究過這類方程，歐拉（Euler）在 1783 年作了進一步的研究。但這個函數一直沒有標準名稱，直到 1990 年代，電腦代數系統（computer algebra system）Maple 的開發者需要為它起一個名字。1996 年，Robert Corless、Gaston Gonnet、David Hare、David Jeffrey 和 Donald Knuth 發表了論文「On the Lambert W function」，匯集了它的性質和應用。這篇論文已被引用數千次，而 W 現已內置於大多數數學軟件之中。題目中的函數 <span class="math inline">\(\mathrm{g}\)</span> 是<em>主分支</em>（principal branch）<span class="math inline">\(W_0\)</span>；圖 3.9.1 中的虛線，即給出 (c) 和 (d) 中第二個根的那條曲線，是另一個實分支 <span class="math inline">\(W_{-1}\)</span>。</p>
+</div>
+<h3 id="w-出現在哪裏">W 出現在哪裏</h3>
+<ul>
+<li><p><strong>維恩位移定律（Wien’s displacement law）。</strong>熱的物體輻射最強的波長與其溫度成反比。當中的常數來自解方程 <span class="math inline">\(5(1 - e^{-x}) = x\)</span>，其正數解為 <span class="math inline">\(x = 5 + W\bigl(-5e^{-5}\bigr) \approx 4.965\)</span>。這就是為甚麼約 <span class="math inline">\(5800\)</span> K 的太陽看起來是黃白色，而溫度較低的紅矮星看起來是紅色。</p></li>
+<li><p><strong>冪塔（power tower）。</strong>無窮冪塔 <span class="math inline">\(x^{x^{x^{\cdot^{\cdot^{\cdot}}}}}\)</span> 在 <span class="math inline">\(e^{-e} \leq x \leq e^{1/e}\)</span> 時收斂（converge），其值為 <span class="math inline">\(\dfrac{W(-\ln x)}{-\ln x}\)</span>。</p></li>
+<li><p><strong>人口與傳染病模型。</strong>在最簡單的模型中，一場傳染病的最終規模，以及某些增長模型中達到指定人口所需的時間，都由 W 給出。</p></li>
+</ul>
+<h3 id="初等函數">初等函數</h3>
+<p><span class="math inline">\(W\)</span> 真的是新函數嗎？還是可以用 <span class="math inline">\(\exp\)</span>、<span class="math inline">\(\ln\)</span>、根式和三角函數寫出來？它確實是新的：一條可追溯至 1830 年代劉維爾（Joseph Liouville）的定理表明，<span class="math inline">\(W\)</span> 不是<em>初等函數</em>（elementary function）。同一套理論還表明，一些看似平平無奇的積分，例如 <span class="math inline">\(\int e^{-x^2}\,\mathrm{d}x\)</span>，無法用初等函數表示，這就是為甚麼正態分佈（normal distribution）需要自己專用的特殊函數。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">以反函數作為解</div>
+<p><em>方程 <span class="math inline">\(\mathrm{f}(x) = c\)</span> 的解是 <span class="math inline">\(x = \mathrm{f}^{-1}(c)\)</span>，前提是把 <span class="math inline">\(\mathrm{f}\)</span> 限制成一對一的函數。這個限制決定了你得到的是哪一個解。</em></p>
+<p>許多看似不同的方程，其實是同一條方程的不同偽裝；找出能揭示共同形式的代換，就是關鍵的一步。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>二、四，還有一個。</strong>方程 <span class="math inline">\(x^2 = 2^x\)</span> 有顯而易見的解 <span class="math inline">\(x = 2\)</span> 和 <span class="math inline">\(x = 4\)</span>（比較 <a href="../ch03/pi-e-or-e-pi.html">第 3.5 節</a>）。證明它還有一個負數解，而這個解是 <span class="math display">\[x = -\frac{2}{\ln 2}\,\mathrm{g}\!\left(\frac{\ln 2}{2}\right) \approx -0.767.\]</span></p></li>
+<li><p><strong>一個導數。</strong>對 <span class="math inline">\(\mathrm{g}(x)e^{\mathrm{g}(x)} = x\)</span> 作隱函數微分（implicit differentiation），證明當 <span class="math inline">\(x \neq 0\)</span> 時， <span class="math display">\[\mathrm{g}&#39;(x) = \frac{\mathrm{g}(x)}{x\bigl(1 + \mathrm{g}(x)\bigr)}.\]</span> 在 <span class="math inline">\(x = -\frac1e\)</span> 處會怎樣？</p></li>
+<li><p><strong>一個積分。</strong>利用代換 <span class="math inline">\(x = we^w\)</span> 證明 <span class="math inline">\(\displaystyle\int_0^e \mathrm{g}(x)\,\mathrm{d}x = e - 1\)</span>。</p></li>
+<li><p><strong>冪塔。</strong>假設冪塔 <span class="math inline">\(T = \sqrt2^{\sqrt2^{\sqrt2^{\cdots}}}\)</span> 收斂，證明 <span class="math inline">\(T = \sqrt2^{\,T}\)</span>，並由此推出 <span class="math inline">\(T = 2\)</span> 或 <span class="math inline">\(T = 4\)</span>。究竟是哪一個？（計算數列 <span class="math inline">\(t_1 = \sqrt2\)</span>、<span class="math inline">\(t_{n+1} = \sqrt2^{\,t_n}\)</span> 的頭幾項，並想想 <a href="../ch02/golden-limit.html">第 2.2 節</a> 中的蛛網圖（cobweb diagram）。）</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Robert Corless et al., “<a href="https://doi.org/10.1007/bf02124750">On the Lambert W function</a>”</strong>，<em>Advances in Computational Mathematics</em> 5 (1996)。為這個函數命名的論文。讀完本節之後，論文的頭幾節應可讀懂。</p></li>
+<li><p><strong>Brian Hayes, “<a href="https://doi.org/10.1511/2005.52.3448">Why W?</a>”</strong>，<em>American Scientist</em> 93 (2005)。一篇生動的文章，講述這個函數的歷史和用途。可在網上免費閱讀。</p></li>
+<li><p><strong>Brian Conrad, “<a href="https://math.stanford.edu/~conrad/papers/elemint.pdf">Impossibility theorems for elementary integration</a>”</strong>。網上可找到的講義，解釋劉維爾的理論。程度較深。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="addition-laws.html">← 3.8 由加法公式決定的函數</a><a class="next" href="wrap-up.html">→ 回顧</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

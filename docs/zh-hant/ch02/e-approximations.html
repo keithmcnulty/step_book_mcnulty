@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>逐步逼近 e 的分數 (STEP II 2021 第 8 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 2021 第 8 題：引導式解答及其背後的大學數學。 怎樣才能找到逼近 e 的好分數？你可以把級數（series） 1 + 1 + frac12 + frac16 + cdots 截斷，但以分母的大小來衡量，這樣得到的分數並不算特別好。這道題的做法高明得多：它構造出一族積分，每個積分都是形如「整數 + 整數 ×\, e 」的一個很小的數。如果 a + be 極小，那麼 e…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/e-approximations.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/e-approximations.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/e-approximations.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/e-approximations.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="逐步逼近 e 的分數 (STEP II 2021 第 8 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 2021 第 8 題：引導式解答及其背後的大學數學。 怎樣才能找到逼近 e 的好分數？你可以把級數（series） 1 + 1 + frac12 + frac16 + cdots 截斷，但以分母的大小來衡量，這樣得到的分數並不算特別好。這道題的做法高明得多：它構造出一族積分，每個積分都是形如「整數 + 整數 ×\, e 」的一個很小的數。如果 a + be 極小，那麼 e…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch02/e-approximations.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="逐步逼近 e 的分數 (STEP II 2021 第 8 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2021 第 8 題：引導式解答及其背後的大學數學。 怎樣才能找到逼近 e 的好分數？你可以把級數（series） 1 + 1 + frac12 + frac16 + cdots 截斷，但以分母的大小來衡量，這樣得到的分數並不算特別好。這道題的做法高明得多：它構造出一族積分，每個積分都是形如「整數 + 整數 ×\, e 」的一個很小的數。如果 a + be 極小，那麼 e…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "逐步逼近 e 的分數", "headline": "逐步逼近 e 的分數", "description": "STEP II 2021 第 8 題：引導式解答及其背後的大學數學。 怎樣才能找到逼近 e 的好分數？你可以把級數（series） 1 + 1 + frac12 + frac16 + cdots 截斷，但以分母的大小來衡量，這樣得到的分數並不算特別好。這道題的做法高明得多：它構造出一族積分，每個積分都是形如「整數 + 整數 ×\\, e 」的一個很小的數。如果 a + be 極小，那麼 e…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/e-approximations.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2021 第 8 題", "數列、級數與收斂"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 2, "name": "數列、級數與收斂", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 2 章：數列、級數與收斂", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/"}, {"@type": "ListItem", "position": 3, "name": "逐步逼近 e 的分數", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/e-approximations.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch02/e-approximations.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 2 章 · 數列、級數與收斂</a>
+    <div class="src">STEP II · 2021 · 第 8 題</div>
+    <div class="sec-head"><span class="sec-num">2.9</span><h1>逐步逼近 e 的分數</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-9-e-approximations.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 2 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 2021，第 8 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 OCR 提供下載的 2021 年 STEP 試卷（zip 檔案）內的 STEP II 試卷： <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">www.ocr.org.uk/Images/696588-2021-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>怎樣才能找到逼近 <span class="math inline">\(e\)</span> 的好分數？你可以把級數（series）<span class="math inline">\(1 + 1 + \frac12 + \frac16 + \cdots\)</span> 截斷，但以分母的大小來衡量，這樣得到的分數並不算特別好。這道題的做法高明得多：它構造出一族積分，每個積分都是形如「整數 <span class="math inline">\(+\)</span> 整數 <span class="math inline">\(\times\, e\)</span>」的一個很小的數。如果 <span class="math inline">\(a + be\)</span> 極小，那麼 <span class="math inline">\(e\)</span> 就非常接近 <span class="math inline">\(-a/b\)</span>，於是這些積分便為我們送上一連串極佳的分數：<span class="math inline">\(\frac{19}{7}\)</span>、<span class="math inline">\(\frac{193}{71}\)</span>、<span class="math inline">\(\frac{2721}{1001}\)</span>、…</p>
+<p>同樣的技巧，即找出既很小、又形如「你所關心的那個數的整數組合」的積分，正是數學中一些最深刻的無理性證明背後的想法，包括埃爾米特（Hermite）對 <span class="math inline">\(e\)</span> 是超越數（transcendental）的證明，以及阿佩里（Apéry）對 <span class="math inline">\(\zeta(3)\)</span> 是無理數（irrational）的證明。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<p>看看 <span class="math inline">\([0, 1]\)</span> 上的被積函數（integrand）<span class="math inline">\(\frac{t^n(1-t)^n}{n!}e^t\)</span>。</p>
+<div class="askyourself">
+<p><span class="math inline">\(t(1-t)\)</span> 在 <span class="math inline">\([0, 1]\)</span> 上的最大值是多少？由此可知，當 <span class="math inline">\(n\)</span> 增大時 <span class="math inline">\(T_n\)</span> 的大小會怎樣變化？</p>
+</div>
+<p><span class="math inline">\(t(1-t)\)</span> 的最大值是 <span class="math inline">\(\frac14\)</span>，在 <span class="math inline">\(t = \frac12\)</span> 處取得。所以被積函數至多為 <span class="math inline">\(\frac{e}{4^n n!}\)</span>，它縮小的速度快得驚人（圖 2.9.1）。這個「小」只是故事的一半。另一半，即 <span class="math inline">\(T_n\)</span> 具有 <span class="math inline">\(a_n + b_n e\)</span> 這種特殊形式，則來自分部積分法（integration by parts）。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-求導兩次" class="stage"><span class="stage-n">階段 1</span> 求導兩次</h4>
+<p>設 <span class="math inline">\(p(t) = t^n(1-t)^n\)</span>。由積法則（product rule）， <span class="math display">\[p&#39;(t) = n t^{n-1}(1-t)^n - n t^n(1-t)^{n-1} = n t^{n-1}(1-t)^{n-1}(1 - 2t).\]</span></p>
+<div class="askyourself">
+<p>再求導一次。你會得到兩項；把公因式 <span class="math inline">\(n t^{n-2}(1-t)^{n-2}\)</span> 抽出來。要配合題目要求的形式，你需要把 <span class="math inline">\((1 - 2t)^2\)</span> 改寫成以 <span class="math inline">\(t(1-t)\)</span> 表示的式子。怎樣做？</p>
+</div>
+<p>用積法則對 <span class="math inline">\(n\,[t(1-t)]^{n-1}(1 - 2t)\)</span> 求導（留意 <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}[t(1-t)] = 1 - 2t\)</span>）： <span class="math display">\[\begin{aligned}
+  p&#39;&#39;(t) &amp;= n(n-1)[t(1-t)]^{n-2}(1-2t)^2 - 2n[t(1-t)]^{n-1} \\
+  &amp;= n t^{n-2}(1-t)^{n-2}\Bigl[(n-1)(1-2t)^2 - 2t(1-t)\Bigr].
+\end{aligned}\]</span> 現在 <span class="math inline">\((1 - 2t)^2 = 1 - 4t + 4t^2 = 1 - 4t(1-t)\)</span>，所以方括號內的式子是 <span class="math inline">\((n-1) - 4(n-1)t(1-t) - 2t(1-t) = (n-1) - 2(2n-1)t(1-t)\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-分部積分兩次" class="stage"><span class="stage-n">階段 2</span> 分部積分兩次</h4>
+<div class="askyourself">
+<p><span class="math inline">\(p(t)\)</span> 在 <span class="math inline">\(t = 0\)</span> 和 <span class="math inline">\(t = 1\)</span> 處都等於零。當 <span class="math inline">\(n \geq 2\)</span> 時，<span class="math inline">\(p&#39;(t)\)</span> 又如何？在對 <span class="math inline">\(p(t)e^t\)</span> 作分部積分時，這一點為甚麼重要？</p>
+</div>
+<p>當 <span class="math inline">\(n \geq 2\)</span> 時，<span class="math inline">\(p&#39;(t)\)</span> 含有因式 <span class="math inline">\(t^{n-1}(1-t)^{n-1}\)</span>，所以它在兩個端點也等於零。分部積分兩次，每一個邊界項都是零： <span class="math display">\[\int_0^1 p\, e^t\,\mathrm{d}t = \Bigl[p\,e^t\Bigr]_0^1 - \int_0^1 p&#39;\, e^t\,\mathrm{d}t = -\Bigl[p&#39;\,e^t\Bigr]_0^1 + \int_0^1 p&#39;&#39;\, e^t\,\mathrm{d}t = \int_0^1 p&#39;&#39;\, e^t\,\mathrm{d}t.\]</span> 由第 1 階段，<span class="math inline">\(p&#39;&#39;(t) = n(n-1)\,t^{n-2}(1-t)^{n-2} - 2n(2n-1)\,t^{n-1}(1-t)^{n-1}\)</span>。除以 <span class="math inline">\(n!\)</span>： <span class="math display">\[\frac{p&#39;&#39;(t)}{n!} = \frac{t^{n-2}(1-t)^{n-2}}{(n-2)!} - 2(2n-1)\frac{t^{n-1}(1-t)^{n-1}}{(n-1)!}.\]</span> 乘以 <span class="math inline">\(e^t\)</span> 再積分，便得 <span class="math inline">\(T_n = T_{n-2} - 2(2n-1)T_{n-1}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-整數結構" class="stage"><span class="stage-n">階段 3</span> 整數結構</h4>
+<p><span class="math inline">\(T_0 = \int_0^1 e^t\,\mathrm{d}t = e - 1\)</span>。至於 <span class="math inline">\(T_1 = \int_0^1 (t - t^2)e^t\,\mathrm{d}t\)</span>，由分部積分得 <span class="math inline">\(\int_0^1 t e^t\,\mathrm{d}t = 1\)</span> 及 <span class="math inline">\(\int_0^1 t^2 e^t\,\mathrm{d}t = e - 2\)</span>，所以 <span class="math inline">\(T_1 = 1 - (e - 2) = 3 - e\)</span>。</p>
+<div class="askyourself">
+<p><span class="math inline">\(T_0 = -1 + 1 \cdot e\)</span> 而 <span class="math inline">\(T_1 = 3 + (-1)\cdot e\)</span>。為甚麼每個 <span class="math inline">\(T_n\)</span> 都必定具有 <span class="math inline">\(a_n + b_n e\)</span> 的形式，其中 <span class="math inline">\(a_n\)</span>、<span class="math inline">\(b_n\)</span> 是整數？</p>
+</div>
+<p>用強歸納法（strong induction）：若 <span class="math inline">\(T_{n-2} = a_{n-2} + b_{n-2}e\)</span> 及 <span class="math inline">\(T_{n-1} = a_{n-1} + b_{n-1}e\)</span>，其中係數都是整數，則 <span class="math display">\[T_n = \bigl(a_{n-2} - 2(2n-1)a_{n-1}\bigr) + \bigl(b_{n-2} - 2(2n-1)b_{n-1}\bigr)e,\]</span> 而新的係數也是整數。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-很小因而帶來資訊" class="stage"><span class="stage-n">階段 4</span> 很小，因而帶來資訊</h4>
+<p>當 <span class="math inline">\(0 &lt; t &lt; 1\)</span> 時，被積函數是正數，並且 <span class="math inline">\(t^n(1-t)^n \leq 1\)</span> 及 <span class="math inline">\(e^t &lt; e\)</span>。所以 <span class="math display">\[0 &lt; T_n &lt; \int_0^1 \frac{e}{n!}\,\mathrm{d}t = \frac{e}{n!}.\]</span></p>
+<div class="pausebox">
+<p>把 <span class="math inline">\(0 &lt; a_n + b_n e &lt; \dfrac{e}{n!}\)</span> 除以 <span class="math inline">\(|b_n|\)</span>。這說明 <span class="math inline">\(e\)</span> 與 <span class="math inline">\(-a_n/b_n\)</span> 之間的距離如何？</p>
+</div>
+<p>除以 <span class="math inline">\(|b_n|\)</span>（它是正整數，所以至少是 <span class="math inline">\(1\)</span>）， <span class="math display">\[\left| e - \left(\frac{-a_n}{b_n}\right) \right| = \frac{|a_n + b_n e|}{|b_n|} &lt; \frac{e}{n!\,|b_n|} \leq \frac{e}{n!}.\]</span> 右邊趨向 <span class="math inline">\(0\)</span>，所以 <span class="math inline">\(-a_n/b_n \to e\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<p>以下是由遞推關係（recurrence）算出的頭幾個分數：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5</th>
+<th style="text-align: right;">6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(-a_n/b_n\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{19}{7}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{193}{71}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{2721}{1001}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{49171}{18089}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{1084483}{398959}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">誤差</td>
+<td style="text-align: right;"><span class="math inline">\(4 \times 10^{-3}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3 \times 10^{-5}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1 \times 10^{-7}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3 \times 10^{-10}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(5 \times 10^{-13}\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>分數 <span class="math inline">\(\frac{2721}{1001}\)</span> 準確至小數點後 <span class="math inline">\(6\)</span> 位，而分母只有四位數。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-2-9-1.svg" alt="圖 2.9.1"><figcaption><span class="fig-label">圖 2.9.1</span> <span class="math inline">\(n = 1, 2, 3\)</span> 時的被積函數 <span class="math inline">\(\frac{t^n(1-t)^n}{n!}e^t\)</span>。每一個在 <span class="math inline">\((0, 1)\)</span> 上都是正數，所以每個 <span class="math inline">\(T_n\)</span> 都是正數；而且它們縮小得極快，到 <span class="math inline">\(n = 3\)</span> 時曲線已幾乎看不見。是正數但極小，正是這個論證所需要的。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>分部積分是製造遞推關係的機器。</strong>由於多項式及其導數在兩個端點都等於零，分部積分給出了一個沒有邊界項的簡潔遞推關係。</p></li>
+<li><p><strong>結構與大小並用。</strong>遞推關係說明 <span class="math inline">\(T_n\)</span> 具有 <span class="math inline">\(a_n + b_n e\)</span> 的形式；上界說明它很小。單憑其中任何一項，都無法說明怎樣逼近 <span class="math inline">\(e\)</span>。</p></li>
+<li><p><strong>不需要的就不要算。</strong>題目叫我們不必求出 <span class="math inline">\(a_n\)</span> 和 <span class="math inline">\(b_n\)</span> 的值，而論證也從來用不着它們；所需要的只是它們是整數。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title"><span class="math inline">\(e\)</span> 是無理數的另一個證明</div>
+<p>這道題離一個著名定理只差一步。假設 <span class="math inline">\(e = p/q\)</span>，其中 <span class="math inline">\(p, q\)</span> 是正整數。那麼 <span class="math display">\[q\,T_n = q a_n + b_n p\]</span> 是一個<em>整數</em>。但是 <span class="math inline">\(0 &lt; q\,T_n &lt; \dfrac{qe}{n!}\)</span>，而當 <span class="math inline">\(n\)</span> 很大時，右邊小於 <span class="math inline">\(1\)</span>。於是 <span class="math inline">\(q T_n\)</span> 就會是一個嚴格介乎 <span class="math inline">\(0\)</span> 與 <span class="math inline">\(1\)</span> 之間的整數，這是不可能的。因此 <span class="math inline">\(e\)</span> 是無理數。這正是 <a href="../ch01/e-irrational.html">第 1.4 節</a> 中「把一個整數困在 <span class="math inline">\(0\)</span> 與 <span class="math inline">\(1\)</span> 之間」的想法，只是這次由積分而不是級數來實現。正是這一類積分，配合 <span class="math inline">\(t^n(1-t)^n\)</span> 這樣的多項式，在 1873 年被夏爾·埃爾米特（Charles Hermite）用來證明 <span class="math inline">\(e\)</span> 是<em>超越數</em>：它不是任何整係數多項式的根。</p>
+</div>
+<h3 id="連分數">連分數</h3>
+<p>表中的分數不僅是好；它們更屬於<em>最佳</em>之列。<span class="math inline">\(e\)</span> 的連分數（continued fraction）由歐拉（Euler）發現，有一個優美的規律： <span class="math display">\[e = [2; 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, \ldots],\]</span> 而它的漸近分數（convergents）是 <span class="math inline">\(2, 3, \frac83, \frac{11}{4}, \frac{19}{7}, \frac{87}{32}, \frac{106}{39}, \frac{193}{71}, \ldots, \frac{2721}{1001}, \ldots\)</span>。我們的 <span class="math inline">\(-a_n/b_n\)</span> 恰好是每隔兩個取一個的漸近分數。沒有任何分母更小的分數能更接近 <span class="math inline">\(e\)</span>。歐拉發現的這個規律本身就是 <span class="math inline">\(e\)</span> 是無理數的第一個證明，因為只有有理數才有有限的連分數。</p>
+<h3 id="阿佩里的奇蹟">阿佩里的奇蹟</h3>
+<p>1978 年，羅傑·阿佩里（Roger Apéry）宣佈證明了 <span class="math inline">\(\zeta(3) = 1 + \frac18 + \frac1{27} + \cdots\)</span> 是無理數，這是自歐拉以來一直懸而未決的問題（見 <a href="../ch02/kempner.html">第 2.3 節</a>）。他的證明實在太出人意表，以致在場聽眾起初並不相信。一年後，Frits Beukers 找到一個簡短的版本，所用的積分形如 <span class="math display">\[\int_0^1\!\!\int_0^1 \frac{-\ln(xy)}{1 - xy}\, P_n(x) P_n(y)\,\mathrm{d}x\,\mathrm{d}y,\]</span> 其中 <span class="math inline">\(P_n\)</span> 由 <span class="math inline">\(\frac{\mathrm{d}^n}{\mathrm{d}x^n}\bigl(x^n(1-x)^n\bigr)\)</span> 構造而成。這些積分很小，是正數，並且形如「整數 <span class="math inline">\(+\)</span> 整數 <span class="math inline">\(\times\, \zeta(3)\)</span>」再除以一個受控的分母：這正是本題的策略。至於 <span class="math inline">\(\zeta(5)\)</span> 或 <span class="math inline">\(e + \pi\)</span> 是否無理數，至今仍然未知。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">很小但不是零</div>
+<p><em>如果已知某個量是若干個數的整數組合，又已知它很小但不是零，它就帶有資訊：關於逼近的資訊，有時還有關於無理性的資訊。</em></p>
+<p>這個模式就是「結構來自代數，大小來自分析」。它在數論中反覆出現，也是分析與代數交匯得最有成果的地方之一。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>運行遞推關係。</strong>由遞推關係計算 <span class="math inline">\(n = 2, 3, 4\)</span> 時的 <span class="math inline">\(a_n\)</span> 和 <span class="math inline">\(b_n\)</span>，並核對表中的分數。證明 <span class="math inline">\(b_n\)</span> 的正負號交替出現。</p></li>
+<li><p><strong>更精確的上界。</strong>證明 <span class="math inline">\(0 &lt; T_n &lt; \dfrac{e}{4^n\, n!}\)</span>。這把 <span class="math inline">\(-a_n/b_n\)</span> 的誤差估計改進了多少？</p></li>
+<li><p><strong>無理性的證明。</strong>把上面方框中的論證仔細寫出來。你究竟在哪一處用到 <span class="math inline">\(T_n &gt; 0\)</span>？</p></li>
+<li><p><strong>換一個權函數。</strong> <span class="hard">較難</span> 把 <span class="math inline">\(e^t\)</span> 換成 <span class="math inline">\(e^{2t}\)</span>，重做這道題（即 <span class="math inline">\(U_n = \int_0^1 \frac{t^n(1-t)^n}{n!}e^{2t}\,\mathrm{d}t\)</span>）。求 <span class="math inline">\(U_n\)</span> 的遞推關係，證明 <span class="math inline">\(U_n\)</span> 是 <span class="math inline">\(1\)</span> 和 <span class="math inline">\(e^2\)</span> 的有理係數組合，並探究這個論證是否仍能證明 <span class="math inline">\(e^2\)</span> 是無理數。（與 <a href="../ch01/e-irrational.html">第 1.4 節</a> 比較。）</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Ivan Niven, <a href="https://uk.bookshop.org/search?keywords=Irrational+Numbers+Niven"><em>Irrational Numbers</em></a></strong>（Mathematical Association of America）。關於無理性證明的經典小書，當中包括埃爾米特的方法。</p></li>
+<li><p><strong>Alfred van der Poorten, 「A proof that Euler missed」</strong>, <em>The Mathematical Intelligencer</em> 1 (1979)。生動地記述阿佩里的證明及其所得到的迴響。</p></li>
+<li><p><strong>Julian Havil, <a href="https://uk.bookshop.org/search?keywords=The+Irrationals+Havil"><em>The Irrationals</em></a></strong>（Princeton University Press）。一部無理數的歷史，為一般數學讀者而寫。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="squaring-minus-two.html">← 2.8 平方再減二</a><a class="next" href="wrap-up.html">→ 回顧</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

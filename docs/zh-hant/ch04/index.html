@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 4 章：嚴謹的微積分 — Beyond STEP</title>
+<meta name="description" content="由積分的定義出發，經過用積分作證明的題目，再到幾何與變分法。">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 4 章：嚴謹的微積分 — Beyond STEP">
+<meta property="og:description" content="由積分的定義出發，經過用積分作證明的題目，再到幾何與變分法。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch04/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 4 章：嚴謹的微積分 — Beyond STEP">
+<meta name="twitter:description" content="由積分的定義出發，經過用積分作證明的題目，再到幾何與變分法。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 4, "name": "嚴謹的微積分", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "由積分的定義出發，經過用積分作證明的題目，再到幾何與變分法。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 4 章：嚴謹的微積分", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch04/"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch04/index.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">4</div>
+    <h1>嚴謹的微積分</h1>
+    <p class="strap">積分是分析、幾何與數論交匯之處，數學中一些最優美的公式亦在此誕生。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下載整章</span><span class="dl-sub">PDF，專為列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章內容</h2>
+  <ol class="toc"><li><a class="toc-link" href="riemann.html"><span class="toc-num">4.1</span>
+<span class="toc-title">甚麼是積分？</span>
+<span class="toc-src">STEP III 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-1-riemann.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="trig-from-integral.html"><span class="toc-num">4.2</span>
+<span class="toc-title">由一個積分建立三角學</span>
+<span class="toc-src">STEP III 2017</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-2-trig-from-integral.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="twenty-two-sevenths.html"><span class="toc-num">4.3</span>
+<span class="toc-title">\(22/7\) 大於 \(\pi\)</span>
+<span class="toc-src">STEP I 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-3-twenty-two-sevenths.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="wallis-beta.html"><span class="toc-num">4.4</span>
+<span class="toc-title">沃利斯、Beta 與二分之一的階乘</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-4-wallis-beta.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="sophomores-dream.html"><span class="toc-num">4.5</span>
+<span class="toc-title">大二學生之夢</span>
+<span class="toc-src">STEP III 2009</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-5-sophomores-dream.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="no-formula.html"><span class="toc-num">4.6</span>
+<span class="toc-title">沒有公式的積分</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-6-no-formula.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="variations.html"><span class="toc-num">4.7</span>
+<span class="toc-title">變分法</span>
+<span class="toc-src">STEP III 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-7-variations.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="spherical-loaf.html"><span class="toc-num">4.8</span>
+<span class="toc-title">切球形麵包</span>
+<span class="toc-src">STEP I 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-8-spherical-loaf.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="holditch.html"><span class="toc-num">4.9</span>
+<span class="toc-title">Holditch 定理</span>
+<span class="toc-src">STEP III 2011</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-9-holditch.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顧：我們學到了甚麼</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「延伸練習」答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 4 章  \(\cdot\)  引言</div>
+    <h1 class="essay-title">不只是原函數</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>那些沒有導數的函數，實在是可悲的禍害，我懷着驚恐與厭惡避之則吉。</p>
+<p class="who">— 埃爾米特（Charles Hermite），1893 年的一封信</p>
+</div>
+<p>問一位中學生積分（integration）是甚麼，你多半會聽到「微分的逆運算」。這是個了不起的事實，稱為<em>微積分基本定理</em>（fundamental theorem of calculus），它令你在中學遇到的大部分積分都變成例行公事。但它是一條關於積分的定理，而不是積分的定義，而且它把積分之所以有趣的大部分原因都遮蓋了。</p>
+<p>積分比微分（differentiation）早出現約二千年。阿基米德（Archimedes）把圖形切成薄片再求和，求出了拋物線弓形的面積和球的表面積，那時還遠遠未有人想到導數（derivative）。而且積分能到達微分無法到達的地方。每個合理的函數都可以按機械式的法則求導，但大多數函數卻<em>無法</em>用公式積分出來，這就引出一個自然的問題：甚麼時候可以？不可以的時候又該怎麼辦？積分可以定義新的函數，證明數與數之間的不等式，計算無法用其他方式描述的面積和體積，還能給出無窮和與無窮乘積的精確值。本章談的就是這一切。</p>
+<h3 id="積分究竟是甚麼">積分究竟是甚麼</h3>
+<p>本章從頭說起，由定義開始（<a href="../ch04/riemann.html">第 4.1 節</a>）。積分是許多幼長矩形之和的極限（limit）；單憑這個定義、不用原函數（antiderivative）去計算 <span class="math inline">\(\int_0^a x^5\,\mathrm{d}x\)</span>，已是相當費工夫的事，而這會令你懂得珍惜基本定理。有了精確的定義，隨之而來的是一個精確的問題：哪些函數是可積（integrable）的？這個問題的答案，以及它所引發的種種難題，在二十世紀初催生了勒貝格（Lebesgue）的積分理論，那正是現代概率論的基礎。</p>
+<h3 id="用來證明的積分">用來證明的積分</h3>
+<p>本章一些最出人意表的結果，是用積分去證明一些看來與面積毫無關係的事實。某個正值函數的積分恰好等於 <span class="math inline">\(\frac{22}{7} - \pi\)</span>，於是一行就證明了 <span class="math inline">\(\pi &lt; \frac{22}{7}\)</span>（<a href="../ch04/twenty-two-sevenths.html">第 4.3 節</a>）。<span class="math inline">\(\sin t\)</span> 的冪引出沃利斯（Wallis）關於 <span class="math inline">\(\pi\)</span> 的無窮乘積（infinite product），以及 <span class="math inline">\(\left(\frac12\right)! = \frac{\sqrt\pi}{2}\)</span> 這個值（<a href="../ch04/wallis-beta.html">第 4.4 節</a>）。<span class="math inline">\(x^x\)</span> 的積分化成了和式 <span class="math inline">\(\sum (-1)^{n+1}n^{-n}\)</span>（<a href="../ch04/sophomores-dream.html">第 4.5 節</a>）。而僅僅一個積分 <span class="math inline">\(\int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span>，就足以從零開始建立整套三角學（<a href="../ch04/trig-from-integral.html">第 4.2 節</a>）。</p>
+<h3 id="你在大學會遇到甚麼">你在大學會遇到甚麼</h3>
+<p>大學一年級的<em>分析</em>（Analysis）課程會從積分的定義出發，嚴格證明微積分基本定理。其後的課程向多個方向發展。<em>測度論</em>（measure theory）和<em>勒貝格積分</em>（Lebesgue integral）令積分與極限配合得順暢無礙，並且是概率論的根基。<em>向量微積分</em>（vector calculus）在曲線、曲面和立體上積分，而格林（Green）定理和斯托克斯（Stokes）定理則把它們聯繫起來（<a href="../ch04/holditch.html">第 4.9 節</a> 可讓你淺嘗一下）。<em>複分析</em>（complex analysis）取道複平面來計算實積分。<em>變分法</em>（calculus of variations）問的是哪個函數令某個積分盡可能小（<a href="../ch04/variations.html">第 4.7 節</a>），並由此通向物理學中的最小作用量原理（principle of least action）。而<em>微分代數</em>（differential algebra）則解釋了哪些積分根本有公式可言（<a href="../ch04/no-formula.html">第 4.6 節</a>）。</p>
+<h3 id="貫穿本章的問題">貫穿本章的問題</h3>
+<div class="skillbox">
+<div class="box-title">三大問題</div>
+<ol class="arabic">
+<li><p><strong>積分是甚麼？哪些函數有積分？</strong>以和的極限作出的定義，與原函數有何關連？</p></li>
+<li><p><strong>積分能證明甚麼？</strong>一塊面積怎能告訴我們有關 <span class="math inline">\(\pi\)</span>、階乘和無窮和的事？</p></li>
+<li><p><strong>沒有公式的時候，我們可以做甚麼？</strong>我們怎樣知道某個積分沒有公式？即使如此，我們還能算出甚麼？</p></li>
+</ol>
+</div>
+<h3 id="本章的思想">本章的思想</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">課題</th>
+<th style="text-align: left;">思想</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">4.1</td>
+<td style="text-align: left;">積分的定義</td>
+<td style="text-align: left;">下和與上和（lower and upper sums）；裂項相消（telescoping）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.2</td>
+<td style="text-align: left;">由 <span class="math inline">\(\int \frac{\mathrm{d}u}{1+u^2}\)</span> 建立三角學</td>
+<td style="text-align: left;">保持積分不變的代換（substitution）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.3</td>
+<td style="text-align: left;"><span class="math inline">\(\frac{22}{7} &gt; \pi\)</span></td>
+<td style="text-align: left;">把不等式寫成某個正值量的積分</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.4</td>
+<td style="text-align: left;">沃利斯與 <span class="math inline">\(\left(\frac12\right)!\)</span></td>
+<td style="text-align: left;">遞降公式（reduction formulae）、不變量（invariant）、夾逼（squeeze）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.5</td>
+<td style="text-align: left;"><span class="math inline">\(\int_0^1 x^x\,\mathrm{d}x\)</span></td>
+<td style="text-align: left;">級數展開與逐項積分（term-by-term integration）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.6</td>
+<td style="text-align: left;">沒有公式的積分</td>
+<td style="text-align: left;">藉多項式代數證明不可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.7</td>
+<td style="text-align: left;">變分法</td>
+<td style="text-align: left;">在積分之內配方（completing the square）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.8</td>
+<td style="text-align: left;">阿基米德的帽盒定理（hat-box theorem）</td>
+<td style="text-align: left;">化簡被積函數（integrand），幾何意義隨之顯現</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.9</td>
+<td style="text-align: left;">霍爾迪奇（Holditch）定理</td>
+<td style="text-align: left;">由邊界積分求面積；消元（elimination）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="如何閱讀本章">如何閱讀本章</h3>
+<p>有好幾節涉及繁重但例行的計算：多項式除法、分部積分法（integration by parts）、展開乘積。請先拿起紙筆親自做一遍，然後才閱讀正文。接着找出令計算得以成功的那個思想：一個不變量、一種對稱、一次相消。計算是考官要檢查的東西；思想才是你會記住並再次運用的東西。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="riemann.html">→ 開始： 4.1 甚麼是積分？</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

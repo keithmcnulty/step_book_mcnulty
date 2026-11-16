@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>質數工廠 (STEP II 2002 第 3 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 2002 第 3 題：引導式解答及其背後的大學數學。 你幾乎肯定早已知道質數（prime）有無窮多個。歐幾里得（Euclid）約在公元前 300 年證明了這件事，這也是每個人最早接觸到的證明之一。那麼，STEP 的題目為甚麼要你 再 證明一次？ 因為這個證明的運作方式完全不同。歐幾里得的論證是說： 給我任何一張有限的質數清單，我都能指出它並不完整。 而這個證明則說：…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/fermat-numbers.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="質數工廠 (STEP II 2002 第 3 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 2002 第 3 題：引導式解答及其背後的大學數學。 你幾乎肯定早已知道質數（prime）有無窮多個。歐幾里得（Euclid）約在公元前 300 年證明了這件事，這也是每個人最早接觸到的證明之一。那麼，STEP 的題目為甚麼要你 再 證明一次？ 因為這個證明的運作方式完全不同。歐幾里得的論證是說： 給我任何一張有限的質數清單，我都能指出它並不完整。 而這個證明則說：…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch01/fermat-numbers.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="質數工廠 (STEP II 2002 第 3 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2002 第 3 題：引導式解答及其背後的大學數學。 你幾乎肯定早已知道質數（prime）有無窮多個。歐幾里得（Euclid）約在公元前 300 年證明了這件事，這也是每個人最早接觸到的證明之一。那麼，STEP 的題目為甚麼要你 再 證明一次？ 因為這個證明的運作方式完全不同。歐幾里得的論證是說： 給我任何一張有限的質數清單，我都能指出它並不完整。 而這個證明則說：…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "質數工廠", "headline": "質數工廠", "description": "STEP II 2002 第 3 題：引導式解答及其背後的大學數學。 你幾乎肯定早已知道質數（prime）有無窮多個。歐幾里得（Euclid）約在公元前 300 年證明了這件事，這也是每個人最早接觸到的證明之一。那麼，STEP 的題目為甚麼要你 再 證明一次？ 因為這個證明的運作方式完全不同。歐幾里得的論證是說： 給我任何一張有限的質數清單，我都能指出它並不完整。 而這個證明則說：…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/fermat-numbers.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2002 第 3 題", "數論與證明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "數論與證明", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 1 章：數論與證明", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/"}, {"@type": "ListItem", "position": 3, "name": "質數工廠", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/fermat-numbers.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch01/fermat-numbers.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 1 章 · 數論與證明</a>
+    <div class="src">STEP II · 2002 · 第 3 題</div>
+    <div class="sec-head"><span class="sec-num">1.1</span><h1>質數工廠</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-1-fermat-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 1 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 2002，第 3 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/02-s2-q3">step.maths.org/questions/02-s2-q3</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>你幾乎肯定早已知道質數（prime）有無窮多個。歐幾里得（Euclid）約在公元前 300 年證明了這件事，這也是每個人最早接觸到的證明之一。那麼，STEP 的題目為甚麼要你<em>再</em>證明一次？</p>
+<p>因為這個證明的運作方式完全不同。歐幾里得的論證是說：<em>給我任何一張有限的質數清單，我都能指出它並不完整。</em>而這個證明則說：<em>這裏有一個預先寫好、明確給出的數列（sequence），當中每一個數都含有一個其他各數都沒有的質數。</em>它是一部製造新質數的機器，而它之所以行得通，全靠一條簡潔優美的恆等式（identity），題目會一步一步引領你走向它。</p>
+<p>途中你還會遇上一些連費馬（Fermat）本人也被騙倒的數。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<p>先把題目從頭到尾讀一遍，留意它的結構。它分為四個階段：</p>
+<ol class="arabic">
+<li><p>計算一些例子；</p></li>
+<li><p>找出（其實是題目告訴你）一個規律，並用這些例子驗證；</p></li>
+<li><p>證明這個規律在一般情況下成立；</p></li>
+<li><p>兩次運用這個規律：先推導出關於公因數（common factor）的結論，再推導出關於質數的結論。</p></li>
+</ol>
+<p>這種「例子 <span class="math inline">\(\to\)</span> 猜想 <span class="math inline">\(\to\)</span> 證明 <span class="math inline">\(\to\)</span> 推論」的結構，正是許多數學研究的實際做法，STEP 的題目也經常依循這個模式。遇到這種結構時，開頭的部分通常不只是熱身：你日後需要的直覺，正是在那裏建立的。</p>
+<div class="askyourself">
+<p>最後一行問的是<em>無窮多個質數</em>，中間問的是<em>公因數</em>。「任何兩個費馬數（Fermat number）都沒有公因數」和「質數有無窮多個」之間，究竟有甚麼關係？</p>
+</div>
+<p>請記住這個問題，我們稍後會回來討論。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-熟習這些數" class="stage"><span class="stage-n">階段 1</span> 熟習這些數</h4>
+<p>要小心記號：<span class="math inline">\(2^{2^n}\)</span> 是指 <span class="math inline">\(2^{(2^n)}\)</span>，而不是 <span class="math inline">\((2^2)^n\)</span>。指數（exponent）本身就是 2 的冪，所以這些數增長得<em>非常</em>快。 <span class="math display">\[\begin{aligned}
+  F_0 &amp;= 2^{1} + 1 = 3, &amp;\qquad F_2 &amp;= 2^{4} + 1 = 17,\\
+  F_1 &amp;= 2^{2} + 1 = 5, &amp;\qquad F_3 &amp;= 2^{8} + 1 = 257.
+\end{aligned}\]</span></p>
+<div class="askyourself">
+<p>這四個數有甚麼值得留意的地方？</p>
+</div>
+<p>它們全是質數。（驗證 <span class="math inline">\(257\)</span>：它不能被 <span class="math inline">\(2, 3, 5, 7, 11\)</span> 或 <span class="math inline">\(13\)</span> 整除，而 <span class="math inline">\(17^2 = 289 &gt; 257\)</span>，所以可以就此停下。）下一個數 <span class="math inline">\(F_4 = 2^{16} + 1 = 65537\)</span> 也是質數。皮埃爾．德．費馬在 1640 年正正注意到這一點，並猜想（conjecture）<em>所有</em>這種形式的數都是質數。請把這件事記在心裏，稍後我們會看看他是否猜對了。</p>
+<h4 id="stagemark2-驗證恆等式" class="stage"><span class="stage-n">階段 2</span> 驗證恆等式</h4>
+<p>現在就較小的 <span class="math inline">\(k\)</span> 驗證 <span class="math inline">\((*)\)</span>：</p>
+<ul>
+<li><p><span class="math inline">\(k = 1\)</span>：左邊只有 <span class="math inline">\(F_0 = 3\)</span>，而 <span class="math inline">\(F_1 - 2 = 3\)</span>。</p></li>
+<li><p><span class="math inline">\(k = 2\)</span>：<span class="math inline">\(F_0 F_1 = 3 \times 5 = 15\)</span>，而 <span class="math inline">\(F_2 - 2 = 15\)</span>。</p></li>
+<li><p><span class="math inline">\(k = 3\)</span>：<span class="math inline">\(F_0 F_1 F_2 = 15 \times 17 = 255\)</span>，而 <span class="math inline">\(F_3 - 2 = 255\)</span>。</p></li>
+</ul>
+<div class="askyourself">
+<p>看看由 <span class="math inline">\(k = 2\)</span> 到 <span class="math inline">\(k = 3\)</span> 的那一步。我們把 <span class="math inline">\(15\)</span> 乘以 <span class="math inline">\(17\)</span>，得到 <span class="math inline">\(255\)</span>。用費馬數來表達，就是計算了 <span class="math inline">\((F_2 - 2) \times F_2\)</span>，結果得到 <span class="math inline">\(F_3 - 2\)</span>。這是巧合嗎？</p>
+</div>
+<p>這個觀察就是整個證明的縮影。讓我們看看它為甚麼應該成立。</p>
+<h4 id="stagemark3-證明恆等式" class="stage"><span class="stage-n">階段 3</span> 證明恆等式</h4>
+<div class="pausebox">
+<p>繼續讀下去之前，試試直接證明 <span class="math display">\[(F_k - 2)\, F_k = F_{k+1} - 2.\]</span> <em>提示：</em>把所有東西都用 2 的冪來表示。<span class="math inline">\(F_k - 2\)</span> 是甚麼樣子的？</p>
+</div>
+<p>我們有 <span class="math inline">\(F_k - 2 = 2^{2^k} - 1\)</span> 和 <span class="math inline">\(F_k = 2^{2^k} + 1\)</span>，所以 <span class="math display">\[(F_k - 2)\, F_k = \bigl(2^{2^k} - 1\bigr)\bigl(2^{2^k} + 1\bigr).\]</span></p>
+<div class="askyourself">
+<p>這是一個形如 <span class="math inline">\((a - 1)(a + 1)\)</span> 的乘積。它等於甚麼？</p>
+</div>
+<p>它是平方差（difference of two squares）<span class="math inline">\(a^2 - 1\)</span>。取 <span class="math inline">\(a = 2^{2^k}\)</span>，則 <span class="math display">\[a^2 = \bigl(2^{2^k}\bigr)^2 = 2^{2 \cdot 2^k} = 2^{2^{k+1}},\]</span> 所以 <span class="math display">\[(F_k - 2)\, F_k = 2^{2^{k+1}} - 1 = F_{k+1} - 2. \tag{$\dagger$}\]</span> 這就是整部機器的引擎。留意平方的作用：它把指數加倍，而 <span class="math inline">\(2^k\)</span> 加倍後就是 <span class="math inline">\(2^{k+1}\)</span>。費馬數的定義與平方差的因式分解（factorisation）配合得天衣無縫。</p>
+<p>這樣一來，歸納法（induction）幾乎是水到渠成。</p>
+<div class="askyourself">
+<p>在歸納步驟中，我們究竟要證明甚麼？</p>
+</div>
+<p>假設 <span class="math inline">\((*)\)</span> 對某個 <span class="math inline">\(k \geq 1\)</span> 成立，即 <span class="math display">\[F_0 F_1 \cdots F_{k-1} = F_k - 2,\]</span> 而我們想證明它對 <span class="math inline">\(k + 1\)</span> 也成立： <span class="math display">\[F_0 F_1 \cdots F_{k-1} F_k = F_{k+1} - 2.\]</span> 把假設的等式兩邊同乘以 <span class="math inline">\(F_k\)</span>，再運用 <span class="math inline">\((\dagger)\)</span>： <span class="math display">\[F_0 F_1 \cdots F_{k-1} F_k = (F_k - 2)\, F_k = F_{k+1} - 2.\]</span> 我們已經驗證了 <span class="math inline">\(k = 1\)</span> 的情況，所以根據歸納法，<span class="math inline">\((*)\)</span> 對所有 <span class="math inline">\(k \geq 1\)</span> 都成立。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>我們能否完全不用歸納法？</p>
+</div>
+<p>可以，而且值得看看怎樣做。由 <span class="math inline">\(F_0 - 2 = 1\)</span> 出發，反覆運用 <span class="math inline">\((\dagger)\)</span>： <span class="math display">\[F_k - 2 = (F_{k-1} - 2) F_{k-1} = (F_{k-2} - 2) F_{k-2} F_{k-1} = \cdots = (F_0 - 2)\, F_0 F_1 \cdots F_{k-1}.\]</span> 由於 <span class="math inline">\(F_0 - 2 = 1\)</span>，證明便完成了。這種「逐層展開」的做法，其實就是把同一個歸納法完整地寫出來，不過有些人會覺得這樣更容易看明白。</p>
+<h4 id="stagemark4-沒有公因數" class="stage"><span class="stage-n">階段 4</span> 沒有公因數</h4>
+<p>我們想證明：若 <span class="math inline">\(m \neq n\)</span>，則 <span class="math inline">\(F_m\)</span> 與 <span class="math inline">\(F_n\)</span> 沒有大於 <span class="math inline">\(1\)</span> 的公因數。</p>
+<div class="askyourself">
+<p>假設某個數 <span class="math inline">\(d\)</span> 同時整除 <span class="math inline">\(F_m\)</span> 和 <span class="math inline">\(F_n\)</span>，其中 <span class="math inline">\(m &lt; n\)</span>。<span class="math inline">\(F_m\)</span> 在 <span class="math inline">\((*)\)</span> 的哪個位置出現？</p>
+</div>
+<p>在 <span class="math inline">\((*)\)</span> 中取 <span class="math inline">\(k = n\)</span>： <span class="math display">\[F_0 F_1 \cdots F_m \cdots F_{n-1} = F_n - 2.\]</span> 由於 <span class="math inline">\(m &lt; n\)</span>，<span class="math inline">\(F_m\)</span> 是左邊其中一個因數。所以若 <span class="math inline">\(d\)</span> 整除 <span class="math inline">\(F_m\)</span>，則 <span class="math inline">\(d\)</span> 整除整個左邊；也就是說，<span class="math inline">\(d\)</span> 整除 <span class="math inline">\(F_n - 2\)</span>。</p>
+<div class="askyourself">
+<p>現在 <span class="math inline">\(d\)</span> 既整除 <span class="math inline">\(F_n\)</span>，<em>又</em>整除 <span class="math inline">\(F_n - 2\)</span>。它還必定整除甚麼？</p>
+</div>
+<p>它們的差：<span class="math inline">\(d\)</span> 整除 <span class="math inline">\(F_n - (F_n - 2) = 2\)</span>。所以 <span class="math inline">\(d = 1\)</span> 或 <span class="math inline">\(d = 2\)</span>。</p>
+<div class="askyourself">
+<p><span class="math inline">\(d\)</span> 可以是 <span class="math inline">\(2\)</span> 嗎？</p>
+</div>
+<p>不可以：每個費馬數都是 2 的冪加 1，所以是奇數。因此 <span class="math inline">\(d = 1\)</span>，即任何兩個不同的費馬數都沒有大於 <span class="math inline">\(1\)</span> 的公因數。<span class="qed" aria-label="end of proof">■</span></p>
+<p>數學家會說費馬數<em>兩兩互質</em>（pairwise coprime）。</p>
+<h4 id="stagemark5-無窮多個質數" class="stage"><span class="stage-n">階段 5</span> 無窮多個質數</h4>
+<p>現在回到我們一開始提出的問題。</p>
+<div class="askyourself">
+<p>每個大於 <span class="math inline">\(1\)</span> 的整數都至少有一個質因數（prime factor）。從每個費馬數中各選一個質因數。對於你選出的這些質數，你能說些甚麼？</p>
+</div>
+<p>設 <span class="math inline">\(p_n\)</span> 為任意一個整除 <span class="math inline">\(F_n\)</span> 的質數。假如其中兩個相等，例如 <span class="math inline">\(p_m = p_n\)</span> 而 <span class="math inline">\(m \neq n\)</span>，那麼這個質數就是 <span class="math inline">\(F_m\)</span> 與 <span class="math inline">\(F_n\)</span> 的一個大於 <span class="math inline">\(1\)</span> 的公因數，但我們剛剛證明了這是不可能的。所以質數 <span class="math display">\[p_0,\; p_1,\; p_2,\; p_3,\; \ldots\]</span> 全都<em>互不相同</em>。費馬數有無窮多個，所以不同的質數也有無窮多個。<span class="qed" aria-label="end of proof">■</span></p>
+<p>留意我們從來不需要知道每個費馬數是被<em>哪一個</em>質數整除，甚至不需要知道費馬數本身是不是質數。我們只需要知道它們永遠沒有公因數。每個費馬數都必須「用掉」至少一個其他費馬數不能用的質數。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-1-1.svg" alt="圖 1.1.1"><figcaption><span class="fig-label">圖 1.1.1</span> 最初幾個費馬數。費馬猜想它們全是質數，但歐拉（Euler）在 1732 年找到了 <span class="math inline">\(F_5\)</span> 的因數 <span class="math inline">\(641\)</span>，而 <span class="math inline">\(F_4\)</span> 之後至今仍未發現任何費馬數是質數。即使如此，恆等式 <span class="math inline">\((*)\)</span> 表明不同費馬數的因數永不重疊：每一行都帶來新的質數。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<p>值得停下來看看這道題成功的關鍵何在，因為同樣的想法會在本書中多次重現。</p>
+<ul>
+<li><p><strong>例子並不是裝飾。</strong>看出 <span class="math inline">\(15 \times 17 = 255\)</span> 其實是「<span class="math inline">\((F_2 - 2) \times F_2 = F_3 - 2\)</span>」，<em>正是</em>關鍵思路。當題目給你一些簡單情況時，要問每一步在做甚麼，而不只是看數字是否吻合。</p></li>
+<li><p><strong>一條恆等式完成了所有工作。</strong>一切都源自 <span class="math inline">\((a-1)(a+1) = a^2 - 1\)</span>。看似艱深的 STEP 題目，往往只是由一小段簡單的代數推動。</p></li>
+<li><p><strong>最後的論證着眼於結構，而非大小。</strong>我們證明了質數有無窮多個，卻沒有找出任何一個新的質數。我們證明的是：要構成這個無窮的數族，<em>必須</em>用上無窮多個質數。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">費馬猜對了嗎？</div>
+<p>沒有。1732 年，萊昂哈德．歐拉證明了 <span class="math display">\[F_5 = 2^{32} + 1 = 4\,294\,967\,297 = 641 \times 6\,700\,417.\]</span> 歐拉並不是靠運氣找到 <span class="math inline">\(641\)</span> 的。他證明了 <span class="math inline">\(F_n\)</span> 的任何質因數都必定具有一種非常特殊的形式（當 <span class="math inline">\(n = 5\)</span> 時，它必定是 <span class="math inline">\(64\)</span> 的倍數加一），從而大幅減少了需要考慮的可能。你可以在練習 4 中親自證明這一點。</p>
+<p>自此以後，凡是有人成功檢驗過的費馬數，由 <span class="math inline">\(F_5\)</span> 到 <span class="math inline">\(F_{32}\)</span>，結果全都是合成數（composite）。就目前所知，<span class="math inline">\(F_0\)</span> 至 <span class="math inline">\(F_4\)</span> 可能是<em>僅有</em>的費馬質數，但沒有人能夠證明這一點。這是一個貨真價實的未解難題。</p>
+<p>妙就妙在我們的證明完全不受影響。不論是質數還是合成數，費馬數依然能產生無窮多個質數。</p>
+</div>
+<h3 id="費馬質數與正多邊形作圖">費馬質數與正多邊形作圖</h3>
+<p>費馬質數會在一個相當意想不到的地方出現。古希臘人懂得用直尺和圓規作出等邊三角形和正五邊形，而請留意 <span class="math inline">\(3 = F_0\)</span> 和 <span class="math inline">\(5 = F_1\)</span>。其後兩千年間，沒有人能作出其他邊數為質數的正多邊形（regular polygon）。到了 1796 年，年僅 19 歲的卡爾．弗里德里希．高斯（Gauss）示範了怎樣作出<em>正十七邊形</em>，而 <span class="math inline">\(17 = F_2\)</span>。</p>
+<p>高斯更進一步：正 <span class="math inline">\(N\)</span> 邊形可以用直尺和圓規作出，當且僅當 <span class="math inline">\(N\)</span> 是 2 的冪乘以若干個<em>互不相同的費馬質數</em>。（Pierre Wantzel 在 1837 年補全了這個證明。）所以哪些正多邊形可以作圖，取決於費馬質數有多少個。你會在 <a href="../ch06/gauss-17gon.html">第 6.2 節</a>（STEP II 1991，第 4 題）遇到高斯正十七邊形背後的關鍵計算，而完整的來龍去脈則屬於<em>伽羅瓦理論</em>（Galois theory），那是大學本科數學課程的精華之一。</p>
+<h3 id="一個定理多種證明">一個定理，多種證明</h3>
+<p>數學家為甚麼要不厭其煩地把同一個定理證明多於一次？因為不同的證明會揭示不同的東西。這個證明一般歸功於克里斯蒂安．哥德巴赫（Goldbach）在 1730 年寫給歐拉的一封信，它表明：<em>任何</em>一個由大於 1 的整數組成、各項兩兩互質的無窮數列，都必然帶來無窮多個質數。費馬數只是其中一個方便的例子。（練習 3 給出另一個例子。）</p>
+<p>它給出的結論也比歐幾里得的證明更多。質數 <span class="math inline">\(p_0, p_1, \ldots, p_{n-1}\)</span> 是 <span class="math inline">\(n\)</span> 個<em>不同</em>的質數，每個都不超過 <span class="math inline">\(F_{n-1}\)</span>。所以不大於 <span class="math inline">\(2^{2^{n-1}} + 1\)</span> 的質數至少有 <span class="math inline">\(n\)</span> 個。這是一個關於質數如何分佈的<em>定量</em>陳述。它非常弱（實際情況要好得多），但它是邁向十九世紀數學其中一項偉大成果的第一步，那就是<em>質數定理</em>（Prime Number Theorem），它精確地描述了質數怎樣變得越來越稀疏。<a href="../ch01/prime-distribution.html">第 1.2 節</a> 會踏出下一步。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">從結構性質出發建立論證</div>
+<p><em>要證明 A 類對象有無窮多個，可以找出無窮多個 B 類對象，而每個 B 類對象都需要一個專屬於自己的 A 類對象。</em></p>
+<p>這裏 A = 質數，B = 費馬數，而「需要一個專屬於自己的」是指「有一個不與其他任何一個共用的質因數」。同樣的模式也出現在計數論證、線性代數（linear algebra）（無窮多個線性獨立的向量必然導致無窮維）和分析（analysis）之中。</p>
+</div>
+<p>你也練習了<em>歸納法</em>，尤其是養成追問<em>「由 <span class="math inline">\(k\)</span> 到 <span class="math inline">\(k+1\)</span> 的那一步實際上做了甚麼？」</em>的習慣。這個問題往往比形式上的範本更有用。</p>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>歐幾里得的版本。</strong>寫出歐幾里得對「質數有無窮多個」的證明。它在甚麼意義上是「反證法」（by contradiction），而費馬數的證明又在甚麼意義上是「構造性」（constructive）的？</p></li>
+<li><p><strong>末位數字。</strong>證明當 <span class="math inline">\(n \geq 2\)</span> 時，費馬數 <span class="math inline">\(F_n\)</span> 的末位數字是 <span class="math inline">\(7\)</span>。</p></li>
+<li><p><strong>西爾維斯特（Sylvester）數列。</strong>定義 <span class="math inline">\(a_1 = 2\)</span> 及 <span class="math inline">\(a_{n+1} = a_n^2 - a_n + 1\)</span>，於是數列的開頭幾項是 <span class="math inline">\(2, 3, 7, 43, 1807, \ldots\)</span></p>
+<div class="exercises">
+<ol class="exercises">
+<li><p>證明 <span class="math inline">\(a_{n+1} - 1 = a_1 a_2 \cdots a_n\)</span>。</p></li>
+<li><p>由此推導出各項兩兩互質，從而給出「質數有無窮多個」的另一個證明。</p></li>
+<li><p><span class="hard">較難</span> 證明 <span class="math inline">\(\dfrac{1}{a_1} + \dfrac{1}{a_2} + \cdots + \dfrac{1}{a_n} = 1 - \dfrac{1}{a_{n+1} - 1}\)</span>。</p></li>
+</ol>
+</div></li>
+<li><p><strong>歐拉的妙着。</strong><em>本題需要用到費馬小定理（Fermat’s Little Theorem）：若 <span class="math inline">\(p\)</span> 是質數且 <span class="math inline">\(p \nmid a\)</span>，則 <span class="math inline">\(a^{p-1} \equiv 1 \pmod{p}\)</span>。</em>假設質數 <span class="math inline">\(p\)</span> 整除 <span class="math inline">\(F_n\)</span>。</p>
+<div class="exercises">
+<ol class="exercises">
+<li><p>證明 <span class="math inline">\(2^{2^n} \equiv -1 \pmod p\)</span>，從而證明 <span class="math inline">\(2^{2^{n+1}} \equiv 1 \pmod p\)</span>。</p></li>
+<li><p>設 <span class="math inline">\(d\)</span> 為滿足 <span class="math inline">\(2^d \equiv 1 \pmod p\)</span> 的最小正整數。證明 <span class="math inline">\(d\)</span> 整除 <span class="math inline">\(2^{n+1}\)</span> 但不整除 <span class="math inline">\(2^n\)</span>，並由此得出 <span class="math inline">\(d = 2^{n+1}\)</span>。</p></li>
+<li><p>利用費馬小定理，證明 <span class="math inline">\(d\)</span> 整除 <span class="math inline">\(p - 1\)</span>。由此推導出 <span class="math inline">\(p \equiv 1 \pmod{2^{n+1}}\)</span>。</p></li>
+<li><p>當 <span class="math inline">\(n = 5\)</span> 時，這表示 <span class="math inline">\(F_5\)</span> 的任何質因數都具有 <span class="math inline">\(64k + 1\)</span> 的形式。驗證 <span class="math inline">\(641\)</span> 確實如此。小於 <span class="math inline">\(641\)</span> 而又具有這種形式的質數有多少個？</p></li>
+</ol>
+</div></li>
+<li><p><strong>質數的一個上界。</strong>利用<em>一個定理，多種證明</em>中的論證，證明第 <span class="math inline">\(n\)</span> 個質數不超過 <span class="math inline">\(2^{2^{n-1}} + 1\)</span>。當 <span class="math inline">\(n = 5\)</span> 時，這個上界有多準確？</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Martin Aigner &amp; Günter M. Ziegler, <a href="https://uk.bookshop.org/search?keywords=Proofs+from+THE+BOOK+Aigner+Ziegler"><em>Proofs from THE BOOK</em></a></strong>（Springer），第 1 章「Six proofs of the infinity of primes」（質數無窮性的六個證明）。書中除了這個證明外，還收錄了歐幾里得的證明和另外四個證明，其中一個用上了拓撲學（topology）。這是入讀大學前最值得一讀的書之一。</p></li>
+<li><p><strong>Harold Davenport, <a href="https://uk.bookshop.org/search?keywords=The+Higher+Arithmetic+Davenport"><em>The Higher Arithmetic</em></a></strong>（Cambridge University Press），第 1–2 章。一本文筆優美的入門書，介紹質數與因數分解，最適合在入讀大學前的暑假閱讀。</p></li>
+<li><p><strong>Michal Křížek, Florian Luca &amp; Lawrence Somer, <a href="https://uk.bookshop.org/search?keywords=17+Lectures+on+Fermat+Numbers+K%C5%99%C3%AD%C5%BEek+Luca"><em>17 Lectures on Fermat Numbers</em></a></strong>（Springer，2001）。關於費馬數的一切，由歐拉的分解到高斯的正多邊形，應有盡有。不妨翻翻開首幾章。</p></li>
+<li><p><strong>Ian Stewart, <a href="https://uk.bookshop.org/search?keywords=Why+Beauty+Is+Truth+Stewart"><em>Why Beauty Is Truth</em></a></strong>（Basic Books），關於高斯的一章。以一般讀者為對象，講述正十七邊形的故事。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 本章導言</a><a class="next" href="prime-distribution.html">→ 1.2 質數分佈得有多稀疏？</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

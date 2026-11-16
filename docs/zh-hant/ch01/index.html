@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 1 章：數論與證明 — Beyond STEP</title>
+<meta name="description" content="質數、無理性與丟番圖方程：全書最着重證明的一章，由質數有無限多個談起，經無理性，再到數系的結構。">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 1 章：數論與證明 — Beyond STEP">
+<meta property="og:description" content="質數、無理性與丟番圖方程：全書最着重證明的一章，由質數有無限多個談起，經無理性，再到數系的結構。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch01/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 1 章：數論與證明 — Beyond STEP">
+<meta name="twitter:description" content="質數、無理性與丟番圖方程：全書最着重證明的一章，由質數有無限多個談起，經無理性，再到數系的結構。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 1, "name": "數論與證明", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "質數、無理性與丟番圖方程：全書最着重證明的一章，由質數有無限多個談起，經無理性，再到數系的結構。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 1 章：數論與證明", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch01/index.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">1</div>
+    <h1>數論與證明</h1>
+    <p class="strap">整數是數學中最古老的對象，卻至今仍藏着數學中一些最深奧的祕密。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下載整章</span><span class="dl-sub">PDF，專為列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章內容</h2>
+  <ol class="toc"><li><a class="toc-link" href="fermat-numbers.html"><span class="toc-num">1.1</span>
+<span class="toc-title">質數工廠</span>
+<span class="toc-src">STEP II 2002</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-1-fermat-numbers.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="prime-distribution.html"><span class="toc-num">1.2</span>
+<span class="toc-title">質數分佈得有多稀疏？</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-2-prime-distribution.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="well-ordering.html"><span class="toc-num">1.3</span>
+<span class="toc-title">最小反例</span>
+<span class="toc-src">STEP III 2015</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-3-well-ordering.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="e-irrational.html"><span class="toc-num">1.4</span>
+<span class="toc-title">\(e\) 是無理數，\(e^2\) 也是</span>
+<span class="toc-src">STEP III 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-4-e-irrational.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="infinite-descent.html"><span class="toc-num">1.5</span>
+<span class="toc-title">無窮遞降法</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-5-infinite-descent.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="two-squares.html"><span class="toc-num">1.6</span>
+<span class="toc-title">兩個平方數之和</span>
+<span class="toc-src">STEP II 2023</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-6-two-squares.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="factorisation-fails.html"><span class="toc-num">1.7</span>
+<span class="toc-title">因數分解失效之時</span>
+<span class="toc-src">STEP I 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-7-factorisation-fails.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="counting-rationals.html"><span class="toc-num">1.8</span>
+<span class="toc-title">點算有理數</span>
+<span class="toc-src">STEP III 2020</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-8-counting-rationals.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="tangents-cubic.html"><span class="toc-num">1.9</span>
+<span class="toc-title">三次曲線的切線</span>
+<span class="toc-src">STEP I 2009</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-9-tangents-cubic.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顧：我們學到了甚麼</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「延伸練習」答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 1 章  \(\cdot\)  引言</div>
+    <h1 class="essay-title">為甚麼是整數？</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>數學是科學的皇后，而數論（number theory）是數學的皇后。</p>
+<p class="who">— 高斯（Carl Friedrich Gauss）</p>
+</div>
+<p>整數是每個人最先接觸到的數學對象。你還未識字，就已經學會數數。然而，關於整數的最簡單的問題，卻可以難得出奇。每一個大於 2 的偶數，是否都是兩個質數（prime）之和？沒有人知道：哥德巴赫（Christian Goldbach）在 1742 年提出這個問題，電腦已經驗證到 <span class="math inline">\(4 \times 10^{18}\)</span> 以外，但至今仍然沒有人能夠證明。像 <span class="math inline">\(11\)</span> 和 <span class="math inline">\(13\)</span>，或 <span class="math inline">\(101\)</span> 和 <span class="math inline">\(103\)</span> 這樣相差 2 的質數對，是否有無窮多對？這同樣沒有人知道。不過在 2013 年，一位幾乎寂寂無名的數學家張益唐（Yitang Zhang）震驚了全世界：他證明了有無窮多對質數，彼此相差不超過 <span class="math inline">\(70\)</span> 百萬，而這個數字後來已被降低至 <span class="math inline">\(246\)</span>。費馬（Pierre de Fermat）在 1637 年於書頁邊的空白處隨手寫下：當 <span class="math inline">\(n \geq 3\)</span> 時，<span class="math inline">\(x^n + y^n = z^n\)</span> 沒有正整數解。人們花了超過 350 年，並動用了有史以來最精深的一些數學，才終於由懷爾斯（Andrew Wiles）在 1994 年證明他是對的。</p>
+<p>問題連小孩子都聽得懂，答案卻可能要花上幾個世紀——正是這種組合令數論叫人欲罷不能。這也是為甚麼數論一直是<em>證明</em>（proof）的訓練場。整數有無窮多個，你不可能逐一檢查每個情況，於是就必須找出一個能一舉涵蓋所有情況的論證。你在往後的數學生涯中會用到的證明技巧，大部分最初都是在有關整數的問題上磨練出來的。</p>
+<h3 id="純粹無用卻支撐着互聯網">純粹、無用，卻支撐着互聯網</h3>
+<p>1940 年，劍橋數學家哈代（G. H. Hardy）頗為自豪地寫道：數論是所有數學中最純粹的，與日常生活相距太遠，不可能有任何實際用途，因而也不可能有任何<em>有害</em>的用途。他錯得不能再錯了。每當你在網上購物、發送加密訊息或為手機解鎖，你都在依靠數論。RSA 系統（1977 年）所依賴的事實是：把兩個大質數相乘很容易，但要從它們的乘積還原出這兩個質數，卻似乎難得無從入手。現代的系統所用的，正是你會在本章末遇到的那些曲線上的算術。十八、十九世紀的「無用」數學，成了二十一世紀的安全保障。</p>
+<h3 id="你在大學會遇到甚麼">你在大學會遇到甚麼</h3>
+<p>如果你在大學修讀數學，數論會是你最先到達的地方之一，也會是你最後到達的地方之一。</p>
+<ul>
+<li><p><strong>在第一個學期</strong>，你幾乎一定會修讀一門名為<em>數與集合</em>（Numbers and Sets）或<em>數學基礎</em>（Foundations）之類的課程。它會教你怎樣正式地書寫證明，而其中大部分素材都來自數論：歸納法（induction）、歐幾里得算法（Euclidean algorithm）、模算術（modular arithmetic）、費馬小定理（Fermat’s Little Theorem）、中國餘數定理（Chinese Remainder Theorem），以及一個令人驚訝的事實——有些無窮集合比另一些無窮集合更大。</p></li>
+<li><p><strong>在羣論（group theory）中</strong>（通常在第一年修讀），你會發現許多數論事實，原來都是同一條關於對稱的定理——拉格朗日定理（Lagrange’s Theorem）——投下的影子。</p></li>
+<li><p><strong>在第二年</strong>，一門<em>數論</em>課程通常會涵蓋二次互反律（quadratic reciprocity，即高斯的「黃金定理」）、連分數（continued fractions）和佩爾方程（Pell’s equation）。</p></li>
+<li><p><strong>再往後</strong>，你還可以走得更遠：<em>代數數論</em>（algebraic number theory），其中高斯整數（Gaussian integers）等新的數系挽救了唯一分解（unique factorisation）；<em>解析數論</em>（analytic number theory），它運用微積分和複分析（complex analysis）來數算質數；以及<em>橢圓曲線</em>（elliptic curves）的理論，它既是費馬最後定理（Fermat’s Last Theorem）證明背後的支柱，也是七道懸賞一百萬美元的千禧年大獎難題（Millennium Prize Problems）之一的根源。</p></li>
+</ul>
+<h3 id="貫穿本章的問題">貫穿本章的問題</h3>
+<p>本章的九道 STEP 題目，圍繞着三個大問題打轉。做題時請把它們記在心上；我們會在本章結尾回到這些問題。</p>
+<div class="skillbox">
+<ol class="arabic">
+<li><p><strong>質數有多少個？它們是怎樣分佈的？</strong>人人都知道質數有無窮多個。但它們越往後變得有多稀疏？甚麼樣的論證才能告訴我們答案？</p></li>
+<li><p><strong>怎樣證明一個數<em>不是</em>分數？</strong>要說明一個數是有理數（rational），只需舉出一個例子。要說明它是無理數（irrational），卻要排除無窮多種可能。這到底是怎樣做到的？</p></li>
+<li><p><strong>哪些方程有整數解？當我們改變數系時，又會發生甚麼事？</strong>有時我們能證明某個方程完全沒有解。有時要了解整數，最好的方法卻是走出整數的範圍，進入複數（complex numbers），或走到一條曲線上。</p></li>
+</ol>
+</div>
+<h3 id="關於證明的一章">關於證明的一章</h3>
+<p>在這三個問題底下，還貫穿着第四個主題：<em>怎樣證明</em>。每一節之所以入選，部分原因是它展示了一種不同的證明方法的實際運用；合起來，它們就是一套相當適合大學一年級生的工具。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">課題</th>
+<th style="text-align: left;">思考方式</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1.1</td>
+<td style="text-align: left;">費馬數（Fermat numbers）</td>
+<td style="text-align: left;">一個<em>需要</em>無窮多個質數的無窮族</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.2</td>
+<td style="text-align: left;">質數的乘積</td>
+<td style="text-align: left;">強歸納法（strong induction）；隱藏在二項式係數（binomial coefficients）中的信息</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.3</td>
+<td style="text-align: left;">再談 <span class="math inline">\(\sqrt2\)</span></td>
+<td style="text-align: left;">「取最小的那一個」：良序原理（well-ordering principle）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.4</td>
+<td style="text-align: left;"><span class="math inline">\(e\)</span> 與 <span class="math inline">\(e^2\)</span></td>
+<td style="text-align: left;">把一個整數嚴格地困在 0 與 1 之間</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.5</td>
+<td style="text-align: left;">不可能的方程</td>
+<td style="text-align: left;">無窮遞降法（infinite descent）；模 <span class="math inline">\(n\)</span> 運算</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.6</td>
+<td style="text-align: left;">兩個平方數之和</td>
+<td style="text-align: left;">轉換場景：複數</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.7</td>
+<td style="text-align: left;">一個奇怪的數系</td>
+<td style="text-align: left;">質疑你視為理所當然的事</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.8</td>
+<td style="text-align: left;">把分數逐一列出</td>
+<td style="text-align: left;">構造雙射（bijection）；反向的遞降</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.9</td>
+<td style="text-align: left;">立方數與曲線</td>
+<td style="text-align: left;">用幾何解決算術問題</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="怎樣閱讀本章">怎樣閱讀本章</h3>
+<p>每一節都以一道 STEP 題目的連結開始，題目與當年考試所出的完全一樣。請先自己嘗試，至少做半小時，然後才往下讀。一道你曾經苦苦思索過的題目，會比一道你只是讀過的題目令你學到多得多。當你往下讀時，<em>問問自己</em>方框是邀請你在答案出現之前先停下來想一想，而<em>停一停，試一試</em>方框則標示着關鍵思路已在你觸手可及之處的時刻。之後，每一節的<em>背後的數學</em>部分會把目光越過考試，望向你在大學將會遇到的數學。</p>
+<p>各節的深度大致上逐步遞增，但它們基本上互相獨立。如果某一節未能吸引你，就先跳過，稍後再回來。</p>
+
+  </article>
+  <nav class="pager"><a class="prev" href="../symbols/index.html">← 數學符號</a><a class="next" href="fermat-numbers.html">→ 開始： 1.1 質數工廠</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

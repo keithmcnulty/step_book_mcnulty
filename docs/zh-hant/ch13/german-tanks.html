@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>德國坦克問題 (STEP III 1998 第 14 題) — Beyond STEP</title>
+<meta name="description" content="STEP III 1998 第 14 題：引導式解答及其背後的大學數學。 第二次世界大戰期間，盟軍情報部門想知道德國每月生產多少輛坦克。間諜的報告顯示每月約 1400 輛。統計學家則另闢蹊徑：繳獲的坦克在變速箱和其他零件上都刻有序號，而這些序號實際上就是從 1, 2, ldots, N 中抽出的一個隨機樣本（random sample）。單憑這些數字，他們估計產量約為每月 250…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/german-tanks.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/german-tanks.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch13/german-tanks.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch13/german-tanks.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="德國坦克問題 (STEP III 1998 第 14 題) — Beyond STEP">
+<meta property="og:description" content="STEP III 1998 第 14 題：引導式解答及其背後的大學數學。 第二次世界大戰期間，盟軍情報部門想知道德國每月生產多少輛坦克。間諜的報告顯示每月約 1400 輛。統計學家則另闢蹊徑：繳獲的坦克在變速箱和其他零件上都刻有序號，而這些序號實際上就是從 1, 2, ldots, N 中抽出的一個隨機樣本（random sample）。單憑這些數字，他們估計產量約為每月 250…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch13/german-tanks.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="德國坦克問題 (STEP III 1998 第 14 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1998 第 14 題：引導式解答及其背後的大學數學。 第二次世界大戰期間，盟軍情報部門想知道德國每月生產多少輛坦克。間諜的報告顯示每月約 1400 輛。統計學家則另闢蹊徑：繳獲的坦克在變速箱和其他零件上都刻有序號，而這些序號實際上就是從 1, 2, ldots, N 中抽出的一個隨機樣本（random sample）。單憑這些數字，他們估計產量約為每月 250…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "德國坦克問題", "headline": "德國坦克問題", "description": "STEP III 1998 第 14 題：引導式解答及其背後的大學數學。 第二次世界大戰期間，盟軍情報部門想知道德國每月生產多少輛坦克。間諜的報告顯示每月約 1400 輛。統計學家則另闢蹊徑：繳獲的坦克在變速箱和其他零件上都刻有序號，而這些序號實際上就是從 1, 2, ldots, N 中抽出的一個隨機樣本（random sample）。單憑這些數字，他們估計產量約為每月 250…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch13/german-tanks.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1998 第 14 題", "統計與現實世界中的隨機性"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "統計與現實世界中的隨機性", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 13 章：統計與現實世界中的隨機性", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch13/"}, {"@type": "ListItem", "position": 3, "name": "德國坦克問題", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch13/german-tanks.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch13/german-tanks.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 13 章 · 統計與現實世界中的隨機性</a>
+    <div class="src">STEP III · 1998 · 第 14 題</div>
+    <div class="sec-head"><span class="sec-num">13.3</span><h1>德國坦克問題</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-3-german-tanks.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 13 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP III 1998，第 14 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/98-s3-q14">step.maths.org/questions/98-s3-q14</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>第二次世界大戰期間，盟軍情報部門想知道德國每月生產多少輛坦克。間諜的報告顯示每月約 <span class="math inline">\(1400\)</span> 輛。統計學家則另闢蹊徑：繳獲的坦克在變速箱和其他零件上都刻有序號，而這些序號實際上就是從 <span class="math inline">\(1, 2, \ldots, N\)</span> 中抽出的一個隨機樣本（random sample）。單憑這些數字，他們估計產量約為每月 <span class="math inline">\(250\)</span> 輛。按照一般引用的數字，戰後查閱的德國紀錄顯示為 <span class="math inline">\(245\)</span> 輛。統計學家的估計遠比間諜準確。</p>
+<p>本題比較兩種利用序號估計 <span class="math inline">\(N\)</span> 的方法。兩者平均而言都是正確的，但其中一種運用數據的效率遠高於另一種；弄清楚是哪一種，就會引出估計理論（estimation theory）的核心思想：在平均而言正確的估計量（estimator）當中，應選取波動最小的一個。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>設 <span class="math inline">\(M\)</span> 是 <span class="math inline">\([0, N]\)</span> 上 <span class="math inline">\(n\)</span> 個獨立均勻分佈（uniform distribution）取值中的最大者，那麼 <span class="math inline">\(\mathrm{P}(M \leq m)\)</span> 是多少？</p>
+</div>
+<p><span class="math inline">\(M \leq m\)</span> 當且僅當每個 <span class="math inline">\(X_i \leq m\)</span>，所以當 <span class="math inline">\(0 \leq m \leq N\)</span> 時，<span class="math inline">\(\mathrm{P}(M \leq m) = \bigl(\frac mN\bigr)^n\)</span>（可與 <a href="../ch12/extremes.html">第 12.25 節</a> 比較）。求導後可知，<span class="math inline">\(M\)</span> 的概率密度（density）為 <span class="math inline">\(\frac{nm^{n-1}}{N^n}\)</span>。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-兩者皆無偏" class="stage"><span class="stage-n">階段 1</span> 兩者皆無偏</h4>
+<p>對於 <span class="math inline">\(M\)</span>： <span class="math display">\[\mathrm{E}(M) = \int_0^N m\cdot\frac{nm^{n-1}}{N^n}\,\mathrm{d}m = \frac{n}{n + 1}N, \qquad\text{所以}\qquad \mathrm{E}(Z_1) = \frac{n + 1}{n}\cdot\frac{n}{n + 1}N = N.\]</span> 對於平均值：每個 <span class="math inline">\(X_i\)</span> 的平均值為 <span class="math inline">\(\frac N2\)</span>，所以 <span class="math inline">\(\mathrm{E}(Z_2) = \frac2n\cdot n\cdot\frac N2 = N\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<p>兩個估計量都是<em>無偏</em>（unbiased）的：平均而言，它們會給出正確的答案。因子 <span class="math inline">\(\frac{n + 1}{n}\)</span> 用來修正這個事實：觀察到的最大序號總是比 <span class="math inline">\(N\)</span> 略小一點。</p>
+<h4 id="stagemark2-兩者的方差" class="stage"><span class="stage-n">階段 2</span> 兩者的方差</h4>
+<div class="askyourself">
+<p>求 <span class="math inline">\(\mathrm{E}(M^2)\)</span>，從而求 <span class="math inline">\(\mathrm{Var}(M)\)</span>。至於 <span class="math inline">\(Z_2\)</span>，單一個 <span class="math inline">\([0, N]\)</span> 上的均勻變量的方差（variance）是多少？</p>
+</div>
+<p><span class="math inline">\(\mathrm{E}(M^2) = \int_0^N m^2\cdot\frac{nm^{n-1}}{N^n}\,\mathrm{d}m = \frac{n}{n + 2}N^2\)</span>，所以 <span class="math display">\[\begin{aligned}
+  \mathrm{Var}(M) &amp;= \frac{n}{n + 2}N^2 - \frac{n^2}{(n + 1)^2}N^2 = \frac{nN^2}{(n + 1)^2(n + 2)}, \\
+  \mathrm{Var}(Z_1) &amp;= \frac{(n + 1)^2}{n^2}\mathrm{Var}(M) = \frac{N^2}{n(n + 2)}.
+\end{aligned}\]</span> <span class="math inline">\([0, N]\)</span> 上的均勻變量的方差為 <span class="math inline">\(\frac{N^2}{12}\)</span>，而各個 <span class="math inline">\(X_i\)</span> 互相獨立，所以 <span class="math display">\[\mathrm{Var}(Z_2) = \frac{4}{n^2}\cdot n\cdot\frac{N^2}{12} = \frac{N^2}{3n}. \qed\]</span></p>
+<h4 id="stagemark3-哪一個較好" class="stage"><span class="stage-n">階段 3</span> 哪一個較好？</h4>
+<div class="askyourself">
+<p>比較 <span class="math inline">\(\frac{1}{n(n + 2)}\)</span> 與 <span class="math inline">\(\frac{1}{3n}\)</span>。當 <span class="math inline">\(n\)</span> 增大時，兩者如何變化？</p>
+</div>
+<p>兩者之比為 <span class="math inline">\(\frac{\mathrm{Var}(Z_1)}{\mathrm{Var}(Z_2)} = \frac{3}{n + 2}\)</span>，當 <span class="math inline">\(n \geq 2\)</span> 時小於 <span class="math inline">\(1\)</span>（當 <span class="math inline">\(n = 1\)</span> 時則相等，此時兩個估計量完全相同）。所以 <span class="math inline">\(Z_1\)</span> 較好，而且 <span class="math inline">\(n\)</span> 愈大就好得愈多：它的標準差（standard deviation）以 <span class="math inline">\(\frac1n\)</span> 的速度縮小，而 <span class="math inline">\(Z_2\)</span> 的標準差只以 <span class="math inline">\(\frac{1}{\sqrt n}\)</span> 的速度縮小（圖 13.3.1）。若有 <span class="math inline">\(n = 10\)</span> 個序號，<span class="math inline">\(Z_1\)</span> 的標準差約為 <span class="math inline">\(N\)</span> 的 <span class="math inline">\(9\%\)</span>，而 <span class="math inline">\(Z_2\)</span> 的約為 <span class="math inline">\(18\%\)</span>。</p>
+<p>選用 <span class="math inline">\(Z_1\)</span> 還有另一個理由：<span class="math inline">\(Z_2\)</span> 有時會得出荒謬的結果。若序號為 <span class="math inline">\(10\)</span>、<span class="math inline">\(20\)</span> 和 <span class="math inline">\(300\)</span>，則 <span class="math inline">\(Z_2 = \frac23 \cdot 330 = 220\)</span>，比我們實際見過的一個序號還要小。而 <span class="math inline">\(Z_1 = \frac43 \cdot 300 = 400\)</span> 永遠不會小於最大的觀察值。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-3-1.svg" alt="圖 13.3.1"><figcaption><span class="fig-label">圖 13.3.1</span> 兩個估計量的抽樣分佈（sampling distribution），其中序號數目 <span class="math inline">\(n = 5\)</span>，真實值 <span class="math inline">\(N = 1\)</span>。兩者的平均值都恰好是 <span class="math inline">\(1\)</span>，但 <span class="math inline">\(Z_1\)</span>（藍綠色）比 <span class="math inline">\(Z_2\)</span>（紫紅色）更緊密地集中在真實值附近，而且它永遠不會低於觀察到的最大序號。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>無偏性。</strong>每個估計量都經過縮放，使其期望值（expected value）恰好等於 <span class="math inline">\(N\)</span>。</p></li>
+<li><p><strong>比較方差。</strong>在無偏估計量當中，方差較小的一個較為可靠。</p></li>
+<li><p><strong>選用信息量最大的統計量。</strong>最大值包含了樣本中關於 <span class="math inline">\(N\)</span> 的全部信息；平均值則浪費了其中一大部分。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<h3 id="充分性">充分性</h3>
+<p>為甚麼最大值好這麼多？一旦知道最大值 <span class="math inline">\(M\)</span>，其餘各值不論 <span class="math inline">\(N\)</span> 是多少，都只是在 <span class="math inline">\([0, M]\)</span> 上均勻分佈：它們再沒有帶來關於 <span class="math inline">\(N\)</span> 的任何信息。最大值是一個<em>充分統計量</em>（sufficient statistic）。C. R. Rao 與 David Blackwell 的一條定理（1945–47）指出，任何無偏估計量，只要換成它在給定充分統計量下的期望值，都可以得到改進，或至少不會變差；在這裏，這個做法正好把 <span class="math inline">\(Z_2\)</span> 變成 <span class="math inline">\(Z_1\)</span>。<em>Lehmann–Scheffé 定理</em>進一步證明，<span class="math inline">\(Z_1\)</span> 是方差最小的無偏估計量。還要留意，<span class="math inline">\(Z_1\)</span> 的方差以 <span class="math inline">\(\frac{1}{n^2}\)</span> 的速度下降，比大多數估計量的 <span class="math inline">\(\frac1n\)</span> 更快：這是因為 <span class="math inline">\(N\)</span> 是分佈的端點，數據會擠向這個端點。</p>
+<h3 id="離散版本">離散版本</h3>
+<p>真實的序號是整數 <span class="math inline">\(1, 2, \ldots, N\)</span>，並且是以不放回（without replacement）方式抽樣的。這時最佳的無偏估計是 <span class="math inline">\(\hat N = m + \frac mk - 1\)</span>，其中 <span class="math inline">\(m\)</span> 是 <span class="math inline">\(k\)</span> 個觀察到的序號中的最大者：即最大值加上各觀察值之間的平均間距。盟軍統計學家運用這類估計，主要根據變速箱和車輪的序號，估計德國的產量約為每月 <span class="math inline">\(246\)</span> 輛坦克；相比之下，其後在德國紀錄中找到的數字是 <span class="math inline">\(245\)</span> 輛，而情報報告所顯示的是 <span class="math inline">\(1400\)</span> 輛。</p>
+<div class="historybox">
+<div class="box-title">歷史上的序號</div>
+<p>此後這個方法曾多次派上用場，例如分析員曾根據最先售出的幾件產品的序號，估計某款新消費產品的生產數量。製造商汲取了教訓：現在不少製造商都會把序號編碼，使人無法把它們當作簡單的順序編號來解讀。Richard Ruggles 與 Henry Brodie 於 1947 年在 <em>Journal of the American Statistical Association</em> 上記述了這項戰時工作。</p>
+</div>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">以抽樣分佈評價估計量</div>
+<p><em>估計量是一個隨機變量（random variable）。要問它平均而言是否正確（偏差），以及它的波動有多大（方差），然後選取誤差較小的一個。</em></p>
+<p>在大學，這會引出有效估計（efficient estimation）的理論：Cramér–Rao 下界（Cramér–Rao bound）指出無偏估計量的方差最小可以小到甚麼程度，而充分性則說明如何達到這個下界。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>均方誤差（mean squared error）。</strong>有偏估計量 <span class="math inline">\(M\)</span> 滿足 <span class="math inline">\(\mathrm{E}(M - N)^2 = \mathrm{Var}(M) + \bigl(\mathrm{E}(M) - N\bigr)^2\)</span>。計算此值，並與 <span class="math inline">\(\mathrm{Var}(Z_1)\)</span> 比較。求使 <span class="math inline">\(\mathrm{E}(cM - N)^2\)</span> 取最小值的常數 <span class="math inline">\(c\)</span>。</p></li>
+<li><p><strong>最小值也可以。</strong>證明 <span class="math inline">\((n + 1)\min\{X_i\}\)</span> 也是 <span class="math inline">\(N\)</span> 的無偏估計量，並求它的方差。這個估計量好用嗎？</p></li>
+<li><p><strong>離散公式。</strong>對於序號 <span class="math inline">\(1, \ldots, N\)</span>，以不放回方式抽取 <span class="math inline">\(k\)</span> 個，其中最大者為 <span class="math inline">\(m\)</span>。證明 <span class="math inline">\(\mathrm{P}(\max \leq m) = \binom mk\big/\binom Nk\)</span>，並驗證當 <span class="math inline">\(k = 1\)</span> 時 <span class="math inline">\(m + \frac mk - 1\)</span> 是無偏的。</p></li>
+<li><p><strong>坦克。</strong>若 <span class="math inline">\(5\)</span> 輛繳獲的坦克的序號為 <span class="math inline">\(19\)</span>、<span class="math inline">\(40\)</span>、<span class="math inline">\(42\)</span>、<span class="math inline">\(60\)</span>、<span class="math inline">\(98\)</span>，試估計坦克的生產數量。</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Richard Ruggles &amp; Henry Brodie, “<a href="https://doi.org/10.2307/2280189">An empirical approach to economic intelligence in World War II</a>”</strong>，<em>Journal of the American Statistical Association</em> 42 (1947)。最初的記述。</p></li>
+<li><p><strong>John Rice, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Statistics+and+Data+Analysis+Rice"><em>Mathematical Statistics and Data Analysis</em></a></strong>（Duxbury），論及偏差、方差與充分性。</p></li>
+<li><p><strong>David Spiegelhalter, <a href="https://uk.bookshop.org/search?keywords=The+Art+of+Statistics+Spiegelhalter"><em>The Art of Statistics</em></a></strong>（Pelican）。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="voles.html">← 13.2 點算田鼠</a><a class="next" href="mean-or-median.html">→ 13.4 平均數還是中位數？</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

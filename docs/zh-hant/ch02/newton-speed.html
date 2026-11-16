@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>六位還是六百位 (STEP II 2023 第 5 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 2023 第 5 題：引導式解答及其背後的大學數學。 有兩個求 sqrt2 近似值的簡單方法，同樣由 1 開始，同樣只用加法、乘法和除法。十步之後，第一個方法準確至小數點後約 8 位，第二個方法則準確至超過 700 位。 兩者的分別，並不在於第二個方法對付 sqrt2 的手法較為高明，而在於誤差的 形態…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/newton-speed.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/newton-speed.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/newton-speed.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/newton-speed.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="六位還是六百位 (STEP II 2023 第 5 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 2023 第 5 題：引導式解答及其背後的大學數學。 有兩個求 sqrt2 近似值的簡單方法，同樣由 1 開始，同樣只用加法、乘法和除法。十步之後，第一個方法準確至小數點後約 8 位，第二個方法則準確至超過 700 位。 兩者的分別，並不在於第二個方法對付 sqrt2 的手法較為高明，而在於誤差的 形態…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch02/newton-speed.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="六位還是六百位 (STEP II 2023 第 5 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2023 第 5 題：引導式解答及其背後的大學數學。 有兩個求 sqrt2 近似值的簡單方法，同樣由 1 開始，同樣只用加法、乘法和除法。十步之後，第一個方法準確至小數點後約 8 位，第二個方法則準確至超過 700 位。 兩者的分別，並不在於第二個方法對付 sqrt2 的手法較為高明，而在於誤差的 形態…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "六位還是六百位", "headline": "六位還是六百位", "description": "STEP II 2023 第 5 題：引導式解答及其背後的大學數學。 有兩個求 sqrt2 近似值的簡單方法，同樣由 1 開始，同樣只用加法、乘法和除法。十步之後，第一個方法準確至小數點後約 8 位，第二個方法則準確至超過 700 位。 兩者的分別，並不在於第二個方法對付 sqrt2 的手法較為高明，而在於誤差的 形態…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/newton-speed.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2023 第 5 題", "數列、級數與收斂"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 2, "name": "數列、級數與收斂", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 2 章：數列、級數與收斂", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/"}, {"@type": "ListItem", "position": 3, "name": "六位還是六百位", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch02/newton-speed.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch02/newton-speed.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 2 章 · 數列、級數與收斂</a>
+    <div class="src">STEP II · 2023 · 第 5 題</div>
+    <div class="sec-head"><span class="sec-num">2.7</span><h1>六位還是六百位</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-7-newton-speed.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 2 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 2023，第 5 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 OCR 提供下載的 2023 年 STEP 試卷（zip 檔案）內的 STEP II 試卷： <a href="https://www.ocr.org.uk/Images/707102-2023-past-papers.zip">www.ocr.org.uk/Images/707102-2023-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>有兩個求 <span class="math inline">\(\sqrt2\)</span> 近似值的簡單方法，同樣由 <span class="math inline">\(1\)</span> 開始，同樣只用加法、乘法和除法。十步之後，第一個方法準確至小數點後約 <span class="math inline">\(8\)</span> 位，第二個方法則準確至超過 <span class="math inline">\(700\)</span> 位。</p>
+<p>兩者的分別，並不在於第二個方法對付 <span class="math inline">\(\sqrt2\)</span> 的手法較為高明，而在於誤差的<em>形態</em>不同：第一個方法每走一步，誤差乘以一個固定的分數；第二個方法每走一步，誤差就被<em>平方</em>一次。這道題目把這一點說得精確，同時引入數值分析（numerical analysis）的一個核心概念；每一部計算機、每一次天氣預報、每一個工程模擬，背後都是這門學科。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<p>先以分數形式計算兩個數列（sequence）的首幾項。 <span class="math display">\[x_n: \quad 1,\; \frac32,\; \frac75,\; \frac{17}{12},\; \frac{41}{29},\; \frac{99}{70},\; \ldots \qquad
+  y_n: \quad 1,\; \frac32,\; \frac{17}{12},\; \frac{577}{408},\; \frac{665857}{470832},\; \ldots\]</span></p>
+<div class="askyourself">
+<p>你留意到這兩列數有甚麼特別嗎？（看看哪些分數在兩列中都有出現。）</p>
+</div>
+<p>每一個 <span class="math inline">\(y_n\)</span> 都在 <span class="math inline">\(x\)</span> 的那一列中出現，只是位置愈來愈後：<span class="math inline">\(y_2 = x_3\)</span>，<span class="math inline">\(y_3 = x_7\)</span>，一般而言 <span class="math inline">\(y_n = x_{2^n - 1}\)</span>。第二個方法其實是在同一列近似值之中，以指數速度向前跳。請記住這一點，我們會在本節末解釋。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-第一個方法的各項不小於-1" class="stage"><span class="stage-n">階段 1</span> 第一個方法的各項不小於 1</h4>
+<p>我們可以寫成 <span class="math inline">\(x_{n+1} = 1 + \dfrac{1}{x_n + 1}\)</span>。若 <span class="math inline">\(x_n \geq 1\)</span>，則 <span class="math inline">\(x_n + 1 &gt; 0\)</span>，所以 <span class="math inline">\(x_{n+1} &gt; 1\)</span>。由於 <span class="math inline">\(x_0 = 1\)</span>，由歸納法（induction）可知對所有 <span class="math inline">\(n\)</span> 都有 <span class="math inline">\(x_n \geq 1\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-第一個方法的誤差" class="stage"><span class="stage-n">階段 2</span> 第一個方法的誤差</h4>
+<div class="askyourself">
+<p>題目以 <span class="math inline">\(x_n^2 - 2\)</span> 而不是 <span class="math inline">\(x_n - \sqrt2\)</span> 來量度誤差。試把 <span class="math inline">\(x_{n+1}^2 - 2\)</span> 寫成以 <span class="math inline">\(x_n\)</span> 表示的單一分數。分子有甚麼特別之處？</p>
+</div>
+<p><span class="math display">\[x_{n+1}^2 - 2 = \frac{(x_n + 2)^2 - 2(x_n + 1)^2}{(x_n + 1)^2} = \frac{x_n^2 + 4x_n + 4 - 2x_n^2 - 4x_n - 2}{(x_n + 1)^2} = \frac{2 - x_n^2}{(x_n + 1)^2}.\]</span> 分子正好是 <span class="math inline">\(-(x_n^2 - 2)\)</span>。所以 <span class="math inline">\(x_{n+1}^2 - 2\)</span> 與 <span class="math inline">\(x_n^2 - 2\)</span> 異號（近似值交替落在 <span class="math inline">\(\sqrt2\)</span> 的兩側），而且由 <span class="math inline">\(x_n \geq 1\)</span> 可得 <span class="math inline">\((x_n + 1)^2 \geq 4\)</span>，因此 <span class="math display">\[\bigl|x_{n+1}^2 - 2\bigr| = \frac{|x_n^2 - 2|}{(x_n + 1)^2} \leq \frac14\bigl|x_n^2 - 2\bigr|. \qed\]</span></p>
+<h4 id="stagemark3-十步之後" class="stage"><span class="stage-n">階段 3</span> 十步之後</h4>
+<p>把上式連續應用十次，得 <span class="math inline">\(|x_{10}^2 - 2| \leq 4^{-10}|x_0^2 - 2| = 4^{-10} = \frac{1}{1048576} &lt; 10^{-6}\)</span>。至於正負號：<span class="math inline">\(x_0^2 - 2 = -1 &lt; 0\)</span>，而正負號逐項交替，所以對每個偶數 <span class="math inline">\(n\)</span> 都有 <span class="math inline">\(x_n^2 - 2 &lt; 0\)</span>。於是 <span class="math inline">\(x_{10}^2 &lt; 2\)</span>，兩者合起來便得 <span class="math inline">\(2 - 10^{-6} \leq x_{10}^2 \leq 2\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<p><span class="math inline">\(x_n^2\)</span> 的誤差每一步最多乘以 <span class="math inline">\(\frac14\)</span>。這稱為<em>線性收斂</em>（linear convergence）：每一步增加固定數目的準確位數（這裏最少是 <span class="math inline">\(\log_{10} 4 \approx 0.6\)</span>；實際上較接近 <span class="math inline">\(0.77\)</span>）。</p>
+<h4 id="stagemark4-第二個方法的誤差" class="stage"><span class="stage-n">階段 4</span> 第二個方法的誤差</h4>
+<div class="askyourself">
+<p>試把 <span class="math inline">\(y_{n+1} - \sqrt2\)</span> 寫成單一分數。分子應該會令你想起完全平方。</p>
+</div>
+<p><span class="math display">\[y_{n+1} - \sqrt2 = \frac{y_n^2 + 2 - 2\sqrt2\, y_n}{2y_n} = \frac{\bigl(y_n - \sqrt2\bigr)^2}{2y_n}. \qed\]</span> 若 <span class="math inline">\(y_n &gt; 0\)</span>，右方為非負數，所以 <span class="math inline">\(y_{n+1} \geq \sqrt2 &gt; 1\)</span>。由於 <span class="math inline">\(y_0 = 1\)</span>，由歸納法可知對所有 <span class="math inline">\(n\)</span> 都有 <span class="math inline">\(y_n \geq 1\)</span>。<span class="qed" aria-label="end of proof">■</span> （事實上，對所有 <span class="math inline">\(n \geq 1\)</span> 都有 <span class="math inline">\(y_n \geq \sqrt2\)</span>：走完第一步之後，第二個方法永遠從上方逼近 <span class="math inline">\(\sqrt2\)</span>。）</p>
+<h4 id="stagemark5-把誤差平方" class="stage"><span class="stage-n">階段 5</span> 把誤差平方</h4>
+<p>設 <span class="math inline">\(e_n = y_n - \sqrt2\)</span>，則當 <span class="math inline">\(n \geq 1\)</span> 時 <span class="math inline">\(e_n \geq 0\)</span>，而且因為 <span class="math inline">\(y_n \geq 1\)</span>，有 <span class="math inline">\(e_{n+1} = \dfrac{e_n^2}{2y_n} \leq \dfrac{e_n^2}{2}\)</span>。</p>
+<div class="pausebox">
+<p>用歸納法證明：當 <span class="math inline">\(n \geq 1\)</span> 時 <span class="math inline">\(e_n \leq 2r^{2^n}\)</span>，其中 <span class="math inline">\(r = \frac{\sqrt2 - 1}{2}\)</span>。請仔細檢查基礎情況。</p>
+</div>
+<p><em>基礎情況：</em><span class="math inline">\(e_1 = \dfrac{(1 - \sqrt2)^2}{2 \cdot 1} = \dfrac{(\sqrt2 - 1)^2}{2}\)</span>，而 <span class="math inline">\(2r^2 = 2 \cdot \dfrac{(\sqrt2 - 1)^2}{4} = \dfrac{(\sqrt2 - 1)^2}{2}\)</span>。兩者相等，所以基礎情況成立（而且是等式）。</p>
+<p><em>歸納步驟：</em>若 <span class="math inline">\(e_n \leq 2r^{2^n}\)</span>，則 <span class="math display">\[e_{n+1} \leq \frac{e_n^2}{2} \leq \frac{4r^{2^{n+1}}}{2} = 2r^{2^{n+1}}. \qed\]</span></p>
+<h4 id="stagemark6-六百位小數" class="stage"><span class="stage-n">階段 6</span> 六百位小數</h4>
+<p>由於 <span class="math inline">\(\sqrt2 - 1 &lt; \frac12\)</span>，我們有 <span class="math inline">\(r &lt; \frac14\)</span>，所以 <span class="math display">\[0 \leq y_{10} - \sqrt2 \leq 2 \left(\frac14\right)^{2^{10}} = 2 \cdot 2^{-2048} = 2^{-2047}.\]</span> 而 <span class="math inline">\(2^{10} = 1024 &gt; 10^3\)</span>，所以 <span class="math inline">\(2^{-2047} &lt; 2^{-2040} = (2^{10})^{-204} &lt; 10^{-612}\)</span>，這當然小於 <span class="math inline">\(10^{-600}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>找出誤差的遞推關係。</strong>兩部分的做法，都是把新誤差寫成舊誤差的一個精確函數，其餘一切便隨之而來。</p></li>
+<li><p><strong>線性與二次之別。</strong>「新誤差 <span class="math inline">\(\leq\)</span> 常數 <span class="math inline">\(\times\)</span> 舊誤差」表示每一步增加固定數目的準確位數。「新誤差 <span class="math inline">\(\leq\)</span> 常數 <span class="math inline">\(\times\)</span> (舊誤差)<span class="math inline">\(^2\)</span>」則表示每一步令準確位數加倍（圖 2.7.1）。</p></li>
+<li><p><strong>平方量決定正負號。</strong>在第 (ii) 部分，走一步之後的誤差是一個平方數除以一個正數，所以永遠不會是負數：迭代從上方逼近。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">牛頓法</div>
+<p>第二個方法其實是把<em>牛頓法</em>（Newton’s method）應用於 <span class="math inline">\(f(y) = y^2 - 2\)</span>。牛頓法求 <span class="math inline">\(f\)</span> 的根的做法，是反覆把猜測值 <span class="math inline">\(y\)</span> 換成 <span class="math inline">\(y\)</span> 處的切線與橫軸的交點： <span class="math display">\[y_{\text{新}} = y - \frac{f(y)}{f&#39;(y)} = y - \frac{y^2 - 2}{2y} = \frac{y^2 + 2}{2y}.\]</span> 在單根（simple root）<span class="math inline">\(\alpha\)</span> 附近，由泰勒展開式（Taylor expansion）可知新誤差約為 <span class="math inline">\(\frac{f&#39;&#39;(\alpha)}{2f&#39;(\alpha)} \times (\text{舊誤差})^2\)</span>，這就是牛頓法二次收斂（quadratic convergence）的原因。這個特殊情況，即「取 <span class="math inline">\(y\)</span> 與 <span class="math inline">\(2/y\)</span> 的平均值」，古巴比倫人早已知道；一塊約公元前 1700 年的泥板（現稱為 YBC 7289）以 <span class="math inline">\(60\)</span> 進制給出 <span class="math inline">\(\sqrt2\)</span> 的值，誤差小於百萬分之一。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-2-7-1.svg" alt="圖 2.7.1"><figcaption><span class="fig-label">圖 2.7.1</span> 兩個方法各走 <span class="math inline">\(n\)</span> 步之後，<span class="math inline">\(\sqrt2\)</span> 的準確小數位數。線性的方法每一步增加約 <span class="math inline">\(0.77\)</span> 位；牛頓法則每一步令準確位數大約加倍，到 <span class="math inline">\(n = 10\)</span> 時達到約 <span class="math inline">\(780\)</span> 位。</figcaption></figure>
+<h3 id="不動點及其收斂速度">不動點及其收斂速度</h3>
+<p>兩個方法都具有 <span class="math inline">\(u_{n+1} = g(u_n)\)</span> 的形式，而且 <span class="math inline">\(g(\sqrt2) = \sqrt2\)</span>，所以 <span class="math inline">\(\sqrt2\)</span> 是一個<em>不動點</em>（fixed point），正如 <a href="../ch02/golden-limit.html">第 2.2 節</a> 的蛛網圖（cobweb diagram）所示。在不動點 <span class="math inline">\(\alpha\)</span> 附近，誤差每一步大約乘以 <span class="math inline">\(g&#39;(\alpha)\)</span>。對第一個方法而言，<span class="math inline">\(g(x) = \frac{x+2}{x+1}\)</span>，而 <span class="math inline">\(g&#39;(\sqrt2) = -\frac{1}{(\sqrt2+1)^2} = -(3 - 2\sqrt2) \approx -0.17\)</span>：負號解釋了正負號為何交替，<span class="math inline">\(0.17\)</span> 則解釋了每一步為何增加 <span class="math inline">\(0.77\)</span> 位（<span class="math inline">\(\log_{10}(1/0.17) \approx 0.77\)</span>）。對牛頓法而言，<span class="math inline">\(g&#39;(\alpha) = 0\)</span>，所以線性項消失，誤差由下一項（即平方項）決定。設計出滿足 <span class="math inline">\(g&#39;(\alpha) = 0\)</span> 的迭代（iteration），正是快速數值方法的精髓所在。</p>
+<h3 id="為何出現相同的分數">為何出現相同的分數</h3>
+<p>分數 <span class="math inline">\(x_n = p_n/q_n\)</span> 滿足 <span class="math inline">\(p_{n+1} = p_n + 2q_n\)</span> 和 <span class="math inline">\(q_{n+1} = p_n + q_n\)</span>，並且 <span class="math inline">\(p_n^2 - 2q_n^2 = \pm 1\)</span>，正負交替。它們是<em>佩爾方程</em>（Pell’s equation）<span class="math inline">\(p^2 - 2q^2 = \pm1\)</span> 的解，也是連分數（continued fraction）<span class="math inline">\(\sqrt2 = [1; 2, 2, 2, \ldots]\)</span> 的漸近分數（convergents）。它們來自 <span class="math inline">\(1 + \sqrt2\)</span> 的冪：<span class="math inline">\(p_n + q_n\sqrt2 = (1 + \sqrt2)^{n+1}\)</span>。牛頓法的每一步把 <span class="math inline">\(p + q\sqrt2\)</span> <em>平方</em>（不妨一試：<span class="math inline">\((p + q\sqrt2)^2 = p^2 + 2q^2 + 2pq\sqrt2\)</span>，而 <span class="math inline">\(\frac{p^2 + 2q^2}{2pq}\)</span> 正是把牛頓法的公式應用於 <span class="math inline">\(p/q\)</span> 的結果）。平方令指數加倍，這就是 <span class="math inline">\(y_n = x_{2^n - 1}\)</span> 的原因。同樣的「平方」模式，也是 <a href="../ch02/squaring-minus-two.html">第 2.8 節</a> 中迭代的動力來源。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">分析誤差，而不是答案</div>
+<p><em>要了解一個近似方法的表現，就寫下某一步的誤差如何取決於上一步的誤差。</em></p>
+<p>這是數值分析的起點。兩個方法的答案本身（<span class="math inline">\(\sqrt2\)</span>）是一樣的；不同之處，亦是實際應用中最要緊之處，在於誤差如何演變。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>佩爾方程。</strong>證明：若 <span class="math inline">\(y_n = p/q\)</span> 為最簡分數，且 <span class="math inline">\(p^2 - 2q^2 = 1\)</span>，則 <span class="math inline">\(y_{n+1} = \dfrac{p^2 + 2q^2}{2pq}\)</span> 亦滿足這個方程。驗證 <span class="math inline">\(577^2 - 2 \times 408^2 = 1\)</span>。</p></li>
+<li><p><strong>立方根。</strong>寫出應用於 <span class="math inline">\(f(y) = y^3 - 2\)</span> 的牛頓法，並證明新誤差為 <span class="math inline">\(\dfrac{(y_n - \alpha)^2 (2y_n + \alpha)}{3y_n^2}\)</span>，其中 <span class="math inline">\(\alpha = \sqrt[3]2\)</span>。由此推出：若 <span class="math inline">\(y_n &gt; \alpha\)</span>，則新誤差最多是舊誤差平方的 <span class="math inline">\(\frac{1}{\alpha}\)</span> 倍。（<em>提示：</em>利用 <span class="math inline">\(\alpha^3 = 2\)</span>。）</p></li>
+<li><p><strong>不用除法的除法。</strong>證明應用於 <span class="math inline">\(f(y) = \frac1y - a\)</span> 的牛頓法給出 <span class="math inline">\(y_{n+1} = y_n(2 - a y_n)\)</span>，當中無需除法。若 <span class="math inline">\(e_n = 1 - a y_n\)</span>，證明 <span class="math inline">\(e_{n+1} = e_n^2\)</span>。（電腦處理器正是用這類迭代來做除法的。）</p></li>
+<li><p><strong>牛頓法失效的時候。</strong>把牛頓法應用於 <span class="math inline">\(f(y) = y^{1/3}\)</span>，它唯一的根是 <span class="math inline">\(0\)</span>。證明無論從哪裏開始，每一步都令與根的距離加倍。誤差公式的哪一個假設不成立？</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Endre Süli &amp; David Mayers, <a href="https://uk.bookshop.org/search?keywords=An+Introduction+to+Numerical+Analysis+Suli+Mayers"><em>An Introduction to Numerical Analysis</em></a></strong>（Cambridge University Press）。標準的大學本科數值分析教科書；第 1 章講述不動點迭代和牛頓法。</p></li>
+<li><p><strong>Nick Higham (ed.), <a href="https://uk.bookshop.org/search?keywords=The+Princeton+Companion+to+Applied+Mathematics+"><em>The Princeton Companion to Applied Mathematics</em></a></strong>（Princeton University Press）。收錄有關牛頓法和數值分析的短文，由專家執筆，面向廣大讀者。</p></li>
+<li><p><strong>David Fowler &amp; Eleanor Robson, “<a href="https://doi.org/10.1006/hmat.1998.2209">Square root approximations in Old Babylonian mathematics: YBC 7289 in context</a>”</strong>（古巴比倫數學中的平方根近似值），<em>Historia Mathematica</em> 25 (1998)。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="agm.html">← 2.6 算術幾何平均</a><a class="next" href="squaring-minus-two.html">→ 2.8 平方再減二</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

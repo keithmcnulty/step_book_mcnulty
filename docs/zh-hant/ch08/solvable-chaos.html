@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>可以解出的混沌 (STEP I 2014 第 6 題) — Beyond STEP</title>
+<meta name="description" content="STEP I 2014 第 6 題：引導式解答及其背後的大學數學。 規則 u_n+1 = ku_n(1 - u_n) 稱為 邏輯斯諦映射 （logistic map），是描述資源有限的種羣的最簡單模型： u_n 是第 n 年的種羣數量佔環境所能承載的最大數量的比例， k 是繁殖率，而因子 1 - u_n 則代表過度擁擠的影響。1976 年，生物學家羅伯特·梅（Robert May）在《自然》（…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/solvable-chaos.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/solvable-chaos.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/solvable-chaos.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/solvable-chaos.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="可以解出的混沌 (STEP I 2014 第 6 題) — Beyond STEP">
+<meta property="og:description" content="STEP I 2014 第 6 題：引導式解答及其背後的大學數學。 規則 u_n+1 = ku_n(1 - u_n) 稱為 邏輯斯諦映射 （logistic map），是描述資源有限的種羣的最簡單模型： u_n 是第 n 年的種羣數量佔環境所能承載的最大數量的比例， k 是繁殖率，而因子 1 - u_n 則代表過度擁擠的影響。1976 年，生物學家羅伯特·梅（Robert May）在《自然》（…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch08/solvable-chaos.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="可以解出的混沌 (STEP I 2014 第 6 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2014 第 6 題：引導式解答及其背後的大學數學。 規則 u_n+1 = ku_n(1 - u_n) 稱為 邏輯斯諦映射 （logistic map），是描述資源有限的種羣的最簡單模型： u_n 是第 n 年的種羣數量佔環境所能承載的最大數量的比例， k 是繁殖率，而因子 1 - u_n 則代表過度擁擠的影響。1976 年，生物學家羅伯特·梅（Robert May）在《自然》（…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "可以解出的混沌", "headline": "可以解出的混沌", "description": "STEP I 2014 第 6 題：引導式解答及其背後的大學數學。 規則 u_n+1 = ku_n(1 - u_n) 稱為 邏輯斯諦映射 （logistic map），是描述資源有限的種羣的最簡單模型： u_n 是第 n 年的種羣數量佔環境所能承載的最大數量的比例， k 是繁殖率，而因子 1 - u_n 則代表過度擁擠的影響。1976 年，生物學家羅伯特·梅（Robert May）在《自然》（…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch08/solvable-chaos.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2014 第 6 題", "微分方程與動力系統"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 8, "name": "微分方程與動力系統", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 8 章：微分方程與動力系統", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch08/"}, {"@type": "ListItem", "position": 3, "name": "可以解出的混沌", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch08/solvable-chaos.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch08/solvable-chaos.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 8 章 · 微分方程與動力系統</a>
+    <div class="src">STEP I · 2014 · 第 6 題</div>
+    <div class="sec-head"><span class="sec-num">8.7</span><h1>可以解出的混沌</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-7-solvable-chaos.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 8 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP I 2014，第 6 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/14-s1-q6">step.maths.org/questions/14-s1-q6</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>規則 <span class="math inline">\(u_{n+1} = ku_n(1 - u_n)\)</span> 稱為<em>邏輯斯諦映射</em>（logistic map），是描述資源有限的種羣的最簡單模型：<span class="math inline">\(u_n\)</span> 是第 <span class="math inline">\(n\)</span> 年的種羣數量佔環境所能承載的最大數量的比例，<span class="math inline">\(k\)</span> 是繁殖率，而因子 <span class="math inline">\(1 - u_n\)</span> 則代表過度擁擠的影響。1976 年，生物學家羅伯特·梅（Robert May）在《自然》（<em>Nature</em>）上發表了一篇短文，題為「Simple mathematical models with very complicated dynamics」（動力學行為非常複雜的簡單數學模型）。他指出，當 <span class="math inline">\(k\)</span> 逐漸增大至 <span class="math inline">\(4\)</span> 時，這條只有一行的規則會由趨於穩定，變為來回振盪，再變為看似完全隨機。它成為了<em>混沌</em>（chaos）理論的奠基例子之一。</p>
+<p>混沌系統通常無法求解：<span class="math inline">\(u_n\)</span> 沒有公式，要求出 <span class="math inline">\(u_{100}\)</span>，唯一的方法就是把它之前的各項逐一算出來。本題找到的正是那個例外。在 <span class="math inline">\(k = 4\)</span> 這個最混沌的取值上，公式<em>確實</em>存在，而且它恰好解釋了這個數列為何無法預測。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>你以前在哪裏見過 <span class="math inline">\(4s(1 - s)\)</span> 這個式子，其中 <span class="math inline">\(s = \sin^2\theta\)</span>？哪一條恆等式把 <span class="math inline">\(\sin^2\theta\)</span>、<span class="math inline">\(\cos^2\theta\)</span> 和 <span class="math inline">\(\sin 2\theta\)</span> 聯繫起來？</p>
+</div>
+<p>若 <span class="math inline">\(s = \sin^2\theta\)</span>，則 <span class="math inline">\(1 - s = \cos^2\theta\)</span>，所以 <span class="math inline">\(4s(1 - s) = 4\sin^2\theta\cos^2\theta = (2\sin\theta\cos\theta)^2 = \sin^2 2\theta\)</span>。映射 <span class="math inline">\(s \mapsto 4s(1 - s)\)</span> 其實就是喬裝了的倍角公式（double-angle formula）。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-猜出規律" class="stage"><span class="stage-n">階段 1</span> 猜出規律</h4>
+<p>設 <span class="math inline">\(u_0 = \sin^2\theta\)</span>，由上面的恆等式可得 <span class="math display">\[u_1 = 4\sin^2\theta\cos^2\theta = \sin^2 2\theta, \qquad u_2 = 4\sin^2 2\theta\cos^2 2\theta = \sin^2 4\theta.\]</span></p>
+<div class="askyourself">
+<p>每一步之後，角度有甚麼變化？你對 <span class="math inline">\(u_n\)</span> 有甚麼猜想？</p>
+</div>
+<p>角度每次都加倍，所以我們猜想（conjecture）<span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span>。</p>
+<h4 id="stagemark2-證明猜想" class="stage"><span class="stage-n">階段 2</span> 證明猜想</h4>
+<div class="askyourself">
+<p>一個數列由「從一項到下一項」的規則定義，而我們要證明的命題涉及數列的每一項。哪一種證明方法最合適？</p>
+</div>
+<p>歸納法（induction）。命題在 <span class="math inline">\(n = 0\)</span> 時成立，因為 <span class="math inline">\(u_0 = \sin^2\theta = \sin^2(2^0\theta)\)</span>。假設對某個 <span class="math inline">\(n\)</span> 有 <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span>，則 <span class="math display">\[u_{n+1} = 4\sin^2(2^n\theta)\bigl(1 - \sin^2(2^n\theta)\bigr) = \bigl(2\sin(2^n\theta)\cos(2^n\theta)\bigr)^2 = \sin^2(2^{n+1}\theta),\]</span> 這正是 <span class="math inline">\(n + 1\)</span> 時的命題。所以對所有 <span class="math inline">\(n \geq 0\)</span>，都有 <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<p>留意 <span class="math inline">\([0, 1]\)</span> 內的每一個初始值 <span class="math inline">\(u\)</span> 都可以寫成 <span class="math inline">\(\sin^2\theta\)</span>（取 <span class="math inline">\(\theta = \arcsin\sqrt u\)</span>），所以對於 <span class="math inline">\([0, 1]\)</span> 內的任何初始值，這個公式都解出了 <span class="math inline">\(k = 4\)</span> 的邏輯斯諦映射。</p>
+<h4 id="stagemark3-變數代換" class="stage"><span class="stage-n">階段 3</span> 變數代換</h4>
+<div class="askyourself">
+<p>把 <span class="math inline">\(v_n = \alpha u_n + \beta\)</span> 代入 <span class="math inline">\(v_{n+1}\)</span> 的規則。你需要結果是 <span class="math inline">\(u_{n+1} = 4u_n - 4u_n^2\)</span>。這會給出多少個條件？你又有多少個未知數？</p>
+</div>
+<p>代入後得 <span class="math display">\[\alpha u_{n+1} + \beta = -p(\alpha u_n + \beta)^2 + q(\alpha u_n + \beta) + r,\]</span> 所以 <span class="math display">\[u_{n+1} = -p\alpha\, u_n^2 + (q - 2p\beta)\, u_n + \frac{-p\beta^2 + q\beta + r - \beta}{\alpha}.\]</span> 要使它等於 <span class="math inline">\(4u_n - 4u_n^2\)</span>，需要滿足三個條件： <span class="math display">\[p\alpha = 4, \qquad q - 2p\beta = 4, \qquad -p\beta^2 + (q - 1)\beta + r = 0.\]</span> 頭兩個條件確定了 <span class="math inline">\(\alpha = 4/p\)</span> 和 <span class="math inline">\(\beta = (q - 4)/(2p)\)</span>。這時已經沒有未知數剩下，所以第三條方程是對 <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span> 和 <span class="math inline">\(r\)</span> 的一個真正的條件。代入 <span class="math inline">\(\beta\)</span> 並乘以 <span class="math inline">\(4p\)</span>，得 <span class="math display">\[-(q - 4)^2 + 2(q - 1)(q - 4) + 4pr = 0,\]</span> 展開後得 <span class="math inline">\(-(q^2 - 8q + 16) + (2q^2 - 10q + 8) + 4pr = 0\)</span>，即 <span class="math inline">\(q^2 - 2q - 8 + 4pr = 0\)</span>，亦即 <span class="math display">\[4pr = 8 + 2q - q^2. \qed\]</span></p>
+<div class="pausebox">
+<p>三條方程，卻只有兩個未知數：這就是出現條件的原因。你能否在未計算之前，就看出為甚麼一般的二次映射不應該總是與 <span class="math inline">\((*)\)</span> 等價？（想想線性的變數代換能改變甚麼，又不能改變甚麼。）</p>
+</div>
+<h4 id="stagemark4-例子" class="stage"><span class="stage-n">階段 4</span> 例子</h4>
+<p>對於 <span class="math inline">\(v_{n+1} = -v_n^2 + 2v_n + 2\)</span>，我們有 <span class="math inline">\(p = 1\)</span>、<span class="math inline">\(q = 2\)</span>、<span class="math inline">\(r = 2\)</span>，而 <span class="math inline">\(4pr = 8 = 8 + 4 - 4\)</span>，所以條件成立。於是 <span class="math inline">\(\alpha = 4\)</span> 及 <span class="math inline">\(\beta = -1\)</span>，所以 <span class="math inline">\(v_n = 4u_n - 1\)</span>，其中 <span class="math inline">\(u_n\)</span> 滿足 <span class="math inline">\((*)\)</span>。由於 <span class="math inline">\(v_0 = 1\)</span>，故 <span class="math inline">\(u_0 = \frac12 = \sin^2\frac{\pi}{4}\)</span>，所以 <span class="math display">\[u_n = \sin^2\!\Bigl(\frac{2^n\pi}{4}\Bigr), \qquad v_n = 4\sin^2\!\Bigl(\frac{2^n\pi}{4}\Bigr) - 1 = 1 - 2\cos\Bigl(\frac{2^n\pi}{2}\Bigr).\]</span> 由此得 <span class="math inline">\(v_0 = 1\)</span>、<span class="math inline">\(v_1 = 3\)</span>，而對所有 <span class="math inline">\(n \geq 2\)</span> 都有 <span class="math inline">\(v_n = -1\)</span>。（直接驗算：<span class="math inline">\(-1 + 2 + 2 = 3\)</span>，然後 <span class="math inline">\(-9 + 6 + 2 = -1\)</span>，再然後 <span class="math inline">\(-1 - 2 + 2 = -1\)</span>。）<span class="qed" aria-label="end of proof">■</span></p>
+<p>這個初始值是特意選定的，好讓角度落在 <span class="math inline">\(\pi\)</span> 的倍數上，數列從此不再變化。這樣一來，有趣的部分就被掩蓋了，而那正是接下來要談的。</p>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>識破喬裝。</strong>一旦寫成 <span class="math inline">\(s = \sin^2\theta\)</span>，映射 <span class="math inline">\(s \mapsto 4s(1 - s)\)</span> 就變成了角度加倍。</p></li>
+<li><p><strong>先猜想，再用歸納法證明。</strong>頭兩項提示了規律，歸納法則證明了它。</p></li>
+<li><p><strong>數一數方程和未知數。</strong>線性代換有兩個自由參數，二次式有三個係數，所以必定剩下一個條件。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<h3 id="數列為何無法預測">數列為何無法預測</h3>
+<p>公式 <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span> 看來已是故事的結局：任何一項都可以直接算出。但請細看它說了甚麼。由於 <span class="math inline">\(\sin^2\)</span> 的週期（period）是 <span class="math inline">\(\pi\)</span>，所以只有 <span class="math inline">\(2^n\theta\)</span> 模（modulo）<span class="math inline">\(\pi\)</span> 的值才有影響。設 <span class="math inline">\(\theta = \pi x\)</span>，其中 <span class="math inline">\(0 \leq x &lt; 1\)</span>，並把 <span class="math inline">\(x\)</span> 寫成二進制（binary）： <span class="math display">\[x = 0.b_1 b_2 b_3 \ldots \quad(\text{底為 } 2).\]</span> 乘以 <span class="math inline">\(2\)</span> 會把二進制小數點向右移一位，而把結果取模 <span class="math inline">\(1\)</span>，就是丟掉越過小數點的那個數位。所以 <span class="math inline">\(u_n\)</span> 只取決於 <span class="math inline">\(x\)</span> 由 <span class="math inline">\(b_{n+1}\)</span> 起的二進制數位。邏輯斯諦映射每走一步，就多讀取初始值的一個數位，同時丟掉最前面的一個。</p>
+<p>這就是<em>對初始條件的敏感依賴</em>（sensitive dependence on initial conditions），也是混沌的決定性特徵。兩個初始值若在首 <span class="math inline">\(20\)</span> 個二進制位上相同（約六個小數位），它們產生的數列一般會在大約 <span class="math inline">\(20\)</span> 步之內吻合，其後便毫無關係（圖 8.7.1）。要預測 <span class="math inline">\(u_{100}\)</span>，你需要知道 <span class="math inline">\(u_0\)</span> 準確至 <span class="math inline">\(100\)</span> 個二進制位。初始角度的任何誤差，無論多小，每一步都會加倍。（種羣數量 <span class="math inline">\(u\)</span> 本身的誤差並非每次都以完全相同的倍數增長，因為這個映射對 <span class="math inline">\([0, 1]\)</span> 某些部分的拉伸比其他部分大，但平均而言，它的增長率是一樣的。）公式幫不上忙：它只是令這個機制顯現出來。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-7-1.svg" alt="圖 8.7.1"><figcaption><span class="fig-label">圖 8.7.1</span> <span class="math inline">\(k = 4\)</span> 的邏輯斯諦映射的兩個數列，分別由 <span class="math inline">\(\sin^2(1)\)</span>（藍綠色）和 <span class="math inline">\(\sin^2(1.00001)\)</span>（紫紅色虛線）開始。在大約頭十步內兩者無法分辨，到第 <span class="math inline">\(12\)</span> 步已有明顯差別，其後便毫無關係：到第 <span class="math inline">\(12\)</span> 步，角度之差 <span class="math inline">\(10^{-5}\)</span> 已經加倍了十二次，變成約 <span class="math inline">\(2^{12} \times 10^{-5} \approx 0.04\)</span>。</figcaption></figure>
+<h3 id="週期點無處不在">週期點無處不在</h3>
+<p>這個公式還能找出映射的每一個循環（cycle）。數列在 <span class="math inline">\(N\)</span> 步之後回到初始值，當且僅當 <span class="math inline">\(\sin^2(2^N\theta) = \sin^2\theta\)</span>，即 <span class="math inline">\(2^N\theta \equiv \pm\theta \pmod{\pi}\)</span>。所以 <span class="math inline">\(\theta = m\pi/(2^N - 1)\)</span> 或 <span class="math inline">\(\theta = m\pi/(2^N + 1)\)</span> 給出一個週期整除 <span class="math inline">\(N\)</span> 的點。例如 <span class="math inline">\(\theta = \pi/5\)</span> 滿足 <span class="math inline">\(4\theta \equiv -\theta\)</span>，所以 <span class="math inline">\(\sin^2\frac{\pi}{5} \to \sin^2\frac{2\pi}{5} \to \sin^2\frac{4\pi}{5} = \sin^2\frac{\pi}{5}\)</span> 是一個 <span class="math inline">\(2\)</span>-循環。每一個週期都有對應的週期點（periodic point），而且它們在 <span class="math inline">\([0, 1]\)</span> 中稠密（dense）：在每一個區間內，無論多小，都有一個初始值使數列重複出現。然而每一個週期點都是不穩定的，因為任何誤差都會加倍。稠密的週期點，卻把附近的一切都推開，這是混沌的第二個標誌。</p>
+<h3 id="通往混沌之路">通往混沌之路</h3>
+<p>對於較小的 <span class="math inline">\(k\)</span>，並沒有公式可用，而數列的行為會隨 <span class="math inline">\(k\)</span> 劇烈變化（圖 8.7.2）。當 <span class="math inline">\(1 &lt; k &lt; 3\)</span> 時，每一個由 <span class="math inline">\((0, 1)\)</span> 內出發的數列都會趨於不動點（fixed point）<span class="math inline">\(1 - 1/k\)</span>。在 <span class="math inline">\(k = 3\)</span> 時，不動點變得不穩定，由一個 <span class="math inline">\(2\)</span>-循環取而代之（這是 STEP II 2002 Q5 的主題；見延伸練習）。在 <span class="math inline">\(k = 1 + \sqrt6 \approx 3.449\)</span> 時，<span class="math inline">\(2\)</span>-循環讓位予 <span class="math inline">\(4\)</span>-循環，然後是 <span class="math inline">\(8\)</span>-循環，週期加倍來得愈來愈快，直至 <span class="math inline">\(k \approx 3.5699\)</span> 時，循環的長度變成無限，混沌由此開始。在混沌區域之內還有一些有序的窗口：最明顯的一個在 <span class="math inline">\(k = 3.83\)</span> 附近，其中有一個 <span class="math inline">\(3\)</span>-循環，那是 <a href="../ch08/period-three.html">第 8.8 節</a> 的主題。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-7-2.svg" alt="圖 8.7.2"><figcaption><span class="fig-label">圖 8.7.2</span> 邏輯斯諦映射的分岔圖（bifurcation diagram）。對每一個 <span class="math inline">\(k\)</span>，由 <span class="math inline">\(u_0 = 0.31416\)</span> 開始把映射迭代 <span class="math inline">\(300\)</span> 次，然後畫出其後的 <span class="math inline">\(40\)</span> 個值。單一個不動點在 <span class="math inline">\(k = 3\)</span> 時分裂成一個 <span class="math inline">\(2\)</span>-循環，然後是 <span class="math inline">\(4\)</span>、<span class="math inline">\(8\)</span>、…，直至在 <span class="math inline">\(k = 3.57\)</span> 附近進入混沌。<span class="math inline">\(k = 3.83\)</span> 附近那道淺色的垂直空隙，就是含有穩定 <span class="math inline">\(3\)</span>-循環的窗口。在 <span class="math inline">\(k = 4\)</span> 時，這些值填滿了整個 <span class="math inline">\([0, 1]\)</span>。</figcaption></figure>
+<div class="historybox">
+<div class="box-title">費根鮑姆常數</div>
+<p>1975 年，費根鮑姆（Mitchell Feigenbaum）在洛斯阿拉莫斯（Los Alamos）工作時，用一部可編程的袖珍計算機，量度了週期加倍時的各個 <span class="math inline">\(k\)</span> 值：<span class="math inline">\(k_1 = 3\)</span>、<span class="math inline">\(k_2 \approx 3.4495\)</span>、<span class="math inline">\(k_3 \approx 3.5441\)</span>、<span class="math inline">\(k_4 \approx 3.5644\)</span>、…。他留意到這些間距以一個固定的倍數縮小， <span class="math display">\[\frac{k_{n} - k_{n-1}}{k_{n+1} - k_{n}} \to 4.6692\ldots,\]</span> 然後更令人驚訝地發現，同一個數 <span class="math inline">\(4.6692\ldots\)</span> 也出現在 <span class="math inline">\(x \mapsto k\sin(\pi x)\)</span> 之中，以及其他所有只有單一個峯、而峯頂像拋物線般圓滑（即<em>二次極大值</em>，quadratic maximum）的光滑映射之中。這個常數對這一整類映射是<em>普適</em>（universal）的；至於峯頂較平坦的映射，例如形狀像 <span class="math inline">\(-x^4\)</span> 的那種，則各有自己的普適常數。其後，人們在滴水的水龍頭、受熱的流體和電子電路的實驗中都量度到這個常數。要解釋箇中原因，需要借用相變（phase transition）物理學的想法，而嚴格的證明要到 1982 年才由 Oscar Lanford 藉助電腦完成。</p>
+</div>
+<h3 id="同一招用三次">同一招，用三次</h3>
+<p>第 (ii) 部分的代換是<em>共軛</em>（conjugacy）的一個例子：若一個變數代換能把一個映射變成另一個，這兩個映射便稱為共軛，而它們的動力學行為完全相同。本題證明了每一個滿足該條件的二次映射，都與 <span class="math inline">\(k = 4\)</span> 的邏輯斯諦映射共軛，而後者又透過 <span class="math inline">\(u = \sin^2\theta\)</span>，成為喬裝了的角度加倍。（嚴格來說，最後這一環是<em>半共軛</em>（semiconjugacy）：<span class="math inline">\(\theta\)</span> 和 <span class="math inline">\(\pi - \theta\)</span> 給出相同的 <span class="math inline">\(u\)</span>，所以這個變數代換並非一對一（one-to-one）。邏輯斯諦映射真正共軛的對象是<em>帳篷映射</em>（tent map），即當 <span class="math inline">\(t \leq \frac12\)</span> 時 <span class="math inline">\(t \mapsto 2t\)</span>、當 <span class="math inline">\(t \geq \frac12\)</span> 時 <span class="math inline">\(t \mapsto 2 - 2t\)</span>，所用的代換是 <span class="math inline">\(u = \sin^2\frac{\pi t}{2}\)</span>，它在 <span class="math inline">\([0, 1]\)</span> 上是一對一的。）在 <a href="../ch02/squaring-minus-two.html">第 2.8 節</a> 中，你遇過 <span class="math inline">\(x \mapsto x^2 - 2\)</span>，它由 <span class="math inline">\(x = 2\cos\theta\)</span> 解出，角度每一步加倍；它同樣滿足該條件（不妨試試）。所以這些全都是同一個映射的不同喬裝。在 <a href="../ch08/period-three.html">第 8.8 節</a> 中，這個家族的第三位成員將會登場：一個由直線構成的映射，即<em>帳篷映射</em>。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">變數代換，看清結構</div>
+<p><em>一個好的代換可以把複雜的規則變成簡單的規則。設法找出一個變數代換，把問題變成你已經明白的問題。</em></p>
+<p>在這裏，<span class="math inline">\(u = \sin^2\theta\)</span> 把一個二次映射變成了角度加倍，而一個線性代換則把一整族二次式歸結為一個。在大學裏，共軛是一件核心工具：在動力系統（dynamical systems）中，在線性代數中（把矩陣對角化，就是選取一組令它變得簡單的坐標），以及在羣論中，都是如此。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>邏輯斯諦映射的循環。</strong>試做 <a href="https://step.maths.org/questions/02-s2-q5">STEP II 2002，第 5 題</a>。然後證明只有當 <span class="math inline">\(k &gt; 3\)</span> 時才存在 <span class="math inline">\(2\)</span>-循環。</p></li>
+<li><p><strong>平方減二。</strong>證明 <span class="math inline">\(v_{n+1} = v_n^2 - 2\)</span> 滿足第 (ii) 部分的條件（把它寫成 <span class="math inline">\(-pv_n^2 + qv_n + r\)</span>，其中 <span class="math inline">\(p = -1\)</span>）。求 <span class="math inline">\(\alpha\)</span> 和 <span class="math inline">\(\beta\)</span>，並驗證你的答案與 <span class="math inline">\(v_n = 2\cos(2^n\phi)\)</span> 一致。</p></li>
+<li><p><strong>一個 <span class="math inline">\(3\)</span>-循環。</strong>利用公式 <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span>，求 <span class="math inline">\(u_{n+1} = 4u_n(1 - u_n)\)</span> 的一個 <span class="math inline">\(3\)</span>-循環。（<em>提示：</em>試試 <span class="math inline">\(\theta = \pi/7\)</span>，或 <span class="math inline">\(\theta = \pi/9\)</span>。）週期恰好為 <span class="math inline">\(3\)</span> 的點有多少個？</p></li>
+<li><p><strong>丟失數位。</strong>電腦儲存數字時，大約準確至 <span class="math inline">\(53\)</span> 個二進制位。如果你在電腦上迭代 <span class="math inline">\(u_{n+1} = 4u_n(1 - u_n)\)</span>，大約多少步之後，計算出來的值便與真正的數列毫無關係？到那時，計算出來的數列是否就沒有用處？</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Robert May，「Simple mathematical models with very complicated dynamics」</strong>，<em>Nature</em> 261 (1976)。經典之作，至今仍然十分易讀。</p></li>
+<li><p><strong>James Gleick，<a href="https://uk.bookshop.org/search?keywords=Chaos%3A+Making+a+New+Science+Gleick"><em>Chaos: Making a New Science</em></a></strong>（Penguin）。講述梅、費根鮑姆以及混沌被發現的故事。</p></li>
+<li><p><strong>Steven Strogatz，<a href="https://uk.bookshop.org/search?keywords=Nonlinear+Dynamics+and+Chaos+Strogatz"><em>Nonlinear Dynamics and Chaos</em></a></strong>（CRC Press），第 10 章。一維映射、邏輯斯諦映射和費根鮑姆常數，程度相當於大學一年級。</p></li>
+<li><p><strong>Ian Stewart，<a href="https://uk.bookshop.org/search?keywords=Does+God+Play+Dice%3F+Stewart"><em>Does God Play Dice?</em></a></strong>（Penguin）。一本介紹混沌的科普讀物，其中有一章對邏輯斯諦映射講解得很好。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="quantum-oscillator.html">← 8.6 量子振子</a><a class="next" href="period-three.html">→ 8.8 週期三蘊含混沌</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

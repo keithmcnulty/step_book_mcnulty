@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>最後一位乘客的座位 (STEP II 2021 第 11 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 2021 第 11 題：引導式解答及其背後的大學數學。 一百名乘客登上一班滿座的飛機。第一位乘客遺失了登機證，於是隨便找個座位坐下。其後每位乘客，若自己的座位仍然空着就坐自己的座位，否則就在餘下的空位中隨機選一個。最後一位乘客坐到自己座位的概率（probability）是多少？混亂或會蔓延至整架飛機，所以你可能預期這個概率很小；又或者大部分乘客根本不受影響，概率應該接近 1 。…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/airline-seat.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/airline-seat.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/airline-seat.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/airline-seat.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="最後一位乘客的座位 (STEP II 2021 第 11 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 2021 第 11 題：引導式解答及其背後的大學數學。 一百名乘客登上一班滿座的飛機。第一位乘客遺失了登機證，於是隨便找個座位坐下。其後每位乘客，若自己的座位仍然空着就坐自己的座位，否則就在餘下的空位中隨機選一個。最後一位乘客坐到自己座位的概率（probability）是多少？混亂或會蔓延至整架飛機，所以你可能預期這個概率很小；又或者大部分乘客根本不受影響，概率應該接近 1 。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch12/airline-seat.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="最後一位乘客的座位 (STEP II 2021 第 11 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2021 第 11 題：引導式解答及其背後的大學數學。 一百名乘客登上一班滿座的飛機。第一位乘客遺失了登機證，於是隨便找個座位坐下。其後每位乘客，若自己的座位仍然空着就坐自己的座位，否則就在餘下的空位中隨機選一個。最後一位乘客坐到自己座位的概率（probability）是多少？混亂或會蔓延至整架飛機，所以你可能預期這個概率很小；又或者大部分乘客根本不受影響，概率應該接近 1 。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "最後一位乘客的座位", "headline": "最後一位乘客的座位", "description": "STEP II 2021 第 11 題：引導式解答及其背後的大學數學。 一百名乘客登上一班滿座的飛機。第一位乘客遺失了登機證，於是隨便找個座位坐下。其後每位乘客，若自己的座位仍然空着就坐自己的座位，否則就在餘下的空位中隨機選一個。最後一位乘客坐到自己座位的概率（probability）是多少？混亂或會蔓延至整架飛機，所以你可能預期這個概率很小；又或者大部分乘客根本不受影響，概率應該接近 1 。…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/airline-seat.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2021 第 11 題", "概率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/"}, {"@type": "ListItem", "position": 3, "name": "最後一位乘客的座位", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch12/airline-seat.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch12/airline-seat.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 12 章 · 概率</a>
+    <div class="src">STEP II · 2021 · 第 11 題</div>
+    <div class="sec-head"><span class="sec-num">12.5</span><h1>最後一位乘客的座位</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-5-airline-seat.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 12 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 2021，第 11 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 OCR 提供下載的 2021 年 STEP 試卷（zip 檔案）內的 STEP II 試卷： <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">www.ocr.org.uk/Images/696588-2021-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>一百名乘客登上一班滿座的飛機。第一位乘客遺失了登機證，於是隨便找個座位坐下。其後每位乘客，若自己的座位仍然空着就坐自己的座位，否則就在餘下的空位中隨機選一個。最後一位乘客坐到自己座位的概率（probability）是多少？混亂或會蔓延至整架飛機，所以你可能預期這個概率很小；又或者大部分乘客根本不受影響，概率應該接近 <span class="math inline">\(1\)</span>。</p>
+<p>無論乘客人數是多少，答案都恰好是 <span class="math inline">\(\frac12\)</span>。本題以遞推關係（recurrence）和歸納法（induction）證明這個結果。不過，還有一個利用對稱性（symmetry）的漂亮論證，一句話就能說完；它解釋了為甚麼答案是 <span class="math inline">\(\frac12\)</span>，更可讓你立即寫出任何一位乘客的答案。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="pausebox">
+<p>列出所有可能發生的情況，求出 <span class="math inline">\(P_2\)</span> 和 <span class="math inline">\(P_3\)</span>。</p>
+</div>
+<p>若有兩個座位，<span class="math inline">\(T_1\)</span> 會坐 <span class="math inline">\(S_1\)</span>（這時 <span class="math inline">\(T_2\)</span> 坐到 <span class="math inline">\(S_2\)</span>）或 <span class="math inline">\(S_2\)</span>，兩者的概率各為 <span class="math inline">\(\frac12\)</span>：<span class="math inline">\(P_2 = \frac12\)</span>。若有三個座位：如果 <span class="math inline">\(T_1\)</span> 坐 <span class="math inline">\(S_1\)</span>（概率為 <span class="math inline">\(\frac13\)</span>），人人都沒有問題；如果 <span class="math inline">\(T_1\)</span> 坐 <span class="math inline">\(S_3\)</span>，<span class="math inline">\(T_3\)</span> 就坐不到自己的座位；如果 <span class="math inline">\(T_1\)</span> 坐 <span class="math inline">\(S_2\)</span>，則 <span class="math inline">\(T_2\)</span> 要在 <span class="math inline">\(S_1\)</span> 和 <span class="math inline">\(S_3\)</span> 之間隨機選擇，而 <span class="math inline">\(T_3\)</span> 只有在 <span class="math inline">\(T_2\)</span> 選中 <span class="math inline">\(S_1\)</span> 時才沒有問題。所以 <span class="math inline">\(P_3 = \frac13 + \frac13\cdot\frac12 = \frac12\)</span>。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-遞推關係" class="stage"><span class="stage-n">階段 1</span> 遞推關係</h4>
+<div class="askyourself">
+<p>假設 <span class="math inline">\(T_1\)</span> 坐了 <span class="math inline">\(S_k\)</span>，其中 <span class="math inline">\(2 \leq k \leq n - 1\)</span>。乘客 <span class="math inline">\(T_2, \ldots, T_{k-1}\)</span> 會怎樣？當 <span class="math inline">\(T_k\)</span> 到達時，哪些座位是空的？這個局面與一列較小的列車相比又如何？</p>
+</div>
+<p>乘客 <span class="math inline">\(T_2, \ldots, T_{k-1}\)</span> 發現自己的座位空着，便坐了下來。當 <span class="math inline">\(T_k\)</span> 到達時，空着的座位是 <span class="math inline">\(S_1\)</span> 和 <span class="math inline">\(S_{k+1}, \ldots, S_n\)</span>：共有 <span class="math inline">\(n - k + 1\)</span> 個。<span class="math inline">\(T_k\)</span> 從中隨機選一個，此後每位乘客若自己的座位空着就坐自己的座位，否則就隨機選一個。這正是有 <span class="math inline">\(n - k + 1\)</span> 個座位的原來問題，<span class="math inline">\(T_k\)</span> 扮演第一位乘客的角色，而 <span class="math inline">\(S_1\)</span> 則扮演 <span class="math inline">\(T_k\)</span>「自己的」座位的角色（即一旦被選中，一切便回復正常的那個座位）。因此，<span class="math inline">\(T_n\)</span> 坐到 <span class="math inline">\(S_n\)</span> 的條件概率（conditional probability）是 <span class="math inline">\(P_{n-k+1}\)</span>。</p>
+<p>現在按 <span class="math inline">\(T_1\)</span> 所坐的座位分情況考慮，每個座位的概率都是 <span class="math inline">\(\frac1n\)</span>：坐 <span class="math inline">\(S_1\)</span> 必定成功，坐 <span class="math inline">\(S_n\)</span> 必定失敗，而坐 <span class="math inline">\(S_k\)</span> 則給出 <span class="math inline">\(P_{n-k+1}\)</span>。所以 <span class="math display">\[P_n = \frac1n\Bigl(1 + 0 + \sum_{k=2}^{n-1}P_{n-k+1}\Bigr) = \frac1n\Bigl(1 + \sum_{r=2}^{n-1}P_r\Bigr). \qed\]</span></p>
+<h4 id="stagemark2-答案" class="stage"><span class="stage-n">階段 2</span> 答案</h4>
+<div class="askyourself">
+<p><span class="math inline">\(P_2 = P_3 = \frac12\)</span>。猜出 <span class="math inline">\(P_n\)</span>，並用強歸納法（strong induction）證明。</p>
+</div>
+<p>斷言：對所有 <span class="math inline">\(n \geq 2\)</span>，<span class="math inline">\(P_n = \frac12\)</span>。當 <span class="math inline">\(n = 2\)</span> 時斷言成立。若 <span class="math inline">\(P_r = \frac12\)</span> 對 <span class="math inline">\(2 \leq r \leq n - 1\)</span> 成立，則 <span class="math display">\[P_n = \frac1n\Bigl(1 + \frac{n - 2}{2}\Bigr) = \frac1n\cdot\frac n2 = \frac12. \qed\]</span></p>
+<h4 id="stagemark3-倒數第二位乘客" class="stage"><span class="stage-n">階段 3</span> 倒數第二位乘客</h4>
+<div class="askyourself">
+<p>試找一個更巧妙的論證。到最後，留給 <span class="math inline">\(T_n\)</span> 的是哪個座位？有可能是 <span class="math inline">\(S_2\)</span> 嗎？</p>
+</div>
+<p>最後留給 <span class="math inline">\(T_n\)</span> 的座位不是 <span class="math inline">\(S_1\)</span> 就是 <span class="math inline">\(S_n\)</span>。它不可能是 <span class="math inline">\(S_k\)</span>（其中 <span class="math inline">\(2 \leq k \leq n - 1\)</span>），因為 <span class="math inline">\(T_k\)</span> 早就會把它坐了。而在此之前的每一次隨機選擇，對 <span class="math inline">\(S_1\)</span> 和 <span class="math inline">\(S_n\)</span> 都是對稱的：每當有被佔了座位的乘客要選位，<span class="math inline">\(S_1\)</span> 和 <span class="math inline">\(S_n\)</span> 被選中的機會均等。兩者之中先被選中的那個決定了結局，所以兩者同樣可能成為最後剩下的座位：<span class="math inline">\(P_n = \frac12\)</span>。</p>
+<p>同一個論證適用於任何一位乘客 <span class="math inline">\(T_k\)</span>，<span class="math inline">\(k \geq 2\)</span>。只有當某位較早的乘客佔了 <span class="math inline">\(T_k\)</span> 的座位，他們才會失去自己的座位。座位被佔的連鎖反應會一直持續，直至有人選中 <span class="math inline">\(S_1\)</span> 為止；在 <span class="math inline">\(S_1, S_k, S_{k+1}, \ldots, S_n\)</span> 這些座位之中，<span class="math inline">\(T_k\)</span> 到達之前的選位者對它們一視同仁，所以最先被選中的座位同樣可能是這 <span class="math inline">\(n - k + 2\)</span> 個座位中的任何一個，而 <span class="math inline">\(T_k\)</span> 只有在最先被選中的是 <span class="math inline">\(S_k\)</span> 時才會失去座位。所以 <span class="math display">\[\mathrm{P}(T_k \text{ 坐在 } S_k) = \frac{n - k + 1}{n - k + 2}.\]</span> 當 <span class="math inline">\(k = n - 1\)</span>（其中 <span class="math inline">\(n \geq 3\)</span>）時，這給出 <span class="math inline">\(Q_n = \frac23\)</span>；而 <span class="math inline">\(Q_2 = \frac12\)</span>，因為這時 <span class="math inline">\(T_{n-1} = T_1\)</span>，他們坐在 <span class="math inline">\(S_1\)</span> 的概率是 <span class="math inline">\(\frac12\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-5-1.svg" alt="圖 12.5.1"><figcaption><span class="fig-label">圖 12.5.1</span> 乘客 <span class="math inline">\(k\)</span> 坐到自己座位的概率，列車共有 <span class="math inline">\(n = 20\)</span> 個座位。當 <span class="math inline">\(2 \leq k \leq n\)</span> 時，概率是 <span class="math inline">\(\frac{n - k + 1}{n - k + 2}\)</span>：由 <span class="math inline">\(T_2\)</span> 的 <span class="math inline">\(\frac{19}{20}\)</span> 一直下降至 <span class="math inline">\(T_{19}\)</span> 的 <span class="math inline">\(\frac23\)</span>，以及最後一位乘客的 <span class="math inline">\(\frac12\)</span>（紫紅色）。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>化為較小的同類問題。</strong>在 <span class="math inline">\(T_1\)</span> 坐了 <span class="math inline">\(S_k\)</span> 之後，餘下的問題就是座位較少的同一個問題。</p></li>
+<li><p><strong>強歸納法。</strong>遞推關係牽涉所有較小的情況，所以歸納時要假設結果對所有這些情況都成立。</p></li>
+<li><p><strong>找出對稱性。</strong>座位 <span class="math inline">\(S_1\)</span> 和 <span class="math inline">\(S_n\)</span> 自始至終可以互換，這樣不用任何代數運算就解釋了 <span class="math inline">\(\frac12\)</span> 的由來。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<h3 id="對稱論證">對稱論證</h3>
+<p>第二個證明體現了概率論中一個威力強大的想法：若兩個結果可由隨機過程的某種對稱性互相對應，它們的概率就相同。這裏的過程在 <span class="math inline">\(S_1\)</span> 和 <span class="math inline">\(S_n\)</span> 其中一個被選中之前，並不區分這兩個座位，所以兩者成為最後剩下的座位的可能性必定相等。對稱論證往往只憑一個觀察，就能取代冗長的計算。接下來的幾節有很多這樣的例子：<a href="../ch12/one-more-coin.html">第 12.6 節</a> 中多擲一次硬幣，<a href="../ch12/knockout.html">第 12.7 節</a> 中的淘汰賽抽籤。</p>
+<h3 id="有多少位乘客被迫換位">有多少位乘客被迫換位？</h3>
+<p>被迫換位的乘客（即坐不到自己座位的乘客）的數目同樣有很好的規律。<span class="math inline">\(T_1\)</span> 除非選中 <span class="math inline">\(S_1\)</span>，否則就算是換了位；而 <span class="math inline">\(T_k\)</span>（其中 <span class="math inline">\(k \geq 2\)</span>）被迫換位的概率是 <span class="math inline">\(\frac{1}{n - k + 2}\)</span>。把這些概率相加，被迫換位的乘客數目的期望值（expected number）是 <span class="math display">\[\Bigl(1 - \frac1n\Bigr) + \Bigl(\frac1n + \frac{1}{n - 1} + \cdots + \frac12\Bigr) = H_n - \frac1n,\]</span> 大約是 <span class="math inline">\(\ln n\)</span>：即使飛機上有 <span class="math inline">\(300\)</span> 個座位，這場混亂平均也只影響約六位乘客。調和數（harmonic numbers）又再出現了（<a href="../ch09/coupon-collector.html">第 9.11 節</a>）。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">尋找對稱性</div>
+<p><em>如果隨機過程無法分辨兩個結果，它們的可能性就相等。找出它們最初變得可以分辨的那一刻。</em></p>
+<p>在大學，對稱論證在概率論中隨處可見，由反射原理（reflection principle）（<a href="../ch09/ballot.html">第 9.10 節</a>）到可交換性（exchangeability）皆是；可交換性是指一列隨機變量（random variables）無論以任何次序排列都有相同的分佈，這個性質是不少現代統計學的基礎。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>兩位健忘的乘客。</strong>如果最先的<em>兩位</em>乘客都隨機選位，最後一位乘客坐到自己座位的概率是多少？</p></li>
+<li><p><strong>被迫換位的乘客。</strong>列出所有可能情況，驗證 <span class="math inline">\(n = 3\)</span> 時被迫換位的乘客數目的期望值。</p></li>
+<li><p><strong>迂迴的路線。</strong>利用遞推關係，證明 <span class="math inline">\(\sum_{r=2}^{n-1}P_r = \frac{n - 2}{2}\)</span> 與對稱論證互相吻合。</p></li>
+<li><p><strong>最後一個座位。</strong>證明在最後一位乘客坐不到自己座位的條件下，最後一位乘客坐到 <span class="math inline">\(S_1\)</span> 的概率是 <span class="math inline">\(1\)</span>。為甚麼？</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Peter Winkler, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Puzzles%3A+A+Connoisseur%27s+Collection+Winkler"><em>Mathematical Puzzles: A Connoisseur’s Collection</em></a></strong>（A K Peters）。收錄了飛機座位謎題，以及許多其他可用對稱性解決的謎題。</p></li>
+<li><p><strong>Frederick Mosteller, <a href="https://uk.bookshop.org/search?keywords=Fifty+Challenging+Problems+in+Probability+Mosteller"><em>Fifty Challenging Problems in Probability</em></a></strong>（Dover）。一本經典的題集。</p></li>
+<li><p><strong>Joseph Blitzstein &amp; Jessica Hwang, <a href="https://probabilitybook.net/"><em>Introduction to Probability</em></a></strong>（CRC Press；可於網上免費閱覽）。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="pairwise-independence.html">← 12.4 兩兩獨立，卻非相互獨立</a><a class="next" href="one-more-coin.html">→ 12.6 多一枚硬幣</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

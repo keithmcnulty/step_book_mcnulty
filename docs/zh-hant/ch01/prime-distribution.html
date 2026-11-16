@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>質數分佈得有多稀疏？ (STEP III 2016 第 5 題) — Beyond STEP</title>
+<meta name="description" content="STEP III 2016 第 5 題：引導式解答及其背後的大學數學。 在 第 1.1 節 中，我們已看到質數（prime）有無窮多個。但「無窮多個」是個很粗略的說法。質數確實愈來愈稀疏： 100 以下有 25 個質數，但 900 與 1000 之間只有 14 個。它們 究竟 會稀疏到甚麼程度？ 這道題要證明的結論聽來相當平凡：把不超過 n 的所有質數相乘，所得的積小於 4^n…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/prime-distribution.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="質數分佈得有多稀疏？ (STEP III 2016 第 5 題) — Beyond STEP">
+<meta property="og:description" content="STEP III 2016 第 5 題：引導式解答及其背後的大學數學。 在 第 1.1 節 中，我們已看到質數（prime）有無窮多個。但「無窮多個」是個很粗略的說法。質數確實愈來愈稀疏： 100 以下有 25 個質數，但 900 與 1000 之間只有 14 個。它們 究竟 會稀疏到甚麼程度？ 這道題要證明的結論聽來相當平凡：把不超過 n 的所有質數相乘，所得的積小於 4^n…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch01/prime-distribution.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="質數分佈得有多稀疏？ (STEP III 2016 第 5 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2016 第 5 題：引導式解答及其背後的大學數學。 在 第 1.1 節 中，我們已看到質數（prime）有無窮多個。但「無窮多個」是個很粗略的說法。質數確實愈來愈稀疏： 100 以下有 25 個質數，但 900 與 1000 之間只有 14 個。它們 究竟 會稀疏到甚麼程度？ 這道題要證明的結論聽來相當平凡：把不超過 n 的所有質數相乘，所得的積小於 4^n…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "質數分佈得有多稀疏？", "headline": "質數分佈得有多稀疏？", "description": "STEP III 2016 第 5 題：引導式解答及其背後的大學數學。 在 第 1.1 節 中，我們已看到質數（prime）有無窮多個。但「無窮多個」是個很粗略的說法。質數確實愈來愈稀疏： 100 以下有 25 個質數，但 900 與 1000 之間只有 14 個。它們 究竟 會稀疏到甚麼程度？ 這道題要證明的結論聽來相當平凡：把不超過 n 的所有質數相乘，所得的積小於 4^n…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/prime-distribution.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2016 第 5 題", "數論與證明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "數論與證明", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 1 章：數論與證明", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/"}, {"@type": "ListItem", "position": 3, "name": "質數分佈得有多稀疏？", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch01/prime-distribution.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch01/prime-distribution.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 1 章 · 數論與證明</a>
+    <div class="src">STEP III · 2016 · 第 5 題</div>
+    <div class="sec-head"><span class="sec-num">1.2</span><h1>質數分佈得有多稀疏？</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-2-prime-distribution.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 1 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP III 2016，第 5 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 STEP Support Programme 的題目資料庫： <a href="https://step.maths.org/questions/16-s3-q5">step.maths.org/questions/16-s3-q5</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>在 <a href="../ch01/fermat-numbers.html">第 1.1 節</a> 中，我們已看到質數（prime）有無窮多個。但「無窮多個」是個很粗略的說法。質數確實愈來愈稀疏：<span class="math inline">\(100\)</span> 以下有 <span class="math inline">\(25\)</span> 個質數，但 <span class="math inline">\(900\)</span> 與 <span class="math inline">\(1000\)</span> 之間只有 <span class="math inline">\(14\)</span> 個。它們<em>究竟</em>會稀疏到甚麼程度？</p>
+<p>這道題要證明的結論聽來相當平凡：把不超過 <span class="math inline">\(n\)</span> 的所有質數相乘，所得的積小於 <span class="math inline">\(4^n\)</span>。然而，這個看似平平無奇的不等式（inequality），正是回答「有多稀疏？」的第一步實質進展，也是數學史上最著名的簡短證明之一的關鍵引理（lemma）；該證明出自年輕的保羅·艾狄胥（Paul Erdős）之手，時為 1932 年。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<p>記號 <span class="math inline">\(P_{r,s}\)</span> 看來有點繁瑣，但背後的意思很簡單：把某個範圍內的質數相乘。務必先弄懂題中的例子。<span class="math inline">\(P_{3,7}\)</span> 用的是大於 <span class="math inline">\(3\)</span> 而不超過 <span class="math inline">\(7\)</span> 的質數，即 <span class="math inline">\(5\)</span> 和 <span class="math inline">\(7\)</span>，所以它等於 <span class="math inline">\(35\)</span>。</p>
+<div class="askyourself">
+<p>第 (iv) 部分要求你對<em>所有</em> <span class="math inline">\(n \geq 2\)</span> 證明一個命題。第 (iii) 部分則假設該命題對不超過 <span class="math inline">\(2m\)</span> 的每一個 <span class="math inline">\(k\)</span> 都成立。這是哪一種歸納法（induction）？</p>
+</div>
+<p>這是<em>強</em>歸納法（strong induction）：要證明 <span class="math inline">\(n\)</span> 的情況，你可以假設前面<em>所有</em>情況都成立，而不僅是緊接在前的那一個。請把這一點記在心裏；題目之所以這樣編排，原因正在於此。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-二項式係數不會太大" class="stage"><span class="stage-n">階段 1</span> 二項式係數不會太大</h4>
+<div class="askyourself">
+<p>在 <span class="math inline">\((1+x)^{2m+1}\)</span> 的二項展開式（binomial expansion）中代入 <span class="math inline">\(x = 1\)</span>，會得到甚麼？</p>
+</div>
+<p>你會得到 <span class="math display">\[2^{2m+1} = \binom{2m+1}{0} + \binom{2m+1}{1} + \cdots + \binom{2m+1}{2m+1}.\]</span> 各項都是正數，所以每一項都小於 <span class="math inline">\(2^{2m+1}\)</span>。這還不夠好；我們想要的是 <span class="math inline">\(2^{2m}\)</span>，即它的一半。</p>
+<div class="askyourself">
+<p>帕斯卡三角形（Pascal’s triangle）是對稱的。和式中還有哪一項等於 <span class="math inline">\(\binom{2m+1}{m}\)</span>？</p>
+</div>
+<p>由對稱性，<span class="math inline">\(\binom{2m+1}{m} = \binom{2m+1}{m+1}\)</span>，而這是和式中兩個<em>不同</em>的項（因為 <span class="math inline">\(m \neq m+1\)</span>）。所以 <span class="math display">\[2\binom{2m+1}{m} = \binom{2m+1}{m} + \binom{2m+1}{m+1} &lt; 2^{2m+1},\]</span> 這裏是嚴格不等式，因為和式中還有其他正項，例如 <span class="math inline">\(\binom{2m+1}{0} = 1\)</span>。兩邊除以 <span class="math inline">\(2\)</span>，即得 <span class="math inline">\(\binom{2m+1}{m} &lt; 2^{2m}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-哪些質數整除這個二項式係數" class="stage"><span class="stage-n">階段 2</span> 哪些質數整除這個二項式係數？</h4>
+<p>把這個二項式係數（binomial coefficient）寫出來： <span class="math display">\[\binom{2m+1}{m} = \frac{(2m+1)!}{m!\,(m+1)!} = \frac{(m+2)(m+3)\cdots(2m+1)}{m!}.\]</span></p>
+<div class="askyourself">
+<p>設 <span class="math inline">\(p\)</span> 為質數，且 <span class="math inline">\(m + 1 &lt; p \leq 2m+1\)</span>。<span class="math inline">\(p\)</span> 整除分子嗎？它有可能整除分母嗎？</p>
+</div>
+<p>分子 <span class="math inline">\((m+2)(m+3)\cdots(2m+1)\)</span> 的因子當中就有 <span class="math inline">\(p\)</span> 本身，所以 <span class="math inline">\(p\)</span> 整除分子。分母 <span class="math inline">\(m!\)</span> 是若干個數的積，而這些數全都小於 <span class="math inline">\(p\)</span>；由於 <span class="math inline">\(p\)</span> 是質數，如果它不能整除其中任何一個數，就不能整除它們的積。因此 <span class="math inline">\(p\)</span> 整除分子而不整除分母，於是 <span class="math inline">\(p\)</span> 整除整個二項式係數（別忘記，它是一個整數）。</p>
+<div class="pausebox">
+<p>我們現在知道，這個範圍內的<em>每一個</em>質數都整除 <span class="math inline">\(\binom{2m+1}{m}\)</span>。為甚麼由此可知它們的<em>積</em> <span class="math inline">\(P_{m+1,2m+1}\)</span> 也整除它？（小心：即使 <span class="math inline">\(4\)</span> 和 <span class="math inline">\(6\)</span> 都整除某個數，<span class="math inline">\(24\)</span> 也不一定整除它。）</p>
+</div>
+<p>分別在於，我們的質數是<em>相異質數</em>。如果相異質數 <span class="math inline">\(p_1, p_2, \ldots\)</span> 各自整除 <span class="math inline">\(N\)</span>，那麼它們的積也整除 <span class="math inline">\(N\)</span>：寫 <span class="math inline">\(N = p_1 N_1\)</span>；這時 <span class="math inline">\(p_2\)</span> 整除 <span class="math inline">\(p_1 N_1\)</span> 但不整除 <span class="math inline">\(p_1\)</span>，所以它整除 <span class="math inline">\(N_1\)</span>；如此類推。（這裏用到一個事實：如果一個質數整除某個積，它必整除其中一個因子。這個事實值得我們稍加敬重；<a href="../ch01/factorisation-fails.html">第 1.7 節</a> 會展示一個世界，在那裏與它相應的命題並不成立。）</p>
+<p>所以 <span class="math inline">\(P_{m+1,2m+1}\)</span> 整除 <span class="math inline">\(\binom{2m+1}{m}\)</span>，而正數的因數不會大於該數本身，故 <span class="math display">\[P_{m+1,\,2m+1} \leq \binom{2m+1}{m} &lt; 2^{2m}. \qed\]</span></p>
+<h4 id="stagemark3-把積拆開" class="stage"><span class="stage-n">階段 3</span> 把積拆開</h4>
+<div class="askyourself">
+<p><span class="math inline">\(P_{1,2m+1}\)</span> 是不超過 <span class="math inline">\(2m+1\)</span> 的所有質數的積，怎樣用我們已經掌握的積把它拼出來？</p>
+</div>
+<p>把不超過 <span class="math inline">\(2m+1\)</span> 的質數分成兩批：不超過 <span class="math inline">\(m+1\)</span> 的，以及大於 <span class="math inline">\(m+1\)</span> 的： <span class="math display">\[P_{1,2m+1} = P_{1,m+1} \times P_{m+1,2m+1}.\]</span> 由第 2 階段，第二個因子小於 <span class="math inline">\(2^{2m} = 4^m\)</span>。至於第一個因子，我們可以假設 <span class="math inline">\(P_{1,k} &lt; 4^k\)</span> 對由 <span class="math inline">\(2\)</span> 至 <span class="math inline">\(2m\)</span> 的每一個 <span class="math inline">\(k\)</span> 都成立，而 <span class="math inline">\(k = m+1\)</span> 正在這個範圍之內（因為由 <span class="math inline">\(m \geq 1\)</span> 可得 <span class="math inline">\(2 \leq m+1 \leq 2m\)</span>）。所以 <span class="math display">\[P_{1,2m+1} &lt; 4^{m+1} \times 4^{m} = 4^{2m+1}. \qed\]</span> 強歸納法正是在這裏大派用場：要處理 <span class="math inline">\(2m+1\)</span>，我們需要的是 <span class="math inline">\(m+1\)</span> 的情況，它的大小約為<em>一半</em>，而不是緊接在前的那個情況。</p>
+<h4 id="stagemark4-所有-n" class="stage"><span class="stage-n">階段 4</span> 所有 <span class="math inline">\(n\)</span></h4>
+<div class="askyourself">
+<p>第 (iii) 部分處理了奇數。對於偶數 <span class="math inline">\(n = 2m+2\)</span>，情況又如何？它是質數嗎？</p>
+</div>
+<p>先驗證起始情況：<span class="math inline">\(P_{1,2} = 2 &lt; 16\)</span> 及 <span class="math inline">\(P_{1,3} = 6 &lt; 64\)</span>。現在假設 <span class="math inline">\(P_{1,k} &lt; 4^k\)</span> 對由 <span class="math inline">\(2\)</span> 至 <span class="math inline">\(n-1\)</span> 的所有 <span class="math inline">\(k\)</span> 都成立，其中 <span class="math inline">\(n \geq 4\)</span>。</p>
+<ul>
+<li><p>若 <span class="math inline">\(n\)</span> 是偶數，則 <span class="math inline">\(n\)</span> 不是質數（因為它大於 <span class="math inline">\(2\)</span>），所以不超過 <span class="math inline">\(n\)</span> 的質數與不超過 <span class="math inline">\(n-1\)</span> 的質數完全相同。因此 <span class="math inline">\(P_{1,n} = P_{1,n-1} &lt; 4^{n-1} &lt; 4^n\)</span>。</p></li>
+<li><p>若 <span class="math inline">\(n\)</span> 是奇數，寫 <span class="math inline">\(n = 2m+1\)</span>，其中 <span class="math inline">\(m \geq 2\)</span>。這時由第 (iii) 部分直接得出 <span class="math inline">\(P_{1,n} &lt; 4^n\)</span>。</p></li>
+</ul>
+<p>由強歸納法，<span class="math inline">\(P_{1,n} &lt; 4^n\)</span> 對每一個 <span class="math inline">\(n \geq 2\)</span> 都成立。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>二項式係數蘊藏算術資訊。</strong><span class="math inline">\(\binom{2m+1}{m}\)</span> 是單獨一個數，它不大（小於 <span class="math inline">\(4^m\)</span>），卻必須被許多質數整除。把許多質數擠進一個不大的數裏，就說明這些質數不可能太多。</p></li>
+<li><p><strong>當問題會把自己減半時，強歸納法是最自然的工具。</strong><span class="math inline">\(2m+1\)</span> 的情況取決於 <span class="math inline">\(m+1\)</span> 的情況。</p></li>
+<li><p><strong>小的情況須另行驗證。</strong>歸納要到 <span class="math inline">\(n \geq 4\)</span> 才能開始運作，所以 <span class="math inline">\(n = 2\)</span> 和 <span class="math inline">\(3\)</span> 必須親手計算。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">從 <span class="math inline">\(4^n\)</span> 到質數定理</div>
+<p>對結果取對數：<span class="math inline">\(\ln P_{1,n} &lt; n \ln 4\)</span>，即 <span class="math display">\[\sum_{p \leq n} \ln p &lt; (\ln 4)\, n \approx 1.39\,n .\]</span> 在 1850 年代，切比雪夫（Pafnuty Chebyshev）證明了正是這一類的界（bound），而且上界<em>和下界</em>俱備，從而說明 <span class="math inline">\(\sum_{p \leq n} \ln p\)</span> 的增長與 <span class="math inline">\(n\)</span> 成正比。高斯（Gauss）在大約 15 歲時，已從數表中猜到不超過 <span class="math inline">\(n\)</span> 的質數個數大約是 <span class="math inline">\(n / \ln n\)</span>。這後來成為<em>質數定理</em>（Prime Number Theorem），最終在 1896 年由阿達馬（Jacques Hadamard）和德拉瓦萊普桑（Charles de la Vallée Poussin）運用複分析（complex analysis）證明。它的對數形式是 <span class="math display">\[\sum_{p \leq n} \ln p \sim n,\]</span> 所以不超過 <span class="math inline">\(n\)</span> 的質數之積大約是 <span class="math inline">\(e^n\)</span>。我們的界 <span class="math inline">\(4^n\)</span> 其實相差不遠：圖 1.2.1 把三者一併畫出。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-1-2-1.svg" alt="圖 1.2.1"><figcaption><span class="fig-label">圖 1.2.1</span> 不超過 <span class="math inline">\(n\)</span> 的所有質數之積的對數（藍綠色），在每個質數 <span class="math inline">\(p\)</span> 處跳升 <span class="math inline">\(\ln p\)</span>。本節證明它始終低於 <span class="math inline">\(n \ln 4\)</span>（琥珀色虛線）；質數定理則指出它的增長與 <span class="math inline">\(n\)</span> 相若（紫紅色）。</figcaption></figure>
+<h3 id="伯特蘭公設">伯特蘭公設</h3>
+<p>1845 年，伯特蘭（Joseph Bertrand）猜想：對每一個 <span class="math inline">\(n \geq 1\)</span>，在 <span class="math inline">\(n\)</span> 與 <span class="math inline">\(2n\)</span> 之間總有一個質數。這就是伯特蘭公設（Bertrand’s postulate）。切比雪夫在 1852 年證明了它。八十年後，年僅 19 歲的艾狄胥找到了一個優美的初等證明。它的關鍵材料，就是本題的引理，再加上仔細考察哪些質數整除<em>中間</em>的二項式係數 <span class="math inline">\(\binom{2n}{n}\)</span>。Martin Aigner 和 Günter Ziegler 把它選為 <em>Proofs from THE BOOK</em> 的第 2 章，該書匯集了數學中最優雅的證明。</p>
+<h3 id="接下來的方向">接下來的方向</h3>
+<p>質數的精確分佈，由黎曼 ζ 函數（Riemann zeta function） <span class="math display">\[\zeta(s) = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \cdots,\]</span> 的零點（zero）所支配。你會在 <a href="../ch02/basel.html">第 2.4 節</a> 中遇見這個函數樸素得多的一面，那裏有 <span class="math inline">\(\zeta(2) = \pi^2/6\)</span>。<em>黎曼猜想</em>（Riemann Hypothesis）預測了這些零點的確切位置；它若成立，便能把質數定理中的誤差限定得緊無可緊。它也許是數學中最著名的未解難題，也是千禧年大獎難題（Millennium Prize Problems）之一。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">強歸納法，以及從巧妙的對象中提取資訊</div>
+<p><em>如果 <span class="math inline">\(n\)</span> 的情況取決於遠小於 <span class="math inline">\(n-1\)</span> 的情況，就一次過假設前面所有情況都成立。</em></p>
+<p>這裏的另一個想法較為微妙，也極具數論（number theory）的特色：要證明某個範圍內<em>所有</em>質數的某種性質，就找出一個對象（這裏是一個二項式係數），使得這些質數每一個都必須整除它，而你又能證明它不會太大。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>感受一下數字。</strong>對 <span class="math inline">\(n = 10, 20, 30\)</span> 計算 <span class="math inline">\(P_{1,n}\)</span>，並把它與 <span class="math inline">\(4^n\)</span> 及 <span class="math inline">\(e^n\)</span> 比較。（這裏可以使用計算機。）</p></li>
+<li><p><strong>中間的二項式係數。</strong>證明 <span class="math inline">\(\binom{2m}{m}\)</span> 是 <span class="math inline">\((1+1)^{2m}\)</span> 展開式的 <span class="math inline">\(2m+1\)</span> 項中最大的一項，並由此推出 <span class="math inline">\(\binom{2m}{m} \geq \dfrac{4^m}{2m+1}\)</span>。</p></li>
+<li><p><strong>質數不會太多。</strong>設 <span class="math inline">\(\pi(n)\)</span> 為不超過 <span class="math inline">\(n\)</span> 的質數個數。介乎 <span class="math inline">\(\sqrt n\)</span> 與 <span class="math inline">\(n\)</span> 之間的每個質數都大於 <span class="math inline">\(\sqrt n\)</span>，而它們的積至多為 <span class="math inline">\(P_{1,n} &lt; 4^n\)</span>。由此推出 <span class="math display">\[\pi(n) - \pi(\sqrt n) &lt; \frac{2\ln 4}{\ln n}\, n ,\]</span> 從而得出 <span class="math inline">\(\pi(n) &lt; 2.8\, n/\ln n + \sqrt n\)</span>。把這個結果與質數定理的 <span class="math inline">\(\pi(n) \approx n / \ln n\)</span> 比較。</p></li>
+<li><p><strong>驗證伯特蘭公設。</strong>對 <span class="math inline">\(n = 1, 2, \ldots, 50\)</span> 驗證伯特蘭公設，即在每個情況下找出一個介乎 <span class="math inline">\(n\)</span> 與 <span class="math inline">\(2n\)</span> 之間的質數。你能否利用一張簡短的質數表有效率地完成，使表中每個質數都小於前一個的兩倍？</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>Aigner &amp; Ziegler, <a href="https://uk.bookshop.org/search?keywords=Proofs+from+THE+BOOK+Aigner+Ziegler"><em>Proofs from THE BOOK</em></a></strong>，第 2 章「Bertrand’s postulate」（伯特蘭公設）。</p></li>
+<li><p><strong>Marcus du Sautoy, <a href="https://uk.bookshop.org/search?keywords=The+Music+of+the+Primes+Sautoy"><em>The Music of the Primes</em></a></strong>（Fourth Estate）。一部講述質數定理與黎曼猜想歷史的普及讀物。</p></li>
+<li><p><strong>G. J. O. Jameson, <a href="https://uk.bookshop.org/search?keywords=The+Prime+Number+Theorem+Jameson"><em>The Prime Number Theorem</em></a></strong>（Cambridge University Press）。嚴謹而平易近人，為大學本科生而寫；開首幾章只需要高級程度（A-level）的微積分。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="fermat-numbers.html">← 1.1 質數工廠</a><a class="next" href="well-ordering.html">→ 1.3 最小反例</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

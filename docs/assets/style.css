@@ -14,6 +14,16 @@
   --sans: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
   --measure: 44rem;
 }
+/* Traditional Chinese edition: Latin text keeps the families above, Chinese falls back to these */
+:root:lang(zh) {
+  --serif: "Palatino Linotype", Palatino, "Book Antiqua", "TeX Gyre Pagella", "URW Palladio L", Georgia,
+           "Noto Serif CJK HK", "Noto Serif HK", "Songti TC", "PMingLiU", "MingLiU", serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", "Noto Sans CJK HK", "Noto Sans HK",
+          "PingFang HK", "Microsoft JhengHei", sans-serif;
+}
+:lang(zh) body { line-height: 1.85; letter-spacing: 0.02em; }
+:lang(zh) em { font-style: normal; font-weight: 600; }
+:lang(zh) .hero-kicker, :lang(zh) .ch-kicker { letter-spacing: 0.04em; }
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -38,6 +48,9 @@ img { max-width: 100%; height: auto; }
 .brand { font-family: var(--sans); font-weight: 700; color: var(--teal); text-decoration: none; letter-spacing: 0.01em; font-size: 1.05rem; }
 .site-header nav a { font-family: var(--sans); font-size: 0.9rem; color: var(--ink-soft); text-decoration: none; margin-left: 1.2rem; }
 .site-header nav a:hover { color: var(--amber); }
+.site-header nav a.lang-switch { border: 1px solid var(--rule); border-radius: 3px; padding: 0.05rem 0.45rem; }
+.site-header nav a.lang-switch:hover { border-color: var(--amber); }
+.mt-note { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-soft); background: var(--teal-pale); border-left: 3px solid var(--teal); padding: 0.5rem 0.8rem; margin: 1rem 0; }
 .site-footer { margin-top: 4rem; border-top: 1px solid var(--rule); padding: 1.5rem 0 2.5rem; font-family: var(--sans); font-size: 0.82rem; color: var(--ink-soft); }
 .site-footer p { margin: 0.25rem 0; }
 
@@ -165,6 +178,8 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width:
 .askyourself > p:first-child::before, .pausebox > p:first-child::before { font-family: var(--sans); font-weight: 700; font-size: 0.8rem; margin-right: 0.5rem; }
 .askyourself > p:first-child::before { content: "Ask yourself"; color: var(--plum); }
 .pausebox > p:first-child::before { content: "Pause and try"; color: var(--amber); }
+:lang(zh) .askyourself > p:first-child::before { content: "想一想"; }
+:lang(zh) .pausebox > p:first-child::before { content: "停一停，試一試"; }
 
 .skillbox { border: 1.5px solid var(--teal); padding: 0.9rem 1.2rem 0.4rem; margin: 1.2rem 0; }
 .skillbox .box-title { color: var(--teal); font-size: 0.95rem; }

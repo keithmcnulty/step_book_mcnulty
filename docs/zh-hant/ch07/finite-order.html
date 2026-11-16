@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>回到起點的矩陣 (STEP II 2020 第 6 題) — Beyond STEP</title>
+<meta name="description" content="STEP II 2020 第 6 題：引導式解答及其背後的大學數學。 有些變換（transformation）只要重複足夠多次，就會令一切回到原位。旋轉 90^circ 要四步，反射則只要兩步。哪些 2 × 2 矩陣（matrix）具有這種性質，即對某個 n 有 M^n = I ？又怎樣判斷？ 這道題令人意外之處，在於只需兩個數就足以判定： 跡 （trace）和 行列式…">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/finite-order.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/finite-order.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/finite-order.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/finite-order.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="回到起點的矩陣 (STEP II 2020 第 6 題) — Beyond STEP">
+<meta property="og:description" content="STEP II 2020 第 6 題：引導式解答及其背後的大學數學。 有些變換（transformation）只要重複足夠多次，就會令一切回到原位。旋轉 90^circ 要四步，反射則只要兩步。哪些 2 × 2 矩陣（matrix）具有這種性質，即對某個 n 有 M^n = I ？又怎樣判斷？ 這道題令人意外之處，在於只需兩個數就足以判定： 跡 （trace）和 行列式…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch07/finite-order.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="回到起點的矩陣 (STEP II 2020 第 6 題) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2020 第 6 題：引導式解答及其背後的大學數學。 有些變換（transformation）只要重複足夠多次，就會令一切回到原位。旋轉 90^circ 要四步，反射則只要兩步。哪些 2 × 2 矩陣（matrix）具有這種性質，即對某個 n 有 M^n = I ？又怎樣判斷？ 這道題令人意外之處，在於只需兩個數就足以判定： 跡 （trace）和 行列式…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "回到起點的矩陣", "headline": "回到起點的矩陣", "description": "STEP II 2020 第 6 題：引導式解答及其背後的大學數學。 有些變換（transformation）只要重複足夠多次，就會令一切回到原位。旋轉 90^circ 要四步，反射則只要兩步。哪些 2 × 2 矩陣（matrix）具有這種性質，即對某個 n 有 M^n = I ？又怎樣判斷？ 這道題令人意外之處，在於只需兩個數就足以判定： 跡 （trace）和 行列式…", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/finite-order.html", "inLanguage": "zh-Hant-HK", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2020 第 6 題", "線性代數與幾何"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "線性代數與幾何", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 7 章：線性代數與幾何", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/"}, {"@type": "ListItem", "position": 3, "name": "回到起點的矩陣", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/finite-order.html"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch07/finite-order.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 7 章 · 線性代數與幾何</a>
+    <div class="src">STEP II · 2020 · 第 6 題</div>
+    <div class="sec-head"><span class="sec-num">7.4</span><h1>回到起點的矩陣</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-4-finite-order.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作紙</span><span class="dl-sub">題目連結、提示、大學數學及練習</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 7 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">題目</div>
+<p><strong>STEP II 2020，第 6 題</strong></p>
+<p>繼續之前，請先閱讀題目（原題為英文）。題目載於 OCR 提供下載的 2020 年 STEP 試卷（zip 檔案）內的 STEP II 試卷： <a href="https://www.ocr.org.uk/Images/696589-2020-past-papers.zip">www.ocr.org.uk/Images/696589-2020-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>有些變換（transformation）只要重複足夠多次，就會令一切回到原位。旋轉 <span class="math inline">\(90^\circ\)</span> 要四步，反射則只要兩步。哪些 <span class="math inline">\(2 \times 2\)</span> 矩陣（matrix）具有這種性質，即對某個 <span class="math inline">\(n\)</span> 有 <span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span>？又怎樣判斷？</p>
+<p>這道題令人意外之處，在於只需兩個數就足以判定：<em>跡</em>（trace）和<em>行列式</em>（determinant）。你不必知道那四個元素，只需知道 <span class="math inline">\(a + d\)</span> 和 <span class="math inline">\(ad - bc\)</span>。而且答案對現實世界有一個驚人的推論：它解釋了為甚麼晶體可以有 <span class="math inline">\(2\)</span> 重、<span class="math inline">\(3\)</span> 重、<span class="math inline">\(4\)</span> 重和 <span class="math inline">\(6\)</span> 重對稱，卻永遠沒有 <span class="math inline">\(5\)</span> 重對稱。這條晶體學「定律」屹立了兩個世紀，直至 1982 年的一項發現才被打破，而該發現更贏得了諾貝爾獎。</p>
+<h2 id="動筆之前">動筆之前</h2>
+<div class="askyourself">
+<p>每個 <span class="math inline">\(2 \times 2\)</span> 矩陣都滿足 <span class="math inline">\(\mathbf{M}^2 - (\operatorname{tr}\mathbf{M})\mathbf{M} + (\det\mathbf{M})\mathbf{I} = \mathbf{0}\)</span>（這是凱萊－哈密頓定理（Cayley–Hamilton theorem）；把它乘開來驗證一下）。這對處理有關 <span class="math inline">\(\mathbf{M}^2\)</span> 的問題有甚麼幫助？</p>
+</div>
+<p>它把 <span class="math inline">\(\mathbf{M}^2\)</span> 用 <span class="math inline">\(\mathbf{M}\)</span> 和 <span class="math inline">\(\mathbf{I}\)</span> 表示出來：<span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I}\)</span>，其中 <span class="math inline">\(t = \operatorname{tr}\mathbf{M}\)</span>，<span class="math inline">\(d = \det\mathbf{M}\)</span>。於是，關於 <span class="math inline">\(\mathbf{M}^2\)</span> 的條件就變成一個把 <span class="math inline">\(\mathbf{M}\)</span>、<span class="math inline">\(t\)</span> 和 <span class="math inline">\(d\)</span> 聯繫起來的條件。這就是整道題的關鍵。</p>
+<h2 id="逐步解題">逐步解題</h2>
+<h4 id="stagemark1-平方的跡" class="stage"><span class="stage-n">階段 1</span> 平方的跡</h4>
+<p><span class="math inline">\(\mathbf{M}^2 = \begin{pmatrix} a^2 + bc &amp; ab + bd \\ ac + cd &amp; bc + d^2 \end{pmatrix}\)</span>，所以 <span class="math inline">\(\operatorname{tr}(\mathbf{M}^2) = a^2 + 2bc + d^2 = (a + d)^2 - 2(ad - bc)\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-pmmathbfi-的平方根" class="stage"><span class="stage-n">階段 2</span> <span class="math inline">\(\pm\mathbf{I}\)</span> 的平方根</h4>
+<div class="askyourself">
+<p>假設 <span class="math inline">\(\mathbf{M}^2 = \mathbf{I}\)</span>。把它代入 <span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I}\)</span>。若 <span class="math inline">\(t \neq 0\)</span>，這說明 <span class="math inline">\(\mathbf{M}\)</span> 是怎樣的矩陣？</p>
+</div>
+<p>若 <span class="math inline">\(\mathbf{M}^2 = \mathbf{I}\)</span>，則 <span class="math inline">\(\mathbf{I} = t\mathbf{M} - d\mathbf{I}\)</span>，所以 <span class="math inline">\(t\mathbf{M} = (1 + d)\mathbf{I}\)</span>。若 <span class="math inline">\(t \neq 0\)</span>，則 <span class="math inline">\(\mathbf{M}\)</span> 是 <span class="math inline">\(\mathbf{I}\)</span> 的倍數，設為 <span class="math inline">\(c\mathbf{I}\)</span>，而 <span class="math inline">\(c^2 = 1\)</span>，所以 <span class="math inline">\(\mathbf{M} = \pm\mathbf{I}\)</span>，但這已被排除。因此 <span class="math inline">\(t = 0\)</span>，於是 <span class="math inline">\((1 + d)\mathbf{I} = \mathbf{0}\)</span>，所以 <span class="math inline">\(d = -1\)</span>。</p>
+<p>反過來，若 <span class="math inline">\(t = 0\)</span> 且 <span class="math inline">\(d = -1\)</span>，則 <span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I} = \mathbf{I}\)</span>，而且 <span class="math inline">\(\mathbf{M} \neq \pm\mathbf{I}\)</span>，因為 <span class="math inline">\(\operatorname{tr}(\pm\mathbf{I}) = \pm2 \neq 0\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<p>至於 <span class="math inline">\(\mathbf{M}^2 = -\mathbf{I}\)</span>：代入後得 <span class="math inline">\(t\mathbf{M} = (d - 1)\mathbf{I}\)</span>。若 <span class="math inline">\(t \neq 0\)</span>，則 <span class="math inline">\(\mathbf{M} = c\mathbf{I}\)</span>，其中 <span class="math inline">\(c^2 = -1\)</span>，這對實數 <span class="math inline">\(c\)</span> 是不可能的。所以 <span class="math inline">\(t = 0\)</span> 且 <span class="math inline">\(d = 1\)</span>。反過來，由 <span class="math inline">\(t = 0\)</span> 和 <span class="math inline">\(d = 1\)</span> 可得 <span class="math inline">\(\mathbf{M}^2 = -\mathbf{I}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-四次方根" class="stage"><span class="stage-n">階段 3</span> 四次方根</h4>
+<div class="pausebox">
+<p>設 <span class="math inline">\(\mathbf{N} = \mathbf{M}^2\)</span>，則 <span class="math inline">\(\mathbf{M}^4 = \mathbf{I}\)</span> 即是 <span class="math inline">\(\mathbf{N}^2 = \mathbf{I}\)</span>。根據第 (ii) 部分，要麼 <span class="math inline">\(\mathbf{N} = \pm\mathbf{I}\)</span>，要麼 <span class="math inline">\(\operatorname{tr}\mathbf{N} = 0\)</span> 且 <span class="math inline">\(\det\mathbf{N} = -1\)</span>。為甚麼第二種情況不可能發生？</p>
+</div>
+<p><span class="math inline">\(\det\mathbf{N} = \det(\mathbf{M}^2) = (\det\mathbf{M})^2 \geq 0\)</span>，所以 <span class="math inline">\(\det\mathbf{N} \neq -1\)</span>。因此 <span class="math inline">\(\mathbf{N} = \mathbf{M}^2 = \pm\mathbf{I}\)</span>。逆命題顯然成立。<span class="qed" aria-label="end of proof">■</span></p>
+<p>至於 <span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span>：把第 (ii) 部分應用於 <span class="math inline">\(\mathbf{N} = \mathbf{M}^2\)</span>，可知它成立當且僅當 <span class="math inline">\(\operatorname{tr}(\mathbf{M}^2) = 0\)</span> 且 <span class="math inline">\(\det(\mathbf{M}^2) = 1\)</span>，即 <span class="math inline">\(t^2 - 2d = 0\)</span> 且 <span class="math inline">\(d^2 = 1\)</span>。由於 <span class="math inline">\(t^2 = 2d \geq 0\)</span>，必須有 <span class="math inline">\(d = 1\)</span>，於是 <span class="math inline">\(t^2 = 2\)</span>。所以 <span class="math display">\[\mathbf{M}^4 = -\mathbf{I} \iff \det\mathbf{M} = 1 \text{ 且 } \operatorname{tr}\mathbf{M} = \pm\sqrt2. \qed\]</span></p>
+<h4 id="stagemark4-一個不是旋轉的-mathbfi-的八次方根" class="stage"><span class="stage-n">階段 4</span> 一個不是旋轉的 <span class="math inline">\(\mathbf{I}\)</span> 的八次方根</h4>
+<p>任何滿足 <span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span> 的矩陣都有 <span class="math inline">\(\mathbf{M}^8 = \mathbf{I}\)</span>。旋轉 <span class="math inline">\(45^\circ\)</span> 的矩陣的跡是 <span class="math inline">\(\sqrt2\)</span>，行列式是 <span class="math inline">\(1\)</span>；我們想找另一個跡和行列式都相同、但不是旋轉的矩陣。取 <span class="math display">\[\mathbf{M} = \begin{pmatrix} \sqrt2 &amp; -1 \\ 1 &amp; 0 \end{pmatrix}, \qquad \operatorname{tr}\mathbf{M} = \sqrt2, \quad \det\mathbf{M} = 1.\]</span> 根據第 3 步，<span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span>，所以 <span class="math inline">\(\mathbf{M}^8 = \mathbf{I}\)</span>。但 <span class="math inline">\(\mathbf{M}\)</span> 既不是旋轉也不是反射，因為旋轉和反射都保持長度不變，而 <span class="math inline">\(\mathbf{M}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} \sqrt2 \\ 1 \end{pmatrix}\)</span> 的長度是 <span class="math inline">\(\sqrt3 \neq 1\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-4-1.svg" alt="圖 7.4.1"><figcaption><span class="fig-label">圖 7.4.1</span> <span class="math inline">\(\mathbf{v} = (1, 0)\)</span> 在 <span class="math inline">\(\mathbf{M} = \begin{pmatrix} \sqrt2 &amp; -1 \\ 1 &amp; 0 \end{pmatrix}\)</span> 作用下的軌道（orbit）。八步之後它回到起點。這些點並不在同一個圓（虛線）上，所以 <span class="math inline">\(\mathbf{M}\)</span> 不是旋轉，但它們確實位於一個橢圓上：<span class="math inline">\(\mathbf{M}\)</span> 是在斜坐標下看到的 <span class="math inline">\(45^\circ\)</span> 旋轉。</figcaption></figure>
+<h2 id="回顧">回顧</h2>
+<ul>
+<li><p><strong>凱萊－哈密頓定理把冪化為線性組合（linear combination）。</strong><span class="math inline">\(2 \times 2\)</span> 矩陣的每一個冪都是 <span class="math inline">\(\mathbf{M}\)</span> 和 <span class="math inline">\(\mathbf{I}\)</span> 的組合，其係數只取決於跡和行列式。</p></li>
+<li><p><strong>平方的行列式是非負的。</strong>這個簡單的事實在第 (iii) 部分排除了一整種情況。</p></li>
+<li><p><strong>跡和行列式是不變量（invariant）。</strong>兩個跡和行列式都相同的矩陣（且都不是 <span class="math inline">\(\mathbf{I}\)</span> 的倍數），不論外表是否相似，取冪時的表現都一樣。</p></li>
+</ul>
+<h2 id="背後的數學">背後的數學</h2>
+<div class="historybox">
+<div class="box-title">相似矩陣</div>
+<p>為甚麼說第 4 步的 <span class="math inline">\(\mathbf{M}\)</span> 是「偽裝了的旋轉」？若存在可逆（invertible）矩陣 <span class="math inline">\(\mathbf{S}\)</span> 使得 <span class="math inline">\(\mathbf{M} = \mathbf{SRS}^{-1}\)</span>，則稱兩個矩陣 <span class="math inline">\(\mathbf{M}\)</span> 和 <span class="math inline">\(\mathbf{R}\)</span> <em>相似</em>（similar）：它們在不同的坐標下表示同一個變換。相似矩陣有相同的跡和行列式，而且（對於不是 <span class="math inline">\(\mathbf{I}\)</span> 的倍數的 <span class="math inline">\(2 \times 2\)</span> 矩陣）逆命題也成立。所以任何跡為 <span class="math inline">\(\sqrt2\)</span>、行列式為 <span class="math inline">\(1\)</span> 的實矩陣都與 <span class="math inline">\(45^\circ\)</span> 的旋轉相似，而在 <span class="math inline">\(\mathbf{S}\)</span> 所給出的斜坐標下，它就只是在旋轉（圖 7.4.1）。一般而言，滿足 <span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span> 的 <span class="math inline">\(2 \times 2\)</span> 實矩陣必定與某個旋轉或反射相似。</p>
+</div>
+<h3 id="為甚麼晶體沒有五重對稱">為甚麼晶體沒有五重對稱</h3>
+<p>晶體是原子有規律、重複的排列。晶體的旋轉對稱把原子所成的格（lattice）映射到它自身，所以在以這個格為基礎的坐標下，它由一個元素全是<em>整數</em>的矩陣給出。因此它的跡是整數。但是旋轉角為 <span class="math inline">\(\theta\)</span> 的旋轉，在任何坐標下的跡都是 <span class="math inline">\(2\cos\theta\)</span>，而 <span class="math inline">\(2\cos\theta\)</span> 只有在等於 <span class="math inline">\(-2, -1, 0, 1\)</span> 或 <span class="math inline">\(2\)</span> 時才是整數，也就是對應階（order）為 <span class="math inline">\(2\)</span>、<span class="math inline">\(3\)</span>、<span class="math inline">\(4\)</span> 和 <span class="math inline">\(6\)</span>（以及 <span class="math inline">\(1\)</span>）的旋轉。五重對稱需要 <span class="math inline">\(2\cos72^\circ = \frac{\sqrt5 - 1}{2}\)</span>，而這不是整數。這就是<em>晶體學限制定理</em>（crystallographic restriction theorem）。1982 年，Dan Shechtman 觀察到一種看似具有五重對稱的合金，起初還遭人嘲笑；後來才知道那是一種<em>準晶體</em>（quasicrystal），有序但沒有周期性，就像彭羅斯鋪磚（Penrose tilings）一樣，因此不在該定理的涵蓋範圍之內。他於 2011 年獲頒諾貝爾化學獎。</p>
+<h2 id="思維技巧">思維技巧</h2>
+<div class="skillbox">
+<div class="box-title">尋找能刻劃本質行為的不變量</div>
+<p><em>當題目涉及一個有很多參數的對象時，問問自己：是否只需這些參數的幾個組合，即那些轉換觀點後仍然不變的組合，就已經足夠？</em></p>
+<p>在這裏，四個元素化約為兩個不變量，即跡和行列式，因為這個問題（「<span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span> 是否成立？」）並不取決於坐標。找到合適的不變量，往往是解決分類問題的關鍵。</p>
+</div>
+<h2 id="延伸練習">延伸練習</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>三階的旋轉。</strong>試做 <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">STEP II 2021，第 7 題</a> （載於 OCR 提供下載的 2021 年試卷 zip 檔案內）。它從一個具有不尋常性質的旋轉矩陣出發，最後得出一個結論，適用於所有立方為單位矩陣（identity matrix）的 <span class="math inline">\(2 \times 2\)</span> 實矩陣。</p></li>
+<li><p><strong>六階。</strong>求跡和行列式須滿足的條件，使得 <span class="math inline">\(\mathbf{M}^6 = \mathbf{I}\)</span>，但 <span class="math inline">\(\mathbf{M}^2 \neq \mathbf{I}\)</span> 且 <span class="math inline">\(\mathbf{M}^3 \neq \mathbf{I}\)</span>。</p></li>
+<li><p><strong>晶體學限制。</strong>證明：若 <span class="math inline">\(\mathbf{M}\)</span> 的元素全是整數，<span class="math inline">\(\det\mathbf{M} = 1\)</span>，且對某個 <span class="math inline">\(n\)</span> 有 <span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span>，則 <span class="math inline">\(\operatorname{tr}\mathbf{M} \in \{-2, -1, 0, 1, 2\}\)</span>。找出一個階為 <span class="math inline">\(6\)</span> 的整數矩陣。</p></li>
+<li><p><strong>以凱萊－哈密頓定理求冪。</strong>利用 <span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I}\)</span>，把 <span class="math inline">\(\mathbf{M}^3\)</span> 和 <span class="math inline">\(\mathbf{M}^4\)</span> 表示成 <span class="math inline">\(p\mathbf{M} + q\mathbf{I}\)</span> 的形式，並藉此重新推導 <span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span> 的條件。</p></li>
+</ol>
+</div>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><p><strong>M. A. Armstrong, <a href="https://uk.bookshop.org/search?keywords=Groups+and+Symmetry+Armstrong"><em>Groups and Symmetry</em></a></strong>（Springer）。內容包括晶體學限制和牆紙圖案的分類。</p></li>
+<li><p><strong>Marjorie Senechal, <a href="https://uk.bookshop.org/search?keywords=Quasicrystals+and+Geometry+Senechal"><em>Quasicrystals and Geometry</em></a></strong>（Cambridge University Press）。準晶體與非周期有序結構的數學。</p></li>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong>（Wellesley-Cambridge）。相似矩陣與凱萊－哈密頓定理。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="determinant-axioms.html">← 7.3 甚麼才算行列式</a><a class="next" href="rotations-3d.html">→ 7.5 三維空間中的旋轉</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

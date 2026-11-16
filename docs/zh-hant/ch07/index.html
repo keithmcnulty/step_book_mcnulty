@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 7 章：線性代數與幾何 — Beyond STEP</title>
+<meta name="description" content="把矩陣本身視為研究對象：特徵向量、行列式、旋轉與不變量，最後以歐拉公式作結。">
+<link rel="stylesheet" href="../assets/style.css?v=4de89417b8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 7 章：線性代數與幾何 — Beyond STEP">
+<meta property="og:description" content="把矩陣本身視為研究對象：特徵向量、行列式、旋轉與不變量，最後以歐拉公式作結。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hant/ch07/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以歷屆 STEP 試題為門徑，走進大學數學">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 7 章：線性代數與幾何 — Beyond STEP">
+<meta name="twitter:description" content="把矩陣本身視為研究對象：特徵向量、行列式、旋轉與不變量，最後以歐拉公式作結。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 7, "name": "線性代數與幾何", "url": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hant/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "把矩陣本身視為研究對象：特徵向量、行列式、旋轉與不變量，最後以歐拉公式作結。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "第 7 章：線性代數與幾何", "item": "https://beyondstep.keithmcnulty.org/zh-hant/ch07/"}]}</script>
+<script defer src="../assets/question.js?v=4de89417b8"></script>
+<script defer src="../assets/consent.js?v=4de89417b8" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">導言</a><a href="../index.html#chapters">章節</a><a href="../glossary/index.html">詞彙表</a><a href="../symbols/index.html">符號</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下載</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">電子通訊</a><a class="nav-search" href="../search/index.html" aria-label="搜尋">搜尋</a><a class="lang-switch" href="../../ch07/index.html" hreflang="en-GB" lang="en-GB">English</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">7</div>
+    <h1>線性代數與幾何</h1>
+    <p class="strap">矩陣不是一張數字表。它是空間的一種變換，而且自有其生命。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下載整章</span><span class="dl-sub">PDF，專為列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章內容</h2>
+  <ol class="toc"><li><a class="toc-link" href="matrix-rules.html"><span class="toc-num">7.1</span>
+<span class="toc-title">對矩陣不成立的法則</span>
+<span class="toc-src">STEP II 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-1-matrix-rules.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="eigenvectors.html"><span class="toc-num">7.2</span>
+<span class="toc-title">只伸縮，不轉向</span>
+<span class="toc-src">STEP III 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-2-eigenvectors.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="determinant-axioms.html"><span class="toc-num">7.3</span>
+<span class="toc-title">甚麼才算行列式</span>
+<span class="toc-src">STEP II 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-3-determinant-axioms.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="finite-order.html"><span class="toc-num">7.4</span>
+<span class="toc-title">回到起點的矩陣</span>
+<span class="toc-src">STEP II 2020</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-4-finite-order.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="rotations-3d.html"><span class="toc-num">7.5</span>
+<span class="toc-title">三維空間中的旋轉</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-5-rotations-3d.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="hyperbolic-rotations.html"><span class="toc-num">7.6</span>
+<span class="toc-title">雙曲旋轉與相對論</span>
+<span class="toc-src">STEP III 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-6-hyperbolic-rotations.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="lax-pairs.html"><span class="toc-num">7.7</span>
+<span class="toc-title">永恆不變的量</span>
+<span class="toc-src">STEP III 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-7-lax-pairs.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="four-squares.html"><span class="toc-num">7.8</span>
+<span class="toc-title">四個平方數</span>
+<span class="toc-src">STEP III 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-8-four-squares.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="platonic-solids.html"><span class="toc-num">7.9</span>
+<span class="toc-title">只有五種柏拉圖立體</span>
+<span class="toc-src">STEP III 1999</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-9-platonic-solids.pdf" download title="工作紙 PDF">工作紙</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顧：我們學到了甚麼</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「延伸練習」答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 7 章  \(\cdot\)  導言</div>
+    <h1 class="essay-title">空間的變換</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>我們思考時不依賴基底，寫作時也不依賴基底，但到了緊要關頭，我們就關上辦公室的門，拼命地用矩陣計算。</p>
+<p class="who">— Irving Kaplansky，談他與 Paul Halmos 處理線性代數的方式</p>
+</div>
+<p>在中學，矩陣（matrix）通常以解聯立方程的工具出現，或者是變換點的一套步驟：把矩陣乘以一個列向量（column vector），然後讀出新的坐標。兩者都有用，但它們掩蓋了矩陣之所以成為數學中最重要概念之一的原因。矩陣是一個<em>線性變換</em>（linear transformation）：一種把空間拉伸、旋轉、反射和錯切的方式，而且矩陣可以相加、相乘、取冪和求導，就像數一樣。只不過它們又不像數。矩陣的乘法取決於次序，兩個矩陣可以相乘得零，而且它們有隱藏的不變量（invariant）——跡（trace）、行列式（determinant）、特徵值（eigenvalue）——無論矩陣寫成甚麼樣子，這些量都能刻劃它的本質。</p>
+<h3 id="線性代數為何重要">線性代數為何重要</h3>
+<p>線性代數（linear algebra）大概是應用最廣的數學分支。每一個電腦圖像引擎，由電子遊戲到電影動畫，都是一部做矩陣乘法的機器：角色的每一次旋轉、每一個鏡頭角度、每一個透視投影，都是一個矩陣。互聯網上的搜尋引擎和推薦系統建基於特徵向量（eigenvector）。工程師利用特徵值求出橋樑和建築物的振動頻率；統計學家利用它們找出數據中的主要規律；量子力學完全以線性代數的語言寫成。而現代的機器學習，核心就是數量極其龐大的矩陣乘法。</p>
+<p>線性代數無處不在，是有原因的。線性問題是我們能夠徹底解決的問題，而幾乎每一個非線性問題，只要放大到足夠近，看起來都是線性的。這正是微積分的想法，也意味着幾乎所有事物的局部性態，都是用線性代數這種語言來描述的。</p>
+<h3 id="你在大學會遇到甚麼">你在大學會遇到甚麼</h3>
+<p>線性代數與分析（analysis）並列為大學一年級的兩大支柱。你會遇到<em>向量空間</em>（vector space，即可以做加法和純量乘法的集合，平面和三維空間只是最初的例子）以及它們之間的<em>線性映射</em>（linear map），並且學到矩陣其實就是用坐標寫出來的線性映射。你會學習行列式、特徵值和特徵向量，以及<em>譜定理</em>（spectral theorem），它指出對稱矩陣（symmetric matrix）可以藉一個旋轉來對角化（diagonalise）。往後的課程處處用到這些內容：在微分方程（第 8 章）中，在幾何中（旋轉和反射在那裏構成羣），在描述連續對稱的<em>李羣</em>（Lie group）理論中，以及在泛函分析（functional analysis）中，也就是無限多維的線性代數。</p>
+<h3 id="貫穿本章的問題">貫穿本章的問題</h3>
+<div class="skillbox">
+<div class="box-title">三大問題</div>
+<ol class="arabic">
+<li><p><strong>矩陣在哪些方面像數，又在哪些方面不同？</strong>哪些算術法則仍然成立，哪些不再成立？</p></li>
+<li><p><strong>矩陣究竟做了甚麼？</strong>我們怎樣才能看出一個變換的幾何，又有哪些數能夠不依賴坐標而刻劃它？</p></li>
+<li><p><strong>甚麼保持不變？</strong>哪些量在變換之下，或在運動之下保持不變，它們又告訴我們甚麼？</p></li>
+</ol>
+</div>
+<p>本章由矩陣代數的法則開始（<a href="../ch07/matrix-rules.html">第 7.1 節</a>），然後轉到變換的幾何：特徵向量、行列式、有限階矩陣、三維空間中的旋轉，以及狹義相對論中的雙曲旋轉（hyperbolic rotation）。接着是隨時間演化的矩陣的守恆量（conserved quantity）、由行列式得出的四平方恆等式（four-square identity），最後以一個計數論證作結，即歐拉（Euler）公式，它把柏拉圖立體（Platonic solids）分類。</p>
+<h3 id="本章的概念">本章的概念</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">主題</th>
+<th style="text-align: left;">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">7.1</td>
+<td style="text-align: left;">不成立的法則</td>
+<td style="text-align: left;">非交換性（non-commutativity）；零因子（zero divisor）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.2</td>
+<td style="text-align: left;">特徵向量</td>
+<td style="text-align: left;">變換不會轉動的方向</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.3</td>
+<td style="text-align: left;">行列式</td>
+<td style="text-align: left;">由可乘性刻劃；有向面積</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.4</td>
+<td style="text-align: left;">有限階矩陣</td>
+<td style="text-align: left;">跡、行列式與凱萊–哈密頓（Cayley–Hamilton）定理</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.5</td>
+<td style="text-align: left;">三維旋轉</td>
+<td style="text-align: left;">由叉積（cross product）得出羅德里格斯（Rodrigues）公式</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.6</td>
+<td style="text-align: left;">洛倫茲推進（Lorentz boosts）</td>
+<td style="text-align: left;">雙曲角可以相加</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.7</td>
+<td style="text-align: left;">守恆量</td>
+<td style="text-align: left;">交換子（commutator）的跡為零</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.8</td>
+<td style="text-align: left;">四平方</td>
+<td style="text-align: left;">行列式的可乘性</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.9</td>
+<td style="text-align: left;">柏拉圖立體</td>
+<td style="text-align: left;">算兩次（double counting）與歐拉公式</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="如何閱讀本章">如何閱讀本章</h3>
+<p>對本章的每一個矩陣，都把它所做的事畫出來。取單位正方形，或單位圓，或幾個向量，然後畫出它們的像的草圖。花兩分鐘畫一幅草圖，往往在你動手計算之前就讓你看到答案（一個特徵向量、一個反例、一條不變直線），事後也有助你檢查計算。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="matrix-rules.html">→ 開始： 7.1 對矩陣不成立的法則</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由機器從英文翻譯而成，尚未經以中文為母語的數學教師審閱。如有不清楚之處，概以英文原文為準。</p><p>文字、解答、圖表及練習均由 Keith McNulty 撰寫及製作，並按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 貢獻予公眾領域。如有更正，歡迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 題目版權屬 Cambridge University Press &amp; Assessment 所有（&copy;），並不在 CC0 公眾領域貢獻宣告的涵蓋範圍內。本站不會轉載題目：每一節均設有連結，通往官方來源的相關題目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">私隱</a> &middot; <a href="#" data-cookie-settings>Cookie 設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

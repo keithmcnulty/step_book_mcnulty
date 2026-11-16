@@ -49,17 +49,30 @@
     b.id = "consent-banner";
     b.className = "consent-banner";
     b.setAttribute("role", "region");
-    b.setAttribute("aria-label", "Cookie consent");
+    var zh = /^zh/i.test(document.documentElement.lang || "");
+    var t = zh ? {
+      label: "Cookie 同意設定", title: "Cookie 與你的私隱",
+      body: "英國私隱法例（PECR 及 UK GDPR）規定，本網站在設置分析用 Cookie 前必須先徵得你的同意。" +
+            "如你接受，Google Analytics 會記錄你瀏覽了哪些頁面，讓我們了解本書的使用情況。" +
+            "如你拒絕，本網站不會設置任何分析用 Cookie，也不會向 Google 傳送任何資料。" +
+            "你可隨時透過每頁底部的 Cookie 設定連結更改選擇。",
+      notice: "私隱聲明", reject: "拒絕", accept: "接受"
+    } : {
+      label: "Cookie consent", title: "Cookies and your privacy",
+      body: "UK privacy law (PECR and UK GDPR) requires this site to ask your permission before setting analytics cookies. " +
+            "If you accept, Google Analytics will record which pages you visit, so that we can see how the book is used. " +
+            "If you reject, no analytics cookies are set and nothing is sent to Google. You can change your choice at any time " +
+            "using the cookie settings link at the foot of every page.",
+      notice: "Privacy notice", reject: "Reject", accept: "Accept"
+    };
+    b.setAttribute("aria-label", t.label);
     b.innerHTML =
       '<div class="consent-icon" aria-hidden="true"></div>' +
-      '<div class="consent-text"><p class="consent-title">Cookies and your privacy</p>' +
-      '<p>UK privacy law (PECR and UK GDPR) requires this site to ask your permission before setting analytics cookies. ' +
-      'If you accept, Google Analytics will record which pages you visit, so that we can see how the book is used. ' +
-      'If you reject, no analytics cookies are set and nothing is sent to Google. You can change your choice at any time ' +
-      'using the cookie settings link at the foot of every page. ' +
-      '<a href="' + root + 'privacy/index.html">Privacy notice</a></p></div>' +
-      '<div class="consent-buttons"><button type="button" data-consent="denied">Reject</button>' +
-      '<button type="button" data-consent="granted">Accept</button></div>';
+      '<div class="consent-text"><p class="consent-title">' + t.title + '</p>' +
+      '<p>' + t.body + ' ' +
+      '<a href="' + root + 'privacy/index.html">' + t.notice + '</a></p></div>' +
+      '<div class="consent-buttons"><button type="button" data-consent="denied">' + t.reject + '</button>' +
+      '<button type="button" data-consent="granted">' + t.accept + '</button></div>';
     b.addEventListener("click", function (e) {
       var v = e.target.getAttribute && e.target.getAttribute("data-consent");
       if (!v) return;
