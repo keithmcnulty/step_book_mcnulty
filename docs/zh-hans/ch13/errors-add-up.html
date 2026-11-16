@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>累积起来的误差 (STEP II 1993 第 15 题) — Beyond STEP</title>
+<meta name="description" content="STEP II 1993 第 15 题：引导式解答及其背后的大学数学。 1982 年，温哥华证券交易所推出了一个新指数，起始值为 1000 。每当有股价变动，指数便会重新计算，并 截断 （truncate）至小数点后三位。每次截断平均损失 0.0005 ，看来微不足道。可是每天大约要重新计算 3000 次，二十二个月后，尽管大市上升，指数却只剩下约 520 。经正确重算后，指数一夜之间跃升至约…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch13/errors-add-up.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="累积起来的误差 (STEP II 1993 第 15 题) — Beyond STEP">
+<meta property="og:description" content="STEP II 1993 第 15 题：引导式解答及其背后的大学数学。 1982 年，温哥华证券交易所推出了一个新指数，起始值为 1000 。每当有股价变动，指数便会重新计算，并 截断 （truncate）至小数点后三位。每次截断平均损失 0.0005 ，看来微不足道。可是每天大约要重新计算 3000 次，二十二个月后，尽管大市上升，指数却只剩下约 520 。经正确重算后，指数一夜之间跃升至约…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch13/errors-add-up.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="累积起来的误差 (STEP II 1993 第 15 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1993 第 15 题：引导式解答及其背后的大学数学。 1982 年，温哥华证券交易所推出了一个新指数，起始值为 1000 。每当有股价变动，指数便会重新计算，并 截断 （truncate）至小数点后三位。每次截断平均损失 0.0005 ，看来微不足道。可是每天大约要重新计算 3000 次，二十二个月后，尽管大市上升，指数却只剩下约 520 。经正确重算后，指数一夜之间跃升至约…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "累积起来的误差", "headline": "累积起来的误差", "description": "STEP II 1993 第 15 题：引导式解答及其背后的大学数学。 1982 年，温哥华证券交易所推出了一个新指数，起始值为 1000 。每当有股价变动，指数便会重新计算，并 截断 （truncate）至小数点后三位。每次截断平均损失 0.0005 ，看来微不足道。可是每天大约要重新计算 3000 次，二十二个月后，尽管大市上升，指数却只剩下约 520 。经正确重算后，指数一夜之间跃升至约…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/errors-add-up.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1993 第 15 题", "统计与现实世界中的随机性"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "统计与现实世界中的随机性", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 13 章：统计与现实世界中的随机性", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/"}, {"@type": "ListItem", "position": 3, "name": "累积起来的误差", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/errors-add-up.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch13/errors-add-up.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch13/errors-add-up.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 13 章 · 统计与现实世界中的随机性</a>
+    <div class="src">STEP II · 1993 · 第 15 题</div>
+    <div class="sec-head"><span class="sec-num">13.6</span><h1>累积起来的误差</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-6-errors-add-up.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 13 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP II 1993，第 15 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/93-s2-q15">step.maths.org/questions/93-s2-q15</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>1982 年，温哥华证券交易所推出了一个新指数，起始值为 <span class="math inline">\(1000\)</span>。每当有股价变动，指数便会重新计算，并<em>截断</em>（truncate）至小数点后三位。每次截断平均损失 <span class="math inline">\(0.0005\)</span>，看来微不足道。可是每天大约要重新计算 <span class="math inline">\(3000\)</span> 次，二十二个月后，尽管大市上升，指数却只剩下约 <span class="math inline">\(520\)</span>。经正确重算后，指数一夜之间跃升至约 <span class="math inline">\(1100\)</span>。</p>
+<p>这道题目解释了个中原因。截断误差（truncation error）全部朝同一方向，因此会稳步累积，与运算次数成正比。舍入误差（rounding error）则有正有负，大部分互相抵销：它们的增长速度只相当于运算次数的平方根，这正是中心极限定理（central limit theorem）（<a href="../ch12/clt.html">第 12.24 节</a>）所预测的随机漫步（random walk）行为。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>若某数的小数部分 <span class="math inline">\(U\)</span> 在 <span class="math inline">\([0, 1)\)</span> 上均匀分布（uniform），把该数截断时误差是多少？舍入时又是多少？两者的平均值（mean）和方差（variance）各是多少？</p>
+</div>
+<p>截断是以 <span class="math inline">\(\lfloor a\rfloor\)</span> 取代 <span class="math inline">\(a\)</span>，误差（真确值减近似值）为 <span class="math inline">\(U\)</span>，在 <span class="math inline">\([0, 1)\)</span> 上均匀分布：平均值为 <span class="math inline">\(\frac12\)</span>，方差为 <span class="math inline">\(\frac{1}{12}\)</span>。舍入所得的误差在 <span class="math inline">\((-\frac12, \frac12]\)</span> 上均匀分布：平均值为 <span class="math inline">\(0\)</span>，方差为 <span class="math inline">\(\frac{1}{12}\)</span>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-总误差" class="stage"><span class="stage-n">阶段 1</span> 总误差</h4>
+<p>加了 <span class="math inline">\(1500\)</span> 个数之后，总误差是 <span class="math inline">\(1500\)</span> 个独立（independent）误差之和，根据中心极限定理，它近似于正态分布（normal distribution）：</p>
+<ul>
+<li><p>LEP（舍入）：平均值为 <span class="math inline">\(0\)</span>，方差为 <span class="math inline">\(\frac{1500}{12} = 125\)</span>，标准差（standard deviation）为 <span class="math inline">\(\sqrt{125} \approx 11.18\)</span>。</p></li>
+<li><p>VOZ（截断）：平均值为 <span class="math inline">\(\frac{1500}{2} = 750\)</span>，标准差同样是 <span class="math inline">\(11.18\)</span>。</p></li>
+</ul>
+<h4 id="stagemark2-出现大误差的概率" class="stage"><span class="stage-n">阶段 2</span> 出现大误差的概率</h4>
+<div class="askyourself">
+<p>对 LEP 而言，若 <span class="math inline">\(E \sim \mathrm{N}(0, 125)\)</span>，<span class="math inline">\(\mathrm{P}(|E| &gt; 15)\)</span> 是多少？对 VOZ 而言，误差几乎必然落在哪里？</p>
+</div>
+<p>对 LEP 而言，<span class="math inline">\(\frac{15}{11.18} \approx 1.342\)</span>，所以 <span class="math display">\[\mathrm{P}(|E| &gt; 15) \approx 2\bigl(1 - \Phi(1.342)\bigr) \approx 2 \times 0.090 = 0.18.\]</span> 对 VOZ 而言，误差约为 <span class="math inline">\(750 \pm 11\)</span>；其绝对值小于 <span class="math inline">\(15\)</span> 的概率基本上是零，所以 <span class="math inline">\(\mathrm{P}(|E| &gt; 15) \approx 1\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-可以做多少次加法" class="stage"><span class="stage-n">阶段 3</span> 可以做多少次加法？</h4>
+<div class="askyourself">
+<p>做了 <span class="math inline">\(n\)</span> 次加法后，LEP 的误差的标准差为 <span class="math inline">\(\sqrt{n/12}\)</span>。何时有 <span class="math inline">\(\mathrm{P}(|E| &lt; 10) \geq 0.9\)</span>？</p>
+</div>
+<p>我们需要 <span class="math inline">\(\frac{10}{\sqrt{n/12}} \geq 1.645\)</span>（因为 <span class="math inline">\(\mathrm{P}(|Z| &lt; 1.645) = 0.9\)</span>），即 <span class="math inline">\(\frac{n}{12} \leq \bigl(\frac{10}{1.645}\bigr)^2 \approx 36.95\)</span>，所以 <span class="math inline">\(n \leq 443\)</span>。LEP 可以做大约 <span class="math inline">\(443\)</span> 次加法。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-6-1.svg" alt="图 13.6.1"><figcaption><span class="fig-label">图 13.6.1</span> 误差如何累积。截断误差（紫红色）全部同号，与 <span class="math inline">\(n\)</span> 成正比增长：做了 <span class="math inline">\(1500\)</span> 次加法后，总误差约为 <span class="math inline">\(750\)</span>。舍入误差（蓝绿色带状区域，即零的两侧各两个标准差）平均而言互相抵销，增长速度只相当于 <span class="math inline">\(\sqrt n\)</span>：做了 <span class="math inline">\(1500\)</span> 次加法后，误差通常在约 <span class="math inline">\(\pm22\)</span> 之内。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>为每个误差建立模型。</strong>小数部分均匀分布，令每个误差都有简单的分布。</p></li>
+<li><p><strong>把平均值和方差相加。</strong>平均值可以相加（得出偏差 <span class="math inline">\(\frac n2\)</span>），而对于独立的误差，方差同样可以相加。</p></li>
+<li><p><strong>正态近似。</strong>中心极限定理把 <span class="math inline">\(1500\)</span> 个均匀误差之和化为正态分布。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="偏差与方差">偏差与方差</h3>
+<p>截断是<em>有偏</em>（biased）的：其误差的平均值不是零，而偏差（bias）会线性累积。舍入是<em>无偏</em>（unbiased）的，其误差的表现有如随机漫步，增长速度相当于 <span class="math inline">\(\sqrt n\)</span>。经过一百万次运算后，两者的分别就是数量级为 <span class="math inline">\(500\,000\)</span> 的误差与数量级为 <span class="math inline">\(300\)</span> 的误差之别。这与实验中系统误差（systematic error，例如仪器校准失准）和随机测量误差（random error）之间的区别如出一辙：把多次测量结果取平均，可以减少随机误差，对系统误差却毫无作用。</p>
+<h3 id="浮点数">浮点数</h3>
+<p>所有电脑都只能以有限的精确度储存实数，每次算术运算都要把结果舍入。现代电脑遵从 IEEE 754 标准，把结果舍入至最接近的可表示数；若刚好位于两数正中，则取末位为偶数的一个，目的正是令舍入平均而言无偏。即使如此，把大量数字相加时若不小心处理，仍会损失准确度；William Kahan 的<em>补偿求和</em>（compensated summation）算法（1965 年）会记录失去的低位数字，再把它们加回去。1991 年波斯湾战争期间，一个爱国者导弹连未能拦截一枚来袭导弹，原因是它的时钟以十分之一秒为单位计时，而这个数无法以二进制准确储存；连续运作 <span class="math inline">\(100\)</span> 小时后，截断误差已增至约三分之一秒，足以令目标位置的估算偏差超过半公里。</p>
+<div class="historybox">
+<div class="box-title">温哥华指数</div>
+<p>温哥华证券交易所指数于 1982 年 1 月设立，起始值为 <span class="math inline">\(1000.000\)</span>。到 1983 年 11 月，尽管大市普遍上升，指数却已跌至约 <span class="math inline">\(524\)</span>。顾问发现，指数每天重新计算数千次，而每次都截断（而非舍入）至小数点后三位。经过一个周末的正确重算，指数重开时约为 <span class="math inline">\(1098\)</span>。这件事已成为数值计算课程中的经典警示。</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">分清系统误差与随机误差</div>
+<p><em>正负号一致的误差会线性累积；平均值为零的独立误差则按平方根的速度累积。先认清你面对的是哪一种。</em></p>
+<p>在大学，数值分析（numerical analysis）研究误差如何在计算过程中传播，统计学则区分偏差与方差；“偏差–方差权衡”（bias–variance trade-off）是现代机器学习的核心概念。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>修正 VOZ。</strong>若 VOZ 在最后把 <span class="math inline">\(\frac n2\)</span> 加到答案上，其误差的分布是甚么？它现在是否与 LEP 一样好？</p></li>
+<li><p><strong>舍入至小数点后一位。</strong>若把各数舍入至小数点后一位，而被舍去的数字均匀分布，求把 <span class="math inline">\(10\,000\)</span> 个数相加时总误差的标准差。</p></li>
+<li><p><strong>温哥华指数。</strong>若指数每天重新计算 <span class="math inline">\(3000\)</span> 次，每次截断平均损失 <span class="math inline">\(0.0005\)</span>，那么在一年 <span class="math inline">\(250\)</span> 个交易日内，指数会损失多少？</p></li>
+<li><p><strong>精确分布。</strong>求两个舍入误差之和的精确密度函数（density，呈三角形）。若是三个误差之和，试绘出其草图。它多快便开始貌似正态分布？</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Nicholas Higham, <a href="https://uk.bookshop.org/search?keywords=Accuracy+and+Stability+of+Numerical+Algorithms+Higham"><em>Accuracy and Stability of Numerical Algorithms</em></a></strong>（SIAM）。关于舍入误差的权威著作；第一章浅白易读。</p></li>
+<li><p><strong>David Goldberg, “<a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html">What every computer scientist should know about floating-point arithmetic</a>”</strong>, <em>ACM Computing Surveys</em> 23 (1991)。经典之作，可在网上免费阅读。</p></li>
+<li><p><strong>Tim Harford, <a href="https://uk.bookshop.org/search?keywords=How+to+Make+the+World+Add+Up+Harford"><em>How to Make the World Add Up</em></a></strong>（Bridge Street），探讨数据中的系统误差。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="awkward-questions.html">← 13.5 问尴尬的问题</a><a class="next" href="correlation.html">→ 13.7 制造相关性</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

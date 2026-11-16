@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>精确地取条件 (STEP I 2007 第 13 题) — Beyond STEP</title>
+<meta name="description" content="STEP I 2007 第 13 题：引导式解答及其背后的大学数学。 “已知”（given that）是概率中最危险的字眼。这道题最后四个部分的说法听起来几乎一模一样：编号为 3 的圆片最先被取出；编号为 3 的圆片被取出；最先取出的是一块有编号的圆片；取出的圆片中有一块有编号。其中三个的答案都是 frac12 ，第四个却不是。…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/conditioning.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/conditioning.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/conditioning.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/conditioning.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/conditioning.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="精确地取条件 (STEP I 2007 第 13 题) — Beyond STEP">
+<meta property="og:description" content="STEP I 2007 第 13 题：引导式解答及其背后的大学数学。 “已知”（given that）是概率中最危险的字眼。这道题最后四个部分的说法听起来几乎一模一样：编号为 3 的圆片最先被取出；编号为 3 的圆片被取出；最先取出的是一块有编号的圆片；取出的圆片中有一块有编号。其中三个的答案都是 frac12 ，第四个却不是。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch12/conditioning.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="精确地取条件 (STEP I 2007 第 13 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2007 第 13 题：引导式解答及其背后的大学数学。 “已知”（given that）是概率中最危险的字眼。这道题最后四个部分的说法听起来几乎一模一样：编号为 3 的圆片最先被取出；编号为 3 的圆片被取出；最先取出的是一块有编号的圆片；取出的圆片中有一块有编号。其中三个的答案都是 frac12 ，第四个却不是。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "精确地取条件", "headline": "精确地取条件", "description": "STEP I 2007 第 13 题：引导式解答及其背后的大学数学。 “已知”（given that）是概率中最危险的字眼。这道题最后四个部分的说法听起来几乎一模一样：编号为 3 的圆片最先被取出；编号为 3 的圆片被取出；最先取出的是一块有编号的圆片；取出的圆片中有一块有编号。其中三个的答案都是 frac12 ，第四个却不是。…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/conditioning.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2007 第 13 题", "概率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/"}, {"@type": "ListItem", "position": 3, "name": "精确地取条件", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/conditioning.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch12/conditioning.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/conditioning.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 12 章 · 概率</a>
+    <div class="src">STEP I · 2007 · 第 13 题</div>
+    <div class="sec-head"><span class="sec-num">12.1</span><h1>精确地取条件</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-1-conditioning.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 12 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP I 2007，第 13 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/07-s1-q13">step.maths.org/questions/07-s1-q13</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>“已知”（given that）是概率中最危险的字眼。这道题最后四个部分的说法听起来几乎一模一样：编号为 3 的圆片最先被取出；编号为 3 的圆片被取出；最先取出的是一块有编号的圆片；取出的圆片中有一块有编号。其中三个的答案都是 <span class="math inline">\(\frac12\)</span>，第四个却不是。</p>
+<p>这个分别，正正就是著名的“男孩还是女孩”谜题背后的分别（一个家庭有两个孩子，其中至少一个是男孩；两个都是男孩的机会有多大？）。这道谜题难倒了一代又一代的学生，也难倒了不少专业数学家。当中的教训是：条件（condition）是一个精确的陈述，说明哪些结果仍然可能出现；而信息是怎样得来的，与信息本身同样重要。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>从十一块圆片中取出四块。对于“四块都有编号”这个事件（event）而言，抽取的次序有没有影响？四块圆片组成的等可能（equally likely）组合共有多少个？</p>
+</div>
+<p>每一个由四块圆片组成的组合被抽中的可能性都相同，所以我们可以不理会次序：共有 <span class="math inline">\(\binom{11}{4} = 330\)</span> 个等可能的组合。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-没有条件" class="stage"><span class="stage-n">阶段 1</span> 没有条件</h4>
+<p>由四块有编号圆片组成的组合有 <span class="math inline">\(\binom54 = 5\)</span> 个，所以 <span class="math display">\[\mathrm{P}(\text{四块都有编号}) = \frac{5}{330} = \frac{1}{66}.\]</span></p>
+<h4 id="stagemark2-3-号最先取出" class="stage"><span class="stage-n">阶段 2</span> 3 号最先取出</h4>
+<div class="askyourself">
+<p>编号为 3 的圆片最先被抽出之后，余下的三次抽取是怎样的？</p>
+</div>
+<p>其余三块圆片是从余下十块（四块有编号、六块空白）中随机抽出的三块，全部 <span class="math inline">\(\binom{10}{3} = 120\)</span> 个组合都是等可能的。所以 <span class="math display">\[\text{(ii)}\quad \frac{\binom43}{120} = \frac{4}{120} = \frac{1}{30}, \qquad \text{(iii)}\quad \frac{\binom41\binom62}{120} = \frac{4 \times 15}{120} = \frac12,\]</span> 因为在 (iii) 中，其余三块之中必须恰好有一块有编号。</p>
+<h4 id="stagemark3-3-号被取出在某一次" class="stage"><span class="stage-n">阶段 3</span> 3 号被取出（在某一次）</h4>
+<div class="askyourself">
+<p>编号为 3 的圆片是在<em>哪一次</em>抽出的，有没有关系？已知 3 号在四块之中，对其余三块你能说些甚么？</p>
+</div>
+<p>根据对称性（symmetry），已知这四块圆片中包含 3 号，其余三块就是从余下十块中随机抽出的三块，与第 2 阶段完全一样。所以 (iv) 的答案也是 <span class="math inline">\(\frac12\)</span>。</p>
+<h4 id="stagemark4-最先取出的是有编号的圆片" class="stage"><span class="stage-n">阶段 4</span> 最先取出的是有编号的圆片</h4>
+<p>已知第一块圆片有编号（不论是哪个号码），其余三块同样是从余下十块圆片中随机抽出的三块，当中四块有编号、六块空白。所以 (v) 的答案也是 <span class="math inline">\(\frac12\)</span>。</p>
+<h4 id="stagemark5-取出的圆片中有一块有编号" class="stage"><span class="stage-n">阶段 5</span> 取出的圆片中有一块有编号</h4>
+<div class="askyourself">
+<p>现在的条件是“四块之中至少有一块有编号”。这与之前任何一个条件相同吗？330 个组合之中有多少个符合这个条件？</p>
+</div>
+<p>这个条件有所不同：它没有指明任何一块特定的圆片。只有 <span class="math inline">\(\binom64 = 15\)</span> 个组合完全没有编号圆片，所以有 <span class="math inline">\(315\)</span> 个符合条件。其中 <span class="math inline">\(\binom52\binom62 = 10 \times 15 = 150\)</span> 个恰好包含两块有编号的圆片。所以 <span class="math display">\[\text{(vi)}\quad \frac{150}{315} = \frac{10}{21}. \qed\]</span></p>
+<div class="pausebox">
+<p>为甚么 (vi) 与 (v) 不同？在 (v) 中，我们知道<em>哪一块</em>圆片有编号（第一块），而其余三块不受限制。在 (vi) 中，我们只知道有<em>某一块</em>圆片有编号。含有三块或四块编号圆片的组合，可以用更多方式满足“某一块圆片有编号”，所以它们不会像在 (v) 中那样比重偏低。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-12-1-1.svg" alt="图 12.1.1"><figcaption><span class="fig-label">图 12.1.1</span> 六个答案。第 (iii)、(iv) 和 (v) 部分的条件都是某一块<em>特定</em>的圆片有编号，答案是 <span class="math inline">\(\frac12\)</span>。第 (vi) 部分的条件只是有<em>某一块</em>圆片有编号，答案是 <span class="math inline">\(\frac{10}{21}\)</span>。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>条件会收窄样本空间（sample space）。</strong><span class="math inline">\(\mathrm{P}(A \mid B)\)</span> 是 <span class="math inline">\(B\)</span> 的结果之中同时属于 <span class="math inline">\(A\)</span> 的比例。</p></li>
+<li><p><strong>对称性可以省功夫。</strong>3 号是最先抽出，还是在某一次抽出，并无分别，因为所有位置的地位都相同。</p></li>
+<li><p><strong>“特定的一个”不等于“至少一个”。</strong>听起来相似的条件，选出来的结果集合可以大不相同。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="男孩还是女孩的谜题">男孩还是女孩的谜题</h3>
+<p>马丁·加德纳（Martin Gardner）在 1959 年提出这个问题：史密斯先生有两个孩子，其中至少一个是男孩；两个都是男孩的概率是多少？列出等可能的家庭组合 BB、BG、GB、GG，剔除 GG 后剩下三个，其中一个是 BB：答案是 <span class="math inline">\(\frac13\)</span>。但如果我们知道<em>年长</em>的孩子是男孩，答案就是 <span class="math inline">\(\frac12\)</span>。这正是我们这道题第 (vi) 和第 (v) 部分的缩影。加德纳后来承认，他最初提出的问题含糊不清：答案取决于我们是怎样得知有一个男孩的。如果我们随机遇上其中一个孩子，而他是男孩，答案是 <span class="math inline">\(\frac12\)</span>；如果我们问“你有没有至少一个儿子？”而对方回答有，答案就是 <span class="math inline">\(\frac13\)</span>。概率取决于产生信息的过程，而不仅是信息本身。</p>
+<h3 id="蒙提霍尔问题monty-hall">蒙提霍尔问题（Monty Hall）</h3>
+<p>概率中争议最多的谜题，背后也是同一个教训。在一个游戏节目中，三道门的其中一道后面有一辆汽车。你选了 1 号门。主持人知道汽车在哪里，他必定会打开另外两道门的其中一道，让你看到门后是一只山羊，并且必定会让你选择是否换门；当汽车就在你所选的门后，以致他有选择余地时，他会在另外两道门之间随机挑选。他打开了 3 号门，并让你改选 2 号门。你应该换吗？应该：换门后胜出的概率是 <span class="math inline">\(\frac23\)</span>。主持人选哪道门并非随机；这取决于汽车的位置，因而带有信息。确切的规则十分重要。如果主持人只要可以就一定打开 3 号门，那么看到 3 号门打开，1 号门和 2 号门就变得同样可能，换门后胜出的概率只有 <span class="math inline">\(\frac12\)</span>；然而，一个事先决定必定换门的参赛者，仍然有 <span class="math inline">\(\frac23\)</span> 的机会胜出，因为换门胜出，恰好就是第一次选错的时候。Marilyn vos Savant 在 1990 年于杂志专栏中给出这个答案时，收到数以千计的来信指她错了，其中有些更是出自数学家之手。用电脑模拟一次，或者仔细列出各个等可能的情况，就可以解决争议。</p>
+<div class="historybox">
+<div class="box-title">贝叶斯（Bayes）与拉普拉斯（Laplace）</div>
+<p>条件概率（conditional probability）的系统化基础，是由托马斯·贝叶斯（Thomas Bayes）和皮埃尔–西蒙·拉普拉斯（Pierre-Simon Laplace）奠定的：贝叶斯的论文在他死后于 1763 年发表，而拉普拉斯则在 1774 年以一般形式写出了现称为贝叶斯定理（Bayes’ theorem）的法则。安德烈·柯尔莫哥洛夫（Andrey Kolmogorov）在 1933 年提出的公理（axioms），是现今每一个大学课程的起点，当中定义 <span class="math inline">\(\mathrm{P}(A \mid B) = \mathrm{P}(A \cap B)/\mathrm{P}(B)\)</span>，而概率论的其余部分都建基于这个定义之上。下一节 <a href="../ch12/base-rate.html">第 12.2 节</a> 会展示贝叶斯定理在实际应用中的作用。</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">准确把握条件</div>
+<p><em>计算条件概率之前，先确切写下哪些结果符合条件。问一问信息是怎样得来的。</em></p>
+<p>在大学里，条件概率和条件期望（conditional expectation）是概率与统计中最重要的工具之一，也是最常出错的地方。把样本空间写出来，至少就一个小规模的情况写出来，是最好的防范方法。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>推广。</strong>设有 <span class="math inline">\(b\)</span> 块空白圆片和 <span class="math inline">\(n\)</span> 块有编号的圆片，从中抽出 <span class="math inline">\(k\)</span> 块，证明 (iv) 和 (v) 的答案永远相等，并求出 (vi) 在甚么情况下与它们相等。</p></li>
+<li><p><strong>星期二出生的男孩。</strong>一个家庭有两个孩子，其中至少一个是在星期二出生的男孩。证明两个都是男孩的概率是 <span class="math inline">\(\frac{13}{27}\)</span>。（列出 <span class="math inline">\(14 \times 14\)</span> 个等可能的情况，或者用巧妙的方法计数。）</p></li>
+<li><p><strong>蒙提霍尔问题。</strong>列出各个结果，验证 <span class="math inline">\(\frac23\)</span> 这个答案。如果主持人不知道汽车在哪里，随机打开另外两道门的其中一道，而门后刚好是一只山羊，那又如何？</p></li>
+<li><p><strong>两张 A。</strong>一手 <span class="math inline">\(13\)</span> 张的桥牌中至少有一张 A。这手牌中至少有两张 A 的概率是多少？试与已知这手牌中有葵扇 A 时的概率比较。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Jason Rosenhouse, <a href="https://uk.bookshop.org/search?keywords=The+Monty+Hall+Problem+Rosenhouse"><em>The Monty Hall Problem</em></a></strong>（Oxford University Press）。讲述这道谜题、它的历史，以及它的众多变化。</p></li>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <a href="https://uk.bookshop.org/search?keywords=Probability%3A+An+Introduction+Grimmett+Welsh"><em>Probability: An Introduction</em></a></strong>（Oxford University Press），有关条件概率的各章。</p></li>
+<li><p><strong>Joseph Blitzstein &amp; Jessica Hwang, <a href="https://probabilitybook.net/"><em>Introduction to Probability</em></a></strong>（CRC Press；可于网上免费阅读）。对条件概率的处理十分出色，并载有许多悖论。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 本章导言</a><a class="next" href="base-rate.html">→ 12.2 基本比率谬误</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

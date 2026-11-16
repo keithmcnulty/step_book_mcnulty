@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>顺向与逆向的马可夫链 (STEP III 1996 第 12 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 1996 第 12 题：引导式解答及其背后的大学数学。 Ecks 教授的定理有一个规律：她下一个证明甚么，只取决于她上一个证明了甚么。一个过程的未来若只取决于现在而与过去无关，就称为 马可夫链（Markov chain） 。马可夫链无处不在：天气模型、蛇梯棋这种图版游戏、DNA 模型、Google 最初的 PageRank…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/markov.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/markov.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/markov.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/markov.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/markov.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="顺向与逆向的马可夫链 (STEP III 1996 第 12 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 1996 第 12 题：引导式解答及其背后的大学数学。 Ecks 教授的定理有一个规律：她下一个证明甚么，只取决于她上一个证明了甚么。一个过程的未来若只取决于现在而与过去无关，就称为 马可夫链（Markov chain） 。马可夫链无处不在：天气模型、蛇梯棋这种图版游戏、DNA 模型、Google 最初的 PageRank…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch12/markov.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="顺向与逆向的马可夫链 (STEP III 1996 第 12 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1996 第 12 题：引导式解答及其背后的大学数学。 Ecks 教授的定理有一个规律：她下一个证明甚么，只取决于她上一个证明了甚么。一个过程的未来若只取决于现在而与过去无关，就称为 马可夫链（Markov chain） 。马可夫链无处不在：天气模型、蛇梯棋这种图版游戏、DNA 模型、Google 最初的 PageRank…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "顺向与逆向的马可夫链", "headline": "顺向与逆向的马可夫链", "description": "STEP III 1996 第 12 题：引导式解答及其背后的大学数学。 Ecks 教授的定理有一个规律：她下一个证明甚么，只取决于她上一个证明了甚么。一个过程的未来若只取决于现在而与过去无关，就称为 马可夫链（Markov chain） 。马可夫链无处不在：天气模型、蛇梯棋这种图版游戏、DNA 模型、Google 最初的 PageRank…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/markov.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1996 第 12 题", "概率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/"}, {"@type": "ListItem", "position": 3, "name": "顺向与逆向的马可夫链", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/markov.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch12/markov.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/markov.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 12 章 · 概率</a>
+    <div class="src">STEP III · 1996 · 第 12 题</div>
+    <div class="sec-head"><span class="sec-num">12.16</span><h1>顺向与逆向的马可夫链</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-16-markov.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 12 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 1996，第 12 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/96-s3-q12">step.maths.org/questions/96-s3-q12</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>Ecks 教授的定理有一个规律：她下一个证明甚么，只取决于她上一个证明了甚么。一个过程的未来若只取决于现在而与过去无关，就称为<em>马可夫链（Markov chain）</em>。马可夫链无处不在：天气模型、蛇梯棋这种图版游戏、DNA 模型、Google 最初的 PageRank 算法，以至统计学家用来模拟复杂概率分布的方法，全都用得上它。</p>
+<p>本题要求出各类定理在长远而言所占的比例，即<em>平稳分布（stationary distribution）</em>：长远来说，她的定理每六个之中有一个是新而正确的，而有一半是错的。然后题目把这条链在时间上倒过来运行，并问：已知今天的定理，昨天的定理是哪一类？</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>“每一行（row）之和为 <span class="math inline">\(1\)</span>”这个条件是甚么意思？各列（column）之和是否也是 <span class="math inline">\(1\)</span>？</p>
+</div>
+<p>第 <span class="math inline">\(i\)</span> 行列出的是：已知现时的类型为 <span class="math inline">\(i\)</span>，下一个定理属于各类型的概率；三者必有其一发生，所以每一行之和为 <span class="math inline">\(1\)</span>。各列则不一定：第二列之和恰好是 <span class="math inline">\(1\)</span>，但第一列之和是 <span class="math inline">\(0.6\)</span>，第三列之和是 <span class="math inline">\(1.4\)</span>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-一步" class="stage"><span class="stage-n">阶段 1</span> 一步</h4>
+<p>根据全概率定律（law of total probability），以现时定理的类型 <span class="math inline">\(i\)</span> 为条件， <span class="math display">\[b_j = \sum_i\mathrm{P}(\text{现时 } i)\,\mathrm{P}(\text{下一个 } j \mid \text{现时 } i) = a_1p_{1j} + a_2p_{2j} + a_3p_{3j}. \qed\]</span> 用矩阵的语言来说，行向量（row vector）<span class="math inline">\(\mathbf b = \mathbf aP\)</span>。</p>
+<h4 id="stagemark2-平稳分布" class="stage"><span class="stage-n">阶段 2</span> 平稳分布</h4>
+<div class="askyourself">
+<p>我们要求 <span class="math inline">\(\mathbf a = \mathbf aP\)</span>，且 <span class="math inline">\(a_1 + a_2 + a_3 = 1\)</span>。把各方程写出来。哪些最简单？</p>
+</div>
+<p>各方程为 <span class="math display">\[\begin{aligned}
+  a_1 &amp;= 0.3a_1 + 0.2a_2 + 0.1a_3, \\
+  a_2 &amp;= 0.3a_1 + 0.4a_2 + 0.3a_3, \\
+  a_3 &amp;= 0.4a_1 + 0.4a_2 + 0.6a_3.
+\end{aligned}\]</span> （它们并非独立：把三式相加，两边都得 <span class="math inline">\(a_1 + a_2 + a_3\)</span>。）由第二式得 <span class="math inline">\(0.6a_2 = 0.3(a_1 + a_3) = 0.3(1 - a_2)\)</span>，所以 <span class="math inline">\(a_2 = \frac13\)</span>。由第一式得 <span class="math inline">\(7a_1 = 2a_2 + a_3 = \frac23 + a_3\)</span>，而 <span class="math inline">\(a_1 + a_3 = \frac23\)</span>，所以 <span class="math inline">\(8a_1 = \frac43\)</span>，<span class="math inline">\(a_1 = \frac16\)</span>，<span class="math inline">\(a_3 = \frac12\)</span>： <span class="math display">\[(a_1, a_2, a_3) = \bigl(\tfrac16, \tfrac13, \tfrac12\bigr). \qed\]</span></p>
+<h4 id="stagemark3-把链倒过来运行" class="stage"><span class="stage-n">阶段 3</span> 把链倒过来运行</h4>
+<div class="askyourself">
+<p><span class="math inline">\(q_{ij} = \mathrm{P}(\text{上一个 } i \mid \text{现时 } j)\)</span>。运用贝叶斯定理（Bayes’ theorem），上一个定理和现时的定理都采用平稳分布。</p>
+</div>
+<p>根据贝叶斯定理， <span class="math display">\[q_{ij} = \frac{\mathrm{P}(\text{上一个 } i)\,\mathrm{P}(\text{现时 } j \mid \text{上一个 } i)}{\mathrm{P}(\text{现时 } j)} = \frac{a_ip_{ij}}{a_j}.\]</span> 例如 <span class="math inline">\(q_{11} = \frac{\frac16 \times 0.3}{\frac16} = 0.3\)</span> 及 <span class="math inline">\(q_{21} = \frac{\frac13 \times 0.2}{\frac16} = 0.4\)</span>。全部结果如下（以 <span class="math inline">\(i\)</span> 标示行，<span class="math inline">\(j\)</span> 标示列）： <span class="math display">\[(q_{ij}) = \begin{pmatrix} 0.3 &amp; 0.15 &amp; \frac{2}{15} \\ 0.4 &amp; 0.4 &amp; \frac{4}{15} \\ 0.3 &amp; 0.45 &amp; 0.6 \end{pmatrix}. \qed\]</span> 现在是每一<em>列</em>之和为 <span class="math inline">\(1\)</span>，因为第 <span class="math inline">\(j\)</span> 列列出的是上一个定理各种可能的类型。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-16-1.svg" alt="图 12.16.1"><figcaption><span class="fig-label">图 12.16.1</span> 把 Ecks 教授的定理看成一条马可夫链。箭头显示下一个定理属于各类型的概率。圆圈内的分数是平稳分布：长远来说，每六个定理有一个是新而正确的，每三个有一个是已知的，而有一半是错的。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>以矩阵表达全概率定律。</strong>链每走一步，就是把一个行向量乘以矩阵 <span class="math inline">\(P\)</span>。</p></li>
+<li><p><strong>平稳即特征向量（eigenvector）。</strong><span class="math inline">\(\mathbf a = \mathbf aP\)</span> 说明 <span class="math inline">\(\mathbf a\)</span> 是 <span class="math inline">\(P\)</span> 的左特征向量，对应的特征值（eigenvalue）为 <span class="math inline">\(1\)</span>。</p></li>
+<li><p><strong>用贝叶斯定理倒推。</strong>逆向概率构成另一个随机矩阵（stochastic matrix），由正向的随机矩阵和平稳分布构造而成。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="收敛至平衡">收敛至平衡</h3>
+<p>让 Ecks 教授从任何一个定理开始；再证明 <span class="math inline">\(n\)</span> 个之后，类型的分布是 <span class="math inline">\(\mathbf a_0P^n\)</span>。对于像这样的一条链，即每种类型都可以紧接在任何一种类型之后，不论起点为何，<span class="math inline">\(P^n\)</span> 都会收敛至一个每一行均等于平稳分布 <span class="math inline">\((\frac16, \frac13, \frac12)\)</span> 的矩阵。收敛的速度由 <span class="math inline">\(P\)</span> 的其他特征值（这里是 <span class="math inline">\(0.2\)</span> 和 <span class="math inline">\(0.1\)</span>）决定，它们以几何方式缩小：只需几个定理之后，她的过去就被遗忘了。这个关于马可夫链的<em>遍历定理（ergodic theorem）</em>是大学二年级概率课程的核心结果，马可夫链蒙地卡罗（Markov chain Monte Carlo）方法之所以行得通，靠的正是它：要从一个复杂的分布中抽样，就设计一条以该分布为平稳分布的马可夫链，然后让它运行一段长时间。</p>
+<h3 id="可逆性">可逆性</h3>
+<p>逆向链 <span class="math inline">\((q_{ij})\)</span> 与正向链 <span class="math inline">\((p_{ij})\)</span> 并不相同：从她的定理的一份长纪录中，你可以分辨出时间的方向。若一条链的逆向版本与正向版本一致，即对所有 <span class="math inline">\(i\)</span>、<span class="math inline">\(j\)</span> 都有 <span class="math inline">\(a_ip_{ij} = a_jp_{ji}\)</span>，就称为<em>可逆（reversible）</em>；网络上的随机游走（random walk）以及处于热平衡的物理系统的模型都属此类。可逆性是一个威力强大的性质，因为它令平稳分布很容易求出。</p>
+<div class="historybox">
+<div class="box-title">马可夫与普希金</div>
+<p>马可夫（Andrey Markov）在 1906 年引入他的链，部分原因是要证明大数定律（law of large numbers）并不需要独立性；当时他正与数学家 Pavel Nekrasov 争论，后者声称独立性是必需的。1913 年，马可夫把他的想法应用于普希金（Pushkin）的诗体小说《叶甫盖尼·奥涅金》（<em>Eugene Onegin</em>）的首 <span class="math inline">\(20\,000\)</span> 个字母，把每个字母分为元音或辅音，并证明每个字母的类型取决于前一个字母的类型，而这种关系可用一条两个状态的链很好地描述。这是史上第一次对文本作统计分析，也是所有预测输入系统的始祖。</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">概率作向量，转移作矩阵</div>
+<p><em>当一个系统以固定的概率在各状态之间转移时，把分布写成向量，把转移写成矩阵。这样，长远行为就变成一个关于特征向量的问题。</em></p>
+<p>在大学里，这样做会把第 7 章的线性代数带进概率论。佩龙－弗罗宾尼斯定理（Perron–Frobenius theorem）保证平稳分布存在，而其他特征值则量度到达平稳分布有多快。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>兔子窝。</strong>试做 <a href="https://step.maths.org/questions/03-s3-q13">STEP III 2003，第 13 题</a>：在一个正方形的四个顶点上的随机游走，每个顶点各有一个出口，以首步方程求解。</p></li>
+<li><p><strong>两步。</strong>若 Ecks 教授上一个定理是新而正确的，求再下一个定理属于三种类型的概率。</p></li>
+<li><p><strong>特征值。</strong>证明 <span class="math inline">\(P\)</span> 的特征值为 <span class="math inline">\(1\)</span>、<span class="math inline">\(0.2\)</span> 和 <span class="math inline">\(0.1\)</span>。</p></li>
+<li><p><strong>可逆吗？</strong>检查 Ecks 教授的链是否满足 <span class="math inline">\(a_ip_{ij} = a_jp_{ji}\)</span>。答案告诉你甚么？</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>James Norris, <a href="https://uk.bookshop.org/search?keywords=Markov+Chains+Norris"><em>Markov Chains</em></a></strong>（Cambridge University Press）。标准的大学本科教科书。</p></li>
+<li><p><strong>Olle Häggström, <a href="https://uk.bookshop.org/search?keywords=Finite+Markov+Chains+and+Algorithmic+Applications+Haggstrom"><em>Finite Markov Chains and Algorithmic Applications</em></a></strong>（Cambridge University Press）。篇幅短小，讲马可夫链蒙地卡罗尤其出色。</p></li>
+<li><p><strong>Brian Hayes, “First links in the Markov chain”</strong>，<em>American Scientist</em> 101 (2013)。重述马可夫对普希金作品的分析。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="branching.html">← 12.15 灭绝还是爆发</a><a class="next" href="matchboxes.html">→ 12.17 巴拿赫的火柴盒</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

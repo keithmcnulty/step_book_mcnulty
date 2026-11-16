@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>收获种群 (STEP II 1995 第 8 题) — Beyond STEP</title>
+<meta name="description" content="STEP II 1995 第 8 题：引导式解答及其背后的大学数学。 食物供应无限的种群会以指数增长（exponential growth）的方式扩张。现实中的种群却总会用尽空间：当种群数量接近环境所能维持的上限，即其 环境承载力 （carrying capacity）时，增长便会放缓。描述这个现象的最简单模型是 逻辑斯谛方程 （logistic…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch08/harvesting.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch08/harvesting.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/harvesting.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/harvesting.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/harvesting.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="收获种群 (STEP II 1995 第 8 题) — Beyond STEP">
+<meta property="og:description" content="STEP II 1995 第 8 题：引导式解答及其背后的大学数学。 食物供应无限的种群会以指数增长（exponential growth）的方式扩张。现实中的种群却总会用尽空间：当种群数量接近环境所能维持的上限，即其 环境承载力 （carrying capacity）时，增长便会放缓。描述这个现象的最简单模型是 逻辑斯谛方程 （logistic…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch08/harvesting.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="收获种群 (STEP II 1995 第 8 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1995 第 8 题：引导式解答及其背后的大学数学。 食物供应无限的种群会以指数增长（exponential growth）的方式扩张。现实中的种群却总会用尽空间：当种群数量接近环境所能维持的上限，即其 环境承载力 （carrying capacity）时，增长便会放缓。描述这个现象的最简单模型是 逻辑斯谛方程 （logistic…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "收获种群", "headline": "收获种群", "description": "STEP II 1995 第 8 题：引导式解答及其背后的大学数学。 食物供应无限的种群会以指数增长（exponential growth）的方式扩张。现实中的种群却总会用尽空间：当种群数量接近环境所能维持的上限，即其 环境承载力 （carrying capacity）时，增长便会放缓。描述这个现象的最简单模型是 逻辑斯谛方程 （logistic…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch08/harvesting.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1995 第 8 题", "微分方程与动力系统"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 8, "name": "微分方程与动力系统", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 8 章：微分方程与动力系统", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch08/"}, {"@type": "ListItem", "position": 3, "name": "收获种群", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch08/harvesting.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch08/harvesting.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch08/harvesting.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 8 章 · 微分方程与动力系统</a>
+    <div class="src">STEP II · 1995 · 第 8 题</div>
+    <div class="sec-head"><span class="sec-num">8.3</span><h1>收获种群</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-3-harvesting.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 8 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP II 1995，第 8 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/95-s2-q8">step.maths.org/questions/95-s2-q8</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>食物供应无限的种群会以指数增长（exponential growth）的方式扩张。现实中的种群却总会用尽空间：当种群数量接近环境所能维持的上限，即其<em>环境承载力</em>（carrying capacity）时，增长便会放缓。描述这个现象的最简单模型是<em>逻辑斯谛方程</em>（logistic equation），它出现在本题的前半部分，由培养皿中的细菌到新科技的普及，都可以用它来描述。</p>
+<p>后半部分所问的，是一个在现实中关系重大的问题：假如我们以稳定的速率收获（harvest）这个种群，会发生甚么事？在某个阈值（threshold）以下，种群会调整到一个新的、较低的平衡点（equilibrium）。但只要收获率越过这个阈值，哪怕只是超出少许，平衡点便会消失，种群数量随即崩溃至零。这就是渔业崩溃背后的数学，也是设立捕鱼配额的原因。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>在动手求解之前，先把增长率 <span class="math inline">\((2K - x)x\)</span> 当作 <span class="math inline">\(x\)</span> 的函数，画出它的略图。它在哪里为零？在哪里为正？这告诉你 <span class="math inline">\(x\)</span> 会怎样变化？</p>
+</div>
+<p>增长率在 <span class="math inline">\(x = 0\)</span> 和 <span class="math inline">\(x = 2K\)</span> 处为零，在两者之间为正，超过 <span class="math inline">\(2K\)</span> 则为负。所以，由 <span class="math inline">\(0\)</span> 与 <span class="math inline">\(2K\)</span> 之间出发的种群会向 <span class="math inline">\(2K\)</span> 增长，而由 <span class="math inline">\(2K\)</span> 以上出发的种群则会向它缩减。环境承载力是 <span class="math inline">\(2K\)</span>，而增长在 <span class="math inline">\(x = K\)</span> 时最快，那时的增长率是 <span class="math inline">\(K^2\)</span>。不必解方程，你也能预测长远的变化。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-解逻辑斯谛方程" class="stage"><span class="stage-n">阶段 1</span> 解逻辑斯谛方程</h4>
+<div class="askyourself">
+<p>分离变量（separate the variables）：<span class="math inline">\(\displaystyle\int \frac{\mathrm{d}x}{(2K - x)x} = \int \mathrm{d}t\)</span>。把左边拆成部分分式（partial fractions）。</p>
+</div>
+<p><span class="math inline">\(\dfrac{1}{(2K - x)x} = \dfrac{1}{2K}\left(\dfrac1x + \dfrac{1}{2K - x}\right)\)</span>，所以 <span class="math display">\[\frac{1}{2K}\ln\frac{x}{2K - x} = t + C.\]</span> 当 <span class="math inline">\(t = 0\)</span> 时，<span class="math inline">\(x = K\)</span>，所以 <span class="math inline">\(\ln 1 = 0\)</span>，而 <span class="math inline">\(C = 0\)</span>。于是 <span class="math inline">\(\frac{x}{2K - x} = e^{2Kt}\)</span>，由此得 <span class="math display">\[x = \frac{2Ke^{2Kt}}{1 + e^{2Kt}} = \frac{2K}{1 + e^{-2Kt}} = K + K\frac{1 - e^{-2Kt}}{1 + e^{-2Kt}}. \qed\]</span> 这个分式就是 <span class="math inline">\(\tanh(Kt)\)</span>，所以 <span class="math inline">\(x = K + K\tanh Kt\)</span>：这是一条由 <span class="math inline">\(K\)</span> 上升并趋向 <span class="math inline">\(2K\)</span> 的 S 形曲线。当 <span class="math inline">\(t \to \infty\)</span> 时，<span class="math inline">\(e^{-2Kt} \to 0\)</span>，而 <span class="math inline">\(x \to 2K\)</span>。</p>
+<h4 id="stagemark2-收获" class="stage"><span class="stage-n">阶段 2</span> 收获</h4>
+<p>以速率 <span class="math inline">\(L\)</span> 移走细菌，便得 <span class="math display">\[\frac{\mathrm{d}x}{\mathrm{d}t} = (2K - x)x - L.\]</span></p>
+<div class="askyourself">
+<p>对 <span class="math inline">\((2K - x)x - L\)</span> 进行配方（complete the square）。它的零点在哪里？</p>
+</div>
+<p><span class="math inline">\((2K - x)x - L = K^2 - L - (x - K)^2 = \alpha^2 - (x - K)^2 = \bigl(\alpha - (x - K)\bigr)\bigl(\alpha + (x - K)\bigr)\)</span>。平衡点是 <span class="math inline">\(x = K \pm \alpha\)</span>。</p>
+<div class="pausebox">
+<p>现在作代换（substitution）<span class="math inline">\(y = x - K + \alpha\)</span>。<span class="math inline">\(y\)</span> 满足甚么方程？把它与原来的逻辑斯谛方程比较一下。</p>
+</div>
+<p>设 <span class="math inline">\(y = x - K + \alpha\)</span>，则 <span class="math inline">\(x - K = y - \alpha\)</span>，所以 <span class="math inline">\(\alpha + (x - K) = y\)</span>，而 <span class="math inline">\(\alpha - (x - K) = 2\alpha - y\)</span>。因此 <span class="math display">\[\frac{\mathrm{d}y}{\mathrm{d}t} = (2\alpha - y)y,\]</span> 这又是逻辑斯谛方程，只是 <span class="math inline">\(K\)</span> 换成了 <span class="math inline">\(\alpha\)</span>。初始时 <span class="math inline">\(y(0) = K - K + \alpha = \alpha\)</span>，正好对应第一部分的 <span class="math inline">\(x(0) = K\)</span>。所以根据第 1 阶段的结果（以 <span class="math inline">\(\alpha\)</span> 代替 <span class="math inline">\(K\)</span>），<span class="math inline">\(y(t) = \alpha + \alpha\tanh\alpha t \to 2\alpha\)</span>，因此 <span class="math display">\[x(t) = K + \alpha\tanh\alpha t \to K + \alpha. \qed\]</span></p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>先作定性分析。</strong>还未动手求解，增长率的正负号已经预测了长远的变化。</p></li>
+<li><p><strong>配方揭示平衡点。</strong>有收获的方程的平衡点在 <span class="math inline">\(K \pm \alpha\)</span>。</p></li>
+<li><p><strong>代换把新问题化为旧问题。</strong>把变量平移之后，有收获的方程便变成了早已解出的逻辑斯谛方程。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">临界点</div>
+<p>有收获的方程有两个平衡点，<span class="math inline">\(K + \alpha\)</span> 和 <span class="math inline">\(K - \alpha\)</span>。上面的一个是<em>稳定</em>（stable）的：种群数量稍高于或稍低于它，都会回到它那里。下面的一个是<em>不稳定</em>（unstable）的：种群数量只要稍低于 <span class="math inline">\(K - \alpha\)</span>，便会一直下跌，直至灭绝。随着收获率 <span class="math inline">\(L\)</span> 增加，<span class="math inline">\(\alpha = \sqrt{K^2 - L}\)</span> 会缩小，两个平衡点互相靠近；到 <span class="math inline">\(L = K^2\)</span> 时两者合而为一，而当 <span class="math inline">\(L &gt; K^2\)</span> 时则完全没有平衡点，任何种群都会崩溃（图 8.3.1）。这是一个<em>鞍结分岔</em>（saddle-node bifurcation），是最简单的一种<em>临界点</em>（tipping point）。它的可怕之处，在于事前没有任何明显的预兆：当 <span class="math inline">\(L\)</span> 接近 <span class="math inline">\(K^2\)</span> 时，平衡种群数量只是缓缓下降，然后平衡点突然不复存在。事后才减少收获未必有用，因为种群数量可能已经跌到不稳定的阈值以下。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-8-3-1.svg" alt="图 8.3.1"><figcaption><span class="fig-label">图 8.3.1</span> 平衡种群数量与收获率 <span class="math inline">\(L\)</span> 的关系，其中 <span class="math inline">\(K = 1\)</span>。随着 <span class="math inline">\(L\)</span> 增加，稳定平衡点（实线）与不稳定阈值（虚线）互相靠近，并在 <span class="math inline">\(L = K^2\)</span> 处相遇。越过这一点之后，平衡点不再存在，无论种群有多大都会崩溃。</figcaption></figure>
+<h3 id="最大可持续产量">最大可持续产量</h3>
+<p>种群所能承受的最大收获量是多少？答案是 <span class="math inline">\(L = K^2\)</span>，即增长率 <span class="math inline">\((2K - x)x\)</span> 的峰值，在种群数量维持于 <span class="math inline">\(K\)</span>（环境承载力的一半）时达到。二十世纪中叶，渔业科学采纳了这个“最大可持续产量”（maximum sustainable yield）作为管理目标。可是，恰好按最大值收获，就等于把系统恰好放在临界点上，只要稍为高估了 <span class="math inline">\(K\)</span>，或者遇上一个坏年头，便会引致崩溃。纽芬兰对开的大浅滩（Grand Banks）鳕鱼渔场，五百年来一直是全世界最丰饶的渔场之一，却在 1990 年代初崩溃；1992 年，加拿大政府颁布禁捕令，令数以万计的人失去工作。鱼类资源至今仍未完全恢复。</p>
+<h3 id="其他地方的逻辑斯谛增长">其他地方的逻辑斯谛增长</h3>
+<p>逻辑斯谛方程由 Pierre-François Verhulst 于 1838 年提出，用来为人类人口建立模型。同一条 S 形曲线，也描述了疫症初期的传播、新科技的普及、自催化化学反应以及肿瘤的生长。它的离散时间版本，即逻辑斯谛<em>映射</em>（logistic map），表现却截然不同：它可以是混沌（chaotic）的，我们会在 <a href="../ch08/solvable-chaos.html">第 8.7 节</a> 看到。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">平衡点及其稳定性</div>
+<p><em>对于方程 <span class="math inline">\(x&#39; = f(x)\)</span>，平衡点就是 <span class="math inline">\(f\)</span> 的零点，而 <span class="math inline">\(f\)</span> 在各零点之间的正负号，告诉你解会向哪个方向移动。</em></p>
+<p>若 <span class="math inline">\(f\)</span> 在某个平衡点由正变负，该平衡点是稳定的；若由负变正，则是不稳定的。画出 <span class="math inline">\(f\)</span> 的图像，往往不必求解任何东西，便能回答最重要的问题。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>由低处出发。</strong>在有收获且 <span class="math inline">\(K^2 &gt; L\)</span> 的情况下，证明若 <span class="math inline">\(x(0) &lt; K - \alpha\)</span>，则种群数量会在有限时间内降至零。（<em>提示：</em>当 <span class="math inline">\(y(0) &lt; 0\)</span> 时，<span class="math inline">\(y\)</span> 会怎样变化？）</p></li>
+<li><p><strong>过度收获。</strong>若 <span class="math inline">\(L &gt; K^2\)</span>，设 <span class="math inline">\(\beta = \sqrt{L - K^2}\)</span>。在 <span class="math inline">\(x(0) = 2K\)</span> 的条件下解 <span class="math inline">\(x&#39; = -(x - K)^2 - \beta^2\)</span>，并求种群数量何时降至零。</p></li>
+<li><p><strong>按比例收获。</strong>假设改为移走种群中某个固定的<em>比例</em>：<span class="math inline">\(x&#39; = (2K - x)x - hx\)</span>。求平衡点，并证明对所有 <span class="math inline">\(h &lt; 2K\)</span>，种群都能存活。为甚么这个方案较为安全？</p></li>
+<li><p><strong>半程时间。</strong>在没有收获的情况下，求种群数量达到 <span class="math inline">\(\frac32K\)</span> 的时间。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Steven Strogatz, <a href="https://uk.bookshop.org/search?keywords=Nonlinear+Dynamics+and+Chaos+Strogatz"><em>Nonlinear Dynamics and Chaos</em></a></strong>（CRC Press）。第 3 章讨论分岔，并以这个收获模型作为习题。</p></li>
+<li><p><strong>Nicholas Britton, <a href="https://uk.bookshop.org/search?keywords=Essential+Mathematical+Biology+Britton"><em>Essential Mathematical Biology</em></a></strong>（Springer）。为大学本科生而写的种群模型。</p></li>
+<li><p><strong>Mark Kurlansky, <a href="https://uk.bookshop.org/search?keywords=Cod%3A+A+Biography+of+the+Fish+That+Changed+the+World+Kurlansky"><em>Cod: A Biography of the Fish That Changed the World</em></a></strong>（Penguin）。鳕鱼渔业及其崩溃的历史。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="bounding-without-solving.html">← 8.2 不求解而估界</a><a class="next" href="limit-cycle.html">→ 8.4 盘旋趋向圆</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>变分法 (STEP III 2014 第 4 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2014 第 4 题：引导式解答及其背后的大学数学。 中学里的最优化（optimisation）问题，大多是求最佳的 数 ：例如求令面积最大的 x 值。 变分法 （calculus of variations）要求的却是最佳的 函数 。连接两点的曲线之中，珠子沿哪一条滑下最快？悬挂的链条会呈甚么形状？光线穿过透镜时走哪一条路径？在这些例子中，要优化的量都是一个积分，而未知的是一整…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/variations.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/variations.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/variations.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/variations.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/variations.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="变分法 (STEP III 2014 第 4 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2014 第 4 题：引导式解答及其背后的大学数学。 中学里的最优化（optimisation）问题，大多是求最佳的 数 ：例如求令面积最大的 x 值。 变分法 （calculus of variations）要求的却是最佳的 函数 。连接两点的曲线之中，珠子沿哪一条滑下最快？悬挂的链条会呈甚么形状？光线穿过透镜时走哪一条路径？在这些例子中，要优化的量都是一个积分，而未知的是一整…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch04/variations.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="变分法 (STEP III 2014 第 4 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2014 第 4 题：引导式解答及其背后的大学数学。 中学里的最优化（optimisation）问题，大多是求最佳的 数 ：例如求令面积最大的 x 值。 变分法 （calculus of variations）要求的却是最佳的 函数 。连接两点的曲线之中，珠子沿哪一条滑下最快？悬挂的链条会呈甚么形状？光线穿过透镜时走哪一条路径？在这些例子中，要优化的量都是一个积分，而未知的是一整…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "变分法", "headline": "变分法", "description": "STEP III 2014 第 4 题：引导式解答及其背后的大学数学。 中学里的最优化（optimisation）问题，大多是求最佳的 数 ：例如求令面积最大的 x 值。 变分法 （calculus of variations）要求的却是最佳的 函数 。连接两点的曲线之中，珠子沿哪一条滑下最快？悬挂的链条会呈甚么形状？光线穿过透镜时走哪一条路径？在这些例子中，要优化的量都是一个积分，而未知的是一整…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/variations.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2014 第 4 题", "严谨的微积分"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 4, "name": "严谨的微积分", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 4 章：严谨的微积分", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/"}, {"@type": "ListItem", "position": 3, "name": "变分法", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/variations.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch04/variations.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch04/variations.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 4 章 · 严谨的微积分</a>
+    <div class="src">STEP III · 2014 · 第 4 题</div>
+    <div class="sec-head"><span class="sec-num">4.7</span><h1>变分法</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-7-variations.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 4 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2014，第 4 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/14-s3-q4">step.maths.org/questions/14-s3-q4</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>中学里的最优化（optimisation）问题，大多是求最佳的<em>数</em>：例如求令面积最大的 <span class="math inline">\(x\)</span> 值。<em>变分法</em>（calculus of variations）要求的却是最佳的<em>函数</em>。连接两点的曲线之中，珠子沿哪一条滑下最快？悬挂的链条会呈甚么形状？光线穿过透镜时走哪一条路径？在这些例子中，要优化的量都是一个积分，而未知的是一整个函数。</p>
+<p>本题研究的是最简单而又有趣的例子。积分 <span class="math inline">\(J = \int_0^1 \bigl((y&#39;)^2 - a^2y^2\bigr)\,\mathrm{d}x\)</span> 在两个互相竞争的项之间取得平衡：函数愈陡，积分愈大；函数值愈大，积分愈小。当 <span class="math inline">\(a\)</span> 较小时，陡峭程度总是占上风，所以对每个函数都有 <span class="math inline">\(J \geq 0\)</span>。但 <span class="math inline">\(a\)</span> 有一个临界值，平衡会在那里逆转，而本题正好把它准确求出：<span class="math inline">\(a = \frac\pi2\)</span>。<span class="math inline">\(\pi\)</span> 从何而来，就是本节要讲的故事。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>为甚么 <span class="math inline">\(I \geq 0\)</span> 并非显而易见？试用 <span class="math inline">\(y = 1 - x\)</span>，它满足 <span class="math inline">\(y(1) = 0\)</span>。</p>
+</div>
+<p><span class="math inline">\(I\)</span> 是两个正数量之差，所以它可正可负。对于 <span class="math inline">\(y = 1 - x\)</span>：<span class="math inline">\(\int_0^1 1\,\mathrm{d}x = 1\)</span> 而 <span class="math inline">\(\int_0^1 (1-x)^2\,\mathrm{d}x = \frac13\)</span>，所以 <span class="math inline">\(I = \frac23 &gt; 0\)</span>。但若函数选得更巧妙，或许可以令 <span class="math inline">\(\int y^2\)</span> 相对于 <span class="math inline">\(\int (y&#39;)^2\)</span> 变得更大。题目的窍门，是把 <span class="math inline">\(I\)</span> 写成一个<em>平方</em>的积分，而这显然是非负的。这就是积分版本的“配方法”（completing the square）。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-配方" class="stage"><span class="stage-n">阶段 1</span> 配方</h4>
+<p>把 <span class="math inline">\(I_1\)</span> 中的平方展开： <span class="math display">\[I_1 = \int_0^1 \bigl((y&#39;)^2 + 2yy&#39;\tan x + y^2\tan^2 x\bigr)\,\mathrm{d}x,\]</span> 所以 <span class="math display">\[I - I_1 = -\int_0^1 \bigl(y^2 + y^2\tan^2 x + 2yy&#39;\tan x\bigr)\,\mathrm{d}x = -\int_0^1 \bigl(y^2\sec^2 x + 2yy&#39;\tan x\bigr)\,\mathrm{d}x.\]</span></p>
+<div class="askyourself">
+<p>被积函数 <span class="math inline">\(y^2\sec^2 x + 2yy&#39;\tan x\)</span> 恰好是某个函数的导数（exact derivative）。是哪个函数？</p>
+</div>
+<p>根据乘积法则（product rule），<span class="math inline">\(\dfrac{\mathrm{d}}{\mathrm{d}x}\bigl(y^2\tan x\bigr) = 2yy&#39;\tan x + y^2\sec^2 x\)</span>。所以 <span class="math display">\[I - I_1 = -\Bigl[y^2\tan x\Bigr]_0^1 = -\bigl(y(1)^2\tan 1 - y(0)^2\tan 0\bigr) = 0,\]</span> 因为 <span class="math inline">\(y(1) = 0\)</span> 而 <span class="math inline">\(\tan 0 = 0\)</span>。所以 <span class="math inline">\(I = I_1 \geq 0\)</span>，因为它是一个平方的积分。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-何时-i-0" class="stage"><span class="stage-n">阶段 2</span> 何时 <span class="math inline">\(I = 0\)</span>？</h4>
+<div class="askyourself">
+<p>如果一个连续的非负函数的积分是零，你对这个函数能下甚么结论？那么若 <span class="math inline">\(I = 0\)</span>，<span class="math inline">\(y\)</span> 必须满足甚么方程？</p>
+</div>
+<p>积分为零的连续非负函数必定恒等于零（假如它在某一点取正值，它在该点附近的一个小区间上也会取正值，从而贡献一个正的量）。所以 <span class="math inline">\(I = 0\)</span> 迫使 <span class="math inline">\(y&#39; + y\tan x = 0\)</span> 在 <span class="math inline">\([0, 1]\)</span> 上成立。乘以 <span class="math inline">\(\sec x\)</span> 后，这就是说 <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{y}{\cos x}\right) = \frac{y&#39;\cos x + y\sin x}{\cos^2 x} = 0\)</span>，所以 <span class="math inline">\(y = C\cos x\)</span>。于是 <span class="math inline">\(y(1) = C\cos 1 = 0\)</span>，而由于 <span class="math inline">\(\cos 1 \neq 0\)</span>，得 <span class="math inline">\(C = 0\)</span>。所以只有当 <span class="math inline">\(y \equiv 0\)</span> 时才有 <span class="math inline">\(I = 0\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-一般情况" class="stage"><span class="stage-n">阶段 3</span> 一般情况</h4>
+<div class="askyourself">
+<p>用 <span class="math inline">\(\int_0^1 (y&#39; + ay\tan bx)^2\,\mathrm{d}x\)</span> 重复第 1 步。<span class="math inline">\(b\)</span> 必须是甚么，余下的项才能恰好组成一个导数？</p>
+</div>
+<p>把这个积分记作 <span class="math inline">\(K\)</span>。那么 <span class="math display">\[\begin{aligned}
+  J - K &amp;= -\int_0^1 \bigl(a^2y^2 + a^2y^2\tan^2 bx + 2ayy&#39;\tan bx\bigr)\,\mathrm{d}x \\
+  &amp;= -\int_0^1 \bigl(a^2y^2\sec^2 bx + 2ayy&#39;\tan bx\bigr)\,\mathrm{d}x.
+\end{aligned}\]</span> 另一方面，<span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}x}\bigl(ay^2\tan bx\bigr) = 2ayy&#39;\tan bx + ab\,y^2\sec^2 bx\)</span>。两者恰好在 <span class="math inline">\(ab = a^2\)</span> 时吻合，即 <span class="math inline">\(b = a\)</span>。于是 <span class="math display">\[J - K = -\Bigl[ay^2\tan ax\Bigr]_0^1 = -a\,y(1)^2\tan a = 0,\]</span> 所以 <span class="math inline">\(J = K \geq 0\)</span>。</p>
+<div class="pausebox">
+<p>这个论证在哪里可能失效？（留意 <span class="math inline">\(\tan ax\)</span> 在区间 <span class="math inline">\(0 \leq x \leq 1\)</span> 上的情况。）</p>
+</div>
+<p>这个论证需要 <span class="math inline">\(\tan ax\)</span> 对 <span class="math inline">\([0, 1]\)</span> 内所有 <span class="math inline">\(x\)</span> 都有定义而且连续；否则 <span class="math inline">\(K\)</span> 未必存在，微积分基本定理（fundamental theorem of calculus）亦不能应用。当 <span class="math inline">\(x\)</span> 取遍 <span class="math inline">\([0, 1]\)</span> 时，<span class="math inline">\(ax\)</span> 取遍 <span class="math inline">\([0, a]\)</span>，而 <span class="math inline">\(\tan\)</span> 在该处连续的充要条件正是 <span class="math inline">\(a &lt; \frac\pi2\)</span>。所以这个证明在以下情况成立： <span class="math display">\[a &lt; k = \frac\pi2. \qed\]</span></p>
+<h4 id="stagemark4-临界情况" class="stage"><span class="stage-n">阶段 4</span> 临界情况</h4>
+<div class="askyourself">
+<p>当 <span class="math inline">\(a = \frac\pi2\)</span> 时，证明失效。在第 2 步，令 <span class="math inline">\(I = 0\)</span> 的函数须满足 <span class="math inline">\(y&#39; + y\tan x = 0\)</span>。现在对应的方程是甚么？它的解又是甚么？</p>
+</div>
+<p>对应的方程是 <span class="math inline">\(y&#39; + ay\tan ax = 0\)</span>，它的解是 <span class="math inline">\(y = C\cos ax\)</span>。当 <span class="math inline">\(a = \frac\pi2\)</span> 时，<span class="math inline">\(y = \cos\frac{\pi x}{2}\)</span> 满足 <span class="math inline">\(y(1) = \cos\frac\pi2 = 0\)</span>。直接验证： <span class="math display">\[\begin{aligned}
+  J &amp;= \frac{\pi^2}{4}\int_0^1 \left(\sin^2\frac{\pi x}{2} - \cos^2\frac{\pi x}{2}\right)\mathrm{d}x = -\frac{\pi^2}{4}\int_0^1 \cos\pi x\,\mathrm{d}x \\
+  &amp;= -\frac{\pi^2}{4}\left[\frac{\sin\pi x}{\pi}\right]_0^1 = 0. \qed
+\end{aligned}\]</span> 所以在临界值处，有一个非零函数令 <span class="math inline">\(J\)</span> 恰好等于零。</p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>在积分中配方。</strong>加上再减去一个恰好是导数的式子，便把 <span class="math inline">\(J\)</span> 化成一个平方的积分，再加上一个等于零的边界项（boundary term）。</p></li>
+<li><p><strong>查看工具在哪里失效。</strong>这个方法只在 <span class="math inline">\(\tan ax\)</span> 在区间上保持有限时才行得通。它失效之处 <span class="math inline">\(a = \frac\pi2\)</span>，正正就是临界值。</p></li>
+<li><p><strong>极端情况是某个微分方程的解。</strong>令 <span class="math inline">\(J = 0\)</span> 的函数来自一阶微分方程（differential equation）<span class="math inline">\(y&#39; + ay\tan ax = 0\)</span>，而它同时满足 <span class="math inline">\(y&#39;&#39; + a^2y = 0\)</span>。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">最速降线与一门学科的诞生</div>
+<p>1696 年，约翰·伯努利（Johann Bernoulli）向欧洲的数学家发出挑战：求一条曲线，使珠子沿着它从一点滑到另一点所需的时间最短。这就是最速降线（brachistochrone）问题。提交解答的有牛顿（Newton）（他匿名投稿，一夜之间解出；伯努利说他“从爪子认出了狮子”）、莱布尼兹（Leibniz）、洛必达（l’Hôpital）和雅各布·伯努利（Jakob Bernoulli）。答案是一条摆线（cycloid）。到了 1750 年代，欧拉（Euler）和年轻的拉格朗日（Joseph-Louis Lagrange）把这些个别的技巧变成一套通用的方法：如果 <span class="math inline">\(y\)</span> 令 <span class="math inline">\(\int F(x, y, y&#39;)\,\mathrm{d}x\)</span> 取平稳值，那么 <span class="math inline">\(y\)</span> 满足<em>欧拉－拉格朗日方程</em>（Euler–Lagrange equation） <span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}x}\frac{\partial F}{\partial y&#39;} = \frac{\partial F}{\partial y}.\]</span> 对于我们的 <span class="math inline">\(J\)</span>，<span class="math inline">\(F = (y&#39;)^2 - a^2y^2\)</span>，而欧拉－拉格朗日方程就是 <span class="math inline">\(y&#39;&#39; + a^2y = 0\)</span>：简谐运动（simple harmonic motion）。</p>
+</div>
+<h3 id="为何是-pi2">为何是 <span class="math inline">\(\pi/2\)</span>？</h3>
+<p>当 <span class="math inline">\(a &lt; \frac\pi2\)</span> 时，<span class="math inline">\(J\)</span> 的最小值是 <span class="math inline">\(0\)</span>，而且只有 <span class="math inline">\(y \equiv 0\)</span> 才能取得。当 <span class="math inline">\(a = \frac\pi2\)</span> 时，最小值仍然是 <span class="math inline">\(0\)</span>，但多了一个函数能取得它。当 <span class="math inline">\(a &gt; \frac\pi2\)</span> 时，同一个函数 <span class="math inline">\(y = \cos\frac{\pi x}{2}\)</span> 给出 <span class="math display">\[J = \frac{\pi^2}{8} - \frac{a^2}{2} &lt; 0,\]</span> 而只要把 <span class="math inline">\(y\)</span> 按比例放大，<span class="math inline">\(J\)</span> 就可以负得要多大有多大：根本没有最小值（图 4.7.1）。临界值就是第一个令 <span class="math inline">\(y&#39;&#39; + a^2y = 0\)</span> 有非零解满足边界条件的 <span class="math inline">\(a\)</span>（边界条件是 <span class="math inline">\(y(1) = 0\)</span>，以及在自由端的“自然”条件 <span class="math inline">\(y&#39;(0) = 0\)</span>）。这是一个<em>特征值问题</em>（eigenvalue problem），而 <span class="math inline">\(a^2 = \frac{\pi^2}{4}\)</span> 是它最小的特征值。试与 <a href="../ch03/wirtinger.html">第 3.7 节</a> 比较：那里把函数在长度为 <span class="math inline">\(\pi\)</span> 的区间的两端都固定，得出临界值 <span class="math inline">\(1\)</span>；这里区间长度为 <span class="math inline">\(1\)</span>，而且只固定一端，相当于长度为 <span class="math inline">\(2\)</span> 的区间的一半，所以临界的 <span class="math inline">\(a\)</span> 是 <span class="math inline">\(\frac{\pi}{2}\)</span>。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-7-1.svg" alt="图 4.7.1"><figcaption><span class="fig-label">图 4.7.1</span> 对于两个满足 <span class="math inline">\(y(1) = 0\)</span> 的试验函数，<span class="math inline">\(J\)</span> 的值随 <span class="math inline">\(a\)</span> 的变化。对于 <span class="math inline">\(y = 1 - x\)</span>，<span class="math inline">\(J = 1 - \frac{a^2}{3}\)</span> 要到 <span class="math inline">\(a &gt; \sqrt3\)</span> 才变成负数。对于 <span class="math inline">\(y = \cos\frac{\pi x}{2}\)</span>，<span class="math inline">\(J = \frac{\pi^2}{8} - \frac{a^2}{2}\)</span> 在 <span class="math inline">\(a &gt; \frac\pi2\)</span> 时随即变成负数，而且没有函数能做得更好：当 <span class="math inline">\(a &lt; \frac\pi2\)</span> 时，对每个 <span class="math inline">\(y\)</span> 都有 <span class="math inline">\(J \geq 0\)</span>。</figcaption></figure>
+<h3 id="物理学与最小作用量原理">物理学与最小作用量原理</h3>
+<p>后来发现，变分法描述的竟是大自然本身。在十八和十九世纪，人们逐渐明白运动定律可以这样表述：力学系统的运动方式，会令一个称为<em>作用量</em>（action）的积分取平稳值，这就是最小作用量原理（principle of least action）。同样，光沿着需时最短的路径前进（费马原理，Fermat’s principle），这解释了折射现象。到了二十世纪，同一个想法通过费曼（Richard Feynman）的“路径求和”（sum over paths），成为量子力学的基础。本题中的二次积分是最简单的例子，而它们引出的特征值问题，会在 <a href="../ch08/quantum-oscillator.html">第 8.6 节</a> 以量子振子能级的面貌再次出现。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">先配方，再留意边界</div>
+<p><em>要证明一个二次式非负，可把它写成一个平方加上一些你能控制的东西。对于积分，这些“东西”往往恰好是某个函数的导数，积分后便成为边界项。</em></p>
+<p>此外，永远要问这个方法在哪里不再奏效。本题中方法失效之处并非偶然；它正是题目中最重要的那个数。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>越过临界值。</strong>证明若 <span class="math inline">\(a &gt; \frac\pi2\)</span>，则 <span class="math inline">\(y = \cos\frac{\pi x}{2}\)</span> 给出 <span class="math inline">\(J &lt; 0\)</span>。</p></li>
+<li><p><strong>欧拉－拉格朗日方程。</strong> <span class="hard">较难</span> 设 <span class="math inline">\(y\)</span> 在满足 <span class="math inline">\(y(1) = 0\)</span> 的函数之中令 <span class="math inline">\(J\)</span> 取最小值。对任何满足 <span class="math inline">\(\eta(1) = 0\)</span> 的函数 <span class="math inline">\(\eta\)</span> 和任何数 <span class="math inline">\(\varepsilon\)</span>，都有 <span class="math inline">\(J(y + \varepsilon\eta) \geq J(y)\)</span>。把 <span class="math inline">\(J(y + \varepsilon\eta)\)</span> 按 <span class="math inline">\(\varepsilon\)</span> 的幂展开，并由此推出 <span class="math inline">\(\int_0^1 (y&#39;\eta&#39; - a^2y\eta)\,\mathrm{d}x = 0\)</span>。用分部积分法（integration by parts）证明 <span class="math inline">\(y&#39;&#39; + a^2y = 0\)</span> 及 <span class="math inline">\(y&#39;(0) = 0\)</span>（假设 <span class="math inline">\(y\)</span> 足够光滑）。</p></li>
+<li><p><strong>较长的区间。</strong>用代换法（substitution）证明：若 <span class="math inline">\(y(L) = 0\)</span>，则 <span class="math inline">\(\int_0^L \bigl((y&#39;)^2 - a^2y^2\bigr)\,\mathrm{d}x \geq 0\)</span> 对所有 <span class="math inline">\(y\)</span> 成立，当且仅当 <span class="math inline">\(a \leq \frac{\pi}{2L}\)</span>；并证明只有当 <span class="math inline">\(a = \frac{\pi}{2L}\)</span> 时，才有非零的 <span class="math inline">\(y\)</span> 令等号成立。</p></li>
+<li><p><strong>摆线。</strong>查阅最速降线问题，并找出摆线的参数方程（parametric equations）。证明在一条倒置的摆线上，珠子无论从哪一点由静止释放，到达最低点所需的时间都相同（这是<em>等时</em>（tautochrone）性质，由惠更斯（Huygens）于 1659 年发现）。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Paul Nahin, <a href="https://uk.bookshop.org/search?keywords=When+Least+Is+Best+Nahin"><em>When Least Is Best</em></a></strong>（Princeton University Press）。讲述最优化的历史与数学，包括最速降线，为学生而写。</p></li>
+<li><p><strong>Richard Feynman, <a href="https://www.feynmanlectures.caltech.edu/"><em>The Feynman Lectures on Physics</em></a></strong>，第二卷第 19 章（“The principle of least action”，最小作用量原理）。可在网上免费阅读。</p></li>
+<li><p><strong>Bruce van Brunt, <a href="https://uk.bookshop.org/search?keywords=The+Calculus+of+Variations+Brunt"><em>The Calculus of Variations</em></a></strong>（Springer）。一本大学本科教科书；头几章只需要高级程度（A-level）的微积分知识。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="no-formula.html">← 4.6 没有公式的积分</a><a class="next" href="spherical-loaf.html">→ 4.8 切球形面包</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

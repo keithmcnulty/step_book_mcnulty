@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>对矩阵不成立的法则 (STEP II 1993 第 6 题) — Beyond STEP</title>
+<meta name="description" content="STEP II 1993 第 6 题：引导式解答及其背后的大学数学。 矩阵（matrix）可以相加，也可以相乘，所以我们很容易把它们当作数来看待。这道题正是要考验这种想法：它列出四条对数成立的“法则”，问哪些对矩阵仍然成立。结果大部分都不成立，而它们不成立的方式很有启发性。矩阵乘法不满足交换律（not commutative）；有些非零矩阵的乘积是零；而一个矩阵的二次方程可以有无穷多个解。…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/matrix-rules.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="对矩阵不成立的法则 (STEP II 1993 第 6 题) — Beyond STEP">
+<meta property="og:description" content="STEP II 1993 第 6 题：引导式解答及其背后的大学数学。 矩阵（matrix）可以相加，也可以相乘，所以我们很容易把它们当作数来看待。这道题正是要考验这种想法：它列出四条对数成立的“法则”，问哪些对矩阵仍然成立。结果大部分都不成立，而它们不成立的方式很有启发性。矩阵乘法不满足交换律（not commutative）；有些非零矩阵的乘积是零；而一个矩阵的二次方程可以有无穷多个解。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch07/matrix-rules.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="对矩阵不成立的法则 (STEP II 1993 第 6 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1993 第 6 题：引导式解答及其背后的大学数学。 矩阵（matrix）可以相加，也可以相乘，所以我们很容易把它们当作数来看待。这道题正是要考验这种想法：它列出四条对数成立的“法则”，问哪些对矩阵仍然成立。结果大部分都不成立，而它们不成立的方式很有启发性。矩阵乘法不满足交换律（not commutative）；有些非零矩阵的乘积是零；而一个矩阵的二次方程可以有无穷多个解。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "对矩阵不成立的法则", "headline": "对矩阵不成立的法则", "description": "STEP II 1993 第 6 题：引导式解答及其背后的大学数学。 矩阵（matrix）可以相加，也可以相乘，所以我们很容易把它们当作数来看待。这道题正是要考验这种想法：它列出四条对数成立的“法则”，问哪些对矩阵仍然成立。结果大部分都不成立，而它们不成立的方式很有启发性。矩阵乘法不满足交换律（not commutative）；有些非零矩阵的乘积是零；而一个矩阵的二次方程可以有无穷多个解。…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/matrix-rules.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1993 第 6 题", "线性代数与几何"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "线性代数与几何", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 7 章：线性代数与几何", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/"}, {"@type": "ListItem", "position": 3, "name": "对矩阵不成立的法则", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/matrix-rules.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch07/matrix-rules.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/matrix-rules.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 7 章 · 线性代数与几何</a>
+    <div class="src">STEP II · 1993 · 第 6 题</div>
+    <div class="sec-head"><span class="sec-num">7.1</span><h1>对矩阵不成立的法则</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-1-matrix-rules.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 7 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP II 1993，第 6 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/93-s2-q6">step.maths.org/questions/93-s2-q6</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>矩阵（matrix）可以相加，也可以相乘，所以我们很容易把它们当作数来看待。这道题正是要考验这种想法：它列出四条对数成立的“法则”，问哪些对矩阵仍然成立。结果大部分都不成立，而它们不成立的方式很有启发性。矩阵乘法不满足交换律（not commutative）；有些非零矩阵的乘积是零；而一个矩阵的二次方程可以有无穷多个解。</p>
+<p>这些“失效”并不是缺陷，反而正是矩阵有用的原因：矩阵描述的是空间的变换（transformation），而以不同的次序进行两个变换，确实会得到不同的结果。1925 年，海森堡（Werner Heisenberg）发现量子力学中的物理量的表现像矩阵而不像数，而 <span class="math inline">\(\mathbf{AB} = \mathbf{BA}\)</span> 不成立，正是不确定性原理（uncertainty principle）的数学形式。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>对实数而言，为甚么 <span class="math inline">\(ab = 0\)</span> 可推出 <span class="math inline">\(a = 0\)</span> 或 <span class="math inline">\(b = 0\)</span>？这个论证用到了数的哪一项性质？这项性质对矩阵成立吗？</p>
+</div>
+<p>若 <span class="math inline">\(ab = 0\)</span> 而 <span class="math inline">\(a \neq 0\)</span>，两边除以 <span class="math inline">\(a\)</span> 便得 <span class="math inline">\(b = 0\)</span>。这个论证需要每个非零的数都有逆（inverse）。非零矩阵却不一定有逆（行列式（determinant）为零的矩阵就没有），所以这个论证行不通。同时也要记住<em>几何</em>上的图像：矩阵是平面的一个变换，而乘积 <span class="math inline">\(\mathbf{AB}\)</span> 的意思是“先做 <span class="math inline">\(\mathbf{B}\)</span>，再做 <span class="math inline">\(\mathbf{A}\)</span>”。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-能否有-mathbfab-mathbf0-但-mathbfba-neq-mathbf0" class="stage"><span class="stage-n">阶段 1</span> 能否有 <span class="math inline">\(\mathbf{AB} = \mathbf{0}\)</span> 但 <span class="math inline">\(\mathbf{BA} \neq \mathbf{0}\)</span>？</h4>
+<div class="askyourself">
+<p>从几何角度去想。你希望 <span class="math inline">\(\mathbf{B}\)</span> 把所有东西送到一条直线上，然后 <span class="math inline">\(\mathbf{A}\)</span> 把这条直线压成零。但次序调转时，<span class="math inline">\(\mathbf{A}\)</span> 不应把所有东西都压到会被 <span class="math inline">\(\mathbf{B}\)</span> 消去的地方。</p>
+</div>
+<p>设 <span class="math inline">\(\mathbf{A} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\)</span>，它是到 <span class="math inline">\(x\)</span> 轴上的投影（projection），把 <span class="math inline">\(y\)</span> 轴消去；又设 <span class="math inline">\(\mathbf{B} = \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}\)</span>，它把 <span class="math inline">\((x, y)\)</span> 送到 <span class="math inline">\((0, x)\)</span>，即送到 <span class="math inline">\(y\)</span> 轴上。于是 <span class="math display">\[\mathbf{AB} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix} = \begin{pmatrix} 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}, \qquad \mathbf{BA} = \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix} \neq \mathbf{0}.\]</span> 这个断言是<strong>错</strong>的（图 7.1.1）。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-平方差" class="stage"><span class="stage-n">阶段 2</span> 平方差</h4>
+<p>小心展开，保持每个乘积的次序： <span class="math display">\[(\mathbf{A} - \mathbf{B})(\mathbf{A} + \mathbf{B}) = \mathbf{A}^2 + \mathbf{AB} - \mathbf{BA} - \mathbf{B}^2.\]</span> 这个式子等于 <span class="math inline">\(\mathbf{A}^2 - \mathbf{B}^2\)</span>，当且仅当 <span class="math inline">\(\mathbf{AB} = \mathbf{BA}\)</span>。取第 1 阶段的矩阵，<span class="math inline">\(\mathbf{AB} - \mathbf{BA} = -\mathbf{BA} \neq \mathbf{0}\)</span>，所以这个断言是<strong>错</strong>的。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-mathbfax-mathbf0-的非零解" class="stage"><span class="stage-n">阶段 3</span> <span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span> 的非零解</h4>
+<div class="askyourself">
+<p>若 <span class="math inline">\(\det\mathbf{A} \neq 0\)</span>，你可以对 <span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span> 做甚么？若 <span class="math inline">\(\det\mathbf{A} = 0\)</span>，你能否找到一个非零的列向量（column vector）<span class="math inline">\(\mathbf{v}\)</span>，使得 <span class="math inline">\(\mathbf{Av} = \mathbf{0}\)</span>？</p>
+</div>
+<p>若 <span class="math inline">\(\det\mathbf{A} \neq 0\)</span>，则 <span class="math inline">\(\mathbf{A}^{-1}\)</span> 存在，而 <span class="math inline">\(\mathbf{X} = \mathbf{A}^{-1}\mathbf{AX} = \mathbf{0}\)</span>：没有非零解。</p>
+<p>若 <span class="math inline">\(\det\mathbf{A} = 0\)</span>，写 <span class="math inline">\(\mathbf{A} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span>，其中 <span class="math inline">\(ad = bc\)</span>。向量 <span class="math inline">\(\begin{pmatrix} b \\ -a \end{pmatrix}\)</span> 和 <span class="math inline">\(\begin{pmatrix} d \\ -c \end{pmatrix}\)</span> 满足 <span class="math inline">\(\mathbf{A}\begin{pmatrix} b \\ -a \end{pmatrix} = \begin{pmatrix} ab - ba \\ cb - da \end{pmatrix} = \mathbf{0}\)</span>，另一个向量亦同理。由于 <span class="math inline">\(\mathbf{A} \neq \mathbf{0}\)</span>，两者之中至少有一个非零；把它记作 <span class="math inline">\(\mathbf{v}\)</span>。那么，两列都是 <span class="math inline">\(\mathbf{v}\)</span> 的矩阵 <span class="math inline">\(\mathbf{X}\)</span> 是非零的，并且 <span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span>。所以这个断言是<strong>对</strong>的。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-有多少个平方根" class="stage"><span class="stage-n">阶段 4</span> 有多少个平方根？</h4>
+<div class="pausebox">
+<p>找出非零的 <span class="math inline">\(\mathbf{A}\)</span> 和 <span class="math inline">\(\mathbf{B}\)</span>，使得 <span class="math inline">\(\mathbf{X}^2 + \mathbf{AX} + \mathbf{B} = \mathbf{0}\)</span> 有无穷多个解。（<em>提示：</em>把左边变成完全平方 <span class="math inline">\((\mathbf{X} - \mathbf{I})^2\)</span>，再想想平方为零的矩阵。）</p>
+</div>
+<p>取 <span class="math inline">\(\mathbf{A} = -2\mathbf{I}\)</span> 和 <span class="math inline">\(\mathbf{B} = \mathbf{I}\)</span>，两者都非零。方程变成 <span class="math inline">\((\mathbf{X} - \mathbf{I})^2 = \mathbf{0}\)</span>。任何满足 <span class="math inline">\(\mathbf{N}^2 = \mathbf{0}\)</span> 的矩阵 <span class="math inline">\(\mathbf{N}\)</span> 都给出一个解 <span class="math inline">\(\mathbf{X} = \mathbf{I} + \mathbf{N}\)</span>，而这样的 <span class="math inline">\(\mathbf{N}\)</span> 有无穷多个： <span class="math display">\[\mathbf{N} = \begin{pmatrix} 0 &amp; t \\ 0 &amp; 0 \end{pmatrix}, \qquad \mathbf{N}^2 = \mathbf{0} \text{ 对任意实数 } t.\]</span> 所以对每一个 <span class="math inline">\(t\)</span>，<span class="math inline">\(\mathbf{X} = \begin{pmatrix} 1 &amp; t \\ 0 &amp; 1 \end{pmatrix}\)</span> 都是解，这个断言是<strong>错</strong>的。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>次序很重要。</strong>每次展开都必须保持乘积的次序；<span class="math inline">\(\mathbf{AB}\)</span> 和 <span class="math inline">\(\mathbf{BA}\)</span> 通常并不相同。</p></li>
+<li><p><strong>零因子（zero divisors）。</strong>非零矩阵相乘可以得零，这就破坏了“二次方程最多有两个根”背后的论证。</p></li>
+<li><p><strong>从变换的角度去想。</strong>只要想像矩阵对平面做了甚么，每个反例都很容易找到。</p></li>
+</ul>
+<figure class="stepfig"><img src="../assets/fig/fig-7-1-1.svg" alt="图 7.1.1"><figcaption><span class="fig-label">图 7.1.1</span> 为甚么 <span class="math inline">\(\mathbf{AB} = \mathbf{0}\)</span> 但 <span class="math inline">\(\mathbf{BA} \neq \mathbf{0}\)</span>。上：<span class="math inline">\(\mathbf{B}\)</span> 把每个向量送到 <span class="math inline">\(y\)</span> 轴上，然后 <span class="math inline">\(\mathbf{A}\)</span>（到 <span class="math inline">\(x\)</span> 轴上的投影）把它压成零。下：次序调转时，<span class="math inline">\(\mathbf{A}\)</span> 保留 <span class="math inline">\(x\)</span> 分量，<span class="math inline">\(\mathbf{B}\)</span> 再把它移到 <span class="math inline">\(y\)</span> 轴上，它在那里得以保存下来。</figcaption></figure>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">矩阵作为一种代数</div>
+<p>凯莱（Arthur Cayley）在 1858 年引入矩阵代数，把矩阵看成可以相加和相乘的单一对象，而不仅仅是系数表。他立刻注意到乘法不满足交换律，并证明了<em>凯莱–哈密顿定理（Cayley–Hamilton theorem）</em>：每个方阵都满足它自己的特征方程（characteristic equation）。对于迹（trace）为 <span class="math inline">\(t\)</span>、行列式为 <span class="math inline">\(d\)</span> 的 <span class="math inline">\(2 \times 2\)</span> 矩阵，这就是说 <span class="math inline">\(\mathbf{M}^2 - t\mathbf{M} + d\mathbf{I} = \mathbf{0}\)</span>，本章会反复用到这个事实（<a href="../ch07/finite-order.html">第 7.4 节</a>）。<span class="math inline">\(2 \times 2\)</span> 实矩阵构成一个<em>环（ring）</em>：可以加、减、乘，但乘法不满足交换律，而且存在<em>零因子</em>，即乘积为零的非零元素。</p>
+</div>
+<h3 id="无穷多个平方根">无穷多个平方根</h3>
+<p>第 4 阶段的结论还可以变得更加惊人。方程 <span class="math inline">\(\mathbf{X}^2 = \mathbf{I}\)</span> 有明显的解 <span class="math inline">\(\pm\mathbf{I}\)</span>，但平面上对任何一条通过原点的直线的反射（reflection）<span class="math inline">\(\mathbf{X} = \begin{pmatrix} \cos\theta &amp; \sin\theta \\ \sin\theta &amp; -\cos\theta \end{pmatrix}\)</span> 也都是解，因为反射两次等于甚么也没做。这就是 <span class="math inline">\(\mathbf{I}\)</span> 的一整个圆那么多的平方根。系数为数的 <span class="math inline">\(n\)</span> 次多项式最多有 <span class="math inline">\(n\)</span> 个根，是因为数没有零因子；矩阵却有，于是这个根的数目上限便不再成立。</p>
+<h3 id="物理学中的非交换性">物理学中的非交换性</h3>
+<p>在经典力学中，位置 <span class="math inline">\(x\)</span> 和动量 <span class="math inline">\(p\)</span> 都是数，并且 <span class="math inline">\(xp = px\)</span>。在量子力学中，它们变成算子（operator，即无穷矩阵），满足 <span class="math inline">\(xp - px = \mathrm{i}\hbar\)</span>，其中 <span class="math inline">\(\hbar\)</span> 是普朗克（Planck）常数除以 <span class="math inline">\(2\pi\)</span>。单凭这一条非交换关系，就可推出海森堡的不确定性原理：位置和动量不可能同时被准确得知。海森堡在 1925 年发现量子力学的法则时，并不知道矩阵是甚么；是玻恩（Max Born）认出海森堡所发明的那条奇怪的乘法法则就是矩阵乘法。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">在新的情境中检验熟悉的法则</div>
+<p><em>遇到一种新的对象时，要检查哪些熟悉的法则仍然成立，并弄清楚每条法则究竟依赖哪一项性质。</em></p>
+<p>法则“<span class="math inline">\(ab = 0\)</span> 可推出 <span class="math inline">\(a = 0\)</span> 或 <span class="math inline">\(b = 0\)</span>”依赖除法；“<span class="math inline">\((a - b)(a + b) = a^2 - b^2\)</span>”依赖交换律。知道每条法则建基于甚么，你就知道甚么时候仍然可以使用它。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>甚么时候可交换？</strong>求所有与 <span class="math inline">\(\begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\)</span> 可交换的 <span class="math inline">\(2 \times 2\)</span> 矩阵。</p></li>
+<li><p><strong>零的平方根。</strong>求所有满足 <span class="math inline">\(\mathbf{N}^2 = \mathbf{0}\)</span> 的 <span class="math inline">\(2 \times 2\)</span> 实矩阵 <span class="math inline">\(\mathbf{N}\)</span>。（<em>提示：</em>利用凯莱–哈密顿定理证明 <span class="math inline">\(\operatorname{tr}\mathbf{N} = \det\mathbf{N} = 0\)</span>。）</p></li>
+<li><p><strong>反射。</strong>证明每个反射矩阵 <span class="math inline">\(\begin{pmatrix} \cos\theta &amp; \sin\theta \\ \sin\theta &amp; -\cos\theta \end{pmatrix}\)</span> 的平方都是 <span class="math inline">\(\mathbf{I}\)</span>，并求出它所对应的反射轴。</p></li>
+<li><p><strong>凯莱–哈密顿定理。</strong>以直接计算证明每个 <span class="math inline">\(2 \times 2\)</span> 矩阵都满足 <span class="math inline">\(\mathbf{M}^2 - (\operatorname{tr}\mathbf{M})\mathbf{M} + (\det\mathbf{M})\mathbf{I} = \mathbf{0}\)</span>。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong>（Wellesley-Cambridge）。最受欢迎的线性代数入门教科书，着重理解。</p></li>
+<li><p><strong>Sheldon Axler, <a href="https://uk.bookshop.org/search?keywords=Linear+Algebra+Done+Right+Axler"><em>Linear Algebra Done Right</em></a></strong>（Springer；可在网上免费阅读）。取向较为抽象，以线性映射而非矩阵为中心。</p></li>
+<li><p><strong>Jim Baggott, <a href="https://uk.bookshop.org/search?keywords=The+Quantum+Story+Baggott"><em>The Quantum Story</em></a></strong>（Oxford University Press）。量子力学的历史，包括海森堡的矩阵力学。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 本章导言</a><a class="next" href="eigenvectors.html">→ 7.2 只伸缩，不转向</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

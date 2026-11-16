@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>计数田鼠 (STEP II 2000 第 13 题) — Beyond STEP</title>
+<meta name="description" content="STEP II 2000 第 13 题：引导式解答及其背后的大学数学。 一个岛上住了多少只田鼠？逐只去数是不可能的：牠们会躲藏，会走动，而且长得一模一样。不过，你可以先捉一些，做上记号，放走，然后再捉一批。假如有 200 只做了记号，而第二次捉到的 200 只当中有 11 只带有记号，那么整个种群中大约有 (11)/(200) 带有记号，所以种群的大小约为 200 × (200)/(11)…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/voles.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/voles.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch13/voles.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/voles.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch13/voles.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="计数田鼠 (STEP II 2000 第 13 题) — Beyond STEP">
+<meta property="og:description" content="STEP II 2000 第 13 题：引导式解答及其背后的大学数学。 一个岛上住了多少只田鼠？逐只去数是不可能的：牠们会躲藏，会走动，而且长得一模一样。不过，你可以先捉一些，做上记号，放走，然后再捉一批。假如有 200 只做了记号，而第二次捉到的 200 只当中有 11 只带有记号，那么整个种群中大约有 (11)/(200) 带有记号，所以种群的大小约为 200 × (200)/(11)…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch13/voles.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="计数田鼠 (STEP II 2000 第 13 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2000 第 13 题：引导式解答及其背后的大学数学。 一个岛上住了多少只田鼠？逐只去数是不可能的：牠们会躲藏，会走动，而且长得一模一样。不过，你可以先捉一些，做上记号，放走，然后再捉一批。假如有 200 只做了记号，而第二次捉到的 200 只当中有 11 只带有记号，那么整个种群中大约有 (11)/(200) 带有记号，所以种群的大小约为 200 × (200)/(11)…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "计数田鼠", "headline": "计数田鼠", "description": "STEP II 2000 第 13 题：引导式解答及其背后的大学数学。 一个岛上住了多少只田鼠？逐只去数是不可能的：牠们会躲藏，会走动，而且长得一模一样。不过，你可以先捉一些，做上记号，放走，然后再捉一批。假如有 200 只做了记号，而第二次捉到的 200 只当中有 11 只带有记号，那么整个种群中大约有 (11)/(200) 带有记号，所以种群的大小约为 200 × (200)/(11)…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/voles.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2000 第 13 题", "统计与现实世界中的随机性"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "统计与现实世界中的随机性", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 13 章：统计与现实世界中的随机性", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/"}, {"@type": "ListItem", "position": 3, "name": "计数田鼠", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/voles.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch13/voles.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch13/voles.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 13 章 · 统计与现实世界中的随机性</a>
+    <div class="src">STEP II · 2000 · 第 13 题</div>
+    <div class="sec-head"><span class="sec-num">13.2</span><h1>计数田鼠</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-2-voles.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 13 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP II 2000，第 13 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/00-s2-q13">step.maths.org/questions/00-s2-q13</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>一个岛上住了多少只田鼠？逐只去数是不可能的：牠们会躲藏，会走动，而且长得一模一样。不过，你可以先捉一些，做上记号，放走，然后再捉一批。假如有 <span class="math inline">\(200\)</span> 只做了记号，而第二次捉到的 <span class="math inline">\(200\)</span> 只当中有 <span class="math inline">\(11\)</span> 只带有记号，那么整个种群中大约有 <span class="math inline">\(\frac{11}{200}\)</span> 带有记号，所以种群的大小约为 <span class="math inline">\(200 \times \frac{200}{11} \approx 3636\)</span>。</p>
+<p>这种<em>标记重捕法</em>（capture–recapture）用于估计鱼类、鸟类和鲸鱼的数量，也用于估计吸毒者、无家者和战争伤亡者的人数，即任何无法完全计数的总体。这道题用<em>最大似然</em>（maximum likelihood）原理为这个直观的估计打下稳固的基础。最大似然是统计估计中最重要的思想：选取使观察到的数据出现概率最大的那个未知量的值。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>种群共有 <span class="math inline">\(N\)</span> 只田鼠，其中 <span class="math inline">\(200\)</span> 只带有记号。现随机抽取 <span class="math inline">\(200\)</span> 只作为样本。恰好有 <span class="math inline">\(11\)</span> 只带有记号的概率是多少？</p>
+</div>
+<p>从 <span class="math inline">\(200\)</span> 只有记号的田鼠中选出 <span class="math inline">\(11\)</span> 只，再从 <span class="math inline">\(N - 200\)</span> 只没有记号的田鼠中选出 <span class="math inline">\(189\)</span> 只，而等可能的样本共有 <span class="math inline">\(\binom{N}{200}\)</span> 个： <span class="math display">\[p_N = \frac{\binom{200}{11}\binom{N - 200}{189}}{\binom{N}{200}}.\]</span> 这就是<em>超几何分布</em>（hypergeometric distribution）。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-似然" class="stage"><span class="stage-n">阶段 1</span> 似然</h4>
+<p>把含有 <span class="math inline">\(N\)</span> 的二项式系数（binomial coefficient）展开写出， <span class="math display">\[\binom{N - 200}{189} = \frac{(N - 200)!}{189!\,(N - 389)!}, \qquad \binom{N}{200} = \frac{N!}{200!\,(N - 200)!},\]</span> 所以 <span class="math display">\[p_N = \binom{200}{11}\frac{200!}{189!}\cdot\frac{\bigl((N - 200)!\bigr)^2}{N!\,(N - 389)!} = k\frac{\bigl((N - 200)!\bigr)^2}{N!\,(N - 389)!}. \qed\]</span> 把数据固定，视之为未知量 <span class="math inline">\(N\)</span> 的函数时，<span class="math inline">\(p_N\)</span> 称为<em>似然</em>（likelihood）。</p>
+<h4 id="stagemark2-对整数求最大值" class="stage"><span class="stage-n">阶段 2</span> 对整数求最大值</h4>
+<div class="askyourself">
+<p><span class="math inline">\(N\)</span> 是整数，所以用微积分并不方便。不如比较 <span class="math inline">\(p_{N+1}\)</span> 与 <span class="math inline">\(p_N\)</span>。两者之比何时大于 <span class="math inline">\(1\)</span>？</p>
+</div>
+<p>大部分阶乘都会互相约去： <span class="math display">\[\frac{p_{N+1}}{p_N} = \frac{(N - 199)^2}{(N + 1)(N - 388)}.\]</span> 当 <span class="math inline">\((N - 199)^2 &gt; (N + 1)(N - 388)\)</span> 时，这个比大于 <span class="math inline">\(1\)</span>，即 <span class="math inline">\(N^2 - 398N + 39601 &gt; N^2 - 387N - 388\)</span>，亦即 <span class="math inline">\(11N &lt; 39989\)</span>，<span class="math inline">\(N &lt; 3635.4\)</span>。所以 <span class="math inline">\(p_N\)</span> 一直递增至 <span class="math inline">\(N = 3636\)</span>，其后递减：最大似然估计值为 <span class="math display">\[\hat N = 3636. \qed\]</span> 这正是 <span class="math inline">\(\frac{200 \times 200}{11} = 3636.4\)</span> 的整数部分，也就是那个直观的估计。</p>
+<h4 id="stagemark3-第三个样本" class="stage"><span class="stage-n">阶段 3</span> 第三个样本</h4>
+<p>抽取第二个样本之后，其中 <span class="math inline">\(189\)</span> 只没有记号的田鼠也被做上记号，所以现在共有 <span class="math inline">\(389\)</span> 只田鼠带有记号。取 <span class="math inline">\(N = 3636\)</span>，则有 <span class="math inline">\(3636 - 389 = 3247\)</span> 只没有记号。第三个含 <span class="math inline">\(200\)</span> 只田鼠的样本中恰好有 <span class="math inline">\(j\)</span> 只带有记号的概率为 <span class="math display">\[\frac{\binom{389}{j}\binom{3247}{200 - j}}{\binom{3636}{200}}.\]</span> 这些概率（对 <span class="math inline">\(j = 0, 1, \ldots, 200\)</span>）之和必定等于 <span class="math inline">\(1\)</span>，由此即得该恒等式。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-2-1.svg" alt="图 13.2.1"><figcaption><span class="fig-label">图 13.2.1</span> 在第二个样本中发现 <span class="math inline">\(11\)</span> 只有记号田鼠的似然 <span class="math inline">\(p_N\)</span>，表示为种群大小 <span class="math inline">\(N\)</span> 的函数，并按比例缩放使其最大值为 <span class="math inline">\(1\)</span>。它在 <span class="math inline">\(N = 3636\)</span> 处达到峰值，但曲线宽阔而且偏斜：由大约 <span class="math inline">\(2500\)</span> 至 <span class="math inline">\(6500\)</span> 的种群大小，都与数据相当吻合。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>把数据的概率看成未知量的函数。</strong>似然把惯常的观点倒转过来：数据固定不变，参数（parameter）才是变量。</p></li>
+<li><p><strong>用比值求离散最大值。</strong>比较相邻两项，便找出了一个整数变量函数的最大值所在。</p></li>
+<li><p><strong>概率之和为 <span class="math inline">\(1\)</span>。</strong>把一个分布对所有结果求和，便证明了一个组合恒等式（范德蒙恒等式，Vandermonde’s identity）。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="最大似然">最大似然</h3>
+<p><em>最大似然</em>原理由费雪（Ronald Fisher）在 1910 至 1920 年代发展出来，内容是：以使观察到的数据出现概率最大的那个值，作为未知参数的估计。它是至今应用最广的估计方法，由以曲线拟合数据，到训练机器学习中的神经网络，无一不用；神经网络的“损失函数”（loss function）通常就是负对数似然。费雪证明了，对于大样本，最大似然估计值近似服从正态分布（normal distribution），而且其精确程度不逊于任何合理的估计量（estimator），前提是模型具备某些良好性质，而这些性质对大多数日常模型都成立。不过也有重要的例外。在下一节（<a href="../ch13/german-tanks.html">第 13.3 节</a>）中，未知量是可能出现的最大值，即分布的一个端点，在那里最大似然估计值的表现大不相同：它的误差并不近似服从正态分布，而且误差是以 <span class="math inline">\(\frac1n\)</span> 而非 <span class="math inline">\(\frac{1}{\sqrt n}\)</span> 的速度缩小。</p>
+<h3 id="这个估计有多精确">这个估计有多精确？</h3>
+<p>图 13.2.1 显示似然曲线很宽阔：<span class="math inline">\(11\)</span> 次重捕所提供的信息并不多。粗略计算一下：第二个样本中有记号田鼠的数目近似服从泊松分布（Poisson distribution），平均值为 <span class="math inline">\(\frac{200 \times 200}{N}\)</span>，所以其标准差（standard deviation）约为 <span class="math inline">\(\sqrt{11} \approx 3.3\)</span>，相对误差约为 <span class="math inline">\(30\%\)</span>，而这个误差会传递到 <span class="math inline">\(N\)</span> 的估计上。若要把 <span class="math inline">\(N\)</span> 的估计误差控制在 <span class="math inline">\(10\%\)</span> 以内，生物学家需要大约 <span class="math inline">\(100\)</span> 次重捕。统计学家还会修正这个简单估计的轻微偏差（bias），采用<em>查普曼估计量</em>（Chapman estimator）<span class="math inline">\(\frac{(M + 1)(C + 1)}{R + 1} - 1\)</span>，其中 <span class="math inline">\(M\)</span> 和 <span class="math inline">\(C\)</span> 是两次捕捉的数量，<span class="math inline">\(R\)</span> 是重捕到的数目。</p>
+<div class="historybox">
+<div class="box-title">拉普拉斯计数法国人口</div>
+<p>拉普拉斯（Laplace）在 1802 年用了同样的想法，在没有人口普查的情况下估计法国的人口。他知道全国一年内登记的出生人数，并且就一批抽样的市镇而言，同时知道其人口和出生人数。他假设人口与出生人数之比在各地都相同，从而估计法国人口约为 <span class="math inline">\(28\)</span> 百万，甚至给出了不确定程度的度量。后来这个方法在动物种群研究中被重新发现：C. G. J. Petersen 在 1890 年代于丹麦的峡湾为鲽鱼做记号，Frederick Lincoln 则在 1930 年代使用鸟环；这个方法至今仍常被称为<em>林肯—彼得森</em>（Lincoln–Petersen）估计量。</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">选取使数据最有可能出现的参数</div>
+<p><em>要估计一个未知量，先把你所观察到的结果的概率写成该未知量的函数，然后求其最大值。</em></p>
+<p>在大学里，最大似然是统计推断（statistical inference）的骨干，并有一套理论说明估计值有多精确（费雪信息量，Fisher information），以及如何比较互相竞争的模型（似然比检验，likelihood ratio test）。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>一般公式。</strong>若有 <span class="math inline">\(M\)</span> 只动物做了记号，而第二个含 <span class="math inline">\(C\)</span> 只动物的样本中有 <span class="math inline">\(R\)</span> 只带有记号，证明 <span class="math inline">\(N\)</span> 的最大似然估计值是 <span class="math inline">\(\frac{MC}{R}\)</span> 的整数部分。</p></li>
+<li><p><strong>范德蒙恒等式。</strong>考虑从 <span class="math inline">\(a\)</span> 名女士和 <span class="math inline">\(b\)</span> 名男士中选出 <span class="math inline">\(c\)</span> 人组成委员会的方法数目，以此证明 <span class="math inline">\(\sum_j\binom{a}{j}\binom{b}{c - j} = \binom{a + b}{c}\)</span>。</p></li>
+<li><p><strong>掷硬币。</strong>一枚硬币掷出正面的概率 <span class="math inline">\(p\)</span> 未知，掷 <span class="math inline">\(n\)</span> 次后观察到 <span class="math inline">\(h\)</span> 次正面。证明 <span class="math inline">\(p\)</span> 的最大似然估计值是 <span class="math inline">\(\frac hn\)</span>。</p></li>
+<li><p><strong>没有重捕。</strong>如果第二个样本中没有任何带记号的田鼠，最大似然估计值会变成怎样？这说明了这个方法的甚么特点？</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>David Spiegelhalter, <a href="https://uk.bookshop.org/search?keywords=The+Art+of+Statistics+Spiegelhalter"><em>The Art of Statistics</em></a></strong>（Pelican），谈估计与不确定性。</p></li>
+<li><p><strong>George Seber, <a href="https://uk.bookshop.org/search?keywords=The+Estimation+of+Animal+Abundance+Seber"><em>The Estimation of Animal Abundance</em></a></strong>（Blackburn）。标记重捕法的标准参考书。</p></li>
+<li><p><strong>John Rice, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Statistics+and+Data+Analysis+Rice"><em>Mathematical Statistics and Data Analysis</em></a></strong>（Duxbury）。数理统计的入门课本，内容包括最大似然。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="headlines.html">← 13.1 解读新闻标题</a><a class="next" href="german-tanks.html">→ 13.3 德国坦克问题</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 7 章：线性代数与几何 — Beyond STEP</title>
+<meta name="description" content="把矩阵本身视为研究对象：特征向量、行列式、旋转与不变量，最后以欧拉公式作结。">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 7 章：线性代数与几何 — Beyond STEP">
+<meta property="og:description" content="把矩阵本身视为研究对象：特征向量、行列式、旋转与不变量，最后以欧拉公式作结。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch07/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 7 章：线性代数与几何 — Beyond STEP">
+<meta name="twitter:description" content="把矩阵本身视为研究对象：特征向量、行列式、旋转与不变量，最后以欧拉公式作结。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 7, "name": "线性代数与几何", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "把矩阵本身视为研究对象：特征向量、行列式、旋转与不变量，最后以欧拉公式作结。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 7 章：线性代数与几何", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch07/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">7</div>
+    <h1>线性代数与几何</h1>
+    <p class="strap">矩阵不是一张数字表。它是空间的一种变换，而且自有其生命。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下载整章</span><span class="dl-sub">PDF，专为列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="matrix-rules.html"><span class="toc-num">7.1</span>
+<span class="toc-title">对矩阵不成立的法则</span>
+<span class="toc-src">STEP II 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-1-matrix-rules.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="eigenvectors.html"><span class="toc-num">7.2</span>
+<span class="toc-title">只伸缩，不转向</span>
+<span class="toc-src">STEP III 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-2-eigenvectors.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="determinant-axioms.html"><span class="toc-num">7.3</span>
+<span class="toc-title">甚么才算行列式</span>
+<span class="toc-src">STEP II 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-3-determinant-axioms.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="finite-order.html"><span class="toc-num">7.4</span>
+<span class="toc-title">回到起点的矩阵</span>
+<span class="toc-src">STEP II 2020</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-4-finite-order.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="rotations-3d.html"><span class="toc-num">7.5</span>
+<span class="toc-title">三维空间中的旋转</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-5-rotations-3d.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="hyperbolic-rotations.html"><span class="toc-num">7.6</span>
+<span class="toc-title">双曲旋转与相对论</span>
+<span class="toc-src">STEP III 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-6-hyperbolic-rotations.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="lax-pairs.html"><span class="toc-num">7.7</span>
+<span class="toc-title">永恒不变的量</span>
+<span class="toc-src">STEP III 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-7-lax-pairs.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="four-squares.html"><span class="toc-num">7.8</span>
+<span class="toc-title">四个平方数</span>
+<span class="toc-src">STEP III 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-8-four-squares.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="platonic-solids.html"><span class="toc-num">7.9</span>
+<span class="toc-title">只有五种柏拉图立体</span>
+<span class="toc-src">STEP III 1999</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-9-platonic-solids.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顾：我们学到了甚么</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“延伸练习”答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 7 章  \(\cdot\)  导言</div>
+    <h1 class="essay-title">空间的变换</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>我们思考时不依赖基底，写作时也不依赖基底，但到了紧要关头，我们就关上办公室的门，拼命地用矩阵计算。</p>
+<p class="who">— Irving Kaplansky，谈他与 Paul Halmos 处理线性代数的方式</p>
+</div>
+<p>在中学，矩阵（matrix）通常以解联立方程的工具出现，或者是变换点的一套步骤：把矩阵乘以一个列向量（column vector），然后读出新的坐标。两者都有用，但它们掩盖了矩阵之所以成为数学中最重要概念之一的原因。矩阵是一个<em>线性变换</em>（linear transformation）：一种把空间拉伸、旋转、反射和错切的方式，而且矩阵可以相加、相乘、取幂和求导，就像数一样。只不过它们又不像数。矩阵的乘法取决于次序，两个矩阵可以相乘得零，而且它们有隐藏的不变量（invariant）——迹（trace）、行列式（determinant）、特征值（eigenvalue）——无论矩阵写成甚么样子，这些量都能刻划它的本质。</p>
+<h3 id="线性代数为何重要">线性代数为何重要</h3>
+<p>线性代数（linear algebra）大概是应用最广的数学分支。每一个电脑图像引擎，由电子游戏到电影动画，都是一部做矩阵乘法的机器：角色的每一次旋转、每一个镜头角度、每一个透视投影，都是一个矩阵。互联网上的搜索引擎和推荐系统建基于特征向量（eigenvector）。工程师利用特征值求出桥梁和建筑物的振动频率；统计学家利用它们找出数据中的主要规律；量子力学完全以线性代数的语言写成。而现代的机器学习，核心就是数量极其庞大的矩阵乘法。</p>
+<p>线性代数无处不在，是有原因的。线性问题是我们能够彻底解决的问题，而几乎每一个非线性问题，只要放大到足够近，看起来都是线性的。这正是微积分的想法，也意味着几乎所有事物的局部性态，都是用线性代数这种语言来描述的。</p>
+<h3 id="你在大学会遇到甚么">你在大学会遇到甚么</h3>
+<p>线性代数与分析（analysis）并列为大学一年级的两大支柱。你会遇到<em>向量空间</em>（vector space，即可以做加法和纯量乘法的集合，平面和三维空间只是最初的例子）以及它们之间的<em>线性映射</em>（linear map），并且学到矩阵其实就是用坐标写出来的线性映射。你会学习行列式、特征值和特征向量，以及<em>谱定理</em>（spectral theorem），它指出对称矩阵（symmetric matrix）可以藉一个旋转来对角化（diagonalise）。往后的课程处处用到这些内容：在微分方程（第 8 章）中，在几何中（旋转和反射在那里构成群），在描述连续对称的<em>李群</em>（Lie group）理论中，以及在泛函分析（functional analysis）中，也就是无限多维的线性代数。</p>
+<h3 id="贯穿本章的问题">贯穿本章的问题</h3>
+<div class="skillbox">
+<div class="box-title">三大问题</div>
+<ol class="arabic">
+<li><p><strong>矩阵在哪些方面像数，又在哪些方面不同？</strong>哪些算术法则仍然成立，哪些不再成立？</p></li>
+<li><p><strong>矩阵究竟做了甚么？</strong>我们怎样才能看出一个变换的几何，又有哪些数能够不依赖坐标而刻划它？</p></li>
+<li><p><strong>甚么保持不变？</strong>哪些量在变换之下，或在运动之下保持不变，它们又告诉我们甚么？</p></li>
+</ol>
+</div>
+<p>本章由矩阵代数的法则开始（<a href="../ch07/matrix-rules.html">第 7.1 节</a>），然后转到变换的几何：特征向量、行列式、有限阶矩阵、三维空间中的旋转，以及狭义相对论中的双曲旋转（hyperbolic rotation）。接着是随时间演化的矩阵的守恒量（conserved quantity）、由行列式得出的四平方恒等式（four-square identity），最后以一个计数论证作结，即欧拉（Euler）公式，它把柏拉图立体（Platonic solids）分类。</p>
+<h3 id="本章的概念">本章的概念</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">主题</th>
+<th style="text-align: left;">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">7.1</td>
+<td style="text-align: left;">不成立的法则</td>
+<td style="text-align: left;">非交换性（non-commutativity）；零因子（zero divisor）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.2</td>
+<td style="text-align: left;">特征向量</td>
+<td style="text-align: left;">变换不会转动的方向</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.3</td>
+<td style="text-align: left;">行列式</td>
+<td style="text-align: left;">由可乘性刻划；有向面积</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.4</td>
+<td style="text-align: left;">有限阶矩阵</td>
+<td style="text-align: left;">迹、行列式与凯莱–哈密顿（Cayley–Hamilton）定理</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.5</td>
+<td style="text-align: left;">三维旋转</td>
+<td style="text-align: left;">由叉积（cross product）得出罗德里格斯（Rodrigues）公式</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.6</td>
+<td style="text-align: left;">洛伦兹推进（Lorentz boosts）</td>
+<td style="text-align: left;">双曲角可以相加</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.7</td>
+<td style="text-align: left;">守恒量</td>
+<td style="text-align: left;">交换子（commutator）的迹为零</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.8</td>
+<td style="text-align: left;">四平方</td>
+<td style="text-align: left;">行列式的可乘性</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.9</td>
+<td style="text-align: left;">柏拉图立体</td>
+<td style="text-align: left;">算两次（double counting）与欧拉公式</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="如何阅读本章">如何阅读本章</h3>
+<p>对本章的每一个矩阵，都把它所做的事画出来。取单位正方形，或单位圆，或几个向量，然后画出它们的像的草图。花两分钟画一幅草图，往往在你动手计算之前就让你看到答案（一个特征向量、一个反例、一条不变直线），事后也有助你检查计算。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="matrix-rules.html">→ 开始： 7.1 对矩阵不成立的法则</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

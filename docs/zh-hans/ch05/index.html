@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 5 章：复数 — Beyond STEP</title>
+<meta name="description" content="辐角与单位根，然后是复数几何，再到视作映射的复函数。本章排在第 6 章之前，因为该章的代数以单位根为主轴。">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch05/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch05/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 5 章：复数 — Beyond STEP">
+<meta property="og:description" content="辐角与单位根，然后是复数几何，再到视作映射的复函数。本章排在第 6 章之前，因为该章的代数以单位根为主轴。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch05/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 5 章：复数 — Beyond STEP">
+<meta name="twitter:description" content="辐角与单位根，然后是复数几何，再到视作映射的复函数。本章排在第 6 章之前，因为该章的代数以单位根为主轴。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 5, "name": "复数", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "辐角与单位根，然后是复数几何，再到视作映射的复函数。本章排在第 6 章之前，因为该章的代数以单位根为主轴。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 5 章：复数", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch05/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch05/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">5</div>
+    <h1>复数</h1>
+    <p class="strap">实数域中两个真理之间的最短路径，要取道复数域。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下载整章</span><span class="dl-sub">PDF，专为列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="machin.html"><span class="toc-num">5.1</span>
+<span class="toc-title">梅钦公式</span>
+<span class="toc-src">STEP III 1987</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-1-machin.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="roots-filter.html"><span class="toc-num">5.2</span>
+<span class="toc-title">单位根筛选法</span>
+<span class="toc-src">STEP I 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-2-roots-filter.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="z2n-plus-one.html"><span class="toc-num">5.3</span>
+<span class="toc-title">因式分解 \(z^{2n} + 1\)</span>
+<span class="toc-src">STEP III 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-3-z2n-plus-one.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="polygon-distances.html"><span class="toc-num">5.4</span>
+<span class="toc-title">正多边形中的距离</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-4-polygon-distances.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="rational-angles.html"><span class="toc-num">5.5</span>
+<span class="toc-title">名不副实的有理角</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-5-rational-angles.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="fermat-point.html"><span class="toc-num">5.6</span>
+<span class="toc-title">费马点</span>
+<span class="toc-src">STEP III 2000</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-6-fermat-point.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="complex-exponential.html"><span class="toc-num">5.7</span>
+<span class="toc-title">作为映射的复指数函数</span>
+<span class="toc-src">STEP II 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-7-complex-exponential.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="poincare-disc.html"><span class="toc-num">5.8</span>
+<span class="toc-title">圆盘中隐藏的距离</span>
+<span class="toc-src">STEP III 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-8-poincare-disc.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顾：我们学到了甚么</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“延伸练习”答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 5 章  \(\cdot\)  引言</div>
+    <h1 class="essay-title">虚数，实在的答案</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>实数域中两个真理之间的最短路径，要取道复数域。</p>
+<p class="who">— 阿达马（Jacques Hadamard）</p>
+</div>
+<p>1545 年，卡尔达诺（Gerolamo Cardano）发表了一条解三次方程（cubic equation）的公式，却发现了一件令人不安的事。有些三次方程明明有三个不折不扣的实根，公式在计算途中却要求取负数的平方根。这些平方根到最后会互相抵消，留下实数答案，但在计算的中途，却出现了一些按当时任何标准都不存在的量。卡尔达诺形容这种运算“既精妙，又无用”。其后两个世纪，数学家用起这些“虚”数（imaginary number）时总是惴惴不安，只当它是一种碰巧行得通的窍门。</p>
+<p>要到十九世纪初，Caspar Wessel、Jean-Robert Argand 和高斯（Gauss）把复数（complex number）看成平面上的点，复数才得到认可。自此之后，人们发现复数并非窍门，而是一种启示。复数解释了实数世界的现象为何如此表现，而且不断为有关实数的结果提供最短的路径，正如阿达马所言。</p>
+<h3 id="复数为何重要">复数为何重要</h3>
+<p>每一条多项式方程在复数中都有解：这就是<em>代数基本定理</em>（fundamental theorem of algebra）。因此，在一个确切的意义下，代数到了复数才算完备。复数也是描述旋转和振荡的天然语言。乘以一个模（modulus）为 <span class="math inline">\(1\)</span> 的复数，就是把平面旋转，所以凡是涉及角度、波动或周期现象的问题，用复数处理都会较为简单。电机工程师用复数分析交流电；物理学家没有复数就写不出量子力学；由手提电话到磁力共振（MRI）扫描器，信号处理全靠复数傅里叶变换（Fourier transform）运作。而在纯数学中，复变函数原来有着惊人的刚性和美感：只要知道一个复函数在一小片区域上的取值，它在各处的取值就全部确定了。</p>
+<h3 id="你在大学会遇到甚么">你在大学会遇到甚么</h3>
+<p>你从第一个星期起就会用到复数，但真正的一大步是<em>复分析</em>（complex analysis），通常在二年级修读。它的核心对象是<em>全纯</em>（holomorphic）函数，即可以求导的复函数，而这套理论处处是惊喜。每个全纯函数都自动地无限次可导，并且等于它的泰勒级数（Taylor series）。沿闭曲线的积分，只需察看函数趋向无穷的那些点便可求出（柯西留数定理，Cauchy’s residue theorem），让你能够计算其他方法都束手无策的实积分。这套理论再往前走，就通往保角映射（conformal map）（<a href="../ch05/complex-exponential.html">第 5.7 节</a>）、黎曼曲面（Riemann surface），以及支配质数的黎曼 zeta 函数（Riemann zeta function）（<a href="../ch01/prime-distribution.html">第 1.2 节</a>）。与此同时，单位根（roots of unity）的代数（<a href="../ch05/roots-filter.html">第 5.2 节</a>、<a href="../ch05/z2n-plus-one.html">第 5.3 节</a>）通往伽罗瓦理论（Galois theory），而复几何则通往 <a href="../ch05/poincare-disc.html">第 5.8 节</a> 的非欧几何（non-Euclidean geometry）。</p>
+<h3 id="贯穿本章的问题">贯穿本章的问题</h3>
+<div class="skillbox">
+<div class="box-title">三个大问题</div>
+<ol class="arabic">
+<li><p><strong>复数怎样帮助解决实数问题？</strong>为甚么绕道复平面（complex plane），竟能得出关于 <span class="math inline">\(\pi\)</span>、二项式系数（binomial coefficient）或余弦的事实？</p></li>
+<li><p><strong>单位根有甚么特别之处？</strong>为甚么 <span class="math inline">\(z^n = 1\)</span> 的解不断在求和、乘积、多边形和角度之中出现？</p></li>
+<li><p><strong>复函数是甚么模样的？</strong>输入和输出都是平面上的点的函数，我们怎样把它画出来？它们又揭示了怎样的几何？</p></li>
+</ol>
+</div>
+<p>本章由辐角（argument）与乘法出发（梅钦公式），经过单位根的代数（筛选、因式分解、多边形的距离和无理角），走到用复数处理的几何（费马点），最后到达作为映射的复函数（指数函数，以及单位圆盘中一个隐藏的距离）。</p>
+<h3 id="本章的主要想法">本章的主要想法</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">课题</th>
+<th style="text-align: left;">想法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">5.1</td>
+<td style="text-align: left;">梅钦（Machin）公式</td>
+<td style="text-align: left;">复数相乘时，辐角相加</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.2</td>
+<td style="text-align: left;">每隔三项的二项式系数</td>
+<td style="text-align: left;">对单位根取平均，可按余数（residue）筛选</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.3</td>
+<td style="text-align: left;">余弦的乘积</td>
+<td style="text-align: left;">按各根分解因式，然后代入</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.4</td>
+<td style="text-align: left;">正多边形的弦</td>
+<td style="text-align: left;">距离就是模；<span class="math inline">\(z^n - 1 = \prod(z - \omega^k)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.5</td>
+<td style="text-align: left;"><span class="math inline">\(\cos^{-1}\frac13\)</span> 是无理的</td>
+<td style="text-align: left;">棣美弗（De Moivre）定理、奇偶性（parity）与最小反例（minimal counterexample）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.6</td>
+<td style="text-align: left;">费马点（Fermat point）</td>
+<td style="text-align: left;">旋转就是乘法；选取好的坐标</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.7</td>
+<td style="text-align: left;">把 <span class="math inline">\(e^w\)</span> 看成映射</td>
+<td style="text-align: left;">把复函数画出来；多对一映射（many-to-one map）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.8</td>
+<td style="text-align: left;">一个隐藏的距离</td>
+<td style="text-align: left;">把不等式看成双曲几何（hyperbolic geometry）中的三角不等式（triangle inequality）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="怎样阅读本章">怎样阅读本章</h3>
+<p>动手画图。本章几乎每一个结果都有几何意义，随手画一幅复平面的草图（单位根在哪里、某个乘法把平面转向哪一边、网格线落在何处），往往在动用任何代数之前，就已经告诉你该怎样做。然后要小心地做代数运算，因为在正负号和 <span class="math inline">\(2\pi\)</span> 的倍数上，图形可能会误导你。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="machin.html">→ 开始： 5.1 梅钦公式</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

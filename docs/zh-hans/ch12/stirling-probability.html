@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>由概率得出斯特灵公式 (STEP II 2016 第 13 题) — Beyond STEP</title>
+<meta name="description" content="STEP II 2016 第 13 题：引导式解答及其背后的大学数学。 100! 有多大？要逐项乘出来得花点工夫：它有 158 位数字。 斯特灵公式（Stirling’s formula） n! approx sqrt2π n\,(n/e)^n 只用一行，就能给出误差在 0.1\% 以内的答案。它是数学中最有用的近似式之一，在概率（probability）、统计物理和算法分析中经常用到。…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/stirling-probability.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/stirling-probability.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/stirling-probability.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/stirling-probability.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/stirling-probability.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="由概率得出斯特灵公式 (STEP II 2016 第 13 题) — Beyond STEP">
+<meta property="og:description" content="STEP II 2016 第 13 题：引导式解答及其背后的大学数学。 100! 有多大？要逐项乘出来得花点工夫：它有 158 位数字。 斯特灵公式（Stirling’s formula） n! approx sqrt2π n\,(n/e)^n 只用一行，就能给出误差在 0.1\% 以内的答案。它是数学中最有用的近似式之一，在概率（probability）、统计物理和算法分析中经常用到。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch12/stirling-probability.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="由概率得出斯特灵公式 (STEP II 2016 第 13 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2016 第 13 题：引导式解答及其背后的大学数学。 100! 有多大？要逐项乘出来得花点工夫：它有 158 位数字。 斯特灵公式（Stirling’s formula） n! approx sqrt2π n\,(n/e)^n 只用一行，就能给出误差在 0.1\% 以内的答案。它是数学中最有用的近似式之一，在概率（probability）、统计物理和算法分析中经常用到。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "由概率得出斯特灵公式", "headline": "由概率得出斯特灵公式", "description": "STEP II 2016 第 13 题：引导式解答及其背后的大学数学。 100! 有多大？要逐项乘出来得花点工夫：它有 158 位数字。 斯特灵公式（Stirling’s formula） n! approx sqrt2π n\\,(n/e)^n 只用一行，就能给出误差在 0.1\\% 以内的答案。它是数学中最有用的近似式之一，在概率（probability）、统计物理和算法分析中经常用到。…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/stirling-probability.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2016 第 13 题", "概率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/"}, {"@type": "ListItem", "position": 3, "name": "由概率得出斯特灵公式", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/stirling-probability.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch12/stirling-probability.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/stirling-probability.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 12 章 · 概率</a>
+    <div class="src">STEP II · 2016 · 第 13 题</div>
+    <div class="sec-head"><span class="sec-num">12.23</span><h1>由概率得出斯特灵公式</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-23-stirling-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 12 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP II 2016，第 13 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/16-s2-q13">step.maths.org/questions/16-s2-q13</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p><span class="math inline">\(100!\)</span> 有多大？要逐项乘出来得花点工夫：它有 <span class="math inline">\(158\)</span> 位数字。<em>斯特灵公式（Stirling’s formula）</em> <span class="math inline">\(n! \approx \sqrt{2\pi n}\,(n/e)^n\)</span> 只用一行，就能给出误差在 <span class="math inline">\(0.1\%\)</span> 以内的答案。它是数学中最有用的近似式之一，在概率（probability）、统计物理和算法分析中经常用到。</p>
+<p>它有很多种证明（proof），可以用积分（integral）（<a href="../ch04/wallis-beta.html">第 4.4 节</a>），也可以用欧拉–麦克劳林公式（Euler–Maclaurin formula）。本题给出的是最出人意表的一种：用概率来证明。平均值（mean）为 <span class="math inline">\(n\)</span> 的泊松分布（Poisson distribution）近似于正态分布（normal distribution），在峰顶比较两者，<span class="math inline">\(n!\)</span> 的值就被确定下来。斯特灵公式中的 <span class="math inline">\(\sqrt{2\pi}\)</span>，正正就是正态密度（normal density）中的 <span class="math inline">\(\sqrt{2\pi}\)</span>。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>设离散随机变量（discrete random variable）<span class="math inline">\(X\)</span> 的平均值为 <span class="math inline">\(\mu\)</span>、方差（variance）为 <span class="math inline">\(\sigma^2\)</span>，并且近似于正态分布，那么 <span class="math inline">\(\mathrm{P}(X = \mu)\)</span> 大约是多少？（试想一个宽度为 <span class="math inline">\(1\)</span>、以 <span class="math inline">\(\mu\)</span> 为中心的区间的概率。）</p>
+</div>
+<p>按正态近似（normal approximation），<span class="math inline">\(\mathrm{P}(X = \mu) \approx \mathrm{P}(\mu - \frac12 &lt; X &lt; \mu + \frac12)\)</span>，这大约等于宽度 <span class="math inline">\(1\)</span> 乘以峰顶处的密度：<span class="math inline">\(\frac{1}{\sigma\sqrt{2\pi}}\)</span>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-十六枚硬币" class="stage"><span class="stage-n">阶段 1</span> 十六枚硬币</h4>
+<p><span class="math inline">\(X \sim \mathrm{B}(16, \frac12)\)</span> 的平均值为 <span class="math inline">\(8\)</span>，方差为 <span class="math inline">\(16 \cdot \frac12 \cdot \frac12 = 4\)</span>，所以 <span class="math inline">\(\sigma = 2\)</span>。由正态近似， <span class="math display">\[\mathrm{P}(X = 8) \approx \frac{1}{2\sqrt{2\pi}} \approx 0.1995.\]</span> 准确值是 <span class="math inline">\(\binom{16}{8}/2^{16} = \frac{12870}{65536} \approx 0.1964\)</span>，两者相差不到 <span class="math inline">\(2\%\)</span>。</p>
+<h4 id="stagemark2-中央二项式系数" class="stage"><span class="stage-n">阶段 2</span> 中央二项式系数</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{B}(2n, \frac12)\)</span> 的平均值和标准差（standard deviation）是多少？分别写出 <span class="math inline">\(\mathrm{P}(X = n)\)</span> 的准确值和近似值。</p>
+</div>
+<p>平均值是 <span class="math inline">\(n\)</span>，方差是 <span class="math inline">\(\frac n2\)</span>，所以 <span class="math inline">\(\sigma = \sqrt{n/2}\)</span>。准确值是 <span class="math inline">\(\mathrm{P}(X = n) = \binom{2n}{n}\frac{1}{2^{2n}}\)</span>；近似值是 <span class="math inline">\(\frac{1}{\sqrt{n/2}\sqrt{2\pi}} = \frac{1}{\sqrt{\pi n}}\)</span>。令两者相等， <span class="math display">\[\frac{(2n)!}{(n!)^2\,2^{2n}} \approx \frac{1}{\sqrt{\pi n}}, \qquad (2n)! \approx \frac{2^{2n}(n!)^2}{\sqrt{n\pi}}. \qed\]</span></p>
+<h4 id="stagemark3-斯特灵公式" class="stage"><span class="stage-n">阶段 3</span> 斯特灵公式</h4>
+<div class="askyourself">
+<p>参数为 <span class="math inline">\(n\)</span> 的泊松分布，其平均值和方差都等于 <span class="math inline">\(n\)</span>。分别写出 <span class="math inline">\(\mathrm{P}(X = n)\)</span> 的准确值和近似值。</p>
+</div>
+<p>准确值是 <span class="math inline">\(\mathrm{P}(X = n) = e^{-n}\frac{n^n}{n!}\)</span>。当 <span class="math inline">\(n\)</span> 很大时，泊松分布近似于正态分布（它是 <span class="math inline">\(n\)</span> 个独立的 Poisson<span class="math inline">\((1)\)</span> 变量之和），其中 <span class="math inline">\(\sigma = \sqrt n\)</span>，所以 <span class="math inline">\(\mathrm{P}(X = n) \approx \frac{1}{\sqrt{2\pi n}}\)</span>。令两者相等， <span class="math display">\[n! \approx \sqrt{2\pi n}\,e^{-n}n^n. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-23-1.svg" alt="图 12.23.1"><figcaption><span class="fig-label">图 12.23.1</span> 平均值为 <span class="math inline">\(10\)</span> 的泊松分布（长条），以及平均值和方差与之相同的正态密度（紫色曲线）。在峰顶，泊松概率 <span class="math inline">\(e^{-10}10^{10}/10!\)</span>（琥珀色）与正态密度 <span class="math inline">\(\frac{1}{\sqrt{2\pi\cdot10}}\)</span> 十分接近。把这个近似等式移项整理，就是斯特灵公式。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>一点上的概率 <span class="math inline">\(\approx\)</span> 密度乘以宽度。</strong>对于格点分布（lattice distribution），某一点上的正态密度近似于该点的概率。</p></li>
+<li><p><strong>准确公式遇上近似式。</strong>二项分布（binomial distribution）和泊松分布的概率是准确的；令它们等于各自的正态近似，便得到阶乘（factorial）的估计。</p></li>
+<li><p><strong>按公式的形状选择分布。</strong><span class="math inline">\(\binom{2n}{n}\)</span> 令人想到 <span class="math inline">\(\mathrm{B}(2n, \frac12)\)</span>；<span class="math inline">\(\frac{n^n}{n!}\)</span> 令人想到 Poisson<span class="math inline">\((n)\)</span>。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="这个近似有多准确">这个近似有多准确？</h3>
+<p>这个论证只是启发式（heuristic）的：它在<em>单独一点上</em>使用正态近似，而一般的中心极限定理（central limit theorem）并不足以支持这样做。它有一个严格的版本，称为<em>局部中心极限定理（local central limit theorem）</em>，所做的正是这件事，并使这个论证成为真正的证明。斯特灵公式其实出奇地准确：比值 <span class="math inline">\(\frac{n!}{\sqrt{2\pi n}(n/e)^n}\)</span> 大约是 <span class="math inline">\(1 + \frac{1}{12n}\)</span>，所以即使 <span class="math inline">\(n = 1\)</span>，它给出的也是 <span class="math inline">\(0.92\)</span> 而不是 <span class="math inline">\(1\)</span>；而当 <span class="math inline">\(n = 10\)</span> 时，它只偏小了 <span class="math inline">\(0.8\%\)</span>。完整的级数（series）<span class="math inline">\(1 + \frac{1}{12n} + \frac{1}{288n^2} - \cdots\)</span> 是<em>渐近级数（asymptotic series）</em>的一个例子：对于大的 <span class="math inline">\(n\)</span>，它给出的近似值越来越好；但对于固定的 <span class="math inline">\(n\)</span>，它最终会发散（diverge）。</p>
+<h3 id="阶乘与正态分布为何相连">阶乘与正态分布为何相连</h3>
+<p>斯特灵公式和正态密度中的 <span class="math inline">\(\sqrt{2\pi}\)</span> 是同一个常数，因为 <span class="math inline">\(\int_{-\infty}^\infty e^{-x^2/2}\,\mathrm{d}x = \sqrt{2\pi}\)</span>。棣莫弗（Abraham de Moivre）在 1733 年正是循这条路找到二项分布的正态近似的：他需要在 <span class="math inline">\(n\)</span> 很大时近似 <span class="math inline">\(\binom{n}{k}\)</span>；他找到了 <span class="math inline">\(n! \approx Cn^{n + 1/2}e^{-n}\)</span> 这个形式，却没有找到那个常数。斯特灵（James Stirling）证明了 <span class="math inline">\(C = \sqrt{2\pi}\)</span>。正态分布是从阶乘的渐近性质中诞生的。</p>
+<div class="historybox">
+<div class="box-title">棣莫弗与斯特灵</div>
+<p>棣莫弗是一位逃亡到伦敦的法国新教徒，靠当私人教师和为赌徒出谋献策维生。他在 1718 年出版了 <em>The Doctrine of Chances</em>（《机会论》），并在 1733 年的一本小册子中找到二项分布的正态近似，这是正态曲线首次面世。苏格兰数学家斯特灵在他的 <em>Methodus Differentialis</em>（1730）中发表了该常数的值，棣莫弗亦大方地把功劳归于他。阶乘的近似至今仍是活跃的课题：组合数学（combinatorics）和密码学（cryptography）都需要对极大的 <span class="math inline">\(n\)</span> 计算 <span class="math inline">\(n!\)</span>。</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">用概率去证明与概率无关的事情</div>
+<p><em>把一个准确的概率与一个近似值作比较，可以得知公式中那些数的信息。</em></p>
+<p>这种“概率方法（probabilistic method）”是双向的。这里概率给出了阶乘的估计；艾狄胥（Erdős）则用它来证明某些图（graph）的存在（<a href="../ch09/ramsey.html">第 9.2 节</a>）。到了大学，你会见到概率被用来证明分析、数论和组合数学中的定理。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>检验公式。</strong>用斯特灵公式估计 <span class="math inline">\(10!\)</span> 和 <span class="math inline">\(20!\)</span>，并与真确值 <span class="math inline">\(3\,628\,800\)</span> 和 <span class="math inline">\(2\,432\,902\,008\,176\,640\,000\)</span> 比较。</p></li>
+<li><p><strong>由 (iii) 到 (ii)。</strong>证明第 (iii) 部分的斯特灵公式可推出第 (ii) 部分的近似式。</p></li>
+<li><p><strong><span class="math inline">\(100!\)</span> 的位数。</strong>利用 <span class="math inline">\(\log_{10}n! \approx n\log_{10}\frac ne + \frac12\log_{10}(2\pi n)\)</span> 证明 <span class="math inline">\(100!\)</span> 有 <span class="math inline">\(158\)</span> 位数字。</p></li>
+<li><p><strong>掷硬币打成平手。</strong>利用第 (ii) 部分，证明掷一枚公平硬币 <span class="math inline">\(1000\)</span> 次而恰好得到 <span class="math inline">\(500\)</span> 次正面的概率约为 <span class="math inline">\(0.025\)</span>。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>William Feller, <a href="https://uk.bookshop.org/search?keywords=An+Introduction+to+Probability+Theory+and+Its+Applications+Feller"><em>An Introduction to Probability Theory and Its Applications</em></a>, Vol. 1</strong>（Wiley），第 II 章，当中证明了斯特灵公式。</p></li>
+<li><p><strong>Ronald Graham, Donald Knuth &amp; Oren Patashnik, <a href="https://uk.bookshop.org/search?keywords=Concrete+Mathematics+Graham+Knuth"><em>Concrete Mathematics</em></a></strong>（Addison-Wesley），第 9 章，讲述渐近分析。</p></li>
+<li><p><strong>Stephen Stigler, <a href="https://uk.bookshop.org/search?keywords=The+History+of+Statistics+Stigler"><em>The History of Statistics</em></a></strong>（Harvard University Press），讲述棣莫弗与正态曲线的诞生。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="cauchy.html">← 12.22 没有平均值的分布</a><a class="next" href="clt.html">→ 12.24 中心极限定理</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

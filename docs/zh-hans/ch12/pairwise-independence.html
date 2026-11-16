@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>两两独立，却非相互独立 (STEP III 2021 第 12 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2021 第 12 题：引导式解答及其背后的大学数学。 玩家 1 和玩家 2 掷出相同的点数。这能告诉你玩家 2 和玩家 3 是否掷出相同点数吗？出人意料的是，不能：这两个事件是独立（independent）的。玩家 1 和玩家 3 的情况也一样。但如果 1 与 2 相同，而 2 又与 3 相同，那么 1 必定与 3 相同。三个事件，每两个之间都独立，合起来却不独立。 两两独立…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/pairwise-independence.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/pairwise-independence.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/pairwise-independence.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/pairwise-independence.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/pairwise-independence.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="两两独立，却非相互独立 (STEP III 2021 第 12 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2021 第 12 题：引导式解答及其背后的大学数学。 玩家 1 和玩家 2 掷出相同的点数。这能告诉你玩家 2 和玩家 3 是否掷出相同点数吗？出人意料的是，不能：这两个事件是独立（independent）的。玩家 1 和玩家 3 的情况也一样。但如果 1 与 2 相同，而 2 又与 3 相同，那么 1 必定与 3 相同。三个事件，每两个之间都独立，合起来却不独立。 两两独立…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch12/pairwise-independence.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="两两独立，却非相互独立 (STEP III 2021 第 12 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2021 第 12 题：引导式解答及其背后的大学数学。 玩家 1 和玩家 2 掷出相同的点数。这能告诉你玩家 2 和玩家 3 是否掷出相同点数吗？出人意料的是，不能：这两个事件是独立（independent）的。玩家 1 和玩家 3 的情况也一样。但如果 1 与 2 相同，而 2 又与 3 相同，那么 1 必定与 3 相同。三个事件，每两个之间都独立，合起来却不独立。 两两独立…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "两两独立，却非相互独立", "headline": "两两独立，却非相互独立", "description": "STEP III 2021 第 12 题：引导式解答及其背后的大学数学。 玩家 1 和玩家 2 掷出相同的点数。这能告诉你玩家 2 和玩家 3 是否掷出相同点数吗？出人意料的是，不能：这两个事件是独立（independent）的。玩家 1 和玩家 3 的情况也一样。但如果 1 与 2 相同，而 2 又与 3 相同，那么 1 必定与 3 相同。三个事件，每两个之间都独立，合起来却不独立。 两两独立…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/pairwise-independence.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2021 第 12 题", "概率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/"}, {"@type": "ListItem", "position": 3, "name": "两两独立，却非相互独立", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/pairwise-independence.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch12/pairwise-independence.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/pairwise-independence.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 12 章 · 概率</a>
+    <div class="src">STEP III · 2021 · 第 12 题</div>
+    <div class="sec-head"><span class="sec-num">12.4</span><h1>两两独立，却非相互独立</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-4-pairwise-independence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 12 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2021，第 12 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 OCR 提供下载的 2021 年 STEP 试卷（zip 文件）内的 STEP III 试卷： <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">www.ocr.org.uk/Images/696588-2021-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>玩家 <span class="math inline">\(1\)</span> 和玩家 <span class="math inline">\(2\)</span> 掷出相同的点数。这能告诉你玩家 <span class="math inline">\(2\)</span> 和玩家 <span class="math inline">\(3\)</span> 是否掷出相同点数吗？出人意料的是，不能：这两个事件是独立（independent）的。玩家 <span class="math inline">\(1\)</span> 和玩家 <span class="math inline">\(3\)</span> 的情况也一样。但如果 <span class="math inline">\(1\)</span> 与 <span class="math inline">\(2\)</span> 相同，而 <span class="math inline">\(2\)</span> 又与 <span class="math inline">\(3\)</span> 相同，那么 <span class="math inline">\(1\)</span> 必定与 <span class="math inline">\(3\)</span> 相同。三个事件，每两个之间都独立，合起来却不独立。</p>
+<p><em>两两独立</em>（pairwise independence）比完全独立弱，而这个差别至关重要。就方差（variance）而言，两两独立已经足够，本题正是利用了这一点。但在许多其他用途上，这并不足够。电脑科学家会刻意使用两两独立的随机数，因为产生它们的成本远低于产生完全独立的随机数，而对许多算法来说已经够用。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{P}(X_{12} = 1)\)</span> 是多少？<span class="math inline">\(\mathrm{P}(X_{12} = 1 \text{ 及 } X_{23} = 1)\)</span> 又是多少？</p>
+</div>
+<p>无论玩家 <span class="math inline">\(1\)</span> 掷出甚么，玩家 <span class="math inline">\(2\)</span> 与之相同的概率都是 <span class="math inline">\(\frac16\)</span>。<span class="math inline">\(X_{12} = 1\)</span> 和 <span class="math inline">\(X_{23} = 1\)</span> 同时成立，即三人掷出相同的点数：概率为 <span class="math inline">\(\frac{6}{216} = \frac{1}{36}\)</span>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-两两独立" class="stage"><span class="stage-n">阶段 1</span> 两两独立</h4>
+<p>由于 <span class="math inline">\(\mathrm{P}(X_{12} = 1, X_{23} = 1) = \frac{1}{36} = \frac16 \cdot \frac16 = \mathrm{P}(X_{12} = 1)\mathrm{P}(X_{23} = 1)\)</span>，而每个变量只取两个值，所以 <span class="math inline">\(X_{12}\)</span> 与 <span class="math inline">\(X_{23}\)</span> 独立。（对于只取两个值的变量，联合分布表中的一格便决定了其余各格；练习 1 会把这一点说清楚。）没有共同玩家的两对，例如 <span class="math inline">\(X_{12}\)</span> 与 <span class="math inline">\(X_{34}\)</span>，显然是独立的。因此所有 <span class="math inline">\(X_{ij}\)</span> 都两两独立。</p>
+<h4 id="stagemark2-得分的平均值与方差" class="stage"><span class="stage-n">阶段 2</span> 得分的平均值与方差</h4>
+<p>得分为 <span class="math inline">\(S = \sum_{i&lt;j}X_{ij}\)</span>，是 <span class="math inline">\(\binom n2\)</span> 个变量之和，每个变量的平均值为 <span class="math inline">\(\frac16\)</span>，方差为 <span class="math inline">\(\frac16 \cdot \frac56 = \frac{5}{36}\)</span>。期望值（expectation）总是可以相加的，所以 <span class="math inline">\(\mathrm{E}(S) = \frac16\binom n2\)</span>。</p>
+<div class="askyourself">
+<p>和的方差在甚么时候等于方差之和？</p>
+</div>
+<p>和的方差等于方差之和，再加上协方差（covariance）之和的两倍，而独立的一对变量协方差为零。两两独立已经足够： <span class="math display">\[\mathrm{E}(S) = \frac{n(n - 1)}{12}, \qquad \mathrm{Var}(S) = \frac{5}{36}\binom n2 = \frac{5n(n - 1)}{72}.\]</span></p>
+<h4 id="stagemark3-方差公式" class="stage"><span class="stage-n">阶段 3</span> 方差公式</h4>
+<p>若各 <span class="math inline">\(Y_i\)</span> 的平均值为零，则 <span class="math inline">\(\mathrm{Var}(\sum Y_i) = \mathrm{E}\bigl((\sum Y_i)^2\bigr)\)</span>，把平方展开后，每个 <span class="math inline">\(Y_i^2\)</span> 出现一次，每个乘积 <span class="math inline">\(Y_iY_j\)</span>（其中 <span class="math inline">\(i &lt; j\)</span>）出现两次。取期望值便得到公式。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-奇偶游戏" class="stage"><span class="stage-n">阶段 4</span> 奇偶游戏</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{E}(Z_{12})\)</span> 是多少？<span class="math inline">\(Z_{12}Z_{23}\)</span> 可以取哪些值？它在甚么时候不等于零？</p>
+</div>
+<p><span class="math inline">\(Z_{12} = 1\)</span> 的概率为 <span class="math inline">\(\frac{3}{36} = \frac{1}{12}\)</span>（两人都掷出 <span class="math inline">\(2\)</span>、都掷出 <span class="math inline">\(4\)</span> 或都掷出 <span class="math inline">\(6\)</span>），而取值 <span class="math inline">\(-1\)</span> 的概率为 <span class="math inline">\(\frac{1}{12}\)</span>；所以 <span class="math inline">\(\mathrm{E}(Z_{12}) = 0\)</span> 而 <span class="math inline">\(\mathrm{E}(Z_{12}^2) = \frac16\)</span>。</p>
+<p>只有当三位玩家都掷出相同点数时，才有 <span class="math inline">\(Z_{12}Z_{23} \neq 0\)</span>，而此时 <span class="math inline">\(Z_{12} = Z_{23}\)</span>（同为 <span class="math inline">\(+1\)</span> 或同为 <span class="math inline">\(-1\)</span>），所以乘积为 <span class="math inline">\(1\)</span>。因此 <span class="math inline">\(\mathrm{E}(Z_{12}Z_{23}) = \frac{1}{36}\)</span>，这并不等于 <span class="math inline">\(\mathrm{E}(Z_{12})\mathrm{E}(Z_{23}) = 0\)</span>：它们并不独立。<span class="qed" aria-label="end of proof">■</span></p>
+<p>（更直接的看法是，<span class="math inline">\(\mathrm{P}(Z_{12} = 1, Z_{23} = -1) = 0\)</span>，而每个事件单独发生的概率都是 <span class="math inline">\(\frac{1}{12}\)</span>。）</p>
+<h4 id="stagemark5-方差" class="stage"><span class="stage-n">阶段 5</span> 方差</h4>
+<p>总得分 <span class="math inline">\(T = \sum Z_{ij}\)</span> 的平均值为 <span class="math inline">\(0\)</span>。根据第 (ii) 部分，<span class="math inline">\(\mathrm{Var}(T)\)</span> 等于 <span class="math inline">\(\binom n2 \cdot \frac16\)</span>，再加上 <span class="math inline">\(\mathrm{E}(Z_{ij}Z_{kl})\)</span> 对所有“两对玩家”的组合求和后的两倍。没有共同玩家的两对，贡献为 <span class="math inline">\(0\)</span>（它们独立，而且各自的平均值为零）。恰好有一位共同玩家的两对，每组贡献 <span class="math inline">\(\frac{1}{36}\)</span>，而这样的组合共有 <span class="math inline">\(n\binom{n-1}{2}\)</span> 个（先选共同的玩家，再选另外两人）。所以 <span class="math display">\[\begin{aligned}
+  \mathrm{Var}(T) &amp;= \frac{n(n - 1)}{12} + 2 \cdot \frac{1}{36} \cdot \frac{n(n - 1)(n - 2)}{2} \\
+  &amp;= \frac{n(n - 1)}{36}\bigl(3 + (n - 2)\bigr) = \frac{n(n^2 - 1)}{36}. \qed
+\end{aligned}\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-4-1.svg" alt="图 12.4.1"><figcaption><span class="fig-label">图 12.4.1</span> 伯恩斯坦（Bernstein）的例子：两枚公平硬币。事件“第一枚硬币是正面”（蓝绿色）、“第二枚硬币是正面”（紫红色）和“两枚硬币结果相同”（琥珀色虚线）的概率各为 <span class="math inline">\(\frac12\)</span>，而每两个事件都相交于概率为 <span class="math inline">\(\frac14\)</span> 的单一方格，所以它们两两独立。但三个事件全部相交于 HH，其概率为 <span class="math inline">\(\frac14\)</span>，而非 <span class="math inline">\(\frac18\)</span>：其中任何两个事件都决定了第三个。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>指示变量（indicator variables）。</strong>把得分写成指示变量之和，一切便化为对一对对玩家的考虑。</p></li>
+<li><p><strong>方差只需要看成对的变量。</strong>和的方差只取决于两两之间的协方差，所以两两独立已足以令方差相加。</p></li>
+<li><p><strong>独立性要验证，不要假设。</strong>两个看似相同的游戏，却有不同的相依结构。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="多个事件的独立性">多个事件的独立性</h3>
+<p>如果对每一个子族，交集的概率都等于各概率之积，则称事件 <span class="math inline">\(A_1, \ldots, A_n\)</span> <em>独立</em>。对三个事件来说，这意味着四个条件：三个是关于每一对的，另一个是 <span class="math inline">\(\mathrm{P}(A \cap B \cap C) = \mathrm{P}(A)\mathrm{P}(B)\mathrm{P}(C)\)</span>。伯恩斯坦（Sergei Bernstein）在 1920 年代提出图 12.4.1 中的例子，说明两两之间的条件并不能推出三者的条件。（反过来，单凭三者的条件也不能推出两两之间的条件。）题目中“点数相同”的事件 <span class="math inline">\(X_{12}\)</span>、<span class="math inline">\(X_{23}\)</span>、<span class="math inline">\(X_{13}\)</span> 与伯恩斯坦的硬币如出一辙。</p>
+<h3 id="不相关不等于独立">不相关不等于独立</h3>
+<p>协方差为零，即 <span class="math inline">\(\mathrm{E}(XY) = \mathrm{E}(X)\mathrm{E}(Y)\)</span>，是比独立更弱的条件，称为不相关（uncorrelated）。STEP III 2000 Q14（见练习）说明，对于只取两个值的变量，这两个概念是一致的，但取三个值时则不然。一个简单的例子：设 <span class="math inline">\(X\)</span> 在 <span class="math inline">\(\{-1, 0, 1\}\)</span> 上均匀分布，并设 <span class="math inline">\(Y = X^2\)</span>。那么 <span class="math inline">\(\mathrm{E}(XY) = \mathrm{E}(X^3) = 0 = \mathrm{E}(X)\mathrm{E}(Y)\)</span>，然而 <span class="math inline">\(Y\)</span> 完全由 <span class="math inline">\(X\)</span> 决定。协方差只量度线性关联。</p>
+<div class="historybox">
+<div class="box-title">廉价的随机性</div>
+<p>对电脑来说，产生随机数的成本很高。1979 年，Larry Carter 和 Mark Wegman 证明，对许多算法而言，例如把数据储存在伪随机位置的<em>杂凑</em>（hashing），两两独立的随机选择与完全独立的同样有效。两两独立的数值可以用极低的成本产生：例如，取随机的 <span class="math inline">\(a\)</span> 和 <span class="math inline">\(b\)</span>，则 <span class="math inline">\(a + bk \pmod p\)</span> 对 <span class="math inline">\(k = 0, 1, \ldots, p - 1\)</span> 给出 <span class="math inline">\(p\)</span> 个数值，其中任何两个都是独立的。本题的方差计算正是它行得通的原因：切比雪夫（Chebyshev）不等式只需要方差，而方差只需要看成对的变量。</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">分解为指示变量</div>
+<p><em>要求一个计数的平均值和方差，可把它写成指示变量之和，每一个可能被数到的对象对应一个指示变量。求平均值只需要考虑单个指示变量；求方差则需要考虑成对的指示变量。</em></p>
+<p>这是概率论中最有用的技巧之一，早在 <a href="../ch09/derangements.html">第 9.8 节</a> 已经出现过。在大学里，随机图、算法和统计检验的分析都以它为基础。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>两个值。</strong>试做 <a href="https://step.maths.org/questions/00-s3-q14">STEP III 2000，第 14 题</a>。该题证明，对于各自只取两个值的随机变量，<span class="math inline">\(\mathrm{E}(XY) = \mathrm{E}(X)\mathrm{E}(Y)\)</span> 必然推出独立，并要求给出一个取三个值的反例。</p></li>
+<li><p><strong>人数更多的队伍。</strong>在第 (i) 部分中取 <span class="math inline">\(n = 7\)</span>，求得分的平均值和标准差，并把例子中的得分 <span class="math inline">\(7\)</span> 与它们比较。</p></li>
+<li><p><strong>再谈生日。</strong>利用指示变量，求 <span class="math inline">\(k\)</span> 个人当中生日相同的人数对的平均值和方差（<a href="../ch09/birthday.html">第 9.9 节</a>）。这些指示变量是否两两独立？</p></li>
+<li><p><strong>三者成立但两两不独立。</strong>找出三个事件，每个的概率都是 <span class="math inline">\(\frac12\)</span>，满足 <span class="math inline">\(\mathrm{P}(A \cap B \cap C) = \frac18\)</span>，但并非两两独立。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; David Stirzaker, <a href="https://uk.bookshop.org/search?keywords=Probability+and+Random+Processes+Grimmett+Stirzaker"><em>Probability and Random Processes</em></a></strong>（Oxford University Press），开首几章讨论独立性。</p></li>
+<li><p><strong>Michael Mitzenmacher &amp; Eli Upfal, <a href="https://uk.bookshop.org/search?keywords=Probability+and+Computing+Mitzenmacher+Upfal"><em>Probability and Computing</em></a></strong>（Cambridge University Press）。两两独立及其在算法中的应用。</p></li>
+<li><p><strong>Joseph Blitzstein &amp; Jessica Hwang, <a href="https://probabilitybook.net/"><em>Introduction to Probability</em></a></strong>（CRC Press；可于网上免费阅读），关于指示变量与协方差。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="bertrand.html">← 12.3 “随机”是甚么意思？</a><a class="next" href="airline-seat.html">→ 12.5 最后一位乘客的座位</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

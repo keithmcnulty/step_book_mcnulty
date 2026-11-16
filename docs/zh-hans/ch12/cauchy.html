@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>没有平均值的分布 (STEP III 1995 第 12 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 1995 第 12 题：引导式解答及其背后的大学数学。 把许多次量度的结果取平均，随机误差便会互相抵消：平均值会稳定下来，趋向真实的数值。这条 大数定律（law of large numbers） 是整个统计学的基石。但它暗藏一个假设：这些量度必须有有限的平均值（mean）。本题构造了一个再自然不过的随机变量（random…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/cauchy.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/cauchy.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/cauchy.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/cauchy.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/cauchy.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="没有平均值的分布 (STEP III 1995 第 12 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 1995 第 12 题：引导式解答及其背后的大学数学。 把许多次量度的结果取平均，随机误差便会互相抵消：平均值会稳定下来，趋向真实的数值。这条 大数定律（law of large numbers） 是整个统计学的基石。但它暗藏一个假设：这些量度必须有有限的平均值（mean）。本题构造了一个再自然不过的随机变量（random…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch12/cauchy.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="没有平均值的分布 (STEP III 1995 第 12 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1995 第 12 题：引导式解答及其背后的大学数学。 把许多次量度的结果取平均，随机误差便会互相抵消：平均值会稳定下来，趋向真实的数值。这条 大数定律（law of large numbers） 是整个统计学的基石。但它暗藏一个假设：这些量度必须有有限的平均值（mean）。本题构造了一个再自然不过的随机变量（random…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "没有平均值的分布", "headline": "没有平均值的分布", "description": "STEP III 1995 第 12 题：引导式解答及其背后的大学数学。 把许多次量度的结果取平均，随机误差便会互相抵消：平均值会稳定下来，趋向真实的数值。这条 大数定律（law of large numbers） 是整个统计学的基石。但它暗藏一个假设：这些量度必须有有限的平均值（mean）。本题构造了一个再自然不过的随机变量（random…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/cauchy.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1995 第 12 题", "概率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/"}, {"@type": "ListItem", "position": 3, "name": "没有平均值的分布", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/cauchy.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch12/cauchy.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/cauchy.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 12 章 · 概率</a>
+    <div class="src">STEP III · 1995 · 第 12 题</div>
+    <div class="sec-head"><span class="sec-num">12.22</span><h1>没有平均值的分布</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-22-cauchy.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 12 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 1995，第 12 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/95-s3-q12">step.maths.org/questions/95-s3-q12</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>把许多次量度的结果取平均，随机误差便会互相抵消：平均值会稳定下来，趋向真实的数值。这条<em>大数定律（law of large numbers）</em>是整个统计学的基石。但它暗藏一个假设：这些量度必须有有限的平均值（mean）。本题构造了一个再自然不过的随机变量（random variable），即两个独立（independent）标准正态（standard normal）变量之比，而它根本没有平均值。它的平均永远不会稳定下来；事实上，一百万个这样的变量的平均，其分布与单独一个的分布完全相同。</p>
+<p>这就是<em>柯西分布（Cauchy distribution）</em>。它的密度（density）看来像一个人畜无害的钟形，但它的尾部实在太厚，偶然出现的极大数值足以左右任何平均。本题用一个漂亮的几何论证把它找出来：两个坐标之比就是一条直线的斜率，而径向对称令这条直线的角度呈均匀分布。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>若 <span class="math inline">\((U, V)\)</span> 是一个随机点，其密度只取决于它与原点的距离，那么由原点到该点的直线与坐标轴所成的角 <span class="math inline">\(\Theta\)</span>，你能说些甚么？</p>
+</div>
+<p>把平面旋转并不会改变密度，所以每个方向的可能性都相同：角 <span class="math inline">\(\Theta\)</span> 在 <span class="math inline">\([0, 2\pi)\)</span> 上呈均匀（uniform）分布。而 <span class="math inline">\(\frac UV\)</span> 只取决于方向，与距离无关。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-联合密度joint-density" class="stage"><span class="stage-n">阶段 1</span> 联合密度（joint density）</h4>
+<p>由于 <span class="math inline">\(X\)</span> 与 <span class="math inline">\(Y\)</span> 独立，它们的联合密度就是各自密度的乘积： <span class="math display">\[\mathrm{f}(x, y) = \frac{1}{\sqrt{2\pi}}e^{-x^2/2}\cdot\frac{1}{\sqrt{2\pi}}e^{-y^2/2} = \frac{1}{2\pi}e^{-\frac12(x^2 + y^2)}.\]</span> 它只通过 <span class="math inline">\(x^2 + y^2\)</span>（即与原点距离的平方）取决于 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span>：在以原点为圆心的圆上，密度是常数。这就是“径向对称”（radially symmetrical）的意思。</p>
+<h4 id="stagemark2-运用对称性" class="stage"><span class="stage-n">阶段 2</span> 运用对称性</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\frac UV &lt; k\)</span> 可以在两种情况下发生，视乎 <span class="math inline">\(V\)</span> 的正负号而定。这两种情况与旋转 <span class="math inline">\(180^\circ\)</span> 的变换 <span class="math inline">\((u, v) \mapsto (-u, -v)\)</span> 有甚么关系？</p>
+</div>
+<p><span class="math inline">\(\frac UV &lt; k\)</span> 的意思是：要么 <span class="math inline">\(V &gt; 0\)</span> 且 <span class="math inline">\(U &lt; kV\)</span>，要么 <span class="math inline">\(V &lt; 0\)</span> 且 <span class="math inline">\(U &gt; kV\)</span>。旋转 <span class="math inline">\((u, v) \mapsto (-u, -v)\)</span> 把第一个区域映射到第二个区域上，并且保持密度不变。所以两者的概率相同，于是 <span class="math display">\[\mathrm{P}\Bigl(\frac UV &lt; k\Bigr) = 2\mathrm{P}(U &lt; kV, V &gt; 0). \qed\]</span></p>
+<h4 id="stagemark3-一个角" class="stage"><span class="stage-n">阶段 3</span> 一个角</h4>
+<div class="askyourself">
+<p>在以 <span class="math inline">\(u\)</span> 为横轴、<span class="math inline">\(v\)</span> 为纵轴的平面上，画出区域 <span class="math inline">\(\{V &gt; 0, U &lt; kV\}\)</span>。它是一个顶点在原点的楔形。它的角度是多少？</p>
+</div>
+<p>区域 <span class="math inline">\(V &gt; 0\)</span> 是上半平面。通过原点的直线 <span class="math inline">\(u = kv\)</span> 与正 <span class="math inline">\(v\)</span> 轴所成的角为 <span class="math inline">\(\arctan k\)</span>（当 <span class="math inline">\(k &gt; 0\)</span> 时偏向正 <span class="math inline">\(u\)</span> 的一方）。上半平面中位于这条直线左方的部分，是一个角度为 <span class="math inline">\(\frac\pi2 + \arctan k\)</span> 的楔形。根据径向对称，楔形的概率等于它的角度除以 <span class="math inline">\(2\pi\)</span>，所以 <span class="math display">\[\mathrm{P}\Bigl(\frac UV &lt; k\Bigr) = 2\cdot\frac{\frac\pi2 + \arctan k}{2\pi} = \frac12 + \frac1\pi\arctan k.\]</span> 对 <span class="math inline">\(k\)</span> 求导，便得到密度 <span class="math display">\[\mathrm{g}(k) = \frac{1}{\pi(1 + k^2)}. \qed\]</span></p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>独立的正态变量具有径向对称性。</strong>两个正态密度的乘积只取决于距离。</p></li>
+<li><p><strong>比值即方向。</strong><span class="math inline">\(\frac UV\)</span> 只取决于该点的角度，而这个角度呈均匀分布。</p></li>
+<li><p><strong>楔形的概率。</strong>在径向对称之下，楔形的概率与它的角度成正比。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="没有平均值">没有平均值</h3>
+<p>柯西分布的平均值本应是 <span class="math inline">\(\int_{-\infty}^\infty\frac{k}{\pi(1 + k^2)}\,\mathrm{d}k\)</span>，但 <span class="math inline">\(\int_0^K\frac{k}{1 + k^2}\,\mathrm{d}k = \frac12\ln(1 + K^2) \to \infty\)</span>：这个积分并不收敛（converge），所以平均值不存在。（对称性或会令人以为答案是 <span class="math inline">\(0\)</span>，但正负两部分都是无穷大，而 <span class="math inline">\(\infty - \infty\)</span> 并没有值。）方差（variance）同样是无穷大。</p>
+<p>更糟的是，<span class="math inline">\(n\)</span> 个独立柯西变量的平均仍然是柯西变量，而且分布完全相同。（其中一个看出这点的方法，是利用特征函数（characteristic function）<span class="math inline">\(\mathrm{E}(e^{itX}) = e^{-|t|}\)</span>。）所以取平均完全无补于事：一百万次量度的平均，并不比单独一次可靠。图 12.22.1 显示了实际情况：正态样本的累计平均会稳定下来，而柯西样本的累计平均却永远东歪西倒，不时被偶然出现的极大数值撞得偏离原位。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-22-1.svg" alt="图 12.22.1"><figcaption><span class="fig-label">图 12.22.1</span> <span class="math inline">\(2000\)</span> 个独立样本的累计平均。对于标准正态样本（蓝绿色），平均值一如大数定律所预测，稳定下来并趋向 <span class="math inline">\(0\)</span>。对于柯西样本（紫红色），它永远不会稳定：每隔一段时间，单单一个极大的数值就会把它抛到另一个位置。</figcaption></figure>
+<h3 id="柯西变量从何而来">柯西变量从何而来</h3>
+<p>拿一支电筒，朝一个均匀随机的方向照向一面墙：光点在墙上的位置便服从柯西分布。在物理学中，同一个密度称为<em>劳仑兹分布（Lorentzian）</em>，用来描述谱线和共振峰的形状（比较 <a href="../ch11/resonance.html">第 11.1 节</a>）。在金融学中，像柯西分布这类厚尾（heavy-tailed）分布，会用来为偶尔出现的股灾建立模型，而正态模型往往严重低估这类事件。这对统计学是一个严肃的教训：建基于平均值和方差的方法，遇上厚尾数据便会失效，这时就需要稳健的方法，例如使用中位数（median）（柯西分布的中位数完全没有问题）。</p>
+<div class="historybox">
+<div class="box-title">泊松、柯西与一场论战</div>
+<p>这个分布在 1824 年由泊松（Siméon Denis Poisson）研究过，他注意到它违反大数定律。柯西（Augustin-Louis Cauchy）则在 1853 年与 Irénée-Jules Bienaymé 就最小二乘法（method of least squares）公开论战时遇上它：柯西用它来说明，当误差属于厚尾时，最小二乘法可以是一个很差的方法。这个分布最终冠上了柯西的名字，正是 Stephen Stigler 所称的“史蒂格勒命名定律”（Stigler’s law of eponymy）的一例：没有任何科学发现是以其最初发现者命名的。</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">检查期望值是否存在</div>
+<p><em>使用平均值或方差之前，先确定定义它的积分是收敛的。对称性并不能令一个发散的积分变成零。</em></p>
+<p>在大学里，可积性条件是概率论中每一条定理的一部分：大数定律需要有限的平均值，中心极限定理（central limit theorem）（<a href="../ch12/clt.html">第 12.24 节</a>）需要有限的方差。当这些条件不成立时，柯西分布就是标准的反例。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>电筒。</strong>一支电筒与一面长而直的墙相距 <span class="math inline">\(1\)</span>，所指的方向与垂直线成角 <span class="math inline">\(\Theta\)</span>，其中 <span class="math inline">\(\Theta\)</span> 在 <span class="math inline">\((-\frac\pi2, \frac\pi2)\)</span> 上呈均匀分布。证明光点的位置 <span class="math inline">\(\tan\Theta\)</span> 服从柯西分布。</p></li>
+<li><p><strong>倒数。</strong>证明若 <span class="math inline">\(C\)</span> 服从柯西分布，则 <span class="math inline">\(\frac1C\)</span> 亦然。（<em>提示：</em><span class="math inline">\(\frac UV\)</span> 与 <span class="math inline">\(\frac VU\)</span>。）</p></li>
+<li><p><strong>中位数行得通。</strong>证明柯西分布的中位数是 <span class="math inline">\(0\)</span>，而它的四分位数（quartiles）是 <span class="math inline">\(\pm1\)</span>。</p></li>
+<li><p><strong>半径与角度。</strong>设 <span class="math inline">\(X\)</span>、<span class="math inline">\(Y\)</span> 为独立的标准正态变量，通过转换成极坐标（polar coordinates），证明 <span class="math inline">\(R^2 = X^2 + Y^2\)</span> 服从平均值为 <span class="math inline">\(2\)</span> 的指数分布（exponential distribution），并且与角度独立。（这是用来产生正态随机数的 Box–Muller 方法的基础。）</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <a href="https://uk.bookshop.org/search?keywords=Probability%3A+An+Introduction+Grimmett+Welsh"><em>Probability: An Introduction</em></a></strong>（Oxford University Press），论随机变量的变换。</p></li>
+<li><p><strong>Nassim Nicholas Taleb, <a href="https://uk.bookshop.org/search?keywords=The+Black+Swan+Taleb"><em>The Black Swan</em></a></strong>（Penguin）。讲述厚尾现象及其重要性，适合一般读者。</p></li>
+<li><p><strong>Stephen Stigler, <a href="https://uk.bookshop.org/search?keywords=The+History+of+Statistics+Stigler"><em>The History of Statistics</em></a></strong>（Harvard University Press）。书中记述了柯西与 Bienaymé 的论战。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="broken-stick.html">← 12.21 折断一根棒</a><a class="next" href="stirling-probability.html">→ 12.23 由概率得出斯特灵公式</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

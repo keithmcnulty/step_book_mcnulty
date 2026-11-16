@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 1 章：数论与证明 — Beyond STEP</title>
+<meta name="description" content="质数、无理性与丢番图方程：全书最着重证明的一章，由质数有无限多个谈起，经无理性，再到数系的结构。">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 1 章：数论与证明 — Beyond STEP">
+<meta property="og:description" content="质数、无理性与丢番图方程：全书最着重证明的一章，由质数有无限多个谈起，经无理性，再到数系的结构。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch01/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 1 章：数论与证明 — Beyond STEP">
+<meta name="twitter:description" content="质数、无理性与丢番图方程：全书最着重证明的一章，由质数有无限多个谈起，经无理性，再到数系的结构。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 1, "name": "数论与证明", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "质数、无理性与丢番图方程：全书最着重证明的一章，由质数有无限多个谈起，经无理性，再到数系的结构。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 1 章：数论与证明", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch01/"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch01/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">1</div>
+    <h1>数论与证明</h1>
+    <p class="strap">整数是数学中最古老的对象，却至今仍藏着数学中一些最深奥的秘密。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下载整章</span><span class="dl-sub">PDF，专为列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="fermat-numbers.html"><span class="toc-num">1.1</span>
+<span class="toc-title">质数工厂</span>
+<span class="toc-src">STEP II 2002</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-1-fermat-numbers.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="prime-distribution.html"><span class="toc-num">1.2</span>
+<span class="toc-title">质数分布得有多稀疏？</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-2-prime-distribution.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="well-ordering.html"><span class="toc-num">1.3</span>
+<span class="toc-title">最小反例</span>
+<span class="toc-src">STEP III 2015</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-3-well-ordering.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="e-irrational.html"><span class="toc-num">1.4</span>
+<span class="toc-title">\(e\) 是无理数，\(e^2\) 也是</span>
+<span class="toc-src">STEP III 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-4-e-irrational.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="infinite-descent.html"><span class="toc-num">1.5</span>
+<span class="toc-title">无穷递降法</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-5-infinite-descent.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="two-squares.html"><span class="toc-num">1.6</span>
+<span class="toc-title">两个平方数之和</span>
+<span class="toc-src">STEP II 2023</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-6-two-squares.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="factorisation-fails.html"><span class="toc-num">1.7</span>
+<span class="toc-title">因数分解失效之时</span>
+<span class="toc-src">STEP I 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-7-factorisation-fails.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="counting-rationals.html"><span class="toc-num">1.8</span>
+<span class="toc-title">计数有理数</span>
+<span class="toc-src">STEP III 2020</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-8-counting-rationals.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="tangents-cubic.html"><span class="toc-num">1.9</span>
+<span class="toc-title">三次曲线的切线</span>
+<span class="toc-src">STEP I 2009</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-9-tangents-cubic.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顾：我们学到了甚么</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“延伸练习”答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 1 章  \(\cdot\)  引言</div>
+    <h1 class="essay-title">为甚么是整数？</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>数学是科学的皇后，而数论（number theory）是数学的皇后。</p>
+<p class="who">— 高斯（Carl Friedrich Gauss）</p>
+</div>
+<p>整数是每个人最先接触到的数学对象。你还未识字，就已经学会数数。然而，关于整数的最简单的问题，却可以难得出奇。每一个大于 2 的偶数，是否都是两个质数（prime）之和？没有人知道：哥德巴赫（Christian Goldbach）在 1742 年提出这个问题，电脑已经验证到 <span class="math inline">\(4 \times 10^{18}\)</span> 以外，但至今仍然没有人能够证明。像 <span class="math inline">\(11\)</span> 和 <span class="math inline">\(13\)</span>，或 <span class="math inline">\(101\)</span> 和 <span class="math inline">\(103\)</span> 这样相差 2 的质数对，是否有无穷多对？这同样没有人知道。不过在 2013 年，一位几乎寂寂无名的数学家张益唐（Yitang Zhang）震惊了全世界：他证明了有无穷多对质数，彼此相差不超过 <span class="math inline">\(70\)</span> 百万，而这个数字后来已被降低至 <span class="math inline">\(246\)</span>。费马（Pierre de Fermat）在 1637 年于书页边的空白处随手写下：当 <span class="math inline">\(n \geq 3\)</span> 时，<span class="math inline">\(x^n + y^n = z^n\)</span> 没有正整数解。人们花了超过 350 年，并动用了有史以来最精深的一些数学，才终于由怀尔斯（Andrew Wiles）在 1994 年证明他是对的。</p>
+<p>问题连小孩子都听得懂，答案却可能要花上几个世纪——正是这种组合令数论叫人欲罢不能。这也是为甚么数论一直是<em>证明</em>（proof）的训练场。整数有无穷多个，你不可能逐一检查每个情况，于是就必须找出一个能一举涵盖所有情况的论证。你在往后的数学生涯中会用到的证明技巧，大部分最初都是在有关整数的问题上磨练出来的。</p>
+<h3 id="纯粹无用却支撑着互联网">纯粹、无用，却支撑着互联网</h3>
+<p>1940 年，剑桥数学家哈代（G. H. Hardy）颇为自豪地写道：数论是所有数学中最纯粹的，与日常生活相距太远，不可能有任何实际用途，因而也不可能有任何<em>有害</em>的用途。他错得不能再错了。每当你在网上购物、发送加密信息或为手机解锁，你都在依靠数论。RSA 系统（1977 年）所依赖的事实是：把两个大质数相乘很容易，但要从它们的乘积还原出这两个质数，却似乎难得无从入手。现代的系统所用的，正是你会在本章末遇到的那些曲线上的算术。十八、十九世纪的“无用”数学，成了二十一世纪的安全保障。</p>
+<h3 id="你在大学会遇到甚么">你在大学会遇到甚么</h3>
+<p>如果你在大学修读数学，数论会是你最先到达的地方之一，也会是你最后到达的地方之一。</p>
+<ul>
+<li><p><strong>在第一个学期</strong>，你几乎一定会修读一门名为<em>数与集合</em>（Numbers and Sets）或<em>数学基础</em>（Foundations）之类的课程。它会教你怎样正式地书写证明，而其中大部分素材都来自数论：归纳法（induction）、欧几里得算法（Euclidean algorithm）、模算术（modular arithmetic）、费马小定理（Fermat’s Little Theorem）、中国余数定理（Chinese Remainder Theorem），以及一个令人惊讶的事实——有些无穷集合比另一些无穷集合更大。</p></li>
+<li><p><strong>在群论（group theory）中</strong>（通常在第一年修读），你会发现许多数论事实，原来都是同一条关于对称的定理——拉格朗日定理（Lagrange’s Theorem）——投下的影子。</p></li>
+<li><p><strong>在第二年</strong>，一门<em>数论</em>课程通常会涵盖二次互反律（quadratic reciprocity，即高斯的“黄金定理”）、连分数（continued fractions）和佩尔方程（Pell’s equation）。</p></li>
+<li><p><strong>再往后</strong>，你还可以走得更远：<em>代数数论</em>（algebraic number theory），其中高斯整数（Gaussian integers）等新的数系挽救了唯一分解（unique factorisation）；<em>解析数论</em>（analytic number theory），它运用微积分和复分析（complex analysis）来数算质数；以及<em>椭圆曲线</em>（elliptic curves）的理论，它既是费马最后定理（Fermat’s Last Theorem）证明背后的支柱，也是七道悬赏一百万美元的千禧年大奖难题（Millennium Prize Problems）之一的根源。</p></li>
+</ul>
+<h3 id="贯穿本章的问题">贯穿本章的问题</h3>
+<p>本章的九道 STEP 题目，围绕着三个大问题打转。做题时请把它们记在心上；我们会在本章结尾回到这些问题。</p>
+<div class="skillbox">
+<ol class="arabic">
+<li><p><strong>质数有多少个？它们是怎样分布的？</strong>人人都知道质数有无穷多个。但它们越往后变得有多稀疏？甚么样的论证才能告诉我们答案？</p></li>
+<li><p><strong>怎样证明一个数<em>不是</em>分数？</strong>要说明一个数是有理数（rational），只需举出一个例子。要说明它是无理数（irrational），却要排除无穷多种可能。这到底是怎样做到的？</p></li>
+<li><p><strong>哪些方程有整数解？当我们改变量系时，又会发生甚么事？</strong>有时我们能证明某个方程完全没有解。有时要了解整数，最好的方法却是走出整数的范围，进入复数（complex numbers），或走到一条曲线上。</p></li>
+</ol>
+</div>
+<h3 id="关于证明的一章">关于证明的一章</h3>
+<p>在这三个问题底下，还贯穿着第四个主题：<em>怎样证明</em>。每一节之所以入选，部分原因是它展示了一种不同的证明方法的实际运用；合起来，它们就是一套相当适合大学一年级生的工具。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">课题</th>
+<th style="text-align: left;">思考方式</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1.1</td>
+<td style="text-align: left;">费马数（Fermat numbers）</td>
+<td style="text-align: left;">一个<em>需要</em>无穷多个质数的无穷族</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.2</td>
+<td style="text-align: left;">质数的乘积</td>
+<td style="text-align: left;">强归纳法（strong induction）；隐藏在二项式系数（binomial coefficients）中的信息</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.3</td>
+<td style="text-align: left;">再谈 <span class="math inline">\(\sqrt2\)</span></td>
+<td style="text-align: left;">“取最小的那一个”：良序原理（well-ordering principle）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.4</td>
+<td style="text-align: left;"><span class="math inline">\(e\)</span> 与 <span class="math inline">\(e^2\)</span></td>
+<td style="text-align: left;">把一个整数严格地困在 0 与 1 之间</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.5</td>
+<td style="text-align: left;">不可能的方程</td>
+<td style="text-align: left;">无穷递降法（infinite descent）；模 <span class="math inline">\(n\)</span> 运算</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.6</td>
+<td style="text-align: left;">两个平方数之和</td>
+<td style="text-align: left;">转换场景：复数</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.7</td>
+<td style="text-align: left;">一个奇怪的数系</td>
+<td style="text-align: left;">质疑你视为理所当然的事</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.8</td>
+<td style="text-align: left;">把分数逐一列出</td>
+<td style="text-align: left;">构造双射（bijection）；反向的递降</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.9</td>
+<td style="text-align: left;">立方数与曲线</td>
+<td style="text-align: left;">用几何解决算术问题</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="怎样阅读本章">怎样阅读本章</h3>
+<p>每一节都以一道 STEP 题目的连结开始，题目与当年考试所出的完全一样。请先自己尝试，至少做半小时，然后才往下读。一道你曾经苦苦思索过的题目，会比一道你只是读过的题目令你学到多得多。当你往下读时，<em>问问自己</em>方框是邀请你在答案出现之前先停下来想一想，而<em>停一停，试一试</em>方框则标示着关键思路已在你触手可及之处的时刻。之后，每一节的<em>背后的数学</em>部分会把目光越过考试，望向你在大学将会遇到的数学。</p>
+<p>各节的深度大致上逐步递增，但它们基本上互相独立。如果某一节未能吸引你，就先跳过，稍后再回来。</p>
+
+  </article>
+  <nav class="pager"><a class="prev" href="../symbols/index.html">← 数学符号</a><a class="next" href="fermat-numbers.html">→ 开始： 1.1 质数工厂</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

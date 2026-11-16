@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>因数分解失效之时 (STEP I 2016 第 7 题) — Beyond STEP</title>
+<meta name="description" content="STEP I 2016 第 7 题：引导式解答及其背后的大学数学。 每个大于 1 的整数都可以写成质数（prime）的乘积，而且写法只有一种： 60 = 2 × 2 × 3 × 5 ，再没有别的写法。这个事实你大概已经用过无数次，熟悉得让人觉得显然成立，根本不用证明。 这道题构造了一个小小的数字世界，看上去完全合情合理，但在这个世界里，那个“显然”的事实却是错的。这是一道 STEP I…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/factorisation-fails.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="因数分解失效之时 (STEP I 2016 第 7 题) — Beyond STEP">
+<meta property="og:description" content="STEP I 2016 第 7 题：引导式解答及其背后的大学数学。 每个大于 1 的整数都可以写成质数（prime）的乘积，而且写法只有一种： 60 = 2 × 2 × 3 × 5 ，再没有别的写法。这个事实你大概已经用过无数次，熟悉得让人觉得显然成立，根本不用证明。 这道题构造了一个小小的数字世界，看上去完全合情合理，但在这个世界里，那个“显然”的事实却是错的。这是一道 STEP I…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch01/factorisation-fails.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="因数分解失效之时 (STEP I 2016 第 7 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2016 第 7 题：引导式解答及其背后的大学数学。 每个大于 1 的整数都可以写成质数（prime）的乘积，而且写法只有一种： 60 = 2 × 2 × 3 × 5 ，再没有别的写法。这个事实你大概已经用过无数次，熟悉得让人觉得显然成立，根本不用证明。 这道题构造了一个小小的数字世界，看上去完全合情合理，但在这个世界里，那个“显然”的事实却是错的。这是一道 STEP I…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "因数分解失效之时", "headline": "因数分解失效之时", "description": "STEP I 2016 第 7 题：引导式解答及其背后的大学数学。 每个大于 1 的整数都可以写成质数（prime）的乘积，而且写法只有一种： 60 = 2 × 2 × 3 × 5 ，再没有别的写法。这个事实你大概已经用过无数次，熟悉得让人觉得显然成立，根本不用证明。 这道题构造了一个小小的数字世界，看上去完全合情合理，但在这个世界里，那个“显然”的事实却是错的。这是一道 STEP I…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch01/factorisation-fails.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2016 第 7 题", "数论与证明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "数论与证明", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 1 章：数论与证明", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch01/"}, {"@type": "ListItem", "position": 3, "name": "因数分解失效之时", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch01/factorisation-fails.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch01/factorisation-fails.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/factorisation-fails.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 1 章 · 数论与证明</a>
+    <div class="src">STEP I · 2016 · 第 7 题</div>
+    <div class="sec-head"><span class="sec-num">1.7</span><h1>因数分解失效之时</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-7-factorisation-fails.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 1 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP I 2016，第 7 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/16-s1-q7">step.maths.org/questions/16-s1-q7</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>每个大于 <span class="math inline">\(1\)</span> 的整数都可以写成质数（prime）的乘积，而且写法只有一种：<span class="math inline">\(60 = 2 \times 2 \times 3 \times 5\)</span>，再没有别的写法。这个事实你大概已经用过无数次，熟悉得让人觉得显然成立，根本不用证明。</p>
+<p>这道题构造了一个小小的数字世界，看上去完全合情合理，但在这个世界里，那个“显然”的事实却是错的。这是一道 STEP I 的题目，所用的数学并不艰深，但当中的教训却十分深刻。1847 年，一个著名的费马最后定理（Fermat’s Last Theorem）证明尝试，正是败在这个教训之上，而代数学的一个全新分支亦因此诞生。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>列出 <span class="math inline">\(S\)</span> 和 <span class="math inline">\(T\)</span> 的首几个元素。按照第 (iv) 部分的定义，<span class="math inline">\(S\)</span> 的哪些元素是<em><span class="math inline">\(S\)</span>-质数</em>？</p>
+</div>
+<p><span class="math inline">\(S = \{1, 5, 9, 13, 17, 21, 25, 29, 33, \ldots\}\)</span>，而 <span class="math inline">\(T = \{3, 7, 11, 15, 19, 23, \ldots\}\)</span>。<span class="math inline">\(S\)</span> 中的一个数如果不能写成 <span class="math inline">\(S\)</span> 中较小元素（<span class="math inline">\(1\)</span> 除外）的乘积，它就是 <span class="math inline">\(S\)</span>-质数。留意 <span class="math inline">\(9\)</span> 是 <span class="math inline">\(S\)</span>-质数，尽管在普通整数中 <span class="math inline">\(9 = 3 \times 3\)</span>，因为 <span class="math inline">\(3\)</span> 并不在 <span class="math inline">\(S\)</span> 之中。一个数是否“质数”，取决于你获准使用哪些数。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-并集交集与乘积" class="stage"><span class="stage-n">阶段 1</span> 并集、交集与乘积</h4>
+<p><span class="math inline">\(S \cup T\)</span> 是所有正奇数组成的集合，即两者的并集（union），因为每个奇数除以 <span class="math inline">\(4\)</span> 的余数不是 <span class="math inline">\(1\)</span> 就是 <span class="math inline">\(3\)</span>。<span class="math inline">\(S \cap T\)</span> 是空集，即两者的交集（intersection）没有任何元素，因为没有一个数会有两个不同的余数。</p>
+<div class="askyourself">
+<p><span class="math inline">\(S\)</span> 的一般元素应该怎样写？两个这样的元素相乘，乘积是甚么？</p>
+</div>
+<p><span class="math inline">\(S\)</span> 的元素是 <span class="math inline">\(4a + 1\)</span>，其中 <span class="math inline">\(a \geq 0\)</span>，而 <span class="math display">\[(4a+1)(4b+1) = 16ab + 4a + 4b + 1 = 4(4ab + a + b) + 1 \in S.\]</span> 所以 <span class="math inline">\(S\)</span> 在乘法下封闭（closed）。至于 <span class="math inline">\(T\)</span>： <span class="math display">\[(4a+3)(4b+3) = 16ab + 12a + 12b + 9 = 4(4ab + 3a + 3b + 2) + 1,\]</span> 这个数属于 <span class="math inline">\(S\)</span>，而<em>不</em>属于 <span class="math inline">\(T\)</span>。例如 <span class="math inline">\(3 \times 7 = 21 \in S\)</span>。所以 <span class="math inline">\(T\)</span> 在乘法下并不封闭。</p>
+<h4 id="stagemark2-属于-t-的质因数" class="stage"><span class="stage-n">阶段 2</span> 属于 <span class="math inline">\(T\)</span> 的质因数</h4>
+<div class="askyourself">
+<p>在 <span class="math inline">\(T\)</span> 中取一个不是质数的数。它的质因数（prime factor）全是奇数。假如这些质因数全都属于 <span class="math inline">\(S\)</span>，会有甚么后果？</p>
+</div>
+<p>这个数是奇数，所以它的质因数全是奇数，各自属于 <span class="math inline">\(S\)</span> 或 <span class="math inline">\(T\)</span>。假如它们<em>全部</em>属于 <span class="math inline">\(S\)</span>，那么由于 <span class="math inline">\(S\)</span> 在乘法下封闭，它们的乘积也会属于 <span class="math inline">\(S\)</span>。但这个乘积就是我们原来的数，而它属于 <span class="math inline">\(T\)</span>。所以至少有一个质因数属于 <span class="math inline">\(T\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-奇数个因数" class="stage"><span class="stage-n">阶段 3</span> 奇数个因数</h4>
+<div class="askyourself">
+<p>把偶数个 <span class="math inline">\(T\)</span> 的元素乘起来，乘积会落在哪里？奇数个又如何？</p>
+</div>
+<p>每一对 <span class="math inline">\(T\)</span>-数相乘都得到一个 <span class="math inline">\(S\)</span>-数，而 <span class="math inline">\(S\)</span>-数相乘仍然是 <span class="math inline">\(S\)</span>-数，所以偶数个 <span class="math inline">\(T\)</span>-因数的乘积属于 <span class="math inline">\(S\)</span>。奇数个的话，乘积就是（<span class="math inline">\(S\)</span> 中的某个数）<span class="math inline">\(\times\)</span>（<span class="math inline">\(T\)</span> 的一个元素），用同类的计算可知它属于 <span class="math inline">\(T\)</span>。</p>
+<p>现在取 <span class="math inline">\(t \in T\)</span>。如果 <span class="math inline">\(t\)</span> 是 <span class="math inline">\(T\)</span>-质数，那就完成了。否则，把 <span class="math inline">\(t\)</span> 写成 <span class="math inline">\(T\)</span> 的元素的乘积，其中每个元素都大于 <span class="math inline">\(1\)</span>，因而小于 <span class="math inline">\(t\)</span>。当中任何不是 <span class="math inline">\(T\)</span>-质数的因数都可以再分解下去，如此类推。因数每次都变小，所以这个过程必会停止（这里再次用到良序性质（well-ordering）），最后 <span class="math inline">\(t\)</span> 就写成了 <span class="math inline">\(T\)</span>-质数的乘积。由于乘积属于 <span class="math inline">\(T\)</span>，因数的个数必定是奇数。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-两种分解" class="stage"><span class="stage-n">阶段 4</span> 两种分解</h4>
+<div class="pausebox">
+<p>在 <span class="math inline">\(S\)</span> 中找一个数，它有两种真正不同的 <span class="math inline">\(S\)</span>-质数分解。<em>提示：</em>利用像 <span class="math inline">\(9\)</span> 这样的数，它们之所以是 <span class="math inline">\(S\)</span>-质数，只因为它们在普通整数中的质因数并不在 <span class="math inline">\(S\)</span> 之中。</p>
+</div>
+<p><span class="math inline">\(S\)</span>-质数依次为 <span class="math inline">\(5, 9, 13, 17, 21, 29, 33, 37, 41, 49, \ldots\)</span>。<span class="math inline">\(21 = 3 \times 7\)</span>、<span class="math inline">\(9 = 3 \times 3\)</span> 和 <span class="math inline">\(49 = 7 \times 7\)</span> 全都是 <span class="math inline">\(S\)</span>-质数，因为 <span class="math inline">\(3\)</span> 和 <span class="math inline">\(7\)</span> 都不在 <span class="math inline">\(S\)</span> 之中。而且 <span class="math display">\[441 = 21 \times 21 = 9 \times 49.\]</span> 这就是 <span class="math inline">\(441\)</span> 的两种不同的 <span class="math inline">\(S\)</span>-质数分解（图 1.7.1）。唯一分解（unique factorisation）在 <span class="math inline">\(S\)</span> 中并不成立。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-7-1.svg" alt="图 1.7.1"><figcaption><span class="fig-label">图 1.7.1</span> <span class="math inline">\(441\)</span> 的两种 <span class="math inline">\(S\)</span>-质数分解。在普通整数中，两棵树都会继续向下分解至 <span class="math inline">\(3 \times 3 \times 7 \times 7\)</span>，但 <span class="math inline">\(3\)</span> 和 <span class="math inline">\(7\)</span> 都不在 <span class="math inline">\(S\)</span> 之中，所以在 <span class="math inline">\(S\)</span> 之内，分解到第二行便停止，而两种分解并不相同。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>是否“质数”取决于所在的系统。</strong><span class="math inline">\(9\)</span> 和 <span class="math inline">\(21\)</span> 在整数中是合数（composite），在 <span class="math inline">\(S\)</span> 中却是质数，因为分解它们所需的数并不存在。</p></li>
+<li><p><strong>封闭性很重要。</strong><span class="math inline">\(S\)</span> 在乘法下封闭；<span class="math inline">\(T\)</span> 则不然。第 (iii) 和第 (iv) 部分的论证，全靠这一点分别。</p></li>
+<li><p><strong>显然的事实也可以是一条定理。</strong>整数的唯一分解是需要证明的。这道题说明了原因：在一个看上去非常相似的系统中，它并不成立。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="整数有何特别之处">整数有何特别之处</h3>
+<p>为甚么分解在普通整数中<em>确实</em>行得通？关键在于<em>欧几里得引理</em>（Euclid’s lemma）：如果质数 <span class="math inline">\(p\)</span> 整除乘积 <span class="math inline">\(ab\)</span>，那么 <span class="math inline">\(p\)</span> 整除 <span class="math inline">\(a\)</span> 或 <span class="math inline">\(p\)</span> 整除 <span class="math inline">\(b\)</span>。这条引理是用辗转相除法（Euclidean algorithm）证明的，而它正正是在 <span class="math inline">\(S\)</span> 中失效的地方。在那里，<span class="math inline">\(S\)</span>-质数 <span class="math inline">\(9\)</span> 整除 <span class="math inline">\(21 \times 21 = 441\)</span>（因为 <span class="math inline">\(441 = 9 \times 49\)</span>），但 <span class="math inline">\(9\)</span> 在 <span class="math inline">\(S\)</span> 中并不整除 <span class="math inline">\(21\)</span>。到了大学一年级，你会严谨地证明欧几里得引理，并看到唯一分解如何由它推导出来。</p>
+<div class="historybox">
+<div class="box-title">费马最后定理的失败证明</div>
+<p>1847 年 3 月 1 日，拉梅（Gabriel Lamé）向巴黎科学院宣布，他已证明了费马最后定理。他的想法是利用复数单位根（roots of unity）把 <span class="math inline">\(x^n + y^n\)</span> 分解， <span class="math display">\[x^n + y^n = (x + y)(x + \zeta y)(x + \zeta^2 y) \cdots (x + \zeta^{n-1} y), \qquad \zeta = e^{2\pi \mathrm{i}/n}\]</span> （其中 <span class="math inline">\(n\)</span> 为奇数），然后就每个括号的质因数进行论证。刘维尔（Joseph Liouville）随即提出质疑：由 <span class="math inline">\(\zeta\)</span> 构成的数，凭甚么一定有唯一分解？数星期后，人们才知道库默尔（Ernst Kummer）早已证明这类数往往没有唯一分解。最先失效的情况是 <span class="math inline">\(n = 23\)</span>。</p>
+<p>库默尔尽力补救，发明了“理想数”（ideal numbers），这些额外的对象能够恢复唯一分解，他并借此对一大类指数证明了费马最后定理。戴德金（Richard Dedekind）把库默尔的理想数发展成<em>理想</em>（ideal），成为近世代数的核心概念之一。</p>
+</div>
+<h3 id="一个值得记住的较小例子">一个值得记住的较小例子</h3>
+<p>在数系 <span class="math inline">\(\mathbb{Z}[\sqrt{-5}] = \{a + b\sqrt{-5} : a, b \in \mathbb{Z}\}\)</span> 中， <span class="math display">\[6 = 2 \times 3 = (1 + \sqrt{-5})(1 - \sqrt{-5}),\]</span> 而这四个因数在该数系中全都是“质数”（练习 3）。试把这个例子与 <a href="../ch01/two-squares.html">第 1.6 节</a> 的高斯整数（Gaussian integers）比较，后者的分解<em>确实</em>是唯一的。这类数系之中哪些具有唯一分解，是一个很深刻的问题。高斯（Gauss）猜想，在形如 <span class="math inline">\(\mathbb{Z}[\sqrt{-d}]\)</span> 的数系及与其相近的数系之中，只有九个具有唯一分解。这个猜想最终由黑格纳（Heegner）、贝克（Baker）和斯塔克（Stark）在 1952 年至 1967 年间证明。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">质疑你视为理所当然的事</div>
+<p><em>当一个事实看来显然得不用证明时，问问它依赖甚么，并找出一个令它失效的情境。</em></p>
+<p>构造反例（counterexample），也就是构造一个令“显然”的事实不成立的世界，是弄清一个证明真正需要甚么的最佳方法之一。大学本科代数有很大部分，就是在探问整数那些熟悉的性质，有哪些能在更一般的系统中保留下来。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>另一个例子。</strong>证明 <span class="math inline">\(693\)</span> 有两种不同的 <span class="math inline">\(S\)</span>-质数分解。你能找出一个制造这类例子的通用方法吗？</p></li>
+<li><p><strong>偶数。</strong>设 <span class="math inline">\(E = \{2, 4, 6, 8, \ldots\}\)</span>。哪些数是 <span class="math inline">\(E\)</span>-质数？证明 <span class="math inline">\(60\)</span> 有多于一种 <span class="math inline">\(E\)</span>-质数分解。</p></li>
+<li><p><strong><span class="math inline">\(\mathbb{Z}[\sqrt{-5}]\)</span>。</strong>定义<em>范数</em>（norm）<span class="math inline">\(N(a + b\sqrt{-5}) = a^2 + 5b^2\)</span>。证明 <span class="math inline">\(N(zw) = N(z)N(w)\)</span>。先证明没有任何元素的范数是 <span class="math inline">\(2\)</span> 或 <span class="math inline">\(3\)</span>，由此推导出 <span class="math inline">\(2\)</span>、<span class="math inline">\(3\)</span> 和 <span class="math inline">\(1 \pm \sqrt{-5}\)</span> 在 <span class="math inline">\(\mathbb{Z}[\sqrt{-5}]\)</span> 中不能再分解。</p></li>
+<li><p><strong>欧几里得引理的应用。</strong> <span class="hard">较难</span> 假设欧几里得引理成立（如果一个质数整除 <span class="math inline">\(ab\)</span>，它就整除 <span class="math inline">\(a\)</span> 或 <span class="math inline">\(b\)</span>），证明每个大于 <span class="math inline">\(1\)</span> 的整数都只有一种质数分解，因数的次序不计。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Ian Stewart &amp; David Tall, <a href="https://uk.bookshop.org/search?keywords=Algebraic+Number+Theory+and+Fermat%27s+Last+Theorem+Stewart+Tall"><em>Algebraic Number Theory and Fermat’s Last Theorem</em></a></strong>（CRC Press）。开首几章讲述拉梅、库默尔与理想的故事，程度适合好学的大学一年级学生。</p></li>
+<li><p><strong>John Stillwell, <a href="https://uk.bookshop.org/search?keywords=Elements+of+Number+Theory+Stillwell"><em>Elements of Number Theory</em></a></strong>。把整数的唯一分解与高斯整数的唯一分解并列比较。</p></li>
+<li><p><strong>Harold Edwards, <a href="https://uk.bookshop.org/search?keywords=Fermat%27s+Last+Theorem%3A+A+Genetic+Introduction+Edwards"><em>Fermat’s Last Theorem: A Genetic Introduction</em></a></strong>（Springer）。适合有志挑战的读者：循历史发展解说库默尔的工作。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="two-squares.html">← 1.6 两个平方数之和</a><a class="next" href="counting-rationals.html">→ 1.8 计数有理数</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

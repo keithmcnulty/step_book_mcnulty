@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>甚么是积分？ (STEP III 1989 第 10 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 1989 第 10 题：引导式解答及其背后的大学数学。 你做积分已经很多年了。你知道 int_0^a x^5\,dx = frac16 a^6 ，因为“积分是微分的逆运算”。但那是一条定理，不是定义。积分 究竟 是甚么？ 老实的答案是：积分是面积，定义为许多细长矩形面积之和的极限（limit）。这道题要你单凭这个定义计算一个积分：不用原函数（antiderivative），不用微…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/riemann.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/riemann.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/riemann.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/riemann.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/riemann.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="甚么是积分？ (STEP III 1989 第 10 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 1989 第 10 题：引导式解答及其背后的大学数学。 你做积分已经很多年了。你知道 int_0^a x^5\,dx = frac16 a^6 ，因为“积分是微分的逆运算”。但那是一条定理，不是定义。积分 究竟 是甚么？ 老实的答案是：积分是面积，定义为许多细长矩形面积之和的极限（limit）。这道题要你单凭这个定义计算一个积分：不用原函数（antiderivative），不用微…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch04/riemann.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="甚么是积分？ (STEP III 1989 第 10 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1989 第 10 题：引导式解答及其背后的大学数学。 你做积分已经很多年了。你知道 int_0^a x^5\,dx = frac16 a^6 ，因为“积分是微分的逆运算”。但那是一条定理，不是定义。积分 究竟 是甚么？ 老实的答案是：积分是面积，定义为许多细长矩形面积之和的极限（limit）。这道题要你单凭这个定义计算一个积分：不用原函数（antiderivative），不用微…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "甚么是积分？", "headline": "甚么是积分？", "description": "STEP III 1989 第 10 题：引导式解答及其背后的大学数学。 你做积分已经很多年了。你知道 int_0^a x^5\\,dx = frac16 a^6 ，因为“积分是微分的逆运算”。但那是一条定理，不是定义。积分 究竟 是甚么？ 老实的答案是：积分是面积，定义为许多细长矩形面积之和的极限（limit）。这道题要你单凭这个定义计算一个积分：不用原函数（antiderivative），不用微…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/riemann.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1989 第 10 题", "严谨的微积分"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 4, "name": "严谨的微积分", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 4 章：严谨的微积分", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/"}, {"@type": "ListItem", "position": 3, "name": "甚么是积分？", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/riemann.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch04/riemann.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch04/riemann.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 4 章 · 严谨的微积分</a>
+    <div class="src">STEP III · 1989 · 第 10 题</div>
+    <div class="sec-head"><span class="sec-num">4.1</span><h1>甚么是积分？</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-1-riemann.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 4 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 1989，第 10 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/89-s3-q10">step.maths.org/questions/89-s3-q10</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>你做积分已经很多年了。你知道 <span class="math inline">\(\int_0^a x^5\,\mathrm{d}x = \frac16 a^6\)</span>，因为“积分是微分的逆运算”。但那是一条定理，不是定义。积分<em>究竟</em>是甚么？</p>
+<p>老实的答案是：积分是面积，定义为许多细长矩形面积之和的极限（limit）。这道题要你单凭这个定义计算一个积分：不用原函数（antiderivative），不用微积分基本定理（fundamental theorem of calculus），只靠把矩形加起来再取极限。这比你想像的要难，而这正好说明，令这件事变得轻而易举的微积分基本定理，是何等了不起的成果。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>第 (iii) 部分的两个和，都是阔度为 <span class="math inline">\(\frac an\)</span> 的矩形的面积之和。对于递增函数（increasing function）<span class="math inline">\(\mathrm{f}\)</span>，哪一个和低估了曲线下的面积，哪一个高估了？</p>
+</div>
+<p>第一个和取每一条长条<em>左</em>端的高度，即 <span class="math inline">\(x = \frac{ra}{n}\)</span>，其中 <span class="math inline">\(r = 0, \ldots, n-1\)</span>。对递增函数来说，那是长条上的最低点，所以这些矩形全在曲线之下：这是<em>下和</em>（lower sum）。第二个和取右端，即 <span class="math inline">\(r = 1, \ldots, n\)</span>，所得的矩形会突出于曲线之上：这是<em>上和</em>（upper sum）（图 4.1.1）。定义说明：当长条愈来愈窄时，若两个和趋向同一个极限，积分便存在。</p>
+<p>对于 <span class="math inline">\(\mathrm{f}(x) = x^5\)</span>，两个和都涉及 <span class="math inline">\(\sum r^5\)</span>。第 (i) 和第 (ii) 部分分别给出这个和的上界和下界。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-可以裂项相消的和" class="stage"><span class="stage-n">阶段 1</span> 可以裂项相消的和</h4>
+<div class="askyourself">
+<p>设 <span class="math inline">\(P(r) = r(r+1)(r+2)(r+3)(r+4)(r+5)\)</span>，即六个连续整数之积。<span class="math inline">\(P(r) - P(r-1)\)</span> 是甚么？</p>
+</div>
+<p><span class="math inline">\(P(r)\)</span> 与 <span class="math inline">\(P(r-1) = (r-1)r(r+1)(r+2)(r+3)(r+4)\)</span> 有五个共同因子 <span class="math inline">\(r(r+1)(r+2)(r+3)(r+4)\)</span>，所以 <span class="math display">\[\begin{aligned}
+  P(r) - P(r-1) &amp;= r(r+1)(r+2)(r+3)(r+4)\bigl[(r+5) - (r-1)\bigr] \\
+  &amp;= 6\,r(r+1)(r+2)(r+3)(r+4).
+\end{aligned}\]</span> 由 <span class="math inline">\(r = 1\)</span> 加到 <span class="math inline">\(n\)</span>，右方各项裂项相消（telescoping），只余下 <span class="math inline">\(P(n) - P(0) = P(n)\)</span>。所以 <span class="math display">\[\sum_{r=1}^{n} r(r+1)(r+2)(r+3)(r+4) = \tfrac16 P(n) = \tfrac16 n(n+1)(n+2)(n+3)(n+4)(n+5).\]</span><span class="qed" aria-label="end of proof">■</span></p>
+<p>由于对所有 <span class="math inline">\(r \geq 1\)</span> 都有 <span class="math inline">\(r^5 &lt; r(r+1)(r+2)(r+3)(r+4)\)</span>，不等式随即成立。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-下界" class="stage"><span class="stage-n">阶段 2</span> 下界</h4>
+<div class="pausebox">
+<p>把第 1 阶段的做法改用于五个<em>向下</em>数的连续整数之积：<span class="math inline">\(r(r-1)(r-2)(r-3)(r-4)\)</span>。求它由 <span class="math inline">\(r = 0\)</span> 到 <span class="math inline">\(n - 1\)</span> 的和，并与 <span class="math inline">\(r^5\)</span> 比较。</p>
+</div>
+<p>设 <span class="math inline">\(Q(r) = (r-5)(r-4)(r-3)(r-2)(r-1)r\)</span>。则 <span class="math inline">\(Q(r+1) - Q(r) = (r-4)(r-3)(r-2)(r-1)r\bigl[(r+1) - (r-5)\bigr] = 6\,(r-4)(r-3)(r-2)(r-1)r\)</span>。由 <span class="math inline">\(r = 0\)</span> 加到 <span class="math inline">\(n - 1\)</span>，裂项相消后得 <span class="math inline">\(Q(n) - Q(0) = Q(n)\)</span>，所以 <span class="math display">\[\sum_{r=0}^{n-1} (r-4)(r-3)(r-2)(r-1)r = \tfrac16 (n-5)(n-4)(n-3)(n-2)(n-1)n.\]</span> 现在逐项比较。当 <span class="math inline">\(r = 0\)</span> 时，两边都是 <span class="math inline">\(0\)</span>。当 <span class="math inline">\(1 \leq r \leq 4\)</span> 时，乘积含有一个零因子，而 <span class="math inline">\(r^5 &gt; 0\)</span>。当 <span class="math inline">\(r \geq 5\)</span> 时，每个因子都是正数，且不大于 <span class="math inline">\(r\)</span>，其中有些更严格小于它，所以乘积小于 <span class="math inline">\(r^5\)</span>。由于 <span class="math inline">\(n &gt; 1\)</span>，和式包含 <span class="math inline">\(r = 1\)</span> 一项，该处不等式严格成立，所以 <span class="math display">\[\sum_{r=0}^{n-1} r^5 &gt; \tfrac16 (n-5)(n-4)(n-3)(n-2)(n-1)n. \qed\]</span></p>
+<h4 id="stagemark3-积分" class="stage"><span class="stage-n">阶段 3</span> 积分</h4>
+<div class="askyourself">
+<p>把 <span class="math inline">\(\mathrm{f}(x) = x^5\)</span> 的下和与上和用 <span class="math inline">\(\sum r^5\)</span> 表示。分母中出现 <span class="math inline">\(n\)</span> 的几次方？</p>
+</div>
+<p>取 <span class="math inline">\(\mathrm{f}(x) = x^5\)</span>， <span class="math display">\[L_n = \sum_{r=0}^{n-1} \frac{a}{n}\left(\frac{ra}{n}\right)^5 = \frac{a^6}{n^6}\sum_{r=0}^{n-1} r^5, \qquad U_n = \frac{a^6}{n^6}\sum_{r=1}^{n} r^5.\]</span> 由第 (i) 和第 (ii) 部分，并因为 <span class="math inline">\(L_n &lt; U_n\)</span>， <span class="math display">\[\frac{a^6}{6}\cdot\frac{(n-5)(n-4)\cdots n}{n^6} \;&lt;\; L_n \;&lt;\; U_n \;&lt;\; \frac{a^6}{6}\cdot\frac{n(n+1)\cdots(n+5)}{n^6}.\]</span> 两个分数各自是六个因子之积，这些因子形如 <span class="math inline">\(\frac{n-3}{n} = 1 - \frac3n\)</span> 或 <span class="math inline">\(\frac{n+3}{n} = 1 + \frac3n\)</span>，每一个都趋向 <span class="math inline">\(1\)</span>。所以外侧两个界都趋向 <span class="math inline">\(\frac{a^6}{6}\)</span>，根据夹逼定理（squeeze），<span class="math inline">\(L_n\)</span> 和 <span class="math inline">\(U_n\)</span> 亦然。两个极限都存在而且相等，所以按定义 <span class="math display">\[\int_0^a x^5\,\mathrm{d}x = \tfrac16 a^6. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-1-1.svg" alt="图 4.1.1"><figcaption><span class="fig-label">图 4.1.1</span> <span class="math inline">\(x^5\)</span> 在 <span class="math inline">\([0, a]\)</span> 上的下和与上和，分成 <span class="math inline">\(n = 6\)</span> 条长条。下和是蓝绿色的面积（曲线下的矩形）；上和则再加上琥珀色的部分。两者之差正好是最后、最高的那个矩形的面积 <span class="math inline">\(\frac an\,\mathrm{f}(a)\)</span>，当 <span class="math inline">\(n\)</span> 增大时它趋向 <span class="math inline">\(0\)</span>。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>又是裂项相消。</strong>连续整数之积的和一下子收拢起来，与第 2 章的和与积如出一辙。</p></li>
+<li><p><strong>先定界，再夹逼。</strong>我们从没有求出 <span class="math inline">\(\sum r^5\)</span> 的准确值（它是 <span class="math inline">\(\frac{1}{12}n^2(n+1)^2(2n^2 + 2n - 1)\)</span>）；有两边的界已经足够。</p></li>
+<li><p><strong>定义担起全部工作。</strong>原函数由始至终没有出现过。一切都来自积分作为和的极限这个定义。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">黎曼的定义</div>
+<p>把细长条加起来求面积的想法，可追溯至阿基米德（Archimedes）：他在公元前 250 年左右，正是用这个论证的一个版本求出抛物线下的面积。牛顿（Newton）和莱布尼兹（Leibniz）把积分变成微分的逆运算，其后一个半世纪，大多数人都是这样理解积分的。1854 年，黎曼（Bernhard Riemann）提出了大学课程至今仍用作起点的定义：把 <span class="math inline">\([a, b]\)</span> 分成许多小段，构作（阔度）<span class="math inline">\(\times\)</span>（<span class="math inline">\(\mathrm{f}\)</span> 在该小段内某处的高度）之和；若小段不断缩小时，所有这样的和都趋向同一个极限，便说 <span class="math inline">\(\mathrm{f}\)</span> 可积（integrable）。本题的版本采用等阔长条和左右端点，是一个适用于递增函数的特殊情况；达布（Jean-Gaston Darboux）的“上和与下和”则把一般情况处理得干净利落。</p>
+</div>
+<h3 id="并非每个函数都有积分">并非每个函数都有积分</h3>
+<p>有了精确的定义，便可以问哪些函数可积。闭区间上的每个连续函数都可积，每个递增函数也可积。但试考虑狄利克雷（Dirichlet）函数：若 <span class="math inline">\(x\)</span> 是有理数，<span class="math inline">\(\mathrm{f}(x) = 1\)</span>；若是无理数，则为 <span class="math inline">\(0\)</span>。每一条长条无论多窄，都同时包含有理数和无理数，所以每个上和都是 <span class="math inline">\(1\)</span>，每个下和都是 <span class="math inline">\(0\)</span>。两者永不一致，因此 <span class="math inline">\(\int_0^1 \mathrm{f}\)</span> 在黎曼的意义下并不存在。1902 年，勒贝格（Henri Lebesgue）发明了一种更强大的积分，能够处理这个函数（它的勒贝格积分（Lebesgue integral）是 <span class="math inline">\(0\)</span>），而且在取极限时表现好得多。勒贝格积分是现代概率论的基础，你会在大学二年级或三年级遇上它。</p>
+<h3 id="离散微积分">离散微积分</h3>
+<p>第 1 阶段的裂项相消，其实是乔装了的微积分。“上升阶乘”（rising factorial）<span class="math inline">\(r(r+1)\cdots(r+k-1)\)</span> 在求和之下的表现，与 <span class="math inline">\(x^k\)</span> 在积分之下的表现完全一样：求和令因子的数目增加一个，并除以新的因子数目，正如 <span class="math inline">\(\int x^k\,\mathrm{d}x = \frac{x^{k+1}}{k+1}\)</span>。和与积分、差分与导数之间的这种对应，称为<em>有限差分演算</em>（calculus of finite differences），是计算和式的有力工具。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">从定义出发</div>
+<p><em>题目要求你“用定义”证明某事时，就只用定义：不用任何依赖于待证结果的定理，也不用熟悉的捷径。</em></p>
+<p>这样做出奇地难，却让你确切看到那些捷径的价值。在大学，每一科的头几个星期都是这样进行的：先有定义，然后才有定理，让你不必再从定义出发。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>把极限化为积分。</strong>试做 <a href="https://step.maths.org/questions/99-s3-q3">STEP III 1999，第 3 题</a>。这道题把和的极限化为积分：在每个和式中，找出曲线下的矩形。</p></li>
+<li><p><strong>阿基米德的抛物线。</strong>利用 <span class="math inline">\(\sum_{r=1}^{n} r^2 = \frac16 n(n+1)(2n+1)\)</span> 和第 (iii) 部分的定义，证明 <span class="math inline">\(\int_0^a x^2\,\mathrm{d}x = \frac13 a^3\)</span>。</p></li>
+<li><p><strong>上升阶乘。</strong>证明对每个正整数 <span class="math inline">\(k\)</span>，都有 <span class="math inline">\(\displaystyle\sum_{r=1}^{n} r(r+1)\cdots(r+k-1) = \frac{n(n+1)\cdots(n+k)}{k+1}\)</span>。</p></li>
+<li><p><strong>准确的和。</strong>利用恒等式 <span class="math inline">\(r(r+1)(r+2)(r+3)(r+4) = r^5 + 10r^4 + 35r^3 + 50r^2 + 24r\)</span>，以及 <span class="math inline">\(\sum r^k\)</span> 在 <span class="math inline">\(k \leq 4\)</span> 时的已知公式，求出 <span class="math inline">\(\sum_{r=1}^n r^5\)</span> 的准确值。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>David Bressoud, <a href="https://uk.bookshop.org/search?keywords=A+Radical+Approach+to+Lebesgue%27s+Theory+of+Integration+Bressoud"><em>A Radical Approach to Lebesgue’s Theory of Integration</em></a></strong>（Cambridge University Press）。由黎曼积分走到勒贝格积分的故事，以逼出每一步发展的问题为线索娓娓道来。</p></li>
+<li><p><strong>Michael Spivak, <a href="https://uk.bookshop.org/search?keywords=Calculus+Spivak"><em>Calculus</em></a></strong>（Cambridge University Press）。第 13 章以上和与下和定义积分，与本节完全一样。</p></li>
+<li><p><strong>Graham, Knuth &amp; Patashnik, <a href="https://uk.bookshop.org/search?keywords=Concrete+Mathematics+Graham+Knuth"><em>Concrete Mathematics</em></a></strong>（Addison-Wesley）。第 2 章建立有限差分演算，并讨论上升阶乘和下降阶乘。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 本章导言</a><a class="next" href="trig-from-integral.html">→ 4.2 由一个积分建立三角学</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

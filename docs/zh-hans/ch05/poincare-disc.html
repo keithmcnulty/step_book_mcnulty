@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>圆盘中隐藏的距离 (STEP III 2013 第 6 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2013 第 6 题：引导式解答及其背后的大学数学。 乍看之下，这只是一道运算模（modulus）和共轭（conjugate）的练习，最后得出一条模样古怪的不等式。为甚么会有人关心 (|z - w|)/(|1 - zw^*|) 呢？ 因为它是一个距离。它不是 z 与 w 之间的普通距离，而是另一种几何中的距离：在这种几何里，单位圆盘（unit…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/poincare-disc.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/poincare-disc.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch05/poincare-disc.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/poincare-disc.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch05/poincare-disc.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="圆盘中隐藏的距离 (STEP III 2013 第 6 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2013 第 6 题：引导式解答及其背后的大学数学。 乍看之下，这只是一道运算模（modulus）和共轭（conjugate）的练习，最后得出一条模样古怪的不等式。为甚么会有人关心 (|z - w|)/(|1 - zw^*|) 呢？ 因为它是一个距离。它不是 z 与 w 之间的普通距离，而是另一种几何中的距离：在这种几何里，单位圆盘（unit…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch05/poincare-disc.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="圆盘中隐藏的距离 (STEP III 2013 第 6 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2013 第 6 题：引导式解答及其背后的大学数学。 乍看之下，这只是一道运算模（modulus）和共轭（conjugate）的练习，最后得出一条模样古怪的不等式。为甚么会有人关心 (|z - w|)/(|1 - zw^*|) 呢？ 因为它是一个距离。它不是 z 与 w 之间的普通距离，而是另一种几何中的距离：在这种几何里，单位圆盘（unit…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "圆盘中隐藏的距离", "headline": "圆盘中隐藏的距离", "description": "STEP III 2013 第 6 题：引导式解答及其背后的大学数学。 乍看之下，这只是一道运算模（modulus）和共轭（conjugate）的练习，最后得出一条模样古怪的不等式。为甚么会有人关心 (|z - w|)/(|1 - zw^*|) 呢？ 因为它是一个距离。它不是 z 与 w 之间的普通距离，而是另一种几何中的距离：在这种几何里，单位圆盘（unit…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/poincare-disc.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2013 第 6 题", "复数"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 5, "name": "复数", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 5 章：复数", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/"}, {"@type": "ListItem", "position": 3, "name": "圆盘中隐藏的距离", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/poincare-disc.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch05/poincare-disc.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch05/poincare-disc.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 5 章 · 复数</a>
+    <div class="src">STEP III · 2013 · 第 6 题</div>
+    <div class="sec-head"><span class="sec-num">5.8</span><h1>圆盘中隐藏的距离</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-8-poincare-disc.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 5 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2013，第 6 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/13-s3-q6">step.maths.org/questions/13-s3-q6</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>乍看之下，这只是一道运算模（modulus）和共轭（conjugate）的练习，最后得出一条模样古怪的不等式。为甚么会有人关心 <span class="math inline">\(\frac{|z - w|}{|1 - zw^*|}\)</span> 呢？</p>
+<p>因为它是一个距离。它不是 <span class="math inline">\(z\)</span> 与 <span class="math inline">\(w\)</span> 之间的普通距离，而是另一种几何中的距离：在这种几何里，单位圆盘（unit disc）本身就是一个无限大的完整宇宙，直线是圆弧，三角形的内角和小于 <span class="math inline">\(180^\circ\)</span>。这就是<em>双曲几何（hyperbolic geometry）</em>。两千年来，人们一直试图证明欧几里得（Euclid）的平行公设（parallel postulate），到了十九世纪才发现这种几何；而本题的不等式，原来正是它的三角不等式（triangle inequality），只是乔装了一番。更令人意外的是，不等式的右边正是狭义相对论（special relativity）中的速度相加公式，我们在 <a href="../ch03/addition-laws.html">第 3.8 节</a> 已经见过。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>怎样从图形看出 <span class="math inline">\(|z - w| \leq |z| + |w|\)</span>？（把 <span class="math inline">\(z\)</span> 和 <span class="math inline">\(-w\)</span> 想成向量。）</p>
+</div>
+<p><span class="math inline">\(z - w = z + (-w)\)</span>。先把 <span class="math inline">\(z\)</span> 画成由原点出发的箭嘴，再把 <span class="math inline">\(-w\)</span> 画成由 <span class="math inline">\(z\)</span> 的尖端出发的箭嘴。由原点指向终点的箭嘴就是 <span class="math inline">\(z - w\)</span>，三支箭嘴组成一个三角形，边长分别为 <span class="math inline">\(|z|\)</span>、<span class="math inline">\(|w|\)</span> 和 <span class="math inline">\(|z - w|\)</span>。三角形任何一边的长度都不超过另外两边之和。</p>
+<p>另外要记得，对任何复数 <span class="math inline">\(a\)</span> 都有 <span class="math inline">\(|a|^2 = aa^*\)</span>。这样就可以把题目中每一个模都化为代数运算。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-展开各个模" class="stage"><span class="stage-n">阶段 1</span> 展开各个模</h4>
+<div class="askyourself">
+<p>展开 <span class="math inline">\(|z - w|^2 = (z - w)(z^* - w^*)\)</span>，再与 <span class="math inline">\((|z| + |w|)^2\)</span> 比较。</p>
+</div>
+<p><span class="math inline">\(|z - w|^2 = zz^* - zw^* - z^*w + ww^* = |z|^2 + |w|^2 - zw^* - z^*w\)</span>。另一方面，<span class="math inline">\((|z| + |w|)^2 - E = |z|^2 + 2|z||w| + |w|^2 - zw^* - z^*w - 2|zw|\)</span>，而由于 <span class="math inline">\(|z||w| = |zw|\)</span>，两者相等。<span class="qed" aria-label="end of proof">■</span></p>
+<p><span class="math inline">\(E = (zw^*) + (zw^*)^* + 2|zw| = 2\,\mathrm{Re}(zw^*) + 2|zw|\)</span>，这是实数。而且根据三角不等式，<span class="math inline">\(E = (|z| + |w|)^2 - |z - w|^2 \geq 0\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-第二条恒等式" class="stage"><span class="stage-n">阶段 2</span> 第二条恒等式</h4>
+<p><span class="math inline">\(|1 - zw^*|^2 = (1 - zw^*)(1 - z^*w) = 1 - zw^* - z^*w + |z|^2|w|^2\)</span>，而 <span class="math inline">\((1 + |zw|)^2 - E = 1 + 2|zw| + |zw|^2 - zw^* - z^*w - 2|zw|\)</span>，两者相等。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-不等式" class="stage"><span class="stage-n">阶段 3</span> 不等式</h4>
+<div class="askyourself">
+<p>设 <span class="math inline">\(A = (|z| + |w|)^2\)</span> 和 <span class="math inline">\(B = (1 + |zw|)^2\)</span>。把不等式两边平方后，它就是 <span class="math inline">\(\frac{A - E}{B - E} \leq \frac AB\)</span>。这在甚么时候成立？</p>
+</div>
+<p>所求不等式的两边都是非负的，所以它等价于平方后的不等式 <span class="math inline">\(\frac{A - E}{B - E} \leq \frac{A}{B}\)</span>。假设 <span class="math inline">\(B - E = |1 - zw^*|^2 &gt; 0\)</span>，两边乘开： <span class="math display">\[(A - E)B \leq A(B - E) \iff -EB \leq -EA \iff E(B - A) \geq 0.\]</span> 由于 <span class="math inline">\(E \geq 0\)</span>，只要 <span class="math inline">\(B \geq A\)</span>，即 <span class="math inline">\(1 + |zw| \geq |z| + |w|\)</span>，上式便成立。</p>
+<div class="pausebox">
+<p>证明 <span class="math inline">\(1 + |z||w| - |z| - |w|\)</span> 可以因式分解。它在甚么时候非负？</p>
+</div>
+<p><span class="math inline">\(1 + |z||w| - |z| - |w| = (1 - |z|)(1 - |w|)\)</span>。若 <span class="math inline">\(|z| &gt; 1\)</span> 且 <span class="math inline">\(|w| &gt; 1\)</span>，两个因式都是负数，乘积为正。所以 <span class="math inline">\(B \geq A\)</span>，不等式成立。<span class="qed" aria-label="end of proof">■</span></p>
+<p>若改为 <span class="math inline">\(|z| &lt; 1\)</span> 且 <span class="math inline">\(|w| &lt; 1\)</span>，两个因式都是正数，乘积同样为正，同一个论证依然适用：<strong>是的</strong>，不等式在这个情况下也成立。（在这两个情况下都有 <span class="math inline">\(|zw^*| \neq 1\)</span>，所以 <span class="math inline">\(1 - zw^* \neq 0\)</span>，左边有定义。）不等式可能不成立的，是混合的情况：一点在单位圆内，另一点在单位圆外。</p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong><span class="math inline">\(|a|^2 = aa^*\)</span>。</strong>每一条恒等式都是由展开共轭的乘积而来。这是用代数方法处理模的标准做法。</p></li>
+<li><p><strong>归结为一个量的正负。</strong>平方并交叉相乘之后，整条不等式只取决于 <span class="math inline">\((1 - |z|)(1 - |w|)\)</span> 的正负。</p></li>
+<li><p><strong>检查其他情况。</strong>最后一问考虑 <span class="math inline">\(|z|, |w| &lt; 1\)</span>；同一个因式分解立即给出答案。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">非欧几里得几何</div>
+<p>两千年来，数学家一直试图由欧几里得的其他公理，证明他的第五公设（过直线外一点，恰好有一条直线与该直线平行）。在 1820 和 1830 年代，罗巴切夫斯基（Nikolai Lobachevsky）、鲍耶（János Bolyai）和（私下研究的）高斯（Gauss）意识到这是办不到的：存在一种完全相容的几何，其中有无限多条平行线。1882 年，庞加莱（Henri Poincaré）在单位圆盘内找到了这种几何的一个优美模型。点就是开圆盘内的点；“直线”是直径，以及与边界圆成直角相交的圆弧；而 <span class="math inline">\(z\)</span> 与 <span class="math inline">\(w\)</span> 之间的距离是 <span class="math display">\[d(z, w) = 2\tanh^{-1}\rho(z, w), \qquad\text{其中}\qquad \rho(z, w) = \frac{|z - w|}{|1 - zw^*|}.\]</span> 当一点趋近边界圆时，它与圆心的距离趋向无限大：这个圆盘是一整个无限的平面，只是通过一块令影像变形的透镜来观看。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-5-8-1.svg" alt="图 5.8.1"><figcaption><span class="fig-label">图 5.8.1</span> 庞加莱圆盘（Poincaré disc）。双曲“直线”是直径，或与边界成直角相交的圆弧（灰色）。以 <span class="math inline">\(0\)</span>、<span class="math inline">\(z\)</span> 和 <span class="math inline">\(w\)</span> 为顶点的双曲三角形，有两条边沿着直径（琥珀色），一条边沿着圆弧（紫红色）。题目中的不等式说明，以双曲距离计算，紫红色的边不会比另外两条边加起来更长。</figcaption></figure>
+<h3 id="乔装了的三角不等式">乔装了的三角不等式</h3>
+<p>对于 <span class="math inline">\(|z|, |w| &lt; 1\)</span>，题目所证明的其实是以下结果。设 <span class="math inline">\(|z| = \tanh a\)</span> 和 <span class="math inline">\(|w| = \tanh b\)</span>，则由 <span class="math inline">\(0\)</span> 到 <span class="math inline">\(z\)</span> 和 <span class="math inline">\(w\)</span> 的双曲距离分别是 <span class="math inline">\(2a\)</span> 和 <span class="math inline">\(2b\)</span>。根据 <a href="../ch03/addition-laws.html">第 3.8 节</a> 中 <span class="math inline">\(\tanh\)</span> 的加法公式， <span class="math display">\[\frac{|z| + |w|}{1 + |zw|} = \frac{\tanh a + \tanh b}{1 + \tanh a\tanh b} = \tanh(a + b).\]</span> 所以该不等式就是 <span class="math inline">\(\tanh\bigl(\frac12 d(z, w)\bigr) \leq \tanh(a + b)\)</span>，即 <span class="math display">\[d(z, w) \leq 2a + 2b = d(z, 0) + d(0, w).\]</span> 这就是双曲距离的三角不等式（图 5.8.1）。相对论的速度相加公式与双曲几何，骨子里是同一回事：狭义相对论中所有可能速度组成的集合，配上适当的距离概念，<em>就是</em>一个双曲空间。我们会在 <a href="../ch07/hyperbolic-rotations.html">第 7.6 节</a> 再谈这一点。</p>
+<h3 id="圆盘的对称">圆盘的对称</h3>
+<p>为甚么 <span class="math inline">\(\rho\)</span> 是合适的量？对于 <span class="math inline">\(|a| &lt; 1\)</span>，映射 <span class="math inline">\(z \mapsto \dfrac{z - a}{1 - a^*z}\)</span> 把单位圆盘映到自身，保持双曲距离不变，并把 <span class="math inline">\(a\)</span> 移到圆心。它们是平移在双曲几何中的对应物，而 <span class="math inline">\(\rho(z, w)\)</span> 正是把 <span class="math inline">\(w\)</span> 移到圆心时的 <span class="math inline">\(|{\text{映射后的 } z}|\)</span>。这些<em>莫比乌斯变换（Möbius transformation）</em>是复分析（complex analysis）的核心课题。艾雪（M. C. Escher）的木刻版画<em>《圆极限》（Circle Limit）</em>，灵感来自数学家考克斯特（H. S. M. Coxeter）的一幅图；画中以全等的鱼和天使镶嵌（tiling）庞加莱圆盘，它们愈近边缘便愈小，因为双曲距离在那里会无限增大。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">问一问算式有甚么意义</div>
+<p><em>当某个代数式不断出现时，问一问它是否有某种意义：一个距离、一个角、一个概率、一种对称。</em></p>
+<p>在这里，一个古怪的模之比原来是另一种几何中的距离，而一条古怪的不等式原来是它的三角不等式。认出当中的意义，就能解释结果为何成立，以及它通往何处。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>数值验算。</strong>取 <span class="math inline">\(z = \frac12\)</span> 和 <span class="math inline">\(w = -\frac12\)</span>。计算不等式的两边。然后计算双曲距离 <span class="math inline">\(d(z, 0)\)</span>、<span class="math inline">\(d(0, w)\)</span> 和 <span class="math inline">\(d(z, w)\)</span>，并验证三角不等式在这里取等号。为甚么？</p></li>
+<li><p><strong>混合的情况。</strong>求满足 <span class="math inline">\(|z| &lt; 1 &lt; |w|\)</span> 的 <span class="math inline">\(z\)</span>、<span class="math inline">\(w\)</span>，使不等式不成立。</p></li>
+<li><p><strong>等距映射（isometry）。</strong>设 <span class="math inline">\(f(z) = \dfrac{z - a}{1 - a^*z}\)</span>，其中 <span class="math inline">\(|a| &lt; 1\)</span>。证明当 <span class="math inline">\(|z| = 1\)</span> 时必有 <span class="math inline">\(|f(z)| = 1\)</span>，并且 <span class="math inline">\(f(a) = 0\)</span>。证明 <span class="math inline">\(\rho(f(z), f(w)) = \rho(z, w)\)</span>。</p></li>
+<li><p><strong>无限近在咫尺。</strong>证明由 <span class="math inline">\(0\)</span> 到 <span class="math inline">\(r\)</span>（其中 <span class="math inline">\(0 &lt; r &lt; 1\)</span>）的双曲距离是 <span class="math inline">\(\ln\frac{1+r}{1-r}\)</span>，并且当 <span class="math inline">\(r \to 1\)</span> 时它趋向无限大。一点要多接近边界，才会与圆心相距双曲距离 <span class="math inline">\(10\)</span>？</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Caroline Series, <a href="https://homepages.warwick.ac.uk/~masbb/Papers/MA448.pdf">“Hyperbolic geometry” lecture notes</a></strong>（华威大学 University of Warwick，可免费取得）。一份清晰的入门课程讲义，由庞加莱圆盘讲起。</p></li>
+<li><p><strong>Jeremy Gray, <a href="https://uk.bookshop.org/search?keywords=Ideas+of+Space+Gray"><em>Ideas of Space</em></a></strong>（牛津大学出版社 Oxford University Press）。由欧几里得到爱因斯坦（Einstein）的非欧几里得几何史。</p></li>
+<li><p><strong>Tristan Needham, <a href="https://uk.bookshop.org/search?keywords=Visual+Complex+Analysis+Needham"><em>Visual Complex Analysis</em></a></strong>（牛津大学出版社 Oxford University Press）。第 6 章讲述非欧几里得几何和莫比乌斯变换，并配有精美的插图。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="complex-exponential.html">← 5.7 作为映射的复指数函数</a><a class="next" href="wrap-up.html">→ 回顾</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

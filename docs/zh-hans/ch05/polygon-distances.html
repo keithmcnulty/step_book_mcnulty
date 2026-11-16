@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>正多边形中的距离 (STEP III 2016 第 7 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2016 第 7 题：引导式解答及其背后的大学数学。 在半径为 1 的圆内画一个正七边形（regular heptagon）。从其中一个顶点出发，画出连往其余各顶点的六条弦（chord），量度它们的长度，再把这六个长度乘起来。答案恰好是 7 。若换成正 100 边形，从一个顶点出发的 99 条弦，长度之积恰好是 100 。…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch05/polygon-distances.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="正多边形中的距离 (STEP III 2016 第 7 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2016 第 7 题：引导式解答及其背后的大学数学。 在半径为 1 的圆内画一个正七边形（regular heptagon）。从其中一个顶点出发，画出连往其余各顶点的六条弦（chord），量度它们的长度，再把这六个长度乘起来。答案恰好是 7 。若换成正 100 边形，从一个顶点出发的 99 条弦，长度之积恰好是 100 。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch05/polygon-distances.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="正多边形中的距离 (STEP III 2016 第 7 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2016 第 7 题：引导式解答及其背后的大学数学。 在半径为 1 的圆内画一个正七边形（regular heptagon）。从其中一个顶点出发，画出连往其余各顶点的六条弦（chord），量度它们的长度，再把这六个长度乘起来。答案恰好是 7 。若换成正 100 边形，从一个顶点出发的 99 条弦，长度之积恰好是 100 。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "正多边形中的距离", "headline": "正多边形中的距离", "description": "STEP III 2016 第 7 题：引导式解答及其背后的大学数学。 在半径为 1 的圆内画一个正七边形（regular heptagon）。从其中一个顶点出发，画出连往其余各顶点的六条弦（chord），量度它们的长度，再把这六个长度乘起来。答案恰好是 7 。若换成正 100 边形，从一个顶点出发的 99 条弦，长度之积恰好是 100 。…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/polygon-distances.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2016 第 7 题", "复数"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 5, "name": "复数", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 5 章：复数", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/"}, {"@type": "ListItem", "position": 3, "name": "正多边形中的距离", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/polygon-distances.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch05/polygon-distances.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch05/polygon-distances.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 5 章 · 复数</a>
+    <div class="src">STEP III · 2016 · 第 7 题</div>
+    <div class="sec-head"><span class="sec-num">5.4</span><h1>正多边形中的距离</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-4-polygon-distances.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 5 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2016，第 7 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/16-s3-q7">step.maths.org/questions/16-s3-q7</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>在半径为 <span class="math inline">\(1\)</span> 的圆内画一个正七边形（regular heptagon）。从其中一个顶点出发，画出连往其余各顶点的六条弦（chord），量度它们的长度，再把这六个长度乘起来。答案恰好是 <span class="math inline">\(7\)</span>。若换成正 <span class="math inline">\(100\)</span> 边形，从一个顶点出发的 <span class="math inline">\(99\)</span> 条弦，长度之积恰好是 <span class="math inline">\(100\)</span>。</p>
+<p>这么简洁的结果，为甚么会成立？各条弦的长度本身并不整齐（<span class="math inline">\(2\sin\frac{\pi}{7}\)</span>、<span class="math inline">\(2\sin\frac{2\pi}{7}\)</span> 等等）。这道题目说明，这个结果其实是一个简单代数恒等式在几何上的投影，这个恒等式就是 <span class="math inline">\(z^n - 1\)</span> 按单位根（roots of unity）所作的因式分解（factorisation）；题目同时说明，平面上的距离就是复数（complex number）的模（modulus）。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>把多边形的顶点放在 <span class="math inline">\(n\)</span> 次单位根上，即 <span class="math inline">\(X_k = \omega^k\)</span>。若 <span class="math inline">\(P\)</span> 是点 <span class="math inline">\(z\)</span>，<span class="math inline">\(|PX_k|\)</span> 用 <span class="math inline">\(z\)</span> 表示是甚么？那么所有距离之积又是甚么？</p>
+</div>
+<p><span class="math inline">\(|PX_k| = |z - \omega^k|\)</span>，而所有距离之积是 <span class="math inline">\(|(z - 1)(z - \omega)\cdots(z - \omega^{n-1})|\)</span>，按题目第一部分，这等于 <span class="math inline">\(|z^n - 1|\)</span>。<span class="math inline">\(n\)</span> 个距离之积变成了单独一个模。余下的工夫，全在于巧妙地选取 <span class="math inline">\(z\)</span>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-因式分解" class="stage"><span class="stage-n">阶段 1</span> 因式分解</h4>
+<p>每个 <span class="math inline">\(\omega^k\)</span> 都满足 <span class="math inline">\((\omega^k)^n = (\omega^n)^k = 1\)</span>，所以 <span class="math inline">\(1, \omega, \ldots, \omega^{n-1}\)</span> 都是 <span class="math inline">\(z^n - 1\)</span> 的根。它们互不相同（它们的辐角（argument）<span class="math inline">\(\frac{2\pi k}{n}\)</span> 各不相同，且都在 <span class="math inline">\(0\)</span> 与 <span class="math inline">\(2\pi\)</span> 之间），所以它们就是这个首项系数（leading coefficient）为 <span class="math inline">\(1\)</span> 的 <span class="math inline">\(n\)</span> 次多项式的全部 <span class="math inline">\(n\)</span> 个根，于是 <span class="math inline">\(z^n - 1 = \prod_{k=0}^{n-1}(z - \omega^k)\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-垂直平分线上的一点" class="stage"><span class="stage-n">阶段 2</span> 垂直平分线上的一点</h4>
+<p>把图形旋转，使得 <span class="math inline">\(X_k = \omega^k\)</span>。与 <span class="math inline">\(X_0 = 1\)</span> 和 <span class="math inline">\(X_1 = \omega\)</span> 等距的点，组成 <span class="math inline">\(X_0X_1\)</span> 的垂直平分线（perpendicular bisector），即通过 <span class="math inline">\(O\)</span> 而倾角为 <span class="math inline">\(\frac\pi n\)</span> 的直线。</p>
+<div class="askyourself">
+<p>所以 <span class="math inline">\(P\)</span> 就是 <span class="math inline">\(z = te^{\mathrm{i}\pi/n}\)</span>，其中 <span class="math inline">\(t\)</span> 是某个实数（可正可负），而 <span class="math inline">\(|OP| = |t|\)</span>。<span class="math inline">\(z^n\)</span> 是甚么？</p>
+</div>
+<p><span class="math inline">\(z^n = t^ne^{\mathrm{i}\pi} = -t^n\)</span>。所以 <span class="math display">\[|PX_0| \times \cdots \times |PX_{n-1}| = |z^n - 1| = |{-t^n} - 1| = |t^n + 1|.\]</span> 若 <span class="math inline">\(n\)</span> 是偶数，<span class="math inline">\(t^n = |t|^n \geq 0\)</span>，所以上式等于 <span class="math inline">\(|OP|^n + 1\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p><span class="math inline">\(n\)</span> 是奇数时又如何？分开考虑 <span class="math inline">\(t &gt; 0\)</span> 和 <span class="math inline">\(t &lt; 0\)</span> 两种情况，并说明每种情况在几何上代表甚么。</p>
+</div>
+<p>若 <span class="math inline">\(n\)</span> 是奇数，<span class="math inline">\(t^n\)</span> 与 <span class="math inline">\(t\)</span> 同号。</p>
+<ul>
+<li><p>若 <span class="math inline">\(t \geq 0\)</span>，即 <span class="math inline">\(P\)</span> 与 <span class="math inline">\(X_0X_1\)</span> 的中点位于 <span class="math inline">\(O\)</span> 的同一侧，则所求之积是 <span class="math inline">\(|OP|^n + 1\)</span>。</p></li>
+<li><p>若 <span class="math inline">\(t &lt; 0\)</span>，即 <span class="math inline">\(P\)</span> 位于 <span class="math inline">\(O\)</span> 的另一侧（朝向与边 <span class="math inline">\(X_0X_1\)</span> 相对的顶点），则 <span class="math inline">\(t^n = -|OP|^n\)</span>，所求之积是 <span class="math inline">\(\bigl|1 - |OP|^n\bigr|\)</span>。</p></li>
+</ul>
+<p>当 <span class="math inline">\(n\)</span> 是奇数时，通过 <span class="math inline">\(O\)</span> 而垂直于 <span class="math inline">\(X_0X_1\)</span> 的直线会穿过另一侧的一个顶点；在第二种情况下，当 <span class="math inline">\(P\)</span> 就是该顶点（<span class="math inline">\(|OP| = 1\)</span>）时，所求之积等于零，这是理所当然的，因为此时其中一个距离是零。</p>
+<h4 id="stagemark3-从一个顶点出发的弦" class="stage"><span class="stage-n">阶段 3</span> 从一个顶点出发的弦</h4>
+<div class="askyourself">
+<p>现在 <span class="math inline">\(P = X_0\)</span>，其中一个距离 <span class="math inline">\(|X_0X_0|\)</span> 是零，所以 <span class="math inline">\(|z^n - 1| = 0\)</span> 派不上用场。哪一个多项式以 <span class="math inline">\(\omega, \omega^2, \ldots, \omega^{n-1}\)</span> 为根，却不以 <span class="math inline">\(1\)</span> 为根？</p>
+</div>
+<p>把 <span class="math inline">\(z^n - 1\)</span> 除以 <span class="math inline">\(z - 1\)</span>， <span class="math display">\[(z - \omega)(z - \omega^2)\cdots(z - \omega^{n-1}) = \frac{z^n - 1}{z - 1} = 1 + z + z^2 + \cdots + z^{n-1}.\]</span> 右边是一个多项式，所以这个等式对所有 <span class="math inline">\(z\)</span> 都成立，包括 <span class="math inline">\(z = 1\)</span>，此时它的值是 <span class="math inline">\(n\)</span>。在 <span class="math inline">\(z = 1\)</span> 处取模， <span class="math display">\[|X_0X_1| \times |X_0X_2| \times \cdots \times |X_0X_{n-1}| = |1 - \omega|\,|1 - \omega^2|\cdots|1 - \omega^{n-1}| = n. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-5-4-1.svg" alt="图 5.4.1"><figcaption><span class="fig-label">图 5.4.1</span> 内接于半径为 <span class="math inline">\(1\)</span> 的圆的正七边形。从 <span class="math inline">\(X_0\)</span> 出发的六条弦，长度为 <span class="math inline">\(2\sin\frac{k\pi}{7}\)</span>，约为 <span class="math inline">\(0.868\)</span>（蓝绿色）、<span class="math inline">\(1.564\)</span>（琥珀色）和 <span class="math inline">\(1.950\)</span>（紫红色），每个长度各出现两次。它们的积恰好是 <span class="math inline">\(7\)</span>。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>距离就是模。</strong><span class="math inline">\(|PX_k| = |z - \omega^k|\)</span>，所以距离之积就是积的模，而这个积有闭合形式（closed form）。</p></li>
+<li><p><strong>利用对称性选取坐标。</strong>把图形旋转，使顶点成为单位根，再利用通过 <span class="math inline">\(O\)</span> 的对称轴，<span class="math inline">\(z^n\)</span> 便容易计算。</p></li>
+<li><p><strong>先消去零因子，再代入。</strong>一如 <a href="../ch05/z2n-plus-one.html">第 5.3 节</a>，先除去在所关注的点上等于零的因子，代入才行得通。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">科茨定理</div>
+<p>第 (i) 部分是科茨（Roger Cotes）的一条定理。科茨是剑桥一位才华横溢的年轻数学家，曾编订牛顿（Newton）《自然哲学的数学原理》（<em>Principia</em>）的第二版，1716 年去世，年仅三十三岁（牛顿曾说：“假如他还在世，我们或许已经学到一点东西了。”）。科茨发现，若 <span class="math inline">\(P\)</span> 位于由 <span class="math inline">\(O\)</span> 出发、通过正 <span class="math inline">\(n\)</span> 边形一个顶点的射线上，则 <span class="math inline">\(P\)</span> 到各顶点的距离之积是 <span class="math inline">\(\bigl||OP|^n - 1\bigr|\)</span>；若 <span class="math inline">\(P\)</span> 位于通过某条边中点的射线上，则这个积是 <span class="math inline">\(|OP|^n + 1\)</span>。他没有用到复数，就凭这个结果把 <span class="math inline">\(x^n \pm 1\)</span> 分解成实二次因式，而这正是他计算有理函数（rational function）积分时所需要的。这条定理在他去世后，于 1722 年才发表。</p>
+</div>
+<h3 id="正弦之积">正弦之积</h3>
+<p>由于 <span class="math inline">\(|1 - \omega^k| = |e^{-\mathrm{i}\pi k/n} - e^{\mathrm{i}\pi k/n}| = 2\sin\frac{k\pi}{n}\)</span>，第 (ii) 部分说的就是 <span class="math display">\[\prod_{k=1}^{n-1}\sin\frac{k\pi}{n} = \frac{n}{2^{n-1}}.\]</span> 这与 <a href="../ch05/z2n-plus-one.html">第 5.3 节</a> 中的余弦之积互相配对。另一个相关的积给出 <span class="math inline">\(z^n - 1\)</span> 的<em>判别式</em>（discriminant）：所有成对的相异 <span class="math inline">\(n\)</span> 次单位根之间距离的平方，乘起来等于 <span class="math inline">\(n^n\)</span>。判别式量度一个多项式的根彼此相隔多远，在多项式和数域（number field）的代数理论中占有核心地位，我们会在第 6 章讨论。</p>
+<h3 id="静电学与等距分布">静电学与等距分布</h3>
+<p>这个结果还有一个物理上的解读。把 <span class="math inline">\(n\)</span> 个相等的电荷放在一个圆上；令势能（potential energy）最小的排列（采用二维静电学的对数势）就是正多边形，而能量所涉及的正是 <span class="math inline">\(\sum\ln|X_jX_k|\)</span>，即距离之积的对数。“分布得尽量疏散”的点，在数值分析（numerical analysis）中十分重要（见 <a href="../ch03/markov-bound.html">第 3.6 节</a>，当中最佳的插值点是由正多边形经 <span class="math inline">\(x = \cos\theta\)</span> 得来的），在随机矩阵（random matrix）理论中亦然。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">用复数把几何化为代数</div>
+<p><em>平面上的点是复数，距离是模，正多边形是单位根。距离之积就变成多项式的模。</em></p>
+<p>经过这样的转换，像 <span class="math inline">\(z^n - 1\)</span> 的因式分解这类代数恒等式，便可以用来证明一些很难直接看出的几何事实。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>检查小的情况。</strong>就正方形（<span class="math inline">\(n = 4\)</span>）和等边三角形（<span class="math inline">\(n = 3\)</span>）直接验证第 (ii) 部分。</p></li>
+<li><p><strong>通过顶点。</strong>证明：若 <span class="math inline">\(P\)</span> 位于由 <span class="math inline">\(O\)</span> 出发、通过 <span class="math inline">\(X_0\)</span> 的射线上，则 <span class="math inline">\(|PX_0| \times \cdots \times |PX_{n-1}| = \bigl||OP|^n - 1\bigr|\)</span>。</p></li>
+<li><p><strong>平均距离。</strong>利用第 (ii) 部分和 <a href="../ch03/am-gm-backwards.html">第 3.2 节</a> 的算术平均—几何平均不等式（AM–GM inequality），证明从 <span class="math inline">\(X_0\)</span> 出发的 <span class="math inline">\(n - 1\)</span> 条弦，平均长度至少是 <span class="math inline">\(n^{1/(n-1)}\)</span>。就 <span class="math inline">\(n = 6\)</span> 求出实际的平均值 <span class="math inline">\(\frac{1}{n-1}\sum_k 2\sin\frac{k\pi}{n}\)</span>，并加以比较。</p></li>
+<li><p><strong>所有的弦。</strong> <span class="hard">较难</span> 证明：内接于单位圆的正 <span class="math inline">\(n\)</span> 边形，全部 <span class="math inline">\(\binom n2\)</span> 条弦的长度之积是 <span class="math inline">\(n^{n/2}\)</span>。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Tristan Needham, <a href="https://uk.bookshop.org/search?keywords=Visual+Complex+Analysis+Needham"><em>Visual Complex Analysis</em></a></strong>（Oxford University Press）。用复数处理几何，插图精美。</p></li>
+<li><p><strong>Ross Honsberger, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Gems+Honsberger"><em>Mathematical Gems</em></a></strong>（Mathematical Association of America）。收录了好几道关于正多边形的精巧问题。</p></li>
+<li><p><strong>Ronald Gowing, <a href="https://uk.bookshop.org/search?keywords=Roger+Cotes%3A+Natural+Philosopher+Gowing"><em>Roger Cotes: Natural Philosopher</em></a></strong>（Cambridge University Press）。科茨的传记，并介绍他的数学工作。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="z2n-plus-one.html">← 5.3 因式分解 z²ⁿ + 1</a><a class="next" href="rational-angles.html">→ 5.5 名不副实的有理角</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

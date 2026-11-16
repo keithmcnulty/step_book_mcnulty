@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>由加法公式决定的函数 (STEP III 2019 第 2 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2019 第 2 题：引导式解答及其背后的大学数学。 你怎样知道 e^x 是甚么？在学校里，它是通过复利息引入的，或者说成是导数（derivative）等于自身的函数，又或者写成 lim (1 + x/n)^n 。这道题给出另一个答案： e^kx 是 唯一 能把加法变成乘法的可微（differentiable）函数，即 f(x + y) = f(x)f(y)…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch03/addition-laws.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch03/addition-laws.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch03/addition-laws.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/addition-laws.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch03/addition-laws.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="由加法公式决定的函数 (STEP III 2019 第 2 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2019 第 2 题：引导式解答及其背后的大学数学。 你怎样知道 e^x 是甚么？在学校里，它是通过复利息引入的，或者说成是导数（derivative）等于自身的函数，又或者写成 lim (1 + x/n)^n 。这道题给出另一个答案： e^kx 是 唯一 能把加法变成乘法的可微（differentiable）函数，即 f(x + y) = f(x)f(y)…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch03/addition-laws.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="由加法公式决定的函数 (STEP III 2019 第 2 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2019 第 2 题：引导式解答及其背后的大学数学。 你怎样知道 e^x 是甚么？在学校里，它是通过复利息引入的，或者说成是导数（derivative）等于自身的函数，又或者写成 lim (1 + x/n)^n 。这道题给出另一个答案： e^kx 是 唯一 能把加法变成乘法的可微（differentiable）函数，即 f(x + y) = f(x)f(y)…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "由加法公式决定的函数", "headline": "由加法公式决定的函数", "description": "STEP III 2019 第 2 题：引导式解答及其背后的大学数学。 你怎样知道 e^x 是甚么？在学校里，它是通过复利息引入的，或者说成是导数（derivative）等于自身的函数，又或者写成 lim (1 + x/n)^n 。这道题给出另一个答案： e^kx 是 唯一 能把加法变成乘法的可微（differentiable）函数，即 f(x + y) = f(x)f(y)…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch03/addition-laws.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2019 第 2 题", "函数、不等式与严谨"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 3, "name": "函数、不等式与严谨", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch03/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 3 章：函数、不等式与严谨", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch03/"}, {"@type": "ListItem", "position": 3, "name": "由加法公式决定的函数", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch03/addition-laws.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch03/addition-laws.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch03/addition-laws.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 3 章 · 函数、不等式与严谨</a>
+    <div class="src">STEP III · 2019 · 第 2 题</div>
+    <div class="sec-head"><span class="sec-num">3.8</span><h1>由加法公式决定的函数</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-8-addition-laws.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 3 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2019，第 2 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 OCR 提供下载的 2019 年 STEP 试卷（zip 文件）内的 STEP III 试卷： <a href="https://www.ocr.org.uk/Images/696590-2019-past-papers.zip">www.ocr.org.uk/Images/696590-2019-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>你怎样知道 <span class="math inline">\(e^x\)</span> 是甚么？在学校里，它是通过复利息引入的，或者说成是导数（derivative）等于自身的函数，又或者写成 <span class="math inline">\(\lim (1 + x/n)^n\)</span>。这道题给出另一个答案：<span class="math inline">\(e^{kx}\)</span> 是<em>唯一</em>能把加法变成乘法的可微（differentiable）函数，即 <span class="math inline">\(\mathrm{f}(x + y) = \mathrm{f}(x)\mathrm{f}(y)\)</span>。单凭这条规则，再加上一个数 <span class="math inline">\(\mathrm{f}&#39;(0)\)</span>，就足以把这个函数完全确定下来。</p>
+<p>第二部分对一条较陌生的规则做同样的事：<span class="math inline">\(\mathrm{g}(x + y) = \frac{\mathrm{g}(x) + \mathrm{g}(y)}{1 + \mathrm{g}(x)\mathrm{g}(y)}\)</span>。如果你觉得这条公式似曾相识，那就对了：它正是狭义相对论（special relativity）中爱因斯坦（Einstein）的速度相加法则，只是把光速设为 <span class="math inline">\(1\)</span>。这条规则迫使函数必然是 <span class="math inline">\(\tanh\)</span>，而这正好解释了为何任何物体都不能被加速至超越光速。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<p>像 <span class="math inline">\(\mathrm{f}(x + y) = \mathrm{f}(x)\mathrm{f}(y)\)</span> 这样以函数为未知量的方程，称为<em>函数方程</em>（functional equation）。</p>
+<div class="askyourself">
+<p>这条方程对<em>所有</em> <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 都成立。最值得首先尝试的是甚么？</p>
+</div>
+<p>特殊值。设 <span class="math inline">\(y = 0\)</span>（或 <span class="math inline">\(x = y\)</span>，或 <span class="math inline">\(y = -x\)</span>），往往不费甚么工夫就能得到大量资料。两个部分都是这样起步的。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-在零处的值" class="stage"><span class="stage-n">阶段 1</span> 在零处的值</h4>
+<p>代入 <span class="math inline">\(x = y = 0\)</span>：<span class="math inline">\(\mathrm{f}(0) = \mathrm{f}(0)^2\)</span>，所以 <span class="math inline">\(\mathrm{f}(0) = 0\)</span> 或 <span class="math inline">\(1\)</span>。</p>
+<div class="askyourself">
+<p>如果 <span class="math inline">\(\mathrm{f}(0) = 0\)</span>，会出甚么问题？</p>
+</div>
+<p>若 <span class="math inline">\(\mathrm{f}(0) = 0\)</span>，则代入 <span class="math inline">\(y = 0\)</span> 可得对每个 <span class="math inline">\(x\)</span> 都有 <span class="math inline">\(\mathrm{f}(x) = \mathrm{f}(x)\mathrm{f}(0) = 0\)</span>。于是 <span class="math inline">\(\mathrm{f}\)</span> 恒等于零，且 <span class="math inline">\(\mathrm{f}&#39;(0) = 0\)</span>，与 <span class="math inline">\(\mathrm{f}&#39;(0) = k \neq 0\)</span> 矛盾。所以 <span class="math inline">\(\mathrm{f}(0) = 1\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-由零处的导数得出处处的导数" class="stage"><span class="stage-n">阶段 2</span> 由零处的导数得出处处的导数</h4>
+<div class="askyourself">
+<p>在 <span class="math inline">\((*)\)</span> 中，写成 <span class="math inline">\(\mathrm{f}(x + h) = \mathrm{f}(x)\mathrm{f}(h)\)</span>。有甚么可以抽到极限之外？</p>
+</div>
+<p><span class="math display">\[\begin{aligned}
+  \mathrm{f}&#39;(x) &amp;= \lim_{h \to 0} \frac{\mathrm{f}(x)\mathrm{f}(h) - \mathrm{f}(x)}{h} = \mathrm{f}(x)\lim_{h \to 0}\frac{\mathrm{f}(h) - 1}{h} \\
+  &amp;= \mathrm{f}(x)\lim_{h \to 0}\frac{\mathrm{f}(0 + h) - \mathrm{f}(0)}{h} = \mathrm{f}(x)\,\mathrm{f}&#39;(0) = k\,\mathrm{f}(x). \qed
+\end{aligned}\]</span> 函数方程让我们把 <span class="math inline">\(0\)</span> 附近的性态搬到其他每一点去。</p>
+<h4 id="stagemark3-求解-mathrmf-kmathrmf" class="stage"><span class="stage-n">阶段 3</span> 求解 <span class="math inline">\(\mathrm{f}&#39; = k\mathrm{f}\)</span></h4>
+<p>考虑 <span class="math inline">\(\mathrm{u}(x) = \mathrm{f}(x)e^{-kx}\)</span>。则 <span class="math inline">\(\mathrm{u}&#39;(x) = \bigl(\mathrm{f}&#39;(x) - k\mathrm{f}(x)\bigr)e^{-kx} = 0\)</span>，所以 <span class="math inline">\(\mathrm{u}\)</span> 是常数，而 <span class="math inline">\(\mathrm{u}(0) = \mathrm{f}(0) = 1\)</span>。因此 <span class="math display">\[\mathrm{f}(x) = e^{kx}. \qed\]</span> （分离变量（separating the variables），<span class="math inline">\(\int \frac{\mathrm{d}\mathrm{f}}{\mathrm{f}} = \int k\,\mathrm{d}x\)</span>，会得到相同的答案，但需要 <span class="math inline">\(\mathrm{f}(x) \neq 0\)</span>；用 <span class="math inline">\(\mathrm{u}\)</span> 这个技巧就免却了这重顾虑。）</p>
+<h4 id="stagemark4-第二条规则" class="stage"><span class="stage-n">阶段 4</span> 第二条规则</h4>
+<div class="askyourself">
+<p>在 <span class="math inline">\(\mathrm{g}\)</span> 的规则中代入 <span class="math inline">\(y = 0\)</span>。这告诉你 <span class="math inline">\(\mathrm{g}(0)\)</span> 是甚么？<span class="math inline">\(|\mathrm{g}(x)| &lt; 1\)</span> 在哪里派上用场？</p>
+</div>
+<p>取 <span class="math inline">\(y = 0\)</span>：<span class="math inline">\(\mathrm{g}(x)\bigl(1 + \mathrm{g}(x)\mathrm{g}(0)\bigr) = \mathrm{g}(x) + \mathrm{g}(0)\)</span>，化简后得 <span class="math inline">\(\mathrm{g}(0)\bigl(\mathrm{g}(x)^2 - 1\bigr) = 0\)</span>。由于 <span class="math inline">\(|\mathrm{g}(x)| &lt; 1\)</span>，括号内的式子永不为零，所以 <span class="math inline">\(\mathrm{g}(0) = 0\)</span>。</p>
+<div class="pausebox">
+<p>现在利用这条规则计算 <span class="math inline">\(\mathrm{g}(x + h) - \mathrm{g}(x)\)</span>，化简，除以 <span class="math inline">\(h\)</span>，再令 <span class="math inline">\(h \to 0\)</span>。</p>
+</div>
+<p><span class="math display">\[\mathrm{g}(x + h) - \mathrm{g}(x) = \frac{\mathrm{g}(x) + \mathrm{g}(h) - \mathrm{g}(x) - \mathrm{g}(x)^2\mathrm{g}(h)}{1 + \mathrm{g}(x)\mathrm{g}(h)} = \frac{\mathrm{g}(h)\bigl(1 - \mathrm{g}(x)^2\bigr)}{1 + \mathrm{g}(x)\mathrm{g}(h)}.\]</span> 除以 <span class="math inline">\(h\)</span>。当 <span class="math inline">\(h \to 0\)</span> 时，<span class="math inline">\(\frac{\mathrm{g}(h)}{h} = \frac{\mathrm{g}(h) - \mathrm{g}(0)}{h} \to \mathrm{g}&#39;(0) = k\)</span>，而 <span class="math inline">\(\mathrm{g}(h) \to \mathrm{g}(0) = 0\)</span>（可微函数必定连续（continuous）），所以分母趋向 <span class="math inline">\(1\)</span>。因此 <span class="math display">\[\mathrm{g}&#39;(x) = k\bigl(1 - \mathrm{g}(x)^2\bigr). \qed\]</span></p>
+<h4 id="stagemark5-求解" class="stage"><span class="stage-n">阶段 5</span> 求解</h4>
+<div class="askyourself">
+<p>分离变量。当 <span class="math inline">\(|g| &lt; 1\)</span> 时，哪个函数的导数是 <span class="math inline">\(\frac{1}{1 - g^2}\)</span>？</p>
+</div>
+<p>由于 <span class="math inline">\(|\mathrm{g}| &lt; 1\)</span>，我们可以相除：<span class="math inline">\(\dfrac{\mathrm{g}&#39;}{1 - \mathrm{g}^2} = k\)</span>。函数 <span class="math inline">\(\operatorname{artanh} g = \frac12\ln\frac{1 + g}{1 - g}\)</span> 的导数是 <span class="math inline">\(\frac{1}{1 - g^2}\)</span>，所以 <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}x}\operatorname{artanh}\mathrm{g}(x) = k\)</span>，而 <span class="math inline">\(\operatorname{artanh}\mathrm{g}(x) = kx + C\)</span>。由 <span class="math inline">\(\mathrm{g}(0) = 0\)</span> 得 <span class="math inline">\(C = 0\)</span>，所以 <span class="math display">\[\mathrm{g}(x) = \tanh kx. \qed\]</span> 验算：加法公式 <span class="math inline">\(\tanh(A + B) = \dfrac{\tanh A + \tanh B}{1 + \tanh A\tanh B}\)</span> 正正就是题目给出的规则。</p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>先试特殊值。</strong>代入 <span class="math inline">\(y = 0\)</span> 便求得 <span class="math inline">\(\mathrm{f}(0)\)</span> 和 <span class="math inline">\(\mathrm{g}(0)\)</span>。</p></li>
+<li><p><strong>由一点到处处。</strong>加法定律（addition law）把 <span class="math inline">\(0\)</span> 处的导数搬到每个 <span class="math inline">\(x\)</span>，把函数方程化为微分方程（differential equation）。</p></li>
+<li><p><strong>唯一性（uniqueness）。</strong>这个论证不单是验证 <span class="math inline">\(e^{kx}\)</span> 和 <span class="math inline">\(\tanh kx\)</span> 符合要求，更证明了它们是<em>仅有</em>的可能。函数方程之所以能成为定义，原因正在于此。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">相对论中的速度</div>
+<p>在日常生活中，如果一列火车以速率 <span class="math inline">\(u\)</span> 行驶，而你在车厢内以速率 <span class="math inline">\(v\)</span> 向前走，你相对于地面的速率就是 <span class="math inline">\(u + v\)</span>。爱因斯坦在 1905 年证明这只是一个近似。正确的法则（其中 <span class="math inline">\(c\)</span> 为光速）是 <span class="math display">\[u \oplus v = \frac{u + v}{1 + uv/c^2}.\]</span> 若以 <span class="math inline">\(c\)</span> 的分数来量度速率，这正是 <span class="math inline">\(\mathrm{g}\)</span> 的规则。我们的结果说明，如果把每个速度写成 <span class="math inline">\(v = \tanh\phi\)</span>，那么速度的合成就是把各个 <span class="math inline">\(\phi\)</span> <em>相加</em>。<span class="math inline">\(\phi = \operatorname{artanh} v\)</span> 这个量称为<em>快度</em>（rapidity）。火箭引擎每次推进都会增加固定份量的快度，但由于对每个 <span class="math inline">\(\phi\)</span> 都有 <span class="math inline">\(\tanh\phi &lt; 1\)</span>，速度只会愈来愈接近光速，却永远达不到（图 3.8.1）。把 <span class="math inline">\(0.9c\)</span> 与 <span class="math inline">\(0.9c\)</span> 合成，得到的不是 <span class="math inline">\(1.8c\)</span>，而是 <span class="math inline">\(\frac{1.8}{1.81}c \approx 0.9945c\)</span>。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-3-8-1.svg" alt="图 3.8.1"><figcaption><span class="fig-label">图 3.8.1</span> 速度（以光速的分数表示）对快度的图像。快度每次增加相同的份量（引擎每次相同的推进所提供的正是这样），速度的增幅却愈来愈小：<span class="math inline">\(0.46\)</span>、<span class="math inline">\(0.76\)</span>、<span class="math inline">\(0.91\)</span>、<span class="math inline">\(0.96\)</span>、…，永远达不到 <span class="math inline">\(1\)</span>。</figcaption></figure>
+<h3 id="柯西函数方程">柯西函数方程</h3>
+<p>最简单的函数方程是 <span class="math inline">\(\mathrm{f}(x + y) = \mathrm{f}(x) + \mathrm{f}(y)\)</span>，柯西（Cauchy）在 1821 年研究过它。如果 <span class="math inline">\(\mathrm{f}\)</span> 可微，用本题的方法可证明 <span class="math inline">\(\mathrm{f}(x) = kx\)</span>。事实上只要连续就够了。但若完全不作任何正则性（regularity）假设，就会有其他极其怪异的解，它们的图像稠密地散布在整个平面上。Georg Hamel 在 1905 年构造出这些解；这个构造需要用到<em>选择公理</em>（axiom of choice），而且不可能把其中任何一个明确地写出来。这就是题目坚持 <span class="math inline">\(\mathrm{f}\)</span> 可微的原因之一：这个假设并非例行公事。</p>
+<h3 id="同态">同态</h3>
+<p><span class="math inline">\(\mathrm{f}(x + y) = \mathrm{f}(x)\mathrm{f}(y)\)</span> 的意思是，<span class="math inline">\(\mathrm{f}\)</span> 把实数的加法变成正实数的乘法，并且保持两者的结构。用大学一年级代数的语言来说，<span class="math inline">\(\mathrm{f}\)</span> 是由 <span class="math inline">\((\mathbb{R}, +)\)</span> 到 <span class="math inline">\((\mathbb{R}_{&gt;0}, \times)\)</span> 的<em>群同态</em>（group homomorphism），而对数就是它的反函数。数学中许多最重要的函数，都是这样由它们所保持的结构来刻划的。在 <a href="../ch07/hyperbolic-rotations.html">第 7.6 节</a> 中，我们会看到 <span class="math inline">\(\tanh\)</span> 的几何意义：它量度的是“双曲角”（hyperbolic angle），而它的加法定律来自双曲旋转的复合。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">用性质来定义函数</div>
+<p><em>不用公式，而是用函数所遵守的规则来描述它，并证明只有一个函数遵守这条规则。</em></p>
+<p>数学家往往就是这样看待 <span class="math inline">\(\exp\)</span>、<span class="math inline">\(\sin\)</span>、<span class="math inline">\(\cos\)</span> 和许多其他函数的：不把它们看成公式，而是看成函数方程或微分方程的唯一解。这解释了它们<em>为何</em>重要，而不只是怎样计算它们。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>正切的规则。</strong>设 <span class="math inline">\(\mathrm{g}\)</span> 可微，<span class="math inline">\(\mathrm{g}&#39;(0) = k \neq 0\)</span>，且只要等式两边都有定义，就有 <span class="math inline">\(\mathrm{g}(x + y) = \dfrac{\mathrm{g}(x) + \mathrm{g}(y)}{1 - \mathrm{g}(x)\mathrm{g}(y)}\)</span>。证明 <span class="math inline">\(\mathrm{g}&#39;(x) = k\bigl(1 + \mathrm{g}(x)^2\bigr)\)</span>，并由此推出在 <span class="math inline">\(x = 0\)</span> 附近 <span class="math inline">\(\mathrm{g}(x) = \tan kx\)</span>。</p></li>
+<li><p><strong>柯西方程。</strong>若 <span class="math inline">\(\mathrm{f}\)</span> 可微，且对所有 <span class="math inline">\(x\)</span>、<span class="math inline">\(y\)</span> 都有 <span class="math inline">\(\mathrm{f}(x + y) = \mathrm{f}(x) + \mathrm{f}(y)\)</span>，证明 <span class="math inline">\(\mathrm{f}(x) = kx\)</span>。</p></li>
+<li><p><strong>不用导数。</strong> <span class="hard">较难</span> 只假设 <span class="math inline">\(\mathrm{f}(x + y) = \mathrm{f}(x)\mathrm{f}(y)\)</span> 及 <span class="math inline">\(\mathrm{f}(1) = a &gt; 0\)</span>。证明对正整数 <span class="math inline">\(n\)</span> 有 <span class="math inline">\(\mathrm{f}(n) = a^n\)</span>，然后证明 <span class="math inline">\(\mathrm{f}(1/n) = a^{1/n}\)</span>，再证明对每个正有理数 <span class="math inline">\(q\)</span> 都有 <span class="math inline">\(\mathrm{f}(q) = a^q\)</span>。（为甚么要再进一步就需要连续性？）</p></li>
+<li><p><strong>火箭科学。</strong>一枚火箭每次点火，都能相对于它当时所处的参考系把速率增加 <span class="math inline">\(0.5c\)</span>。由静止开始，经过 <span class="math inline">\(2\)</span>、<span class="math inline">\(3\)</span> 和 <span class="math inline">\(4\)</span> 次点火后，它（相对于起点）的速率是多少？请使用快度。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Christopher Small, <a href="https://uk.bookshop.org/search?keywords=Functional+Equations+and+How+to+Solve+Them+Small"><em>Functional Equations and How to Solve Them</em></a></strong>（Springer）。一本浅白易读的函数方程入门书，以喜欢解题的读者为对象。</p></li>
+<li><p><strong>Edwin Taylor &amp; John Wheeler, <a href="https://www.eftaylor.com/spacetimephysics/"><em>Spacetime Physics</em></a></strong>（W. H. Freeman）。狭义相对论的经典入门书，全书都使用快度。</p></li>
+<li><p><strong>Tom Körner, <a href="https://uk.bookshop.org/search?keywords=Calculus+for+the+Ambitious+Korner"><em>Calculus for the Ambitious</em></a></strong>（Cambridge University Press）。由指数函数和三角函数的性质出发来定义它们，与本节的精神完全一致。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="wirtinger.html">← 3.7 π² ≤ 10</a><a class="next" href="lambert-w.html">→ 3.9 创造一个新函数</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

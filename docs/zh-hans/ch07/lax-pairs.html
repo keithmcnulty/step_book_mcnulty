@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>永恒不变的量 (STEP III 2024 第 5 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2024 第 5 题：引导式解答及其背后的大学数学。 物理学中一些最深刻的事实是 守恒定律 （conservation laws）：无论运动多么复杂，能量、动量和角动量始终保持不变。当一个系统有足够多的守恒量时，它的运动可以精确地解出；守恒量太少时，运动则可能是混沌的。 这道题展示了一种制造守恒量的绝妙方法。若一个矩阵按照 (dM)/(dt) = MN - NM…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/lax-pairs.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/lax-pairs.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/lax-pairs.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/lax-pairs.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/lax-pairs.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="永恒不变的量 (STEP III 2024 第 5 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2024 第 5 题：引导式解答及其背后的大学数学。 物理学中一些最深刻的事实是 守恒定律 （conservation laws）：无论运动多么复杂，能量、动量和角动量始终保持不变。当一个系统有足够多的守恒量时，它的运动可以精确地解出；守恒量太少时，运动则可能是混沌的。 这道题展示了一种制造守恒量的绝妙方法。若一个矩阵按照 (dM)/(dt) = MN - NM…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch07/lax-pairs.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="永恒不变的量 (STEP III 2024 第 5 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2024 第 5 题：引导式解答及其背后的大学数学。 物理学中一些最深刻的事实是 守恒定律 （conservation laws）：无论运动多么复杂，能量、动量和角动量始终保持不变。当一个系统有足够多的守恒量时，它的运动可以精确地解出；守恒量太少时，运动则可能是混沌的。 这道题展示了一种制造守恒量的绝妙方法。若一个矩阵按照 (dM)/(dt) = MN - NM…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "永恒不变的量", "headline": "永恒不变的量", "description": "STEP III 2024 第 5 题：引导式解答及其背后的大学数学。 物理学中一些最深刻的事实是 守恒定律 （conservation laws）：无论运动多么复杂，能量、动量和角动量始终保持不变。当一个系统有足够多的守恒量时，它的运动可以精确地解出；守恒量太少时，运动则可能是混沌的。 这道题展示了一种制造守恒量的绝妙方法。若一个矩阵按照 (dM)/(dt) = MN - NM…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/lax-pairs.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2024 第 5 题", "线性代数与几何"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "线性代数与几何", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 7 章：线性代数与几何", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/"}, {"@type": "ListItem", "position": 3, "name": "永恒不变的量", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/lax-pairs.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch07/lax-pairs.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/lax-pairs.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 7 章 · 线性代数与几何</a>
+    <div class="src">STEP III · 2024 · 第 5 题</div>
+    <div class="sec-head"><span class="sec-num">7.7</span><h1>永恒不变的量</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-7-lax-pairs.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 7 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2024，第 5 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 OCR 提供下载的 2024 年 STEP 试卷（zip 文件）内的 STEP III 试卷： <a href="https://www.ocr.org.uk/Images/725753-2024-past-papers.zip">www.ocr.org.uk/Images/725753-2024-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>物理学中一些最深刻的事实是<em>守恒定律</em>（conservation laws）：无论运动多么复杂，能量、动量和角动量始终保持不变。当一个系统有足够多的守恒量时，它的运动可以精确地解出；守恒量太少时，运动则可能是混沌的。</p>
+<p>这道题展示了一种制造守恒量的绝妙方法。若一个矩阵按照 <span class="math inline">\(\frac{\mathrm{d}\mathbf{M}}{\mathrm{d}t} = \mathbf{MN} - \mathbf{NM}\)</span> 随时间变化，那么无论它的元素变化得多么剧烈，它的迹（trace）和行列式（determinant），以至它的特征值（eigenvalues），都永远不变。这样的一对 <span class="math inline">\((\mathbf{M}, \mathbf{N})\)</span> 称为<em>拉克斯对</em>（Lax pair），以彼得．拉克斯（Peter Lax）命名。他在 1968 年提出这个想法，用来解释<em>孤立子</em>（solitons）的惊人表现：孤立子是一种孤立波，彼此穿过之后丝毫不变。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>表达式 <span class="math inline">\(\mathbf{MN} - \mathbf{NM}\)</span> 称为 <span class="math inline">\(\mathbf{M}\)</span> 与 <span class="math inline">\(\mathbf{N}\)</span> 的<em>交换子</em>（commutator）。它在甚么时候等于零？根据第 (i) 部分，它的迹是多少？</p>
+</div>
+<p>它等于零，当且仅当 <span class="math inline">\(\mathbf{M}\)</span> 与 <span class="math inline">\(\mathbf{N}\)</span> 可交换。而根据第 (i) 部分，它的迹是 <span class="math inline">\(\operatorname{tr}(\mathbf{MN}) - \operatorname{tr}(\mathbf{NM}) = 0\)</span>，恒常如此。这一个事实，就是题目中每一条守恒定律的起点。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-迹" class="stage"><span class="stage-n">阶段 1</span> 迹</h4>
+<p>设 <span class="math inline">\(\mathbf{M} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span> 及 <span class="math inline">\(\mathbf{N} = \begin{pmatrix} p &amp; q \\ r &amp; s \end{pmatrix}\)</span>，则 <span class="math inline">\(\mathbf{MN}\)</span> 的对角线元素是 <span class="math inline">\(ap + br\)</span> 和 <span class="math inline">\(cq + ds\)</span>，所以 <span class="math inline">\(\operatorname{tr}(\mathbf{MN}) = ap + br + cq + ds\)</span>。把 <span class="math inline">\(\mathbf{M}\)</span> 与 <span class="math inline">\(\mathbf{N}\)</span> 的角色对调，得 <span class="math inline">\(pa + qc + rb + sd\)</span>，结果相同。显然 <span class="math inline">\(\operatorname{tr}(\mathbf{M} + \mathbf{N}) = \operatorname{tr}\mathbf{M} + \operatorname{tr}\mathbf{N}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-行列式的导数" class="stage"><span class="stage-n">阶段 2</span> 行列式的导数</h4>
+<div class="askyourself">
+<p>用积法则求 <span class="math inline">\(\det\mathbf{M} = ad - bc\)</span> 的导数。然后利用 <span class="math inline">\(\mathbf{M}^{-1} = \frac{1}{\det\mathbf{M}}\begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}\)</span>，计算 <span class="math inline">\(\mathbf{M}^{-1}\frac{\mathrm{d}\mathbf{M}}{\mathrm{d}t}\)</span> 及其迹。</p>
+</div>
+<p>以字母上的一点表示导数，则 <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\det\mathbf{M} = \dot ad + a\dot d - \dot bc - b\dot c\)</span>。而 <span class="math display">\[\mathbf{M}^{-1}\dot{\mathbf{M}} = \frac{1}{\det\mathbf{M}}\begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}\begin{pmatrix} \dot a &amp; \dot b \\ \dot c &amp; \dot d \end{pmatrix}\]</span> 的对角线元素是 <span class="math inline">\(\frac{d\dot a - b\dot c}{\det\mathbf{M}}\)</span> 和 <span class="math inline">\(\frac{-c\dot b + a\dot d}{\det\mathbf{M}}\)</span>。两者之和是 <span class="math inline">\(\frac{1}{\det\mathbf{M}}\frac{\mathrm{d}}{\mathrm{d}t}\det\mathbf{M}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-三个守恒量" class="stage"><span class="stage-n">阶段 3</span> 三个守恒量</h4>
+<div class="askyourself">
+<p>对 <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span> 取迹。至于行列式，则用第 (ii) 部分：<span class="math inline">\(\mathbf{M}^{-1}(\mathbf{MN} - \mathbf{NM})\)</span> 是甚么？</p>
+</div>
+<p><em>迹：</em><span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\operatorname{tr}\mathbf{M} = \operatorname{tr}\dot{\mathbf{M}} = \operatorname{tr}(\mathbf{MN}) - \operatorname{tr}(\mathbf{NM}) = 0\)</span>。</p>
+<p><em>行列式：</em>根据第 (ii) 部分， <span class="math display">\[\frac{1}{\det\mathbf{M}}\frac{\mathrm{d}}{\mathrm{d}t}\det\mathbf{M} = \operatorname{tr}\bigl(\mathbf{M}^{-1}(\mathbf{MN} - \mathbf{NM})\bigr) = \operatorname{tr}\mathbf{N} - \operatorname{tr}(\mathbf{M}^{-1}\mathbf{NM}) = \operatorname{tr}\mathbf{N} - \operatorname{tr}\mathbf{N} = 0,\]</span> 当中用到第 (i) 部分的以下形式：<span class="math inline">\(\operatorname{tr}\bigl(\mathbf{M}^{-1}(\mathbf{NM})\bigr) = \operatorname{tr}\bigl((\mathbf{NM})\mathbf{M}^{-1}\bigr) = \operatorname{tr}\mathbf{N}\)</span>。</p>
+<p><em>平方的迹：</em><span class="math inline">\(\operatorname{tr}(\mathbf{M}^2) = (\operatorname{tr}\mathbf{M})^2 - 2\det\mathbf{M}\)</span>（见 <a href="../ch07/finite-order.html">第 7.4 节</a>），由于两项都是常数，所以它也是常数。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-一个显式解" class="stage"><span class="stage-n">阶段 4</span> 一个显式解</h4>
+<div class="pausebox">
+<p>设 <span class="math inline">\(\mathbf{N} = t\mathbf{I} + t\mathbf{E}\)</span>，其中 <span class="math inline">\(\mathbf{E} = \begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}\)</span>，计算 <span class="math inline">\(\mathbf{MN} - \mathbf{NM}\)</span>，并写出 <span class="math inline">\(a\)</span>、<span class="math inline">\(b\)</span>、<span class="math inline">\(c\)</span>、<span class="math inline">\(d\)</span> 所满足的微分方程。按以下次序求解：先解 <span class="math inline">\(c\)</span>，然后 <span class="math inline">\(a\)</span> 和 <span class="math inline">\(d\)</span>，最后 <span class="math inline">\(b\)</span>。</p>
+</div>
+<p><span class="math inline">\(t\mathbf{I}\)</span> 这部分与任何矩阵都可交换，所以 <span class="math inline">\(\mathbf{MN} - \mathbf{NM} = t(\mathbf{ME} - \mathbf{EM})\)</span>。现在 <span class="math inline">\(\mathbf{ME} = \begin{pmatrix} 0 &amp; a \\ 0 &amp; c \end{pmatrix}\)</span> 而 <span class="math inline">\(\mathbf{EM} = \begin{pmatrix} c &amp; d \\ 0 &amp; 0 \end{pmatrix}\)</span>，所以 <span class="math display">\[\dot a = -tc, \qquad \dot b = t(a - d), \qquad \dot c = 0, \qquad \dot d = tc.\]</span> 因此 <span class="math inline">\(c = C\)</span> 是常数；于是 <span class="math inline">\(a = A - \frac12Ct^2\)</span> 及 <span class="math inline">\(d = D + \frac12Ct^2\)</span>；继而 <span class="math inline">\(\dot b = t(A - D - Ct^2)\)</span>，所以 <span class="math inline">\(b = B + \frac12(A - D)t^2 - \frac14Ct^4\)</span>。故此 <span class="math display">\[\mathbf{M} = \begin{pmatrix} A - \frac12Ct^2 &amp; B + \frac12(A - D)t^2 - \frac14Ct^4 \\[0.5ex] C &amp; D + \frac12Ct^2 \end{pmatrix}. \qed\]</span> 验算：迹是 <span class="math inline">\(A + D\)</span>，而行列式是 <span class="math inline">\((A - \frac12Ct^2)(D + \frac12Ct^2) - C\bigl(B + \frac12(A - D)t^2 - \frac14Ct^4\bigr) = AD - BC\)</span>，一如所料是常数（图 7.7.1）。</p>
+<h4 id="stagemark5-另一条方程" class="stage"><span class="stage-n">阶段 5</span> 另一条方程</h4>
+<div class="askyourself">
+<p>若 <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN}\)</span>，则 <span class="math inline">\(\mathbf{N} = \mathbf{M}^{-1}\dot{\mathbf{M}}\)</span>，而根据第 (ii) 部分，<span class="math inline">\(\operatorname{tr}\mathbf{N}\)</span> 就是 <span class="math inline">\(\det\mathbf{M}\)</span> 的对数导数（logarithmic derivative）。<span class="math inline">\(\mathbf{M}\)</span> 的迹能否保持不变，而它的行列式却在改变？</p>
+</div>
+<p>当然可以。取 <span class="math inline">\(\mathbf{M} = \begin{pmatrix} 1 &amp; t \\ t &amp; 1 \end{pmatrix}\)</span>，其中 <span class="math inline">\(|t| &lt; 1\)</span>（此时 <span class="math inline">\(\det\mathbf{M} = 1 - t^2 \neq 0\)</span>）。它的迹恒等于 <span class="math inline">\(2\)</span>。定义 <span class="math inline">\(\mathbf{N} = \mathbf{M}^{-1}\dot{\mathbf{M}}\)</span>，使得 <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN}\)</span>： <span class="math display">\[\mathbf{N} = \frac{1}{1 - t^2}\begin{pmatrix} 1 &amp; -t \\ -t &amp; 1 \end{pmatrix}\begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix} = \frac{1}{1 - t^2}\begin{pmatrix} -t &amp; 1 \\ 1 &amp; -t \end{pmatrix},\]</span> 这是一个非奇异（non-singular）矩阵，而且当 <span class="math inline">\(t \neq 0\)</span> 时，<span class="math inline">\(\operatorname{tr}\mathbf{N} = \frac{-2t}{1 - t^2} \neq 0\)</span>。所以答案是<strong>否定的</strong>，<span class="math inline">\(\operatorname{tr}\mathbf{N}\)</span> 不一定等于零。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-7-1.svg" alt="图 7.7.1"><figcaption><span class="fig-label">图 7.7.1</span> 第 4 阶段中 <span class="math inline">\(\mathbf{M}(t)\)</span> 的各个元素，其中 <span class="math inline">\(A = 2\)</span>、<span class="math inline">\(B = 1\)</span>、<span class="math inline">\(C = 1\)</span>、<span class="math inline">\(D = 1\)</span>。四个元素之中除了 <span class="math inline">\(c\)</span> 以外全都在变，但迹始终是 <span class="math inline">\(3\)</span>，行列式始终是 <span class="math inline">\(1\)</span>。所以特征值 <span class="math inline">\(\frac{3 \pm \sqrt5}{2}\)</span> 永远不变：这个流是<em>等谱</em>（isospectral）的。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>交换子的迹等于零。</strong>由 <span class="math inline">\(\operatorname{tr}(\mathbf{MN}) = \operatorname{tr}(\mathbf{NM})\)</span> 出发，每一条守恒定律都随之而来。</p></li>
+<li><p><strong>对数导数。</strong>第 (ii) 部分把行列式的导数化为一个迹，而迹是线性的，容易处理。</p></li>
+<li><p><strong>在显式解中检查守恒。</strong>我们确认了 <span class="math inline">\(\mathbf{M}(t)\)</span> 的迹和行列式都是常数，借此验算它的公式。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">孤立子与拉克斯对</div>
+<p>1834 年，苏格兰工程师 John Scott Russell 策马追踪一个沿爱丁堡附近的联合运河（Union Canal）前进的孤立波，追了超过一英里，波形始终没有改变。这类波由<em>科特韦赫－德弗里斯（Korteweg–de Vries，简称 KdV）方程</em>描述。到了 1960 年代，Norman Zabusky 与 Martin Kruskal 的电脑实验显示，两个这样的“孤立子”可以相撞，然后原封不动地离开，仿佛它们是粒子一样。要解释这个现象，需要无穷多个守恒量。彼得．拉克斯在 1968 年证明，KdV 方程可以写成 <span class="math inline">\(\dot L = LP - PL\)</span>，其中 <span class="math inline">\(L\)</span> 和 <span class="math inline">\(P\)</span> 是一对微分算子（differential operators）；于是，与这道题完全一样，<span class="math inline">\(L\)</span> 的特征值是守恒的，而它们正好提供了那无穷多条守恒定律。拥有拉克斯对的系统称为<em>可积</em>（integrable）系统，它们属于少数可以精确求解的非线性系统。</p>
+</div>
+<h3 id="等谱流">等谱流</h3>
+<p>由于 <span class="math inline">\(\mathbf{M}\)</span> 的迹和行列式决定了它的特征多项式（characteristic polynomial）<span class="math inline">\(\lambda^2 - (\operatorname{tr}\mathbf{M})\lambda + \det\mathbf{M}\)</span>，<span class="math inline">\(\mathbf{M}\)</span> 的特征值不随时间改变。流 <span class="math inline">\(\dot{\mathbf{M}} = [\mathbf{M}, \mathbf{N}]\)</span> 使 <span class="math inline">\(\mathbf{M}\)</span> 在特征值固定的矩阵所组成的集合之内移动。事实上，解总是具有 <span class="math inline">\(\mathbf{M}(t) = \mathbf{S}(t)^{-1}\mathbf{M}(0)\mathbf{S}(t)\)</span> 的形式，其中 <span class="math inline">\(\mathbf{S}(t)\)</span> 是某个可逆矩阵：这个矩阵始终与它的初始值相似（similar）。同一个想法贯穿整个物理学：在量子力学中，可观测量（observable）<span class="math inline">\(\mathbf{A}\)</span> 按 <span class="math inline">\(\frac{\mathrm{d}\mathbf{A}}{\mathrm{d}t} = \frac{\mathrm{i}}{\hbar}[\mathbf{H}, \mathbf{A}]\)</span> 演化，其中 <span class="math inline">\(\mathbf{H}\)</span> 是能量，所以凡是与能量可交换的量都是守恒的。</p>
+<h3 id="雅可比公式">雅可比公式</h3>
+<p>第 (ii) 部分对任何大小的可逆矩阵都成立，称为<em>雅可比公式</em>（Jacobi’s formula）。最稳妥的写法是不用对数，写成 <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\det\mathbf{M} = \det\mathbf{M}\,\operatorname{tr}\bigl(\mathbf{M}^{-1}\dot{\mathbf{M}}\bigr)\)</span>，因为 <span class="math inline">\(\det\mathbf{M}\)</span> 可能是负数；对数形式 <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\ln\det\mathbf{M} = \operatorname{tr}\bigl(\mathbf{M}^{-1}\dot{\mathbf{M}}\bigr)\)</span> 需要 <span class="math inline">\(\det\mathbf{M} &gt; 0\)</span>（一般情况下则用 <span class="math inline">\(\ln|\det\mathbf{M}|\)</span>）。由此可得一个推论：若 <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{AM}\)</span>，其中 <span class="math inline">\(\mathbf{A}\)</span> 是常数矩阵，则 <span class="math inline">\(\det\mathbf{M}(t) = e^{t\operatorname{tr}\mathbf{A}}\det\mathbf{M}(0)\)</span>。在微分方程的研究中，这个结果告诉你相空间（phase space）中的体积如何增长或缩小；对于经典力学的方程，这个迹等于零，体积保持不变，这个结果称为<em>刘维尔定理</em>（Liouville’s theorem）。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">找出不变的东西</div>
+<p><em>当某样东西在演化时，试找出由它构成而又保持不变的量。这些量限制了运动，并往往揭示出它的结构。</em></p>
+<p>在这里，迹和行列式之所以守恒，是因为变化率是一个交换子。在力学中，守恒量来自对称性（诺特定理，Noether’s theorem），而找出守恒量往往是解题的第一步。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>验算解。</strong>通过求导，验证第 4 阶段的矩阵 <span class="math inline">\(\mathbf{M}(t)\)</span> 满足 <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span>。</p></li>
+<li><p><strong>相似性。</strong>证明：若 <span class="math inline">\(\mathbf{M}(t) = \mathbf{S}^{-1}\mathbf{M}_0\mathbf{S}\)</span>，其中 <span class="math inline">\(\mathbf{M}_0\)</span> 是常数矩阵，而 <span class="math inline">\(\mathbf{S}(t)\)</span> 满足 <span class="math inline">\(\dot{\mathbf{S}} = \mathbf{SN}\)</span>，则 <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span>。（<em>提示：</em><span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{S}^{-1} = -\mathbf{S}^{-1}\dot{\mathbf{S}}\mathbf{S}^{-1}\)</span>。）</p></li>
+<li><p><strong>体积增长。</strong>设 <span class="math inline">\(\mathbf{M}(t) = \begin{pmatrix} e^{2t} &amp; 0 \\ 0 &amp; e^{-t} \end{pmatrix}\)</span>。求满足 <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN}\)</span> 的 <span class="math inline">\(\mathbf{N}\)</span>，并验证 <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\ln\det\mathbf{M} = \operatorname{tr}\mathbf{N}\)</span>。</p></li>
+<li><p><strong>更高次幂。</strong>直接证明：当 <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span> 时，对每个正整数 <span class="math inline">\(k\)</span> 都有 <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\operatorname{tr}(\mathbf{M}^k) = 0\)</span>。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>P. G. Drazin &amp; R. S. Johnson, <a href="https://uk.bookshop.org/search?keywords=Solitons%3A+An+Introduction+Drazin+Johnson"><em>Solitons: An Introduction</em></a></strong>（Cambridge University Press）。大学本科程度的标准入门书，内容包括拉克斯对。</p></li>
+<li><p><strong>Thierry Dauxois &amp; Michel Peyrard, <a href="https://uk.bookshop.org/search?keywords=Physics+of+Solitons+Dauxois+Peyrard"><em>Physics of Solitons</em></a></strong>（Cambridge University Press）。书中讲述了 Scott Russell 那个孤立波的故事。</p></li>
+<li><p><strong>Dwight Neuenschwander, <a href="https://uk.bookshop.org/search?keywords=Emmy+Noether%27s+Wonderful+Theorem+Neuenschwander"><em>Emmy Noether’s Wonderful Theorem</em></a></strong>（Johns Hopkins University Press）。讲解对称性如何带来守恒定律。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="hyperbolic-rotations.html">← 7.6 双曲旋转与相对论</a><a class="next" href="four-squares.html">→ 7.8 四个平方数</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

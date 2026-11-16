@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>有限时间内的无限次反弹 (STEP III 2002 第 11 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2002 第 11 题：引导式解答及其背后的大学数学。 埃利亚的芝诺（Zeno of Elea）曾经论证，你永远走不到一堵墙：你必须先走完一半的距离，然后再走完余下距离的一半，如此类推，永无止境。化解这个悖论的关键，在于无穷多步所需的总时间可以是有限的，也就是一个收敛（converge）的无穷级数（infinite series）。这道题目正是芝诺悖论（Zeno’s…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch10/zeno-wedge.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch10/zeno-wedge.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch10/zeno-wedge.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch10/zeno-wedge.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch10/zeno-wedge.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="有限时间内的无限次反弹 (STEP III 2002 第 11 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2002 第 11 题：引导式解答及其背后的大学数学。 埃利亚的芝诺（Zeno of Elea）曾经论证，你永远走不到一堵墙：你必须先走完一半的距离，然后再走完余下距离的一半，如此类推，永无止境。化解这个悖论的关键，在于无穷多步所需的总时间可以是有限的，也就是一个收敛（converge）的无穷级数（infinite series）。这道题目正是芝诺悖论（Zeno’s…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch10/zeno-wedge.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="有限时间内的无限次反弹 (STEP III 2002 第 11 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2002 第 11 题：引导式解答及其背后的大学数学。 埃利亚的芝诺（Zeno of Elea）曾经论证，你永远走不到一堵墙：你必须先走完一半的距离，然后再走完余下距离的一半，如此类推，永无止境。化解这个悖论的关键，在于无穷多步所需的总时间可以是有限的，也就是一个收敛（converge）的无穷级数（infinite series）。这道题目正是芝诺悖论（Zeno’s…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "有限时间内的无限次反弹", "headline": "有限时间内的无限次反弹", "description": "STEP III 2002 第 11 题：引导式解答及其背后的大学数学。 埃利亚的芝诺（Zeno of Elea）曾经论证，你永远走不到一堵墙：你必须先走完一半的距离，然后再走完余下距离的一半，如此类推，永无止境。化解这个悖论的关键，在于无穷多步所需的总时间可以是有限的，也就是一个收敛（converge）的无穷级数（infinite series）。这道题目正是芝诺悖论（Zeno’s…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch10/zeno-wedge.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2002 第 11 题", "守恒定律、碰撞与引力"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 10, "name": "守恒定律、碰撞与引力", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch10/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 10 章：守恒定律、碰撞与引力", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch10/"}, {"@type": "ListItem", "position": 3, "name": "有限时间内的无限次反弹", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch10/zeno-wedge.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch10/zeno-wedge.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch10/zeno-wedge.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 10 章 · 守恒定律、碰撞与引力</a>
+    <div class="src">STEP III · 2002 · 第 11 题</div>
+    <div class="sec-head"><span class="sec-num">10.5</span><h1>有限时间内的无限次反弹</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-10-5-zeno-wedge.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-10-conservation-laws-collisions-and-gravity.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 10 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2002，第 11 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/02-s3-q11">step.maths.org/questions/02-s3-q11</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>埃利亚的芝诺（Zeno of Elea）曾经论证，你永远走不到一堵墙：你必须先走完一半的距离，然后再走完余下距离的一半，如此类推，永无止境。化解这个悖论的关键，在于无穷多步所需的总时间可以是有限的，也就是一个收敛（converge）的无穷级数（infinite series）。这道题目正是芝诺悖论（Zeno’s paradox）的真实版本：一个冰球滑进楔形的角落，在两面墙之间反弹无穷多次，却在有限时间内到达角落。</p>
+<p>大自然也会这样做。一个球在地板上弹跳，若恢复系数（coefficient of restitution）小于 <span class="math inline">\(1\)</span>，它会在有限时间内弹跳无穷多次，然后静止下来。在颗粒物质（沙、谷物、雪）的电脑模拟中，这种“非弹性坍缩”（inelastic collapse）是个实实在在的难题：电脑要在有限时间内处理无穷多次碰撞。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>当一个质点（particle）以恢复系数 <span class="math inline">\(e\)</span> 撞向一面光滑的墙时，速度沿墙方向的分量会怎样？垂直于墙的分量又会怎样？</p>
+</div>
+<p>光滑的墙不会沿着墙面施力，所以速度平行于墙的分量保持不变。垂直分量则会反向，并乘以 <span class="math inline">\(e\)</span>。因此，若质点以与墙成 <span class="math inline">\(\alpha\)</span> 的角度到达，并以 <span class="math inline">\(\beta\)</span> 的角度离开，则 <span class="math display">\[\tan\beta = e\tan\alpha,\]</span> 而由于平行分量不变，（入射速率）<span class="math inline">\(\cos\alpha\)</span> =（离开速率）<span class="math inline">\(\cos\beta\)</span>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-离开的角度" class="stage"><span class="stage-n">阶段 1</span> 离开的角度</h4>
+<div class="askyourself">
+<p>质点到达 <span class="math inline">\(M_1\)</span> 时与墙 <span class="math inline">\(OA\)</span> 成角 <span class="math inline">\(\theta\)</span>（在远离 <span class="math inline">\(O\)</span> 的一侧量度）。它离开时与 <span class="math inline">\(OA\)</span> 所成的角 <span class="math inline">\(\varphi\)</span> 是多少？利用三角形 <span class="math inline">\(OM_1N_1\)</span>，以 <span class="math inline">\(\theta\)</span> 表示 <span class="math inline">\(\varphi\)</span>。</p>
+</div>
+<p>质点离开 <span class="math inline">\(M_1\)</span> 时朝着 <span class="math inline">\(O\)</span> 的一侧前进，与墙成角 <span class="math inline">\(\varphi\)</span>，所以角 <span class="math inline">\(OM_1N_1\)</span> 等于 <span class="math inline">\(\varphi\)</span>。在三角形 <span class="math inline">\(OM_1N_1\)</span> 中，位于 <span class="math inline">\(O\)</span> 的角是 <span class="math inline">\(30^\circ\)</span>。在 <span class="math inline">\(N_1\)</span>，角 <span class="math inline">\(M_1N_1B\)</span> 等于 <span class="math inline">\(\theta\)</span>，而 <span class="math inline">\(O\)</span>、<span class="math inline">\(N_1\)</span>、<span class="math inline">\(B\)</span> 在同一直线上，所以角 <span class="math inline">\(ON_1M_1\)</span> 等于 <span class="math inline">\(180^\circ - \theta\)</span>。三角形的内角和为 <span class="math inline">\(180^\circ\)</span>： <span class="math display">\[30^\circ + \varphi + (180^\circ - \theta) = 180^\circ, \qquad\text{所以}\qquad \varphi = \theta - 30^\circ.\]</span> （特别地，<span class="math inline">\(\theta &gt; 30^\circ\)</span>。）于是由恢复定律 <span class="math inline">\(\tan\varphi = e\tan\theta\)</span> 可得 <span class="math display">\[e = \frac{\tan(\theta - 30^\circ)}{\tan\theta},\]</span> 而由平行分量守恒 <span class="math inline">\(u_1\cos\theta = v_1\cos\varphi\)</span> 可得 <span class="math display">\[\frac{v_1}{u_1} = \frac{\cos\theta}{\cos(\theta - 30^\circ)}. \qed\]</span></p>
+<h4 id="stagemark2-规律重复出现" class="stage"><span class="stage-n">阶段 2</span> 规律重复出现</h4>
+<div class="askyourself">
+<p>在 <span class="math inline">\(N_1\)</span>，质点到达时与墙 <span class="math inline">\(OB\)</span> 成角 <span class="math inline">\(\theta\)</span>（在远离 <span class="math inline">\(O\)</span> 的一侧量度）。把这个情况与它到达 <span class="math inline">\(M_1\)</span> 时的情况比较一下。接下来会发生甚么事？</p>
+</div>
+<p><span class="math inline">\(N_1\)</span> 的情况是 <span class="math inline">\(M_1\)</span> 的情况的镜像：质点以角 <span class="math inline">\(\theta\)</span> 撞上一面墙，而这个角位于远离 <span class="math inline">\(O\)</span> 的一侧。所以它以角 <span class="math inline">\(\theta - 30^\circ\)</span> 离开，再以角 <span class="math inline">\(\theta\)</span> 撞上 <span class="math inline">\(OA\)</span>，如此类推，永无止境。每一次反弹都是第一次反弹按比例缩放后的复制品。三角形 <span class="math inline">\(OM_kN_k\)</span>、<span class="math inline">\(ON_kM_{k+1}\)</span>、… 每一个都与前一个相似（图 10.5.1），而每次反弹时速率都乘以同一个因子。</p>
+<h4 id="stagemark3-两个比" class="stage"><span class="stage-n">阶段 3</span> 两个比</h4>
+<div class="askyourself">
+<p>由一次反弹到下一次反弹，与 <span class="math inline">\(O\)</span> 的距离按甚么因子 <span class="math inline">\(\rho\)</span> 缩小？速率按甚么因子 <span class="math inline">\(k\)</span> 缩小？那么每一段路程所需的时间又按甚么因子缩小？</p>
+</div>
+<p>在三角形 <span class="math inline">\(OM_1N_1\)</span> 中应用正弦定理（sine rule），可得 <span class="math display">\[\rho = \frac{ON_1}{OM_1} = \frac{\sin\varphi}{\sin(180^\circ - \theta)} = \frac{\sin(\theta - 30^\circ)}{\sin\theta}.\]</span> 下一个三角形的所有长度都是这个三角形的 <span class="math inline">\(\rho\)</span> 倍，所以路径的每一段都是前一段的 <span class="math inline">\(\rho\)</span> 倍长。每次反弹时速率都乘以 <span class="math inline">\(k = \frac{\cos\theta}{\cos(\theta - 30^\circ)}\)</span>。时间等于长度除以速率，所以每一段所需的时间是前一段的 <span class="math display">\[\frac{\rho}{k} = \frac{\sin(\theta - 30^\circ)\cos(\theta - 30^\circ)}{\sin\theta\cos\theta} = \frac{\sin(2\theta - 60^\circ)}{\sin 2\theta}\]</span> 倍。</p>
+<h4 id="stagemark4-一个等比级数" class="stage"><span class="stage-n">阶段 4</span> 一个等比级数</h4>
+<p>总时间是 <span class="math inline">\(T_1(1 + r + r^2 + \cdots)\)</span>，其中 <span class="math inline">\(T_1\)</span> 是第一段所需的时间，而 <span class="math inline">\(r = \frac{\sin(2\theta - 60^\circ)}{\sin 2\theta}\)</span>。这是一个等比级数（geometric series），若 <span class="math inline">\(0 &lt; r &lt; 1\)</span>，总时间便是有限的。</p>
+<div class="askyourself">
+<p><span class="math inline">\(\sin(2\theta - 60^\circ) &lt; \sin 2\theta\)</span> 在甚么时候成立？利用恒等式 <span class="math inline">\(\sin X - \sin Y = 2\cos\tfrac12(X + Y)\sin\tfrac12(X - Y)\)</span>。</p>
+</div>
+<p><span class="math display">\[\sin 2\theta - \sin(2\theta - 60^\circ) = 2\cos(2\theta - 30^\circ)\sin 30^\circ = \cos(2\theta - 30^\circ),\]</span> 当 <span class="math inline">\(2\theta - 30^\circ &lt; 90^\circ\)</span>，即 <span class="math inline">\(\theta &lt; 60^\circ\)</span> 时，上式为正。另外，由于 <span class="math inline">\(\theta &gt; 30^\circ\)</span>，故 <span class="math inline">\(r &gt; 0\)</span>。所以当 <span class="math inline">\(30^\circ &lt; \theta &lt; 60^\circ\)</span> 时，级数收敛：质点反弹无穷多次，它与 <span class="math inline">\(O\)</span> 的距离每次按因子 <span class="math inline">\(\rho &lt; 1\)</span> 缩小，并在有限时间 <span class="math inline">\(\frac{T_1}{1 - r}\)</span> 之后到达 <span class="math inline">\(O\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-10-5-1.svg" alt="图 10.5.1"><figcaption><span class="fig-label">图 10.5.1</span> <span class="math inline">\(\theta = 50^\circ\)</span> 时质点在楔形内的路径，此时 <span class="math inline">\(\varphi = 20^\circ\)</span>，<span class="math inline">\(e = \tan 20^\circ/\tan 50^\circ \approx 0.31\)</span>。每一次反弹都是前一次的复制品，按 <span class="math inline">\(\rho \approx 0.45\)</span> 的比例缩小，而每一段所需的时间约为前一段的 <span class="math inline">\(0.65\)</span> 倍。质点经过无穷多次反弹后，在有限时间内到达 <span class="math inline">\(O\)</span>。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>自相似性（self-similarity）。</strong>一旦弄清楚一次反弹，其后每一次反弹都只是按比例缩放的复制品，所以整个无穷过程就归结为两个比。</p></li>
+<li><p><strong>正确地组合各个比。</strong>距离按 <span class="math inline">\(\rho\)</span> 缩小，速率按 <span class="math inline">\(k\)</span> 缩小，所以时间按 <span class="math inline">\(\rho/k\)</span> 缩小。</p></li>
+<li><p><strong>无穷多个事件，有限的总和。</strong>公比小于 <span class="math inline">\(1\)</span> 的等比级数收敛。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="当-theta-geq-60circ-时">当 <span class="math inline">\(\theta \geq 60^\circ\)</span> 时</h3>
+<p>当 <span class="math inline">\(\theta = 60^\circ\)</span> 时，这个比恰好等于 <span class="math inline">\(1\)</span>：每一段所需的时间都相同，质点虽然愈来愈接近 <span class="math inline">\(O\)</span>，却永远到不了。（速率和每段的长度都按同一个因子缩小。）当 <span class="math inline">\(\theta &gt; 60^\circ\)</span> 时，每一段所需的时间愈来愈长。在所有情况下，质点都会趋近 <span class="math inline">\(O\)</span>，并反弹无穷多次；只有当 <span class="math inline">\(\theta &lt; 60^\circ\)</span> 时，它才会在有限时间内到达。<span class="math inline">\(e = \tan 30^\circ/\tan 60^\circ = \frac13\)</span> 这个值就是分界线。</p>
+<h3 id="弹跳的球与非弹性坍缩">弹跳的球与非弹性坍缩</h3>
+<p>同一现象最简单的例子：一个球掉落到地板上，反弹至高度 <span class="math inline">\(e^2H\)</span>，然后是 <span class="math inline">\(e^4H\)</span>，如此类推。两次弹跳之间的时间与每次弹跳时的速率成正比，而速率按因子 <span class="math inline">\(e\)</span> 缩小，所以总时间是一个等比级数：设 <span class="math inline">\(T_0 = \sqrt{2H/g}\)</span> 为第一次下落的时间，则球在 <span class="math display">\[T_0 + 2eT_0 + 2e^2T_0 + \cdots = T_0\,\frac{1 + e}{1 - e}.\]</span> 之后停止弹跳。无穷多次弹跳，然后静止。1992 年，Sean McNamara 和 William Young 证明了，在模拟排成一直线的多个非弹性质点时，同样的事情也会发生：其中一组质点可以在有限时间内发生无穷多次碰撞，这就是“非弹性坍缩”。沙和颗粒流的模拟必须加入特别的规则来避免这种情况，而这个现象也有助解释为何颗粒气体会自发地聚集成团。</p>
+<div class="historybox">
+<div class="box-title">芝诺与收敛</div>
+<p>芝诺的悖论约于公元前 450 年提出，困扰了哲学家两千年。数学上的解答，即无穷和可以有有限的值，要到十九世纪才变得严谨，当时柯西（Cauchy）、魏尔斯特拉斯（Weierstrass）等人以极限（limit）来定义收敛（这是第 2 章的主题）。这道题目令人惊讶之处，在于这个过程在<em>物理上</em>是无穷的：确确实实有无穷多次碰撞，发生在有限时间之内。研究多边形内的桌球运动和碰撞质点运动的数学家，把这种行为称为<em>芝诺现象</em>（Zeno phenomenon）；要证明由互相碰撞的硬球组成的系统在所有时刻都有明确定义的运动，这正是其中一个微妙之处。</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">为无穷过程求和</div>
+<p><em>当一个过程以固定的缩放因子不断重复时，任何可加的量（时间、距离、能量）的总和都是一个等比级数。根据公比判断它是否收敛。</em></p>
+<p>这里的关键是找出正确的比：不是距离之比，也不是速率之比，而是时间之比。在大学里，同样的推理支配着迭代法（iterative methods）的收敛性、分形（fractal）理论，以及对反复把问题减半的算法（algorithm）的分析。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>总距离。</strong>证明对于 <span class="math inline">\(30^\circ\)</span> 与 <span class="math inline">\(90^\circ\)</span> 之间的每一个 <span class="math inline">\(\theta\)</span>，由 <span class="math inline">\(M_1\)</span> 到 <span class="math inline">\(O\)</span> 所走的总距离都是有限的，并以 <span class="math inline">\(OM_1\)</span> 和 <span class="math inline">\(\theta\)</span> 表示这个总距离。</p></li>
+<li><p><strong>其他楔形。</strong>把 <span class="math inline">\(30^\circ\)</span> 换成角 <span class="math inline">\(\alpha\)</span> 的楔形，重做这道题目。证明 <span class="math inline">\(\varphi = \theta - \alpha\)</span>，并求出质点在有限时间内到达 <span class="math inline">\(O\)</span> 时 <span class="math inline">\(\theta\)</span> 须满足的条件。</p></li>
+<li><p><strong>弹性墙。</strong>若 <span class="math inline">\(e = 1\)</span>，质点有可能到达 <span class="math inline">\(O\)</span> 吗？（<em>提示：</em>把楔形沿它的墙反复反射，使路径变成一条直线。围绕 <span class="math inline">\(O\)</span> 可以放下多少个 <span class="math inline">\(30^\circ\)</span> 的楔形？）</p></li>
+<li><p><strong>弹跳的球。</strong>一个球从 <span class="math inline">\(1\)</span> m 的高度掉下，<span class="math inline">\(e = 0.8\)</span>。它会弹跳多久？它总共走了多远？（取 <span class="math inline">\(g = 9.8\)</span> m s<span class="math inline">\(^{-2}\)</span>。）</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>David Morin, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Classical+Mechanics+Morin"><em>Introduction to Classical Mechanics</em></a></strong>（Cambridge University Press），第 5 章。书中有多道关于弹跳的球和无穷多次连续碰撞的题目。</p></li>
+<li><p><strong>Sean McNamara &amp; William Young, “<a href="https://doi.org/10.1063/1.858323">Inelastic collapse and clumping in a one-dimensional granular medium</a>”</strong>（一维颗粒介质中的非弹性坍缩与聚团），<em>Physics of Fluids A</em> 4 (1992)。</p></li>
+<li><p><strong>Serge Tabachnikov, <a href="https://uk.bookshop.org/search?keywords=Geometry+and+Billiards+Tabachnikov"><em>Geometry and Billiards</em></a></strong>（American Mathematical Society；可在网上免费阅读）。讲述桌球的数学，包括练习中用到的展开技巧。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="piston.html">← 10.4 一个分子与一个活塞</a><a class="next" href="two-body.html">→ 10.6 二体化为一体</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

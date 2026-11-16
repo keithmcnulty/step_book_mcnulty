@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>平均数还是中位数？ (STEP II 2000 第 14 题) — Beyond STEP</title>
+<meta name="description" content="STEP II 2000 第 14 题：引导式解答及其背后的大学数学。 要估计一组量度数据的中心，你可以取平均值（mean），也可以取中位数（median）。哪一个较好？答案视乎数据而定。假如量度结果偶尔会出现离谱的误差，中位数就可靠得多：一个荒谬的数值足以把平均值拉到任何地方，却几乎动摇不了中位数。至于规规矩矩的数据，通常是平均值胜出。本题要量度的，正是在数据服从均匀分布（uniform…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch13/mean-or-median.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="平均数还是中位数？ (STEP II 2000 第 14 题) — Beyond STEP">
+<meta property="og:description" content="STEP II 2000 第 14 题：引导式解答及其背后的大学数学。 要估计一组量度数据的中心，你可以取平均值（mean），也可以取中位数（median）。哪一个较好？答案视乎数据而定。假如量度结果偶尔会出现离谱的误差，中位数就可靠得多：一个荒谬的数值足以把平均值拉到任何地方，却几乎动摇不了中位数。至于规规矩矩的数据，通常是平均值胜出。本题要量度的，正是在数据服从均匀分布（uniform…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch13/mean-or-median.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="平均数还是中位数？ (STEP II 2000 第 14 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2000 第 14 题：引导式解答及其背后的大学数学。 要估计一组量度数据的中心，你可以取平均值（mean），也可以取中位数（median）。哪一个较好？答案视乎数据而定。假如量度结果偶尔会出现离谱的误差，中位数就可靠得多：一个荒谬的数值足以把平均值拉到任何地方，却几乎动摇不了中位数。至于规规矩矩的数据，通常是平均值胜出。本题要量度的，正是在数据服从均匀分布（uniform…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "平均数还是中位数？", "headline": "平均数还是中位数？", "description": "STEP II 2000 第 14 题：引导式解答及其背后的大学数学。 要估计一组量度数据的中心，你可以取平均值（mean），也可以取中位数（median）。哪一个较好？答案视乎数据而定。假如量度结果偶尔会出现离谱的误差，中位数就可靠得多：一个荒谬的数值足以把平均值拉到任何地方，却几乎动摇不了中位数。至于规规矩矩的数据，通常是平均值胜出。本题要量度的，正是在数据服从均匀分布（uniform…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/mean-or-median.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2000 第 14 题", "统计与现实世界中的随机性"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "统计与现实世界中的随机性", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 13 章：统计与现实世界中的随机性", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/"}, {"@type": "ListItem", "position": 3, "name": "平均数还是中位数？", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/mean-or-median.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch13/mean-or-median.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch13/mean-or-median.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 13 章 · 统计与现实世界中的随机性</a>
+    <div class="src">STEP II · 2000 · 第 14 题</div>
+    <div class="sec-head"><span class="sec-num">13.4</span><h1>平均数还是中位数？</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-4-mean-or-median.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 13 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP II 2000，第 14 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/00-s2-q14">step.maths.org/questions/00-s2-q14</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>要估计一组量度数据的中心，你可以取平均值（mean），也可以取中位数（median）。哪一个较好？答案视乎数据而定。假如量度结果偶尔会出现离谱的误差，中位数就可靠得多：一个荒谬的数值足以把平均值拉到任何地方，却几乎动摇不了中位数。至于规规矩矩的数据，通常是平均值胜出。本题要量度的，正是在数据服从均匀分布（uniform distribution）时，平均值究竟胜出多少：中位数的方差（variance）是平均值的三倍，所以要令中位数与平均值同样精确，就需要三倍数量的观测值。</p>
+<p>这个比较引入了<em>效率</em>（efficiency）的概念，它是选择统计方法时的主要考虑之一；同时也用到 Beta 积分（beta integral），这个积分在 <a href="../ch04/wallis-beta.html">第 4.4 节</a> 也出现过。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>为甚么中位数的密度（density）与 <span class="math inline">\(y^n(1 - y)^n\)</span> 成正比？（要 <span class="math inline">\(Y\)</span> 接近 <span class="math inline">\(y\)</span>，<span class="math inline">\(2n + 1\)</span> 个值之中须有多少个在其下，又有多少个大于 <span class="math inline">\(y\)</span>？）</p>
+</div>
+<p>中位数要落在 <span class="math inline">\(y\)</span>，就必须有一个值在 <span class="math inline">\(y\)</span>，<span class="math inline">\(n\)</span> 个值在其下（各自的概率为 <span class="math inline">\(y\)</span>），另有 <span class="math inline">\(n\)</span> 个值在其上（各自的概率为 <span class="math inline">\(1 - y\)</span>）。这就得出因子 <span class="math inline">\(y^n(1 - y)^n\)</span>；常数则是数算哪些值扮演哪个角色的选法数目。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-常数" class="stage"><span class="stage-n">阶段 1</span> 常数</h4>
+<p>密度的积分必须等于 <span class="math inline">\(1\)</span>： <span class="math display">\[k\int_0^1y^n(1 - y)^n\,\mathrm{d}y = k\cdot\frac{n!\,n!}{(2n + 1)!} = 1, \qquad k = \frac{(2n + 1)!}{(n!)^2}. \qed\]</span></p>
+<h4 id="stagemark2-平均值与方差" class="stage"><span class="stage-n">阶段 2</span> 平均值与方差</h4>
+<p>密度关于 <span class="math inline">\(\frac12\)</span> 对称（把 <span class="math inline">\(y\)</span> 换成 <span class="math inline">\(1 - y\)</span> 即可看出），所以 <span class="math inline">\(\mathrm{E}(Y) = \frac12\)</span>。</p>
+<div class="askyourself">
+<p>利用 Beta 积分计算 <span class="math inline">\(\mathrm{E}(Y^2) = k\int_0^1y^{n+2}(1 - y)^n\,\mathrm{d}y\)</span>，并化简当中的阶乘。</p>
+</div>
+<p><span class="math display">\[\mathrm{E}(Y^2) = \frac{(2n + 1)!}{(n!)^2}\cdot\frac{(n + 2)!\,n!}{(2n + 3)!} = \frac{(n + 2)(n + 1)}{(2n + 3)(2n + 2)} = \frac{n + 2}{2(2n + 3)}.\]</span> 因此 <span class="math display">\[\mathrm{Var}(Y) = \frac{n + 2}{2(2n + 3)} - \frac14 = \frac{2(n + 2) - (2n + 3)}{4(2n + 3)} = \frac{1}{4(2n + 3)}. \qed\]</span></p>
+<h4 id="stagemark3-与平均值比较" class="stage"><span class="stage-n">阶段 3</span> 与平均值比较</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\bar X\)</span> 是 <span class="math inline">\(2n + 1\)</span> 个独立均匀变量的平均，它的平均值和方差是多少？</p>
+</div>
+<p>每个 <span class="math inline">\(X_i\)</span> 的平均值为 <span class="math inline">\(\frac12\)</span>，方差为 <span class="math inline">\(\frac{1}{12}\)</span>，所以 <span class="math inline">\(\mathrm{E}(\bar X) = \frac12\)</span>，而 <span class="math inline">\(\mathrm{Var}(\bar X) = \frac{1}{12(2n + 1)}\)</span>。当 <span class="math inline">\(n\)</span> 很大时， <span class="math display">\[\mathrm{Var}(Y) \approx \frac{1}{8n}, \qquad \mathrm{Var}(\bar X) \approx \frac{1}{24n}.\]</span></p>
+<div class="askyourself">
+<p>假设 <span class="math inline">\(Y\)</span> 和 <span class="math inline">\(\bar X\)</span> 都服从正态分布（normal distribution），平均值为 <span class="math inline">\(\frac12\)</span>，标准差（standard deviation）分别为 <span class="math inline">\(\sigma_Y\)</span> 和 <span class="math inline">\(\sigma_{\bar X}\)</span>，试用标准正态分布函数 <span class="math inline">\(\Phi\)</span> 表示这两个概率。</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}\bigl(|Y - \frac12| &lt; \frac{d}{\sqrt n}\bigr) = 2\Phi\bigl(\frac{d}{\sqrt n\,\sigma_Y}\bigr) - 1\)</span>，而 <span class="math inline">\(\sqrt n\,\sigma_Y \to \frac{1}{\sqrt8}\)</span>；<span class="math inline">\(\bar X\)</span> 的情况相似，其中 <span class="math inline">\(\sqrt n\,\sigma_{\bar X} \to \frac{1}{\sqrt{24}}\)</span>。所以两个概率分别趋向 <span class="math inline">\(2\Phi(d\sqrt8) - 1\)</span> 和 <span class="math inline">\(2\Phi(d\sqrt{24}) - 1\)</span>。由于 <span class="math inline">\(\Phi\)</span> 是递增函数，而且 <span class="math inline">\(\sqrt{24} &gt; \sqrt8\)</span>，后者较大，因此对所有足够大的 <span class="math inline">\(n\)</span>，不等式都成立。<span class="qed" aria-label="end of proof">■</span> 平均值较有可能接近真正的中心。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-4-1.svg" alt="图 13.4.1"><figcaption><span class="fig-label">图 13.4.1</span> <span class="math inline">\(21\)</span> 个独立均匀观测值的中位数（紫红色）和平均值（蓝绿色）的抽样分布（sampling distribution）。两者都以真实值 <span class="math inline">\(\frac12\)</span> 为中心，但平均值集中得多：它的方差大约是中位数方差的三分之一。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>Beta 积分。</strong><span class="math inline">\(\int_0^1y^r(1 - y)^s\,\mathrm{d}y\)</span> 这一条公式，同时给出了归一化常数（normalising constant）和各阶矩（moments）。</p></li>
+<li><p><strong>对称性给出平均值。</strong>求 <span class="math inline">\(\mathrm{E}(Y)\)</span> 根本不用积分。</p></li>
+<li><p><strong>在合适的尺度上比较离散程度。</strong>把标准差乘以 <span class="math inline">\(\sqrt n\)</span>，比较的结果便与 <span class="math inline">\(n\)</span> 无关。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="效率">效率</h3>
+<p>两个无偏估计量（unbiased estimator）的<em>相对效率</em>（relative efficiency）是它们方差之比；它说明其中一个需要多少倍的观测值，才能与另一个看齐。对于均匀分布的数据，中位数相对于平均值的效率是 <span class="math inline">\(\frac13\)</span>。对于正态分布的数据，这个数字是 <span class="math inline">\(\frac2\pi \approx 0.64\)</span>：中位数大约需要多 <span class="math inline">\(57\%\)</span> 的观测值。但遇上厚尾（heavy-tailed）数据，形势就逆转了。对于柯西（Cauchy）分布（<a href="../ch12/cauchy.html">第 12.22 节</a>），平均值毫无用处，因为 <span class="math inline">\(n\)</span> 个观测值的平均并不比单独一个观测值好，而中位数却表现良好。对于拉普拉斯（Laplace）分布（<a href="../ch12/clt.html">第 12.24 节</a>），中位数的效率是平均值的两倍。</p>
+<h3 id="稳健统计学">稳健统计学</h3>
+<p>中位数是<em>稳健</em>（robust）的：即使把接近一半的数据改成任意数值，它也不会移动太远。平均值却没有这种保障：一个错误的数值就足以把它毁掉。在 1960 及 1970 年代，John Tukey、Peter Huber 等人发展出<em>稳健统计学</em>（robust statistics），即一些估计量，对干净的数据而言效率几乎与平均值一样高，却又能抵御离群值（outlier），例如<em>截尾平均值</em>（trimmed mean）（舍去最大和最小的 <span class="math inline">\(10\%\)</span>，再取余下数据的平均），跳水、体操等运动项目的评分就采用这种方法。</p>
+<div class="historybox">
+<div class="box-title">拉普拉斯与中位数</div>
+<p>拉普拉斯在 1774 年证明，假如误差服从双指数（拉普拉斯）分布，则真实值的最佳估计是中位数；高斯（Gauss）在 1809 年证明，假如误差服从正态分布，则最佳估计是平均值，他并由此得出最小二乘法（method of least squares）。谁是谁非，取决于误差的表现如何；每遇上一种新的数据，统计学家至今仍会为这个问题争论一番。</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">以变异程度比较不同方法</div>
+<p><em>两种方法可能平均而言都正确；要比较的是它们的答案变动有多大，以及数据增加时这种变动收缩得有多快。</em></p>
+<p>在大学里，渐近效率（asymptotic efficiency），即比较大样本下的方差，是在不同统计方法之间作取舍的标准工具；与之并用的还有稳健性，以应付模型可能出错的情况。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>中位数的密度。</strong>用数算的方法推导密度 <span class="math inline">\(\frac{(2n + 1)!}{(n!)^2}y^n(1 - y)^n\)</span>：一个值落在 <span class="math inline">\([y, y + \delta y]\)</span> 内，<span class="math inline">\(n\)</span> 个在其下，<span class="math inline">\(n\)</span> 个在其上。</p></li>
+<li><p><strong>三个观测值。</strong>当 <span class="math inline">\(n = 1\)</span>（三个均匀观测值）时，求 <span class="math inline">\(\mathrm{Var}(Y)\)</span> 和 <span class="math inline">\(\mathrm{Var}(\bar X)\)</span> 的准确值。哪一个较小？</p></li>
+<li><p><strong>中列数。</strong>中心的另一个估计量是中列数（midrange）<span class="math inline">\(\frac12(\max + \min)\)</span>。证明对于均匀分布的数据，若有 <span class="math inline">\(m = 2n + 1\)</span> 个观测值，它的方差是 <span class="math inline">\(\frac{1}{2(m + 1)(m + 2)}\)</span>。它与平均值相比如何？（试与 <a href="../ch13/german-tanks.html">第 13.3 节</a> 比较。）</p></li>
+<li><p><strong>一个离群值。</strong>十一个量度结果为 <span class="math inline">\(9.8\)</span>、<span class="math inline">\(9.9\)</span>、<span class="math inline">\(10.0\)</span>、<span class="math inline">\(10.0\)</span>、<span class="math inline">\(10.1\)</span>、<span class="math inline">\(10.1\)</span>、<span class="math inline">\(10.2\)</span>、<span class="math inline">\(10.2\)</span>、<span class="math inline">\(10.3\)</span>、<span class="math inline">\(10.4\)</span> 和 <span class="math inline">\(104\)</span>（打字错误）。比较平均值和中位数。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>John Rice, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Statistics+and+Data+Analysis+Rice"><em>Mathematical Statistics and Data Analysis</em></a></strong>（Duxbury），论及顺序统计量（order statistics）和效率。</p></li>
+<li><p><strong>Rand Wilcox, <a href="https://uk.bookshop.org/search?keywords=Fundamentals+of+Modern+Statistical+Methods+Wilcox"><em>Fundamentals of Modern Statistical Methods</em></a></strong>（Springer）。为非专家讲解稳健方法为何重要。</p></li>
+<li><p><strong>Stephen Stigler, <a href="https://uk.bookshop.org/search?keywords=The+Seven+Pillars+of+Statistical+Wisdom+Stigler"><em>The Seven Pillars of Statistical Wisdom</em></a></strong>（Harvard University Press）。从历史角度看数据的汇总、平均值和中位数。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="german-tanks.html">← 13.3 德国坦克问题</a><a class="next" href="awkward-questions.html">→ 13.5 问尴尬的问题</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

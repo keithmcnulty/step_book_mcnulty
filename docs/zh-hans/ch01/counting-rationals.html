@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>计数有理数 (STEP III 2020 第 8 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2020 第 8 题：引导式解答及其背后的大学数学。 你能否把所有正分数逐一列出，使每个分数都恰好出现一次？这看来是不可能的：任意两个分数之间还有无穷多个分数，根本没有“下一个”分数可以写下来。然而，康托尔（Georg Cantor）在 1870 年代证明了这是做得到的。这表示，在某个精确的意义下，分数并不比整数多。 康托尔的列表颇为笨拙：表中既有 frac12 ，也有…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/counting-rationals.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/counting-rationals.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/counting-rationals.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/counting-rationals.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/counting-rationals.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="计数有理数 (STEP III 2020 第 8 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2020 第 8 题：引导式解答及其背后的大学数学。 你能否把所有正分数逐一列出，使每个分数都恰好出现一次？这看来是不可能的：任意两个分数之间还有无穷多个分数，根本没有“下一个”分数可以写下来。然而，康托尔（Georg Cantor）在 1870 年代证明了这是做得到的。这表示，在某个精确的意义下，分数并不比整数多。 康托尔的列表颇为笨拙：表中既有 frac12 ，也有…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch01/counting-rationals.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="计数有理数 (STEP III 2020 第 8 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2020 第 8 题：引导式解答及其背后的大学数学。 你能否把所有正分数逐一列出，使每个分数都恰好出现一次？这看来是不可能的：任意两个分数之间还有无穷多个分数，根本没有“下一个”分数可以写下来。然而，康托尔（Georg Cantor）在 1870 年代证明了这是做得到的。这表示，在某个精确的意义下，分数并不比整数多。 康托尔的列表颇为笨拙：表中既有 frac12 ，也有…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "计数有理数", "headline": "计数有理数", "description": "STEP III 2020 第 8 题：引导式解答及其背后的大学数学。 你能否把所有正分数逐一列出，使每个分数都恰好出现一次？这看来是不可能的：任意两个分数之间还有无穷多个分数，根本没有“下一个”分数可以写下来。然而，康托尔（Georg Cantor）在 1870 年代证明了这是做得到的。这表示，在某个精确的意义下，分数并不比整数多。 康托尔的列表颇为笨拙：表中既有 frac12 ，也有…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch01/counting-rationals.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2020 第 8 题", "数论与证明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "数论与证明", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 1 章：数论与证明", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch01/"}, {"@type": "ListItem", "position": 3, "name": "计数有理数", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch01/counting-rationals.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch01/counting-rationals.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/counting-rationals.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 1 章 · 数论与证明</a>
+    <div class="src">STEP III · 2020 · 第 8 题</div>
+    <div class="sec-head"><span class="sec-num">1.8</span><h1>计数有理数</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-8-counting-rationals.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 1 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2020，第 8 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 OCR 提供下载的 2020 年 STEP 试卷（zip 文件）内的 STEP III 试卷： <a href="https://www.ocr.org.uk/Images/696589-2020-past-papers.zip">www.ocr.org.uk/Images/696589-2020-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>你能否把所有正分数逐一列出，使每个分数都恰好出现一次？这看来是不可能的：任意两个分数之间还有无穷多个分数，根本没有“下一个”分数可以写下来。然而，康托尔（Georg Cantor）在 1870 年代证明了这是做得到的。这表示，在某个精确的意义下，分数并不比整数多。</p>
+<p>康托尔的列表颇为笨拙：表中既有 <span class="math inline">\(\frac12\)</span>，也有 <span class="math inline">\(\frac{2}{4}\)</span>，重复的项要逐一删去。本题要构造的列表却完全没有重复，而且来自一个规则简单得出奇的数列（sequence）。这个列表由 Neil Calkin 和 Herbert Wilf 于 2000 年发表，不过数列本身早在 1858 年已由 Moritz Stern 研究过。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>在证明任何东西之前，先计算最初十五项左右。你留意到比值 <span class="math inline">\(u_n / u_{n+1}\)</span> 有甚么特别之处？</p>
+</div>
+<p>数列的开首几项是 <span class="math display">\[1,\ 1,\ 2,\ 1,\ 3,\ 2,\ 3,\ 1,\ 4,\ 3,\ 5,\ 2,\ 5,\ 3,\ 4,\ 1,\ 5,\ \ldots\]</span> 而比值 <span class="math inline">\(u_n / u_{n+1}\)</span> 依次是 <span class="math display">\[\tfrac11,\ \tfrac12,\ \tfrac21,\ \tfrac13,\ \tfrac32,\ \tfrac23,\ \tfrac31,\ \tfrac14,\ \tfrac43,\ \tfrac35,\ \tfrac52,\ \tfrac25,\ \tfrac53,\ \tfrac34,\ \tfrac41,\ \ldots\]</span> 每个分数都以最简分数（lowest terms）的形式出现，而且没有一个重复。题目要你证明这个现象会一直持续下去，并且每个正分数迟早都会出现。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-奇数项胜过偶数项" class="stage"><span class="stage-n">阶段 1</span> 奇数项胜过偶数项</h4>
+<p>相邻两项不是 <span class="math inline">\((u_{2k}, u_{2k+1})\)</span>，就是 <span class="math inline">\((u_{2k+1}, u_{2k+2})\)</span>。</p>
+<div class="askyourself">
+<p>试用 <span class="math inline">\(u_k\)</span> 和 <span class="math inline">\(u_{k+1}\)</span> 表示这两种数对。哪一项较大？</p>
+</div>
+<p><span class="math inline">\((u_{2k}, u_{2k+1}) = (u_k,\ u_k + u_{k+1})\)</span>，而 <span class="math inline">\((u_{2k+1}, u_{2k+2}) = (u_k + u_{k+1},\ u_{k+1})\)</span>。由于每一项都是正整数（用归纳法（induction）不难证明），<span class="math inline">\(u_k + u_{k+1}\)</span> 比 <span class="math inline">\(u_k\)</span> 和 <span class="math inline">\(u_{k+1}\)</span> 都大。唯一的例外是第一对 <span class="math inline">\((u_1, u_2) = (1, 1)\)</span>，它不符合上述任何一种形式，因为 <span class="math inline">\(u_1\)</span> 是直接定义的。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-相邻两项互质" class="stage"><span class="stage-n">阶段 2</span> 相邻两项互质</h4>
+<div class="askyourself">
+<p>假设 <span class="math inline">\(d &gt; 1\)</span> 同时整除 <span class="math inline">\(u_{2k}\)</span> 和 <span class="math inline">\(u_{2k+1}\)</span>，即同时整除 <span class="math inline">\(u_k\)</span> 和 <span class="math inline">\(u_k + u_{k+1}\)</span>。那么 <span class="math inline">\(d\)</span> 还整除甚么？</p>
+</div>
+<p><span class="math inline">\(d\)</span> 整除 <span class="math inline">\((u_k + u_{k+1}) - u_k = u_{k+1}\)</span>，所以 <span class="math inline">\(d\)</span> 整除相邻数对 <span class="math inline">\(u_k, u_{k+1}\)</span>，而这一对在数列中的位置较前。另一种情况完全相同：若 <span class="math inline">\(d\)</span> 整除 <span class="math inline">\(u_k + u_{k+1}\)</span> 和 <span class="math inline">\(u_{k+1}\)</span>，它便整除 <span class="math inline">\(u_k\)</span>。</p>
+<p>因此，相邻数对的公因数会传回较前的一对，然后再传回更前的一对，如此类推。位置不可能无止境地减小（又是良序性（well-ordering）），所以 <span class="math inline">\(d\)</span> 最终必须整除第一对 <span class="math inline">\(u_1 = u_2 = 1\)</span>。当 <span class="math inline">\(d &gt; 1\)</span> 时这是不可能的。所以每一对相邻项都互质（coprime）。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-没有数对出现两次" class="stage"><span class="stage-n">阶段 3</span> 没有数对出现两次</h4>
+<div class="pausebox">
+<p>阶段 1 告诉你一件有用的事：看到一个相邻数对 <span class="math inline">\((a, b)\)</span> 时，你可以判断 <span class="math inline">\(a\)</span> 位于奇数位置还是偶数位置。怎样判断？然后，你能否还原出阶段 2 所指的、在它之前的那个数对？</p>
+</div>
+<p>若 <span class="math inline">\(a &lt; b\)</span>，则（由阶段 1）<span class="math inline">\(b\)</span> 位于奇数位置，所以对某个 <span class="math inline">\(k\)</span>，这个数对是 <span class="math inline">\((u_{2k}, u_{2k+1}) = (u_k, u_k + u_{k+1})\)</span>，而它的“父”数对 <span class="math inline">\((u_k, u_{k+1})\)</span> 就是 <span class="math inline">\((a,\ b - a)\)</span>。若 <span class="math inline">\(a &gt; b\)</span>，这个数对是 <span class="math inline">\((u_{2k+1}, u_{2k+2})\)</span>，其父数对是 <span class="math inline">\((a - b,\ b)\)</span>。若 <span class="math inline">\(a = b\)</span>，阶段 1 表明这个数对必定是最初的一对 <span class="math inline">\((1,1)\)</span>。</p>
+<p>所以除第一对外，每个相邻数对都决定了它的父数对，<em>以及父数对的位置</em>（这个结构可以看成一棵树，见图 1.8.1）：当子数对位于 <span class="math inline">\(2k\)</span> 或 <span class="math inline">\(2k+1\)</span> 时，父数对位于位置 <span class="math inline">\(k\)</span>。现在假设 <span class="math inline">\((a, b)\)</span> 出现在两个不同的位置。它们的父数对便是出现在两个位置的同一数对，而<em>这些</em>父数对的父数对亦然，如此类推。这样一直追溯上去，我们最终会在 <span class="math inline">\(1\)</span> 以外的位置找到 <span class="math inline">\((1,1)\)</span>，而阶段 1 已排除了这个可能。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-每个互质数对都会出现" class="stage"><span class="stage-n">阶段 4</span> 每个互质数对都会出现</h4>
+<div class="askyourself">
+<p>假设某个互质数对 <span class="math inline">\((a, b)\)</span> 从未以相邻两项的形式出现。你应该考虑哪一个这样的数对？</p>
+</div>
+<p>在所有“缺席”的互质数对之中，取 <span class="math inline">\(a + b\)</span> 的值最小的一个：这就是极小反例（minimal counterexample）。它不可能是 <span class="math inline">\((1,1)\)</span>，因为这一对确实出现了，所以 <span class="math inline">\(a \neq b\)</span>（互质而又相等，必有 <span class="math inline">\(a = b = 1\)</span>）。</p>
+<ul>
+<li><p>若 <span class="math inline">\(a &gt; b\)</span>：数对 <span class="math inline">\((a - b, b)\)</span> 互质（<span class="math inline">\(a-b\)</span> 和 <span class="math inline">\(b\)</span> 的任何公因数都整除 <span class="math inline">\(a\)</span>），而它的和 <span class="math inline">\(a\)</span> 小于 <span class="math inline">\(a + b\)</span>。由极小性，这个数对确实出现，设它位于位置 <span class="math inline">\(k, k+1\)</span>。但这样便有 <span class="math inline">\(u_{2k+1} = u_k + u_{k+1} = a\)</span> 和 <span class="math inline">\(u_{2k+2} = u_{k+1} = b\)</span>，所以 <span class="math inline">\((a, b)\)</span> 终究还是出现了。</p></li>
+<li><p>若 <span class="math inline">\(a &lt; b\)</span>：同理，<span class="math inline">\((a, b - a)\)</span> 出现在某个 <span class="math inline">\(k, k+1\)</span>，于是 <span class="math inline">\((u_{2k}, u_{2k+1}) = (a, b)\)</span>。</p></li>
+</ul>
+<p>无论哪种情况都得出矛盾。所以每一对互质的正整数都会以相邻两项的形式出现。<span class="qed" aria-label="end of proof">■</span></p>
+<p>（题目把第 (iv) 部分写成递降法（descent）：一个缺席的数对会产生一个更小的缺席数对。这其实是同一个论证，只是倒过来读而已。）</p>
+<h4 id="stagemark5-所有分数的列表" class="stage"><span class="stage-n">阶段 5</span> 所有分数的列表</h4>
+<p>每个正有理数（rational number）都可以唯一地写成最简分数 <span class="math inline">\(a/b\)</span>，其中 <span class="math inline">\(a, b\)</span> 互质。由阶段 4，<span class="math inline">\((a, b)\)</span> 会以某个相邻数对 <span class="math inline">\((u_n, u_{n+1})\)</span> 的形式出现，所以 <span class="math inline">\(f(n) = a/b\)</span>：<span class="math inline">\(f\)</span> 的值域（range）是全体正有理数。由阶段 3，它只出现一次；又由阶段 2，每个值 <span class="math inline">\(f(n)\)</span> 本身已是最简分数，所以两个不同的 <span class="math inline">\(n\)</span> 不可能给出同一个分数。因此 <span class="math inline">\(f\)</span> 是由正整数到正有理数的双射（bijection），并且有逆函数（inverse）。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>递降与它的逆向。</strong> 公因数和重复的数对都是<em>往回</em>追溯到数列的起点。缺席的数对则用极小反例处理，<em>向前</em>构造。</p></li>
+<li><p><strong>双射要证两半。</strong> “每个分数都出现”（满射，onto）和“没有分数出现两次”（单射，one-to-one）是两个独立的命题，要分开证明。</p></li>
+<li><p><strong>先动手计算。</strong> 写出十五项之后，这些命题便显得可信，同时也提示了推动整个证明的父子结构。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">Calkin–Wilf 树</div>
+<p>把正分数排成一棵树：把 <span class="math inline">\(\frac11\)</span> 放在顶端，并给每个分数 <span class="math inline">\(\frac{a}{b}\)</span> 两个子节点，左边是 <span class="math inline">\(\frac{a}{a+b}\)</span>，右边是 <span class="math inline">\(\frac{a+b}{b}\)</span>。逐行由左至右读这棵树，得到的正是本题的列表 <span class="math inline">\(f(1), f(2), f(3), \ldots\)</span>（图 1.8.1）。阶段 3 说明每个分数都有唯一的父节点，阶段 4 说明每个分数都在树中。2003 年，Moshe Newman 发现连这棵树也不需要：列表中每个分数都可以由前一个分数算出，公式是 <span class="math display">\[x_{n+1} = \frac{1}{2\lfloor x_n \rfloor - x_n + 1}.\]</span></p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-1-8-1.svg" alt="图 1.8.1"><figcaption><span class="fig-label">图 1.8.1</span> Calkin–Wilf 树的首四行。逐行由左至右读，便得到 <span class="math inline">\(f(1), f(2), f(3), \ldots\)</span>；灰色小数字是位置 <span class="math inline">\(n\)</span>。每个正分数都以最简分数的形式恰好出现一次。</figcaption></figure>
+<h3 id="不同大小的无穷">不同大小的无穷</h3>
+<p>可以这样逐一列出的集合称为<em>可数</em>（countable）集合。分数是可数的，这令人意外，因为分数看来比整数多得多。在大学的第一个学期，你还会遇到康托尔的<em>对角论证法</em>（diagonal argument），它证明<em>实数</em>（real numbers）是不可数的：任何实数列表都必定有所遗漏。所以无穷确实有不同的大小，而实数所构成的无穷严格地大于有理数所构成的无穷。这是你在大学一年级课程中会遇到的最令人震惊的结果之一。</p>
+<h3 id="stern-数列">Stern 数列</h3>
+<p>数列 <span class="math inline">\(u_n\)</span> 称为 <em>Stern 双原子数列</em>（Stern’s diatomic sequence），它还有许多其他面貌。例如，<span class="math inline">\(u_{n+1}\)</span> 等于把 <span class="math inline">\(n\)</span> 写成 <span class="math inline">\(2\)</span> 的幂之和、而每个幂最多用两次的方法数目。它与 <em>Stern–Brocot 树</em>以及连分数（continued fractions）关系密切，而连分数能给出无理数的最佳有理逼近。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">构造双射</div>
+<p><em>要证明两个集合大小相同，就要把它们的元素准确地一一配对：证明目标集合的每个元素都被对应到（满射），而且没有元素被对应两次（单射）。</em></p>
+<p>双射是计数的基础，不论有限还是无穷，你在大学里会经常用到。在本题中，两半的证明都是把一个结构追溯回它的起点。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>找出分数。</strong> 对哪一个 <span class="math inline">\(n\)</span> 有 <span class="math inline">\(f(n) = \frac{3}{5}\)</span>？又 <span class="math inline">\(f(n) = \frac{5}{3}\)</span> 呢？利用父节点的规则倒推回 <span class="math inline">\(\frac11\)</span>。</p></li>
+<li><p><strong>Newman 公式。</strong> 验证由 <span class="math inline">\(x_1 = 1\)</span> 开始，Newman 公式能给出列表中的首十个分数。</p></li>
+<li><p><strong>康托尔的对角论证法。</strong> 假设你有一个列表，以小数形式列出了 <span class="math inline">\(0\)</span> 与 <span class="math inline">\(1\)</span> 之间的所有实数。构造一个小数，使它与列表中第 <span class="math inline">\(n\)</span> 个数在第 <span class="math inline">\(n\)</span> 位数字上不同。为甚么这就说明列表并不完整？（对于像 <span class="math inline">\(0.0999\ldots = 0.1\)</span> 这样的小数，需要留意甚么？）</p></li>
+<li><p><strong>可数并集。</strong> <span class="hard">较难</span> 给出一个与正整数之间的明确双射，从而证明由全体正整数数对 <span class="math inline">\((m, n)\)</span> 组成的集合是可数的。（试试 <span class="math inline">\(2^{m-1}(2n-1)\)</span>。）</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Neil Calkin &amp; Herbert Wilf, “<a href="https://doi.org/10.1080/00029890.2000.12005205">Recounting the rationals</a>”</strong>（<em>American Mathematical Monthly</em>，2000 年；〈重新数算有理数〉）。全文四页，完全读得懂。</p></li>
+<li><p><strong>Aigner &amp; Ziegler, <a href="https://uk.bookshop.org/search?keywords=Proofs+from+THE+BOOK+Aigner+Ziegler"><em>Proofs from THE BOOK</em></a></strong>（《数学天书中的证明》），第 17 章 “Sets, functions, and the continuum hypothesis”（集合、函数与连续统假设），当中包括 Calkin–Wilf 树。</p></li>
+<li><p><strong>Ian Stewart &amp; David Tall, <a href="https://uk.bookshop.org/search?keywords=The+Foundations+of+Mathematics+Stewart+Tall"><em>The Foundations of Mathematics</em></a></strong>（《数学基础》，Oxford University Press）。可数性、康托尔与实数，内容与大学一年级课程相若。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="factorisation-fails.html">← 1.7 因数分解失效之时</a><a class="next" href="tangents-cubic.html">→ 1.9 三次曲线的切线</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

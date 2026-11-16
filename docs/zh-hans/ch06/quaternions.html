@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>四元数群 (STEP III 1993 第 5 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 1993 第 5 题：引导式解答及其背后的大学数学。 1843 年 10 月 16 日，哈密顿（William Rowan Hamilton）与妻子沿着都柏林的皇家运河散步时，苦思多年的问题忽然灵光一闪，有了答案。他一直想仿照复数把一对对的数相乘那样，把三个一组的数相乘，却屡试屡败。他突然看出，答案需要的是 四 个数，而且乘法的次序不可调换： ij ≠ ji…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/quaternions.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/quaternions.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/quaternions.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/quaternions.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/quaternions.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="四元数群 (STEP III 1993 第 5 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 1993 第 5 题：引导式解答及其背后的大学数学。 1843 年 10 月 16 日，哈密顿（William Rowan Hamilton）与妻子沿着都柏林的皇家运河散步时，苦思多年的问题忽然灵光一闪，有了答案。他一直想仿照复数把一对对的数相乘那样，把三个一组的数相乘，却屡试屡败。他突然看出，答案需要的是 四 个数，而且乘法的次序不可调换： ij ≠ ji…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch06/quaternions.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="四元数群 (STEP III 1993 第 5 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1993 第 5 题：引导式解答及其背后的大学数学。 1843 年 10 月 16 日，哈密顿（William Rowan Hamilton）与妻子沿着都柏林的皇家运河散步时，苦思多年的问题忽然灵光一闪，有了答案。他一直想仿照复数把一对对的数相乘那样，把三个一组的数相乘，却屡试屡败。他突然看出，答案需要的是 四 个数，而且乘法的次序不可调换： ij ≠ ji…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "四元数群", "headline": "四元数群", "description": "STEP III 1993 第 5 题：引导式解答及其背后的大学数学。 1843 年 10 月 16 日，哈密顿（William Rowan Hamilton）与妻子沿着都柏林的皇家运河散步时，苦思多年的问题忽然灵光一闪，有了答案。他一直想仿照复数把一对对的数相乘那样，把三个一组的数相乘，却屡试屡败。他突然看出，答案需要的是 四 个数，而且乘法的次序不可调换： ij ≠ ji…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch06/quaternions.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1993 第 5 题", "代数与结构"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 6, "name": "代数与结构", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 6 章：代数与结构", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch06/"}, {"@type": "ListItem", "position": 3, "name": "四元数群", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch06/quaternions.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch06/quaternions.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/quaternions.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 6 章 · 代数与结构</a>
+    <div class="src">STEP III · 1993 · 第 5 题</div>
+    <div class="sec-head"><span class="sec-num">6.7</span><h1>四元数群</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-7-quaternions.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 6 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 1993，第 5 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/93-s3-q5">step.maths.org/questions/93-s3-q5</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>1843 年 10 月 16 日，哈密顿（William Rowan Hamilton）与妻子沿着都柏林的皇家运河散步时，苦思多年的问题忽然灵光一闪，有了答案。他一直想仿照复数把一对对的数相乘那样，把三个一组的数相乘，却屡试屡败。他突然看出，答案需要的是<em>四</em>个数，而且乘法的次序不可调换：<span class="math inline">\(ij \neq ji\)</span>。他把这些法则刻在布鲁穆桥（Brougham Bridge）的石头上： <span class="math display">\[\mathrm{i}^2 = \mathrm{j}^2 = \mathrm{k}^2 = \mathrm{ijk} = -1.\]</span> 这就是<em>四元数</em>（quaternions）。本题用复数对把四元数构造出来，并在其中找到一个只有八个元素、乘法带点扭曲的小群。时至今日，每一款电脑游戏、每一部飞行模拟器、每一套太空船导航系统，都用四元数来描述三维空间中的旋转。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<p>群的各项定义见 <a href="../ch06/subgroup-unions.html">第 6.6 节</a>。这里再补充两个用语：群中元素 <span class="math inline">\(g\)</span> 的<em>阶</em>（order），是指使 <span class="math inline">\(g^n = e\)</span> 成立的最小正整数 <span class="math inline">\(n\)</span>；若两个群之间存在一个保持运算的一一对应，则称这两个群<em>同构</em>（isomorphic），也就是说，它们是“换了标签的同一个群”。</p>
+<div class="askyourself">
+<p>把数对 <span class="math inline">\((z_1, z_2)\)</span> 看成代表一个“数”<span class="math inline">\(z_1 + z_2\mathrm{j}\)</span>，其中 <span class="math inline">\(\mathrm{j}\)</span> 是一个新符号，满足 <span class="math inline">\(\mathrm{j}^2 = -1\)</span>，并且对任意复数 <span class="math inline">\(w\)</span> 有 <span class="math inline">\(\mathrm{j}w = w^*\mathrm{j}\)</span>。试用这些法则计算 <span class="math inline">\((z_1 + z_2\mathrm{j})(w_1 + w_2\mathrm{j})\)</span>。得出的是否就是 <span class="math inline">\(\circ\)</span> 的公式？</p>
+</div>
+<p><span class="math inline">\((z_1 + z_2\mathrm{j})(w_1 + w_2\mathrm{j}) = z_1w_1 + z_1w_2\mathrm{j} + z_2\mathrm{j}w_1 + z_2\mathrm{j}w_2\mathrm{j} = z_1w_1 + z_1w_2\mathrm{j} + z_2w_1^*\mathrm{j} + z_2w_2^*\mathrm{j}^2\)</span>，即 <span class="math inline">\((z_1w_1 - z_2w_2^*) + (z_1w_2 + z_2w_1^*)\mathrm{j}\)</span>。答案是肯定的：运算 <span class="math inline">\(\circ\)</span> 其实就是乔装了的四元数乘法。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-借助矩阵证明结合律" class="stage"><span class="stage-n">阶段 1</span> 借助矩阵证明结合律</h4>
+<p>直接验证 <span class="math inline">\((a \circ b) \circ c = a \circ (b \circ c)\)</span>，计算十分冗长。其实有更巧妙的方法。</p>
+<div class="askyourself">
+<p>把 <span class="math inline">\((z_1, z_2)\)</span> 对应到复矩阵 <span class="math inline">\(M = \begin{pmatrix} z_1 &amp; z_2 \\ -z_2^* &amp; z_1^* \end{pmatrix}\)</span>。矩阵乘积 <span class="math inline">\(M(z_1, z_2)\,M(w_1, w_2)\)</span> 的第一行是甚么？</p>
+</div>
+<p>乘积的第一行是 <span class="math inline">\(\bigl(z_1w_1 - z_2w_2^*,\ z_1w_2 + z_2w_1^*\bigr)\)</span>，正好是 <span class="math inline">\((z_1, z_2)\circ(w_1, w_2)\)</span>；第二行是 <span class="math inline">\(\bigl(-(z_1w_2 + z_2w_1^*)^*,\ (z_1w_1 - z_2w_2^*)^*\bigr)\)</span>，所以乘积仍具有同样的特殊形式。因此 <span class="math inline">\(M(a \circ b) = M(a)M(b)\)</span>。矩阵乘法满足结合律（associativity），而 <span class="math inline">\(M\)</span> 是一对一的（从第一行便可读出 <span class="math inline">\(z_1\)</span>、<span class="math inline">\(z_2\)</span>），所以 <span class="math inline">\(\circ\)</span> 满足结合律。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-不满足交换律" class="stage"><span class="stage-n">阶段 2</span> 不满足交换律</h4>
+<p><span class="math inline">\((0, 1)\circ(\mathrm{i}, 0) = (0 \cdot \mathrm{i} - 1 \cdot 0,\ 0 \cdot 0 + 1 \cdot \mathrm{i}^*) = (0, -\mathrm{i})\)</span>，但 <span class="math inline">\((\mathrm{i}, 0)\circ(0, 1) = (0, \mathrm{i})\)</span>。所以 <span class="math inline">\(\circ\)</span> 不满足交换律（commutativity）。</p>
+<p>四个特殊乘积可由定义直接得出： <span class="math display">\[\begin{aligned}
+  (z, 0)\circ(w, 0) &amp;= (zw, 0), &amp; (z, 0)\circ(0, w) &amp;= (0, zw), \\
+  (0, z)\circ(w, 0) &amp;= (0, zw^*), &amp; (0, z)\circ(0, w) &amp;= (-zw^*, 0).
+\end{aligned}\]</span></p>
+<h4 id="stagemark3-八个元素的群" class="stage"><span class="stage-n">阶段 3</span> 八个元素的群</h4>
+<p>用四元数的记法，<span class="math inline">\(A = 1\)</span>，<span class="math inline">\(C = \mathrm{i}\)</span>，<span class="math inline">\(B = \mathrm{j}\)</span>，<span class="math inline">\(D = \mathrm{i}\mathrm{j} = \mathrm{k}\)</span>，而 <span class="math inline">\(E, G, F, H\)</span> 则分别是它们的相反数。<span class="math inline">\(S_1\)</span> 的每个元素都具有 <span class="math inline">\((u, 0)\)</span> 或 <span class="math inline">\((0, u)\)</span> 的形式，其中 <span class="math inline">\(u \in \{1, \mathrm{i}, -1, -\mathrm{i}\}\)</span>。</p>
+<div class="askyourself">
+<p>利用四个特殊乘积，证明 <span class="math inline">\(S_1\)</span> 是封闭的。单位元是甚么？</p>
+</div>
+<p>由四个特殊乘积可知，两个形如 <span class="math inline">\((u, 0)\)</span> 或 <span class="math inline">\((0, u)\)</span> 的元素相乘，结果仍是这两种形式之一，其第一个或第二个分量为 <span class="math inline">\(uv\)</span>、<span class="math inline">\(uv^*\)</span> 或 <span class="math inline">\(-uv^*\)</span>。由于 <span class="math inline">\(\{1, \mathrm{i}, -1, -\mathrm{i}\}\)</span> 在乘法、取共轭及取相反数之下都封闭（closed），乘积仍在 <span class="math inline">\(S_1\)</span> 之内。单位元（identity）是 <span class="math inline">\(A = (1, 0)\)</span>：<span class="math inline">\((1, 0)\circ(w_1, w_2) = (w_1, w_2)\)</span>，而且 <span class="math inline">\((w_1, w_2)\circ(1, 0) = (w_1, w_2)\)</span>。</p>
+<div class="pausebox">
+<p>求出每个元素的阶和逆元。</p>
+</div>
+<p><span class="math inline">\(A\)</span> 的阶为 <span class="math inline">\(1\)</span>。<span class="math inline">\(E\circ E = (-1, 0)\circ(-1, 0) = (1, 0)\)</span>，所以 <span class="math inline">\(E\)</span> 的阶为 <span class="math inline">\(2\)</span>。对于 <span class="math inline">\(C = (\mathrm{i}, 0)\)</span>：<span class="math inline">\(C\circ C = (-1, 0) = E\)</span>，所以 <span class="math inline">\(C\)</span> 的阶为 <span class="math inline">\(4\)</span>，而 <span class="math inline">\(C^{-1} = C^3 = E\circ C = G\)</span>。对于 <span class="math inline">\(B = (0, 1)\)</span>：<span class="math inline">\(B\circ B = (-1 \cdot 1^*, 0) = (-1, 0) = E\)</span>，所以 <span class="math inline">\(B\)</span> 的阶为 <span class="math inline">\(4\)</span>，而 <span class="math inline">\(B^{-1} = F\)</span>。同理，<span class="math inline">\(D\circ D = (-\mathrm{i}\cdot\mathrm{i}^*, 0) = (-\mathrm{i}\cdot(-\mathrm{i}), 0) = (-1, 0) = E\)</span>，所以 <span class="math inline">\(D\)</span> 的阶为 <span class="math inline">\(4\)</span>，逆元（inverse）为 <span class="math inline">\(H\)</span>。至于 <span class="math inline">\(G\)</span>、<span class="math inline">\(F\)</span>、<span class="math inline">\(H\)</span>，它们分别是 <span class="math inline">\(C\)</span>、<span class="math inline">\(B\)</span>、<span class="math inline">\(D\)</span> 的逆元，阶同样为 <span class="math inline">\(4\)</span>。总结如下：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">元素</th>
+<th style="text-align: center;"><span class="math inline">\(A\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(C\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(D\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(E\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(G\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(H\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">逆元</td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(G\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(H\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(E\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(D\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">阶</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>既有封闭性和结合律（第 1 步），又有单位元和逆元，<span class="math inline">\(S_1\)</span> 是一个群。<span class="qed" aria-label="end of proof">■</span> 这个群称为<em>四元数群</em>（quaternion group）<span class="math inline">\(Q_8\)</span>。</p>
+<h4 id="stagemark4-一个子群" class="stage"><span class="stage-n">阶段 4</span> 一个子群</h4>
+<p><span class="math inline">\(\{A, B, E, F\} = \{1, \mathrm{j}, -1, -\mathrm{j}\}\)</span> 由 <span class="math inline">\(B\)</span> 的各次幂组成：<span class="math inline">\(B^1 = B\)</span>，<span class="math inline">\(B^2 = E\)</span>，<span class="math inline">\(B^3 = F\)</span>，<span class="math inline">\(B^4 = A\)</span>。所以它是封闭的，并且包含各元素的逆元：这是一个子群（subgroup），而且是阶为 <span class="math inline">\(4\)</span> 的<em>循环群</em>（cyclic group）。矩阵 <span class="math inline">\(J = \begin{pmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{pmatrix}\)</span> 满足 <span class="math inline">\(J^2 = -I\)</span>，<span class="math inline">\(J^3 = -J\)</span>，<span class="math inline">\(J^4 = I\)</span>，所以它同样生成一个阶为 <span class="math inline">\(4\)</span> 的循环群。对应 <span class="math inline">\(B^k \leftrightarrow J^k\)</span> 是一个同构。<span class="qed" aria-label="end of proof">■</span> （事实上，<span class="math inline">\(J\)</span> 正是 <span class="math inline">\(M(0, 1)\)</span>，即 <span class="math inline">\(B\)</span> 所对应的矩阵。）</p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>用矩阵来表示。</strong>结合律直接验证起来十分费劲，这里却可从矩阵乘法继承过来。</p></li>
+<li><p><strong>找出公式背后的结构。</strong>古怪的运算 <span class="math inline">\(\circ\)</span> 原来就是四元数乘法，看穿了这一点，一切都变得容易。</p></li>
+<li><p><strong>阶和逆元刻划了一个群。</strong>单看各元素的阶，已可见 <span class="math inline">\(Q_8\)</span> 与别不同：一个阶为 <span class="math inline">\(2\)</span> 的元素，六个阶为 <span class="math inline">\(4\)</span> 的元素。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">复数之外</div>
+<p>实数构成一个一维的数系，在其中可以做加法、乘法和除法；复数则构成一个二维的数系。哈密顿的四元数是四维的，除法依然可行，但乘法不再满足交换律（图 6.7.1）。1878 年，弗罗贝尼乌斯（Ferdinand Frobenius）证明了 <span class="math inline">\(\mathbb{R}\)</span>、<span class="math inline">\(\mathbb{C}\)</span> 和 <span class="math inline">\(\mathbb{H}\)</span>（取自 Hamilton 的首字母）这三者，是实数域上仅有的、乘法满足结合律的有限维“可除代数”（division algebras）。如果放弃结合律，但保留一个可乘的大小，即 <span class="math inline">\(|xy| = |x|\,|y|\)</span>，一如实数、复数和四元数那样，那就恰好还多一个：八维的<em>八元数</em>（octonions），由 John Graves 和凯莱（Arthur Cayley）在 1840 年代发现。赫维兹（Adolf Hurwitz）于 1898 年证明，这类数系就只有这四个。（若不设关于大小的条件，还有其他更古怪的非结合可除代数，但 1958 年一条由博特（Raoul Bott）、米尔诺（John Milnor）和 Michel Kervaire 得出的深刻定理指出，任何有限维实可除代数的维数必为 <span class="math inline">\(1\)</span>、<span class="math inline">\(2\)</span>、<span class="math inline">\(4\)</span> 或 <span class="math inline">\(8\)</span>。）</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-7-1.svg" alt="图 6.7.1"><figcaption><span class="fig-label">图 6.7.1</span> 哈密顿的乘法法则。把 <span class="math inline">\(\mathrm{i}\)</span>、<span class="math inline">\(\mathrm{j}\)</span>、<span class="math inline">\(\mathrm{k}\)</span> 其中两个顺着箭头方向相乘，得到第三个；逆着箭头方向相乘，则得到第三个的相反数。<span class="math inline">\(\pm1, \pm\mathrm{i}, \pm\mathrm{j}, \pm\mathrm{k}\)</span> 这八个元素构成本题的四元数群 <span class="math inline">\(Q_8\)</span>。</figcaption></figure>
+<h3 id="三维空间中的旋转">三维空间中的旋转</h3>
+<p>模（modulus）为 <span class="math inline">\(1\)</span> 的四元数描述三维空间的旋转：绕单位轴 <span class="math inline">\(\mathbf{u}\)</span> 转过角度 <span class="math inline">\(\theta\)</span> 的旋转，对应于 <span class="math inline">\(q = \cos\frac\theta2 + \sin\frac\theta2(u_1\mathrm{i} + u_2\mathrm{j} + u_3\mathrm{k})\)</span>，它作用于向量 <span class="math inline">\(\mathbf{v}\)</span>（写成 <span class="math inline">\(v_1\mathrm{i} + v_2\mathrm{j} + v_3\mathrm{k}\)</span>）的方式是 <span class="math inline">\(\mathbf{v} \mapsto q\mathbf{v}q^{-1}\)</span>。旋转的复合就是四元数的相乘。这比使用矩阵或角度更有效率，数值上也更稳定，而且避开了“万向节锁”（gimbal lock）：那是失去一个自由度的现象，当年阿波罗（Apollo）太空人使用以陀螺仪为本的导航系统时，就不得不设法绕过这个问题。半角 <span class="math inline">\(\frac\theta2\)</span> 也透露出一点深刻的端倪：旋转 <span class="math inline">\(360^\circ\)</span> 得到的是 <span class="math inline">\(q = -1\)</span>，而不是 <span class="math inline">\(1\)</span>，物理学家在电子的行为（自旋，spin）中正好看到这个事实。</p>
+<h3 id="四平方和">四平方和</h3>
+<p>四元数的模是可乘的，<span class="math inline">\(|pq| = |p||q|\)</span>，与复数的模一样。把它展开写出，便得到欧拉（Euler）的<em>四平方恒等式</em>（four-square identity）：两个四平方和之积，本身也是一个四平方和。这正是拉格朗日（Lagrange）定理的关键一步，该定理指出每个正整数都是四个平方数之和；我们会在 <a href="../ch07/four-squares.html">第 7.8 节</a> 证明这条定理，它是 <a href="../ch01/two-squares.html">第 1.6 节</a> 中二平方和结果的四维近亲。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">把抽象的对象具体地表示出来</div>
+<p><em>如果一个抽象的运算难以推理，就找一个具体的模型（例如矩阵），让它在其中变成熟悉的运算。</em></p>
+<p>这样，结合律之类的性质便不费吹灰之力。这个想法，即把群表示为矩阵来研究，后来发展成一门庞大而优美的学科：<em>表示论</em>（representation theory）。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>哈密顿的法则。</strong>利用数对，验证 <span class="math inline">\(C\circ B = D\)</span> 及 <span class="math inline">\(B\circ C = H\)</span>，即 <span class="math inline">\(\mathrm{ij} = \mathrm{k}\)</span> 及 <span class="math inline">\(\mathrm{ji} = -\mathrm{k}\)</span>。</p></li>
+<li><p><strong>只有一个阶为 <span class="math inline">\(2\)</span> 的元素。</strong>证明 <span class="math inline">\(E = -1\)</span> 是 <span class="math inline">\(Q_8\)</span> 中唯一阶为 <span class="math inline">\(2\)</span> 的元素。由此推断 <span class="math inline">\(Q_8\)</span> 与正方形的对称群（它有五个阶为 <span class="math inline">\(2\)</span> 的元素）并不同构。</p></li>
+<li><p><strong>四平方和。</strong>证明 <span class="math inline">\(\det M(z_1, z_2) = |z_1|^2 + |z_2|^2\)</span>。利用 <span class="math inline">\(\det(M_1M_2) = \det M_1\det M_2\)</span>，推断两个四平方和之积是一个四平方和。</p></li>
+<li><p><strong>子群。</strong>找出 <span class="math inline">\(Q_8\)</span> 的所有子群。证明除了 <span class="math inline">\(\{A\}\)</span> 之外，每个子群都包含 <span class="math inline">\(E\)</span>，并证明 <span class="math inline">\(Q_8\)</span> 是它三个阶为 <span class="math inline">\(4\)</span> 的循环子群的并集（试与 <a href="../ch06/subgroup-unions.html">第 6.6 节</a> 比较）。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>John Conway &amp; Derek Smith, <a href="https://uk.bookshop.org/search?keywords=On+Quaternions+and+Octonions+Conway+Smith"><em>On Quaternions and Octonions</em></a></strong>（A. K. Peters）。讲述四元数和八元数的几何与算术。程度较深，但引人入胜。</p></li>
+<li><p><strong>John Baez,“The octonions”</strong>，<em>Bulletin of the American Mathematical Society</em> 39 (2002)；网上亦可免费阅览。一篇精彩的综述；引言部分现在就读得懂。</p></li>
+<li><p><strong>Andrew Hanson, <a href="https://uk.bookshop.org/search?keywords=Visualizing+Quaternions+Hanson"><em>Visualizing Quaternions</em></a></strong>（Morgan Kaufmann）。讲述以四元数处理旋转，并介绍其在电脑图像方面的应用。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="subgroup-unions.html">← 6.6 子群的并集</a><a class="next" href="singular-group.html">→ 6.8 由奇异矩阵组成的群</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

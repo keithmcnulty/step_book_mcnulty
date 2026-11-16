@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 8 章：微分方程与动力系统 — Beyond STEP</title>
+<meta name="description" content="先谈存在性与定性行为，再谈模型，最后是离散映射中的混沌。">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch08/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch08/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 8 章：微分方程与动力系统 — Beyond STEP">
+<meta property="og:description" content="先谈存在性与定性行为，再谈模型，最后是离散映射中的混沌。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch08/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 8 章：微分方程与动力系统 — Beyond STEP">
+<meta name="twitter:description" content="先谈存在性与定性行为，再谈模型，最后是离散映射中的混沌。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 8, "name": "微分方程与动力系统", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "先谈存在性与定性行为，再谈模型，最后是离散映射中的混沌。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 8 章：微分方程与动力系统", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch08/"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch08/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch08/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">8</div>
+    <h1>微分方程与动力系统</h1>
+    <p class="strap">绝大多数微分方程都解不出来。学问就在于：解不出来，也要读懂它。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下载整章</span><span class="dl-sub">PDF，专为列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="non-uniqueness.html"><span class="toc-num">8.1</span>
+<span class="toc-title">当解不唯一</span>
+<span class="toc-src">STEP III 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-1-non-uniqueness.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="bounding-without-solving.html"><span class="toc-num">8.2</span>
+<span class="toc-title">不求解而估界</span>
+<span class="toc-src">STEP III 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-2-bounding-without-solving.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="harvesting.html"><span class="toc-num">8.3</span>
+<span class="toc-title">收获种群</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-3-harvesting.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="limit-cycle.html"><span class="toc-num">8.4</span>
+<span class="toc-title">盘旋趋向圆</span>
+<span class="toc-src">STEP III 2015</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-4-limit-cycle.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="pursuit.html"><span class="toc-num">8.5</span>
+<span class="toc-title">格力犬追逐格力犬</span>
+<span class="toc-src">STEP III 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-5-pursuit.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="quantum-oscillator.html"><span class="toc-num">8.6</span>
+<span class="toc-title">量子振子</span>
+<span class="toc-src">STEP III 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-6-quantum-oscillator.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="solvable-chaos.html"><span class="toc-num">8.7</span>
+<span class="toc-title">可以解出的混沌</span>
+<span class="toc-src">STEP I 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-7-solvable-chaos.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="period-three.html"><span class="toc-num">8.8</span>
+<span class="toc-title">周期三蕴含混沌</span>
+<span class="toc-src">STEP III 2025</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-8-period-three.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顾：我们学到了甚么</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“延伸练习”答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 8 章  \(\cdot\)  引言</div>
+    <h1 class="essay-title">变化的法则</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>大自然对积分的种种困难一笑置之。</p>
+<p class="who">— 相传为拉普拉斯（Pierre-Simon Laplace）所言</p>
+</div>
+<p>在中学，微分方程（differential equation）是拿来解的。你把变量分离，或者找一个积分因子（integrating factor），又或者猜一个形如 <span class="math inline">\(e^{\lambda x}\)</span> 的解，最后得到一条公式。课本里的方程都是特意挑选的，所以这些方法才行得通。可惜的是，来自现实世界的微分方程（三颗行星的运动、天气、捕食者与猎物的种群数量、大幅度摆动的单摆），几乎全都没有可以用我们熟悉的函数写出来的解。</p>
+<p>本章要谈的，就是这时候该怎么办。我们不再问“公式是甚么？”，而是问一些不靠公式也能回答的问题。解到底存在吗？是否只有一个？它会保持有界（bounded）吗？它会趋于一个稳定状态，还是趋于一个周而复始的循环，抑或永远游移不定？长远来说它会怎样？这种由“求解”转为“理解”的观点，始于 1880 年代的庞加莱（Henri Poincaré），并由此开创了今天称为<em>动力系统</em>（dynamical systems）的学科。</p>
+<h3 id="微分方程为何重要">微分方程为何重要</h3>
+<p>微分方程是科学的语言。牛顿（Newton）第二定律是一条微分方程；麦克斯韦（Maxwell）的电磁学方程组、量子力学的薛定谔（Schrödinger）方程，以及用来预测天气和设计飞机的流体流动方程，也都是微分方程。流行病学家用它们为疾病的传播建立模型，生态学家用来描述鱼类资源的数量，经济学家用来描述经济增长，工程师则用来描述各种控制系统的响应，由恒温器到自动驾驶仪无一例外。凡是一个量的变化率取决于它当前的状态，就有一条微分方程，而且通常是一条没有人能精确解出的方程。</p>
+<p>与这些连续模型并列的还有离散模型，其中时间是一步一步推进的：今年的种群数量决定明年的种群数量。这些<em>迭代映射</em>（iterated maps）写起来比较简单，但最后两节会说明，它们的行为可以同样狂野。1970 年代的重大发现之一，就是非常简单的法则也能产生<em>混沌</em>（chaos）：这种行为完全是确定的，实际上却无法预测。</p>
+<h3 id="你在大学会遇到甚么">你在大学会遇到甚么</h3>
+<p>大学一年级的微分方程课程会讲授标准的求解方法，但也会引入本章的这些问题。你会遇到存在性与唯一性定理（existence and uniqueness theorems），它们告诉你解在甚么时候存在，又在甚么时候由初始值决定。你会学习绘画<em>相图</em>（phase portraits），即把所有解一次过画出来的图，并学习通过线性化（linearising）把平衡点（equilibria）分类为稳定或不稳定。往后的课程会走得远得多：<em>非线性动力学</em>（nonlinear dynamics）研究极限环（limit cycles）、分歧（bifurcations）和混沌；<em>数学生物学</em>（mathematical biology）把这些概念应用于种群和流行病；而偏微分方程（partial differential equations）、傅里叶级数（Fourier series）和正交函数（orthogonal functions）的理论（在 <a href="../ch08/quantum-oscillator.html">第 8.6 节</a> 可以略窥一二）则是量子力学和大部分应用数学的基础。</p>
+<h3 id="贯穿本章的问题">贯穿本章的问题</h3>
+<div class="skillbox">
+<div class="box-title">三大问题</div>
+<ol class="arabic">
+<li><p><strong>现在能决定将来吗？</strong>一条微分方程配上一个初始值，在甚么时候恰好只有一个解？</p></li>
+<li><p><strong>不求解，我们能知道甚么？</strong>在没有公式的情况下，怎样为解定出上下界、找出它最终停留在哪里，或者描述它的形状？</p></li>
+<li><p><strong>长远来说会怎样？</strong>解会趋于稳定状态、趋近一个循环，还是呈现混沌的行为？我们又怎样分辨？</p></li>
+</ol>
+</div>
+<p>本章首先讨论唯一性，以及唯一性不成立时会发生甚么事（<a href="../ch08/non-uniqueness.html">第 8.1 节</a>），然后发展一些不必求解也能理解方程的工具：不会增加的类能量的量、平衡点及其稳定性，以及配合问题对称性的坐标。有两节把这些想法应用于物理问题：在正方形内互相追逐的几只狗，以及量子谐振子（quantum harmonic oscillator）。本章最后讨论离散映射：在那里，一条公式揭示了混沌，而单单一个长度为三的循环，就迫使任何长度的循环都必然存在。</p>
+<h3 id="本章的概念">本章的概念</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">课题</th>
+<th style="text-align: left;">概念</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">8.1</td>
+<td style="text-align: left;">唯一性</td>
+<td style="text-align: left;">包络线（envelopes）与奇解（singular solutions）；黏合</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.2</td>
+<td style="text-align: left;">能量方法</td>
+<td style="text-align: left;">一个永不增加的量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.3</td>
+<td style="text-align: left;">种群模型</td>
+<td style="text-align: left;">平衡点、稳定性与临界点（tipping point）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.4</td>
+<td style="text-align: left;">极限环</td>
+<td style="text-align: left;">极坐标与伯努利代换（Bernoulli substitution）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.5</td>
+<td style="text-align: left;">追逐曲线（pursuit curves）</td>
+<td style="text-align: left;">对称性把四个物体化约为一个</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.6</td>
+<td style="text-align: left;">正交函数</td>
+<td style="text-align: left;">朗斯基行列式（Wronskian）与正交性</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.7</td>
+<td style="text-align: left;">混沌</td>
+<td style="text-align: left;">变量代换：逻辑斯谛映射（logistic map）其实是乔装了的倍角映射</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.8</td>
+<td style="text-align: left;">周期轨道（periodic orbits）</td>
+<td style="text-align: left;">区间覆盖；沙可夫斯基定理（Sharkovskii’s theorem）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="如何阅读本章">如何阅读本章</h3>
+<p>在动手解任何东西之前，先画草图。对于微分方程 <span class="math inline">\(y&#39; = F(y)\)</span>，标出 <span class="math inline">\(F\)</span> 在哪里为正、为负和为零，并在 <span class="math inline">\(y\)</span> 轴上画上箭头；对于映射 <span class="math inline">\(x \mapsto \mathrm{f}(x)\)</span>，把它的图像连同直线 <span class="math inline">\(y = x\)</span> 一起画出来，再用蛛网图法（cobweb method）追踪几个数列。这些图只需一分钟就能画好，而且往往在代数运算开始之前，就已经告诉你答案应该是甚么模样。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="non-uniqueness.html">→ 开始： 8.1 当解不唯一</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

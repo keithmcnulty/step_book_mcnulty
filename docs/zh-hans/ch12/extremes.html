@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>众多之中的最大值 (STEP III 2025 第 11 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2025 第 11 题：引导式解答及其背后的大学数学。 下一个世纪最高的洪水会有多高？一千个灯泡之中，寿命最长的那个能用多久？在 n 名参赛者之中，跑得最快的马拉松选手会有多快？这类关于 极值 （extremes）的问题，即许多随机数值之中最大或最小的一个，在工程、保险和气候科学中都极为重要，而极值的表现与平均值截然不同。 本题要找出 n 个指数分布（exponential…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/extremes.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/extremes.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/extremes.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/extremes.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/extremes.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="众多之中的最大值 (STEP III 2025 第 11 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2025 第 11 题：引导式解答及其背后的大学数学。 下一个世纪最高的洪水会有多高？一千个灯泡之中，寿命最长的那个能用多久？在 n 名参赛者之中，跑得最快的马拉松选手会有多快？这类关于 极值 （extremes）的问题，即许多随机数值之中最大或最小的一个，在工程、保险和气候科学中都极为重要，而极值的表现与平均值截然不同。 本题要找出 n 个指数分布（exponential…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch12/extremes.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="众多之中的最大值 (STEP III 2025 第 11 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2025 第 11 题：引导式解答及其背后的大学数学。 下一个世纪最高的洪水会有多高？一千个灯泡之中，寿命最长的那个能用多久？在 n 名参赛者之中，跑得最快的马拉松选手会有多快？这类关于 极值 （extremes）的问题，即许多随机数值之中最大或最小的一个，在工程、保险和气候科学中都极为重要，而极值的表现与平均值截然不同。 本题要找出 n 个指数分布（exponential…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "众多之中的最大值", "headline": "众多之中的最大值", "description": "STEP III 2025 第 11 题：引导式解答及其背后的大学数学。 下一个世纪最高的洪水会有多高？一千个灯泡之中，寿命最长的那个能用多久？在 n 名参赛者之中，跑得最快的马拉松选手会有多快？这类关于 极值 （extremes）的问题，即许多随机数值之中最大或最小的一个，在工程、保险和气候科学中都极为重要，而极值的表现与平均值截然不同。 本题要找出 n 个指数分布（exponential…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/extremes.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2025 第 11 题", "概率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/"}, {"@type": "ListItem", "position": 3, "name": "众多之中的最大值", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/extremes.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch12/extremes.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/extremes.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 12 章 · 概率</a>
+    <div class="src">STEP III · 2025 · 第 11 题</div>
+    <div class="sec-head"><span class="sec-num">12.25</span><h1>众多之中的最大值</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-25-extremes.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 12 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2025，第 11 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 OCR 提供下载的 2025 年 STEP 试卷（zip 文件）内的 STEP III 试卷： <a href="https://www.ocr.org.uk/Images/750486-2025-past-papers.zip">www.ocr.org.uk/Images/750486-2025-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>下一个世纪最高的洪水会有多高？一千个灯泡之中，寿命最长的那个能用多久？在 <span class="math inline">\(n\)</span> 名参赛者之中，跑得最快的马拉松选手会有多快？这类关于<em>极值</em>（extremes）的问题，即许多随机数值之中最大或最小的一个，在工程、保险和气候科学中都极为重要，而极值的表现与平均值截然不同。</p>
+<p>本题要找出 <span class="math inline">\(n\)</span> 个指数分布（exponential distribution）寿命中最大者的分布。它的典型大小按 <span class="math inline">\(\ln n\)</span> 增长，虽然缓慢，却没有上限。然而它的离散程度却完全不会增长：一千个寿命中的最大值，其可预测的程度与十个寿命中的最大值大致相同。在极限情况下，它的分布形状就是<em>耿贝尔分布</em>（Gumbel distribution），也就是极值世界中与正态曲线相对应的角色。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p><span class="math inline">\(X_1, \ldots, X_n\)</span> 中的最大者不超过 <span class="math inline">\(y\)</span>，恰好等同于发生了甚么事？</p>
+</div>
+<p><span class="math inline">\(Y \leq y\)</span> 恰好在每个 <span class="math inline">\(X_i \leq y\)</span> 时成立。利用独立性（independence），这个概率便化为一个乘积。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-最大值的分布" class="stage"><span class="stage-n">阶段 1</span> 最大值的分布</h4>
+<p>每个 <span class="math inline">\(X_i\)</span> 在 <span class="math inline">\(y \geq 0\)</span> 时都有 <span class="math inline">\(\mathrm{F}(y) = 1 - e^{-\lambda y}\)</span>，由独立性可得 <span class="math display">\[\mathrm{G}(y) = \mathrm{P}(X_1 \leq y, \ldots, X_n \leq y) = \bigl(1 - e^{-\lambda y}\bigr)^n. \qed\]</span></p>
+<h4 id="stagemark2-分位数" class="stage"><span class="stage-n">阶段 2</span> 分位数</h4>
+<div class="askyourself">
+<p>由 <span class="math inline">\(\mathrm{G}(L) = \alpha\)</span> 解出 <span class="math inline">\(L\)</span>。然后解 <span class="math inline">\(\mathrm{G}(U) = 1 - \alpha\)</span>。</p>
+</div>
+<p>由 <span class="math inline">\(\bigl(1 - e^{-\lambda L}\bigr)^n = \alpha\)</span> 得 <span class="math inline">\(e^{-\lambda L} = 1 - \alpha^{1/n}\)</span>，所以 <span class="math display">\[L(\alpha) = -\frac1\lambda\ln\bigl(1 - \alpha^{1/n}\bigr), \qquad U(\alpha) = -\frac1\lambda\ln\bigl(1 - (1 - \alpha)^{1/n}\bigr). \qed\]</span></p>
+<h4 id="stagemark3-n-很大的情况" class="stage"><span class="stage-n">阶段 3</span> <span class="math inline">\(n\)</span> 很大的情况</h4>
+<div class="askyourself">
+<p>把 <span class="math inline">\(\alpha^{1/n} = e^{(\ln\alpha)/n}\)</span> 写出来。当 <span class="math inline">\(n\)</span> 很大时，指数很小。那么 <span class="math inline">\(1 - \alpha^{1/n}\)</span> 近似于甚么？</p>
+</div>
+<p><span class="math inline">\(\alpha^{1/n} = e^{(\ln\alpha)/n} \approx 1 + \frac{\ln\alpha}{n}\)</span>，所以 <span class="math inline">\(1 - \alpha^{1/n} \approx \frac{-\ln\alpha}{n} = \frac{\ln(1/\alpha)}{n}\)</span>。因此 <span class="math display">\[\lambda L(\alpha) \approx -\ln\frac{\ln(1/\alpha)}{n} = \ln n - \ln\Bigl(\ln\frac1\alpha\Bigr). \qed\]</span> 同理，<span class="math inline">\(\lambda U(\alpha) \approx \ln n - \ln\bigl(\ln\frac{1}{1 - \alpha}\bigr)\)</span>。</p>
+<h4 id="stagemark4-增长与离散程度" class="stage"><span class="stage-n">阶段 4</span> 增长与离散程度</h4>
+<p>中位数（median）是 <span class="math inline">\(L(\frac12)\)</span>，而 <span class="math inline">\(\lambda L(\frac12) \approx \ln n - \ln\ln2 \to \infty\)</span>。但是 <span class="math display">\[\lambda\bigl(U(\alpha) - L(\alpha)\bigr) \approx \ln\Bigl(\ln\frac1\alpha\Bigr) - \ln\Bigl(\ln\frac{1}{1 - \alpha}\Bigr),\]</span> 当中的 <span class="math inline">\(\ln n\)</span> 项已互相抵消：区间的阔度与 <span class="math inline">\(n\)</span> 无关。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark5-一个-90-区间" class="stage"><span class="stage-n">阶段 5</span> 一个 <span class="math inline">\(90\%\)</span> 区间</h4>
+<div class="askyourself">
+<p>取 <span class="math inline">\(\alpha = 0.05\)</span>。<span class="math inline">\(\ln\frac1\alpha = \ln 20\)</span> 和 <span class="math inline">\(\ln\frac{1}{0.95}\)</span> 大约是多少？</p>
+</div>
+<p>当 <span class="math inline">\(\alpha = 0.05\)</span> 时，<span class="math inline">\(\ln20 \approx 3\)</span>，所以 <span class="math inline">\(\ln\ln\frac1\alpha \approx \ln3\)</span>。另外 <span class="math inline">\(\ln\frac{1}{0.95} = -\ln(1 - 0.05) \approx 0.05 = \frac{1}{20}\)</span>，所以 <span class="math inline">\(\ln\ln\frac{1}{1 - \alpha} \approx \ln\frac{1}{20} \approx -3\)</span>。因此阔度约为 <span class="math inline">\(\frac1\lambda(\ln3 + 3) \approx \frac{4.1}{\lambda}\)</span>，而 <span class="math inline">\(Y\)</span> 以概率 <span class="math inline">\(0.9\)</span> 落在 <span class="math inline">\([L(0.05), U(0.05)]\)</span> 之内，这个区间的阔度约为 <span class="math inline">\(4\lambda^{-1}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-25-1.svg" alt="图 12.25.1"><figcaption><span class="fig-label">图 12.25.1</span> <span class="math inline">\(n\)</span> 个指数分布寿命（平均值为 <span class="math inline">\(1\)</span>）中最大者的密度，分别对应 <span class="math inline">\(n = 10\)</span>、<span class="math inline">\(100\)</span> 和 <span class="math inline">\(1000\)</span>。<span class="math inline">\(n\)</span> 每增至十倍，曲线便向右平移 <span class="math inline">\(\ln10 \approx 2.3\)</span>，但其形状和阔度基本上保持不变：这就是平移了 <span class="math inline">\(\ln n\)</span> 的耿贝尔分布。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>所有值都不超过 <span class="math inline">\(y\)</span> 时，最大值亦然。</strong>独立性使最大值的分布函数成为一个幂。</p></li>
+<li><p><strong>以反函数求分位数。</strong>解 <span class="math inline">\(\mathrm{G}(y) = \alpha\)</span> 便得出区间两端的精确公式。</p></li>
+<li><p><strong>先近似，再比较。</strong><span class="math inline">\(L\)</span> 和 <span class="math inline">\(U\)</span> 的近似式都含有 <span class="math inline">\(\ln n\)</span>，在计算阔度时互相抵消。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="耿贝尔分布">耿贝尔分布</h3>
+<p>由于 <span class="math inline">\(\mathrm{P}(\lambda Y - \ln n \leq x) = \bigl(1 - \frac{e^{-x}}{n}\bigr)^n \to \exp(-e^{-x})\)</span>，平移后的最大值 <span class="math inline">\(\lambda Y - \ln n\)</span> 在极限下服从<em>耿贝尔分布</em>，其分布函数（distribution function）为 <span class="math inline">\(\exp(-e^{-x})\)</span>。它的平均值是欧拉常数（Euler’s constant）<span class="math inline">\(\gamma \approx 0.577\)</span>。你其实早已遇过它：集齐全部 <span class="math inline">\(n\)</span> 款优惠券所需的时间（<a href="../ch09/coupon-collector.html">第 9.11 节</a>）就是 <span class="math inline">\(n\)</span> 个（接近独立的）等待时间中的最大值，这正是它约为 <span class="math inline">\(n\ln n + \gamma n\)</span> 的原因，而其波动属耿贝尔型，数量级为 <span class="math inline">\(n\)</span>。</p>
+<h3 id="极值理论">极值理论</h3>
+<p>费雪（Fisher）、Tippett 和格涅坚科（Gnedenko）有一个非凡的定理（1928–1943）：许多独立同分布（independent identically distributed）的变量，其最大值经适当平移和缩放后，极限形状只可能有三种：耿贝尔型（适用于轻尾分布，例如指数分布或正态分布）、弗雷歇（Fréchet）型（适用于重尾分布，例如柯西（Cauchy）分布）和韦布尔（Weibull）型（适用于有硬性上限的变量）。这是中心极限定理（central limit theorem）（<a href="../ch12/clt.html">第 12.24 节</a>）在极值方面的对应结果，所属的学问称为极值理论（extreme value theory）。工程师用它来设计防洪设施和海上平台，以抵御“百年一遇的巨浪”；保险公司用它为巨灾保障定价；气候科学家则用它来估计热浪正在怎样变化。</p>
+<div class="historybox">
+<div class="box-title">耿贝尔与洪水</div>
+<p>Emil Julius Gumbel（耿贝尔）是德国统计学家，直言不讳地反对纳粹，1932 年被迫离开大学教席，最终逃往美国。他在 1930 和 1940 年代把极值理论应用于河流泛滥的研究。他的著作 <em>Statistics of Extremes</em>（1958）使这门学问成为实用的工具。荷兰的三角洲工程（Delta Works）是在 1953 年北海洪灾之后为保护荷兰而兴建的，设计时就运用了极值统计学，以抵御预计约 <span class="math inline">\(10\,000\)</span> 年一遇的风暴潮。</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">最大值与最小值的分布</div>
+<p><em>对于独立变量的最大值，<span class="math inline">\(\mathrm{P}(\max \leq y) = \prod\mathrm{P}(X_i \leq y)\)</span>；对于最小值，<span class="math inline">\(\mathrm{P}(\min &gt; y) = \prod\mathrm{P}(X_i &gt; y)\)</span>。</em></p>
+<p>这一个想法就能处理最近的超级市场（<a href="../ch12/spatial-poisson.html">第 12.19 节</a>）、第一班巴士（<a href="../ch12/memoryless.html">第 12.18 节</a>）和寿命最长的灯泡。在大学里，它是次序统计量（order statistics）和极值理论的起点。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>最大值的期望值。</strong>证明 <span class="math inline">\(\mathrm{E}(Y) = \frac1\lambda\bigl(1 + \frac12 + \cdots + \frac1n\bigr)\)</span>。（<em>提示：</em>根据无记忆性（memorylessness），<span class="math inline">\(n\)</span> 个寿命中的第一个结束之后，余下的 <span class="math inline">\(n - 1\)</span> 个会重新开始。）</p></li>
+<li><p><strong>最小值。</strong>证明 <span class="math inline">\(X_1, \ldots, X_n\)</span> 中的最小者服从参数为 <span class="math inline">\(n\lambda\)</span> 的指数分布。</p></li>
+<li><p><strong>中位数的精确值。</strong>求 <span class="math inline">\(Y\)</span> 的精确中位数，并在 <span class="math inline">\(n = 10\)</span> 时与近似值 <span class="math inline">\(\frac1\lambda(\ln n - \ln\ln2)\)</span> 比较。</p></li>
+<li><p><strong>均匀分布的最大值。</strong>若 <span class="math inline">\(X_1, \ldots, X_n\)</span> 在 <span class="math inline">\([0, 1]\)</span> 上均匀分布（uniform），求它们的最大值 <span class="math inline">\(M\)</span> 的分布，并证明当 <span class="math inline">\(n\)</span> 很大时，<span class="math inline">\(n(1 - M)\)</span> 近似服从指数分布。这属于三种极值形状中的哪一种？</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Stuart Coles, <a href="https://uk.bookshop.org/search?keywords=An+Introduction+to+Statistical+Modeling+of+Extreme+Values+Coles"><em>An Introduction to Statistical Modeling of Extreme Values</em></a></strong>（Springer）。标准的入门书，附有洪水和海平面的真实数据。</p></li>
+<li><p><strong>Emil Julius Gumbel, <a href="https://uk.bookshop.org/search?keywords=Statistics+of+Extremes+Gumbel"><em>Statistics of Extremes</em></a></strong>（Dover）。经典之作。</p></li>
+<li><p><strong>David Spiegelhalter, <a href="https://uk.bookshop.org/search?keywords=The+Art+of+Uncertainty+Spiegelhalter"><em>The Art of Uncertainty</em></a></strong>（Pelican），谈罕见事件以及应该怎样思考它们。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="clt.html">← 12.24 中心极限定理</a><a class="next" href="wrap-up.html">→ 回顾</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

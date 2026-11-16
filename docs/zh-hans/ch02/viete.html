@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>韦达乘积 (STEP III 2022 第 4 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2022 第 4 题：引导式解答及其背后的大学数学。 这道题的最后一行，是数学中最优美的公式之一，也是同类公式中最古老的一条。它由法国律师兼数学家韦达（François Viète）于 1593 年发表，是历史上第一次有人把 π 准确地 写成一个无穷过程的结果。在韦达之前， π 只能求近似值；在他之后，它可以用一条公式来定义，只要一直算下去，就能得出每一个数位。…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch02/viete.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch02/viete.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/viete.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/viete.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/viete.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="韦达乘积 (STEP III 2022 第 4 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2022 第 4 题：引导式解答及其背后的大学数学。 这道题的最后一行，是数学中最优美的公式之一，也是同类公式中最古老的一条。它由法国律师兼数学家韦达（François Viète）于 1593 年发表，是历史上第一次有人把 π 准确地 写成一个无穷过程的结果。在韦达之前， π 只能求近似值；在他之后，它可以用一条公式来定义，只要一直算下去，就能得出每一个数位。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch02/viete.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="韦达乘积 (STEP III 2022 第 4 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2022 第 4 题：引导式解答及其背后的大学数学。 这道题的最后一行，是数学中最优美的公式之一，也是同类公式中最古老的一条。它由法国律师兼数学家韦达（François Viète）于 1593 年发表，是历史上第一次有人把 π 准确地 写成一个无穷过程的结果。在韦达之前， π 只能求近似值；在他之后，它可以用一条公式来定义，只要一直算下去，就能得出每一个数位。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "韦达乘积", "headline": "韦达乘积", "description": "STEP III 2022 第 4 题：引导式解答及其背后的大学数学。 这道题的最后一行，是数学中最优美的公式之一，也是同类公式中最古老的一条。它由法国律师兼数学家韦达（François Viète）于 1593 年发表，是历史上第一次有人把 π 准确地 写成一个无穷过程的结果。在韦达之前， π 只能求近似值；在他之后，它可以用一条公式来定义，只要一直算下去，就能得出每一个数位。…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch02/viete.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2022 第 4 题", "数列、级数与收敛"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 2, "name": "数列、级数与收敛", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 2 章：数列、级数与收敛", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch02/"}, {"@type": "ListItem", "position": 3, "name": "韦达乘积", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch02/viete.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch02/viete.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch02/viete.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 2 章 · 数列、级数与收敛</a>
+    <div class="src">STEP III · 2022 · 第 4 题</div>
+    <div class="sec-head"><span class="sec-num">2.5</span><h1>韦达乘积</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-5-viete.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 2 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2022，第 4 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 OCR 提供下载的 2022 年 STEP 试卷（zip 文件）内的 STEP III 试卷： <a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">www.ocr.org.uk/Images/696587-2022-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>这道题的最后一行，是数学中最优美的公式之一，也是同类公式中最古老的一条。它由法国律师兼数学家韦达（François Viète）于 1593 年发表，是历史上第一次有人把 <span class="math inline">\(\pi\)</span> <em>准确地</em>写成一个无穷过程的结果。在韦达之前，<span class="math inline">\(\pi\)</span> 只能求近似值；在他之后，它可以用一条公式来定义，只要一直算下去，就能得出每一个数位。</p>
+<p>这条公式看来很神秘：一层套一层的 <span class="math inline">\(2\)</span> 的平方根，即嵌套平方根（nested square roots），究竟从何而来？这道题揭示，它其实来自反复运用倍角公式（double-angle formula），而且同一套方法还顺道得出另一条名气较小的公式，是关于 <span class="math inline">\(\ln 2\)</span> 的。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\sinh\)</span> 的倍角公式是甚么？（如果不肯定，可把 <span class="math inline">\(\sinh 2y\)</span> 和 <span class="math inline">\(\sinh y \cosh y\)</span> 用指数函数写出来，再作比较。）</p>
+</div>
+<p><span class="math inline">\(\sinh 2y = 2\sinh y\cosh y\)</span>，与 <span class="math inline">\(\sin 2y = 2\sin y\cos y\)</span> 完全一样。整道题就是靠反复运用这一条恒等式（identity）来推动的。题目一直使用双曲函数（hyperbolic functions），到最后一部分我们才转用普通的三角函数。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-反复减半" class="stage"><span class="stage-n">阶段 1</span> 反复减半</h4>
+<p><span class="math inline">\(n = 1\)</span> 的情况就是取 <span class="math inline">\(y = x/2\)</span> 的倍角公式： <span class="math display">\[\sinh x = 2\cosh\left(\frac{x}{2}\right)\sinh\left(\frac{x}{2}\right).\]</span></p>
+<div class="askyourself">
+<p>假设公式对 <span class="math inline">\(n\)</span> 成立。最后一个因子是 <span class="math inline">\(\sinh(x/2^n)\)</span>。怎样改写它，才能得到 <span class="math inline">\(n + 1\)</span> 时的公式？</p>
+</div>
+<p>对它运用倍角公式：<span class="math inline">\(\sinh(x/2^n) = 2\cosh(x/2^{n+1})\sinh(x/2^{n+1})\)</span>。代入后得 <span class="math display">\[\sinh x = 2^{n+1}\cosh\left(\frac{x}{2}\right)\cdots\cosh\left(\frac{x}{2^n}\right)\cosh\left(\frac{x}{2^{n+1}}\right)\sinh\left(\frac{x}{2^{n+1}}\right),\]</span> 这正是 <span class="math inline">\(n + 1\)</span> 时的公式。根据归纳法（induction），公式对所有 <span class="math inline">\(n\)</span> 成立。<span class="qed" aria-label="end of proof">■</span></p>
+<p>至于随后的推论，先把两边除以 <span class="math inline">\(x\)</span>，再把两边乘以 <span class="math inline">\(\dfrac{x/2^n}{\sinh(x/2^n)}\)</span>。在右边，<span class="math inline">\(2^n \sinh(x/2^n) \cdot \dfrac{x/2^n}{x\,\sinh(x/2^n)} = 1\)</span>，只剩下各个 cosh 项的乘积。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-极限" class="stage"><span class="stage-n">阶段 2</span> 极限</h4>
+<p>由级数（series）可知，当 <span class="math inline">\(y \neq 0\)</span> 时， <span class="math display">\[\frac{\sinh y}{y} = 1 + \frac{y^2}{3!} + \frac{y^4}{5!} + \cdots,\]</span> 当 <span class="math inline">\(y \to 0\)</span> 时它趋向 <span class="math inline">\(1\)</span>，所以它的倒数 <span class="math inline">\(y/\sinh y\)</span> 也趋向 <span class="math inline">\(1\)</span>。（如果想严谨一点：尾部 <span class="math inline">\(\frac{y^2}{3!} + \frac{y^4}{5!} + \cdots\)</span> 中的每个阶乘都至少是 <span class="math inline">\(6\)</span>，所以当 <span class="math inline">\(0 &lt; |y| &lt; 1\)</span> 时，尾部至多是 <span class="math inline">\(\frac{1}{6}\bigl(y^2 + y^4 + \cdots\bigr) = \frac{y^2}{6(1-y^2)}\)</span>，而这个量趋向 <span class="math inline">\(0\)</span>。）</p>
+<p>现在固定 <span class="math inline">\(x\)</span>，在第 (i) 部分中令 <span class="math inline">\(n \to \infty\)</span>。这时 <span class="math inline">\(y = x/2^n \to 0\)</span>，所以左边趋向 <span class="math inline">\(\dfrac{\sinh x}{x} \times 1\)</span>。右边是部分积（partial product），因此它也趋向 <span class="math inline">\(\dfrac{\sinh x}{x}\)</span>。这正是无穷乘积（infinite product）的意思。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-ln-2-的公式" class="stage"><span class="stage-n">阶段 3</span> <span class="math inline">\(\ln 2\)</span> 的公式</h4>
+<p>取 <span class="math inline">\(x = \ln 2\)</span>，则 <span class="math inline">\(e^{x/2} = \sqrt2\)</span>，所以 <span class="math display">\[\cosh\left(\frac{x}{2}\right) = \frac{2^{1/2} + 2^{-1/2}}{2} = \frac{2 + 1}{2\sqrt2} = \frac{3}{2\sqrt2}.\]</span> 同样地，<span class="math inline">\(e^{x/4} = 2^{1/4}\)</span>，所以 <span class="math inline">\(\cosh(x/4) = \dfrac{2^{1/4} + 2^{-1/4}}{2}\)</span>，把分子和分母同乘以 <span class="math inline">\(2^{1/4}\)</span>，便得 <span class="math inline">\(\dfrac{2^{1/2} + 1}{2 \times 2^{1/4}}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(\cosh(x/2^k)\)</span> 的一般规律是甚么？把所有分母 <span class="math inline">\(2 \times 2^{1/2^k}\)</span> 乘在一起，会有甚么结果？</p>
+</div>
+<p>同样的计算显示，对每个 <span class="math inline">\(k \geq 1\)</span>， <span class="math display">\[\cosh\left(\frac{x}{2^k}\right) = \frac{1 + 2^{1/2^{k-1}}}{2} \times 2^{-1/2^k}.\]</span> （当 <span class="math inline">\(k = 1\)</span> 时，这就是 <span class="math inline">\(\frac{1 + 2}{2} \times 2^{-1/2} = \frac{3}{2\sqrt2}\)</span>，与前面一致。）对 <span class="math inline">\(k = 1, 2, 3, \ldots\)</span> 连乘，<span class="math inline">\(2\)</span> 的各个幂合并成 <span class="math inline">\(2^{-(1/2 + 1/4 + 1/8 + \cdots)} = 2^{-1}\)</span>，而第一个分数是 <span class="math inline">\(\frac{1+2}{2} = \frac32\)</span>。所以这个无穷乘积是 <span class="math display">\[\frac32 \times \frac12 \times \frac{1 + 2^{1/2}}{2} \times \frac{1 + 2^{1/4}}{2} \times \frac{1 + 2^{1/8}}{2} \cdots.\]</span> 另一边，<span class="math inline">\(\sinh(\ln 2) = \frac{2 - \frac12}{2} = \frac34\)</span>，所以 <span class="math inline">\(\dfrac{\sinh x}{x} = \dfrac{3}{4\ln 2}\)</span>。两边的因子 <span class="math inline">\(\frac34\)</span> 互相约去，剩下 <span class="math display">\[\frac{1}{\ln 2} = \frac{1 + 2^{1/2}}{2} \times \frac{1 + 2^{1/4}}{2} \times \frac{1 + 2^{1/8}}{2} \cdots. \qed\]</span></p>
+<h4 id="stagemark4-韦达公式" class="stage"><span class="stage-n">阶段 4</span> 韦达公式</h4>
+<div class="askyourself">
+<p>第 (iv) 部分含有 <span class="math inline">\(\pi\)</span>，所以它必定来自普通的三角函数，而不是双曲函数。如果把 <span class="math inline">\(\sinh\)</span> 和 <span class="math inline">\(\cosh\)</span> 换成 <span class="math inline">\(\sin\)</span> 和 <span class="math inline">\(\cos\)</span>，第 (i) 和第 (ii) 部分的一切是否仍然成立？</p>
+</div>
+<p>仍然成立。归纳法只用到倍角公式，而 <span class="math inline">\(\sin 2y = 2\sin y\cos y\)</span>。极限只用到当 <span class="math inline">\(y \to 0\)</span> 时 <span class="math inline">\(\frac{\sin y}{y} \to 1\)</span>，这可以用同样的方法由 <span class="math inline">\(\sin y = y - \frac{y^3}{3!} + \cdots\)</span> 推出。所以当 <span class="math inline">\(x \neq 0\)</span>（并且 <span class="math inline">\(x\)</span> 不是 <span class="math inline">\(\pi\)</span> 的倍数，以确保过程中没有因子为零）时， <span class="math display">\[\frac{\sin x}{x} = \cos\left(\frac{x}{2}\right)\cos\left(\frac{x}{4}\right)\cos\left(\frac{x}{8}\right)\cdots.\]</span></p>
+<div class="pausebox">
+<p>选取 <span class="math inline">\(x\)</span> 使左边等于 <span class="math inline">\(2/\pi\)</span>，然后算出最初几个因子。半角公式（half-angle formula）<span class="math inline">\(\cos\frac{\theta}{2} = \sqrt{\frac{1 + \cos\theta}{2}}\)</span>（适用于 <span class="math inline">\(0 \leq \theta \leq \pi\)</span>）会派上用场。</p>
+</div>
+<p>取 <span class="math inline">\(x = \frac{\pi}{2}\)</span>。这时 <span class="math inline">\(\frac{\sin x}{x} = \frac{1}{\pi/2} = \frac{2}{\pi}\)</span>，而各因子是 <span class="math inline">\(\cos\frac\pi4, \cos\frac\pi8, \cos\frac{\pi}{16}, \ldots\)</span>。第一个是 <span class="math inline">\(\cos\frac\pi4 = \frac{\sqrt2}{2}\)</span>。如果某个因子是 <span class="math inline">\(\cos\theta = \frac{c}{2}\)</span>，由半角公式可知下一个因子是 <span class="math display">\[\cos\frac{\theta}{2} = \sqrt{\frac{1 + c/2}{2}} = \frac{\sqrt{2 + c}}{2}.\]</span> 所以分子依次是 <span class="math inline">\(\sqrt2\)</span>、<span class="math inline">\(\sqrt{2 + \sqrt2}\)</span>、<span class="math inline">\(\sqrt{2 + \sqrt{2 + \sqrt2}}\)</span>、…，每一个都是把前一个加上 <span class="math inline">\(2\)</span> 再开平方而得。这就是韦达公式。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>乘积的相消（telescoping）。</strong>第 (i) 部分的恒等式是一个会收拢的乘积，正如某些和式可以裂项相消一样。</p></li>
+<li><p><strong>先有有限的恒等式，再取极限。</strong>与 <a href="../ch02/basel.html">第 2.4 节</a> 一样，每一步对有限的 <span class="math inline">\(n\)</span> 都是准确的，唯一需要的极限就是非常简单的 <span class="math inline">\(\frac{\sin y}{y} \to 1\)</span>。</p></li>
+<li><p><strong>双曲函数与圆函数是孪生兄弟。</strong>同一个证明对两者都适用，因为两者满足相同的倍角公式和相同的小角极限。这并非巧合：<span class="math inline">\(\cosh(\mathrm{i}x) = \cos x\)</span>，你会在 <a href="../ch05/complex-exponential.html">第 5.7 节</a> 看到。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">阿基米德（Archimedes）的多边形</div>
+<p>韦达公式有一个几何意义，可追溯至阿基米德。内接（inscribed）于半径为 <span class="math inline">\(1\)</span> 的圆的正 <span class="math inline">\(2^n\)</span> 边形，面积是 <span class="math inline">\(A_n = 2^{n-1}\sin\frac{2\pi}{2^n}\)</span>。把边数加倍，面积就乘以 <span class="math display">\[\frac{A_{n+1}}{A_n} = \frac{2^n \sin(\pi/2^n)}{2^{n-1}\cdot 2\sin(\pi/2^n)\cos(\pi/2^n)} = \frac{1}{\cos(\pi/2^n)}.\]</span> 由正方形（<span class="math inline">\(A_2 = 2\)</span>）开始，不断把边数加倍，面积便趋向圆的面积 <span class="math inline">\(\pi\)</span>。所以 <span class="math inline">\(\pi = 2 \div \bigl(\cos\frac\pi4 \cos\frac\pi8 \cos\frac{\pi}{16}\cdots\bigr)\)</span>，这正是韦达公式。乘积中的每个因子，都是图 2.5.1 中相邻两个多边形的面积之比。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-2-5-1.svg" alt="图 2.5.1"><figcaption><span class="fig-label">图 2.5.1</span> 内接于半径为 <span class="math inline">\(1\)</span> 的圆的正多边形，边数分别为 <span class="math inline">\(4\)</span>、<span class="math inline">\(8\)</span> 和 <span class="math inline">\(16\)</span>。边数每加倍一次，面积就多除以韦达乘积中的一个因子，而面积不断增大并趋向 <span class="math inline">\(\pi\)</span>。</figcaption></figure>
+<h3 id="无穷乘积">无穷乘积</h3>
+<p>韦达乘积是数学史上第一个无穷乘积。其后陆续有其他例子：沃利斯（John Wallis）在 1655 年发现 <span class="math inline">\(\frac{\pi}{2} = \frac{2}{1}\cdot\frac{2}{3}\cdot\frac{4}{3}\cdot\frac{4}{5}\cdot\frac{6}{5}\cdot\frac{6}{7}\cdots\)</span>，而欧拉（Euler）关于 <span class="math inline">\(\frac{\sin x}{x}\)</span> 的乘积已在 <a href="../ch02/basel.html">第 2.4 节</a> 出现过。到了大学，你会学到无穷乘积在甚么情况下收敛（converge）。粗略地说，当 <span class="math inline">\(\prod(1 + a_n)\)</span> 中的 <span class="math inline">\(a_n\)</span> 是细小的正数时，它的表现与 <span class="math inline">\(\sum a_n\)</span> 相似，因为 <span class="math inline">\(\ln(1 + a_n) \approx a_n\)</span>。这里 <span class="math inline">\(1 - \cos(\pi/2^n) \approx \frac12(\pi/2^n)^2\)</span>，每次缩小 <span class="math inline">\(4\)</span> 倍，所以这个乘积收敛得很快。</p>
+<h3 id="有多快">有多快？</h3>
+<p>乘了 <span class="math inline">\(n\)</span> 个因子之后，部分积恰好等于 <span class="math inline">\(\dfrac{1}{2^n\sin(\pi/2^{n+1})}\)</span>，其误差大约是 <span class="math inline">\(\frac{\pi^2}{6 \cdot 4^{n+1}}\)</span> 乘以 <span class="math inline">\(\frac2\pi\)</span>。每多一个因子，答案的准确度大约提高 <span class="math inline">\(4\)</span> 倍，即多得大约 <span class="math inline">\(0.6\)</span> 个小数位。十个因子可使 <span class="math inline">\(2/\pi\)</span> 准确至六个小数位。这已经不错，但远远不及 <a href="../ch02/agm.html">第 2.6 节</a> 的方法那么快，那些方法每一步都令准确的位数加倍。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">反复运用恒等式</div>
+<p><em>一条把 <span class="math inline">\(f(x)\)</span> 与 <span class="math inline">\(f(x/2)\)</span> 联系起来的恒等式，可以一次又一次地运用；取极限之后，结果往往是一个无穷和或无穷乘积。</em></p>
+<p>找出 <span class="math inline">\(n\)</span> 步之后的“余项”（这里是 <span class="math inline">\(2^n\sinh(x/2^n)\)</span>），然后另行求出它的极限。这个模式在分析学中随处可见，由无穷乘积以至分形（fractals）的构造都有它的踪影。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>1990 年的版本。</strong>试做 <a href="https://step.maths.org/questions/90-s1-q8">STEP I 1990，第 8 题</a>。它循一条与本节不同的途径得出韦达乘积，所用的不外乎 <span class="math inline">\(\sin\)</span> 的倍角公式。你觉得哪一种方法较为自然？</p></li>
+<li><p><strong>另一个角。</strong>在 <span class="math inline">\(\frac{\sin x}{x}\)</span> 的乘积中取 <span class="math inline">\(x = \frac{\pi}{3}\)</span>，把 <span class="math inline">\(\frac{3\sqrt3}{2\pi}\)</span> 写成无穷乘积，并化简最初两个因子。</p></li>
+<li><p><strong>要多少个因子？</strong>用计算机找出韦达乘积需要多少个因子，才能使 <span class="math inline">\(\pi\)</span> 准确至 <span class="math inline">\(4\)</span> 个小数位。解释为甚么每多一个因子大约多得 <span class="math inline">\(0.6\)</span> 个数位。</p></li>
+<li><p><strong><span class="math inline">\(\ln 3\)</span> 的公式。</strong>取 <span class="math inline">\(x = \ln 3\)</span> 重做第 (iii) 部分，把 <span class="math inline">\(\frac{1}{\ln 3}\)</span> 写成无穷乘积。需要多少个因子才能使 <span class="math inline">\(\frac{1}{\ln 3}\)</span> 准确至两个小数位？为甚么这个乘积收敛得比韦达乘积慢？</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Petr Beckmann, <a href="https://uk.bookshop.org/search?keywords=A+History+of+Beckmann"><em>A History of <span class="math inline">\(\pi\)</span></em></a></strong>（St Martin’s Press）。阿基米德、韦达、沃利斯等人的故事，写得兴味盎然。</p></li>
+<li><p><strong>Jonathan Borwein &amp; Peter Borwein, <a href="https://uk.bookshop.org/search?keywords=Pi+and+the+AGM+Borwein+Borwein"><em>Pi and the AGM</em></a></strong>（Wiley）。关于计算 <span class="math inline">\(\pi\)</span> 的严谨数学，包括 <a href="../ch02/agm.html">第 2.6 节</a> 的方法。读完本章之后，第 1 章应该读得懂。</p></li>
+<li><p><strong>Eli Maor, <a href="https://uk.bookshop.org/search?keywords=Trigonometric+Delights+Maor"><em>Trigonometric Delights</em></a></strong>（Princeton University Press）。书中有一章专门讲述韦达和他的乘积。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="basel.html">← 2.4 π²/6</a><a class="next" href="agm.html">→ 2.6 算术几何平均</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

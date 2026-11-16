@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>以单位根为根的多项式 (STEP III 2010 第 3 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2010 第 3 题：引导式解答及其背后的大学数学。 n 次单位根（roots of unity），即 z^n = 1 的解，位于正 n 边形的各个顶点上。但它们并非全都一样。例如在 12 次单位根之中， 1 本身已是一次单位根， -1 是二次单位根， i 是四次单位根，而十二个之中只有四个，即 本原 （primitive）的那些，才需要走足十二步方能回到 1 。…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/cyclotomic.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/cyclotomic.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/cyclotomic.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/cyclotomic.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/cyclotomic.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="以单位根为根的多项式 (STEP III 2010 第 3 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2010 第 3 题：引导式解答及其背后的大学数学。 n 次单位根（roots of unity），即 z^n = 1 的解，位于正 n 边形的各个顶点上。但它们并非全都一样。例如在 12 次单位根之中， 1 本身已是一次单位根， -1 是二次单位根， i 是四次单位根，而十二个之中只有四个，即 本原 （primitive）的那些，才需要走足十二步方能回到 1 。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch06/cyclotomic.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="以单位根为根的多项式 (STEP III 2010 第 3 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2010 第 3 题：引导式解答及其背后的大学数学。 n 次单位根（roots of unity），即 z^n = 1 的解，位于正 n 边形的各个顶点上。但它们并非全都一样。例如在 12 次单位根之中， 1 本身已是一次单位根， -1 是二次单位根， i 是四次单位根，而十二个之中只有四个，即 本原 （primitive）的那些，才需要走足十二步方能回到 1 。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "以单位根为根的多项式", "headline": "以单位根为根的多项式", "description": "STEP III 2010 第 3 题：引导式解答及其背后的大学数学。 n 次单位根（roots of unity），即 z^n = 1 的解，位于正 n 边形的各个顶点上。但它们并非全都一样。例如在 12 次单位根之中， 1 本身已是一次单位根， -1 是二次单位根， i 是四次单位根，而十二个之中只有四个，即 本原 （primitive）的那些，才需要走足十二步方能回到 1 。…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch06/cyclotomic.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2010 第 3 题", "代数与结构"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 6, "name": "代数与结构", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 6 章：代数与结构", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch06/"}, {"@type": "ListItem", "position": 3, "name": "以单位根为根的多项式", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch06/cyclotomic.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch06/cyclotomic.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/cyclotomic.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 6 章 · 代数与结构</a>
+    <div class="src">STEP III · 2010 · 第 3 题</div>
+    <div class="sec-head"><span class="sec-num">6.1</span><h1>以单位根为根的多项式</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-1-cyclotomic.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 6 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2010，第 3 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/10-s3-q3">step.maths.org/questions/10-s3-q3</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p><span class="math inline">\(n\)</span> 次单位根（roots of unity），即 <span class="math inline">\(z^n = 1\)</span> 的解，位于正 <span class="math inline">\(n\)</span> 边形的各个顶点上。但它们并非全都一样。例如在 <span class="math inline">\(12\)</span> 次单位根之中，<span class="math inline">\(1\)</span> 本身已是一次单位根，<span class="math inline">\(-1\)</span> 是二次单位根，<span class="math inline">\(\mathrm{i}\)</span> 是四次单位根，而十二个之中只有四个，即<em>本原</em>（primitive）的那些，才需要走足十二步方能回到 <span class="math inline">\(1\)</span>。</p>
+<p>按所需的步数把单位根分类，再由每一类构造一个多项式，便得到<em>分圆多项式</em>（cyclotomic polynomials，此名源自希腊文，意即“分割圆周”）。它们是 <span class="math inline">\(z^n - 1\)</span> 的基本构件，正如质数是整数的基本构件一样；高斯（Gauss）的正 <span class="math inline">\(17\)</span> 边形作图法（<a href="../ch06/gauss-17gon.html">第 6.2 节</a>）、单位根筛选法（<a href="../ch05/roots-filter.html">第 5.2 节</a>）以及现代数论中的不少内容，背后都有它们的身影。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>每个 <span class="math inline">\(n\)</span> 次单位根都满足 <span class="math inline">\(z^n = 1\)</span>。但使它等于 <span class="math inline">\(1\)</span> 的最小正整数次幂，可能小于 <span class="math inline">\(n\)</span>。对于四个 4 次单位根 <span class="math inline">\(1\)</span>、<span class="math inline">\(\mathrm{i}\)</span>、<span class="math inline">\(-1\)</span>、<span class="math inline">\(-\mathrm{i}\)</span>，这个最小的幂次分别是多少？</p>
+</div>
+<p><span class="math inline">\(1^1 = 1\)</span>，<span class="math inline">\((-1)^2 = 1\)</span>，而 <span class="math inline">\(\mathrm{i}^4 = (-\mathrm{i})^4 = 1\)</span>，且没有更小的幂次可行。所以最小的幂次依次是 <span class="math inline">\(1\)</span>、<span class="math inline">\(4\)</span>、<span class="math inline">\(2\)</span>、<span class="math inline">\(4\)</span>。这个最小的幂次称为该单位根的<em>阶</em>（order），而本原 <span class="math inline">\(n\)</span> 次单位根正是阶为 <span class="math inline">\(n\)</span> 的那些单位根。整道题的关键事实是：<em>每个单位根都恰好有一个阶</em>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-最初的几个" class="stage"><span class="stage-n">阶段 1</span> 最初的几个</h4>
+<p>本原 4 次单位根是 <span class="math inline">\(\mathrm{i}\)</span> 和 <span class="math inline">\(-\mathrm{i}\)</span>，所以 <span class="math inline">\(\mathrm{C}_4(x) = (x - \mathrm{i})(x + \mathrm{i}) = x^2 + 1\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>哪些单位根的阶是 <span class="math inline">\(1\)</span>、<span class="math inline">\(2\)</span>、<span class="math inline">\(3\)</span>、<span class="math inline">\(5\)</span> 和 <span class="math inline">\(6\)</span>？（画出 <span class="math inline">\(6\)</span> 次单位根，并按阶把它们分类。）</p>
+</div>
+<p>阶为 <span class="math inline">\(1\)</span>：只有 <span class="math inline">\(1\)</span>，所以 <span class="math inline">\(\mathrm{C}_1(x) = x - 1\)</span>。阶为 <span class="math inline">\(2\)</span>：只有 <span class="math inline">\(-1\)</span>，所以 <span class="math inline">\(\mathrm{C}_2(x) = x + 1\)</span>。</p>
+<p>阶为 <span class="math inline">\(3\)</span>：除 <span class="math inline">\(1\)</span> 以外的三次单位根，即 <span class="math inline">\(\frac{x^3 - 1}{x - 1}\)</span> 的根。所以 <span class="math inline">\(\mathrm{C}_3(x) = x^2 + x + 1\)</span>。</p>
+<p>阶为 <span class="math inline">\(5\)</span>：除 <span class="math inline">\(1\)</span> 以外的五次单位根，它们是 <span class="math inline">\(\frac{x^5 - 1}{x - 1}\)</span> 的根，所以 <span class="math inline">\(\mathrm{C}_5(x) = x^4 + x^3 + x^2 + x + 1\)</span>。</p>
+<p>阶为 <span class="math inline">\(6\)</span>：在六次单位根 <span class="math inline">\(e^{k\pi\mathrm{i}/3}\)</span>，<span class="math inline">\(k = 0, \ldots, 5\)</span> 之中，<span class="math inline">\(k = 0\)</span>、<span class="math inline">\(3\)</span> 的阶分别是 <span class="math inline">\(1\)</span>、<span class="math inline">\(2\)</span>，而 <span class="math inline">\(k = 2\)</span>、<span class="math inline">\(4\)</span> 的阶是 <span class="math inline">\(3\)</span>。余下的是 <span class="math inline">\(e^{\pm\pi\mathrm{i}/3}\)</span>，所以 <span class="math display">\[\mathrm{C}_6(x) = (x - e^{\mathrm{i}\pi/3})(x - e^{-\mathrm{i}\pi/3}) = x^2 - 2x\cos\tfrac\pi3 + 1 = x^2 - x + 1. \qed\]</span></p>
+<h4 id="stagemark2-哪个-n-给出-x4-1" class="stage"><span class="stage-n">阶段 2</span> 哪个 <span class="math inline">\(n\)</span> 给出 <span class="math inline">\(x^4 + 1\)</span>？</h4>
+<p><span class="math inline">\(x^4 + 1 = 0\)</span> 的根满足 <span class="math inline">\(x^4 = -1\)</span>，所以 <span class="math inline">\(x^8 = 1\)</span> 但 <span class="math inline">\(x^4 \neq 1\)</span>。它们的阶整除 <span class="math inline">\(8\)</span> 但不整除 <span class="math inline">\(4\)</span>，所以阶是 <span class="math inline">\(8\)</span>。反过来，阶为 <span class="math inline">\(8\)</span> 的单位根满足 <span class="math inline">\(x^8 = 1\)</span>，<span class="math inline">\(x^4 \neq 1\)</span>，所以 <span class="math inline">\(x^4 = -1\)</span>。本原 <span class="math inline">\(8\)</span> 次单位根有四个，<span class="math inline">\(x^4 + 1\)</span> 的根也有四个，所以 <span class="math inline">\(n = 8\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-质数" class="stage"><span class="stage-n">阶段 3</span> 质数</h4>
+<p>若 <span class="math inline">\(p\)</span> 是质数，则 <span class="math inline">\(p\)</span> 次单位根的阶整除 <span class="math inline">\(p\)</span>，所以阶是 <span class="math inline">\(1\)</span> 或 <span class="math inline">\(p\)</span>。因此除 <span class="math inline">\(1\)</span> 以外的每个 <span class="math inline">\(p\)</span> 次单位根都是本原的，而 <span class="math display">\[\mathrm{C}_p(x) = \frac{x^p - 1}{x - 1} = x^{p-1} + x^{p-2} + \cdots + x + 1. \qed\]</span></p>
+<h4 id="stagemark4-没有分圆多项式是另外两个分圆多项式之积" class="stage"><span class="stage-n">阶段 4</span> 没有分圆多项式是另外两个分圆多项式之积</h4>
+<div class="pausebox">
+<p>假设 <span class="math inline">\(\mathrm{C}_q = \mathrm{C}_r\mathrm{C}_s\)</span>。取 <span class="math inline">\(\mathrm{C}_r\)</span> 的一个根。它的阶是多少？这条恒等式对它的阶有何说法？由此必然得出甚么？</p>
+</div>
+<p><span class="math inline">\(\mathrm{C}_r\)</span> 的每个根（至少有一个，因为 <span class="math inline">\(e^{2\pi\mathrm{i}/r}\)</span> 是本原的）都是 <span class="math inline">\(\mathrm{C}_r\mathrm{C}_s = \mathrm{C}_q\)</span> 的根，所以它的阶是 <span class="math inline">\(q\)</span>。但它的阶同时也是 <span class="math inline">\(r\)</span>，而一个单位根只有一个阶，所以 <span class="math inline">\(r = q\)</span>。于是 <span class="math inline">\(\mathrm{C}_q = \mathrm{C}_q\,\mathrm{C}_s\)</span>，又因为 <span class="math inline">\(\mathrm{C}_q\)</span> 不是零多项式，所以 <span class="math inline">\(\mathrm{C}_s = 1\)</span>。这是不可能的，因为 <span class="math inline">\(\mathrm{C}_s\)</span> 至少有一个根 <span class="math inline">\(e^{2\pi\mathrm{i}/s}\)</span>。所以这样的 <span class="math inline">\(q\)</span>、<span class="math inline">\(r\)</span>、<span class="math inline">\(s\)</span> 并不存在。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>按阶分类。</strong>每个单位根都有唯一的阶，按阶分组便把 <span class="math inline">\(z^n - 1\)</span> 的根分成互不相交的类。</p></li>
+<li><p><strong>用根来定义多项式。</strong>每个 <span class="math inline">\(\mathrm{C}_n\)</span> 都是借着确切指明哪些数是它的根而确定下来的。</p></li>
+<li><p><strong>唯一性带来不可能性。</strong>第 (iv) 部分只需要一个想法：一个根不可能有两个不同的阶。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">分解 <span class="math inline">\(x^n - 1\)</span></div>
+<p>每个 <span class="math inline">\(n\)</span> 次单位根都有某个整除 <span class="math inline">\(n\)</span> 的阶 <span class="math inline">\(d\)</span>；而当 <span class="math inline">\(d \mid n\)</span> 时，每个阶为 <span class="math inline">\(d\)</span> 的 <span class="math inline">\(d\)</span> 次单位根都是 <span class="math inline">\(n\)</span> 次单位根。所以 <span class="math inline">\(x^n - 1\)</span> 的根按阶分成若干类，由此得到 <span class="math display">\[x^n - 1 = \prod_{d \mid n}\mathrm{C}_d(x).\]</span> 例如 <span class="math inline">\(x^6 - 1 = \mathrm{C}_1\mathrm{C}_2\mathrm{C}_3\mathrm{C}_6 = (x - 1)(x + 1)(x^2 + x + 1)(x^2 - x + 1)\)</span>。图 6.1.1 展示了按这种方式分类的十二个 <span class="math inline">\(12\)</span> 次单位根。本原 <span class="math inline">\(n\)</span> 次单位根的个数，亦即 <span class="math inline">\(\mathrm{C}_n\)</span> 的次数，等于 <span class="math inline">\(1\)</span> 至 <span class="math inline">\(n\)</span> 之间与 <span class="math inline">\(n\)</span> 没有公因数的 <span class="math inline">\(k\)</span> 的个数，也就是<em>欧拉函数</em>（Euler’s totient function）<span class="math inline">\(\varphi(n)\)</span>。比较两边的次数，便得到恒等式 <span class="math inline">\(\sum_{d \mid n}\varphi(d) = n\)</span>。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-1-1.svg" alt="图 6.1.1"><figcaption><span class="fig-label">图 6.1.1</span> 十二个 <span class="math inline">\(12\)</span> 次单位根，按阶着色。四个本原 <span class="math inline">\(12\)</span> 次单位根（以圆圈标示）是 <span class="math inline">\(\mathrm{C}_{12}\)</span> 的根。各类合起来给出 <span class="math inline">\(x^{12} - 1 = \mathrm{C}_1\mathrm{C}_2\mathrm{C}_3\mathrm{C}_4\mathrm{C}_6\mathrm{C}_{12}\)</span>，次数为 <span class="math inline">\(1 + 1 + 2 + 2 + 2 + 4 = 12\)</span>。</figcaption></figure>
+<h3 id="整数系数以及一个意外">整数系数，以及一个意外</h3>
+<p>单看定义并不明显，但每个分圆多项式的系数都是<em>整数</em>。（利用 <span class="math inline">\(x^n - 1\)</span> 的因式分解和归纳法（induction）：<span class="math inline">\(\mathrm{C}_n\)</span> 等于 <span class="math inline">\(x^n - 1\)</span> 除以若干个较早的分圆多项式之积，而以首一（monic）整系数多项式对整系数多项式作长除法，所得系数仍是整数。）在很长一段时间里，所有已知例子的系数都只有 <span class="math inline">\(0\)</span>、<span class="math inline">\(1\)</span> 和 <span class="math inline">\(-1\)</span>。第一个例外是 <span class="math inline">\(\mathrm{C}_{105}\)</span>，它含有 <span class="math inline">\(-2x^7\)</span> 这一项，由 Migotti 于 1883 年发现；<span class="math inline">\(105 = 3 \times 5 \times 7\)</span> 是具有三个相异奇质因数的最小的数。事实上，分圆多项式的系数可以要多大有多大。</p>
+<h3 id="不可约性">不可约性</h3>
+<p>第 (iv) 部分证明了没有分圆多项式是另外两个分圆多项式之积。其实更强的结论也成立：<span class="math inline">\(\mathrm{C}_n\)</span> 根本不能分解成次数较低的有理系数多项式之积。高斯对 <span class="math inline">\(n\)</span> 为质数的情况证明了这一点（它可由<em>艾森斯坦判别法</em>（Eisenstein’s criterion）推出，你会在大学的第一门代数课中遇到），而克罗内克（Kronecker）和戴德金（Dedekind）则证明了一般 <span class="math inline">\(n\)</span> 的情况。正是这种<em>不可约性</em>（irreducibility），使分圆多项式成为与单位根有关的多项式之中的“质数”，它也是单位根的伽罗瓦理论（Galois theory）的起点。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">先分类，后构造</div>
+<p><em>用一个定义明确的不变量（invariant），把问题中的对象分成若干类，然后逐类建立结构。</em></p>
+<p>这里的不变量是单位根的阶。由于每个根恰好有一个阶，各类互不重叠，于是 <span class="math inline">\(x^n - 1\)</span> 可分解成遍及各类的乘积。同样的模式（由唯一的不变量得出不相交的分解）也是质因数分解和有限阿贝尔群（finite abelian groups）分类的基础。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>检查因式分解。</strong>验证 <span class="math inline">\((x - 1)(x + 1)(x^2 + x + 1)(x^2 - x + 1) = x^6 - 1\)</span>，并验证 <span class="math inline">\(x^{12} - 1\)</span> 的因式分解如图 6.1.1 所示。</p></li>
+<li><p><strong>质数的两倍。</strong>证明若 <span class="math inline">\(p\)</span> 是奇质数，则 <span class="math inline">\(\mathrm{C}_{2p}(x) = \mathrm{C}_p(-x)\)</span>。就 <span class="math inline">\(p = 3\)</span> 验证这个结果。</p></li>
+<li><p><strong>欧拉函数。</strong>证明对于质数 <span class="math inline">\(p\)</span>，有 <span class="math inline">\(\varphi(p^k) = p^k - p^{k-1}\)</span>，并且 <span class="math inline">\(\mathrm{C}_{p^k}(x) = \mathrm{C}_p\bigl(x^{p^{k-1}}\bigr)\)</span>。利用这个结果求 <span class="math inline">\(\mathrm{C}_9\)</span>。</p></li>
+<li><p><strong>较长的一题。</strong> <span class="hard">较难</span> 利用 <span class="math inline">\(x^{15} - 1 = \mathrm{C}_1\mathrm{C}_3\mathrm{C}_5\mathrm{C}_{15}\)</span>，证明 <span class="math inline">\(\mathrm{C}_{15}(x) = x^8 - x^7 + x^5 - x^4 + x^3 - x + 1\)</span>。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Ian Stewart, <a href="https://uk.bookshop.org/search?keywords=Galois+Theory+Stewart"><em>Galois Theory</em></a></strong>（CRC Press）。大学本科的标准入门书；分圆多项式和正多边形在书中很早便出现。</p></li>
+<li><p><strong>Harold Davenport, <a href="https://uk.bookshop.org/search?keywords=The+Higher+Arithmetic+Davenport"><em>The Higher Arithmetic</em></a></strong>（Cambridge University Press）。内容包括单位根及其算术性质。</p></li>
+<li><p><strong>Marcus du Sautoy, <a href="https://uk.bookshop.org/search?keywords=Finding+Moonshine+Sautoy"><em>Finding Moonshine</em></a></strong>（Fourth Estate）。一本讲述对称与群论的科普读物，当中包括伽罗瓦的故事。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 本章导言</a><a class="next" href="gauss-17gon.html">→ 6.2 高斯的正十七边形</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

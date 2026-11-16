@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多一枚硬币 (STEP I 2016 第 12 题) — Beyond STEP</title>
+<meta name="description" content="STEP I 2016 第 12 题：引导式解答及其背后的大学数学。 Bob 比 Alice 多掷一枚硬币。他掷得的正面（heads）比 Alice 多的概率（probability）是多少？他占了优势，但多掷一次不保证多一个正面，而且平手算他输。用硬算的方法做出头两个情况，两次的答案都是 frac12 。这是巧合吗？ 不是巧合，而且有一个只需一句话的证明：只要留意到 Bob…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/one-more-coin.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/one-more-coin.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/one-more-coin.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/one-more-coin.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/one-more-coin.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="多一枚硬币 (STEP I 2016 第 12 题) — Beyond STEP">
+<meta property="og:description" content="STEP I 2016 第 12 题：引导式解答及其背后的大学数学。 Bob 比 Alice 多掷一枚硬币。他掷得的正面（heads）比 Alice 多的概率（probability）是多少？他占了优势，但多掷一次不保证多一个正面，而且平手算他输。用硬算的方法做出头两个情况，两次的答案都是 frac12 。这是巧合吗？ 不是巧合，而且有一个只需一句话的证明：只要留意到 Bob…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch12/one-more-coin.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="多一枚硬币 (STEP I 2016 第 12 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2016 第 12 题：引导式解答及其背后的大学数学。 Bob 比 Alice 多掷一枚硬币。他掷得的正面（heads）比 Alice 多的概率（probability）是多少？他占了优势，但多掷一次不保证多一个正面，而且平手算他输。用硬算的方法做出头两个情况，两次的答案都是 frac12 。这是巧合吗？ 不是巧合，而且有一个只需一句话的证明：只要留意到 Bob…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "多一枚硬币", "headline": "多一枚硬币", "description": "STEP I 2016 第 12 题：引导式解答及其背后的大学数学。 Bob 比 Alice 多掷一枚硬币。他掷得的正面（heads）比 Alice 多的概率（probability）是多少？他占了优势，但多掷一次不保证多一个正面，而且平手算他输。用硬算的方法做出头两个情况，两次的答案都是 frac12 。这是巧合吗？ 不是巧合，而且有一个只需一句话的证明：只要留意到 Bob…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/one-more-coin.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2016 第 12 题", "概率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/"}, {"@type": "ListItem", "position": 3, "name": "多一枚硬币", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/one-more-coin.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch12/one-more-coin.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/one-more-coin.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 12 章 · 概率</a>
+    <div class="src">STEP I · 2016 · 第 12 题</div>
+    <div class="sec-head"><span class="sec-num">12.6</span><h1>多一枚硬币</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-6-one-more-coin.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 12 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP I 2016，第 12 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/16-s1-q12">step.maths.org/questions/16-s1-q12</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>Bob 比 Alice 多掷一枚硬币。他掷得的正面（heads）比 Alice 多的概率（probability）是多少？他占了优势，但多掷一次不保证多一个正面，而且平手算他输。用硬算的方法做出头两个情况，两次的答案都是 <span class="math inline">\(\frac12\)</span>。这是巧合吗？</p>
+<p>不是巧合，而且有一个只需一句话的证明：只要留意到 Bob 掷得的正面或反面（tails）必有其一比 Alice 多，但不会两者皆多。这道题目是一个典范，示范了计算如何提示出规律，而巧妙的对称性（symmetry）又如何解释这个规律。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>Alice 掷两次：她掷得正面的次数的分布（distribution）是甚么？掷三次的 Bob 又如何？</p>
+</div>
+<p>Alice 掷得 <span class="math inline">\(0, 1, 2\)</span> 个正面的概率分别是 <span class="math inline">\(\frac14, \frac24, \frac14\)</span>；Bob 掷得 <span class="math inline">\(0, 1, 2, 3\)</span> 个正面的概率分别是 <span class="math inline">\(\frac18, \frac38, \frac38, \frac18\)</span>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-硬算" class="stage"><span class="stage-n">阶段 1</span> 硬算</h4>
+<p>第 (i) 部分，按 Alice 掷得的正面数目逐项相加： <span class="math display">\[\begin{aligned}
+  \mathrm{P}(B &gt; A) &amp;= \tfrac14\,\mathrm{P}(B \geq 1) + \tfrac24\,\mathrm{P}(B \geq 2) + \tfrac14\,\mathrm{P}(B = 3) \\
+  &amp;= \tfrac14\cdot\tfrac78 + \tfrac12\cdot\tfrac48 + \tfrac14\cdot\tfrac18 = \frac{7 + 8 + 1}{32} = \frac12.
+\end{aligned}\]</span> 第 (ii) 部分是同样的计算，只是项数较多；数一数 <span class="math inline">\(8 \times 16 = 128\)</span> 个等可能的结果，其中 <span class="math inline">\(64\)</span> 个是 Bob 领先（图 12.6.1），所以答案同样是 <span class="math inline">\(\frac12\)</span>。</p>
+<h4 id="stagemark2-拆开-bob-的投掷" class="stage"><span class="stage-n">阶段 2</span> 拆开 Bob 的投掷</h4>
+<div class="askyourself">
+<p>把 Bob 的 <span class="math inline">\(n + 1\)</span> 次投掷看成先掷 <span class="math inline">\(n\)</span> 次，再额外掷一次。掷完头 <span class="math inline">\(n\)</span> 次之后，他可能领先 Alice、与她平手，或者落后。每种情况下会发生甚么事？</p>
+</div>
+<p>二人各掷 <span class="math inline">\(n\)</span> 次之后，Bob 领先的概率是 <span class="math inline">\(p_2\)</span>，平手的概率是 <span class="math inline">\(p_1\)</span>，落后的概率是 <span class="math inline">\(p_2\)</span>（由 Alice 与 Bob 之间的对称性可知）。如果他领先，他会保持领先。如果平手，他额外的一掷有 <span class="math inline">\(\frac12\)</span> 的概率令他领先。如果他落后，多一个正面最多只能追成平手。所以 <span class="math display">\[\mathrm{P}(\text{Bob 的正面较多}) = p_2 + \tfrac12p_1.\]</span> 由于这三种情况涵盖了所有可能，<span class="math inline">\(2p_2 + p_1 = 1\)</span>，因此 <span class="math inline">\(p_2 + \frac12p_1 = \frac12\)</span>。多了一枚硬币，Bob 掷得较多正面的概率对每个 <span class="math inline">\(n\)</span> 都刚好是 <span class="math inline">\(\frac12\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>以下就是那个一句话的证明。Bob 掷 <span class="math inline">\(n + 1\)</span> 次，所以他的正面和反面数目加起来是 <span class="math inline">\(n + 1\)</span>，比 Alice 的多一。试证明 Bob 的正面比 Alice 多，当且仅当他的反面<em>不</em>比 Alice 多。由于正面与反面是对称的，这两个事件的概率相等，所以各为 <span class="math inline">\(\frac12\)</span>。</p>
+</div>
+<p>事实上，记 <span class="math inline">\(H_A + T_A = n\)</span> 及 <span class="math inline">\(H_B + T_B = n + 1\)</span>：若 <span class="math inline">\(H_B &gt; H_A\)</span>，则 <span class="math inline">\(H_B \geq H_A + 1\)</span>，所以 <span class="math inline">\(T_B = n + 1 - H_B \leq n - H_A = T_A\)</span>；反过来，若 <span class="math inline">\(T_B \leq T_A\)</span>，则 <span class="math inline">\(H_B \geq H_A + 1\)</span>。所以“正面较多”与“反面较多”是互补（complementary）的，而把正面与反面对调（由于硬币是公平的，这不会改变概率）就会把两者互换。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-6-1.svg" alt="图 12.6.1"><figcaption><span class="fig-label">图 12.6.1</span> 第 (ii) 部分：在 <span class="math inline">\(128\)</span> 个等可能的结果之中，每种正面数目组合所占的个数。Bob 在有底色的格子中领先，这些格子刚好包含一半的结果。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>计算小的情况。</strong>两次计算都提示答案是 <span class="math inline">\(\frac12\)</span>。</p></li>
+<li><p><strong>按自然的划分来取条件。</strong>把 Bob 额外的一掷分开，问题便化为一场势均力敌的比试再加一枚硬币。</p></li>
+<li><p><strong>找出互补的一对。</strong>“正面较多”与“反面较多”互为补事件，并且在一个对称之下互换。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="对称与补事件">对称与补事件</h3>
+<p>那个漂亮的证明结合了两个事实：在一个对称之下互换的两个事件概率相等，而两个互补事件的概率之和为 <span class="math inline">\(1\)</span>。若两者同时成立，则每个事件的概率都是 <span class="math inline">\(\frac12\)</span>。同样的推理在概率论中随处可见。在航班座位问题（<a href="../ch12/airline-seat.html">第 12.5 节</a>）中，<span class="math inline">\(S_1\)</span> 与 <span class="math inline">\(S_n\)</span> 在一个对称之下互换，而最后剩下的恰好是其中一个。在六贯棋（Hex）中，由棋盘的对称性，加上恰有一方必胜这个事实，可知先手一方占优，不过在大棋盘上无人知道必胜策略是甚么。</p>
+<h3 id="平手的可能性有多大">平手的可能性有多大？</h3>
+<p>当二人投掷次数相同时，平手的概率 <span class="math inline">\(p_1\)</span> 就很重要。Alice 与 Bob 平手，即 Alice 的正面数目等于 Bob 的正面数目；利用对称性，把 Bob 的正面换成他的反面，这个概率就等于 Alice 的正面数目加上 Bob 的正面数目等于 <span class="math inline">\(n\)</span> 的概率，亦即在 <span class="math inline">\(2n\)</span> 次投掷中共有 <span class="math inline">\(n\)</span> 个正面。所以 <span class="math display">\[p_1 = \binom{2n}{n}\frac{1}{4^n} \approx \frac{1}{\sqrt{\pi n}},\]</span> 这里用了斯特灵近似（Stirling’s approximation）（<a href="../ch12/stirling-probability.html">第 12.23 节</a>）。平手会变得罕见，但变得很慢：各掷 <span class="math inline">\(100\)</span> 次，平手的机会仍然约有 <span class="math inline">\(5.6\%\)</span>。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">先计算，再猜想，然后解释</div>
+<p><em>当计算得出一个简单得可疑的答案时，就要找出原因。简单的答案通常有简单的解释。</em></p>
+<p>在大学里，这个习惯正是理解与计算的分野。这里的第一个证明确认了答案；第二个证明则解释了答案，而且可以立即推广（试做练习 2）。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>多掷两枚硬币。</strong>若 Bob 掷 <span class="math inline">\(n + 2\)</span> 枚硬币而 Alice 掷 <span class="math inline">\(n\)</span> 枚，证明 <span class="math inline">\(\mathrm{P}(\text{Bob 的正面较多}) = \frac12 + \frac12\mathrm{P}(H&#39; = H_A)\)</span>，其中 <span class="math inline">\(H&#39;\)</span> 是 Bob 头 <span class="math inline">\(n + 1\)</span> 次投掷中的正面数目。</p></li>
+<li><p><strong>不公平的硬币。</strong>若二人所用的硬币掷出正面的概率都是 <span class="math inline">\(p\)</span>，多掷一次时答案是否仍然是 <span class="math inline">\(\frac12\)</span>？那个漂亮的证明中哪一步不再成立？</p></li>
+<li><p><strong>平手。</strong>用正文中的技巧证明 <span class="math inline">\(p_1 = \binom{2n}{n}/4^n\)</span>，并求它在 <span class="math inline">\(n = 1, 2, 3\)</span> 时的值。</p></li>
+<li><p><strong>骰子。</strong>Alice 掷 <span class="math inline">\(n\)</span> 粒骰子，Bob 掷 <span class="math inline">\(n + 1\)</span> 粒。Bob 掷得较多六点的概率是否等于 <span class="math inline">\(\frac12\)</span>？</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Peter Winkler, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Mind-Benders+Winkler"><em>Mathematical Mind-Benders</em></a></strong>（A K Peters）。收录大量可用对称性解决的概率谜题。</p></li>
+<li><p><strong>Gabor Székely, <a href="https://uk.bookshop.org/search?keywords=Paradoxes+in+Probability+Theory+and+Mathematical+Statistics+Szekely"><em>Paradoxes in Probability Theory and Mathematical Statistics</em></a></strong>（Reidel）。</p></li>
+<li><p><strong>Frederick Mosteller, <a href="https://uk.bookshop.org/search?keywords=Fifty+Challenging+Problems+in+Probability+Mosteller"><em>Fifty Challenging Problems in Probability</em></a></strong>（Dover）。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="airline-seat.html">← 12.5 最后一位乘客的座位</a><a class="next" href="knockout.html">→ 12.7 淘汰赛中谁会遇上谁</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

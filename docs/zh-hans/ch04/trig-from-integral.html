@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>由一个积分建立三角学 (STEP III 2017 第 6 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2017 第 6 题：引导式解答及其背后的大学数学。 π 究竟是甚么？在中学，它是圆周与直径之比，而 sin 和 cos 则用三角形来定义。这对几何来说已经足够，却留下了一些棘手的问题。沿着曲线的“长度”到底是甚么？为甚么 sin x 的麦克劳林级数（Maclaurin series）偏偏是那个样子？我们又怎样知道加法公式（addition…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/trig-from-integral.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="由一个积分建立三角学 (STEP III 2017 第 6 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2017 第 6 题：引导式解答及其背后的大学数学。 π 究竟是甚么？在中学，它是圆周与直径之比，而 sin 和 cos 则用三角形来定义。这对几何来说已经足够，却留下了一些棘手的问题。沿着曲线的“长度”到底是甚么？为甚么 sin x 的麦克劳林级数（Maclaurin series）偏偏是那个样子？我们又怎样知道加法公式（addition…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch04/trig-from-integral.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="由一个积分建立三角学 (STEP III 2017 第 6 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2017 第 6 题：引导式解答及其背后的大学数学。 π 究竟是甚么？在中学，它是圆周与直径之比，而 sin 和 cos 则用三角形来定义。这对几何来说已经足够，却留下了一些棘手的问题。沿着曲线的“长度”到底是甚么？为甚么 sin x 的麦克劳林级数（Maclaurin series）偏偏是那个样子？我们又怎样知道加法公式（addition…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "由一个积分建立三角学", "headline": "由一个积分建立三角学", "description": "STEP III 2017 第 6 题：引导式解答及其背后的大学数学。 π 究竟是甚么？在中学，它是圆周与直径之比，而 sin 和 cos 则用三角形来定义。这对几何来说已经足够，却留下了一些棘手的问题。沿着曲线的“长度”到底是甚么？为甚么 sin x 的麦克劳林级数（Maclaurin series）偏偏是那个样子？我们又怎样知道加法公式（addition…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/trig-from-integral.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2017 第 6 题", "严谨的微积分"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 4, "name": "严谨的微积分", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 4 章：严谨的微积分", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/"}, {"@type": "ListItem", "position": 3, "name": "由一个积分建立三角学", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/trig-from-integral.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch04/trig-from-integral.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch04/trig-from-integral.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 4 章 · 严谨的微积分</a>
+    <div class="src">STEP III · 2017 · 第 6 题</div>
+    <div class="sec-head"><span class="sec-num">4.2</span><h1>由一个积分建立三角学</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-2-trig-from-integral.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 4 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2017，第 6 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/17-s3-q6">step.maths.org/questions/17-s3-q6</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p><span class="math inline">\(\pi\)</span> 究竟是甚么？在中学，它是圆周与直径之比，而 <span class="math inline">\(\sin\)</span> 和 <span class="math inline">\(\cos\)</span> 则用三角形来定义。这对几何来说已经足够，却留下了一些棘手的问题。沿着曲线的“长度”到底是甚么？为甚么 <span class="math inline">\(\sin x\)</span> 的麦克劳林级数（Maclaurin series）偏偏是那个样子？我们又怎样知道加法公式（addition formulas）对所有角都成立，而不只限于画得出来的角？</p>
+<p>这道题展示了一条截然不同的入门途径。忘掉三角形和圆吧。只从一个积分 <span class="math inline">\(\mathrm{T}(x) = \int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span> 出发，它所需要的不过是 <a href="../ch04/riemann.html">第 4.1 节</a> 中积分的定义。把 <span class="math inline">\(\pi\)</span> 定义为 <span class="math inline">\(2\mathrm{T}_\infty\)</span>。然后只用代换法（substitution），证明 <span class="math inline">\(\mathrm{T}(\sqrt3) = \frac{\pi}{3}\)</span> 和 <span class="math inline">\(\mathrm{T}(\sqrt2 - 1) = \frac{\pi}{8}\)</span>，也就是你所熟悉的 <span class="math inline">\(\arctan\sqrt3 = 60^\circ\)</span> 和 <span class="math inline">\(\tan 22\tfrac12^\circ = \sqrt2 - 1\)</span>。三角学就这样从无到有地重建起来。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<p>你心里其实知道 <span class="math inline">\(\mathrm{T}(x) = \arctan x\)</span> 和 <span class="math inline">\(\mathrm{T}_\infty = \frac\pi2\)</span>。题目不准你使用这些事实，而这正是用意所在：一切都必须由积分推导出来。不过，这点心照不宣的知识是很有用的向导。</p>
+<div class="askyourself">
+<p>第 (i) 和第 (ii) 部分分别对应哪些三角恒等式（trigonometric identities）？（想想 <span class="math inline">\(\arctan x + \arctan\frac1x\)</span>，以及 <span class="math inline">\(\tan(A + B)\)</span> 的公式。）</p>
+</div>
+<p>第 (i) 部分就是 <span class="math inline">\(\arctan x + \arctan\frac1x = \frac\pi2\)</span>。第 (ii) 部分则是乔装了的加法公式 <span class="math inline">\(\tan(A + B) = \frac{\tan A + \tan B}{1 - \tan A\tan B}\)</span>：设 <span class="math inline">\(u = \tan A\)</span> 和 <span class="math inline">\(a = \tan B\)</span>，则 <span class="math inline">\(v = \tan(A + B)\)</span>。这道题不靠任何几何，单凭积分就证明了这些恒等式。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-反射-u-mapsto-1u" class="stage"><span class="stage-n">阶段 1</span> 反射 <span class="math inline">\(u \mapsto 1/u\)</span></h4>
+<p>在 <span class="math inline">\(\mathrm{T}(x)\)</span> 中代入 <span class="math inline">\(u = 1/w\)</span>。于是 <span class="math inline">\(\mathrm{d}u = -\mathrm{d}w/w^2\)</span>，而 <span class="math inline">\(\dfrac{1}{1 + u^2} = \dfrac{w^2}{w^2 + 1}\)</span>，所以 <span class="math display">\[\mathrm{T}(x) = \int_{\infty}^{1/x} \frac{w^2}{w^2 + 1}\cdot\left(-\frac{1}{w^2}\right)\mathrm{d}w = \int_{1/x}^{\infty} \frac{\mathrm{d}w}{1 + w^2} = \mathrm{T}_\infty - \mathrm{T}(x^{-1}). \qed\]</span> 换句话说，<span class="math inline">\(\frac{1}{1+u^2}\)</span> 之下由 <span class="math inline">\(0\)</span> 到 <span class="math inline">\(x\)</span> 的面积，等于由 <span class="math inline">\(\frac1x\)</span> 到 <span class="math inline">\(\infty\)</span> 的面积（图 4.2.1）。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-2-1.svg" alt="图 4.2.1"><figcaption><span class="fig-label">图 4.2.1</span> 代换 <span class="math inline">\(u = 1/w\)</span> 显示 <span class="math inline">\(\frac{1}{1+u^2}\)</span> 之下的两块阴影面积相等：由 <span class="math inline">\(0\)</span> 到 <span class="math inline">\(x\)</span> 的面积（蓝绿色），以及由 <span class="math inline">\(\frac1x\)</span> 起无限伸延的面积（琥珀色）。图中 <span class="math inline">\(x = \frac12\)</span>。</figcaption></figure>
+<h4 id="stagemark2-加法代换" class="stage"><span class="stage-n">阶段 2</span> 加法代换</h4>
+<div class="askyourself">
+<p>用商法则（quotient rule）对 <span class="math inline">\(v = \dfrac{u + a}{1 - au}\)</span> 求导。然后把 <span class="math inline">\(1 + v^2\)</span> 化成单一分式，再作比较。</p>
+</div>
+<p><span class="math display">\[\begin{aligned}
+  \frac{\mathrm{d}v}{\mathrm{d}u} &amp;= \frac{(1 - au) + a(u + a)}{(1 - au)^2} = \frac{1 + a^2}{(1 - au)^2},
+ \\
+  1 + v^2 &amp;= \frac{(1 - au)^2 + (u + a)^2}{(1 - au)^2} = \frac{(1 + a^2)(1 + u^2)}{(1 - au)^2}.
+\end{aligned}\]</span> 两式相除，得 <span class="math inline">\(\dfrac{1 + v^2}{1 + u^2} = \dfrac{1 + a^2}{(1 - au)^2} = \dfrac{\mathrm{d}v}{\mathrm{d}u}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>这表示 <span class="math inline">\(\dfrac{\mathrm{d}u}{1 + u^2} = \dfrac{\mathrm{d}v}{1 + v^2}\)</span>。所以代换 <span class="math inline">\(u \mapsto v\)</span> 完全没有改变被积函数（integrand）。那么它对 <span class="math inline">\(\mathrm{T}(x)\)</span> 的积分上下限有甚么影响？</p>
+</div>
+<p>当 <span class="math inline">\(u\)</span> 由 <span class="math inline">\(0\)</span> 变到 <span class="math inline">\(x\)</span> 时（其中 <span class="math inline">\(x &lt; \frac1a\)</span>，故 <span class="math inline">\(1 - au &gt; 0\)</span> 始终成立，而 <span class="math inline">\(v\)</span> 连续且递增），<span class="math inline">\(v\)</span> 由 <span class="math inline">\(a\)</span> 变到 <span class="math inline">\(\frac{x + a}{1 - ax}\)</span>。所以 <span class="math display">\[\mathrm{T}(x) = \int_0^x \frac{\mathrm{d}u}{1 + u^2} = \int_a^{(x+a)/(1-ax)} \frac{\mathrm{d}v}{1 + v^2} = \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) - \mathrm{T}(a). \qed\]</span></p>
+<h4 id="stagemark3-再多两个恒等式" class="stage"><span class="stage-n">阶段 3</span> 再多两个恒等式</h4>
+<p>结合第 (i) 部分，并使用两次： <span class="math display">\[\mathrm{T}(x^{-1}) = \mathrm{T}_\infty - \mathrm{T}(x) = \mathrm{T}_\infty - \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) + \mathrm{T}(a) = 2\mathrm{T}_\infty - \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) - \mathrm{T}(a^{-1}). \qed\]</span> 现在更换变量名称：设 <span class="math inline">\(y = 1/x\)</span> 和 <span class="math inline">\(b = 1/a\)</span>。条件 <span class="math inline">\(x &lt; 1/a\)</span> 变成 <span class="math inline">\(1/y &lt; b\)</span>，即 <span class="math inline">\(y &gt; 1/b\)</span>，而 <span class="math display">\[\frac{x + a}{1 - ax} = \frac{1/y + 1/b}{1 - 1/(by)} = \frac{b + y}{by - 1}.\]</span> 所以 <span class="math inline">\(\mathrm{T}(y) = 2\mathrm{T}_\infty - \mathrm{T}\!\left(\dfrac{y + b}{by - 1}\right) - \mathrm{T}(b)\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-特殊值" class="stage"><span class="stage-n">阶段 4</span> 特殊值</h4>
+<div class="pausebox">
+<p>在最后一个恒等式中选取 <span class="math inline">\(y\)</span> 和 <span class="math inline">\(b\)</span>，使自变量 <span class="math inline">\(\frac{y + b}{by - 1}\)</span> 刚好等于 <span class="math inline">\(y\)</span> 本身。你会得到甚么？</p>
+</div>
+<p>取 <span class="math inline">\(y = b = \sqrt3\)</span>：这时 <span class="math inline">\(y &gt; \frac1b\)</span>，而 <span class="math inline">\(\dfrac{\sqrt3 + \sqrt3}{3 - 1} = \sqrt3\)</span>。恒等式变成 <span class="math inline">\(\mathrm{T}(\sqrt3) = 2\mathrm{T}_\infty - 2\mathrm{T}(\sqrt3)\)</span>，所以 <span class="math display">\[\mathrm{T}(\sqrt3) = \tfrac23\mathrm{T}_\infty. \qed\]</span></p>
+<div class="askyourself">
+<p>至于 <span class="math inline">\(\sqrt2 - 1\)</span>，试在加法恒等式中取 <span class="math inline">\(x = a = \sqrt2 - 1\)</span>。<span class="math inline">\(\frac{2x}{1 - x^2}\)</span> 是多少？<span class="math inline">\(\mathrm{T}(1)\)</span> 又是多少？</p>
+</div>
+<p>取 <span class="math inline">\(x = a = \sqrt2 - 1\)</span>（由于 <span class="math inline">\(x^2 = 3 - 2\sqrt2 &lt; 1\)</span>，故 <span class="math inline">\(x &lt; \frac1a\)</span>），加法恒等式给出 <span class="math inline">\(2\mathrm{T}(x) = \mathrm{T}\!\left(\frac{2x}{1 - x^2}\right)\)</span>。而 <span class="math inline">\(1 - x^2 = 2\sqrt2 - 2 = 2(\sqrt2 - 1) = 2x\)</span>，所以 <span class="math inline">\(\frac{2x}{1 - x^2} = 1\)</span>，于是 <span class="math inline">\(2\mathrm{T}(\sqrt2 - 1) = \mathrm{T}(1)\)</span>。最后，在第 (i) 部分取 <span class="math inline">\(x = 1\)</span>，得 <span class="math inline">\(\mathrm{T}(1) = \mathrm{T}_\infty - \mathrm{T}(1)\)</span>，所以 <span class="math inline">\(\mathrm{T}(1) = \frac12\mathrm{T}_\infty\)</span>。因此 <span class="math display">\[\mathrm{T}(\sqrt2 - 1) = \tfrac14\mathrm{T}_\infty. \qed\]</span></p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>保持被积函数不变的代换。</strong>两个关键步骤所用的代换，都令 <span class="math inline">\(\frac{\mathrm{d}u}{1+u^2}\)</span> 保持不变，只有积分上下限移动了。积分的这类“对称性”（symmetry）威力强大。</p></li>
+<li><p><strong>不动点（fixed point）。</strong><span class="math inline">\(\mathrm{T}(\sqrt3)\)</span> 的值，来自选取适当的数，使某个表达式等于它本身，于是恒等式变成了方程。</p></li>
+<li><p><strong>定义可以来自分析。</strong>我们从没有用过三角形，却重新得到了 <span class="math inline">\(\frac\pi3\)</span> 和 <span class="math inline">\(\frac\pi8\)</span>（其中 <span class="math inline">\(\pi\)</span> 定义为 <span class="math inline">\(2\mathrm{T}_\infty\)</span>）。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">建构初等函数</div>
+<p>在严格的分析课程中，函数 <span class="math inline">\(\exp\)</span>、<span class="math inline">\(\sin\)</span>、<span class="math inline">\(\cos\)</span> 和 <span class="math inline">\(\ln\)</span> 不能随便假设存在；它们必须被<em>建构</em>出来，其性质也必须加以证明。标准的做法有三种。你可以用幂级数（power series）来定义它们（<span class="math inline">\(\sin x = x - \frac{x^3}{3!} + \cdots\)</span>）。你可以把它们定义为微分方程（differential equation）的解，就如练习中那道 1986 年样本试卷的题目（<span class="math inline">\(\mathrm{f}&#39; = \mathrm{f}\)</span>、<span class="math inline">\(\mathrm{f}(0) = 1\)</span> 定义了 <span class="math inline">\(\exp\)</span>）。你也可以像这里一样，用积分来定义反函数（inverse function）：<span class="math inline">\(\ln x = \int_1^x \frac{\mathrm{d}u}{u}\)</span> 和 <span class="math inline">\(\arctan x = \int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span>，然后定义 <span class="math inline">\(\pi = 2\int_0^\infty \frac{\mathrm{d}u}{1+u^2}\)</span>。每种做法各有所长，而证明它们全都给出相同的函数，是一道令人满足的练习。试与 <a href="../ch03/addition-laws.html">第 3.8 节</a> 的函数方程（functional equation）做法比较。</p>
+</div>
+<h3 id="圆以外椭圆积分">圆以外：椭圆积分</h3>
+<p>积分的做法可以推广，而三角形的做法却做不到。1718 年，Giulio Fagnano 研究<em>双纽线</em>（lemniscate）这条 8 字形曲线的弧长（arc length），由此引出 <span class="math inline">\(\int_0^x \frac{\mathrm{d}u}{\sqrt{1 - u^4}}\)</span>，并找到一个能把弧长加倍的代换，正如我们的代换把 <span class="math inline">\(\mathrm{T}\)</span> 加倍一样。欧拉（Euler）在 1751 年读到 Fagnano 的著作，找出了完整的加法公式；这最终经由阿贝尔（Abel）和雅可比（Jacobi），发展成<em>椭圆函数</em>（elliptic functions）的理论：椭圆函数就是这类积分的反函数，它们之于双纽线，正如 <span class="math inline">\(\sin\)</span> 和 <span class="math inline">\(\cos\)</span> 之于圆。我们在高斯（Gauss）关于算术几何平均（AGM）的工作中（<a href="../ch02/agm.html">第 2.6 节</a>）遇过同一个积分。椭圆函数如今是数论的核心；<a href="../ch01/tangents-cubic.html">第 1.9 节</a> 的椭圆曲线（elliptic curves）就是它们在几何上的投影。</p>
+<h3 id="计算-pi">计算 <span class="math inline">\(\pi\)</span></h3>
+<p>加法恒等式也是计算 <span class="math inline">\(\pi\)</span> 的那些最著名公式的基础。举例说，反复运用它可以证明 <span class="math inline">\(\mathrm{T}(1) = 4\mathrm{T}(\frac15) - \mathrm{T}(\frac{1}{239})\)</span>，这就是 1706 年的梅钦公式（Machin’s formula）；配合级数 <span class="math inline">\(\mathrm{T}(x) = x - \frac{x^3}{3} + \frac{x^5}{5} - \cdots\)</span>，它算出了 <span class="math inline">\(\pi\)</span> 的 <span class="math inline">\(100\)</span> 位数字，并在其后两个半世纪一直是首选的方法。这是 <a href="../ch05/machin.html">第 5.1 节</a> 的主题。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">积分的对称性</div>
+<p><em>寻找令被积函数保持不变的代换。它们会化为该积分所定义的函数的恒等式。</em></p>
+<p>这里 <span class="math inline">\(u \mapsto 1/u\)</span> 和 <span class="math inline">\(u \mapsto \frac{u+a}{1-au}\)</span> 都保持 <span class="math inline">\(\frac{\mathrm{d}u}{1+u^2}\)</span> 不变，并分别给出反射公式和加法公式。同一个想法用于其他积分，正是特殊函数（special functions）理论的基础。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>指数函数与余弦。</strong>试做 <a href="https://step.maths.org/questions/spec-s2-q6">STEP II Specimen paper，第 6 题</a>。这道题只凭指数函数和余弦各自的微分方程，推导出它们的加法公式。（<em>提示：</em>对于余弦，找出两个理应为零的组合，并证明它们的平方和是常数。）</p></li>
+<li><p><strong>反正弦。</strong>试做 <a href="https://step.maths.org/questions/07-s3-q7">STEP III 2007，第 7 题</a>。这道题用处理本节积分的同一手法来处理反正弦（inverse sine），并以一个代换把两者联系起来。</p></li>
+<li><p><strong>一条早期的梅钦型公式。</strong>利用加法恒等式证明 <span class="math inline">\(\mathrm{T}(\frac12) + \mathrm{T}(\frac13) = \mathrm{T}(1) = \frac12\mathrm{T}_\infty\)</span>。</p></li>
+<li><p><strong><span class="math inline">\(\mathrm{T}_\infty\)</span> 是有限的。</strong>证明对所有 <span class="math inline">\(x \geq 1\)</span> 都有 <span class="math inline">\(\mathrm{T}(x) \leq 1 + \int_1^x \frac{\mathrm{d}u}{u^2} &lt; 2\)</span>，解释为甚么当 <span class="math inline">\(0 &lt; x &lt; 1\)</span> 时同样有 <span class="math inline">\(\mathrm{T}(x) &lt; 2\)</span>，并由单调收敛定理（monotone convergence theorem）（<a href="../ch02/golden-limit.html">第 2.2 节</a>）推断 <span class="math inline">\(\mathrm{T}_\infty\)</span> 存在。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Tom Körner, <a href="https://uk.bookshop.org/search?keywords=Calculus+for+the+Ambitious+Korner"><em>Calculus for the Ambitious</em></a></strong>（Cambridge University Press）。严格地建构初等函数，并讨论各种不同的做法。</p></li>
+<li><p><strong>Walter Rudin, <a href="https://uk.bookshop.org/search?keywords=Principles+of+Mathematical+Analysis+Rudin"><em>Principles of Mathematical Analysis</em></a></strong>（McGraw-Hill）。即著名的“baby Rudin”；第 8 章的引言只用寥寥数页，便优雅地由幂级数建构出 <span class="math inline">\(\exp\)</span>、<span class="math inline">\(\sin\)</span> 和 <span class="math inline">\(\cos\)</span>。程度较深。</p></li>
+<li><p><strong>Victor Prasolov &amp; Yuri Solovyev, <a href="https://uk.bookshop.org/search?keywords=Elliptic+Functions+and+Elliptic+Integrals+Prasolov+Solovyev"><em>Elliptic Functions and Elliptic Integrals</em></a></strong>（American Mathematical Society）。想知道双纽线通往何处，可读此书。程度较深。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="riemann.html">← 4.1 甚么是积分？</a><a class="next" href="twenty-two-sevenths.html">→ 4.3 22/7 大于 π</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

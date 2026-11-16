@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>德国坦克问题 (STEP III 1998 第 14 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 1998 第 14 题：引导式解答及其背后的大学数学。 第二次世界大战期间，盟军情报部门想知道德国每月生产多少辆坦克。间谍的报告显示每月约 1400 辆。统计学家则另辟蹊径：缴获的坦克在变速箱和其他零件上都刻有序号，而这些序号实际上就是从 1, 2, ldots, N 中抽出的一个随机样本（random sample）。单凭这些数字，他们估计产量约为每月 250…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/german-tanks.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/german-tanks.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch13/german-tanks.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/german-tanks.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch13/german-tanks.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="德国坦克问题 (STEP III 1998 第 14 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 1998 第 14 题：引导式解答及其背后的大学数学。 第二次世界大战期间，盟军情报部门想知道德国每月生产多少辆坦克。间谍的报告显示每月约 1400 辆。统计学家则另辟蹊径：缴获的坦克在变速箱和其他零件上都刻有序号，而这些序号实际上就是从 1, 2, ldots, N 中抽出的一个随机样本（random sample）。单凭这些数字，他们估计产量约为每月 250…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch13/german-tanks.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="德国坦克问题 (STEP III 1998 第 14 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1998 第 14 题：引导式解答及其背后的大学数学。 第二次世界大战期间，盟军情报部门想知道德国每月生产多少辆坦克。间谍的报告显示每月约 1400 辆。统计学家则另辟蹊径：缴获的坦克在变速箱和其他零件上都刻有序号，而这些序号实际上就是从 1, 2, ldots, N 中抽出的一个随机样本（random sample）。单凭这些数字，他们估计产量约为每月 250…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "德国坦克问题", "headline": "德国坦克问题", "description": "STEP III 1998 第 14 题：引导式解答及其背后的大学数学。 第二次世界大战期间，盟军情报部门想知道德国每月生产多少辆坦克。间谍的报告显示每月约 1400 辆。统计学家则另辟蹊径：缴获的坦克在变速箱和其他零件上都刻有序号，而这些序号实际上就是从 1, 2, ldots, N 中抽出的一个随机样本（random sample）。单凭这些数字，他们估计产量约为每月 250…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/german-tanks.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1998 第 14 题", "统计与现实世界中的随机性"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "统计与现实世界中的随机性", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 13 章：统计与现实世界中的随机性", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/"}, {"@type": "ListItem", "position": 3, "name": "德国坦克问题", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/german-tanks.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch13/german-tanks.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch13/german-tanks.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 13 章 · 统计与现实世界中的随机性</a>
+    <div class="src">STEP III · 1998 · 第 14 题</div>
+    <div class="sec-head"><span class="sec-num">13.3</span><h1>德国坦克问题</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-3-german-tanks.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 13 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 1998，第 14 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/98-s3-q14">step.maths.org/questions/98-s3-q14</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>第二次世界大战期间，盟军情报部门想知道德国每月生产多少辆坦克。间谍的报告显示每月约 <span class="math inline">\(1400\)</span> 辆。统计学家则另辟蹊径：缴获的坦克在变速箱和其他零件上都刻有序号，而这些序号实际上就是从 <span class="math inline">\(1, 2, \ldots, N\)</span> 中抽出的一个随机样本（random sample）。单凭这些数字，他们估计产量约为每月 <span class="math inline">\(250\)</span> 辆。按照一般引用的数字，战后查阅的德国纪录显示为 <span class="math inline">\(245\)</span> 辆。统计学家的估计远比间谍准确。</p>
+<p>本题比较两种利用序号估计 <span class="math inline">\(N\)</span> 的方法。两者平均而言都是正确的，但其中一种运用数据的效率远高于另一种；弄清楚是哪一种，就会引出估计理论（estimation theory）的核心思想：在平均而言正确的估计量（estimator）当中，应选取波动最小的一个。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>设 <span class="math inline">\(M\)</span> 是 <span class="math inline">\([0, N]\)</span> 上 <span class="math inline">\(n\)</span> 个独立均匀分布（uniform distribution）取值中的最大者，那么 <span class="math inline">\(\mathrm{P}(M \leq m)\)</span> 是多少？</p>
+</div>
+<p><span class="math inline">\(M \leq m\)</span> 当且仅当每个 <span class="math inline">\(X_i \leq m\)</span>，所以当 <span class="math inline">\(0 \leq m \leq N\)</span> 时，<span class="math inline">\(\mathrm{P}(M \leq m) = \bigl(\frac mN\bigr)^n\)</span>（可与 <a href="../ch12/extremes.html">第 12.25 节</a> 比较）。求导后可知，<span class="math inline">\(M\)</span> 的概率密度（density）为 <span class="math inline">\(\frac{nm^{n-1}}{N^n}\)</span>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-两者皆无偏" class="stage"><span class="stage-n">阶段 1</span> 两者皆无偏</h4>
+<p>对于 <span class="math inline">\(M\)</span>： <span class="math display">\[\mathrm{E}(M) = \int_0^N m\cdot\frac{nm^{n-1}}{N^n}\,\mathrm{d}m = \frac{n}{n + 1}N, \qquad\text{所以}\qquad \mathrm{E}(Z_1) = \frac{n + 1}{n}\cdot\frac{n}{n + 1}N = N.\]</span> 对于平均值：每个 <span class="math inline">\(X_i\)</span> 的平均值为 <span class="math inline">\(\frac N2\)</span>，所以 <span class="math inline">\(\mathrm{E}(Z_2) = \frac2n\cdot n\cdot\frac N2 = N\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<p>两个估计量都是<em>无偏</em>（unbiased）的：平均而言，它们会给出正确的答案。因子 <span class="math inline">\(\frac{n + 1}{n}\)</span> 用来修正这个事实：观察到的最大序号总是比 <span class="math inline">\(N\)</span> 略小一点。</p>
+<h4 id="stagemark2-两者的方差" class="stage"><span class="stage-n">阶段 2</span> 两者的方差</h4>
+<div class="askyourself">
+<p>求 <span class="math inline">\(\mathrm{E}(M^2)\)</span>，从而求 <span class="math inline">\(\mathrm{Var}(M)\)</span>。至于 <span class="math inline">\(Z_2\)</span>，单一个 <span class="math inline">\([0, N]\)</span> 上的均匀变量的方差（variance）是多少？</p>
+</div>
+<p><span class="math inline">\(\mathrm{E}(M^2) = \int_0^N m^2\cdot\frac{nm^{n-1}}{N^n}\,\mathrm{d}m = \frac{n}{n + 2}N^2\)</span>，所以 <span class="math display">\[\begin{aligned}
+  \mathrm{Var}(M) &amp;= \frac{n}{n + 2}N^2 - \frac{n^2}{(n + 1)^2}N^2 = \frac{nN^2}{(n + 1)^2(n + 2)}, \\
+  \mathrm{Var}(Z_1) &amp;= \frac{(n + 1)^2}{n^2}\mathrm{Var}(M) = \frac{N^2}{n(n + 2)}.
+\end{aligned}\]</span> <span class="math inline">\([0, N]\)</span> 上的均匀变量的方差为 <span class="math inline">\(\frac{N^2}{12}\)</span>，而各个 <span class="math inline">\(X_i\)</span> 互相独立，所以 <span class="math display">\[\mathrm{Var}(Z_2) = \frac{4}{n^2}\cdot n\cdot\frac{N^2}{12} = \frac{N^2}{3n}. \qed\]</span></p>
+<h4 id="stagemark3-哪一个较好" class="stage"><span class="stage-n">阶段 3</span> 哪一个较好？</h4>
+<div class="askyourself">
+<p>比较 <span class="math inline">\(\frac{1}{n(n + 2)}\)</span> 与 <span class="math inline">\(\frac{1}{3n}\)</span>。当 <span class="math inline">\(n\)</span> 增大时，两者如何变化？</p>
+</div>
+<p>两者之比为 <span class="math inline">\(\frac{\mathrm{Var}(Z_1)}{\mathrm{Var}(Z_2)} = \frac{3}{n + 2}\)</span>，当 <span class="math inline">\(n \geq 2\)</span> 时小于 <span class="math inline">\(1\)</span>（当 <span class="math inline">\(n = 1\)</span> 时则相等，此时两个估计量完全相同）。所以 <span class="math inline">\(Z_1\)</span> 较好，而且 <span class="math inline">\(n\)</span> 愈大就好得愈多：它的标准差（standard deviation）以 <span class="math inline">\(\frac1n\)</span> 的速度缩小，而 <span class="math inline">\(Z_2\)</span> 的标准差只以 <span class="math inline">\(\frac{1}{\sqrt n}\)</span> 的速度缩小（图 13.3.1）。若有 <span class="math inline">\(n = 10\)</span> 个序号，<span class="math inline">\(Z_1\)</span> 的标准差约为 <span class="math inline">\(N\)</span> 的 <span class="math inline">\(9\%\)</span>，而 <span class="math inline">\(Z_2\)</span> 的约为 <span class="math inline">\(18\%\)</span>。</p>
+<p>选用 <span class="math inline">\(Z_1\)</span> 还有另一个理由：<span class="math inline">\(Z_2\)</span> 有时会得出荒谬的结果。若序号为 <span class="math inline">\(10\)</span>、<span class="math inline">\(20\)</span> 和 <span class="math inline">\(300\)</span>，则 <span class="math inline">\(Z_2 = \frac23 \cdot 330 = 220\)</span>，比我们实际见过的一个序号还要小。而 <span class="math inline">\(Z_1 = \frac43 \cdot 300 = 400\)</span> 永远不会小于最大的观察值。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-3-1.svg" alt="图 13.3.1"><figcaption><span class="fig-label">图 13.3.1</span> 两个估计量的抽样分布（sampling distribution），其中序号数目 <span class="math inline">\(n = 5\)</span>，真实值 <span class="math inline">\(N = 1\)</span>。两者的平均值都恰好是 <span class="math inline">\(1\)</span>，但 <span class="math inline">\(Z_1\)</span>（蓝绿色）比 <span class="math inline">\(Z_2\)</span>（紫红色）更紧密地集中在真实值附近，而且它永远不会低于观察到的最大序号。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>无偏性。</strong>每个估计量都经过缩放，使其期望值（expected value）恰好等于 <span class="math inline">\(N\)</span>。</p></li>
+<li><p><strong>比较方差。</strong>在无偏估计量当中，方差较小的一个较为可靠。</p></li>
+<li><p><strong>选用信息量最大的统计量。</strong>最大值包含了样本中关于 <span class="math inline">\(N\)</span> 的全部信息；平均值则浪费了其中一大部分。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="充分性">充分性</h3>
+<p>为甚么最大值好这么多？一旦知道最大值 <span class="math inline">\(M\)</span>，其余各值不论 <span class="math inline">\(N\)</span> 是多少，都只是在 <span class="math inline">\([0, M]\)</span> 上均匀分布：它们再没有带来关于 <span class="math inline">\(N\)</span> 的任何信息。最大值是一个<em>充分统计量</em>（sufficient statistic）。C. R. Rao 与 David Blackwell 的一条定理（1945–47）指出，任何无偏估计量，只要换成它在给定充分统计量下的期望值，都可以得到改进，或至少不会变差；在这里，这个做法正好把 <span class="math inline">\(Z_2\)</span> 变成 <span class="math inline">\(Z_1\)</span>。<em>Lehmann–Scheffé 定理</em>进一步证明，<span class="math inline">\(Z_1\)</span> 是方差最小的无偏估计量。还要留意，<span class="math inline">\(Z_1\)</span> 的方差以 <span class="math inline">\(\frac{1}{n^2}\)</span> 的速度下降，比大多数估计量的 <span class="math inline">\(\frac1n\)</span> 更快：这是因为 <span class="math inline">\(N\)</span> 是分布的端点，数据会挤向这个端点。</p>
+<h3 id="离散版本">离散版本</h3>
+<p>真实的序号是整数 <span class="math inline">\(1, 2, \ldots, N\)</span>，并且是以不放回（without replacement）方式抽样的。这时最佳的无偏估计是 <span class="math inline">\(\hat N = m + \frac mk - 1\)</span>，其中 <span class="math inline">\(m\)</span> 是 <span class="math inline">\(k\)</span> 个观察到的序号中的最大者：即最大值加上各观察值之间的平均间距。盟军统计学家运用这类估计，主要根据变速箱和车轮的序号，估计德国的产量约为每月 <span class="math inline">\(246\)</span> 辆坦克；相比之下，其后在德国纪录中找到的数字是 <span class="math inline">\(245\)</span> 辆，而情报报告所显示的是 <span class="math inline">\(1400\)</span> 辆。</p>
+<div class="historybox">
+<div class="box-title">历史上的序号</div>
+<p>此后这个方法曾多次派上用场，例如分析员曾根据最先售出的几件产品的序号，估计某款新消费产品的生产数量。制造商汲取了教训：现在不少制造商都会把序号编码，使人无法把它们当作简单的顺序编号来解读。Richard Ruggles 与 Henry Brodie 于 1947 年在 <em>Journal of the American Statistical Association</em> 上记述了这项战时工作。</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">以抽样分布评价估计量</div>
+<p><em>估计量是一个随机变量（random variable）。要问它平均而言是否正确（偏差），以及它的波动有多大（方差），然后选取误差较小的一个。</em></p>
+<p>在大学，这会引出有效估计（efficient estimation）的理论：Cramér–Rao 下界（Cramér–Rao bound）指出无偏估计量的方差最小可以小到甚么程度，而充分性则说明如何达到这个下界。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>均方误差（mean squared error）。</strong>有偏估计量 <span class="math inline">\(M\)</span> 满足 <span class="math inline">\(\mathrm{E}(M - N)^2 = \mathrm{Var}(M) + \bigl(\mathrm{E}(M) - N\bigr)^2\)</span>。计算此值，并与 <span class="math inline">\(\mathrm{Var}(Z_1)\)</span> 比较。求使 <span class="math inline">\(\mathrm{E}(cM - N)^2\)</span> 取最小值的常数 <span class="math inline">\(c\)</span>。</p></li>
+<li><p><strong>最小值也可以。</strong>证明 <span class="math inline">\((n + 1)\min\{X_i\}\)</span> 也是 <span class="math inline">\(N\)</span> 的无偏估计量，并求它的方差。这个估计量好用吗？</p></li>
+<li><p><strong>离散公式。</strong>对于序号 <span class="math inline">\(1, \ldots, N\)</span>，以不放回方式抽取 <span class="math inline">\(k\)</span> 个，其中最大者为 <span class="math inline">\(m\)</span>。证明 <span class="math inline">\(\mathrm{P}(\max \leq m) = \binom mk\big/\binom Nk\)</span>，并验证当 <span class="math inline">\(k = 1\)</span> 时 <span class="math inline">\(m + \frac mk - 1\)</span> 是无偏的。</p></li>
+<li><p><strong>坦克。</strong>若 <span class="math inline">\(5\)</span> 辆缴获的坦克的序号为 <span class="math inline">\(19\)</span>、<span class="math inline">\(40\)</span>、<span class="math inline">\(42\)</span>、<span class="math inline">\(60\)</span>、<span class="math inline">\(98\)</span>，试估计坦克的生产数量。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Richard Ruggles &amp; Henry Brodie, “<a href="https://doi.org/10.2307/2280189">An empirical approach to economic intelligence in World War II</a>”</strong>，<em>Journal of the American Statistical Association</em> 42 (1947)。最初的记述。</p></li>
+<li><p><strong>John Rice, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Statistics+and+Data+Analysis+Rice"><em>Mathematical Statistics and Data Analysis</em></a></strong>（Duxbury），论及偏差、方差与充分性。</p></li>
+<li><p><strong>David Spiegelhalter, <a href="https://uk.bookshop.org/search?keywords=The+Art+of+Statistics+Spiegelhalter"><em>The Art of Statistics</em></a></strong>（Pelican）。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="voles.html">← 13.2 计数田鼠</a><a class="next" href="mean-or-median.html">→ 13.4 平均数还是中位数？</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

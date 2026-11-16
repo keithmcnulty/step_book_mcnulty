@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用不公平的硬币作公平的决定 (STEP I 2019 第 11 题) — Beyond STEP</title>
+<meta name="description" content="STEP I 2019 第 11 题：引导式解答及其背后的大学数学。 你要作出一个公平（fair）的决定，但手上唯一的硬币是弯的，而且你不知道它偏差（bias）有多大。这样还能公平地作出选择吗？冯纽曼（John von Neumann）在 1951 年给出的答案是：掷两次。若结果是 HT，就选酒店；若是 TH，就选茶室；若是 HH 或 TT，就再掷两次。由于 HT 和 TH…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/von-neumann.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/von-neumann.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/von-neumann.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/von-neumann.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/von-neumann.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="用不公平的硬币作公平的决定 (STEP I 2019 第 11 题) — Beyond STEP">
+<meta property="og:description" content="STEP I 2019 第 11 题：引导式解答及其背后的大学数学。 你要作出一个公平（fair）的决定，但手上唯一的硬币是弯的，而且你不知道它偏差（bias）有多大。这样还能公平地作出选择吗？冯纽曼（John von Neumann）在 1951 年给出的答案是：掷两次。若结果是 HT，就选酒店；若是 TH，就选茶室；若是 HH 或 TT，就再掷两次。由于 HT 和 TH…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch12/von-neumann.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="用不公平的硬币作公平的决定 (STEP I 2019 第 11 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2019 第 11 题：引导式解答及其背后的大学数学。 你要作出一个公平（fair）的决定，但手上唯一的硬币是弯的，而且你不知道它偏差（bias）有多大。这样还能公平地作出选择吗？冯纽曼（John von Neumann）在 1951 年给出的答案是：掷两次。若结果是 HT，就选酒店；若是 TH，就选茶室；若是 HH 或 TT，就再掷两次。由于 HT 和 TH…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "用不公平的硬币作公平的决定", "headline": "用不公平的硬币作公平的决定", "description": "STEP I 2019 第 11 题：引导式解答及其背后的大学数学。 你要作出一个公平（fair）的决定，但手上唯一的硬币是弯的，而且你不知道它偏差（bias）有多大。这样还能公平地作出选择吗？冯纽曼（John von Neumann）在 1951 年给出的答案是：掷两次。若结果是 HT，就选酒店；若是 TH，就选茶室；若是 HH 或 TT，就再掷两次。由于 HT 和 TH…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/von-neumann.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2019 第 11 题", "概率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/"}, {"@type": "ListItem", "position": 3, "name": "用不公平的硬币作公平的决定", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/von-neumann.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch12/von-neumann.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/von-neumann.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 12 章 · 概率</a>
+    <div class="src">STEP I · 2019 · 第 11 题</div>
+    <div class="sec-head"><span class="sec-num">12.9</span><h1>用不公平的硬币作公平的决定</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-9-von-neumann.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 12 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP I 2019，第 11 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 OCR 提供下载的 2019 年 STEP 试卷（zip 文件）内的 STEP I 试卷： <a href="https://www.ocr.org.uk/Images/696590-2019-past-papers.zip">www.ocr.org.uk/Images/696590-2019-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>你要作出一个公平（fair）的决定，但手上唯一的硬币是弯的，而且你不知道它偏差（bias）有多大。这样还能公平地作出选择吗？冯纽曼（John von Neumann）在 1951 年给出的答案是：掷两次。若结果是 HT，就选酒店；若是 TH，就选茶室；若是 HH 或 TT，就再掷两次。由于 HT 和 TH 的概率（probability）都是 <span class="math inline">\(pq\)</span>，所以不论 <span class="math inline">\(p\)</span> 是多少，这个决定都完全公平。</p>
+<p>本题的程序刚好相反：它在出现 HH 和 TT 时作决定，这样做很快，却不公平（选酒店的概率是 <span class="math inline">\(\frac{p^2}{p^2 + q^2}\)</span>）。本题要证明的是，不论硬币如何，这个程序都不会拖得很久。比较这两个程序，可以看到产生随机性时的一个基本取舍（trade-off）：速度与公平之间的取舍。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>在一轮之中，作出决定的概率是多少？没有决定的概率又是多少？<span class="math inline">\(2pq\)</span> 最大可以取甚么值？</p>
+</div>
+<p>若两枚硬币结果相同，便作出决定，概率是 <span class="math inline">\(p^2 + q^2\)</span>；否则他们继续下去，概率是 <span class="math inline">\(2pq\)</span>。由于 <span class="math inline">\(pq = p(1 - p) \leq \frac14\)</span>（当 <span class="math inline">\(p = \frac12\)</span> 时等号成立），所以 <span class="math inline">\(2pq \leq \frac12\)</span>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-在第-n-轮作出决定" class="stage"><span class="stage-n">阶段 1</span> 在第 <span class="math inline">\(n\)</span> 轮作出决定</h4>
+<p>各轮之间互相独立（independent）。要在第 <span class="math inline">\(n\)</span> 轮作出决定，须先有 <span class="math inline">\(n - 1\)</span> 轮结果不同，然后一轮结果相同： <span class="math display">\[\mathrm{P}(\text{作出决定的轮次为 } n) = (2pq)^{n-1}(p^2 + q^2). \qed\]</span></p>
+<h4 id="stagemark2-在第-n-轮或之前作出决定" class="stage"><span class="stage-n">阶段 2</span> 在第 <span class="math inline">\(n\)</span> 轮或之前作出决定</h4>
+<div class="askyourself">
+<p>在首 <span class="math inline">\(n\)</span> 轮中<em>没有</em>作出决定的概率是多少？</p>
+</div>
+<p><span class="math inline">\(n\)</span> 轮之内没有决定的概率是 <span class="math inline">\((2pq)^n \leq \bigl(\frac12\bigr)^n\)</span>，所以不论 <span class="math inline">\(p\)</span> 是多少，在第 <span class="math inline">\(n\)</span> 轮或之前作出决定的概率至少是 <span class="math inline">\(1 - \frac{1}{2^n}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-三个人" class="stage"><span class="stage-n">阶段 3</span> 三个人</h4>
+<div class="askyourself">
+<p>第一轮出现两个正面和一个反面之后，第三个人把反面翻成正面。第二轮要发生甚么事才会有决定？如果第一轮是两个反面和一个正面呢？</p>
+</div>
+<p>第一轮作出决定的概率是 <span class="math inline">\(p^3 + q^3\)</span>。否则，有两枚硬币结果相同，另一枚不同。若多数是正面（概率为 <span class="math inline">\(3p^2q\)</span>），那枚不同的硬币会被翻成正面，而第二轮要作出决定，就需要另外两人都掷出正面：概率是 <span class="math inline">\(p^2\)</span>（此时已不可能全是反面）。同理，若多数是反面（概率为 <span class="math inline">\(3pq^2\)</span>），要作出决定就需要两个反面：<span class="math inline">\(q^2\)</span>。所以 <span class="math display">\[\mathrm{P}(\text{作出决定的轮次不迟于 } 2) = p^3 + q^3 + 3p^2q\cdot p^2 + 3pq^2\cdot q^2.\]</span></p>
+<div class="askyourself">
+<p>把所有东西用 <span class="math inline">\(s = pq\)</span> 表示。（利用 <span class="math inline">\(p + q = 1\)</span>。）</p>
+</div>
+<p>我们有 <span class="math inline">\(p^3 + q^3 = (p + q)^3 - 3pq(p + q) = 1 - 3s\)</span>，以及 <span class="math inline">\(3p^4q + 3pq^4 = 3s(p^3 + q^3) = 3s(1 - 3s)\)</span>。所以 <span class="math display">\[\mathrm{P} = 1 - 3s + 3s - 9s^2 = 1 - 9s^2 \geq 1 - \frac{9}{16} = \frac{7}{16},\]</span> 因为 <span class="math inline">\(s \leq \frac14\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>补事件（complement）。</strong>“在第 <span class="math inline">\(n\)</span> 轮或之前至少发生一次”最容易的算法是 <span class="math inline">\(1 -\)</span>（“<span class="math inline">\(n\)</span> 轮之内从未发生”）。</p></li>
+<li><p><strong>为最坏情况定界。</strong>未知的 <span class="math inline">\(p\)</span> 是靠不等式（inequality）<span class="math inline">\(pq \leq \frac14\)</span> 来处理的。</p></li>
+<li><p><strong>对称函数（symmetric functions）。</strong>对 <span class="math inline">\(p\)</span> 和 <span class="math inline">\(q\)</span> 对称的式子，用 <span class="math inline">\(p + q = 1\)</span> 和 <span class="math inline">\(pq\)</span> 来表示时便会简化。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="冯纽曼的妙计">冯纽曼的妙计</h3>
+<p>题目中的程序很快，但有偏差。冯纽曼的程序则是公平的：掷两次，出现 HT 或 TH 就作决定，出现 HH 或 TT 就重复。每次尝试成功的概率是 <span class="math inline">\(2pq\)</span>，所以平均需要 <span class="math inline">\(\frac{1}{2pq}\)</span> 次尝试；当硬币偏差很大时，这会很慢（图 12.9.1）。题目的程序每轮作出决定的概率是 <span class="math inline">\(p^2 + q^2 \geq \frac12\)</span>，但当 <span class="math inline">\(p &gt; \frac12\)</span> 时，它的结果偏向酒店。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-9-1.svg" alt="图 12.9.1"><figcaption><span class="fig-label">图 12.9.1</span> 选中酒店的概率，对应硬币的偏差。在两枚硬币结果相同时作决定（紫红色）很快，但偏向较可能出现的一面。冯纽曼的程序（蓝绿色）对每一个 <span class="math inline">\(p\)</span> 都完全公平，代价是当硬币偏差很大时需时较长。</figcaption></figure>
+<h3 id="提取随机性">提取随机性</h3>
+<p>冯纽曼的妙计是第一个<em>随机性提取器</em>（randomness extractor）：一种把不完美的随机性变成完美随机性的程序。它浪费很多（每两次投掷最多只得到一个公平的位元，而且往往一个也得不到）；更好的方法会把被弃掉的 HH 和 TT 重新利用，从而提取硬币所含的几乎全部随机性，而这随机性的多少是用硬币的<em>熵</em>（entropy）来量度的，即每次投掷 <span class="math inline">\(-p\log_2p - q\log_2q\)</span> 个位元。提取器用于电脑的硬件随机数产生器：这些产生器收集不可预测但有偏差的物理杂讯，并必须把它变成无偏差的位元，供密码学（cryptography）使用。</p>
+<div class="historybox">
+<div class="box-title">冯纽曼与随机数</div>
+<p>冯纽曼在 1951 年的论文“Various techniques used in connection with random digits”中描述了这个妙计。当时他和同事正在为设计核武器而进行一些最早期的电脑模拟（即“蒙地卡罗方法”（Monte Carlo method））。在同一篇论文中，他就用算术方法产生随机数说了一句名言：“任何人若考虑用算术方法来产生随机数字，当然就是身处罪恶之中。”</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">利用对称性消去未知量</div>
+<p><em>当某个参数未知时，找出那些不论参数取何值、概率都相等的事件，并以它们作为决定的依据。</em></p>
+<p>HT 和 TH 有相同的概率 <span class="math inline">\(pq\)</span>，所以比较这两者就把 <span class="math inline">\(p\)</span> 完全消去了。在大学里，同样的想法在统计学中以<em>枢轴量</em>（pivotal quantities）的形式出现，也出现于实验设计之中：在那里，随机化（randomisation）和对称性会把未知的效应抵消掉。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>轮数的期望值。</strong>求第 (i) 部分的程序所需轮数的期望值（expected number），以及冯纽曼的程序所需轮数的期望值。对哪些 <span class="math inline">\(p\)</span> 而言，冯纽曼的程序较慢？</p></li>
+<li><p><strong>公平的三选一。</strong>利用一枚有偏差的硬币，设计一个程序，从三个选项中选出一个，使每个选项的概率都恰好是 <span class="math inline">\(\frac13\)</span>。</p></li>
+<li><p><strong>用公平硬币造出有偏差的骰子。</strong>利用一枚公平的硬币，设计一个程序，模拟一枚掷出正面的概率恰好是 <span class="math inline">\(\frac13\)</span> 的硬币。所需投掷次数的期望值是多少？</p></li>
+<li><p><strong>再看三个人。</strong>在第 (ii) 部分中，他们去酒店的概率是多少？请以 <span class="math inline">\(p\)</span> 的函数表示。当 <span class="math inline">\(p = \frac12\)</span> 时，这个程序公平吗？</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>John von Neumann，“Various techniques used in connection with random digits”</strong>，<em>National Bureau of Standards Applied Mathematics Series</em> 12 (1951)。篇幅短小而著名。</p></li>
+<li><p><strong>Donald Knuth，<a href="https://uk.bookshop.org/search?keywords=The+Art+of+Computer+Programming+Knuth"><em>The Art of Computer Programming</em></a>, Vol. 2</strong>（Addison-Wesley），第 3 章，论随机数。</p></li>
+<li><p><strong>Michael Mitzenmacher &amp; Eli Upfal，<a href="https://uk.bookshop.org/search?keywords=Probability+and+Computing+Mitzenmacher+Upfal"><em>Probability and Computing</em></a></strong>（Cambridge University Press），论提取随机性与熵。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="penney.html">← 12.8 Penney 游戏</a><a class="next" href="loose-ends.html">→ 12.10 把绳头系起来</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 12 章：概率 — Beyond STEP</title>
+<meta name="description" content="五个主题：清晰思考、对称、期望值与博弈、随机过程，以及极限。">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 12 章：概率 — Beyond STEP">
+<meta property="og:description" content="五个主题：清晰思考、对称、期望值与博弈、随机过程，以及极限。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch12/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 12 章：概率 — Beyond STEP">
+<meta name="twitter:description" content="五个主题：清晰思考、对称、期望值与博弈、随机过程，以及极限。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 12, "name": "概率", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "五个主题：清晰思考、对称、期望值与博弈、随机过程，以及极限。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 12 章：概率", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch12/"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch12/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">12</div>
+    <h1>概率</h1>
+    <p class="strap">不确定的事情，可以精确地推理。直觉呢，原来不行。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下载整章</span><span class="dl-sub">PDF，专为列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="conditioning.html"><span class="toc-num">12.1</span>
+<span class="toc-title">精确地取条件</span>
+<span class="toc-src">STEP I 2007</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-1-conditioning.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="base-rate.html"><span class="toc-num">12.2</span>
+<span class="toc-title">基本比率谬误</span>
+<span class="toc-src">STEP II 1998</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-2-base-rate.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="bertrand.html"><span class="toc-num">12.3</span>
+<span class="toc-title">“随机”是甚么意思？</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-3-bertrand.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="pairwise-independence.html"><span class="toc-num">12.4</span>
+<span class="toc-title">两两独立，却非相互独立</span>
+<span class="toc-src">STEP III 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-4-pairwise-independence.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="airline-seat.html"><span class="toc-num">12.5</span>
+<span class="toc-title">最后一位乘客的座位</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-5-airline-seat.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="one-more-coin.html"><span class="toc-num">12.6</span>
+<span class="toc-title">多一枚硬币</span>
+<span class="toc-src">STEP I 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-6-one-more-coin.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="knockout.html"><span class="toc-num">12.7</span>
+<span class="toc-title">淘汰赛中谁会遇上谁</span>
+<span class="toc-src">STEP II Specimen paper</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-7-knockout.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="penney.html"><span class="toc-num">12.8</span>
+<span class="toc-title">Penney 游戏</span>
+<span class="toc-src">STEP III 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-8-penney.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="von-neumann.html"><span class="toc-num">12.9</span>
+<span class="toc-title">用不公平的硬币作公平的决定</span>
+<span class="toc-src">STEP I 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-9-von-neumann.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="loose-ends.html"><span class="toc-num">12.10</span>
+<span class="toc-title">把绳头系起来</span>
+<span class="toc-src">STEP III 2008</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-10-loose-ends.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="stamps-and-e.html"><span class="toc-num">12.11</span>
+<span class="toc-title">邮票、杯子与 \(e\)</span>
+<span class="toc-src">STEP I 1996</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-11-stamps-and-e.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="secretary.html"><span class="toc-num">12.12</span>
+<span class="toc-title">何时停止寻找</span>
+<span class="toc-src">STEP I 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-12-secretary.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="truel.html"><span class="toc-num">12.13</span>
+<span class="toc-title">三人决斗</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-13-truel.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="mixed-strategies.html"><span class="toc-num">12.14</span>
+<span class="toc-title">混合策略</span>
+<span class="toc-src">STEP I 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-14-mixed-strategies.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="branching.html"><span class="toc-num">12.15</span>
+<span class="toc-title">灭绝还是爆发</span>
+<span class="toc-src">STEP II 2003</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-15-branching.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="markov.html"><span class="toc-num">12.16</span>
+<span class="toc-title">顺向与逆向的马可夫链</span>
+<span class="toc-src">STEP III 1996</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-16-markov.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="matchboxes.html"><span class="toc-num">12.17</span>
+<span class="toc-title">巴拿赫的火柴盒</span>
+<span class="toc-src">STEP II 1992</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-17-matchboxes.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="memoryless.html"><span class="toc-num">12.18</span>
+<span class="toc-title">无记忆性</span>
+<span class="toc-src">STEP III 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-18-memoryless.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="spatial-poisson.html"><span class="toc-num">12.19</span>
+<span class="toc-title">平面上的随机点</span>
+<span class="toc-src">STEP II 2012</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-19-spatial-poisson.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="buffon.html"><span class="toc-num">12.20</span>
+<span class="toc-title">蒲丰投针</span>
+<span class="toc-src">STEP I 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-20-buffon.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="broken-stick.html"><span class="toc-num">12.21</span>
+<span class="toc-title">折断一根棒</span>
+<span class="toc-src">STEP III 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-21-broken-stick.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="cauchy.html"><span class="toc-num">12.22</span>
+<span class="toc-title">没有平均值的分布</span>
+<span class="toc-src">STEP III 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-22-cauchy.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="stirling-probability.html"><span class="toc-num">12.23</span>
+<span class="toc-title">由概率得出斯特灵公式</span>
+<span class="toc-src">STEP II 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-23-stirling-probability.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="clt.html"><span class="toc-num">12.24</span>
+<span class="toc-title">中心极限定理</span>
+<span class="toc-src">STEP III 2008</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-24-clt.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="extremes.html"><span class="toc-num">12.25</span>
+<span class="toc-title">众多之中的最大值</span>
+<span class="toc-src">STEP III 2025</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-25-extremes.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顾：我们学到了甚么</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“延伸练习”答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 12 章  \(\cdot\)  引言</div>
+    <h1 class="essay-title">机会的推理</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>概率论不过是化为计算的常识而已。</p>
+<p class="who">— 拉普拉斯（Pierre-Simon Laplace），<em>Théorie analytique des probabilités</em>（1812）</p>
+</div>
+<p>拉普拉斯这句名言只说对了一半。概率（probability）确实是精确化了的常识；但正如本章一再显示的，任由常识自行其是，就会出错。人们以为，罕见疾病的检测结果呈阳性，就表示你很可能患了病；以为第二位登机的乘客，处境和最后一位同样糟糕；以为一串掷硬币的结果，不可能胜过另一串同样长度的结果；以为多次量度的平均值总会稳定下来。这些全都是错的，而每一次只需简短的计算，便能揭示真相，更可贵的是，还能揭示当中的原因。</p>
+<p>概率始于十七世纪有关赌博的问题，见于帕斯卡（Blaise Pascal）与费马（Pierre de Fermat）之间的书信。直到 1933 年，柯尔莫哥洛夫（Andrey Kolmogorov）订立了它的公理（axiom），概率才成为严格数学的一个分支。在这期间以及其后，它已发展成数学中应用最广的部分之一。</p>
+<h3 id="概率为何重要">概率为何重要</h3>
+<p>凡是要处理不确定性的领域，都用到概率：医学（诊断检测与临床试验）、法律（证据的分量）、金融（风险与保险）、工程（可靠性与洪水）、电脑科学（随机化算法、密码学、机器学习）、物理（量子力学与统计力学）以及生物学（遗传学与流行病）。现代人工智能在很大程度上就是应用概率：语言模型所做的，是预测下一个字词出现的概率。而能够正确地就风险、机会和证据进行推理，是任何受过教育的人所能拥有的最宝贵技能之一。</p>
+<h3 id="你在大学会遇到甚么">你在大学会遇到甚么</h3>
+<p>大学一年级的概率课程涵盖公理、条件概率（conditional probability）与贝叶斯定理（Bayes’ theorem）、独立性（independence）、离散与连续随机变量（random variable）、期望值（expectation）与方差（variance）、母函数（generating function），以及两大极限定理（limit theorem）：大数定律（law of large numbers）和中心极限定理（central limit theorem）。其后的课程会研究随机过程（random process），包括马可夫链（Markov chain）、泊松过程（Poisson process）、随机漫步（random walk）和分支过程（branching process），也会研究测度论概率（measure-theoretic probability，它为极限和连续分布奠定稳固的基础）和鞅（martingale），并把概率与统计学、分析、组合数学和物理联系起来。</p>
+<h3 id="贯穿本章的问题">贯穿本章的问题</h3>
+<div class="skillbox">
+<div class="box-title">三个大问题</div>
+<ol class="arabic">
+<li><p><strong>问题究竟在问甚么？</strong>随机试验（random experiment）是甚么？以甚么为条件？“随机”又是甚么意思？</p></li>
+<li><p><strong>巧妙的切入点在哪里？</strong>甚么时候可以用对称性（symmetry）、指示变量（indicator）、取条件（conditioning）或精心选定的状态，来取代冗长的计算？</p></li>
+<li><p><strong>长远而言会怎样？</strong>随机过程随时间如何演变？许多随机量的和、平均值和最大值又是甚么模样？</p></li>
+</ol>
+</div>
+<p>本章分为五部分。<em>清晰思考</em>（<a href="../ch12/conditioning.html">第 12.1 节</a> 至 <a href="../ch12/pairwise-independence.html">第 12.4 节</a>）处理各种陷阱：取条件、基础比率（base rate）、“随机”的含义，以及独立的含义。<em>对称性与巧妙论证</em>（<a href="../ch12/airline-seat.html">第 12.5 节</a> 至 <a href="../ch12/von-neumann.html">第 12.9 节</a>）收集了一些解法既短且美的问题。<em>期望值、博弈与停止</em>（<a href="../ch12/loose-ends.html">第 12.10 节</a> 至 <a href="../ch12/mixed-strategies.html">第 12.14 节</a>）转向平均值与决策：何时停止、向谁开枪、怎样随机化。<em>随机过程</em>（<a href="../ch12/branching.html">第 12.15 节</a> 至 <a href="../ch12/spatial-poisson.html">第 12.19 节</a>）追踪随机性在时间和空间中的表现。而<em>极限与连续概率</em>（<a href="../ch12/buffon.html">第 12.20 节</a> 至 <a href="../ch12/extremes.html">第 12.25 节</a>）则以几何概率（geometric probability）和几个重要的极限定理作结。</p>
+<h3 id="本章的思想">本章的思想</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">课题</th>
+<th style="text-align: left;">思想</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">12.1</td>
+<td style="text-align: left;">取条件</td>
+<td style="text-align: left;">“指定的一个”与“至少一个”之别</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.2</td>
+<td style="text-align: left;">贝叶斯定理</td>
+<td style="text-align: left;">基础比率与自然频率（natural frequency）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.3</td>
+<td style="text-align: left;">贝特朗悖论（Bertrand’s paradox）</td>
+<td style="text-align: left;">“随机”需要定义</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.4</td>
+<td style="text-align: left;">独立性</td>
+<td style="text-align: left;">两两独立（pairwise independent）不等于相互独立（mutually independent）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.5</td>
+<td style="text-align: left;">飞机座位</td>
+<td style="text-align: left;">两个座位之间的对称性</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.6</td>
+<td style="text-align: left;">多一枚硬币</td>
+<td style="text-align: left;">互补而对称的事件</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.7</td>
+<td style="text-align: left;">锦标赛</td>
+<td style="text-align: left;">数算比赛场数与配对</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.8</td>
+<td style="text-align: left;">彭尼博弈（Penney’s game）</td>
+<td style="text-align: left;">首步分析（first-step analysis）；非传递性（non-transitivity）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.9</td>
+<td style="text-align: left;">公平硬币</td>
+<td style="text-align: left;">从偏差中提取公平</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.10</td>
+<td style="text-align: left;">随机环圈</td>
+<td style="text-align: left;">无记忆的指示变量之和</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.11</td>
+<td style="text-align: left;">杯子与 <span class="math inline">\(e\)</span></td>
+<td style="text-align: left;">阶乘（factorial）与指数级数（exponential series）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.12</td>
+<td style="text-align: left;">最优停止（optimal stopping）</td>
+<td style="text-align: left;"><span class="math inline">\(\frac1e\)</span> 法则</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.13</td>
+<td style="text-align: left;">三人决斗（truel）</td>
+<td style="text-align: left;">策略上的弱势</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.14</td>
+<td style="text-align: left;">博弈论（game theory）</td>
+<td style="text-align: left;">随机化策略；极小化极大（minimax）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.15</td>
+<td style="text-align: left;">分支过程</td>
+<td style="text-align: left;">灭绝作为不动点（fixed point）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.16</td>
+<td style="text-align: left;">马可夫链</td>
+<td style="text-align: left;">平稳分布（stationary distribution）；逆转</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.17</td>
+<td style="text-align: left;">巴拿赫（Banach）的火柴盒</td>
+<td style="text-align: left;">负二项分布（negative binomial distribution）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.18</td>
+<td style="text-align: left;">指数分布（exponential distribution）</td>
+<td style="text-align: left;">无记忆性（memorylessness）与独立性</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.19</td>
+<td style="text-align: left;">空间随机性</td>
+<td style="text-align: left;">最近邻；瑞利（Rayleigh）分布</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.20</td>
+<td style="text-align: left;">蒲丰投针（Buffon’s needle）</td>
+<td style="text-align: left;">几何概率与 <span class="math inline">\(\pi\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.21</td>
+<td style="text-align: left;">随机三角形</td>
+<td style="text-align: left;">以面积表示概率</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.22</td>
+<td style="text-align: left;">柯西分布（Cauchy distribution）</td>
+<td style="text-align: left;">没有平均值的分布</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.23</td>
+<td style="text-align: left;">斯特灵公式（Stirling’s formula）</td>
+<td style="text-align: left;">由正态曲线（normal curve）得出阶乘</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.24</td>
+<td style="text-align: left;">中心极限定理</td>
+<td style="text-align: left;">矩母函数（moment generating function）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.25</td>
+<td style="text-align: left;">极值（extreme value）</td>
+<td style="text-align: left;">冈贝尔分布（Gumbel distribution）</td>
+</tr>
+</tbody>
+</table></div>
+<p>其中一节，即 <a href="../ch12/clt.html">第 12.24 节</a>，用到矩母函数，而矩母函数已于 2019 年从 STEP 考试范围中删去；该节会解释所需的内容。</p>
+<h3 id="怎样阅读本章">怎样阅读本章</h3>
+<p>当一道概率题令人摸不着头脑时，不妨就一个细小的情况写出样本空间（sample space），然后逐一计数。当答案简单得令人起疑时，就去找出解释它的对称性。而当你的直觉与计算结果不一致时，请相信计算，然后弄清楚直觉为何出错：真正的学习正在于此。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="conditioning.html">→ 开始： 12.1 精确地取条件</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

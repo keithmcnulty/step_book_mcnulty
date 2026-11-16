@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 4 章：严谨的微积分 — Beyond STEP</title>
+<meta name="description" content="由积分的定义出发，经过用积分作证明的题目，再到几何与变分法。">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第 4 章：严谨的微积分 — Beyond STEP">
+<meta property="og:description" content="由积分的定义出发，经过用积分作证明的题目，再到几何与变分法。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch04/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第 4 章：严谨的微积分 — Beyond STEP">
+<meta name="twitter:description" content="由积分的定义出发，经过用积分作证明的题目，再到几何与变分法。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 4, "name": "严谨的微积分", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "由积分的定义出发，经过用积分作证明的题目，再到几何与变分法。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 4 章：严谨的微积分", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch04/"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch04/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch04/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">4</div>
+    <h1>严谨的微积分</h1>
+    <p class="strap">积分是分析、几何与数论交汇之处，数学中一些最优美的公式亦在此诞生。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">下载整章</span><span class="dl-sub">PDF，专为列印而排版</span></span></a>
+  </div>
+  <h2 class="contents-head">本章内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="riemann.html"><span class="toc-num">4.1</span>
+<span class="toc-title">甚么是积分？</span>
+<span class="toc-src">STEP III 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-1-riemann.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="trig-from-integral.html"><span class="toc-num">4.2</span>
+<span class="toc-title">由一个积分建立三角学</span>
+<span class="toc-src">STEP III 2017</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-2-trig-from-integral.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="twenty-two-sevenths.html"><span class="toc-num">4.3</span>
+<span class="toc-title">\(22/7\) 大于 \(\pi\)</span>
+<span class="toc-src">STEP I 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-3-twenty-two-sevenths.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="wallis-beta.html"><span class="toc-num">4.4</span>
+<span class="toc-title">沃利斯、Beta 与二分之一的阶乘</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-4-wallis-beta.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="sophomores-dream.html"><span class="toc-num">4.5</span>
+<span class="toc-title">大二学生之梦</span>
+<span class="toc-src">STEP III 2009</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-5-sophomores-dream.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="no-formula.html"><span class="toc-num">4.6</span>
+<span class="toc-title">没有公式的积分</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-6-no-formula.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="variations.html"><span class="toc-num">4.7</span>
+<span class="toc-title">变分法</span>
+<span class="toc-src">STEP III 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-7-variations.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="spherical-loaf.html"><span class="toc-num">4.8</span>
+<span class="toc-title">切球形面包</span>
+<span class="toc-src">STEP I 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-8-spherical-loaf.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="holditch.html"><span class="toc-num">4.9</span>
+<span class="toc-title">Holditch 定理</span>
+<span class="toc-src">STEP III 2011</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-9-holditch.pdf" download title="工作纸 PDF">工作纸</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">回顾：我们学到了甚么</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“延伸练习”答案</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第 4 章  \(\cdot\)  引言</div>
+    <h1 class="essay-title">不只是原函数</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>那些没有导数的函数，实在是可悲的祸害，我怀着惊恐与厌恶避之则吉。</p>
+<p class="who">— 埃尔米特（Charles Hermite），1893 年的一封信</p>
+</div>
+<p>问一位中学生积分（integration）是甚么，你多半会听到“微分的逆运算”。这是个了不起的事实，称为<em>微积分基本定理</em>（fundamental theorem of calculus），它令你在中学遇到的大部分积分都变成例行公事。但它是一条关于积分的定理，而不是积分的定义，而且它把积分之所以有趣的大部分原因都遮盖了。</p>
+<p>积分比微分（differentiation）早出现约二千年。阿基米德（Archimedes）把图形切成薄片再求和，求出了抛物线弓形的面积和球的表面积，那时还远远未有人想到导数（derivative）。而且积分能到达微分无法到达的地方。每个合理的函数都可以按机械式的法则求导，但大多数函数却<em>无法</em>用公式积分出来，这就引出一个自然的问题：甚么时候可以？不可以的时候又该怎么办？积分可以定义新的函数，证明数与数之间的不等式，计算无法用其他方式描述的面积和体积，还能给出无穷和与无穷乘积的精确值。本章谈的就是这一切。</p>
+<h3 id="积分究竟是甚么">积分究竟是甚么</h3>
+<p>本章从头说起，由定义开始（<a href="../ch04/riemann.html">第 4.1 节</a>）。积分是许多幼长矩形之和的极限（limit）；单凭这个定义、不用原函数（antiderivative）去计算 <span class="math inline">\(\int_0^a x^5\,\mathrm{d}x\)</span>，已是相当费工夫的事，而这会令你懂得珍惜基本定理。有了精确的定义，随之而来的是一个精确的问题：哪些函数是可积（integrable）的？这个问题的答案，以及它所引发的种种难题，在二十世纪初催生了勒贝格（Lebesgue）的积分理论，那正是现代概率论的基础。</p>
+<h3 id="用来证明的积分">用来证明的积分</h3>
+<p>本章一些最出人意表的结果，是用积分去证明一些看来与面积毫无关系的事实。某个正值函数的积分恰好等于 <span class="math inline">\(\frac{22}{7} - \pi\)</span>，于是一行就证明了 <span class="math inline">\(\pi &lt; \frac{22}{7}\)</span>（<a href="../ch04/twenty-two-sevenths.html">第 4.3 节</a>）。<span class="math inline">\(\sin t\)</span> 的幂引出沃利斯（Wallis）关于 <span class="math inline">\(\pi\)</span> 的无穷乘积（infinite product），以及 <span class="math inline">\(\left(\frac12\right)! = \frac{\sqrt\pi}{2}\)</span> 这个值（<a href="../ch04/wallis-beta.html">第 4.4 节</a>）。<span class="math inline">\(x^x\)</span> 的积分化成了和式 <span class="math inline">\(\sum (-1)^{n+1}n^{-n}\)</span>（<a href="../ch04/sophomores-dream.html">第 4.5 节</a>）。而仅仅一个积分 <span class="math inline">\(\int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span>，就足以从零开始建立整套三角学（<a href="../ch04/trig-from-integral.html">第 4.2 节</a>）。</p>
+<h3 id="你在大学会遇到甚么">你在大学会遇到甚么</h3>
+<p>大学一年级的<em>分析</em>（Analysis）课程会从积分的定义出发，严格证明微积分基本定理。其后的课程向多个方向发展。<em>测度论</em>（measure theory）和<em>勒贝格积分</em>（Lebesgue integral）令积分与极限配合得顺畅无碍，并且是概率论的根基。<em>向量微积分</em>（vector calculus）在曲线、曲面和立体上积分，而格林（Green）定理和斯托克斯（Stokes）定理则把它们联系起来（<a href="../ch04/holditch.html">第 4.9 节</a> 可让你浅尝一下）。<em>复分析</em>（complex analysis）取道复平面来计算实积分。<em>变分法</em>（calculus of variations）问的是哪个函数令某个积分尽可能小（<a href="../ch04/variations.html">第 4.7 节</a>），并由此通向物理学中的最小作用量原理（principle of least action）。而<em>微分代数</em>（differential algebra）则解释了哪些积分根本有公式可言（<a href="../ch04/no-formula.html">第 4.6 节</a>）。</p>
+<h3 id="贯穿本章的问题">贯穿本章的问题</h3>
+<div class="skillbox">
+<div class="box-title">三大问题</div>
+<ol class="arabic">
+<li><p><strong>积分是甚么？哪些函数有积分？</strong>以和的极限作出的定义，与原函数有何关连？</p></li>
+<li><p><strong>积分能证明甚么？</strong>一块面积怎能告诉我们有关 <span class="math inline">\(\pi\)</span>、阶乘和无穷和的事？</p></li>
+<li><p><strong>没有公式的时候，我们可以做甚么？</strong>我们怎样知道某个积分没有公式？即使如此，我们还能算出甚么？</p></li>
+</ol>
+</div>
+<h3 id="本章的思想">本章的思想</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">课题</th>
+<th style="text-align: left;">思想</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">4.1</td>
+<td style="text-align: left;">积分的定义</td>
+<td style="text-align: left;">下和与上和（lower and upper sums）；裂项相消（telescoping）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.2</td>
+<td style="text-align: left;">由 <span class="math inline">\(\int \frac{\mathrm{d}u}{1+u^2}\)</span> 建立三角学</td>
+<td style="text-align: left;">保持积分不变的代换（substitution）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.3</td>
+<td style="text-align: left;"><span class="math inline">\(\frac{22}{7} &gt; \pi\)</span></td>
+<td style="text-align: left;">把不等式写成某个正值量的积分</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.4</td>
+<td style="text-align: left;">沃利斯与 <span class="math inline">\(\left(\frac12\right)!\)</span></td>
+<td style="text-align: left;">递降公式（reduction formulae）、不变量（invariant）、夹逼（squeeze）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.5</td>
+<td style="text-align: left;"><span class="math inline">\(\int_0^1 x^x\,\mathrm{d}x\)</span></td>
+<td style="text-align: left;">级数展开与逐项积分（term-by-term integration）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.6</td>
+<td style="text-align: left;">没有公式的积分</td>
+<td style="text-align: left;">藉多项式代数证明不可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.7</td>
+<td style="text-align: left;">变分法</td>
+<td style="text-align: left;">在积分之内配方（completing the square）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.8</td>
+<td style="text-align: left;">阿基米德的帽盒定理（hat-box theorem）</td>
+<td style="text-align: left;">化简被积函数（integrand），几何意义随之显现</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.9</td>
+<td style="text-align: left;">霍尔迪奇（Holditch）定理</td>
+<td style="text-align: left;">由边界积分求面积；消元（elimination）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="如何阅读本章">如何阅读本章</h3>
+<p>有好几节涉及繁重但例行的计算：多项式除法、分部积分法（integration by parts）、展开乘积。请先拿起纸笔亲自做一遍，然后才阅读正文。接着找出令计算得以成功的那个思想：一个不变量、一种对称、一次相消。计算是考官要检查的东西；思想才是你会记住并再次运用的东西。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="riemann.html">→ 开始： 4.1 甚么是积分？</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

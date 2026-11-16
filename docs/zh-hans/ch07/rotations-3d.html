@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三维空间中的旋转 (STEP III 2022 第 7 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2022 第 7 题：引导式解答及其背后的大学数学。 在二维空间中，旋转（rotation）一个点很容易：乘以 e^iθ 便可。到了三维空间，事情就困难得多。没有一个复数可以让我们直接相乘，绕不同轴的旋转不可交换（commute），而要写出“绕通过 (1, 2, 2) 的轴旋转 37^circ ”的矩阵，看来更是令人却步。 本题利用叉积（cross…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/rotations-3d.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="三维空间中的旋转 (STEP III 2022 第 7 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2022 第 7 题：引导式解答及其背后的大学数学。 在二维空间中，旋转（rotation）一个点很容易：乘以 e^iθ 便可。到了三维空间，事情就困难得多。没有一个复数可以让我们直接相乘，绕不同轴的旋转不可交换（commute），而要写出“绕通过 (1, 2, 2) 的轴旋转 37^circ ”的矩阵，看来更是令人却步。 本题利用叉积（cross…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch07/rotations-3d.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="三维空间中的旋转 (STEP III 2022 第 7 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2022 第 7 题：引导式解答及其背后的大学数学。 在二维空间中，旋转（rotation）一个点很容易：乘以 e^iθ 便可。到了三维空间，事情就困难得多。没有一个复数可以让我们直接相乘，绕不同轴的旋转不可交换（commute），而要写出“绕通过 (1, 2, 2) 的轴旋转 37^circ ”的矩阵，看来更是令人却步。 本题利用叉积（cross…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "三维空间中的旋转", "headline": "三维空间中的旋转", "description": "STEP III 2022 第 7 题：引导式解答及其背后的大学数学。 在二维空间中，旋转（rotation）一个点很容易：乘以 e^iθ 便可。到了三维空间，事情就困难得多。没有一个复数可以让我们直接相乘，绕不同轴的旋转不可交换（commute），而要写出“绕通过 (1, 2, 2) 的轴旋转 37^circ ”的矩阵，看来更是令人却步。 本题利用叉积（cross…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/rotations-3d.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2022 第 7 题", "线性代数与几何"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "线性代数与几何", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 7 章：线性代数与几何", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/"}, {"@type": "ListItem", "position": 3, "name": "三维空间中的旋转", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/rotations-3d.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch07/rotations-3d.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/rotations-3d.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 7 章 · 线性代数与几何</a>
+    <div class="src">STEP III · 2022 · 第 7 题</div>
+    <div class="sec-head"><span class="sec-num">7.5</span><h1>三维空间中的旋转</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-5-rotations-3d.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 7 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2022，第 7 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 OCR 提供下载的 2022 年 STEP 试卷（zip 文件）内的 STEP III 试卷： <a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">www.ocr.org.uk/Images/696587-2022-past-papers.zip</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>在二维空间中，旋转（rotation）一个点很容易：乘以 <span class="math inline">\(e^{\mathrm{i}\theta}\)</span> 便可。到了三维空间，事情就困难得多。没有一个复数可以让我们直接相乘，绕不同轴的旋转不可交换（commute），而要写出“绕通过 <span class="math inline">\((1, 2, 2)\)</span> 的轴旋转 <span class="math inline">\(37^\circ\)</span>”的矩阵，看来更是令人却步。</p>
+<p>本题利用叉积（cross product），为任意的轴和任意的角构造出这个矩阵。所得的结果就是<em>罗德里格旋转公式</em>（Rodrigues’ rotation formula），由罗德里格（Olinde Rodrigues）于 1840 年发表。机械人技术、电脑图像和太空船导航每天都用到它，而它亦揭示了一个优美的事实：与 <span class="math inline">\(\mathbf{n}\)</span> 作叉积，就是“绕 <span class="math inline">\(\mathbf{n}\)</span> 旋转 <span class="math inline">\(90^\circ\)</span>”，而每一个绕 <span class="math inline">\(\mathbf{n}\)</span> 的旋转都由它构成，正如 <span class="math inline">\(e^{\mathrm{i}\theta} = \cos\theta + \mathrm{i}\sin\theta\)</span> 是由乘以 <span class="math inline">\(\mathrm{i}\)</span> 构成一样。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>当 <span class="math inline">\(\mathbf{r}\)</span> 垂直于 <span class="math inline">\(\mathbf{n}\)</span> 时，<span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span> 在几何上是甚么样子？当 <span class="math inline">\(\mathbf{r}\)</span> 平行于 <span class="math inline">\(\mathbf{n}\)</span> 时又如何？</p>
+</div>
+<p>若 <span class="math inline">\(\mathbf{r} \parallel \mathbf{n}\)</span>，则 <span class="math inline">\(\mathbf{n} \times \mathbf{r} = \mathbf{0}\)</span>。若 <span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span>，则 <span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span> 的长度与 <span class="math inline">\(\mathbf{r}\)</span> 相同（因为 <span class="math inline">\(|\mathbf{n}| = 1\)</span>，而夹角是 <span class="math inline">\(90^\circ\)</span>），与两者皆垂直，而且根据右手定则（right-hand rule），它就是 <span class="math inline">\(\mathbf{r}\)</span> 绕 <span class="math inline">\(\mathbf{n}\)</span> 逆时针旋转 <span class="math inline">\(90^\circ\)</span> 的结果（沿 <span class="math inline">\(\mathbf{n}\)</span> 向下看）。因此 <span class="math inline">\(\mathrm{f}\)</span> 消去 <span class="math inline">\(\mathbf{r}\)</span> 沿 <span class="math inline">\(\mathbf{n}\)</span> 方向的分量（component），并把垂直的分量旋转 <span class="math inline">\(90^\circ\)</span>。这幅图像足以解释整条题目。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-作两次叉积" class="stage"><span class="stage-n">阶段 1</span> 作两次叉积</h4>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{r}) = \mathbf{n} \times \mathbf{r} = (bz - cy,\ cx - az,\ ay - bx)\)</span>。再与 <span class="math inline">\(\mathbf{n} = (a, b, c)\)</span> 作一次叉积，<span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r}))\)</span> 的 <span class="math inline">\(x\)</span> 分量是 <span class="math display">\[b(ay - bx) - c(cx - az) = -x(b^2 + c^2) + aby + acz. \qed\]</span> 由于 <span class="math inline">\(a^2 + b^2 + c^2 = 1\)</span>，上式等于 <span class="math inline">\(-x(1 - a^2) + aby + acz = a(ax + by + cz) - x\)</span>，这正是 <span class="math inline">\((\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span> 的 <span class="math inline">\(x\)</span> 分量。其余分量可由对称性得出，所以 <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = (\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>设 <span class="math inline">\(\mathbf{r} = \mathbf{r}_\parallel + \mathbf{r}_\perp\)</span>，其中 <span class="math inline">\(\mathbf{r}_\parallel = (\mathbf{n}.\mathbf{r})\mathbf{n}\)</span> 是沿 <span class="math inline">\(\mathbf{n}\)</span> 方向的分量。用这两部分表示，<span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r}))\)</span> 是甚么？</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = \mathbf{r}_\parallel - \mathbf{r} = -\mathbf{r}_\perp\)</span>。施行 <span class="math inline">\(\mathrm{f}\)</span> 两次，会消去平行的部分，并把垂直的部分绕 <span class="math inline">\(\mathbf{n}\)</span> 旋转 <span class="math inline">\(180^\circ\)</span>，亦即把它反向（图 7.5.1）。这就是 <span class="math inline">\(\mathrm{i}^2 = -1\)</span> 的类比。</p>
+<h4 id="stagemark2-旋转" class="stage"><span class="stage-n">阶段 2</span> 旋转</h4>
+<div class="askyourself">
+<p>计算 <span class="math inline">\(\mathrm{g}(\mathbf{n})\)</span>。然后对于 <span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span> 的情况计算 <span class="math inline">\(\mathrm{g}(\mathbf{r})\)</span>，并利用 <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = -\mathbf{r}\)</span> 对这样的 <span class="math inline">\(\mathbf{r}\)</span> 成立这一点。</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{n}) = \mathbf{n} \times \mathbf{n} = \mathbf{0}\)</span>，所以 <span class="math inline">\(\mathrm{g}(\mathbf{n}) = \mathbf{n}\)</span>：轴保持不动。若 <span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span>，则 <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = -\mathbf{r}\)</span>，于是 <span class="math display">\[\mathrm{g}(\mathbf{r}) = \mathbf{r} + \sin\theta\,(\mathbf{n} \times \mathbf{r}) - (1 - \cos\theta)\mathbf{r} = \cos\theta\,\mathbf{r} + \sin\theta\,(\mathbf{n} \times \mathbf{r}).\]</span> 由于 <span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span> 是 <span class="math inline">\(\mathbf{r}\)</span> 绕 <span class="math inline">\(\mathbf{n}\)</span> 转过 <span class="math inline">\(90^\circ\)</span> 的结果，长度不变，所以上式就是 <span class="math inline">\(\mathbf{r}\)</span> 绕 <span class="math inline">\(\mathbf{n}\)</span> 旋转 <span class="math inline">\(\theta\)</span> 的结果，与平面上的 <span class="math inline">\((\cos\theta + \mathrm{i}\sin\theta)z\)</span> 如出一辙。由于 <span class="math inline">\(\mathrm{g}\)</span> 是线性（linear）的，而每个向量都可写成 <span class="math inline">\(\mathbf{n}\)</span> 的倍数与一个垂直于 <span class="math inline">\(\mathbf{n}\)</span> 的向量之和，所以 <span class="math inline">\(\mathrm{g}\)</span> 就是<strong>绕通过原点、方向为 <span class="math inline">\(\mathbf{n}\)</span> 的轴旋转角 <span class="math inline">\(\theta\)</span> 的旋转</strong>（从 <span class="math inline">\(\mathbf{n}\)</span> 的尖端望去为逆时针方向）。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-5-1.svg" alt="图 7.5.1"><figcaption><span class="fig-label">图 7.5.1</span> 罗德里格公式。向量 <span class="math inline">\(\mathbf{r}\)</span> 分解为沿轴 <span class="math inline">\(\mathbf{n}\)</span> 的部分和与轴垂直的部分 <span class="math inline">\(\mathbf{r}_\perp\)</span>，后者扫出一个圆。与 <span class="math inline">\(\mathbf{n}\)</span> 作叉积，会把 <span class="math inline">\(\mathbf{r}_\perp\)</span> 转过 <span class="math inline">\(90^\circ\)</span>（琥珀色）；作两次叉积则得 <span class="math inline">\(-\mathbf{r}_\perp\)</span>（紫红色）。旋转后的向量 <span class="math inline">\(\mathrm{g}(\mathbf{r})\)</span> 是 <span class="math inline">\(\mathbf{r}_\parallel + \cos\theta\,\mathbf{r}_\perp + \sin\theta\,(\mathbf{n} \times \mathbf{r})\)</span>。</figcaption></figure>
+<h4 id="stagemark3-反射" class="stage"><span class="stage-n">阶段 3</span> 反射</h4>
+<div class="pausebox">
+<p>利用第 (i) 部分化简 <span class="math inline">\(\mathrm{h}(\mathbf{s}) = -\mathbf{s} - 2\mathrm{f}(\mathrm{f}(\mathbf{s}))\)</span>。它对沿 <span class="math inline">\(\mathbf{n}\)</span> 方向的向量有甚么作用？对垂直于 <span class="math inline">\(\mathbf{n}\)</span> 的向量又有甚么作用？</p>
+</div>
+<p><span class="math inline">\(\mathrm{h}(\mathbf{s}) = -\mathbf{s} - 2\bigl((\mathbf{n}.\mathbf{s})\mathbf{n} - \mathbf{s}\bigr) = \mathbf{s} - 2(\mathbf{n}.\mathbf{s})\mathbf{n}\)</span>。垂直于 <span class="math inline">\(\mathbf{n}\)</span> 的向量保持不变，而 <span class="math inline">\(\mathrm{h}(\mathbf{n}) = -\mathbf{n}\)</span>。所以 <span class="math inline">\(\mathrm{h}\)</span> 是<strong>对通过原点且垂直于 <span class="math inline">\(\mathbf{n}\)</span> 的平面的反射（reflection）</strong>。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>分解为平行和垂直的部分。</strong>一旦把 <span class="math inline">\(\mathbf{r}\)</span> 分解为沿 <span class="math inline">\(\mathbf{n}\)</span> 方向和与之垂直的分量，每一步都变得清晰。</p></li>
+<li><p><strong>线性减省工夫。</strong>要辨认一个线性映射（linear map），只需知道它对几个精心挑选的向量有甚么作用便足够。</p></li>
+<li><p><strong>复数的类比。</strong>在垂直于 <span class="math inline">\(\mathbf{n}\)</span> 的向量上，<span class="math inline">\(\mathrm{f}\)</span> 的表现就像乘以 <span class="math inline">\(\mathrm{i}\)</span>：<span class="math inline">\(\mathrm{f}^2 = -1\)</span>，而 <span class="math inline">\(\mathrm{g} = \cos\theta + \sin\theta\,\mathrm{f}\)</span>。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">欧拉旋转定理</div>
+<p>三维空间中每一个固定原点的旋转，都是绕某条通过原点的轴的旋转。欧拉（Euler）于 1775 年证明了这一点。用矩阵的语言来说，每个 <span class="math inline">\(3 \times 3\)</span> 旋转矩阵都有一个特征值（eigenvalue）为 <span class="math inline">\(1\)</span> 的特征向量（eigenvector），也就是旋转轴。罗德里格公式给出其逆命题：对每一条轴 <span class="math inline">\(\mathbf{n}\)</span> 和每一个角 <span class="math inline">\(\theta\)</span>，旋转矩阵是 <span class="math display">\[\mathbf{R} = \mathbf{I} + \sin\theta\,\mathbf{K} + (1 - \cos\theta)\,\mathbf{K}^2, \qquad \mathbf{K} = \begin{pmatrix} 0 &amp; -c &amp; b \\ c &amp; 0 &amp; -a \\ -b &amp; a &amp; 0 \end{pmatrix},\]</span> 其中 <span class="math inline">\(\mathbf{K}\)</span> 是 <span class="math inline">\(\mathbf{r} \mapsto \mathbf{n} \times \mathbf{r}\)</span> 的矩阵。由于 <span class="math inline">\(\mathbf{K}^3 = -\mathbf{K}\)</span>，指数级数（exponential series）<span class="math inline">\(e^{\theta\mathbf{K}} = \mathbf{I} + \theta\mathbf{K} + \frac{\theta^2}{2!}\mathbf{K}^2 + \cdots\)</span> 恰好化简成这条公式，它就是 <span class="math inline">\(e^{\mathrm{i}\theta} = \cos\theta + \mathrm{i}\sin\theta\)</span> 的三维版本。旋转与“无穷小旋转”<span class="math inline">\(\mathbf{K}\)</span> 的指数之间的这种联系，正是<em>李群</em>（Lie groups）理论的起点。</p>
+</div>
+<h3 id="旋转不可交换">旋转不可交换</h3>
+<p>把一本书平放，先绕垂直轴旋转 <span class="math inline">\(90^\circ\)</span>，再绕水平轴旋转 <span class="math inline">\(90^\circ\)</span>；然后从头再来，以相反的次序做这两个旋转。书最终的位置并不相同。三维空间中旋转的复合（composition）不符合交换律，与二维的情况不同。这正是 <a href="../ch06/quaternions.html">第 6.7 节</a> 的四元数（quaternion）有用的原因之一：绕 <span class="math inline">\(\mathbf{n}\)</span> 旋转 <span class="math inline">\(\theta\)</span> 对应于四元数 <span class="math inline">\(\cos\frac\theta2 + \sin\frac\theta2(a\mathrm{i} + b\mathrm{j} + c\mathrm{k})\)</span>，而复合旋转就是把四元数相乘，不可交换性已包含在其中。罗德里格本人在 1840 年的论文中，已找到旋转的复合公式，比哈密顿（Hamilton）发明四元数还早三年。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">分解为不变的部分</div>
+<p><em>要理解一个变换，可把空间分成变换处理得简单的几块：在这里，就是轴（保持不动）和与轴垂直的平面（被旋转）。</em></p>
+<p>这与 <a href="../ch07/eigenvectors.html">第 7.2 节</a> 中特征向量的想法相同：找出变换所保持的子空间（subspace），然后在每一块上分别研究它。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>平面上的旋转。</strong>试做 <a href="https://step.maths.org/questions/17-s3-q2">STEP III 2017，第 2 题</a>。该题利用复数，证明平面上的两个旋转复合起来仍是一个旋转，只有一种例外。找出这个例外，以及此时复合的结果是甚么。</p></li>
+<li><p><strong>一个具体的旋转。</strong>求绕方向为 <span class="math inline">\((1, 1, 1)\)</span> 的轴旋转 <span class="math inline">\(120^\circ\)</span> 的矩阵。证明它把各坐标轴循环置换。</p></li>
+<li><p><strong><span class="math inline">\(\mathbf{K}\)</span> 的幂。</strong>证明 <span class="math inline">\(\mathbf{K}^2\mathbf{r} = (\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span> 及 <span class="math inline">\(\mathbf{K}^3 = -\mathbf{K}\)</span>，并由指数级数推导出罗德里格公式。</p></li>
+<li><p><strong>两次反射构成一个旋转。</strong>证明先后对两个通过原点、互成 <span class="math inline">\(\alpha\)</span> 角的平面作反射，结果是绕两平面的交线旋转 <span class="math inline">\(2\alpha\)</span>。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Simon Altmann, <a href="https://uk.bookshop.org/search?keywords=Rotations%2C+Quaternions%2C+and+Double+Groups+Altmann"><em>Rotations, Quaternions, and Double Groups</em></a></strong>（Dover）。关于三维旋转的权威论著，当中包括罗德里格的贡献。</p></li>
+<li><p><strong>Simon Altmann, “<a href="https://doi.org/10.1080/0025570x.1989.11977459">Hamilton, Rodrigues, and the quaternion scandal</a>”</strong>, <em>Mathematics Magazine</em> 62 (1989)。一篇简短而生动的历史叙述。</p></li>
+<li><p><strong>John Stillwell, <a href="https://uk.bookshop.org/search?keywords=Naive+Lie+Theory+Stillwell"><em>Naive Lie Theory</em></a></strong>（Springer）。为大学本科生而写的旋转、四元数与李群入门。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="finite-order.html">← 7.4 回到起点的矩阵</a><a class="next" href="hyperbolic-rotations.html">→ 7.6 双曲旋转与相对论</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

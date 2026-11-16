@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>凸性的威力 (STEP II 2007 第 7 题) — Beyond STEP</title>
+<meta name="description" content="STEP II 2007 第 7 题：引导式解答及其背后的大学数学。 在 第 3.2 节 中，我们用一个巧妙的归纳法（induction）证明了 AM–GM 不等式。在这一节，它只需一行便水到渠成，因为它不过是某个更宏大的结果的特殊情形。这个更宏大的东西就是 凹性 （concavity）：向下弯的曲线所具有的形状，就像山顶一样。关于这类曲线，有一个简单的几何事实：曲线位于它的弦（chord）之上。…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch03/convexity.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch03/convexity.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch03/convexity.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/convexity.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch03/convexity.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="凸性的威力 (STEP II 2007 第 7 题) — Beyond STEP">
+<meta property="og:description" content="STEP II 2007 第 7 题：引导式解答及其背后的大学数学。 在 第 3.2 节 中，我们用一个巧妙的归纳法（induction）证明了 AM–GM 不等式。在这一节，它只需一行便水到渠成，因为它不过是某个更宏大的结果的特殊情形。这个更宏大的东西就是 凹性 （concavity）：向下弯的曲线所具有的形状，就像山顶一样。关于这类曲线，有一个简单的几何事实：曲线位于它的弦（chord）之上。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch03/convexity.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="凸性的威力 (STEP II 2007 第 7 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2007 第 7 题：引导式解答及其背后的大学数学。 在 第 3.2 节 中，我们用一个巧妙的归纳法（induction）证明了 AM–GM 不等式。在这一节，它只需一行便水到渠成，因为它不过是某个更宏大的结果的特殊情形。这个更宏大的东西就是 凹性 （concavity）：向下弯的曲线所具有的形状，就像山顶一样。关于这类曲线，有一个简单的几何事实：曲线位于它的弦（chord）之上。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "凸性的威力", "headline": "凸性的威力", "description": "STEP II 2007 第 7 题：引导式解答及其背后的大学数学。 在 第 3.2 节 中，我们用一个巧妙的归纳法（induction）证明了 AM–GM 不等式。在这一节，它只需一行便水到渠成，因为它不过是某个更宏大的结果的特殊情形。这个更宏大的东西就是 凹性 （concavity）：向下弯的曲线所具有的形状，就像山顶一样。关于这类曲线，有一个简单的几何事实：曲线位于它的弦（chord）之上。…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch03/convexity.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2007 第 7 题", "函数、不等式与严谨"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 3, "name": "函数、不等式与严谨", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch03/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 3 章：函数、不等式与严谨", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch03/"}, {"@type": "ListItem", "position": 3, "name": "凸性的威力", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch03/convexity.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch03/convexity.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch03/convexity.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 3 章 · 函数、不等式与严谨</a>
+    <div class="src">STEP II · 2007 · 第 7 题</div>
+    <div class="sec-head"><span class="sec-num">3.3</span><h1>凸性的威力</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-3-convexity.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 3 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP II 2007，第 7 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/07-s2-q7">step.maths.org/questions/07-s2-q7</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>在 <a href="../ch03/am-gm-backwards.html">第 3.2 节</a> 中，我们用一个巧妙的归纳法（induction）证明了 AM–GM 不等式。在这一节，它只需一行便水到渠成，因为它不过是某个更宏大的结果的特殊情形。这个更宏大的东西就是<em>凹性</em>（concavity）：向下弯的曲线所具有的形状，就像山顶一样。关于这类曲线，有一个简单的几何事实：曲线位于它的弦（chord）之上。单凭这一点，竟然可以证明范围广得惊人的各种不等式（inequality），从关于三角形的一个结果，到 AM–GM 不等式，以至概率（probability）、信息论（information theory）和经济学中的不等式。</p>
+<p>到了大学，这个想法会发展成<em>凸性</em>（convexity），它是现代数学中最能贯通各个领域的重要主题之一。有些学科，例如凸优化（convex optimisation），整个就是建基于它之上。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p>画一条向下弯的曲线，例如 <span class="math inline">\((0, \pi)\)</span> 上的 <span class="math inline">\(y = \sin x\)</span>。在曲线上标出两点，并用直线把它们连起来。这条弦在曲线之上还是之下？</p>
+</div>
+<p>在曲线之下。对于凹曲线，每一条弦在两个端点之间都位于曲线之下。两个函数值的平均，就是弦的中点的高度；而函数在平均值处的取值，就是该中点正上方的曲线高度。因此，“弦在曲线之下”正正就是 <span class="math inline">\(n = 2\)</span> 时的琴生不等式（Jensen’s inequality）： <span class="math display">\[\frac{\mathrm{f}(x_1) + \mathrm{f}(x_2)}{2} \leq \mathrm{f}\left( \frac{x_1 + x_2}{2} \right).\]</span> 若有 <span class="math inline">\(n\)</span> 个点，则各点 <span class="math inline">\((x_k, \mathrm{f}(x_k))\)</span> 的平均就是它们的质心（centre of mass），它位于曲线下方的区域之内，所以同样在曲线之下（图 3.3.1）。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-验证凹性" class="stage"><span class="stage-n">阶段 1</span> 验证凹性</h4>
+<p>当 <span class="math inline">\(0 &lt; x &lt; \pi\)</span> 时，<span class="math inline">\(\frac{\mathrm{d}^2}{\mathrm{d}x^2}\sin x = -\sin x &lt; 0\)</span>；当 <span class="math inline">\(x &gt; 0\)</span> 时，<span class="math inline">\(\frac{\mathrm{d}^2}{\mathrm{d}x^2}\ln x = -\frac{1}{x^2} &lt; 0\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-三角形" class="stage"><span class="stage-n">阶段 2</span> 三角形</h4>
+<div class="askyourself">
+<p>应该用哪个函数、取哪些点？它们的平均是甚么？三角形的各个角是否都落在函数呈凹性的区间之内？</p>
+</div>
+<p>取 <span class="math inline">\(\mathrm{f}(x) = \sin x\)</span> 和三个点 <span class="math inline">\(A, B, C\)</span>。每个角都严格介乎 <span class="math inline">\(0\)</span> 与 <span class="math inline">\(\pi\)</span> 之间，而 <span class="math inline">\(\sin\)</span> 在这个区间上是凹的，它们的平均是 <span class="math inline">\(\frac{A + B + C}{3} = \frac{\pi}{3}\)</span>。由琴生不等式得 <span class="math display">\[\frac{\sin A + \sin B + \sin C}{3} \leq \sin\frac{\pi}{3} = \frac{\sqrt3}{2},\]</span> 所以 <span class="math inline">\(\sin A + \sin B + \sin C \leq \frac{3\sqrt3}{2}\)</span>，而等号恰好在等边三角形（equilateral triangle）时成立。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-3-3-1.svg" alt="图 3.3.1"><figcaption><span class="fig-label">图 3.3.1</span> 以三角形的三个角 <span class="math inline">\(A = 0.4\)</span>、<span class="math inline">\(B = 1.2\)</span>、<span class="math inline">\(C = \pi - 1.6\)</span> 说明 <span class="math inline">\(\sin x\)</span> 的琴生不等式。曲线上三点的质心（琥珀色）位于阴影三角形之内，因而在曲线之下。它的高度是 <span class="math inline">\(\sin A\)</span>、<span class="math inline">\(\sin B\)</span>、<span class="math inline">\(\sin C\)</span> 的平均，而它正上方的曲线高度是 <span class="math inline">\(\sin\frac{\pi}{3}\)</span>。</figcaption></figure>
+<h4 id="stagemark3-一行证明-amgm" class="stage"><span class="stage-n">阶段 3</span> 一行证明 AM–GM</h4>
+<div class="askyourself">
+<p>AM–GM 不等式比较的是一个积与一个和。哪个凹函数能把积变成和？</p>
+</div>
+<p>对数（logarithm）。把琴生不等式应用于 <span class="math inline">\(\mathrm{f} = \ln\)</span> 和正数 <span class="math inline">\(t_1, \ldots, t_n\)</span>： <span class="math display">\[\frac{\ln t_1 + \cdots + \ln t_n}{n} \leq \ln\left( \frac{t_1 + \cdots + t_n}{n} \right).\]</span> 左边是 <span class="math inline">\(\ln\bigl(\sqrt[n]{t_1 \cdots t_n}\bigr)\)</span>。由于 <span class="math inline">\(\ln\)</span> 是递增函数，我们可以把两边的对数同时去掉，这就是 AM–GM 不等式。等号恰好在所有 <span class="math inline">\(t_k\)</span> 都相等时成立。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-运用-amgm" class="stage"><span class="stage-n">阶段 4</span> 运用 AM–GM</h4>
+<div class="askyourself">
+<p>在 (a) 中，左边是四项之和，右边含有三个变量的积。你应该对多少项应用 AM–GM 不等式？那个 <span class="math inline">\(16\)</span> 又为何有用？</p>
+</div>
+<p>对四个正数 <span class="math inline">\(x^4\)</span>、<span class="math inline">\(y^4\)</span>、<span class="math inline">\(z^4\)</span>、<span class="math inline">\(16\)</span> 应用 AM–GM 不等式： <span class="math display">\[\frac{x^4 + y^4 + z^4 + 16}{4} \geq \sqrt[4]{16\,x^4 y^4 z^4} = 2xyz.\]</span> 两边乘以 <span class="math inline">\(4\)</span>，得 <span class="math inline">\(x^4 + y^4 + z^4 + 16 \geq 8xyz\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>现在求 <span class="math inline">\(x^5 + y^5 + z^5 - 5xyz\)</span> 的最小值。（<em>提示：</em>你想要的是 <span class="math inline">\(x^5y^5z^5\)</span> 的五次方根，所以需要五个数。另外两个数应该是甚么？）</p>
+</div>
+<p>对 <span class="math inline">\(x^5, y^5, z^5, 1, 1\)</span> 应用 AM–GM 不等式： <span class="math display">\[\frac{x^5 + y^5 + z^5 + 1 + 1}{5} \geq \sqrt[5]{x^5y^5z^5} = xyz,\]</span> 所以 <span class="math inline">\(x^5 + y^5 + z^5 - 5xyz \geq -2\)</span>。等号在 <span class="math inline">\(x^5 = y^5 = z^5 = 1\)</span> 时成立，即 <span class="math inline">\(x = y = z = 1\)</span>，这时该式的值为 <span class="math inline">\(3 - 5 = -2\)</span>。因此最小值是 <span class="math inline">\(-2\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<p>留意等号成立的条件在这里身兼两职：它说明这个界确实可以取到，所以 <span class="math inline">\(-2\)</span> 是最小值，而不仅仅是一个下界（lower bound）。</p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>一个想法，多个不等式。</strong>关于凹曲线的一个几何事实，既给出了一个关于三角形的结果，又给出了 AM–GM 不等式，而所需的计算不过是验证一个二阶导数（second derivative）。</p></li>
+<li><p><strong>选择函数和点。</strong>运用琴生不等式，就是要决定把它应用于哪个函数、取哪些点。对数能把积变成和，是常用之选。</p></li>
+<li><p><strong>补项以配合题目。</strong>在 (b) 中，补上两个 <span class="math inline">\(1\)</span> 令 AM–GM 不等式切合题目，正如在 <a href="../ch03/am-gm-backwards.html">第 3.2 节</a> 中补上平均值一样。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">凸函数</div>
+<p>在大学里，<em>凸</em>函数（convex function，即把凹函数上下倒转）的标准定义完全不涉及导数：若 <span class="math display">\[\mathrm{f}\bigl(t x_1 + (1-t)x_2\bigr) \leq t\,\mathrm{f}(x_1) + (1-t)\,\mathrm{f}(x_2) \qquad\text{对所有 } x_1, x_2 \text{ 及 } 0 \leq t \leq 1,\]</span> 则称 <span class="math inline">\(\mathrm{f}\)</span> 为凸函数，这正正是说弦位于曲线之上。这个定义对不可微（not differentiable）的函数（例如 <span class="math inline">\(|x|\)</span>）以及多元函数同样适用。丹麦工程师兼数学家琴生（Johan Jensen）在 1906 年提出了以他命名的不等式，使凸函数成为一门独立的学问。</p>
+</div>
+<h3 id="无处不在的凸性">无处不在的凸性</h3>
+<p>凸性在数学及其应用中随处可见。</p>
+<ul>
+<li><p><strong>概率。</strong>琴生不等式指出，对于凹函数 <span class="math inline">\(\mathrm{f}\)</span> 和任意随机变量（random variable）<span class="math inline">\(X\)</span>，有 <span class="math inline">\(\mathrm{E}[\mathrm{f}(X)] \leq \mathrm{f}(\mathrm{E}[X])\)</span>。在经济学中，若以 <span class="math inline">\(\mathrm{f}\)</span> 为一个凹的“效用”（utility）函数，这就解释了为何人们宁愿稳拿 £100，也不愿参与一场各有一半机会得到 £0 或 £200 的赌局，亦解释了为何会有保险。</p></li>
+<li><p><strong>信息论。</strong>均匀分布（uniform distribution）使熵（entropy）达到最大，这个结果是数据压缩的基础，而它的证明就是 <span class="math inline">\(\ln\)</span> 的琴生不等式。</p></li>
+<li><p><strong>优化。</strong>凸函数除了全局最小值之外，再没有其他局部极小值（local minima），所以“一直往下坡走”总能找到最佳答案。这就是凸优化问题能够有效率地求解的原因，也是人们花那么多工夫把问题改写成凸形式的原因。</p></li>
+</ul>
+<p>在 <a href="../ch03/areas-inequalities.html">第 3.4 节</a> 中，我们会看到凸性的另一面：函数与其反函数（inverse）之间的一种几何对偶（duality）。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">找出一般原理</div>
+<p><em>当几个结果的证明相似时，要找出它们背后的同一个原理。然后把这个原理证明一次，再多次应用。</em></p>
+<p>AM–GM 不等式、关于正弦的三角形不等式，以及许多其他结果，全都是“凹曲线位于它的弦之上”的实例。认出这个原理，就能把一堆零散的技巧变成一套方法。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>定义。</strong><a href="https://step.maths.org/questions/18-s2-q2">STEP II 2018，第 2 题</a> 的第 (i) 及 (ii) 部分由上面方框中以弦刻划凹性的定义出发，逐步建立三个点的琴生不等式。</p></li>
+<li><p><strong>正弦之积。</strong>试做 <a href="https://step.maths.org/questions/18-s2-q2">STEP II 2018，第 2 题</a> 的第 (iii) 部分。</p></li>
+<li><p><strong>锐角三角形。</strong>证明 <span class="math inline">\(\tan x\)</span> 在 <span class="math inline">\((0, \frac\pi2)\)</span> 上是凸的，并由此推出在锐角三角形（acute-angled triangle）中，<span class="math inline">\(\tan A + \tan B + \tan C \geq 3\sqrt3\)</span>。</p></li>
+<li><p><strong>幂平均。</strong>证明 <span class="math inline">\(x^2\)</span> 是凸的，并由此推出 <span class="math inline">\(\left(\frac{a_1 + \cdots + a_n}{n}\right)^2 \leq \frac{a_1^2 + \cdots + a_n^2}{n}\)</span>。试把这个结果诠释为关于一组数的方差（variance）的命题。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>J. Michael Steele, <a href="https://uk.bookshop.org/search?keywords=The+Cauchy-Schwarz+Master+Class+Steele"><em>The Cauchy–Schwarz Master Class</em></a></strong>（Cambridge University Press）。第 6 章讲述凸性和琴生不等式。</p></li>
+<li><p><strong>Claudi Alsina &amp; Roger Nelsen, <a href="https://uk.bookshop.org/search?keywords=When+Less+Is+More%3A+Visualizing+Basic+Inequalities+Alsina+Nelsen"><em>When Less Is More: Visualizing Basic Inequalities</em></a></strong>（Mathematical Association of America）。以图形证明不等式，当中不少用到凸性。</p></li>
+<li><p><strong>Stephen Boyd &amp; Lieven Vandenberghe, <a href="https://uk.bookshop.org/search?keywords=Convex+Optimization+Boyd+Vandenberghe"><em>Convex Optimization</em></a></strong>（Cambridge University Press）。一部现代经典，可在网上免费阅读；开首几章说明凸性在实际应用中为何重要。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="am-gm-backwards.html">← 3.2 倒过来的 AM–GM</a><a class="next" href="areas-inequalities.html">→ 3.4 以面积证明不等式</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

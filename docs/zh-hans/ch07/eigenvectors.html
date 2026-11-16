@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>只伸缩，不转向 (STEP III 1990 第 6 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 1990 第 6 题：引导式解答及其背后的大学数学。 矩阵变换（matrix transformation）通常会把每个向量转到新的方向。不过，许多矩阵都有几个特别的方向，它完全不会转动这些方向，只会沿着它们拉伸或压缩。这些方向上的向量就是矩阵的 特征向量 （eigenvector，源自德文 eigen ，意思是“自身的”或“特有的”），而拉伸的倍数就是它的 特征值…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/eigenvectors.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/eigenvectors.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/eigenvectors.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/eigenvectors.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/eigenvectors.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="只伸缩，不转向 (STEP III 1990 第 6 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 1990 第 6 题：引导式解答及其背后的大学数学。 矩阵变换（matrix transformation）通常会把每个向量转到新的方向。不过，许多矩阵都有几个特别的方向，它完全不会转动这些方向，只会沿着它们拉伸或压缩。这些方向上的向量就是矩阵的 特征向量 （eigenvector，源自德文 eigen ，意思是“自身的”或“特有的”），而拉伸的倍数就是它的 特征值…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch07/eigenvectors.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="只伸缩，不转向 (STEP III 1990 第 6 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1990 第 6 题：引导式解答及其背后的大学数学。 矩阵变换（matrix transformation）通常会把每个向量转到新的方向。不过，许多矩阵都有几个特别的方向，它完全不会转动这些方向，只会沿着它们拉伸或压缩。这些方向上的向量就是矩阵的 特征向量 （eigenvector，源自德文 eigen ，意思是“自身的”或“特有的”），而拉伸的倍数就是它的 特征值…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "只伸缩，不转向", "headline": "只伸缩，不转向", "description": "STEP III 1990 第 6 题：引导式解答及其背后的大学数学。 矩阵变换（matrix transformation）通常会把每个向量转到新的方向。不过，许多矩阵都有几个特别的方向，它完全不会转动这些方向，只会沿着它们拉伸或压缩。这些方向上的向量就是矩阵的 特征向量 （eigenvector，源自德文 eigen ，意思是“自身的”或“特有的”），而拉伸的倍数就是它的 特征值…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/eigenvectors.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1990 第 6 题", "线性代数与几何"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "线性代数与几何", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 7 章：线性代数与几何", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/"}, {"@type": "ListItem", "position": 3, "name": "只伸缩，不转向", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch07/eigenvectors.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch07/eigenvectors.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/eigenvectors.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 7 章 · 线性代数与几何</a>
+    <div class="src">STEP III · 1990 · 第 6 题</div>
+    <div class="sec-head"><span class="sec-num">7.2</span><h1>只伸缩，不转向</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-2-eigenvectors.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 7 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 1990，第 6 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/90-s3-q6">step.maths.org/questions/90-s3-q6</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>矩阵变换（matrix transformation）通常会把每个向量转到新的方向。不过，许多矩阵都有几个特别的方向，它完全不会转动这些方向，只会沿着它们拉伸或压缩。这些方向上的向量就是矩阵的<em>特征向量</em>（eigenvector，源自德文 <em>eigen</em>，意思是“自身的”或“特有的”），而拉伸的倍数就是它的<em>特征值</em>（eigenvalue）。当特征向量的数目足够时（像本题这类对称矩阵就必定足够），这个变换便一目了然：在合适的坐标下，它只不过是沿两条轴的拉伸。</p>
+<p>本题要找出某个矩阵的特征向量，再用它们来理解这个矩阵对一个圆有甚么作用。特征向量是整个应用数学中最有用的概念之一。它们描述桥梁的固有振动、旋转物体的主轴、原子的能级、一团数据中最重要的方向，以及 Google 最初的 PageRank 算法怎样为网页排名。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p><span class="math inline">\(T\)</span> 使一个向量“方向不变，只乘以一个纯量”，这是甚么意思？试把它写成一条等式。</p>
+</div>
+<p>意思是存在某个数 <span class="math inline">\(\lambda\)</span> 使得 <span class="math inline">\(T\mathbf{v} = \lambda\mathbf{v}\)</span>：<span class="math inline">\(\mathbf{v}\)</span> 是特征值为 <span class="math inline">\(\lambda\)</span> 的特征向量。留意题目中的两个向量 <span class="math inline">\((1, 2)\)</span> 和 <span class="math inline">\((2, -1)\)</span> 互相垂直。这并非巧合：这个矩阵是<em>对称</em>（symmetric）的，而对称矩阵总有互相垂直的特征向量。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-特征向量" class="stage"><span class="stage-n">阶段 1</span> 特征向量</h4>
+<p><span class="math display">\[T\begin{pmatrix} 1 \\ 2 \end{pmatrix} = \frac25\begin{pmatrix} 9 - 4 \\ -2 + 12 \end{pmatrix} = \frac25\begin{pmatrix} 5 \\ 10 \end{pmatrix} = 2\begin{pmatrix} 1 \\ 2 \end{pmatrix}, \qquad
+  T\begin{pmatrix} 2 \\ -1 \end{pmatrix} = \frac25\begin{pmatrix} 20 \\ -10 \end{pmatrix} = 4\begin{pmatrix} 2 \\ -1 \end{pmatrix}.\]</span> 所以 <span class="math inline">\((1, 2)\)</span> 被拉伸至 <span class="math inline">\(2\)</span> 倍，而 <span class="math inline">\((2, -1)\)</span> 被拉伸至 <span class="math inline">\(4\)</span> 倍。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-圆的像" class="stage"><span class="stage-n">阶段 2</span> 圆的像</h4>
+<div class="askyourself">
+<p>要求出 <span class="math inline">\(E\)</span> 的方程，可先用 <span class="math inline">\(X\)</span> 和 <span class="math inline">\(Y\)</span> 表示 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span>（即求矩阵的逆），再代入 <span class="math inline">\(x^2 + y^2 = 1\)</span>。</p>
+</div>
+<p>矩阵 <span class="math inline">\(\frac25\begin{pmatrix} 9 &amp; -2 \\ -2 &amp; 6 \end{pmatrix}\)</span> 的行列式（determinant）是 <span class="math inline">\(\frac{4}{25}(54 - 4) = 8\)</span>，它的逆矩阵（inverse）是 <span class="math inline">\(\frac{1}{20}\begin{pmatrix} 6 &amp; 2 \\ 2 &amp; 9 \end{pmatrix}\)</span>。所以 <span class="math inline">\(x = \frac{6X + 2Y}{20}\)</span> 及 <span class="math inline">\(y = \frac{2X + 9Y}{20}\)</span>，而 <span class="math inline">\(x^2 + y^2 = 1\)</span> 变成 <span class="math display">\[(6X + 2Y)^2 + (2X + 9Y)^2 = 400 \quad\Longrightarrow\quad 40X^2 + 60XY + 85Y^2 = 400,\]</span> 两边除以 <span class="math inline">\(5\)</span>，便得 <span class="math inline">\(8X^2 + 12XY + 17Y^2 = 80\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(E\)</span> 是甚么形状？它的面积是多少？试利用特征向量作答。</p>
+</div>
+<p>单位圆在每个方向上的半径都是 <span class="math inline">\(1\)</span>。在 <span class="math inline">\((2, -1)\)</span> 的方向上，它被拉伸至 <span class="math inline">\(4\)</span> 倍；在与之垂直的 <span class="math inline">\((1, 2)\)</span> 方向上，则被拉伸至 <span class="math inline">\(2\)</span> 倍。所以 <span class="math inline">\(E\)</span> 是一个椭圆（ellipse），半轴长为 <span class="math inline">\(4\)</span> 和 <span class="math inline">\(2\)</span>，分别沿着两个特征向量的方向（图 7.2.1），其面积为 <span class="math inline">\(\pi \times 4 \times 2 = 8\pi\)</span>。（换个说法：任何线性映射（linear map）都会把面积乘以 <span class="math inline">\(|\det T| = 8\)</span>，而圆的面积是 <span class="math inline">\(\pi\)</span>。）</p>
+<h4 id="stagemark3-x-的最大值" class="stage"><span class="stage-n">阶段 3</span> <span class="math inline">\(X\)</span> 的最大值</h4>
+<div class="askyourself">
+<p>在 <span class="math inline">\(C\)</span> 上，<span class="math inline">\(X = \frac25(9x - 2y)\)</span>。当 <span class="math inline">\(x^2 + y^2 = 1\)</span> 时，<span class="math inline">\(9x - 2y\)</span> 最大可以是多少？</p>
+</div>
+<p><span class="math inline">\(9x - 2y\)</span> 是 <span class="math inline">\((9, -2)\)</span> 与单位向量 <span class="math inline">\((x, y)\)</span> 的点积（dot product），所以它的最大值是 <span class="math inline">\(|(9, -2)| = \sqrt{85}\)</span>，在 <span class="math inline">\((x, y)\)</span> 指向 <span class="math inline">\((9, -2)\)</span> 的方向时取得。因此 <span class="math inline">\(X\)</span> 的最大值是 <span class="math inline">\(\frac25\sqrt{85} = 2\sqrt{\frac{85}{25}} = 2\sqrt{\frac{17}{5}}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-切线" class="stage"><span class="stage-n">阶段 4</span> 切线</h4>
+<div class="pausebox">
+<p><span class="math inline">\(C\)</span> 上的点 <span class="math inline">\(\frac15(3, 4)\)</span> 的切线（tangent）是 <span class="math inline">\(3x + 4y = 5\)</span>。线性映射会把切线变成切线。试利用这一点求出 <span class="math inline">\(E\)</span> 的切线。</p>
+</div>
+<p>把 <span class="math inline">\(x = \frac{6X + 2Y}{20}\)</span>、<span class="math inline">\(y = \frac{2X + 9Y}{20}\)</span> 代入 <span class="math inline">\(3x + 4y = 5\)</span>： <span class="math display">\[\frac{3(6X + 2Y) + 4(2X + 9Y)}{20} = 5 \quad\Longrightarrow\quad 26X + 42Y = 100,\]</span> 即 <span class="math inline">\(13X + 21Y = 50\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<p>（验算：该点本身的像是 <span class="math inline">\(T\bigl(\frac35, \frac45\bigr) = \bigl(\frac{38}{25}, \frac{36}{25}\bigr)\)</span>，而 <span class="math inline">\(13 \cdot \frac{38}{25} + 21 \cdot \frac{36}{25} = \frac{494 + 756}{25} = 50\)</span>。）</p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-2-1.svg" alt="图 7.2.1"><figcaption><span class="fig-label">图 7.2.1</span> 单位圆 <span class="math inline">\(C\)</span>（虚线）及它在 <span class="math inline">\(T\)</span> 之下的像 <span class="math inline">\(E\)</span>。沿着特征向量 <span class="math inline">\((2, -1)\)</span>，圆被拉伸至 <span class="math inline">\(4\)</span> 倍；沿着与之垂直的特征向量 <span class="math inline">\((1, 2)\)</span>，则被拉伸至 <span class="math inline">\(2\)</span> 倍。所以 <span class="math inline">\(E\)</span> 是一个椭圆，半轴长为 <span class="math inline">\(4\)</span> 和 <span class="math inline">\(2\)</span>，分别沿着这两个方向，面积为 <span class="math inline">\(8\pi\)</span>。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>特征向量是天然的坐标轴。</strong>在特征向量所给出的坐标下，<span class="math inline">\(T\)</span> 只是分别拉伸至 <span class="math inline">\(4\)</span> 倍和 <span class="math inline">\(2\)</span> 倍，它对圆的作用显而易见。</p></li>
+<li><p><strong>行列式量度面积。</strong><span class="math inline">\(E\)</span> 的面积是 <span class="math inline">\(C\)</span> 的面积的 <span class="math inline">\(|\det T|\)</span> 倍。</p></li>
+<li><p><strong>线性映射保持相切关系。</strong>把圆的切线加以变换，几乎不用计算便得到椭圆的切线。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">谱定理</div>
+<p>每个实对称矩阵都有一整组互相垂直的特征向量，而且特征值都是实数。这就是<em>谱定理</em>（spectral theorem），是大学第一门线性代数（linear algebra）课程的核心结果之一。它告诉我们，每个对称的线性映射，在合适的垂直坐标下，都只是沿各条轴的拉伸。换个说法，每个像 <span class="math inline">\(8X^2 + 12XY + 17Y^2\)</span> 这样的二次型（quadratic form），都可以经旋转化成 <span class="math inline">\(\lambda_1 u^2 + \lambda_2 v^2\)</span> 的形式，所以每条有心圆锥曲线（central conic）都是轴互相垂直的椭圆或双曲线（<em>主轴定理</em>，principal axis theorem）。这个想法可追溯至 1820 年代的柯西（Cauchy），他用它来求二次曲面的主轴，以及固体内应力的主轴。</p>
+<p>这一切之所以成立，全靠对称性。不对称的矩阵就未必这样合作：旋转 <span class="math inline">\(90^\circ\)</span> 会转动每一个方向，所以它完全没有实特征向量；而错切（shear）<span class="math inline">\(\begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\)</span> 只有一个特征向量方向，所以它不是沿任何一对轴的拉伸。</p>
+</div>
+<h3 id="无处不在的特征向量">无处不在的特征向量</h3>
+<p>以下是特征向量出现的其中几个地方。</p>
+<ul>
+<li><p><strong>振动。</strong>由质点和弹簧组成的系统会以<em>简正模态</em>（normal mode）振动，即各部分以同一频率同步运动的模式。这些模态是某个矩阵的特征向量，而频率则来自特征值（<a href="../ch11/normal-modes.html">第 11.2 节</a>）。</p></li>
+<li><p><strong>数据。</strong>一团数据点分布得最散的方向，就是其协方差矩阵（covariance matrix）的特征向量。找出这些方向的方法称为<em>主成分分析</em>（principal component analysis），是统计学和机器学习的基本工具之一（<a href="../ch13/correlation.html">第 13.7 节</a>）。</p></li>
+<li><p><strong>量子力学。</strong>量度一个物理量可能得到的结果，是某个矩阵（或算子）的特征值，而原子的能级也是特征值。</p></li>
+<li><p><strong>网上搜索。</strong>Google 的 PageRank 是这个搜索引擎背后的原始构想：有一个描述网页之间连结的巨型矩阵，PageRank 就按它那个特征值为 <span class="math inline">\(1\)</span> 的特征向量的各个分量来为网页排名。</p></li>
+</ul>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">选择配合变换的坐标</div>
+<p><em>要理解一个线性变换，就找出它不会转动的方向。在这些坐标下，它会变得简单。</em></p>
+<p>这与 <a href="../ch05/fermat-point.html">第 5.6 节</a> 中选费马点（Fermat point）作原点，或 <a href="../ch02/squaring-minus-two.html">第 2.8 节</a> 中以变量代换来简化映射，是同一个想法：选对了坐标，结构便一目了然。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>求特征值。</strong>证明 <span class="math inline">\(\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span> 的特征值是 <span class="math inline">\(\lambda^2 - (a + d)\lambda + (ad - bc) = 0\)</span> 的根，并验证题目中的矩阵给出 <span class="math inline">\(\lambda = 2\)</span> 和 <span class="math inline">\(4\)</span>。</p></li>
+<li><p><strong>互相垂直的特征向量。</strong>证明若 <span class="math inline">\(\mathbf{M}\)</span> 是对称矩阵，且 <span class="math inline">\(\mathbf{Mu} = \lambda\mathbf{u}\)</span>、<span class="math inline">\(\mathbf{Mv} = \mu\mathbf{v}\)</span>，其中 <span class="math inline">\(\lambda \neq \mu\)</span>，则 <span class="math inline">\(\mathbf{u} \cdot \mathbf{v} = 0\)</span>。（<em>提示：</em>用两种方法计算 <span class="math inline">\(\mathbf{v} \cdot \mathbf{Mu}\)</span>。）</p></li>
+<li><p><strong>旋转。</strong>证明除非 <span class="math inline">\(\theta\)</span> 是 <span class="math inline">\(\pi\)</span> 的倍数，否则旋转矩阵 <span class="math inline">\(\begin{pmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{pmatrix}\)</span> 没有实特征向量。它的复特征值是甚么？</p></li>
+<li><p><strong>幂。</strong>利用特征向量，求 <span class="math inline">\(T^n\begin{pmatrix} 1 \\ 0 \end{pmatrix}\)</span>。（<em>提示：</em>把 <span class="math inline">\((1, 0)\)</span> 写成 <span class="math inline">\((1, 2)\)</span> 和 <span class="math inline">\((2, -1)\)</span> 的组合。）</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong>（Wellesley-Cambridge）。第 6 章是特征值及其应用的出色入门。</p></li>
+<li><p><strong>Kurt Bryan &amp; Tanya Leise, “<a href="https://doi.org/10.1137/050623280">The $25<span>,</span>000<span>,</span>000<span>,</span>000 eigenvector: the linear algebra behind Google</a>”</strong>，<em>SIAM Review</em> 48 (2006)。浅白易读，可免费取阅。</p></li>
+<li><p><strong>3Blue1Brown, <a href="https://www.3blue1brown.com/topics/linear-algebra"><em>Essence of Linear Algebra</em></a></strong>（影片系列，可在网上免费观看）。以精美的动画呈现的，正是本节的几何概念。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="matrix-rules.html">← 7.1 对矩阵不成立的法则</a><a class="next" href="determinant-axioms.html">→ 7.3 甚么才算行列式</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

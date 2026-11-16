@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>制造相关性 (STEP III 2010 第 13 题) — Beyond STEP</title>
+<meta name="description" content="STEP III 2010 第 13 题：引导式解答及其背后的大学数学。 一间银行想知道，手上的股票投资组合（portfolio）有多大机会亏蚀。股价往往一起变动：一只股票下跌，其他股票也倾向跟着下跌。要模拟数以千计的可能未来，银行必须产生一批随机数，而这些随机数之间的相关程度要恰到好处。如果手上只有互相独立（independent）的随机变量（random…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/correlation.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/correlation.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch13/correlation.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/correlation.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch13/correlation.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="制造相关性 (STEP III 2010 第 13 题) — Beyond STEP">
+<meta property="og:description" content="STEP III 2010 第 13 题：引导式解答及其背后的大学数学。 一间银行想知道，手上的股票投资组合（portfolio）有多大机会亏蚀。股价往往一起变动：一只股票下跌，其他股票也倾向跟着下跌。要模拟数以千计的可能未来，银行必须产生一批随机数，而这些随机数之间的相关程度要恰到好处。如果手上只有互相独立（independent）的随机变量（random…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch13/correlation.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="制造相关性 (STEP III 2010 第 13 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2010 第 13 题：引导式解答及其背后的大学数学。 一间银行想知道，手上的股票投资组合（portfolio）有多大机会亏蚀。股价往往一起变动：一只股票下跌，其他股票也倾向跟着下跌。要模拟数以千计的可能未来，银行必须产生一批随机数，而这些随机数之间的相关程度要恰到好处。如果手上只有互相独立（independent）的随机变量（random…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "制造相关性", "headline": "制造相关性", "description": "STEP III 2010 第 13 题：引导式解答及其背后的大学数学。 一间银行想知道，手上的股票投资组合（portfolio）有多大机会亏蚀。股价往往一起变动：一只股票下跌，其他股票也倾向跟着下跌。要模拟数以千计的可能未来，银行必须产生一批随机数，而这些随机数之间的相关程度要恰到好处。如果手上只有互相独立（independent）的随机变量（random…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/correlation.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2010 第 13 题", "统计与现实世界中的随机性"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "统计与现实世界中的随机性", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 13 章：统计与现实世界中的随机性", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/"}, {"@type": "ListItem", "position": 3, "name": "制造相关性", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch13/correlation.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch13/correlation.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch13/correlation.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 13 章 · 统计与现实世界中的随机性</a>
+    <div class="src">STEP III · 2010 · 第 13 题</div>
+    <div class="sec-head"><span class="sec-num">13.7</span><h1>制造相关性</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-7-correlation.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 13 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP III 2010，第 13 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/10-s3-q13">step.maths.org/questions/10-s3-q13</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>一间银行想知道，手上的股票投资组合（portfolio）有多大机会亏蚀。股价往往一起变动：一只股票下跌，其他股票也倾向跟着下跌。要模拟数以千计的可能未来，银行必须产生一批随机数，而这些随机数之间的相关程度要恰到好处。如果手上只有互相独立（independent）的随机变量（random variable），怎样才能制造出具有指定相关系数（correlation）的随机变量呢？</p>
+<p>这道题就三个变量的情形，一步一步给出了配方。每个新变量都是先前各个独立材料的组合，再加上一份全新的独立材料，用来补足方差（variance）。这个构造其实是线性代数（linear algebra）中一个著名结果的化身，即<em>科列斯基分解</em>（Cholesky decomposition），它同时揭示了一个隐藏的限制：并非每一组相关系数都有可能出现。</p>
+<div class="skillbox">
+<div class="box-title">关于课程范围的说明</div>
+<p>协方差（covariance）和相关系数已于 2019 年从 STEP 的考试范围中删去。协方差是 <span class="math inline">\(\mathrm{Cov}(U, V) = \mathrm{E}(UV) - \mathrm{E}(U)\mathrm{E}(V)\)</span>；独立变量的协方差为零，而且协方差对每个变元都是线性的：<span class="math inline">\(\mathrm{Cov}(aU + bV, W) = a\,\mathrm{Cov}(U, W) + b\,\mathrm{Cov}(V, W)\)</span>。此外 <span class="math inline">\(\mathrm{Var}(U) = \mathrm{Cov}(U, U)\)</span>。相关系数必定介乎 <span class="math inline">\(-1\)</span> 与 <span class="math inline">\(1\)</span> 之间。</p>
+</div>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p><span class="math inline">\(Z_1\)</span> 和 <span class="math inline">\(Z_2\)</span> 互相独立。它们的协方差是多少？相关系数又是多少？</p>
+</div>
+<p>独立变量满足 <span class="math inline">\(\mathrm{E}(Z_1Z_2) = \mathrm{E}(Z_1)\,\mathrm{E}(Z_2)\)</span>。所以协方差是 <span class="math inline">\(0\)</span>，而 <span class="math inline">\(\mathrm{Corr}(Z_1, Z_2) = 0\)</span>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-两个变量" class="stage"><span class="stage-n">阶段 1</span> 两个变量</h4>
+<p><span class="math inline">\(\mathrm{E}(Y_2) = 0\)</span>。由于 <span class="math inline">\(Z_1\)</span> 和 <span class="math inline">\(Z_2\)</span> 互相独立，方差均为 <span class="math inline">\(1\)</span>， <span class="math display">\[\mathrm{Var}(Y_2) = \rho_{12}^2 + (1 - \rho_{12}^2) = 1, \qquad \mathrm{Cov}(Y_1, Y_2) = \mathrm{Cov}\bigl(Z_1, \rho_{12}Z_1 + \sqrt{1 - \rho_{12}^2}\,Z_2\bigr) = \rho_{12}.\]</span> 两个方差都是 <span class="math inline">\(1\)</span>，所以 <span class="math inline">\(\mathrm{Corr}(Y_1, Y_2) = \rho_{12}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>把 <span class="math inline">\(Z_1\)</span> 和 <span class="math inline">\(Z_2\)</span> 想像成互相垂直的单位向量。<span class="math inline">\(Y_2\)</span> 在哪里？<span class="math inline">\(Y_1\)</span> 与 <span class="math inline">\(Y_2\)</span> 之间夹角的余弦是多少？</p>
+</div>
+<p><span class="math inline">\(Y_2 = \rho_{12}Z_1 + \sqrt{1 - \rho_{12}^2}\,Z_2\)</span> 是一个单位向量，与 <span class="math inline">\(Z_1 = Y_1\)</span> 的夹角为 <span class="math inline">\(\theta\)</span>，其中 <span class="math inline">\(\cos\theta = \rho_{12}\)</span>。把变量看成向量，相关系数就是它们之间夹角的余弦（图 13.7.1）。</p>
+<h4 id="stagemark2-第三个变量" class="stage"><span class="stage-n">阶段 2</span> 第三个变量</h4>
+<div class="askyourself">
+<p>试以 <span class="math inline">\(a\)</span>、<span class="math inline">\(b\)</span>、<span class="math inline">\(c\)</span> 写出 <span class="math inline">\(\mathrm{Var}(Y_3) = 1\)</span>、<span class="math inline">\(\mathrm{Cov}(Y_1, Y_3) = \rho_{13}\)</span>、<span class="math inline">\(\mathrm{Cov}(Y_2, Y_3) = \rho_{23}\)</span> 这三个条件。</p>
+</div>
+<p>利用线性和独立性： <span class="math display">\[a^2 + b^2 + c^2 = 1, \qquad a = \rho_{13}, \qquad \rho_{12}a + \sqrt{1 - \rho_{12}^2}\,b = \rho_{23}.\]</span> 所以 <span class="math display">\[a = \rho_{13}, \qquad b = \frac{\rho_{23} - \rho_{12}\rho_{13}}{\sqrt{1 - \rho_{12}^2}}, \qquad c = \sqrt{1 - \rho_{13}^2 - \frac{(\rho_{23} - \rho_{12}\rho_{13})^2}{1 - \rho_{12}^2}}. \qed\]</span> （由于 <span class="math inline">\(c \geq 0\)</span>，这里取非负平方根。）</p>
+<h4 id="stagemark3-任意的均值和方差" class="stage"><span class="stage-n">阶段 3</span> 任意的均值和方差</h4>
+<p>缩放和平移都不会改变相关系数，所以 <span class="math display">\[X_i = \mu_i + \sigma_iY_i \qquad (i = 1, 2, 3)\]</span> 的均值为 <span class="math inline">\(\mu_i\)</span>，方差为 <span class="math inline">\(\sigma_i^2\)</span>，相关系数为 <span class="math inline">\(\rho_{ij}\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p><span class="math inline">\(c\)</span> 的公式要求平方根内的量非负。试取 <span class="math inline">\(\rho_{12} = \rho_{13} = \rho_{23} = -0.6\)</span>。哪里出了问题？三个变量不可能两两之间都有很强的负相关，为甚么这是合理的？</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-13-7-1.svg" alt="图 13.7.1"><figcaption><span class="fig-label">图 13.7.1</span> <span class="math inline">\((Y_1, Y_2)\)</span> 的样本，由独立的标准正态（standard normal）变量 <span class="math inline">\(Z_1\)</span>, <span class="math inline">\(Z_2\)</span> 按配方 <span class="math inline">\(Y_1 = Z_1\)</span>, <span class="math inline">\(Y_2 = \rho Z_1 + \sqrt{1 - \rho^2}\,Z_2\)</span> 制成，分别对应 <span class="math inline">\(\rho = 0\)</span>、<span class="math inline">\(0.5\)</span> 和 <span class="math inline">\(0.9\)</span>。同样的独立材料，可以造出我们任意选定的相关系数。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>每次只构造一个变量。</strong>每个新变量都从先前的材料中取用适当的份量，再加入一份全新的独立材料。</p></li>
+<li><p><strong>协方差是线性的。</strong>所有条件都化成了关于系数的简单方程。</p></li>
+<li><p><strong>相关系数是余弦。</strong>把标准化后的变量看成单位向量，相关系数就变成了夹角。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="科列斯基分解">科列斯基分解</h3>
+<p>用矩阵形式来写，这个构造就是 <span class="math inline">\(\mathbf{Y} = L\mathbf{Z}\)</span>，其中的矩阵是<em>下三角</em>（lower triangular）矩阵 <span class="math display">\[L = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ \rho_{12} &amp; \sqrt{1 - \rho_{12}^2} &amp; 0 \\ a &amp; b &amp; c \end{pmatrix},\]</span> 而 <span class="math inline">\(\mathbf{Y}\)</span> 的相关矩阵（correlation matrix）是 <span class="math inline">\(R = LL^{\mathsf T}\)</span>。把一个对称矩阵写成 <span class="math inline">\(LL^{\mathsf T}\)</span> 的形式，就是<em>科列斯基分解</em>，由法国军事工程师科列斯基（André-Louis Cholesky）约于 1910 年发现，用来求解大地测量中的方程组（他在第一次世界大战中阵亡，这项成果在他身后才发表）。只要 <span class="math inline">\(R\)</span> 是<em>正定</em>（positive definite）的，这个分解就行得通，而计算过程正是我们刚才用手做的：逐行求解。在金融、工程和气候模型中，这是模拟相关变量的标准方法。</p>
+<h3 id="哪些相关系数是可能的">哪些相关系数是可能的？</h3>
+<p><span class="math inline">\(c\)</span> 的平方根内的数必须非负。展开后，条件是 <span class="math display">\[1 - \rho_{12}^2 - \rho_{13}^2 - \rho_{23}^2 + 2\rho_{12}\rho_{13}\rho_{23} \geq 0,\]</span> 这正是相关矩阵的行列式（determinant）非负的条件。从几何上看：三个单位向量两两之间的夹角为 <span class="math inline">\(\theta_{ij}\)</span>（其中 <span class="math inline">\(\cos\theta_{ij} = \rho_{ij}\)</span>），它们必须真的能在空间中拼合起来。如果 <span class="math inline">\(\rho_{12} = \rho_{13} = \rho_{23} = -0.6\)</span>，各个夹角都约为 <span class="math inline">\(127^\circ\)</span>，而三个两两相隔 <span class="math inline">\(127^\circ\)</span> 的向量，夹角之和就要超过 <span class="math inline">\(360^\circ\)</span>：这是不可能的。一般而言，一个矩阵要成为相关矩阵，必须是半正定（positive semi-definite）的，即所有特征值（eigenvalue）均非负（<a href="../ch07/eigenvectors.html">第 7.2 节</a>）。如果各个相关系数是根据不完整的数据分别估计出来的，这个条件就可能不成立，统计学家于是要找出最接近的有效相关矩阵，这个问题由 Nicholas Higham 在 2002 年解决。</p>
+<div class="historybox">
+<div class="box-title">高尔顿、皮尔逊与相关系数</div>
+<p>高尔顿（Francis Galton）在 1888 年研究父母与子女身高的关系时引入了相关的概念，而皮尔逊（Karl Pearson）在 1896 年给出了本题所用的积矩（product moment）公式。高尔顿还注意到均值回归（regression to the mean）的现象（<a href="../ch13/headlines.html">第 13.1 节</a>）。皮尔逊于 1911 年在伦敦大学学院（University College London）创立了全世界第一个大学统计学系。“相关不等于因果”这句警告，几乎与相关系数本身一样古老。</p>
+</div>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">逐步构造，每次加入全新的独立材料</div>
+<p><em>要构造具有指定关系的对象，可以逐个加入，每一个都是先前各个对象的组合，再加上一些全新而独立的东西。</em></p>
+<p>这是线性代数中的格拉姆–施密特（Gram–Schmidt）正交化过程倒过来做，也就是科列斯基分解。在大学里，它会出现在最小二乘法（least squares）、多元正态分布（multivariate normal distribution）的理论，以及随机过程的模拟之中。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>不可能的相关系数。</strong>证明：除非 <span class="math inline">\(\rho \geq -\frac12\)</span>，否则三个随机变量不可能两两之间的相关系数都是 <span class="math inline">\(\rho\)</span>。对于 <span class="math inline">\(n\)</span> 个变量，相应的结论是甚么？</p></li>
+<li><p><strong>检查行列式。</strong>证明 <span class="math inline">\(1 - \rho_{13}^2 - b^2 \geq 0\)</span> 等价于 <span class="math inline">\(\det R \geq 0\)</span>，其中 <span class="math inline">\(R\)</span> 是 <span class="math inline">\(3 \times 3\)</span> 相关矩阵。</p></li>
+<li><p><strong>投资组合的风险。</strong>两只股票回报的标准差（standard deviation）分别为 <span class="math inline">\(\sigma_1 = 0.2\)</span> 和 <span class="math inline">\(\sigma_2 = 0.3\)</span>，相关系数为 <span class="math inline">\(\rho\)</span>。若投资组合中两只股票各占一半，求 <span class="math inline">\(\rho = -1\)</span>、<span class="math inline">\(0\)</span> 和 <span class="math inline">\(1\)</span> 时该组合的标准差。分散投资达到了甚么效果？</p></li>
+<li><p><strong>还原材料。</strong>给定题目中的 <span class="math inline">\(Y_1\)</span>、<span class="math inline">\(Y_2\)</span>，试以 <span class="math inline">\(Y_1\)</span> 和 <span class="math inline">\(Y_2\)</span> 表示 <span class="math inline">\(Z_2\)</span>。（这就是格拉姆–施密特过程中的一步。）</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong>（Wellesley-Cambridge），讲述正定矩阵和科列斯基分解。</p></li>
+<li><p><strong>Paul Glasserman, <a href="https://uk.bookshop.org/search?keywords=Monte+Carlo+Methods+in+Financial+Engineering+Glasserman"><em>Monte Carlo Methods in Financial Engineering</em></a></strong>（Springer）。讲述实际应用中如何模拟相关变量；内容较深，但开头几章不难读。</p></li>
+<li><p><strong>Theodore Porter, <a href="https://uk.bookshop.org/search?keywords=Karl+Pearson%3A+The+Scientific+Life+in+a+Statistical+Age+Porter"><em>Karl Pearson: The Scientific Life in a Statistical Age</em></a></strong>（Princeton University Press）。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="errors-add-up.html">← 13.6 累积起来的误差</a><a class="next" href="wrap-up.html">→ 回顾</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

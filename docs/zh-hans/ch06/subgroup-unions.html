@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>子群的并集 (STEP II 1988 第 9 题) — Beyond STEP</title>
+<meta name="description" content="STEP II 1988 第 9 题：引导式解答及其背后的大学数学。 这是全书最短的题目之一，也是最具大学数学特色的题目之一。它谈的是 群 （group），即描述对称的数学语言，问的问题听起来像个谜题：一个群能否被它里面两个较小的群完全覆盖？答案是不能，而证明只有三行。不过三个较小的群却可以做到，这倒是出人意表。 群论（group theory）在 2019 年以前一直属于 STEP…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/subgroup-unions.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/subgroup-unions.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/subgroup-unions.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/subgroup-unions.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/subgroup-unions.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="子群的并集 (STEP II 1988 第 9 题) — Beyond STEP">
+<meta property="og:description" content="STEP II 1988 第 9 题：引导式解答及其背后的大学数学。 这是全书最短的题目之一，也是最具大学数学特色的题目之一。它谈的是 群 （group），即描述对称的数学语言，问的问题听起来像个谜题：一个群能否被它里面两个较小的群完全覆盖？答案是不能，而证明只有三行。不过三个较小的群却可以做到，这倒是出人意表。 群论（group theory）在 2019 年以前一直属于 STEP…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch06/subgroup-unions.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="子群的并集 (STEP II 1988 第 9 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1988 第 9 题：引导式解答及其背后的大学数学。 这是全书最短的题目之一，也是最具大学数学特色的题目之一。它谈的是 群 （group），即描述对称的数学语言，问的问题听起来像个谜题：一个群能否被它里面两个较小的群完全覆盖？答案是不能，而证明只有三行。不过三个较小的群却可以做到，这倒是出人意表。 群论（group theory）在 2019 年以前一直属于 STEP…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "子群的并集", "headline": "子群的并集", "description": "STEP II 1988 第 9 题：引导式解答及其背后的大学数学。 这是全书最短的题目之一，也是最具大学数学特色的题目之一。它谈的是 群 （group），即描述对称的数学语言，问的问题听起来像个谜题：一个群能否被它里面两个较小的群完全覆盖？答案是不能，而证明只有三行。不过三个较小的群却可以做到，这倒是出人意表。 群论（group theory）在 2019 年以前一直属于 STEP…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch06/subgroup-unions.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1988 第 9 题", "代数与结构"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 6, "name": "代数与结构", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 6 章：代数与结构", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch06/"}, {"@type": "ListItem", "position": 3, "name": "子群的并集", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch06/subgroup-unions.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch06/subgroup-unions.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/subgroup-unions.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 6 章 · 代数与结构</a>
+    <div class="src">STEP II · 1988 · 第 9 题</div>
+    <div class="sec-head"><span class="sec-num">6.6</span><h1>子群的并集</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-6-subgroup-unions.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 6 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP II 1988，第 9 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/88-s2-q9">step.maths.org/questions/88-s2-q9</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>这是全书最短的题目之一，也是最具大学数学特色的题目之一。它谈的是<em>群</em>（group），即描述对称的数学语言，问的问题听起来像个谜题：一个群能否被它里面两个较小的群完全覆盖？答案是不能，而证明只有三行。不过三个较小的群却可以做到，这倒是出人意表。</p>
+<p>群论（group theory）在 2019 年以前一直属于 STEP 的课程范围，如今则是大学一年级的必修内容。这道题只需要用到定义，下文会一一列出；它正好让你初尝群论学者的思考方式：一个简短而巧妙的论证，除了公理（axiom）之外甚么都不用。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<p><em>群</em>是一个集合 <span class="math inline">\(G\)</span>，连同一个运算（写成乘法 <span class="math inline">\(ab\)</span>），满足：</p>
+<ul>
+<li><p>运算符合<em>结合律</em>（associative）：<span class="math inline">\((ab)c = a(bc)\)</span>；</p></li>
+<li><p>存在<em>单位元</em>（identity）<span class="math inline">\(e\)</span>，对每个 <span class="math inline">\(a\)</span> 都有 <span class="math inline">\(ea = ae = a\)</span>；</p></li>
+<li><p>每个 <span class="math inline">\(a\)</span> 都有<em>逆元</em>（inverse）<span class="math inline">\(a^{-1}\)</span>，使得 <span class="math inline">\(aa^{-1} = a^{-1}a = e\)</span>。</p></li>
+</ul>
+<p>例子：整数（正数、负数和零）在加法下构成群；非零实数在乘法下构成群；正方形的旋转在复合（composition）下构成群。<em>子群</em>（subgroup）是 <span class="math inline">\(G\)</span> 的一个子集 <span class="math inline">\(K\)</span>，它在同一运算下本身就是一个群：它包含 <span class="math inline">\(e\)</span>，而且若 <span class="math inline">\(a, b \in K\)</span>，则 <span class="math inline">\(ab \in K\)</span> 及 <span class="math inline">\(a^{-1} \in K\)</span>。</p>
+<div class="askyourself">
+<p>若 <span class="math inline">\(K\)</span> 是子群，<span class="math inline">\(a \in K\)</span> 但 <span class="math inline">\(b \notin K\)</span>，那么 <span class="math inline">\(ab\)</span> 可以属于 <span class="math inline">\(K\)</span> 吗？</p>
+</div>
+<p>不可以。若 <span class="math inline">\(ab \in K\)</span>，则 <span class="math inline">\(b = a^{-1}(ab)\)</span> 是 <span class="math inline">\(K\)</span> 中两个元素的乘积，因而属于 <span class="math inline">\(K\)</span>。这个小小的观察就是整个证明。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-两个子群无法覆盖" class="stage"><span class="stage-n">阶段 1</span> 两个子群无法覆盖</h4>
+<p>用反证法（proof by contradiction）：假设 <span class="math inline">\(G = G_1 \cup G_2\)</span>，但 <span class="math inline">\(G_1\)</span> 和 <span class="math inline">\(G_2\)</span> 都不是整个 <span class="math inline">\(G\)</span>。</p>
+<div class="askyourself">
+<p>由于 <span class="math inline">\(G_1 \neq G\)</span>，必有一个元素不在 <span class="math inline">\(G_1\)</span> 之中。它必定在哪里？<span class="math inline">\(G_2\)</span> 的情况也一样。现在把这两个元素相乘。</p>
+</div>
+<p>取 <span class="math inline">\(a \in G\)</span> 使得 <span class="math inline">\(a \notin G_1\)</span>；由于每个元素都属于 <span class="math inline">\(G_1\)</span> 或 <span class="math inline">\(G_2\)</span>，故 <span class="math inline">\(a \in G_2\)</span>。取 <span class="math inline">\(b \in G\)</span> 使得 <span class="math inline">\(b \notin G_2\)</span>；于是 <span class="math inline">\(b \in G_1\)</span>。考虑乘积 <span class="math inline">\(ab\)</span>。它属于 <span class="math inline">\(G_1\)</span> 或 <span class="math inline">\(G_2\)</span>。</p>
+<ul>
+<li><p>若 <span class="math inline">\(ab \in G_1\)</span>：由于 <span class="math inline">\(b \in G_1\)</span>，<span class="math inline">\(a = (ab)b^{-1} \in G_1\)</span>。矛盾。</p></li>
+<li><p>若 <span class="math inline">\(ab \in G_2\)</span>：由于 <span class="math inline">\(a \in G_2\)</span>，<span class="math inline">\(b = a^{-1}(ab) \in G_2\)</span>。矛盾。</p></li>
+</ul>
+<p>无论哪种情况都得出矛盾，所以 <span class="math inline">\(G_1 = G\)</span> 或 <span class="math inline">\(G_2 = G\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<p>留意我们从未用过 <span class="math inline">\(G\)</span> 是有限群这个条件。这个结果对所有群都成立。</p>
+<h4 id="stagemark2-三个子群却可以" class="stage"><span class="stage-n">阶段 2</span> 三个子群却可以</h4>
+<div class="pausebox">
+<p>找出一个群，它是三个子群的并集（union），而这三个子群都不是整个群。（<em>提示：</em>试试一个每个元素都是自己逆元的小群。）</p>
+</div>
+<p>取<em>克莱因四元群</em>（Klein four-group）<span class="math inline">\(V = \{e, a, b, c\}\)</span>，其运算规则为 <span class="math inline">\(a^2 = b^2 = c^2 = e\)</span> 以及 <span class="math inline">\(ab = ba = c\)</span>、<span class="math inline">\(bc = cb = a\)</span>、<span class="math inline">\(ca = ac = b\)</span>。（具体来说：一个非正方形的长方形的四个对称，即保持不动、旋转 <span class="math inline">\(180^\circ\)</span>，以及沿两条对称轴之一作反射。又或者是由位元 <span class="math inline">\(0\)</span>、<span class="math inline">\(1\)</span> 组成的数对 <span class="math inline">\((x, y)\)</span>，在模 <span class="math inline">\(2\)</span> 加法下构成的群。）它的三个子群 <span class="math display">\[H_1 = \{e, a\}, \qquad H_2 = \{e, b\}, \qquad H_3 = \{e, c\}\]</span> 各有两个元素，没有一个是整个群，而它们合起来包含了 <span class="math inline">\(V\)</span> 的每一个元素（图 6.6.1）。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-6-6-1.svg" alt="图 6.6.1"><figcaption><span class="fig-label">图 6.6.1</span> 克莱因四元群 <span class="math inline">\(\{e, a, b, c\}\)</span> 是它三个 <span class="math inline">\(2\)</span> 阶子群的并集，这三个子群只在单位元 <span class="math inline">\(e\)</span> 处重叠。根据题目的第一部分，没有任何群可以只是两个真子群（proper subgroup）的并集。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>选出见证元素，再把它们结合。</strong>证明中在每个子群之外各选一个元素，然后把它们相乘。这种“各取一个再结合”的手法在代数中极为常见。</p></li>
+<li><p><strong>封闭性威力强大。</strong>证明中只用到子群的一个性质：它们在乘法和取逆元之下封闭（closed）。</p></li>
+<li><p><strong>检查你真正需要的假设。</strong>题目给了有限这个条件，却没有用上。察觉到某个假设并非必要，是理解一个证明的一部分。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">对称的语言</div>
+<p>群在十九世纪同时从几个方向出现：伽罗瓦（Galois）对多项式的根的置换（permutation）的研究（<a href="../ch06/quartic.html">第 6.4 节</a>）、柯西（Cauchy）关于置换的工作，以及几何学和晶体学中对对称的研究。上文那个抽象定义，即凡满足三条公理的东西都是群，到该世纪末已经确立。它的威力在于一般性：由公理证明的定理，例如本题中的那一个，同时适用于由数、矩阵、对称和置换构成的各种群。今天群无处不在：在粒子物理学中（标准模型建基于对称群）、在化学中（分子的对称性决定光谱）、在密码学中（椭圆曲线群，<a href="../ch01/tangents-cubic.html">第 1.9 节</a>），以及在扭计骰（Rubik’s cube）的解法之中。</p>
+</div>
+<h3 id="要用多少个子群">要用多少个子群？</h3>
+<p>这道题引出一个自然的问题：最少要多少个真子群，它们的并集才是整个群？根据本题，这个数目永远不会是 <span class="math inline">\(2\)</span>。1926 年，Gaetano Scorza 证明了一个群是三个真子群的并集，当且仅当它以克莱因四元群为“商群”（quotient）。1994 年，J. H. E. Cohn 研究了一般的问题，并提出了若干猜想；1997 年，M. J. Tomkinson 证明了没有任何群的这个最小数目是七，尽管由 <span class="math inline">\(3\)</span> 到 <span class="math inline">\(6\)</span> 的每个数都会出现。这类问题叙述简单，却出奇地微妙，正是群论的典型。</p>
+<h3 id="向量空间">向量空间</h3>
+<p>类似的论证可以证明，实数上的向量空间（vector space）（例如平面或三维空间）永远不可能是有限多个真子空间（proper subspace）的并集：平面不是有限多条通过原点的直线的并集。但在有限域（finite field）上却可以：两个元素的域上的平面，其实又是克莱因四元群，它正是其三条直线的并集。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">从公理出发论证</div>
+<p><em>在抽象代数中，你对所处理的对象往往一无所知，只知道它们满足哪些公理。证明必须只用这些公理。</em></p>
+<p>这迫使论证简短而干净利落，就像本题的论证一样，也使它们放诸四海皆准。这需要一些时间去适应，而它正是大学一年级代数课中最独特的体验之一。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>验证这个群。</strong>写出克莱因四元群的乘法表，并验证各条群公理。证明它与乘法下的群 <span class="math inline">\(\{1, \mathrm{i}, -1, -\mathrm{i}\}\)</span> 并不相同。（<em>提示：</em>哪些元素是自己的逆元？）</p></li>
+<li><p><strong>循环群。</strong>若一个群的每个元素都是某一个元素 <span class="math inline">\(g\)</span> 的幂，则称它为<em>循环群</em>（cyclic group）。证明循环群永远不是真子群的并集，不论用多少个。（<em>提示：</em>哪个子群包含 <span class="math inline">\(g\)</span>？）</p></li>
+<li><p><strong>整数。</strong>直接证明 <span class="math inline">\((\mathbb{Z}, +)\)</span> 不是子群 <span class="math inline">\(2\mathbb{Z}\)</span>（偶数）和 <span class="math inline">\(3\mathbb{Z}\)</span>（<span class="math inline">\(3\)</span> 的倍数）的并集。它是否某两个真子群的并集？</p></li>
+<li><p><strong>平面上的直线。</strong> <span class="hard">较难</span> 证明平面 <span class="math inline">\(\mathbb{R}^2\)</span> 不是有限多条通过原点的直线的并集。（<em>提示：</em>每条直线除原点外，最多只包含抛物线 <span class="math inline">\(y = x^2\)</span> 上的一个点。）</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>M. A. Armstrong, <a href="https://uk.bookshop.org/search?keywords=Groups+and+Symmetry+Armstrong"><em>Groups and Symmetry</em></a></strong>（Springer）。一本插图精美的入门教材，以几何例子带动全书。</p></li>
+<li><p><strong>Nathan Carter, <a href="https://uk.bookshop.org/search?keywords=Visual+Group+Theory+Carter"><em>Visual Group Theory</em></a></strong>（Mathematical Association of America）。用图像讲解群，最适合在入读大学前阅读。</p></li>
+<li><p><strong>Peter Neumann, Gabrielle Stoy &amp; Edward Thompson, <a href="https://uk.bookshop.org/search?keywords=Groups+and+Geometry+Neumann+Stoy"><em>Groups and Geometry</em></a></strong>（Oxford University Press）。牛津大学一年级的经典教材。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="derivations.html">← 6.5 从公理出发的微分法</a><a class="next" href="quaternions.html">→ 6.7 四元数群</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

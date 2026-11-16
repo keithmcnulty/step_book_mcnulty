@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>单位根筛选法 (STEP I 1990 第 2 题) — Beyond STEP</title>
+<meta name="description" content="STEP I 1990 第 2 题：引导式解答及其背后的大学数学。 帕斯卡三角形（Pascal’s triangle）同一行的二项式系数（binomial coefficients）加起来等于 2^n ：只要在 (1 + x)^n 中代入 x = 1 即可。若改为代入 x = -1 ，便得到交错和，其值为 0 ；把两式相加，可知位于偶数位置的系数之和为 2^n-1…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/roots-filter.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/roots-filter.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch05/roots-filter.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/roots-filter.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch05/roots-filter.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="单位根筛选法 (STEP I 1990 第 2 题) — Beyond STEP">
+<meta property="og:description" content="STEP I 1990 第 2 题：引导式解答及其背后的大学数学。 帕斯卡三角形（Pascal’s triangle）同一行的二项式系数（binomial coefficients）加起来等于 2^n ：只要在 (1 + x)^n 中代入 x = 1 即可。若改为代入 x = -1 ，便得到交错和，其值为 0 ；把两式相加，可知位于偶数位置的系数之和为 2^n-1…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch05/roots-filter.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="单位根筛选法 (STEP I 1990 第 2 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 1990 第 2 题：引导式解答及其背后的大学数学。 帕斯卡三角形（Pascal’s triangle）同一行的二项式系数（binomial coefficients）加起来等于 2^n ：只要在 (1 + x)^n 中代入 x = 1 即可。若改为代入 x = -1 ，便得到交错和，其值为 0 ；把两式相加，可知位于偶数位置的系数之和为 2^n-1…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "单位根筛选法", "headline": "单位根筛选法", "description": "STEP I 1990 第 2 题：引导式解答及其背后的大学数学。 帕斯卡三角形（Pascal’s triangle）同一行的二项式系数（binomial coefficients）加起来等于 2^n ：只要在 (1 + x)^n 中代入 x = 1 即可。若改为代入 x = -1 ，便得到交错和，其值为 0 ；把两式相加，可知位于偶数位置的系数之和为 2^n-1…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/roots-filter.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 1990 第 2 题", "复数"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 5, "name": "复数", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 5 章：复数", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/"}, {"@type": "ListItem", "position": 3, "name": "单位根筛选法", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch05/roots-filter.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch05/roots-filter.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch05/roots-filter.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 5 章 · 复数</a>
+    <div class="src">STEP I · 1990 · 第 2 题</div>
+    <div class="sec-head"><span class="sec-num">5.2</span><h1>单位根筛选法</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-2-roots-filter.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 5 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP I 1990，第 2 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/90-s1-q2">step.maths.org/questions/90-s1-q2</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>帕斯卡三角形（Pascal’s triangle）同一行的二项式系数（binomial coefficients）加起来等于 <span class="math inline">\(2^n\)</span>：只要在 <span class="math inline">\((1 + x)^n\)</span> 中代入 <span class="math inline">\(x = 1\)</span> 即可。若改为代入 <span class="math inline">\(x = -1\)</span>，便得到交错和，其值为 <span class="math inline">\(0\)</span>；把两式相加，可知位于偶数位置的系数之和为 <span class="math inline">\(2^{n-1}\)</span>，刚好是一半。所以偶数位置和奇数位置的项把总和平分。</p>
+<p>那么每隔两项取一个、即<em>每第三个</em>系数又如何？没有任何实数 <span class="math inline">\(x\)</span> 能够挑出位置 <span class="math inline">\(0, 3, 6, \ldots\)</span>。但有一个复数可以。三次单位根（cube roots of unity）就像一个滤波器：对 <span class="math inline">\(1\)</span>、<span class="math inline">\(\omega\)</span> 和 <span class="math inline">\(\omega^2\)</span> 取平均，幂 <span class="math inline">\(\omega^k\)</span> 在 <span class="math inline">\(k\)</span> 是 <span class="math inline">\(3\)</span> 的倍数时给出 <span class="math inline">\(1\)</span>，否则给出 <span class="math inline">\(0\)</span>。这个想法称为<em>单位根滤波器</em>（roots-of-unity filter），是<em>离散傅里叶变换</em>（discrete Fourier transform）的小型版本，而后者是有史以来最重要的算法之一。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\omega\)</span> 是 <span class="math inline">\(z^3 - 1 = 0\)</span> 的一个根。试把 <span class="math inline">\(z^3 - 1\)</span> 因式分解。为甚么由此可得 <span class="math inline">\(1 + \omega + \omega^2 = 0\)</span>？</p>
+</div>
+<p><span class="math inline">\(z^3 - 1 = (z - 1)(z^2 + z + 1)\)</span>。由于 <span class="math inline">\(\omega^3 = 1\)</span> 但 <span class="math inline">\(\omega \neq 1\)</span>，<span class="math inline">\(\omega\)</span> 必定是第二个因式的根：<span class="math inline">\(\omega^2 + \omega + 1 = 0\)</span>。从几何上看，<span class="math inline">\(1\)</span>、<span class="math inline">\(\omega\)</span> 和 <span class="math inline">\(\omega^2\)</span> 是一个以原点为中心的等边三角形的顶点，它们的和就是该三角形的质心，即 <span class="math inline">\(0\)</span>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-模与辐角" class="stage"><span class="stage-n">阶段 1</span> 模与辐角</h4>
+<p>由 <span class="math inline">\(1 + \omega + \omega^2 = 0\)</span>，得 <span class="math inline">\(1 + \omega^2 = -\omega\)</span>。因为 <span class="math inline">\(\omega = e^{2\pi\mathrm{i}/3}\)</span>，所以 <span class="math inline">\(-\omega = e^{\mathrm{i}\pi}e^{2\pi\mathrm{i}/3} = e^{5\pi\mathrm{i}/3} = e^{-\pi\mathrm{i}/3}\)</span>。故 <span class="math inline">\(1 + \omega^2\)</span> 的模（modulus）为 <span class="math inline">\(1\)</span>，辐角（argument）为 <span class="math inline">\(-\frac\pi3\)</span>。同理，<span class="math inline">\(1 + \omega = -\omega^2 = e^{\pi\mathrm{i}/3}\)</span>，其模为 <span class="math inline">\(1\)</span>，辐角为 <span class="math inline">\(\frac\pi3\)</span>。</p>
+<h4 id="stagemark2-滤波器" class="stage"><span class="stage-n">阶段 2</span> 滤波器</h4>
+<div class="askyourself">
+<p>当 <span class="math inline">\(k\)</span> 是 <span class="math inline">\(3\)</span> 的倍数时，<span class="math inline">\(1 + \omega^k + \omega^{2k}\)</span> 等于甚么？不是倍数时又如何？</p>
+</div>
+<p>若 <span class="math inline">\(3 \mid k\)</span>，则 <span class="math inline">\(\omega^k = 1\)</span>，和为 <span class="math inline">\(3\)</span>。若否，<span class="math inline">\(\omega^k\)</span> 是 <span class="math inline">\(\omega\)</span> 或 <span class="math inline">\(\omega^2\)</span>，而无论哪一种情况，都有 <span class="math inline">\(1 + \omega^k + \omega^{2k} = 1 + \omega + \omega^2 = 0\)</span>。因此，表达式 <span class="math inline">\(\frac13(1 + \omega^k + \omega^{2k})\)</span> 在 <span class="math inline">\(3 \mid k\)</span> 时等于 <span class="math inline">\(1\)</span>，否则等于 <span class="math inline">\(0\)</span>：它是一个侦测 <span class="math inline">\(3\)</span> 的倍数的探测器。</p>
+<div class="pausebox">
+<p>把 <span class="math inline">\((1 + \omega^r)^n\)</span> 对 <span class="math inline">\(r = 1, 2, 3\)</span> 相加，每一项都用二项式定理（binomial theorem）展开。你得到甚么？</p>
+</div>
+<p>由于 <span class="math inline">\(\omega^3 = 1\)</span>， <span class="math display">\[(1 + \omega)^n + (1 + \omega^2)^n + (1 + 1)^n = \sum_{k=0}^{n} \binom nk\bigl(\omega^k + \omega^{2k} + 1\bigr) = 3\sum_{3 \mid k} \binom nk.\]</span> 另一方面，由阶段 1， <span class="math display">\[(1 + \omega)^n + (1 + \omega^2)^n + 2^n = e^{n\pi\mathrm{i}/3} + e^{-n\pi\mathrm{i}/3} + 2^n = 2\cos\frac{n\pi}{3} + 2^n.\]</span> 两边除以 <span class="math inline">\(3\)</span> 便得到所求公式。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-两个计算" class="stage"><span class="stage-n">阶段 3</span> 两个计算</h4>
+<p>对于 <span class="math inline">\(n = 25\)</span>：<span class="math inline">\(\frac{25\pi}{3} = 8\pi + \frac\pi3\)</span>，所以 <span class="math inline">\(\cos\frac{25\pi}{3} = \frac12\)</span>，于是 <span class="math display">\[\binom{25}{0} + \binom{25}{3} + \cdots + \binom{25}{24} = \frac{33554432 + 1}{3} = 11184811.\]</span></p>
+<div class="askyourself">
+<p>第二个和需要的是满足 <span class="math inline">\(k \equiv 2 \pmod 3\)</span> 的位置。怎样修改滤波器，使它侦测的是 <span class="math inline">\(k \equiv 2\)</span> 而不是 <span class="math inline">\(k \equiv 0\)</span>？</p>
+</div>
+<p>把探测器平移：<span class="math inline">\(\frac13\bigl(1 + \omega^{k-2} + \omega^{2(k-2)}\bigr)\)</span> 恰好在 <span class="math inline">\(k \equiv 2 \pmod 3\)</span> 时等于 <span class="math inline">\(1\)</span>。由于 <span class="math inline">\(\omega^{-2} = \omega\)</span> 及 <span class="math inline">\(\omega^{-4} = \omega^2\)</span>，由此可得 <span class="math display">\[\sum_{k \equiv 2} \binom nk = \frac13\Bigl(2^n + \omega(1 + \omega)^n + \omega^2(1 + \omega^2)^n\Bigr).\]</span> 取 <span class="math inline">\(n = 24\)</span>，则 <span class="math inline">\((1 + \omega)^{24} = e^{8\pi\mathrm{i}} = 1\)</span>，同样 <span class="math inline">\((1 + \omega^2)^{24} = 1\)</span>，所以括号内的值为 <span class="math inline">\(2^{24} + \omega + \omega^2 = 2^{24} - 1\)</span>。由 <span class="math inline">\(2^{24} = 16777216\)</span>， <span class="math display">\[\binom{24}{2} + \binom{24}{5} + \cdots + \binom{24}{23} = \frac{16777215}{3} = 5592405. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-5-2-1.svg" alt="图 5.2.1"><figcaption><span class="fig-label">图 5.2.1</span> 帕斯卡三角形的第 <span class="math inline">\(12\)</span> 行，按 <span class="math inline">\(k\)</span> 除以 <span class="math inline">\(3\)</span> 的余数着色。三个类别的总和分别是 <span class="math inline">\(1366\)</span>、<span class="math inline">\(1365\)</span> 和 <span class="math inline">\(1365\)</span>：各自几乎刚好是 <span class="math inline">\(2^{12} = 4096\)</span> 的三分之一。单位根滤波器准确地预测了它们与 <span class="math inline">\(\frac{4096}{3}\)</span> 之间的微小差异：<span class="math inline">\(+\frac23\)</span>、<span class="math inline">\(-\frac13\)</span> 和 <span class="math inline">\(-\frac13\)</span>。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>对单位根取平均，可按余数筛选。</strong><span class="math inline">\(\frac13\sum_{r}\omega^{rk}\)</span> 等于 <span class="math inline">\(1\)</span> 还是 <span class="math inline">\(0\)</span>，视乎 <span class="math inline">\(3\)</span> 是否整除 <span class="math inline">\(k\)</span>。把多项式在各单位根处的值相加，便能挑出每第三个系数。</p></li>
+<li><p><strong>平移滤波器。</strong>取平均之前先乘以 <span class="math inline">\(\omega^{-rj}\)</span>，便能挑出满足 <span class="math inline">\(k \equiv j\)</span> 的系数。</p></li>
+<li><p><strong>用复数求实数答案。</strong>答案是整数，题目问的也是整数，但解题的路径却穿过了复平面。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">离散傅里叶变换</div>
+<p>把 <span class="math inline">\(3\)</span> 换成任意的 <span class="math inline">\(N\)</span>，并把 <span class="math inline">\(\omega\)</span> 换成 <span class="math inline">\(e^{2\pi\mathrm{i}/N}\)</span>。对于一列数 <span class="math inline">\(a_0, a_1, \ldots, a_{N-1}\)</span>，以下各数 <span class="math display">\[\hat a_r = \sum_{k=0}^{N-1} a_k\,\omega^{rk}\]</span> 构成它的<em>离散傅里叶变换</em>，而正是滤波恒等式 <span class="math inline">\(\sum_r \omega^{rk} = N\)</span> 或 <span class="math inline">\(0\)</span>，让你可以从 <span class="math inline">\(\hat a_r\)</span> 还原出 <span class="math inline">\(a_k\)</span>。这个变换把一个信号分解成它的各个频率成分。1965 年，James Cooley 和 John Tukey 发表了一种方法，只需大约 <span class="math inline">\(N\log_2 N\)</span> 步而非 <span class="math inline">\(N^2\)</span> 步便能把它算出，这就是<em>快速傅里叶变换</em>（fast Fourier transform，简称 FFT）；高斯（Gauss）早在 1805 年已发现本质上相同的想法，但从未发表。FFT 应用于音讯和图像压缩（MP3 和 JPEG）、流动电话信号、医学扫描仪，以及极大数字的乘法，并且经常获列为二十世纪最重要的算法之一。</p>
+</div>
+<h3 id="生成函数">生成函数</h3>
+<p>这个滤波器只是一个更宏大想法的其中一例：数列 <span class="math inline">\(a_0, a_1, a_2, \ldots\)</span> 可以包装成一个多项式或幂级数（power series）<span class="math inline">\(A(x) = \sum a_kx^k\)</span>，称为它的<em>生成函数</em>（generating function），而对数列进行的运算就变成对函数进行的运算。在 <span class="math inline">\(1\)</span> 处求值，就是把数列求和；在单位根处求值，就是挑出各个剩余类（residue classes）；求导则是把各项以 <span class="math inline">\(k\)</span> 加权。这样一来，许多计数问题都化为代数问题，而这正是第 9 章的核心技巧。同一个滤波器，配合五次单位根应用于 <span class="math inline">\((1 + x)^n\)</span>，便会与正五边形和黄金比（golden ratio）扯上关系；我们会在 <a href="../ch06/cyclotomic.html">第 6.1 节</a> 继续探讨单位根的代数。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">利用对称性来筛选</div>
+<p><em>要从一个和之中挑出满足某个条件的项，可找一个函数，使它在你想要的项上取值 <span class="math inline">\(1\)</span>、在其余的项上取值 <span class="math inline">\(0\)</span>，而这个函数是由对称平均构造出来的。</em></p>
+<p>对单位根取平均就是经典的例子。同一个原理——“对一个对称群取平均，以分离出你想要的部分”——在代数中随处可见，由单位根滤波器以至群表示论（representation theory of groups）皆然。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>偶数位置。</strong>利用二次单位根（<span class="math inline">\(1\)</span> 和 <span class="math inline">\(-1\)</span>）的滤波器，证明 <span class="math inline">\(\binom n0 + \binom n2 + \binom n4 + \cdots = 2^{n-1}\)</span>。</p></li>
+<li><p><strong>另一个余数。</strong>求 <span class="math inline">\(\binom n1 + \binom n4 + \binom n7 + \cdots\)</span> 的公式，并验证三条公式加起来等于 <span class="math inline">\(2^n\)</span>。</p></li>
+<li><p><strong>每第四个。</strong>利用 <span class="math inline">\(\mathrm{i}\)</span>，证明 <span class="math inline">\(\binom n0 + \binom n4 + \binom n8 + \cdots = \frac14\Bigl(2^n + 2^{n/2+1}\cos\frac{n\pi}{4}\Bigr)\)</span>。</p></li>
+<li><p><strong>整除性。</strong><span class="math inline">\(\{1, 2, \ldots, 12\}\)</span> 有多少个子集的元素个数可被 <span class="math inline">\(3\)</span> 整除？有多少个子集的元素之和可被 <span class="math inline">\(3\)</span> 整除？（<em>第二问的提示：</em>考虑 <span class="math inline">\(\prod_{j=1}^{12}(1 + x^j)\)</span> 在三次单位根处的值。）</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Herbert Wilf, <a href="https://www2.math.upenn.edu/~wilf/DownldGF.html"><em>generatingfunctionology</em></a></strong>（A. K. Peters；可于网上免费阅览）。一本引人入胜的生成函数入门书；单位根滤波器在书中很早便出现。</p></li>
+<li><p><strong>Arthur Benjamin &amp; Jennifer Quinn, <a href="https://uk.bookshop.org/search?keywords=Proofs+That+Really+Count+Benjamin+Quinn"><em>Proofs That Really Count</em></a></strong>（Mathematical Association of America）。以计数方法证明二项式恒等式。</p></li>
+<li><p><strong>T. W. Körner, <a href="https://uk.bookshop.org/search?keywords=Fourier+Analysis+Korner"><em>Fourier Analysis</em></a></strong>（Cambridge University Press）。内容包括离散傅里叶变换和 FFT。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="machin.html">← 5.1 梅钦公式</a><a class="next" href="z2n-plus-one.html">→ 5.3 因式分解 z²ⁿ + 1</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

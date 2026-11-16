@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斜率的界 (STEP I 1988 第 7 题) — Beyond STEP</title>
+<meta name="description" content="STEP I 1988 第 7 题：引导式解答及其背后的大学数学。 假如你知道一个函数在某个区间上的值总是介乎 -1 与 1 之间，你能否说出它有多陡？对一般的函数来说，答案是不能： sin(1000x) 的值介乎 -1 与 1 之间，但它的斜率可以大至 1000 。不过二次函数（quadratic）不可能这样摆动。这道题目要证明的是：一个困在方框 |x| ≤ 1 、 |y| ≤ 1…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch03/markov-bound.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch03/markov-bound.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch03/markov-bound.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/markov-bound.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch03/markov-bound.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="斜率的界 (STEP I 1988 第 7 题) — Beyond STEP">
+<meta property="og:description" content="STEP I 1988 第 7 题：引导式解答及其背后的大学数学。 假如你知道一个函数在某个区间上的值总是介乎 -1 与 1 之间，你能否说出它有多陡？对一般的函数来说，答案是不能： sin(1000x) 的值介乎 -1 与 1 之间，但它的斜率可以大至 1000 。不过二次函数（quadratic）不可能这样摆动。这道题目要证明的是：一个困在方框 |x| ≤ 1 、 |y| ≤ 1…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch03/markov-bound.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="斜率的界 (STEP I 1988 第 7 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 1988 第 7 题：引导式解答及其背后的大学数学。 假如你知道一个函数在某个区间上的值总是介乎 -1 与 1 之间，你能否说出它有多陡？对一般的函数来说，答案是不能： sin(1000x) 的值介乎 -1 与 1 之间，但它的斜率可以大至 1000 。不过二次函数（quadratic）不可能这样摆动。这道题目要证明的是：一个困在方框 |x| ≤ 1 、 |y| ≤ 1…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "斜率的界", "headline": "斜率的界", "description": "STEP I 1988 第 7 题：引导式解答及其背后的大学数学。 假如你知道一个函数在某个区间上的值总是介乎 -1 与 1 之间，你能否说出它有多陡？对一般的函数来说，答案是不能： sin(1000x) 的值介乎 -1 与 1 之间，但它的斜率可以大至 1000 。不过二次函数（quadratic）不可能这样摆动。这道题目要证明的是：一个困在方框 |x| ≤ 1 、 |y| ≤ 1…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch03/markov-bound.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 1988 第 7 题", "函数、不等式与严谨"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 3, "name": "函数、不等式与严谨", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch03/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 3 章：函数、不等式与严谨", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch03/"}, {"@type": "ListItem", "position": 3, "name": "斜率的界", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch03/markov-bound.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch03/markov-bound.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch03/markov-bound.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 3 章 · 函数、不等式与严谨</a>
+    <div class="src">STEP I · 1988 · 第 7 题</div>
+    <div class="sec-head"><span class="sec-num">3.6</span><h1>斜率的界</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-6-markov-bound.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 3 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP I 1988，第 7 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/88-s1-q7">step.maths.org/questions/88-s1-q7</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>假如你知道一个函数在某个区间上的值总是介乎 <span class="math inline">\(-1\)</span> 与 <span class="math inline">\(1\)</span> 之间，你能否说出它有多陡？对一般的函数来说，答案是不能：<span class="math inline">\(\sin(1000x)\)</span> 的值介乎 <span class="math inline">\(-1\)</span> 与 <span class="math inline">\(1\)</span> 之间，但它的斜率可以大至 <span class="math inline">\(1000\)</span>。不过二次函数（quadratic）不可能这样摆动。这道题目要证明的是：一个困在方框 <span class="math inline">\(|x| \leq 1\)</span>、<span class="math inline">\(|y| \leq 1\)</span> 之内的二次函数，在方框内的斜率永远不会大于 <span class="math inline">\(4\)</span>，而且 <span class="math inline">\(4\)</span> 已是最佳的界。</p>
+<p>这个问题的来历出人意表。1887 年，以元素周期表闻名的化学家门捷列夫（Dmitri Mendeleev）正在研究溶液的密度如何随浓度变化，并用二次函数拟合他的数据。他需要知道数据中的误差对曲线斜率的影响最坏可以有多大，于是证明了与本题完全相同的结果。两年后，年轻的马可夫（Andrei Markov）解决了任意次数多项式（polynomial）的一般问题，而答案直接引出了数学中最重要的一些多项式。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{f}&#39;(x)\)</span> 的公式只用到 <span class="math inline">\(\mathrm{f}\)</span> 的三个值：在 <span class="math inline">\(-1\)</span>、<span class="math inline">\(0\)</span> 和 <span class="math inline">\(1\)</span> 的值。为甚么三个值就足以确定一个二次函数的导数（derivative）？</p>
+</div>
+<p>二次函数有三个系数，所以只要知道它在任意三点的值，就能把它确定下来。它的导数同样是由这些系数决定的函数，因此必定可以用这三个值表示出来。题中的公式正好告诉你怎样表示。而这恰恰是你所需要的，因为假设 <span class="math inline">\(|\mathrm{f}(x)| \leq 1\)</span> 告诉你的是 <span class="math inline">\(\mathrm{f}\)</span> 的<em>值</em>，而结论谈的却是它的<em>导数</em>。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-公式" class="stage"><span class="stage-n">阶段 1</span> 公式</h4>
+<p><span class="math inline">\(\mathrm{f}(1) = a + b + c\)</span>，<span class="math inline">\(\mathrm{f}(-1) = a - b + c\)</span>，而 <span class="math inline">\(\mathrm{f}(0) = c\)</span>。所以右方是 <span class="math display">\[(a + b + c)\left(x + \tfrac12\right) + (a - b + c)\left(x - \tfrac12\right) - 2cx.\]</span> <span class="math inline">\(x\)</span> 的系数是 <span class="math inline">\((a + b + c) + (a - b + c) - 2c = 2a\)</span>，常数项是 <span class="math inline">\(\frac12(a + b + c) - \frac12(a - b + c) = b\)</span>。所以右方等于 <span class="math inline">\(2ax + b = \mathrm{f}&#39;(x)\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-上界" class="stage"><span class="stage-n">阶段 2</span> 上界</h4>
+<div class="askyourself">
+<p>对公式取绝对值，然后运用三角不等式（triangle inequality），再配合 <span class="math inline">\(|\mathrm{f}(1)|, |\mathrm{f}(-1)|, |\mathrm{f}(0)| \leq 1\)</span>。你会得到 <span class="math inline">\(|\mathrm{f}&#39;(x)|\)</span> 的甚么上界（写成 <span class="math inline">\(x\)</span> 的函数）？</p>
+</div>
+<p>根据三角不等式 <span class="math inline">\(|u + v + w| \leq |u| + |v| + |w|\)</span>， <span class="math display">\[|\mathrm{f}&#39;(x)| \leq |\mathrm{f}(1)|\,\bigl|x + \tfrac12\bigr| + |\mathrm{f}(-1)|\,\bigl|x - \tfrac12\bigr| + 2|\mathrm{f}(0)|\,|x| \leq \bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| + 2|x|.\]</span></p>
+<div class="pausebox">
+<p>证明当 <span class="math inline">\(|x| \leq 1\)</span> 时，<span class="math inline">\(\bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| + 2|x| \leq 4\)</span>。（按正负号分情况讨论。）</p>
+</div>
+<p>若 <span class="math inline">\(|x| \leq \frac12\)</span>，则 <span class="math inline">\(x + \frac12 \geq 0\)</span> 而 <span class="math inline">\(x - \frac12 \leq 0\)</span>，所以 <span class="math inline">\(\bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| = (x + \tfrac12) - (x - \tfrac12) = 1\)</span>，总和是 <span class="math inline">\(1 + 2|x| \leq 2\)</span>。</p>
+<p>若 <span class="math inline">\(\frac12 \leq |x| \leq 1\)</span>，两个括号的正负号都与 <span class="math inline">\(x\)</span> 相同，所以 <span class="math inline">\(\bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| = 2|x|\)</span>，总和是 <span class="math inline">\(4|x| \leq 4\)</span>。</p>
+<p>无论哪种情况，都有 <span class="math inline">\(|\mathrm{f}&#39;(x)| \leq 4\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<p>这个上界只会在 <span class="math inline">\(x = \pm1\)</span> 处达到；在区间中间的一半，斜率最多只是 <span class="math inline">\(2\)</span>。</p>
+<h4 id="stagemark3-一个极端例子" class="stage"><span class="stage-n">阶段 3</span> 一个极端例子</h4>
+<div class="askyourself">
+<p>要在 <span class="math inline">\(x = 1\)</span> 处达到上界，第 2 阶段中的每个不等式都必须取等号。<span class="math inline">\(\mathrm{f}(1)\)</span>、<span class="math inline">\(\mathrm{f}(-1)\)</span> 和 <span class="math inline">\(\mathrm{f}(0)\)</span> 必须取甚么值？正负号又是甚么？</p>
+</div>
+<p>在 <span class="math inline">\(x = 1\)</span> 处，公式是 <span class="math inline">\(\mathrm{f}&#39;(1) = \frac32\mathrm{f}(1) + \frac12\mathrm{f}(-1) - 2\mathrm{f}(0)\)</span>。要令它等于 <span class="math inline">\(4\)</span>，我们需要 <span class="math inline">\(\mathrm{f}(1) = 1\)</span>、<span class="math inline">\(\mathrm{f}(-1) = 1\)</span> 和 <span class="math inline">\(\mathrm{f}(0) = -1\)</span>。通过 <span class="math inline">\((-1, 1)\)</span>、<span class="math inline">\((0, -1)\)</span> 和 <span class="math inline">\((1, 1)\)</span> 的二次函数是 <span class="math display">\[\mathrm{f}(x) = 2x^2 - 1,\]</span> 所以 <span class="math inline">\(a = 2\)</span>，<span class="math inline">\(b = 0\)</span>，<span class="math inline">\(c = -1\)</span>。在 <span class="math inline">\(|x| \leq 1\)</span> 上，<span class="math inline">\(x^2 \in [0, 1]\)</span>，所以 <span class="math inline">\(2x^2 - 1 \in [-1, 1]\)</span>，而 <span class="math inline">\(\mathrm{f}&#39;(1) = 4\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>用已知的量表示想求的量。</strong>公式把导数改写成 <span class="math inline">\(\mathrm{f}\)</span> 的值，而假设提供的资料正正在这些值上。</p></li>
+<li><p><strong>三角不等式。</strong>用各项绝对值之和来估计一个和的上界，是分析学（analysis）中最常见的手法之一。</p></li>
+<li><p><strong>从等号成立的条件找出极值情况。</strong>追问每个不等式何时取等号，就直接得出例子 <span class="math inline">\(2x^2 - 1\)</span>。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<div class="historybox">
+<div class="box-title">马可夫不等式与切比雪夫多项式</div>
+<p>马可夫在 1889 年证明：若 <span class="math inline">\(p\)</span> 是 <span class="math inline">\(n\)</span> 次多项式，且在 <span class="math inline">\([-1, 1]\)</span> 上 <span class="math inline">\(|p(x)| \leq 1\)</span>，则 <span class="math display">\[|p&#39;(x)| \leq n^2 \qquad\text{当 } |x| \leq 1.\]</span> 当 <span class="math inline">\(n = 2\)</span> 时，这就是我们的上界 <span class="math inline">\(4\)</span>。极端情况是<em>切比雪夫多项式</em>（Chebyshev polynomials）<span class="math inline">\(T_n\)</span>，其定义为 <span class="math display">\[T_n(\cos\theta) = \cos n\theta.\]</span> 例如 <span class="math inline">\(\cos 2\theta = 2\cos^2\theta - 1\)</span> 给出 <span class="math inline">\(T_2(x) = 2x^2 - 1\)</span>，即我们的极端二次函数；而 <span class="math inline">\(\cos 3\theta = 4\cos^3\theta - 3\cos\theta\)</span> 给出 <span class="math inline">\(T_3(x) = 4x^3 - 3x\)</span>。由于 <span class="math inline">\(T_n(x) = \cos n\theta\)</span>，这些多项式在 <span class="math inline">\(-1\)</span> 与 <span class="math inline">\(1\)</span> 之间来回振荡的次数，已是 <span class="math inline">\(n\)</span> 次多项式所能做到的最多，而且它们在两端也是最陡的（图 3.6.1）。马可夫的弟弟 Vladimir 在 1892 年把结果推广到高阶导数。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-3-6-1.svg" alt="图 3.6.1"><figcaption><span class="fig-label">图 3.6.1</span> 切比雪夫多项式 <span class="math inline">\(T_2 = 2x^2 - 1\)</span>、<span class="math inline">\(T_3 = 4x^3 - 3x\)</span> 和 <span class="math inline">\(T_4 = 8x^4 - 8x^2 + 1\)</span> 都留在方框 <span class="math inline">\(|x| \leq 1\)</span>、<span class="math inline">\(|y| \leq 1\)</span> 之内，并且尽可能多次触及方框的顶边和底边。在同次数的多项式中，它们在两端最陡：<span class="math inline">\(T_n&#39;(1) = n^2\)</span>。虚线是 <span class="math inline">\(T_2\)</span> 在 <span class="math inline">\(x = 1\)</span> 处的切线，斜率为 <span class="math inline">\(4\)</span>。</figcaption></figure>
+<h3 id="插值">插值</h3>
+<p>题目中的公式是<em>拉格朗日插值</em>（Lagrange interpolation）的一个例子：已知函数在若干点的值，写出通过这些点而次数最低的唯一多项式，再用它来逼近该函数或其导数。这里的三个点是 <span class="math inline">\(-1, 0, 1\)</span>。这类公式在数值分析（numerical analysis）中无处不在，例如用来从量度所得的数据估计导数。马可夫不等式就是随之而来的警告：函数值的小误差，在导数中最多可以被放大 <span class="math inline">\(n^2\)</span> 倍，这正是门捷列夫当年担心的问题。</p>
+<h3 id="切比雪夫多项式的实际应用">切比雪夫多项式的实际应用</h3>
+<p>切比雪夫多项式是逼近理论（approximation theory）的主力工具。在 <span class="math inline">\(T_n\)</span> 的根处对函数插值，而不是在等距的点上插值，可以把误差控制住；若用等距的点，高次插值在区间两端附近可以错得非常离谱（龙格现象，Runge’s phenomenon）。那些把函数计算至机器精度极限、或以极高准确度求解微分方程（differential equation）的软件，内部往往使用切比雪夫展开式。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">用已知的量表示未知的量</div>
+<p><em>如果假设告诉你的是某一类量，而结论谈的是另一类量，就去找一个把两者连系起来的恒等式，然后逐项估计上界。</em></p>
+<p>得到一个界之后，还要问它是否最佳。沿着等号成立的情况倒推回去，通常会把你带到极端例子，而极端例子本身往往就很值得研究。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>一般的想法。</strong>证明若 <span class="math inline">\(\mathrm{f}\)</span> 是二次函数，则 <span class="math inline">\(\mathrm{f}(x) = \mathrm{f}(-1)\dfrac{x(x-1)}{2} + \mathrm{f}(0)(1 - x^2) + \mathrm{f}(1)\dfrac{x(x+1)}{2}\)</span>，然后求导，重新得出题目中的公式。</p></li>
+<li><p><strong>唯一性。</strong> <span class="hard">较难</span> 证明在 <span class="math inline">\([-1, 1]\)</span> 上满足 <span class="math inline">\(|\mathrm{f}(x)| \leq 1\)</span>、且在 <span class="math inline">\([-1, 1]\)</span> 内某处有 <span class="math inline">\(|\mathrm{f}&#39;(x)| = 4\)</span> 的二次函数，只有 <span class="math inline">\(\pm(2x^2 - 1)\)</span>。</p></li>
+<li><p><strong>切比雪夫多项式。</strong>利用 <span class="math inline">\(\cos 3\theta = 4\cos^3\theta - 3\cos\theta\)</span> 验证 <span class="math inline">\(T_3(x) = 4x^3 - 3x\)</span>，并验证 <span class="math inline">\(T_3&#39;(1) = 9\)</span>。证明 <span class="math inline">\(T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)\)</span>，并求 <span class="math inline">\(T_4\)</span>。</p></li>
+<li><p><strong><span class="math inline">\(T_n\)</span> 的斜率。</strong>把 <span class="math inline">\(T_n(\cos\theta) = \cos n\theta\)</span> 对 <span class="math inline">\(\theta\)</span> 求导，证明 <span class="math inline">\(T_n&#39;(\cos\theta) = \dfrac{n\sin n\theta}{\sin\theta}\)</span>，再令 <span class="math inline">\(\theta \to 0\)</span>，推导出 <span class="math inline">\(T_n&#39;(1) = n^2\)</span>。</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Lloyd N. Trefethen, <a href="https://uk.bookshop.org/search?keywords=Approximation+Theory+and+Approximation+Practice+Trefethen"><em>Approximation Theory and Approximation Practice</em></a></strong>（SIAM）。一本出色的现代著作，讲述切比雪夫多项式与插值，能力强的中学生也读得懂，全书穿插电脑实验。</p></li>
+<li><p><strong>Peter Borwein &amp; Tamás Erdélyi, <a href="https://uk.bookshop.org/search?keywords=Polynomials+and+Polynomial+Inequalities+Borwein+Erdelyi"><em>Polynomials and Polynomial Inequalities</em></a></strong>（Springer）。想了解马可夫不等式及其相关结果的来龙去脉，可读此书。程度较深。</p></li>
+<li><p><strong>George M. Phillips, <a href="https://uk.bookshop.org/search?keywords=Interpolation+and+Approximation+by+Polynomials+Phillips"><em>Interpolation and Approximation by Polynomials</em></a></strong>（Springer）。一本大学本科教科书，涵盖拉格朗日插值、切比雪夫多项式和马可夫型不等式。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="pi-e-or-e-pi.html">← 3.5 πᵉ 还是 e^π？</a><a class="next" href="wirtinger.html">→ 3.7 π² ≤ 10</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>

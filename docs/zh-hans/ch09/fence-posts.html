@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>为篱笆桩着色 (STEP II 1995 第 2 题) — Beyond STEP</title>
+<meta name="description" content="STEP II 1995 第 2 题：引导式解答及其背后的大学数学。 为排成一列的柱子髹色很容易：第一根有 3 种选择，其后每根各有 2 种（只要不与前一根同色即可），共有 3 × 2^n-1 种髹法。把这一列弯成一个圆圈，问题却变得出奇地棘手，因为最后一根柱子既要与相邻的前一根不同色，又要与第一根不同色，而这究竟排除了一种颜色还是没有排除任何颜色，取决于前面所有柱子的髹法。…">
+<link rel="stylesheet" href="../assets/style.css?v=bdf612cd2a">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/fence-posts.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/fence-posts.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/fence-posts.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/fence-posts.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/fence-posts.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="为篱笆桩着色 (STEP II 1995 第 2 题) — Beyond STEP">
+<meta property="og:description" content="STEP II 1995 第 2 题：引导式解答及其背后的大学数学。 为排成一列的柱子髹色很容易：第一根有 3 种选择，其后每根各有 2 种（只要不与前一根同色即可），共有 3 × 2^n-1 种髹法。把这一列弯成一个圆圈，问题却变得出奇地棘手，因为最后一根柱子既要与相邻的前一根不同色，又要与第一根不同色，而这究竟排除了一种颜色还是没有排除任何颜色，取决于前面所有柱子的髹法。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/zh-hans/ch09/fence-posts.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 以历届 STEP 试题为门径，走进大学数学">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="为篱笆桩着色 (STEP II 1995 第 2 题) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1995 第 2 题：引导式解答及其背后的大学数学。 为排成一列的柱子髹色很容易：第一根有 3 种选择，其后每根各有 2 种（只要不与前一根同色即可），共有 3 × 2^n-1 种髹法。把这一列弯成一个圆圈，问题却变得出奇地棘手，因为最后一根柱子既要与相邻的前一根不同色，又要与第一根不同色，而这究竟排除了一种颜色还是没有排除任何颜色，取决于前面所有柱子的髹法。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "为篱笆桩着色", "headline": "为篱笆桩着色", "description": "STEP II 1995 第 2 题：引导式解答及其背后的大学数学。 为排成一列的柱子髹色很容易：第一根有 3 种选择，其后每根各有 2 种（只要不与前一根同色即可），共有 3 × 2^n-1 种髹法。把这一列弯成一个圆圈，问题却变得出奇地棘手，因为最后一根柱子既要与相邻的前一根不同色，又要与第一根不同色，而这究竟排除了一种颜色还是没有排除任何颜色，取决于前面所有柱子的髹法。…", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch09/fence-posts.html", "inLanguage": "zh-Hans-CN", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1995 第 2 题", "计数与机会"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "计数与机会", "url": "https://beyondstep.keithmcnulty.org/zh-hans/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/zh-hans/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/zh-hans/"}, {"@type": "ListItem", "position": 2, "name": "第 9 章：计数与机会", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch09/"}, {"@type": "ListItem", "position": 3, "name": "为篱笆桩着色", "item": "https://beyondstep.keithmcnulty.org/zh-hans/ch09/fence-posts.html"}]}</script>
+<script defer src="../assets/question.js?v=bdf612cd2a"></script>
+<script defer src="../assets/consent.js?v=bdf612cd2a" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">导言</a><a href="../index.html#chapters">章节</a><a href="../glossary/index.html">词汇表</a><a href="../symbols/index.html">符号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">下载</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">电子通讯</a><a class="nav-search" href="../search/index.html" aria-label="搜索">搜索</a><a class="lang-switch" href="../../ch09/fence-posts.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch09/fence-posts.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第 9 章 · 计数与机会</a>
+    <div class="src">STEP II · 1995 · 第 2 题</div>
+    <div class="sec-head"><span class="sec-num">9.3</span><h1>为篱笆桩着色</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-3-fence-posts.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">工作纸</span><span class="dl-sub">题目连结、提示、大学数学及练习</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第 9 章</span><span class="dl-sub">整章的 PDF 版本</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">题目</div>
+<p><strong>STEP II 1995，第 2 题</strong></p>
+<p>继续之前，请先阅读题目（原题为英文）。题目载于 STEP Support Programme 的题目资料库： <a href="https://step.maths.org/questions/95-s2-q2">step.maths.org/questions/95-s2-q2</a></p>
+</div>
+<h2 id="引子">引子</h2>
+<p>为排成一列的柱子髹色很容易：第一根有 <span class="math inline">\(3\)</span> 种选择，其后每根各有 <span class="math inline">\(2\)</span> 种（只要不与前一根同色即可），共有 <span class="math inline">\(3 \times 2^{n-1}\)</span> 种髹法。把这一列弯成一个圆圈，问题却变得出奇地棘手，因为最后一根柱子既要与相邻的前一根不同色，又要与第一根不同色，而这究竟排除了一种颜色还是没有排除任何颜色，取决于前面所有柱子的髹法。</p>
+<p>题目用一个经典技巧绕过这个难处：按最后一根柱子的颜色把计数分成几种情况，再找出各种情况之间如何互相转化。答案 <span class="math inline">\(2^n + 2(-1)^n\)</span> 是<em>色多项式</em>（chromatic polynomial）的第一个例子，而色多项式正是四色定理（four colour theorem）背后的数学的一部分。</p>
+<h2 id="动笔之前">动笔之前</h2>
+<div class="pausebox">
+<p>数一数为围成一圈的 <span class="math inline">\(3\)</span> 根柱子髹色有多少种方法，<span class="math inline">\(4\)</span> 根又有多少种。<span class="math inline">\(3 \times 2^{n-1}\)</span> 有没有多算？多算了多少？</p>
+</div>
+<p>围成一圈的三根柱子两两相邻，所以需要三种不同的颜色：共 <span class="math inline">\(3! = 6\)</span> 种方法。围成一圈的四根柱子：<span class="math inline">\(18\)</span> 种方法（你可以在最后验证这一点）。与排成一列时的 <span class="math inline">\(3 \times 2^2 = 12\)</span> 和 <span class="math inline">\(3 \times 2^3 = 24\)</span> 比较：圆圈少了的，正是最后一根柱子与第一根同色的那些着色。</p>
+<h2 id="逐步解题">逐步解题</h2>
+<h4 id="stagemark1-两类着色" class="stage"><span class="stage-n">阶段 1</span> 两类着色</h4>
+<div class="askyourself">
+<p>考虑 <span class="math inline">\(n + 1\)</span> 根柱子的一种着色（colouring），其中第一根和最后一根都是红色。把最后一根柱子拿走。余下的首 <span class="math inline">\(n\)</span> 根柱子的着色有甚么特点？</p>
+</div>
+<p>第 <span class="math inline">\(n\)</span> 根柱子与第 <span class="math inline">\(n + 1\)</span> 根相邻，而后者是红色，所以第 <span class="math inline">\(n\)</span> 根不是红色。拿走第 <span class="math inline">\(n + 1\)</span> 根后，剩下的是 <span class="math inline">\(n\)</span> 根柱子的一种着色，其中第一根是红色而最后一根不是红色：这正是 <span class="math inline">\(s_n\)</span> 种着色之一。反过来，<span class="math inline">\(s_n\)</span> 种着色中的任何一种都恰好有一种方法延伸，就是把第 <span class="math inline">\(n + 1\)</span> 根柱子髹成红色。所以两个集合完全对应，<span class="math inline">\(r_{n+1} = s_n\)</span>。</p>
+<div class="askyourself">
+<p><span class="math inline">\(r_n + s_n\)</span> 是甚么？</p>
+</div>
+<p>每一种第一根柱子为红色的着色，其最后一根柱子不是红色就是非红色，所以 <span class="math inline">\(r_n + s_n\)</span> 数的是 <span class="math inline">\(n\)</span> 根柱子中第一根为红色的全部着色。第一根之后，每根柱子有 <span class="math inline">\(2\)</span> 种选择，所以 <span class="math inline">\(r_n + s_n = 2^{n-1}\)</span>。因此 <span class="math display">\[r_{n+1} + r_n = s_n + r_n = 2^{n-1}. \qed\]</span></p>
+<h4 id="stagemark2-用数学归纳法induction证明公式" class="stage"><span class="stage-n">阶段 2</span> 用数学归纳法（induction）证明公式</h4>
+<p>当 <span class="math inline">\(n = 1\)</span> 时只有一根柱子，髹成红色，所以 <span class="math inline">\(r_1 = 1\)</span>，而公式给出 <span class="math inline">\(\frac13(1 + 2) = 1\)</span>。假设公式对 <span class="math inline">\(r_n\)</span> 成立。那么 <span class="math display">\[r_{n+1} = 2^{n-1} - r_n = 2^{n-1} - \frac{2^{n-1} + 2(-1)^{n-1}}{3} = \frac{2 \cdot 2^{n-1} - 2(-1)^{n-1}}{3} = \frac{2^n + 2(-1)^n}{3},\]</span> 这正是 <span class="math inline">\(r_{n+1}\)</span> 的公式。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>这条公式从何而来？递归关系（recurrence relation）<span class="math inline">\(r_{n+1} + r_n = 2^{n-1}\)</span> 就像一条微分方程（differential equation）：解是一个“特解”（particular solution）<span class="math inline">\(c \cdot 2^n\)</span> 加上一个满足 <span class="math inline">\(r_{n+1} + r_n = 0\)</span> 的“余函数”（complementary function）<span class="math inline">\(A(-1)^n\)</span>。求 <span class="math inline">\(c\)</span> 和 <span class="math inline">\(A\)</span>。</p>
+</div>
+<h4 id="stagemark3-圆圈" class="stage"><span class="stage-n">阶段 3</span> 圆圈</h4>
+<div class="askyourself">
+<p>在 <span class="math inline">\(n\)</span> 根柱子围成的圆圈中，固定第 <span class="math inline">\(1\)</span> 根柱子的颜色，例如红色。现在在第 <span class="math inline">\(n\)</span> 根与第 <span class="math inline">\(1\)</span> 根柱子之间把圆圈剪开，拉直成一列。哪些直列着色对应于合乎要求的圆圈着色？</p>
+</div>
+<p>拉直之后，圆圈变成由红色开始的一列 <span class="math inline">\(n\)</span> 根柱子，其中最后一根还必须与第 <span class="math inline">\(1\)</span> 根不同色：最后一根不是红色。这些正好就是那 <span class="math inline">\(s_n\)</span> 种着色。第 <span class="math inline">\(1\)</span> 根柱子可以是 <span class="math inline">\(3\)</span> 种颜色中的任何一种，所以圆圈着色的数目是 <span class="math display">\[3s_n = 3(2^{n-1} - r_n) = 3 \cdot 2^{n-1} - 2^{n-1} - 2(-1)^{n-1} = 2^n + 2(-1)^n. \qed\]</span> 验算：<span class="math inline">\(n = 3\)</span> 给出 <span class="math inline">\(8 - 2 = 6\)</span>，而 <span class="math inline">\(n = 4\)</span> 给出 <span class="math inline">\(16 + 2 = 18\)</span>。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-3-1.svg" alt="图 9.3.1"><figcaption><span class="fig-label">图 9.3.1</span> 左：排成一列时，第一根之后的每根柱子只须与前一根不同色。右：围成一圈时，最后一根柱子还必须与第 <span class="math inline">\(1\)</span> 根柱子不同色。沿虚线把圆圈剪开，圆圈着色就变成首尾两根柱子不同色的直列着色：即题目中所数的 <span class="math inline">\(s_n\)</span> 种着色之一。</figcaption></figure>
+<h2 id="回顾">回顾</h2>
+<ul>
+<li><p><strong>分成互相转化的情况。</strong>记下最后一根柱子是否红色，便得到两个数列 <span class="math inline">\(r_n\)</span> 和 <span class="math inline">\(s_n\)</span>，它们由简单的递归关系联系起来。</p></li>
+<li><p><strong>双射（bijection）。</strong><span class="math inline">\(r_{n+1} = s_n\)</span> 是靠把着色一一配对来证明的，而不是靠计算。</p></li>
+<li><p><strong>剪开圆圈。</strong>一个循环的问题变成了一个对两端附加条件的直线问题。</p></li>
+</ul>
+<h2 id="背后的数学">背后的数学</h2>
+<h3 id="色多项式">色多项式</h3>
+<p>柱子和它们之间的相邻关系构成一个<em>图</em>（graph）：排成一列时是一条路径（path），围成一圈时是一个圈（cycle）。<em>正常着色</em>（proper colouring）给相邻的顶点（vertex）不同的颜色。用 <span class="math inline">\(k\)</span> 种颜色的正常着色数目是 <span class="math inline">\(k\)</span> 的一个多项式，称为该图的<em>色多项式</em>，由伯克霍夫（George Birkhoff）于 1912 年引入。用 <span class="math inline">\(k\)</span> 种颜色重复题目中的论证，可得 <span class="math display">\[\text{路径：} k(k - 1)^{n-1}, \qquad \text{圈：} (k - 1)^n + (-1)^n(k - 1).\]</span> 取 <span class="math inline">\(k = 3\)</span>，圈的公式就是 <span class="math inline">\(2^n + 2(-1)^n\)</span>。伯克霍夫希望通过证明每幅地图所对应的图的色多项式在 <span class="math inline">\(k = 4\)</span> 时为正数，从而证明四色定理（每幅地图都可以用四种颜色着色，使相邻的国家颜色不同）。这个方法始终未能成功；定理最终在 1976 年由阿佩尔（Kenneth Appel）和哈肯（Wolfgang Haken）借助大量电脑运算证明。色多项式至今仍是一个活跃的研究领域，并与统计物理（statistical physics）有出人意表的联系：在那里它们以描述磁性的<em>波茨模型</em>（Potts model）的形式出现。</p>
+<h3 id="用矩阵数出同一个答案">用矩阵数出同一个答案</h3>
+<p>还有另一种方法可以看出答案，用的是第 7 章的线性代数（linear algebra）。设 <span class="math inline">\(\mathbf{M}\)</span> 为对角线上是 <span class="math inline">\(0\)</span>、其余位置是 <span class="math inline">\(1\)</span> 的 <span class="math inline">\(3 \times 3\)</span> 矩阵：当颜色 <span class="math inline">\(j\)</span> 可以跟在颜色 <span class="math inline">\(i\)</span> 之后时，第 <span class="math inline">\((i, j)\)</span> 项为 <span class="math inline">\(1\)</span>。那么 <span class="math inline">\(\mathbf{M}^{n-1}\)</span> 的第 <span class="math inline">\((i, j)\)</span> 项数的是由颜色 <span class="math inline">\(i\)</span> 开始、以颜色 <span class="math inline">\(j\)</span> 结束的直列着色，所以 <span class="math inline">\(r_n\)</span> 是 <span class="math inline">\(\mathbf{M}^{n-1}\)</span> 的一个对角线项。圆圈着色是经过 <span class="math inline">\(n\)</span> 步后回到起点的一个序列，所以圆圈着色的数目就是 <span class="math inline">\(\mathbf{M}^n\)</span> 的<em>迹</em>（trace）。由于 <span class="math inline">\(\mathbf{M} = \mathbf{J} - \mathbf{I}\)</span>，其中 <span class="math inline">\(\mathbf{J}\)</span> 的每一项都是 <span class="math inline">\(1\)</span>，<span class="math inline">\(\mathbf{M}\)</span> 的特征值（eigenvalue）是 <span class="math inline">\(3 - 1 = 2\)</span>（特征向量（eigenvector）为 <span class="math inline">\((1, 1, 1)\)</span>）和 <span class="math inline">\(-1\)</span>（两重），而 <span class="math inline">\(\mathbf{M}^n\)</span> 的迹是各特征值的 <span class="math inline">\(n\)</span> 次方之和： <span class="math display">\[\operatorname{tr}\mathbf{M}^n = 2^n + (-1)^n + (-1)^n = 2^n + 2(-1)^n.\]</span> 这种<em>转移矩阵</em>（transfer matrix）方法在组合数学（combinatorics）和统计物理中随处可见，用来数算逐步构造出来的排列。</p>
+<h2 id="思维技巧">思维技巧</h2>
+<div class="skillbox">
+<div class="box-title">建立互相耦合的递归关系</div>
+<p><em>当一个数列单靠自己无法满足简单的递归关系时，不妨多记录一点资料（这里是最后一根柱子的颜色），再找出联系各种情况的递归关系。</em></p>
+<p>这就是<em>状态</em>（state）的概念：只记下继续下去所必须知道的资料，不多也不少。它是电脑科学中动态规划（dynamic programming）的基础，也是概率中马可夫链（Markov chains）（<a href="../ch12/markov.html">第 12.16 节</a>）和转移矩阵方法的基础。</p>
+</div>
+<h2 id="延伸练习">延伸练习</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong><span class="math inline">\(k\)</span> 种颜色。</strong>用 <span class="math inline">\(k\)</span> 种颜色重做这道题。证明 <span class="math inline">\(r_{n+1} = s_n\)</span> 仍然成立，并且 <span class="math inline">\(r_{n+1} + r_n = (k-1)^{n-1}\)</span>，求 <span class="math inline">\(r_n\)</span>，并由此推导出圈的色多项式 <span class="math inline">\((k - 1)^n + (-1)^n(k - 1)\)</span>。</p></li>
+<li><p><strong>没有两根红柱相邻。</strong>把排成一列的 <span class="math inline">\(n\)</span> 根柱子髹成红色或白色，而且没有两根相邻的柱子同为红色，共有多少种方法？（你应该会得到斐波那契数（Fibonacci numbers）。）</p></li>
+<li><p><strong>轮子。</strong>加一根位于中心的柱子，与圆圈上的每根柱子都相邻（一个“轮子”）。用 <span class="math inline">\(4\)</span> 种颜色为它着色有多少种方法？（<em>提示：</em>中心用去一种颜色，圆圈必须使用其余三种。）</p></li>
+<li><p><strong>项链。</strong>如果圆圈的两种着色在其中一种可由另一种旋转而得时视为相同，那么当 <span class="math inline">\(n = 4\)</span> 时有多少种不同的着色？<span class="math inline">\(n = 5\)</span> 时呢？（这是<em>伯恩赛德引理</em>（Burnside’s lemma）的开端。）</p></li>
+</ol>
+</div>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><p><strong>Robin Wilson, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Graph+Theory+Wilson"><em>Introduction to Graph Theory</em></a></strong>（Pearson）。标准的图论入门教材；涵盖着色和四色问题。</p></li>
+<li><p><strong>Robin Wilson, <a href="https://uk.bookshop.org/search?keywords=Four+Colours+Suffice+Wilson"><em>Four Colours Suffice</em></a></strong>（Penguin）。四色定理的故事，为一般读者而写。</p></li>
+<li><p><strong>Herbert Wilf, <a href="https://www2.math.upenn.edu/~wilf/DownldGF.html"><em>generatingfunctionology</em></a></strong>（可在网上免费阅读）。讲述递归关系及其解法，包括转移矩阵方法。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="ramsey.html">← 9.2 小型版的拉姆齐定理</a><a class="next" href="generating-functions.html">→ 9.4 把数列看成函数</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">本版本由机器从英文翻译而成，尚未经以中文为母语的数学教师审阅。如有不清楚之处，概以英文原文为准。</p><p>文字、解答、图表及练习均由 Keith McNulty 撰写及制作，并按 <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> 贡献予公众领域。如有更正，欢迎以 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> 的形式提出。</p>
+    <p>STEP 题目版权属 Cambridge University Press &amp; Assessment 所有（&copy;），并不在 CC0 公众领域贡献宣告的涵盖范围内。本站不会转载题目：每一节均设有连结，通往官方来源的相关题目。</p>
+    <p class="footer-links"><a href="../privacy/index.html">隐私</a> &middot; <a href="#" data-cookie-settings>Cookie 设置</a></p>
+  </div>
+</footer>
+</body>
+</html>
