@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>무작위 부분집합 (STEP III 2019 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP III 2019 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. \1, 2, ldots, 100\ 의 부분집합(subset) 두 개를 완전히 무작위로 고른다고 하자. 두 집합이 공통 원소를 하나도 갖지 않을 가능성은 얼마나 될까? 직관은 “꽤 높다. 대부분의 집합 쌍은 서로 다르니까”라고 말할지도 모른다. 그러나 실제…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch09/random-subsets.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch09/random-subsets.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/random-subsets.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/random-subsets.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/random-subsets.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch09/random-subsets.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/random-subsets.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="무작위 부분집합 (STEP III 2019 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP III 2019 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. \1, 2, ldots, 100\ 의 부분집합(subset) 두 개를 완전히 무작위로 고른다고 하자. 두 집합이 공통 원소를 하나도 갖지 않을 가능성은 얼마나 될까? 직관은 “꽤 높다. 대부분의 집합 쌍은 서로 다르니까”라고 말할지도 모른다. 그러나 실제…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch09/random-subsets.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="무작위 부분집합 (STEP III 2019 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2019 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. \1, 2, ldots, 100\ 의 부분집합(subset) 두 개를 완전히 무작위로 고른다고 하자. 두 집합이 공통 원소를 하나도 갖지 않을 가능성은 얼마나 될까? 직관은 “꽤 높다. 대부분의 집합 쌍은 서로 다르니까”라고 말할지도 모른다. 그러나 실제…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "무작위 부분집합", "headline": "무작위 부분집합", "description": "STEP III 2019 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. \\1, 2, ldots, 100\\ 의 부분집합(subset) 두 개를 완전히 무작위로 고른다고 하자. 두 집합이 공통 원소를 하나도 갖지 않을 가능성은 얼마나 될까? 직관은 “꽤 높다. 대부분의 집합 쌍은 서로 다르니까”라고 말할지도 모른다. 그러나 실제…", "url": "https://beyondstep.keithmcnulty.org/ko/ch09/random-subsets.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2019 문제 12", "세기와 확률"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "세기와 확률", "url": "https://beyondstep.keithmcnulty.org/ko/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제9장: 세기와 확률", "item": "https://beyondstep.keithmcnulty.org/ko/ch09/"}, {"@type": "ListItem", "position": 3, "name": "무작위 부분집합", "item": "https://beyondstep.keithmcnulty.org/ko/ch09/random-subsets.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch09/random-subsets.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch09/random-subsets.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch09/random-subsets.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch09/random-subsets.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제9장 · 세기와 확률</a>
+    <div class="src">STEP III · 2019 · 문제 12</div>
+    <div class="sec-head"><span class="sec-num">9.12</span><h1>무작위 부분집합</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-12-random-subsets.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제9장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 2019, 문제 12</strong></p>
+<p>다음으로 넘어가기 전에 문제를 먼저 읽어 보자. 이 문제는 OCR에서 내려받을 수 있는 2019년 STEP 문제지 모음(zip 파일)의 STEP III 문제지에 있다: <a href="https://www.ocr.org.uk/Images/696590-2019-past-papers.zip">www.ocr.org.uk/Images/696590-2019-past-papers.zip</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p><span class="math inline">\(\{1, 2, \ldots, 100\}\)</span>의 부분집합(subset) 두 개를 완전히 무작위로 고른다고 하자. 두 집합이 공통 원소를 하나도 갖지 않을 가능성은 얼마나 될까? 직관은 “꽤 높다. 대부분의 집합 쌍은 서로 다르니까”라고 말할지도 모른다. 그러나 실제 확률(probability)은 <span class="math inline">\(\bigl(\frac34\bigr)^{100}\)</span>, 즉 약 <span class="math inline">\(3 \times 10^{-13}\)</span>이다. 무작위 집합은 크기가 크고(전체의 약 절반), 그래서 거의 언제나 서로 겹친다.</p>
+<p>문제는 짧지만, 그 안에 담긴 한 가지 아이디어는 강력하다. 집합을 통째로 생각하지 말고, 원소를 하나씩 생각하라는 것이다. 무작위 부분집합은 각 원소마다 한 번씩, 모두 <span class="math inline">\(n\)</span>번의 독립적인 동전 던지기일 뿐이며, 무작위 부분집합에 관한 모든 질문은 이 동전 던지기에 관한 질문이 된다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\{1, \ldots, n\}\)</span>의 부분집합을 예/아니요 질문에 대한 <span class="math inline">\(n\)</span>개의 답의 나열로 어떻게 나타낼 수 있을까?</p>
+</div>
+<p>각 원소 <span class="math inline">\(i\)</span>에 대하여 “<span class="math inline">\(i\)</span>가 집합에 속하는가?”라는 질문에 답한다. 부분집합이 정해지면 답이 정해지고, 답이 정해지면 부분집합이 정해진다. 원소마다 선택지가 <span class="math inline">\(2\)</span>가지이므로 부분집합은 모두 <span class="math inline">\(2^n\)</span>개이다. 부분집합을 균등하게 무작위로 고르는 것은 각 질문에 공정한 동전을 독립적으로 던져 답하는 것과 같다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-원소-하나" class="stage"><span class="stage-n">단계 1</span> 원소 하나</h4>
+<p>동전 던지기 설명에 따르면 <span class="math inline">\(\mathrm{P}(1 \in A_1) = \frac12\)</span>이다. 실제로 <span class="math inline">\(2^n\)</span>개의 부분집합 중 정확히 절반이 <span class="math inline">\(1\)</span>을 포함한다. <span class="math inline">\(1\)</span>을 포함하지 않는 각 부분집합을, 거기에 <span class="math inline">\(1\)</span>을 추가하여 얻은 부분집합과 짝지으면 된다.</p>
+<h4 id="stagemark2-서로소인-집합" class="stage"><span class="stage-n">단계 2</span> 서로소인 집합</h4>
+<div class="askyourself">
+<p><span class="math inline">\(A_1 \cap A_2 = \varnothing\)</span>이려면 각 원소 <span class="math inline">\(i\)</span>에 대해 무엇이 성립해야 하는가? 원소 하나에 대해 그 확률은 얼마인가? 왜 원소들에 걸쳐 곱할 수 있는가?</p>
+</div>
+<p><span class="math inline">\(A_1\)</span>과 <span class="math inline">\(A_2\)</span>는 두 집합 모두에 속하는 원소가 없을 때 정확히 서로소(disjoint)이다. 원소 <span class="math inline">\(i\)</span> 하나에 대해서는 같은 확률로 일어나는 네 가지 경우가 있다. 어느 집합에도 속하지 않는 경우, <span class="math inline">\(A_1\)</span>에만 속하는 경우, <span class="math inline">\(A_2\)</span>에만 속하는 경우, 둘 다에 속하는 경우이다(그림 9.12.1의 왼쪽). 마지막 경우만 금지되므로, <span class="math inline">\(i\)</span>가 두 집합 모두에 속하지 않을 확률은 <span class="math inline">\(\frac34\)</span>이다. 서로 다른 원소는 서로 다른 독립(independent)인 동전 던지기로 정해지므로 <span class="math display">\[\mathrm{P}(A_1 \cap A_2 = \varnothing) = \Bigl(\frac34\Bigr)^n. \qed\]</span> 집합이 세 개라면 원소 <span class="math inline">\(i\)</span>가 세 집합 모두에 속할 확률은 <span class="math inline">\(\frac18\)</span>이므로 <span class="math inline">\(\mathrm{P}(A_1 \cap A_2 \cap A_3 = \varnothing) = \bigl(\frac78\bigr)^n\)</span>이다. 일반적으로 <span class="math display">\[\mathrm{P}(A_1 \cap \cdots \cap A_m = \varnothing) = \Bigl(1 - \frac{1}{2^m}\Bigr)^n. \qed\]</span></p>
+<h4 id="stagemark3-부분집합" class="stage"><span class="stage-n">단계 3</span> 부분집합</h4>
+<div class="askyourself">
+<p><span class="math inline">\(A_1 \subseteq A_2\)</span>이려면 원소에 대한 네 가지 경우 중 어느 것이 금지되는가?</p>
+</div>
+<p><span class="math inline">\(A_1 \subseteq A_2\)</span>는 어떤 원소가 <span class="math inline">\(A_1\)</span>에는 속하지만 <span class="math inline">\(A_2\)</span>에는 속하지 않을 때 정확히 성립하지 않는다. 이번에도 네 가지 패턴 중 하나가 금지되므로 <span class="math display">\[\mathrm{P}(A_1 \subseteq A_2) = \Bigl(\frac34\Bigr)^n,\]</span> 즉 서로소일 확률과 같다. 이것은 우연이 아니다. <span class="math inline">\(A_1 \subseteq A_2\)</span>는 <span class="math inline">\(A_1\)</span>이 <span class="math inline">\(A_2\)</span>의 여집합(complement)과 서로소일 때 정확히 성립하며, 무작위 집합의 여집합은 또 다른 무작위 집합이다.</p>
+<div class="askyourself">
+<p><span class="math inline">\(A_1 \subseteq A_2 \subseteq A_3\)</span>이려면, 원소의 소속 패턴(각 집합에 속하는지 아닌지) <span class="math inline">\(8\)</span>가지 중 어느 것이 허용되는가?</p>
+</div>
+<p>사슬(chain) <span class="math inline">\(A_1, A_2, A_3\)</span>을 따라가면서, 원소가 일단 들어오면 계속 들어 있어야 한다. 따라서 허용되는 패턴은 “밖, 밖, 밖”, “밖, 밖, 안”, “밖, 안, 안”, “안, 안, 안”으로 <span class="math inline">\(8\)</span>가지 중 <span class="math inline">\(4\)</span>가지이다(그림 9.12.1의 오른쪽). 그러므로 <span class="math inline">\(\mathrm{P}(A_1 \subseteq A_2 \subseteq A_3) = \bigl(\frac48\bigr)^n = \bigl(\frac12\bigr)^n\)</span>이다.</p>
+<p>집합 <span class="math inline">\(m\)</span>개로 이루어진 사슬에서는, 허용되는 패턴이 원소가 처음 들어가는 집합(<span class="math inline">\(A_1, \ldots, A_m\)</span> 중 하나, 또는 끝내 들어가지 않음)에 의해 결정되므로 <span class="math inline">\(2^m\)</span>개의 패턴 중 <span class="math inline">\(m + 1\)</span>개가 허용된다. <span class="math display">\[\mathrm{P}(A_1 \subseteq A_2 \subseteq \cdots \subseteq A_m) = \Bigl(\frac{m + 1}{2^m}\Bigr)^n. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-12-1.svg" alt="그림 9.12.1"><figcaption><span class="fig-label">그림 9.12.1</span> 왼쪽: <span class="math inline">\(S\)</span>의 원소는 <span class="math inline">\(A_1\)</span>과 <span class="math inline">\(A_2\)</span>에 대하여 네 가지 위치 중 하나에 있을 수 있으며, 각각의 확률은 <span class="math inline">\(\frac14\)</span>이다. 서로소 조건은 “둘 다”(호박색)를 금지하고, <span class="math inline">\(A_1 \subseteq A_2\)</span>는 “<span class="math inline">\(A_1\)</span>에만”을 금지한다. 오른쪽: <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, <span class="math inline">\(A_3\)</span>에 대한 여덟 가지 소속 패턴(채워진 원은 “안”을 뜻한다). 사슬 <span class="math inline">\(A_1 \subseteq A_2 \subseteq A_3\)</span>은 상자로 표시한 네 패턴만 허용하는데, 이 패턴들에서는 원소가 일단 들어오면 계속 들어 있다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>원소별로 분해하기.</strong> 집합 수준의 각 조건(서로소, 부분집합, 사슬)은 각 원소에 대한 개별 조건이었다.</p></li>
+<li><p><strong>원소 사이의 독립성.</strong> 원소들은 독립적인 동전 던지기로 정해지므로 확률을 곱한다.</p></li>
+<li><p><strong>패턴 세기.</strong> 각 답은 (허용되는 패턴 수 <span class="math inline">\(\div\)</span> 전체 패턴 수)<span class="math inline">\(^n\)</span>이었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="확률-없이-세기">확률 없이 세기</h3>
+<p>선택의 가짓수를 곱하면 각 확률이 개수로 바뀐다. <span class="math inline">\(A_1 \subseteq A_2\)</span>인 순서쌍 <span class="math inline">\((A_1, A_2)\)</span>의 개수는 <span class="math inline">\(4^n \times \bigl(\frac34\bigr)^n = 3^n\)</span>이다. 이 쌍들을 직접 셀 수도 있다. <span class="math inline">\(A_2\)</span>의 크기 <span class="math inline">\(k\)</span>를 정하고, <span class="math inline">\(A_2\)</span> 자체를 <span class="math inline">\(\binom nk\)</span>가지 방법으로 고른 다음, <span class="math inline">\(A_1\)</span>을 <span class="math inline">\(A_2\)</span>의 <span class="math inline">\(2^k\)</span>개 부분집합 중 하나로 고르면 된다. 따라서 <span class="math display">\[\sum_{k=0}^{n}\binom{n}{k}2^k = 3^n,\]</span> 이것은 <span class="math inline">\((1 + 2)^n\)</span>에 대한 이항정리(binomial theorem)이다. 같은 대상을 한 번은 원소별로, 한 번은 크기별로, 두 가지 방법으로 세어 항등식을 증명한 것이다. 이것이 <em>이중 계수(double counting)</em>라는 방법으로, <a href="../ch07/platonic-solids.html">7.9 절</a>에서 정다면체를 다룰 때 만난 적이 있다. 마찬가지로 사슬 <span class="math inline">\(A_1 \subseteq \cdots \subseteq A_m\)</span>의 개수는 <span class="math inline">\((m + 1)^n\)</span>이다.</p>
+<h3 id="부분집합의-격자">부분집합의 격자</h3>
+<p><span class="math inline">\(\{1, \ldots, n\}\)</span>의 부분집합들은 포함 관계로 순서를 매기면 <em>불 격자(Boolean lattice)</em>라는 구조를 이룬다. 이것은 <span class="math inline">\(n\)</span>차원 정육면체로 그려 볼 수 있다. 각 부분집합은 예/아니요 답의 나열로 이름 붙은 꼭짓점이고, 모서리를 따라 움직이는 것은 원소 하나를 추가하거나 제거하는 것이다. 사슬은 위로 올라가는 경로이다. 부분집합족에 조건이 주어졌을 때 그 족이 얼마나 클 수 있는지를 밝히는 깊은 결과들이 있다. <em>슈페르너 정리(Sperner’s theorem)</em>(1928)는 어떤 집합도 다른 집합을 포함하지 않는 가장 큰 족이 <span class="math inline">\(\binom{n}{\lfloor n/2\rfloor}\)</span>개의 집합으로 이루어짐을 말하고, <em>에르되시–코–라도 정리(Erdős–Ko–Rado theorem)</em>(1961)는 어느 두 집합도 서로 겹치도록 <span class="math inline">\(k\)</span>개 원소의 집합을 몇 개까지 고를 수 있는지를 말한다. 두 정리 모두 조합론(combinatorics) 입문 강의의 표준 내용이며, 부분집합을 동전 던지기로 보는 관점은 가장 매끄러운 증명 몇 가지를 제공한다.</p>
+<div class="historybox">
+<div class="box-title">불의 대수</div>
+<p>조지 불(George Boole)의 <em>The Laws of Thought</em>(“사고의 법칙”, 1854)는 논리적 명제를 집합으로, “그리고”, “또는”, “아니다”를 각각 교집합, 합집합, 여집합으로 다루었다. 집합을 예/아니요 답의 문자열로 부호화하는 것은 바로 컴퓨터가 집합을 표현하는 방식이다. <span class="math inline">\(\{1, \ldots, 64\}\)</span>의 부분집합은 하나의 <span class="math inline">\(64\)</span>비트 수이고, 교집합은 “비트 AND” 명령이다. 원소 하나(비트 하나)씩 다루는 이 문제의 방법은 바로 그러한 연산을 분석하는 방법이다.</p>
+</div>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">원소를 하나씩 생각하기</div>
+<p><em>대상이 각 원소에 대한 독립적인 선택으로 만들어질 때, 모든 원소에 개별적으로 적용되는 조건의 확률은 곱과 같다.</em></p>
+<p>이 방법은 <span class="math inline">\(2^n\)</span>개의 부분집합에 관한 질문을 <span class="math inline">\(4\)</span>개 또는 <span class="math inline">\(8\)</span>개의 패턴에 관한 질문으로 바꾸었다. 대학에서는 조합론(집합과 중복집합(multiset)의 생성함수(generating function)), 확률론(독립인 좌표), 컴퓨터 과학(비트 단위 추론)에서 다시 등장한다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>덮기.</strong> <span class="math inline">\(\mathrm{P}(A_1 \cup A_2 = S)\)</span>와 <span class="math inline">\(\mathrm{P}(A_1 \cup A_2 \cup \cdots \cup A_m = S)\)</span>를 구하여라.</p></li>
+<li><p><strong>같은 크기.</strong> <span class="math inline">\(\mathrm{P}(|A_1| = |A_2|) = \binom{2n}{n}\big/4^n\)</span>임을 보여라. (<em>힌트:</em> <span class="math inline">\(|A_1| = |A_2|\)</span>는 <span class="math inline">\(|A_1| + |S \setminus A_2| = n\)</span>일 때 정확히 성립한다.) <span class="math inline">\(n\)</span>이 클 때 이 값이 약 <span class="math inline">\(1/\sqrt{\pi n}\)</span>임을 보여라.</p></li>
+<li><p><strong>셋으로 분할하기.</strong> <span class="math inline">\(S\)</span>의 서로소인 부분집합의 순서쌍 <span class="math inline">\((A, B)\)</span>의 개수가 <span class="math inline">\(3^n\)</span>임을 보이고, 서로소인 부분집합의 순서 없는 쌍 <span class="math inline">\(\{A, B\}\)</span>의 개수를 구하여라.</p></li>
+<li><p><strong>작은 <span class="math inline">\(n\)</span>에 대한 슈페르너 정리.</strong> <span class="math inline">\(n = 3\)</span>과 <span class="math inline">\(n = 4\)</span>에 대하여, 어떤 집합도 다른 집합을 포함하지 않는 <span class="math inline">\(\{1, \ldots, n\}\)</span>의 부분집합족 중 가장 큰 것을 구하여라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Miklós Bóna, <a href="https://uk.bookshop.org/search?keywords=A+Walk+Through+Combinatorics+Bona"><em>A Walk Through Combinatorics</em></a></strong> (World Scientific). 부분집합과 부분순서집합을 다루는 장들.</p></li>
+<li><p><strong>Béla Bollobás, <a href="https://uk.bookshop.org/search?keywords=Combinatorics%3A+Set+Systems%2C+Hypergraphs%2C+Families+of+Vectors+and+Combinatorial+Probability+Bollobas"><em>Combinatorics: Set Systems, Hypergraphs, Families of Vectors and Combinatorial Probability</em></a></strong> (Cambridge University Press). 슈페르너 정리에서 출발하여 부분집합족을 다루는 짧고 우아한 책.</p></li>
+<li><p><strong>Peter Cameron, <a href="https://uk.bookshop.org/search?keywords=Combinatorics%3A+Topics%2C+Techniques%2C+Algorithms+Cameron"><em>Combinatorics: Topics, Techniques, Algorithms</em></a></strong> (Cambridge University Press). 두 가지 방법으로 세기를 특히 강조하는 입문서.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="coupon-collector.html">← 9.11 한 세트 모두 모으기</a><a class="next" href="loaded-dice.html">→ 9.13 조작된 주사위</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>행렬에서는 성립하지 않는 법칙 (STEP II 1993 Q6) — Beyond STEP</title>
+<meta name="description" content="STEP II 1993 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 행렬(matrix)은 더하고 곱할 수 있으므로 수처럼 다루고 싶어진다. 이 문제는 수에서는 참인 네 가지 “규칙”을 제시하고, 그중 어느 것이 행렬에서도 살아남는지를 물으며 바로 그 유혹을 시험한다. 대부분은 성립하지 않으며, 성립하지 않는 방식이 많은 것을 알려 준다. 행렬의…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/matrix-rules.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="행렬에서는 성립하지 않는 법칙 (STEP II 1993 Q6) — Beyond STEP">
+<meta property="og:description" content="STEP II 1993 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 행렬(matrix)은 더하고 곱할 수 있으므로 수처럼 다루고 싶어진다. 이 문제는 수에서는 참인 네 가지 “규칙”을 제시하고, 그중 어느 것이 행렬에서도 살아남는지를 물으며 바로 그 유혹을 시험한다. 대부분은 성립하지 않으며, 성립하지 않는 방식이 많은 것을 알려 준다. 행렬의…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch07/matrix-rules.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="행렬에서는 성립하지 않는 법칙 (STEP II 1993 Q6) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1993 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 행렬(matrix)은 더하고 곱할 수 있으므로 수처럼 다루고 싶어진다. 이 문제는 수에서는 참인 네 가지 “규칙”을 제시하고, 그중 어느 것이 행렬에서도 살아남는지를 물으며 바로 그 유혹을 시험한다. 대부분은 성립하지 않으며, 성립하지 않는 방식이 많은 것을 알려 준다. 행렬의…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "행렬에서는 성립하지 않는 법칙", "headline": "행렬에서는 성립하지 않는 법칙", "description": "STEP II 1993 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 행렬(matrix)은 더하고 곱할 수 있으므로 수처럼 다루고 싶어진다. 이 문제는 수에서는 참인 네 가지 “규칙”을 제시하고, 그중 어느 것이 행렬에서도 살아남는지를 물으며 바로 그 유혹을 시험한다. 대부분은 성립하지 않으며, 성립하지 않는 방식이 많은 것을 알려 준다. 행렬의…", "url": "https://beyondstep.keithmcnulty.org/ko/ch07/matrix-rules.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1993 문제 6", "선형대수학과 기하학"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "선형대수학과 기하학", "url": "https://beyondstep.keithmcnulty.org/ko/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제7장: 선형대수학과 기하학", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/"}, {"@type": "ListItem", "position": 3, "name": "행렬에서는 성립하지 않는 법칙", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/matrix-rules.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch07/matrix-rules.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/matrix-rules.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch07/matrix-rules.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch07/matrix-rules.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제7장 · 선형대수학과 기하학</a>
+    <div class="src">STEP II · 1993 · 문제 6</div>
+    <div class="sec-head"><span class="sec-num">7.1</span><h1>행렬에서는 성립하지 않는 법칙</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-1-matrix-rules.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제7장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 1993, 문제 6</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/93-s2-q6">step.maths.org/questions/93-s2-q6</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>행렬(matrix)은 더하고 곱할 수 있으므로 수처럼 다루고 싶어진다. 이 문제는 수에서는 참인 네 가지 “규칙”을 제시하고, 그중 어느 것이 행렬에서도 살아남는지를 물으며 바로 그 유혹을 시험한다. 대부분은 성립하지 않으며, 성립하지 않는 방식이 많은 것을 알려 준다. 행렬의 곱셈은 교환법칙(commutative law)을 만족하지 않는다. 곱이 영행렬인 영이 아닌 행렬들이 있다. 그리고 행렬에 대한 이차방정식(quadratic equation)은 해를 무한히 많이 가질 수 있다.</p>
+<p>이러한 실패는 결함이 아니다. 오히려 행렬이 쓸모 있는 이유가 바로 여기에 있다. 행렬은 공간의 변환을 나타내며, 두 변환을 다른 순서로 하면 실제로 다른 결과가 나온다. 1925년 하이젠베르크(Werner Heisenberg)는 양자역학의 물리량이 수가 아니라 행렬처럼 행동한다는 것, 그리고 <span class="math inline">\(\mathbf{AB} = \mathbf{BA}\)</span>가 성립하지 않는다는 사실이 불확정성 원리(uncertainty principle)의 수학적 형태라는 것을 발견하였다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>실수에서 <span class="math inline">\(ab = 0\)</span>이면 <span class="math inline">\(a = 0\)</span> 또는 <span class="math inline">\(b = 0\)</span>인 이유는 무엇인가? 그 논증은 수의 어떤 성질을 사용하며, 그 성질은 행렬에서도 성립하는가?</p>
+</div>
+<p><span class="math inline">\(ab = 0\)</span>이고 <span class="math inline">\(a \neq 0\)</span>이면 양변을 <span class="math inline">\(a\)</span>로 나누어 <span class="math inline">\(b = 0\)</span>을 얻는다. 이 논증에는 영이 아닌 모든 수가 역원(inverse)을 가진다는 사실이 필요하다. 영이 아닌 행렬이 반드시 역행렬을 가지는 것은 아니므로(행렬식(determinant)이 0인 행렬은 역행렬이 없다) 이 논증은 무너진다. <em>기하적인</em> 그림도 함께 염두에 두자. 행렬은 평면의 변환이며, 곱 <span class="math inline">\(\mathbf{AB}\)</span>는 “<span class="math inline">\(\mathbf{B}\)</span>를 먼저 하고, 그다음 <span class="math inline">\(\mathbf{A}\)</span>를 한다”는 뜻이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-mathbfab-mathbf0이지만-mathbfba-neq-mathbf0일-수-있는가" class="stage"><span class="stage-n">단계 1</span> <span class="math inline">\(\mathbf{AB} = \mathbf{0}\)</span>이지만 <span class="math inline">\(\mathbf{BA} \neq \mathbf{0}\)</span>일 수 있는가?</h4>
+<div class="askyourself">
+<p>기하적으로 생각해 보자. <span class="math inline">\(\mathbf{B}\)</span>가 모든 것을 한 직선 위로 보내고, <span class="math inline">\(\mathbf{A}\)</span>가 그 직선을 0으로 찌그러뜨리게 하고 싶다. 그러나 반대 순서에서는 <span class="math inline">\(\mathbf{A}\)</span>가 남긴 것을 <span class="math inline">\(\mathbf{B}\)</span>가 모두 없애 버려서는 안 된다.</p>
+</div>
+<p><span class="math inline">\(\mathbf{A} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\)</span>로 두자. 이 행렬은 <span class="math inline">\(x\)</span>축 위로의 사영(projection)이다(<span class="math inline">\(y\)</span>축을 없앤다). 또 <span class="math inline">\(\mathbf{B} = \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}\)</span>로 두면, 이 행렬은 <span class="math inline">\((x, y)\)</span>를 <span class="math inline">\(y\)</span>축 위의 점 <span class="math inline">\((0, x)\)</span>로 보낸다. 그러면 <span class="math display">\[\mathbf{AB} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix} = \begin{pmatrix} 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}, \qquad \mathbf{BA} = \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix} \neq \mathbf{0}.\]</span> 따라서 이 명제는 <strong>거짓</strong>이다(그림 7.1.1).<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-제곱의-차" class="stage"><span class="stage-n">단계 2</span> 제곱의 차</h4>
+<p>모든 곱의 순서를 유지하면서 주의 깊게 전개하면 <span class="math display">\[(\mathbf{A} - \mathbf{B})(\mathbf{A} + \mathbf{B}) = \mathbf{A}^2 + \mathbf{AB} - \mathbf{BA} - \mathbf{B}^2.\]</span> 이것은 정확히 <span class="math inline">\(\mathbf{AB} = \mathbf{BA}\)</span>일 때 <span class="math inline">\(\mathbf{A}^2 - \mathbf{B}^2\)</span>와 같다. 단계 1의 행렬들에서는 <span class="math inline">\(\mathbf{AB} - \mathbf{BA} = -\mathbf{BA} \neq \mathbf{0}\)</span>이므로 이 명제는 <strong>거짓</strong>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-mathbfax-mathbf0의-영이-아닌-해" class="stage"><span class="stage-n">단계 3</span> <span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span>의 영이 아닌 해</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\det\mathbf{A} \neq 0\)</span>이면 <span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span>에 무엇을 할 수 있는가? <span class="math inline">\(\det\mathbf{A} = 0\)</span>이면 <span class="math inline">\(\mathbf{Av} = \mathbf{0}\)</span>인 영이 아닌 열벡터(column vector) <span class="math inline">\(\mathbf{v}\)</span>를 찾을 수 있는가?</p>
+</div>
+<p><span class="math inline">\(\det\mathbf{A} \neq 0\)</span>이면 <span class="math inline">\(\mathbf{A}^{-1}\)</span>이 존재하고 <span class="math inline">\(\mathbf{X} = \mathbf{A}^{-1}\mathbf{AX} = \mathbf{0}\)</span>이다. 즉 영이 아닌 해는 없다.</p>
+<p><span class="math inline">\(\det\mathbf{A} = 0\)</span>이면 <span class="math inline">\(\mathbf{A} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span>, <span class="math inline">\(ad = bc\)</span>로 쓰자. 벡터 <span class="math inline">\(\begin{pmatrix} b \\ -a \end{pmatrix}\)</span>와 <span class="math inline">\(\begin{pmatrix} d \\ -c \end{pmatrix}\)</span>는 <span class="math inline">\(\mathbf{A}\begin{pmatrix} b \\ -a \end{pmatrix} = \begin{pmatrix} ab - ba \\ cb - da \end{pmatrix} = \mathbf{0}\)</span>을 만족하고, 다른 하나도 마찬가지이다. <span class="math inline">\(\mathbf{A} \neq \mathbf{0}\)</span>이므로 둘 중 적어도 하나는 영벡터가 아니다. 그것을 <span class="math inline">\(\mathbf{v}\)</span>라 하자. 그러면 두 열이 모두 <span class="math inline">\(\mathbf{v}\)</span>인 행렬 <span class="math inline">\(\mathbf{X}\)</span>는 영행렬이 아니고 <span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span>이다. 따라서 이 명제는 <strong>참</strong>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-제곱근은-몇-개인가" class="stage"><span class="stage-n">단계 4</span> 제곱근은 몇 개인가?</h4>
+<div class="pausebox">
+<p><span class="math inline">\(\mathbf{X}^2 + \mathbf{AX} + \mathbf{B} = \mathbf{0}\)</span>이 해를 무한히 많이 가지도록 하는 영이 아닌 <span class="math inline">\(\mathbf{A}\)</span>와 <span class="math inline">\(\mathbf{B}\)</span>를 찾아라. (<em>힌트:</em> 좌변을 완전제곱 <span class="math inline">\((\mathbf{X} - \mathbf{I})^2\)</span>으로 만들고, 제곱이 영행렬인 행렬을 생각해 보라.)</p>
+</div>
+<p>둘 다 영이 아닌 <span class="math inline">\(\mathbf{A} = -2\mathbf{I}\)</span>, <span class="math inline">\(\mathbf{B} = \mathbf{I}\)</span>를 택하자. 그러면 방정식은 <span class="math inline">\((\mathbf{X} - \mathbf{I})^2 = \mathbf{0}\)</span>이 된다. <span class="math inline">\(\mathbf{N}^2 = \mathbf{0}\)</span>인 임의의 행렬 <span class="math inline">\(\mathbf{N}\)</span>은 해 <span class="math inline">\(\mathbf{X} = \mathbf{I} + \mathbf{N}\)</span>을 주며, 이러한 <span class="math inline">\(\mathbf{N}\)</span>은 무한히 많다. <span class="math display">\[\mathbf{N} = \begin{pmatrix} 0 &amp; t \\ 0 &amp; 0 \end{pmatrix}, \qquad \mathbf{N}^2 = \mathbf{0} \text{, 임의의 실수 } t.\]</span> 따라서 모든 <span class="math inline">\(t\)</span>에 대하여 <span class="math inline">\(\mathbf{X} = \begin{pmatrix} 1 &amp; t \\ 0 &amp; 1 \end{pmatrix}\)</span>은 해이고, 이 명제는 <strong>거짓</strong>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>순서가 중요하다.</strong> 모든 전개에서 곱의 순서를 지켜야 한다. <span class="math inline">\(\mathbf{AB}\)</span>와 <span class="math inline">\(\mathbf{BA}\)</span>는 대개 다르다.</p></li>
+<li><p><strong>영인자.</strong> 영이 아닌 행렬끼리 곱해서 영행렬이 될 수 있으며, 이 때문에 “이차방정식의 근은 많아야 두 개”라는 논증이 무너진다.</p></li>
+<li><p><strong>변환으로 생각하라.</strong> 각 반례(counterexample)는 행렬이 평면에 무엇을 하는지 그려 보면 쉽게 찾을 수 있었다.</p></li>
+</ul>
+<figure class="stepfig"><img src="../assets/fig/fig-7-1-1.svg" alt="그림 7.1.1"><figcaption><span class="fig-label">그림 7.1.1</span> <span class="math inline">\(\mathbf{AB} = \mathbf{0}\)</span>이지만 <span class="math inline">\(\mathbf{BA} \neq \mathbf{0}\)</span>인 이유. 위: <span class="math inline">\(\mathbf{B}\)</span>는 모든 벡터를 <span class="math inline">\(y\)</span>축 위로 보내고, <span class="math inline">\(\mathbf{A}\)</span>(<span class="math inline">\(x\)</span>축 위로의 사영)가 이를 0으로 짓눌러 버린다. 아래: 반대 순서에서는 <span class="math inline">\(\mathbf{A}\)</span>가 <span class="math inline">\(x\)</span>성분을 남기고, <span class="math inline">\(\mathbf{B}\)</span>가 그것을 <span class="math inline">\(y\)</span>축 위로 옮기며, 그곳에서 벡터는 살아남는다.</figcaption></figure>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">대수로서의 행렬</div>
+<p>케일리(Arthur Cayley)는 1858년에 행렬을 단순한 계수의 표가 아니라 더하고 곱할 수 있는 하나의 대상으로 다루는 행렬 대수를 도입하였다. 그는 곱셈이 교환법칙을 만족하지 않는다는 것을 곧바로 알아차렸고, <em>케일리–해밀턴 정리(Cayley–Hamilton theorem)</em>를 증명하였다. 이 정리는 모든 정사각행렬이 자기 자신의 특성방정식(characteristic equation)을 만족한다는 것이다. 대각합(trace)이 <span class="math inline">\(t\)</span>이고 행렬식이 <span class="math inline">\(d\)</span>인 <span class="math inline">\(2 \times 2\)</span> 행렬에 대해서 이 정리는 <span class="math inline">\(\mathbf{M}^2 - t\mathbf{M} + d\mathbf{I} = \mathbf{0}\)</span>임을 말하며, 이 사실은 이 장에서 거듭 사용된다(<a href="../ch07/finite-order.html">7.4 절</a>). <span class="math inline">\(2 \times 2\)</span> 실수 행렬 전체는 <em>환(ring)</em>을 이룬다. 덧셈, 뺄셈, 곱셈을 할 수 있지만 곱셈은 교환법칙을 만족하지 않으며, <em>영인자(zero divisor)</em>, 즉 곱이 영이 되는 영이 아닌 원소들이 존재한다.</p>
+</div>
+<h3 id="무한히-많은-제곱근">무한히 많은 제곱근</h3>
+<p>단계 4는 훨씬 더 인상적으로 만들 수 있다. 방정식 <span class="math inline">\(\mathbf{X}^2 = \mathbf{I}\)</span>는 뻔한 해 <span class="math inline">\(\pm\mathbf{I}\)</span>뿐 아니라, 원점을 지나는 직선에 대한 평면의 모든 반사(reflection) <span class="math inline">\(\mathbf{X} = \begin{pmatrix} \cos\theta &amp; \sin\theta \\ \sin\theta &amp; -\cos\theta \end{pmatrix}\)</span>도 해로 가진다. 두 번 반사하면 아무것도 변하지 않기 때문이다. 이것은 <span class="math inline">\(\mathbf{I}\)</span>의 제곱근이 원 하나만큼 있다는 뜻이다. 계수가 수인 <span class="math inline">\(n\)</span>차 다항식(polynomial)이 많아야 <span class="math inline">\(n\)</span>개의 근을 가지는 것은 수에 영인자가 없기 때문이다. 행렬에는 영인자가 있으므로 이 개수 세기가 성립하지 않는다.</p>
+<h3 id="물리학에서의-비가환성">물리학에서의 비가환성</h3>
+<p>고전역학에서 위치 <span class="math inline">\(x\)</span>와 운동량(momentum) <span class="math inline">\(p\)</span>는 수이며 <span class="math inline">\(xp = px\)</span>이다. 양자역학에서 이들은 <span class="math inline">\(xp - px = \mathrm{i}\hbar\)</span>를 만족하는 연산자(operator, 무한 행렬)가 된다. 여기서 <span class="math inline">\(\hbar\)</span>는 플랑크 상수(Planck’s constant)를 <span class="math inline">\(2\pi\)</span>로 나눈 값이다. 이 하나의 비가환 관계로부터 하이젠베르크의 불확정성 원리, 즉 위치와 운동량을 동시에 정확히 알 수 없다는 사실이 나온다. 1925년 하이젠베르크가 양자역학의 규칙을 발견했을 때 그는 행렬이 무엇인지 알지 못했다. 하이젠베르크가 고안한 이상한 곱셈 규칙이 바로 행렬의 곱셈이라는 것을 알아본 사람은 막스 보른(Max Born)이었다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">익숙한 규칙을 새로운 상황에서 시험하기</div>
+<p><em>새로운 종류의 대상을 만나면, 익숙한 규칙 중 어느 것이 여전히 성립하는지 확인하고, 각 규칙이 정확히 어떤 성질에 의존하는지 알아내라.</em></p>
+<p>“<span class="math inline">\(ab = 0\)</span>이면 <span class="math inline">\(a = 0\)</span> 또는 <span class="math inline">\(b = 0\)</span>”이라는 규칙은 나눗셈에 의존한다. “<span class="math inline">\((a - b)(a + b) = a^2 - b^2\)</span>”은 교환법칙에 의존한다. 각 규칙이 무엇에 기대고 있는지 알면 그 규칙을 언제 여전히 쓸 수 있는지 알 수 있다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>언제 교환되는가?</strong> <span class="math inline">\(\begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\)</span>과 교환되는 <span class="math inline">\(2 \times 2\)</span> 행렬을 모두 구하여라.</p></li>
+<li><p><strong>영행렬의 제곱근.</strong> <span class="math inline">\(\mathbf{N}^2 = \mathbf{0}\)</span>인 <span class="math inline">\(2 \times 2\)</span> 실수 행렬 <span class="math inline">\(\mathbf{N}\)</span>을 모두 구하여라. (<em>힌트:</em> 케일리–해밀턴 정리를 사용하여 <span class="math inline">\(\operatorname{tr}\mathbf{N} = \det\mathbf{N} = 0\)</span>임을 보여라.)</p></li>
+<li><p><strong>반사.</strong> 모든 반사 행렬 <span class="math inline">\(\begin{pmatrix} \cos\theta &amp; \sin\theta \\ \sin\theta &amp; -\cos\theta \end{pmatrix}\)</span>을 제곱하면 <span class="math inline">\(\mathbf{I}\)</span>가 됨을 보이고, 이 행렬이 반사의 기준으로 삼는 직선을 구하여라.</p></li>
+<li><p><strong>케일리–해밀턴.</strong> 모든 <span class="math inline">\(2 \times 2\)</span> 행렬이 <span class="math inline">\(\mathbf{M}^2 - (\operatorname{tr}\mathbf{M})\mathbf{M} + (\det\mathbf{M})\mathbf{I} = \mathbf{0}\)</span>을 만족함을 직접 계산하여 증명하여라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong> (Wellesley-Cambridge). 가장 널리 쓰이는 입문 선형대수(linear algebra) 교재로, 이해를 강조한다.</p></li>
+<li><p><strong>Sheldon Axler, <a href="https://uk.bookshop.org/search?keywords=Linear+Algebra+Done+Right+Axler"><em>Linear Algebra Done Right</em></a></strong> (Springer; 온라인 무료). 행렬보다 선형사상(linear map)을 중심에 둔, 좀 더 추상적인 접근이다.</p></li>
+<li><p><strong>Jim Baggott, <a href="https://uk.bookshop.org/search?keywords=The+Quantum+Story+Baggott"><em>The Quantum Story</em></a></strong> (Oxford University Press). 하이젠베르크의 행렬역학을 포함한 양자역학의 역사이다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 장 도입</a><a class="next" href="eigenvectors.html">→ 7.2 돌지 않고 늘어나기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

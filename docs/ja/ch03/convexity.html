@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>凸性の威力 (STEP II 2007 Q7) — Beyond STEP</title>
+<meta name="description" content="STEP II 2007 問題 7：解説付き解答とその背後にある大学数学。 第 3.2 節 では、巧妙な帰納法（induction）を用いて AM–GM（相加・相乗平均の不等式）を証明した。ここでは、それがはるかに大きな事実の特別な場合として、わずか一行で導かれる。その大きな事実とは 凹性 （concavity）である。凹性とは、丘の頂上のように下向きに曲がった曲線の形のことである。このような曲線…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch03/convexity.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch03/convexity.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch03/convexity.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/convexity.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch03/convexity.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch03/convexity.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch03/convexity.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="凸性の威力 (STEP II 2007 Q7) — Beyond STEP">
+<meta property="og:description" content="STEP II 2007 問題 7：解説付き解答とその背後にある大学数学。 第 3.2 節 では、巧妙な帰納法（induction）を用いて AM–GM（相加・相乗平均の不等式）を証明した。ここでは、それがはるかに大きな事実の特別な場合として、わずか一行で導かれる。その大きな事実とは 凹性 （concavity）である。凹性とは、丘の頂上のように下向きに曲がった曲線の形のことである。このような曲線…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch03/convexity.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="凸性の威力 (STEP II 2007 Q7) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2007 問題 7：解説付き解答とその背後にある大学数学。 第 3.2 節 では、巧妙な帰納法（induction）を用いて AM–GM（相加・相乗平均の不等式）を証明した。ここでは、それがはるかに大きな事実の特別な場合として、わずか一行で導かれる。その大きな事実とは 凹性 （concavity）である。凹性とは、丘の頂上のように下向きに曲がった曲線の形のことである。このような曲線…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "凸性の威力", "headline": "凸性の威力", "description": "STEP II 2007 問題 7：解説付き解答とその背後にある大学数学。 第 3.2 節 では、巧妙な帰納法（induction）を用いて AM–GM（相加・相乗平均の不等式）を証明した。ここでは、それがはるかに大きな事実の特別な場合として、わずか一行で導かれる。その大きな事実とは 凹性 （concavity）である。凹性とは、丘の頂上のように下向きに曲がった曲線の形のことである。このような曲線…", "url": "https://beyondstep.keithmcnulty.org/ja/ch03/convexity.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2007 問題 7", "関数・不等式・厳密さ"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 3, "name": "関数・不等式・厳密さ", "url": "https://beyondstep.keithmcnulty.org/ja/ch03/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第3章：関数・不等式・厳密さ", "item": "https://beyondstep.keithmcnulty.org/ja/ch03/"}, {"@type": "ListItem", "position": 3, "name": "凸性の威力", "item": "https://beyondstep.keithmcnulty.org/ja/ch03/convexity.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch03/convexity.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch03/convexity.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch03/convexity.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch03/convexity.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第3章 · 関数・不等式・厳密さ</a>
+    <div class="src">STEP II · 2007 · 問題 7</div>
+    <div class="sec-head"><span class="sec-num">3.3</span><h1>凸性の威力</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-3-convexity.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第3章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 2007、第7問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/07-s2-q7">step.maths.org/questions/07-s2-q7</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p><a href="../ch03/am-gm-backwards.html">第 3.2 節</a> では、巧妙な帰納法（induction）を用いて AM–GM（相加・相乗平均の不等式）を証明した。ここでは、それがはるかに大きな事実の特別な場合として、わずか一行で導かれる。その大きな事実とは<em>凹性</em>（concavity）である。凹性とは、丘の頂上のように下向きに曲がった曲線の形のことである。このような曲線についてのただ一つの幾何学的事実、すなわち曲線がその弦（chord）より上にあるという事実が、三角形に関する事実から AM–GM、さらには確率論、情報理論、経済学における不等式に至るまで、驚くほど多様な不等式を証明することがわかる。</p>
+<p>大学では、この考え方は<em>凸性</em>（convexity）となり、現代数学を貫く大きな統一的テーマの一つとなる。凸最適化（convex optimisation）のように、凸性の上に丸ごと築かれた分野もある。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\((0, \pi)\)</span> 上の <span class="math inline">\(y = \sin x\)</span> のように、下向きに曲がった曲線を描いてみよ。その上に2点をとり、直線で結ぶ。弦は曲線の上にあるか、下にあるか。</p>
+</div>
+<p>下である。凹（concave）な曲線では、どの弦も両端点の間で曲線の下にある。二つの関数値の平均は弦の中点の高さであり、平均における関数値はその中点の真上にある曲線の高さである。したがって「弦は曲線の下にある」ということは、まさに <span class="math inline">\(n = 2\)</span> の場合のイェンセン（Jensen）の不等式である： <span class="math display">\[\frac{\mathrm{f}(x_1) + \mathrm{f}(x_2)}{2} \leq \mathrm{f}\left( \frac{x_1 + x_2}{2} \right).\]</span> <span class="math inline">\(n\)</span> 個の点の場合、点 <span class="math inline">\((x_k, \mathrm{f}(x_k))\)</span> の平均はそれらの重心（centre of mass）であり、これは曲線の下側の領域の内部にあるので、やはり曲線の下にある（図 3.3.1）。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-凹性の確認" class="stage"><span class="stage-n">段階 1</span> 凹性の確認</h4>
+<p><span class="math inline">\(0 &lt; x &lt; \pi\)</span> において <span class="math inline">\(\frac{\mathrm{d}^2}{\mathrm{d}x^2}\sin x = -\sin x &lt; 0\)</span> であり、<span class="math inline">\(x &gt; 0\)</span> において <span class="math inline">\(\frac{\mathrm{d}^2}{\mathrm{d}x^2}\ln x = -\frac{1}{x^2} &lt; 0\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-三角形" class="stage"><span class="stage-n">段階 2</span> 三角形</h4>
+<div class="askyourself">
+<p>どの関数を、どの点に用いるか。またそれらの平均は何か。三角形の角は、その関数が凹である区間に入っているか。</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(x) = \sin x\)</span> とし、3点 <span class="math inline">\(A, B, C\)</span> をとる。いずれも <span class="math inline">\(0\)</span> と <span class="math inline">\(\pi\)</span> の間に厳密に含まれ、そこで <span class="math inline">\(\sin\)</span> は凹である。また、それらの平均は <span class="math inline">\(\frac{A + B + C}{3} = \frac{\pi}{3}\)</span> である。イェンセンの不等式より <span class="math display">\[\frac{\sin A + \sin B + \sin C}{3} \leq \sin\frac{\pi}{3} = \frac{\sqrt3}{2},\]</span> よって <span class="math inline">\(\sin A + \sin B + \sin C \leq \frac{3\sqrt3}{2}\)</span> であり、等号が成り立つのはちょうど正三角形（equilateral triangle）のときである。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-3-3-1.svg" alt="図 3.3.1"><figcaption><span class="fig-label">図 3.3.1</span> 三角形の三つの角 <span class="math inline">\(A = 0.4\)</span>、<span class="math inline">\(B = 1.2\)</span>、<span class="math inline">\(C = \pi - 1.6\)</span> に対する、<span class="math inline">\(\sin x\)</span> についてのイェンセンの不等式。曲線上の3点の重心（琥珀色）は網掛けの三角形の内部にあり、したがって曲線の下にある。その高さは <span class="math inline">\(\sin A\)</span>、<span class="math inline">\(\sin B\)</span>、<span class="math inline">\(\sin C\)</span> の平均であり、その真上の曲線の高さは <span class="math inline">\(\sin\frac{\pi}{3}\)</span> である。</figcaption></figure>
+<h4 id="stagemark3-一行で示す-amgm" class="stage"><span class="stage-n">段階 3</span> 一行で示す AM–GM</h4>
+<div class="askyourself">
+<p>AM–GM は積と和を比較するものである。積を和に変える凹関数はどれか。</p>
+</div>
+<p>対数である。<span class="math inline">\(\mathrm{f} = \ln\)</span> と正の数 <span class="math inline">\(t_1, \ldots, t_n\)</span> にイェンセンの不等式を適用すると <span class="math display">\[\frac{\ln t_1 + \cdots + \ln t_n}{n} \leq \ln\left( \frac{t_1 + \cdots + t_n}{n} \right).\]</span> 左辺は <span class="math inline">\(\ln\bigl(\sqrt[n]{t_1 \cdots t_n}\bigr)\)</span> である。<span class="math inline">\(\ln\)</span> は増加関数なので両辺から取り除くことができ、これがまさに AM–GM である。等号が成り立つのは、すべての <span class="math inline">\(t_k\)</span> が等しいときに限る。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-amgm-を使う" class="stage"><span class="stage-n">段階 4</span> AM–GM を使う</h4>
+<div class="askyourself">
+<p>(a) では、左辺は4項の和であり、右辺には3変数の積が含まれる。いくつの項に AM–GM を適用すべきか。また、<span class="math inline">\(16\)</span> はなぜ役に立つのか。</p>
+</div>
+<p>4つの正の数 <span class="math inline">\(x^4\)</span>、<span class="math inline">\(y^4\)</span>、<span class="math inline">\(z^4\)</span>、<span class="math inline">\(16\)</span> に AM–GM を適用すると <span class="math display">\[\frac{x^4 + y^4 + z^4 + 16}{4} \geq \sqrt[4]{16\,x^4 y^4 z^4} = 2xyz.\]</span> 両辺に <span class="math inline">\(4\)</span> を掛けて <span class="math inline">\(x^4 + y^4 + z^4 + 16 \geq 8xyz\)</span> を得る。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>次に、<span class="math inline">\(x^5 + y^5 + z^5 - 5xyz\)</span> の最小値を求めよ。（<em>ヒント：</em><span class="math inline">\(x^5y^5z^5\)</span> の5乗根が欲しいので、5つの数が必要である。残りの二つは何にすべきか。）</p>
+</div>
+<p><span class="math inline">\(x^5, y^5, z^5, 1, 1\)</span> に AM–GM を適用すると <span class="math display">\[\frac{x^5 + y^5 + z^5 + 1 + 1}{5} \geq \sqrt[5]{x^5y^5z^5} = xyz,\]</span> よって <span class="math inline">\(x^5 + y^5 + z^5 - 5xyz \geq -2\)</span> である。等号は <span class="math inline">\(x^5 = y^5 = z^5 = 1\)</span>、すなわち <span class="math inline">\(x = y = z = 1\)</span> のときに成り立ち、このとき式の値は <span class="math inline">\(3 - 5 = -2\)</span> である。したがって最小値は <span class="math inline">\(-2\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<p>等号条件が二重の役割を果たしていることに注意せよ。等号条件によって、この下界が実際に達成されることがわかり、<span class="math inline">\(-2\)</span> が単なる下界ではなく最小値であることが示されるのである。</p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>一つの考え方、多くの不等式。</strong>凹な曲線についての一つの幾何学的事実から、三角形に関する結果と AM–GM が得られた。必要な計算は二階導関数（second derivative）の確認だけであった。</p></li>
+<li><p><strong>関数と点を選ぶ。</strong>イェンセンの不等式を使うとは、どの関数に、どの点で適用するかを決めることである。積を和に変える対数は、特によく使われる。</p></li>
+<li><p><strong>項を補って合わせる。</strong>(b) では、<span class="math inline">\(1\)</span> を二つ加えることで AM–GM が問題にうまく合った。これは <a href="../ch03/am-gm-backwards.html">第 3.2 節</a> で平均を補ったのと同じである。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">凸関数</div>
+<p>大学では、<em>凸</em>（convex）関数（凹を上下逆にしたもの）の標準的な定義は導関数にまったく触れない。<span class="math inline">\(\mathrm{f}\)</span> が凸であるとは <span class="math display">\[\mathrm{f}\bigl(t x_1 + (1-t)x_2\bigr) \leq t\,\mathrm{f}(x_1) + (1-t)\,\mathrm{f}(x_2) \qquad\text{任意の } x_1, x_2 \text{ と } 0 \leq t \leq 1,\]</span> が成り立つことであり、これはまさに弦が曲線より上にあることを述べている。この定義は、<span class="math inline">\(|x|\)</span> のような微分可能（differentiable）でない関数や多変数関数に対しても意味をもつ。デンマークの技術者であり数学者であったヨハン・イェンセン（Johan Jensen）は、1906年、自らの名を冠する不等式とともに、凸関数をそれ自体一つの研究対象として確立した。</p>
+</div>
+<h3 id="いたるところに現れる凸性">いたるところに現れる凸性</h3>
+<p>凸性は、数学とその応用のいたるところに現れる。</p>
+<ul>
+<li><p><strong>確率論。</strong>イェンセンの不等式によれば、凹関数 <span class="math inline">\(\mathrm{f}\)</span> と任意の確率変数（random variable）<span class="math inline">\(X\)</span> に対して <span class="math inline">\(\mathrm{E}[\mathrm{f}(X)] \leq \mathrm{f}(\mathrm{E}[X])\)</span> が成り立つ。経済学では、<span class="math inline">\(\mathrm{f}\)</span> を凹な「効用（utility）」関数とすると、これによって、人々が £0 か £200 かが五分五分の賭けよりも確実な £100 を好む理由、そして保険が存在する理由が説明される。</p></li>
+<li><p><strong>情報理論。</strong>データ圧縮の基礎にある、エントロピー（entropy）が一様分布（uniform distribution）で最大になるという事実の証明は、<span class="math inline">\(\ln\)</span> に対するイェンセンの不等式である。</p></li>
+<li><p><strong>最適化。</strong>凸関数には大域的最小値（global minimum）以外に局所最小値（local minima）がないので、「坂を下る」ことで必ず最良の答えが見つかる。凸最適化問題が効率よく解けるのはこのためであり、問題を凸な形に書き直すことに多大な努力が注がれるのもこのためである。</p></li>
+</ul>
+<p><a href="../ch03/areas-inequalities.html">第 3.4 節</a> では、凸性の別の側面、すなわち関数とその逆関数の間の幾何学的な双対性（duality）を見ることになる。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">一般原理を見つける</div>
+<p><em>いくつかの結果が似た証明をもつときは、その背後にある一つの原理を探せ。そして、その原理を一度だけ証明し、何度も適用せよ。</em></p>
+<p>AM–GM も、正弦についての三角形の不等式も、ほかの多くの不等式も、すべて「凹な曲線はその弦より上にある」の具体例である。原理を見抜くことで、寄せ集めの技巧が一つの方法へと変わる。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>定義。</strong><a href="https://step.maths.org/questions/18-s2-q2">STEP II 2018、第2問</a> の小問 (i) と (ii) は、上の囲みにある弦による凹性の定義から出発し、3点に対するイェンセンの不等式を導くものである。</p></li>
+<li><p><strong>正弦の積。</strong><a href="https://step.maths.org/questions/18-s2-q2">STEP II 2018、第2問</a> の小問 (iii) に取り組んでみよ。</p></li>
+<li><p><strong>鋭角三角形。</strong><span class="math inline">\(\tan x\)</span> が <span class="math inline">\((0, \frac\pi2)\)</span> 上で凸であることを示し、鋭角三角形（acute-angled triangle）において <span class="math inline">\(\tan A + \tan B + \tan C \geq 3\sqrt3\)</span> が成り立つことを導け。</p></li>
+<li><p><strong>冪平均（power means）。</strong><span class="math inline">\(x^2\)</span> が凸であることを示し、<span class="math inline">\(\left(\frac{a_1 + \cdots + a_n}{n}\right)^2 \leq \frac{a_1^2 + \cdots + a_n^2}{n}\)</span> を導け。これを、数の集まりの分散（variance）についての主張として解釈せよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>J. Michael Steele, <a href="https://uk.bookshop.org/search?keywords=The+Cauchy-Schwarz+Master+Class+Steele"><em>The Cauchy–Schwarz Master Class</em></a></strong>（Cambridge University Press）。第 6 章は凸性とイェンセンの不等式を扱っている。</p></li>
+<li><p><strong>Claudi Alsina &amp; Roger Nelsen, <a href="https://uk.bookshop.org/search?keywords=When+Less+Is+More%3A+Visualizing+Basic+Inequalities+Alsina+Nelsen"><em>When Less Is More: Visualizing Basic Inequalities</em></a></strong>（Mathematical Association of America）。図によって証明される不等式を集めたもので、その多くが凸性を用いている。</p></li>
+<li><p><strong>Stephen Boyd &amp; Lieven Vandenberghe, <a href="https://uk.bookshop.org/search?keywords=Convex+Optimization+Boyd+Vandenberghe"><em>Convex Optimization</em></a></strong>（Cambridge University Press）。現代の古典で、オンラインで無料で読める。最初の数章では、凸性が実践においてなぜ重要なのかが示されている。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="am-gm-backwards.html">← 3.2 相加・相乗平均を逆向きに</a><a class="next" href="areas-inequalities.html">→ 3.4 不等式を証明する面積</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>平面上のランダムな点 (STEP II 2012 Q13) — Beyond STEP</title>
+<meta name="description" content="STEP II 2012 問題 13：解説付き解答とその背後にある大学数学。 スーパーマーケット、木、星、携帯電話の基地局などがある領域に「ランダムに」散らばっているとき、いちばん近いものまでどれだけ行かなければならないだろうか。その答えは密度 k （単位面積あたりの平均個数）だけで決まり、しかも特徴的な形をもつ。それが レイリー分布 （Rayleigh…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch12/spatial-poisson.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/spatial-poisson.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/spatial-poisson.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/spatial-poisson.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/spatial-poisson.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/spatial-poisson.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/spatial-poisson.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="平面上のランダムな点 (STEP II 2012 Q13) — Beyond STEP">
+<meta property="og:description" content="STEP II 2012 問題 13：解説付き解答とその背後にある大学数学。 スーパーマーケット、木、星、携帯電話の基地局などがある領域に「ランダムに」散らばっているとき、いちばん近いものまでどれだけ行かなければならないだろうか。その答えは密度 k （単位面積あたりの平均個数）だけで決まり、しかも特徴的な形をもつ。それが レイリー分布 （Rayleigh…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch12/spatial-poisson.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="平面上のランダムな点 (STEP II 2012 Q13) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2012 問題 13：解説付き解答とその背後にある大学数学。 スーパーマーケット、木、星、携帯電話の基地局などがある領域に「ランダムに」散らばっているとき、いちばん近いものまでどれだけ行かなければならないだろうか。その答えは密度 k （単位面積あたりの平均個数）だけで決まり、しかも特徴的な形をもつ。それが レイリー分布 （Rayleigh…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "平面上のランダムな点", "headline": "平面上のランダムな点", "description": "STEP II 2012 問題 13：解説付き解答とその背後にある大学数学。 スーパーマーケット、木、星、携帯電話の基地局などがある領域に「ランダムに」散らばっているとき、いちばん近いものまでどれだけ行かなければならないだろうか。その答えは密度 k （単位面積あたりの平均個数）だけで決まり、しかも特徴的な形をもつ。それが レイリー分布 （Rayleigh…", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/spatial-poisson.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2012 問題 13", "確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第12章：確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/"}, {"@type": "ListItem", "position": 3, "name": "平面上のランダムな点", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/spatial-poisson.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch12/spatial-poisson.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/spatial-poisson.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/spatial-poisson.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch12/spatial-poisson.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第12章 · 確率</a>
+    <div class="src">STEP II · 2012 · 問題 13</div>
+    <div class="sec-head"><span class="sec-num">12.19</span><h1>平面上のランダムな点</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-19-spatial-poisson.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第12章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 2012、第13問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/12-s2-q13">step.maths.org/questions/12-s2-q13</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>スーパーマーケット、木、星、携帯電話の基地局などがある領域に「ランダムに」散らばっているとき、いちばん近いものまでどれだけ行かなければならないだろうか。その答えは密度 <span class="math inline">\(k\)</span>（単位面積あたりの平均個数）だけで決まり、しかも特徴的な形をもつ。それが<em>レイリー分布</em>（Rayleigh distribution）である。最も近いものまでの距離は平均すると <span class="math inline">\(\frac{1}{2\sqrt k}\)</span> であり、1 平方キロメートルあたりスーパーマーケットが 1 軒なら <span class="math inline">\(500\)</span> メートルになる。</p>
+<p>このモデルは<em>空間ポアソン過程</em>（spatial Poisson process）であり、時間上のランダムな到着（<a href="../ch12/memoryless.html">第 12.18 節</a>）を 2 次元にしたものである。計算は短く美しいが、本当の面白さは基準としての役割にある。生態学者は実際の最近接距離（nearest-neighbour distance）をこの公式と比べ、木や巣が集中しているのか、ランダムに散らばっているのか、意図的に間隔をあけて配置されているのかを判断するのである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>平均（mean）<span class="math inline">\(\mu\)</span> のポアソン確率変数（Poisson random variable）が値 <span class="math inline">\(0\)</span> をとる確率はいくらか。</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(0) = e^{-\mu}\)</span> である。半径 <span class="math inline">\(y\)</span> の円の面積は <span class="math inline">\(\pi y^2\)</span> なので、その内部にあるスーパーマーケットの個数の平均は <span class="math inline">\(k\pi y^2\)</span> である。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-近くにスーパーマーケットがない" class="stage"><span class="stage-n">段階 1</span> 近くにスーパーマーケットがない</h4>
+<p>距離 <span class="math inline">\(y\)</span> 以内にスーパーマーケットが 1 軒もない確率は <span class="math inline">\(e^{-\pi ky^2}\)</span> である。</p>
+<h4 id="stagemark2-最近接距離の分布" class="stage"><span class="stage-n">段階 2</span> 最近接距離の分布</h4>
+<div class="askyourself">
+<p><span class="math inline">\(Y \geq y\)</span> とは、距離 <span class="math inline">\(y\)</span> 以内にスーパーマーケットが 1 軒もないということである。では <span class="math inline">\(\mathrm{P}(Y &lt; y)\)</span> はいくらか。</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(Y &lt; y) = 1 - e^{-\pi ky^2}\)</span> であり、これを微分すると確率密度関数（probability density function） <span class="math display">\[\mathrm{f}(y) = 2\pi kye^{-\pi ky^2}, \qquad y \geq 0. \qed\]</span> が得られる。</p>
+<h4 id="stagemark3-平均" class="stage"><span class="stage-n">段階 3</span> 平均</h4>
+<div class="askyourself">
+<p><span class="math inline">\(y\,\mathrm{f}(y)\)</span> を部分積分（integration by parts）するか、<span class="math inline">\(\mathrm{E}(Y) = \int_0^\infty\mathrm{P}(Y &gt; y)\,\mathrm{d}y\)</span> を用いる。そのあと置換して、与えられたガウス積分（Gaussian integral）が使える形にする。</p>
+</div>
+<p><span class="math display">\[\mathrm{E}(Y) = \int_0^\infty e^{-\pi ky^2}\,\mathrm{d}y.\]</span> <span class="math inline">\(x = y\sqrt{2\pi k}\)</span> と置換すると <span class="math inline">\(\pi ky^2 = \frac12x^2\)</span> となり、<span class="math inline">\(\mathrm{E}(Y) = \frac{1}{\sqrt{2\pi k}}\sqrt{\frac\pi2} = \frac{1}{2\sqrt k}\)</span> を得る。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-分散" class="stage"><span class="stage-n">段階 4</span> 分散</h4>
+<p><span class="math display">\[\mathrm{E}(Y^2) = \int_0^\infty y^2\cdot2\pi kye^{-\pi ky^2}\,\mathrm{d}y.\]</span> <span class="math inline">\(u = \pi ky^2\)</span> と置換すると（<span class="math inline">\(\mathrm{d}u = 2\pi ky\,\mathrm{d}y\)</span> である）、これは <span class="math inline">\(\int_0^\infty\frac{u}{\pi k}e^{-u}\,\mathrm{d}u = \frac{1}{\pi k}\)</span> となる。したがって分散（variance）は <span class="math display">\[\mathrm{Var}(Y) = \frac{1}{\pi k} - \frac{1}{4k} = \frac{4 - \pi}{4\pi k}. \qed\]</span> である。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-19-1.svg" alt="図 12.19.1"><figcaption><span class="fig-label">図 12.19.1</span> 左：面積 <span class="math inline">\(24\)</span> の領域にランダムに散らばった 60 個の点（したがって <span class="math inline">\(k = 2.5\)</span>）と、選んだ 1 点からそのうち最も近い点までの距離（琥珀色）。右：その距離のレイリー密度 <span class="math inline">\(2\pi kye^{-\pi ky^2}\)</span>。距離は <span class="math inline">\(1/\sqrt k\)</span> を単位として測っている。平均は <span class="math inline">\(\frac{1}{2\sqrt k}\)</span> である。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>距離の問題を個数の問題に言い換える。</strong>「最も近いものが <span class="math inline">\(y\)</span> より遠い」とは「<span class="math inline">\(y\)</span> 以内に 1 つもない」ということである。</p></li>
+<li><p><strong>まず累積分布、次に密度。</strong><span class="math inline">\(\mathrm{P}(Y &lt; y)\)</span> は直接求まり、それを微分して密度が得られた。</p></li>
+<li><p><strong>置換によって既知の積分に帰着させる。</strong>どのモーメントも、ガウス積分か指数関数の積分に帰着した。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="平面上のポアソン過程">平面上のポアソン過程</h3>
+<p>強度（intensity）<span class="math inline">\(k\)</span> の空間ポアソン過程とは、点のランダムな散らばりであって、互いに交わらない領域に含まれる点の個数が独立であり、面積 <span class="math inline">\(A\)</span> の領域に含まれる点の個数が平均 <span class="math inline">\(kA\)</span> のポアソン分布に従うものである。これは、膨大な個数の点を膨大な面積の上に独立かつ一様に、適切な平均密度で落としたときに得られるものであり、攪乱順列（derangements、<a href="../ch09/derangements.html">第 9.8 節</a>）を説明するのと同じ「稀な事象の法則」（law of rare events）による。これは完全空間ランダム性（complete spatial randomness）の自然なモデルであり、現実のパターンはこれと比べて評価される。2 人の生態学者が 1954 年に考案した<em>クラーク–エヴァンス検定</em>（Clark–Evans test）は、観測された最近接距離の平均を <span class="math inline">\(\frac{1}{2\sqrt k}\)</span> と比較する。それよりずっと小さければ集中（親木の近くに落ちる種子）を示唆し、ずっと大きければ規則的な間隔（縄張りをもつ鳥や、水をめぐる植物どうしの競争）を示唆する。</p>
+<h3 id="次元の場合">3 次元の場合</h3>
+<p>同じ計算を 3 次元で行うと、最も近い星、分子、銀河までの距離について <span class="math inline">\(\mathrm{P}(Y &gt; y) = e^{-\frac43\pi ky^3}\)</span> が得られる。チャンドラセカール（Subrahmanyan Chandrasekhar）は 1943 年にこれを用いて、ランダムに分布する近隣の星から 1 つの星が受ける重力を研究した。また物理学者は、気体分子の平均自由行程（mean free path）にこれを用いている。</p>
+<div class="historybox">
+<div class="box-title">レイリー</div>
+<p>密度 <span class="math inline">\(\frac{y}{\sigma^2}e^{-y^2/(2\sigma^2)}\)</span> の名は、1880 年に音響理論の中でこれに出会ったレイリー卿（Lord Rayleigh）にちなむ。これは、位相（phase）がランダムな多数の波を重ね合わせたときの振幅を表す。また、2 つの座標が独立な正規確率変数であるような点の原点からの距離もこの分布に従い、これがここに現れる理由を別の角度から見る方法になっている（演習 3）。今日では、多数の経路をランダムな位相で通って受信機に届く携帯電話の電波のフェージング（fading）のモデルとして使われている。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">まず分布関数を求める</div>
+<p><em>最小値、最大値、最近接距離の分布については、<span class="math inline">\(\mathrm{P}(Y &gt; y)\)</span> を直接書き下すのがたいてい簡単である。それを微分して密度を得る。</em></p>
+<p>この方法は、多数のランダムな寿命のうち最大のものを扱う <a href="../ch12/extremes.html">第 12.25 節</a> でも再び登場する。大学では、あらゆる「順序統計量」（order statistic）を扱う際の標準的な第一歩である。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>中央値。</strong>最も近いスーパーマーケットまでの距離の中央値（median）を求め、平均と比較せよ。</p></li>
+<li><p><strong>2 番目に近いもの。</strong><em>2 番目</em>に近いスーパーマーケットまでの距離の分布を求めよ。（<em>ヒント：</em><span class="math inline">\(\mathrm{P}(Y_2 &gt; y)\)</span> は、<span class="math inline">\(y\)</span> 以内にスーパーマーケットが高々 1 軒しかない確率である。）</p></li>
+<li><p><strong>正規分布に従う座標。</strong><span class="math inline">\(U\)</span> と <span class="math inline">\(V\)</span> が独立に <span class="math inline">\(\mathrm{N}(0, \sigma^2)\)</span> に従うとき、<span class="math inline">\(\sqrt{U^2 + V^2}\)</span> の密度が <span class="math inline">\(\frac{r}{\sigma^2}e^{-r^2/(2\sigma^2)}\)</span> であることを示せ。<span class="math inline">\(\sigma\)</span> をどの値にすればスーパーマーケットの分布が得られるか。</p></li>
+<li><p><strong>クラーク–エヴァンス。</strong><span class="math inline">\(400\)</span> 本の木がある <span class="math inline">\(1\)</span> km<span class="math inline">\(^2\)</span> の森を調査したところ、木から最も近い隣の木までの距離の平均は <span class="math inline">\(35\)</span> m であった。これは完全空間ランダム性と整合するか。それとも集中、あるいは規則的な間隔を示唆するか。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Peter Diggle, <a href="https://uk.bookshop.org/search?keywords=Statistical+Analysis+of+Spatial+Point+Patterns+Diggle"><em>Statistical Analysis of Spatial Point Patterns</em></a></strong>（Arnold）。空間点パターンの統計解析に関する標準的な文献で、クラーク–エヴァンス検定とその発展形を扱っている。</p></li>
+<li><p><strong>John Kingman, <a href="https://uk.bookshop.org/search?keywords=Poisson+Processes+Kingman"><em>Poisson Processes</em></a></strong>（Oxford University Press）。任意の次元のポアソン過程を扱った、短く美しい本である。</p></li>
+<li><p><strong>Geoffrey Grimmett &amp; David Stirzaker, <a href="https://uk.bookshop.org/search?keywords=Probability+and+Random+Processes+Grimmett+Stirzaker"><em>Probability and Random Processes</em></a></strong>（Oxford University Press）。ポアソン過程の章。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="memoryless.html">← 12.18 無記憶性</a><a class="next" href="buffon.html">→ 12.20 ビュフォンの針</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>変分法 (STEP III 2014 Q4) — Beyond STEP</title>
+<meta name="description" content="STEP III 2014 問題 4：解説付き解答とその背後にある大学数学。 学校で扱う最適化問題のほとんどは、最良の 数 を求めるものである。たとえば、面積を最大にする x の値を求める、といった問題である。これに対して 変分法 （calculus of variations）は、最良の 関数 を求める。2点を結ぶどの曲線に沿えば、ビーズは最も速く滑り落ちるか。吊るした鎖はどのような形になるか。…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch04/variations.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch04/variations.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/variations.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/variations.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/variations.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch04/variations.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/variations.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="変分法 (STEP III 2014 Q4) — Beyond STEP">
+<meta property="og:description" content="STEP III 2014 問題 4：解説付き解答とその背後にある大学数学。 学校で扱う最適化問題のほとんどは、最良の 数 を求めるものである。たとえば、面積を最大にする x の値を求める、といった問題である。これに対して 変分法 （calculus of variations）は、最良の 関数 を求める。2点を結ぶどの曲線に沿えば、ビーズは最も速く滑り落ちるか。吊るした鎖はどのような形になるか。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch04/variations.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="変分法 (STEP III 2014 Q4) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2014 問題 4：解説付き解答とその背後にある大学数学。 学校で扱う最適化問題のほとんどは、最良の 数 を求めるものである。たとえば、面積を最大にする x の値を求める、といった問題である。これに対して 変分法 （calculus of variations）は、最良の 関数 を求める。2点を結ぶどの曲線に沿えば、ビーズは最も速く滑り落ちるか。吊るした鎖はどのような形になるか。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "変分法", "headline": "変分法", "description": "STEP III 2014 問題 4：解説付き解答とその背後にある大学数学。 学校で扱う最適化問題のほとんどは、最良の 数 を求めるものである。たとえば、面積を最大にする x の値を求める、といった問題である。これに対して 変分法 （calculus of variations）は、最良の 関数 を求める。2点を結ぶどの曲線に沿えば、ビーズは最も速く滑り落ちるか。吊るした鎖はどのような形になるか。…", "url": "https://beyondstep.keithmcnulty.org/ja/ch04/variations.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2014 問題 4", "きちんと学ぶ微分積分学"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 4, "name": "きちんと学ぶ微分積分学", "url": "https://beyondstep.keithmcnulty.org/ja/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第4章：きちんと学ぶ微分積分学", "item": "https://beyondstep.keithmcnulty.org/ja/ch04/"}, {"@type": "ListItem", "position": 3, "name": "変分法", "item": "https://beyondstep.keithmcnulty.org/ja/ch04/variations.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch04/variations.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch04/variations.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch04/variations.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch04/variations.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第4章 · きちんと学ぶ微分積分学</a>
+    <div class="src">STEP III · 2014 · 問題 4</div>
+    <div class="sec-head"><span class="sec-num">4.7</span><h1>変分法</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-7-variations.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第4章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2014、第4問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/14-s3-q4">step.maths.org/questions/14-s3-q4</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>学校で扱う最適化問題のほとんどは、最良の<em>数</em>を求めるものである。たとえば、面積を最大にする <span class="math inline">\(x\)</span> の値を求める、といった問題である。これに対して<em>変分法</em>（calculus of variations）は、最良の<em>関数</em>を求める。2点を結ぶどの曲線に沿えば、ビーズは最も速く滑り落ちるか。吊るした鎖はどのような形になるか。光はレンズの中をどの経路で進むか。いずれの場合も、最適化すべき量は積分であり、未知のものは関数全体である。</p>
+<p>この問題では、興味深い例のうち最も単純なものを調べる。積分 <span class="math inline">\(J = \int_0^1 \bigl((y&#39;)^2 - a^2y^2\bigr)\,\mathrm{d}x\)</span> では、二つの項がせめぎ合っている。傾きの大きさは値を押し上げ、関数の大きさは値を押し下げる。<span class="math inline">\(a\)</span> が小さければ常に傾きの項が勝ち、どの関数に対しても <span class="math inline">\(J \geq 0\)</span> となる。しかし、このつり合いが崩れる臨界値が <span class="math inline">\(a\)</span> には存在し、問題はそれを正確に求める。それは <span class="math inline">\(a = \frac\pi2\)</span> である。この <span class="math inline">\(\pi\)</span> がどこから来るのかが、この節の主題となる。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(I \geq 0\)</span> が自明でないのはなぜか。<span class="math inline">\(y(1) = 0\)</span> を満たす <span class="math inline">\(y = 1 - x\)</span> で試してみよ。</p>
+</div>
+<p><span class="math inline">\(I\)</span> は二つの正の量の差なので、正にも負にもなりうる。<span class="math inline">\(y = 1 - x\)</span> の場合、<span class="math inline">\(\int_0^1 1\,\mathrm{d}x = 1\)</span> かつ <span class="math inline">\(\int_0^1 (1-x)^2\,\mathrm{d}x = \frac13\)</span> なので、<span class="math inline">\(I = \frac23 &gt; 0\)</span> である。しかし、もっと巧妙な関数を選べば、<span class="math inline">\(\int (y&#39;)^2\)</span> に比べて <span class="math inline">\(\int y^2\)</span> を大きくできるかもしれない。この問題の工夫は、<span class="math inline">\(I\)</span> を<em>平方</em>の積分として表すことにある。平方の積分は明らかに非負である。これは積分における「平方完成」（completing the square）である。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-平方完成" class="stage"><span class="stage-n">段階 1</span> 平方完成</h4>
+<p><span class="math inline">\(I_1\)</span> の中の平方を展開すると <span class="math display">\[I_1 = \int_0^1 \bigl((y&#39;)^2 + 2yy&#39;\tan x + y^2\tan^2 x\bigr)\,\mathrm{d}x,\]</span> となるので <span class="math display">\[I - I_1 = -\int_0^1 \bigl(y^2 + y^2\tan^2 x + 2yy&#39;\tan x\bigr)\,\mathrm{d}x = -\int_0^1 \bigl(y^2\sec^2 x + 2yy&#39;\tan x\bigr)\,\mathrm{d}x.\]</span></p>
+<div class="askyourself">
+<p>被積分関数 <span class="math inline">\(y^2\sec^2 x + 2yy&#39;\tan x\)</span> はある関数の導関数そのものである。何の導関数か。</p>
+</div>
+<p>積の微分法則により <span class="math inline">\(\dfrac{\mathrm{d}}{\mathrm{d}x}\bigl(y^2\tan x\bigr) = 2yy&#39;\tan x + y^2\sec^2 x\)</span> である。よって <span class="math display">\[I - I_1 = -\Bigl[y^2\tan x\Bigr]_0^1 = -\bigl(y(1)^2\tan 1 - y(0)^2\tan 0\bigr) = 0,\]</span> となる。ここで <span class="math inline">\(y(1) = 0\)</span> かつ <span class="math inline">\(\tan 0 = 0\)</span> を用いた。したがって、平方の積分であることから <span class="math inline">\(I = I_1 \geq 0\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-i-0-となるのはいつか" class="stage"><span class="stage-n">段階 2</span> <span class="math inline">\(I = 0\)</span> となるのはいつか</h4>
+<div class="askyourself">
+<p>連続で非負の関数の積分が <span class="math inline">\(0\)</span> であるとき、その関数について何がいえるか。それでは、<span class="math inline">\(I = 0\)</span> のとき <span class="math inline">\(y\)</span> はどのような方程式を満たさなければならないか。</p>
+</div>
+<p>積分が <span class="math inline">\(0\)</span> である連続な非負関数は恒等的に <span class="math inline">\(0\)</span> でなければならない（もしある点で正なら、その点のまわりの小区間でも正となり、積分に正の寄与をするからである）。したがって、<span class="math inline">\(I = 0\)</span> ならば <span class="math inline">\([0, 1]\)</span> 上で <span class="math inline">\(y&#39; + y\tan x = 0\)</span> が成り立つ。<span class="math inline">\(\sec x\)</span> を掛けると、これは <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{y}{\cos x}\right) = \frac{y&#39;\cos x + y\sin x}{\cos^2 x} = 0\)</span> を意味するので、<span class="math inline">\(y = C\cos x\)</span> である。すると <span class="math inline">\(y(1) = C\cos 1 = 0\)</span> であり、<span class="math inline">\(\cos 1 \neq 0\)</span> より <span class="math inline">\(C = 0\)</span> となる。したがって、<span class="math inline">\(I = 0\)</span> となるのは <span class="math inline">\(y \equiv 0\)</span> のときに限る。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-一般の場合" class="stage"><span class="stage-n">段階 3</span> 一般の場合</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\int_0^1 (y&#39; + ay\tan bx)^2\,\mathrm{d}x\)</span> を用いて段階 1 を繰り返せ。残りの項がある関数の導関数そのものになるためには、<span class="math inline">\(b\)</span> はどうあるべきか。</p>
+</div>
+<p>この積分を <span class="math inline">\(K\)</span> とおく。すると <span class="math display">\[\begin{aligned}
+  J - K &amp;= -\int_0^1 \bigl(a^2y^2 + a^2y^2\tan^2 bx + 2ayy&#39;\tan bx\bigr)\,\mathrm{d}x \\
+  &amp;= -\int_0^1 \bigl(a^2y^2\sec^2 bx + 2ayy&#39;\tan bx\bigr)\,\mathrm{d}x.
+\end{aligned}\]</span> 一方、<span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}x}\bigl(ay^2\tan bx\bigr) = 2ayy&#39;\tan bx + ab\,y^2\sec^2 bx\)</span> である。これらがちょうど一致するのは <span class="math inline">\(ab = a^2\)</span>、すなわち <span class="math inline">\(b = a\)</span> のときである。このとき <span class="math display">\[J - K = -\Bigl[ay^2\tan ax\Bigr]_0^1 = -a\,y(1)^2\tan a = 0,\]</span> となるので、<span class="math inline">\(J = K \geq 0\)</span> である。</p>
+<div class="pausebox">
+<p>この議論はどこで破綻しうるか。（区間 <span class="math inline">\(0 \leq x \leq 1\)</span> における <span class="math inline">\(\tan ax\)</span> に注目せよ。）</p>
+</div>
+<p>この議論では、<span class="math inline">\([0, 1]\)</span> のすべての <span class="math inline">\(x\)</span> に対して <span class="math inline">\(\tan ax\)</span> が定義されていて連続であることが必要である。そうでなければ <span class="math inline">\(K\)</span> が存在しないかもしれず、微分積分学の基本定理（fundamental theorem of calculus）を適用できない。<span class="math inline">\(x\)</span> が <span class="math inline">\([0, 1]\)</span> を動くとき <span class="math inline">\(ax\)</span> は <span class="math inline">\([0, a]\)</span> を動き、そこで <span class="math inline">\(\tan\)</span> が連続であるのはちょうど <span class="math inline">\(a &lt; \frac\pi2\)</span> のときである。したがって、この証明は <span class="math display">\[a &lt; k = \frac\pi2. \qed\]</span> に対して有効である。</p>
+<h4 id="stagemark4-臨界の場合" class="stage"><span class="stage-n">段階 4</span> 臨界の場合</h4>
+<div class="askyourself">
+<p><span class="math inline">\(a = \frac\pi2\)</span> のとき、この証明は破綻する。段階 2 では、<span class="math inline">\(I = 0\)</span> とする関数は <span class="math inline">\(y&#39; + y\tan x = 0\)</span> を満たすはずであった。今回それに対応する方程式は何か。また、その解は何か。</p>
+</div>
+<p>対応する方程式は <span class="math inline">\(y&#39; + ay\tan ax = 0\)</span> であり、その解は <span class="math inline">\(y = C\cos ax\)</span> である。<span class="math inline">\(a = \frac\pi2\)</span> のとき、<span class="math inline">\(y = \cos\frac{\pi x}{2}\)</span> は <span class="math inline">\(y(1) = \cos\frac\pi2 = 0\)</span> を満たす。直接確かめると <span class="math display">\[\begin{aligned}
+  J &amp;= \frac{\pi^2}{4}\int_0^1 \left(\sin^2\frac{\pi x}{2} - \cos^2\frac{\pi x}{2}\right)\mathrm{d}x = -\frac{\pi^2}{4}\int_0^1 \cos\pi x\,\mathrm{d}x \\
+  &amp;= -\frac{\pi^2}{4}\left[\frac{\sin\pi x}{\pi}\right]_0^1 = 0. \qed
+\end{aligned}\]</span> したがって、臨界値においては、<span class="math inline">\(0\)</span> でない関数が <span class="math inline">\(J\)</span> をちょうど <span class="math inline">\(0\)</span> にする。</p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>積分における平方完成。</strong> ある関数の導関数そのものを足して引くことで、<span class="math inline">\(J\)</span> は平方の積分と、消える境界項との和に変わった。</p></li>
+<li><p><strong>道具が使えなくなる場所を確かめる。</strong> この方法が使えたのは、区間上で <span class="math inline">\(\tan ax\)</span> が有限である間だけであった。方法が破綻した点 <span class="math inline">\(a = \frac\pi2\)</span> こそが、まさに臨界値であった。</p></li>
+<li><p><strong>極端な場合は微分方程式を解く。</strong> <span class="math inline">\(J = 0\)</span> を与える関数は1階の方程式 <span class="math inline">\(y&#39; + ay\tan ax = 0\)</span> から得られ、さらに <span class="math inline">\(y&#39;&#39; + a^2y = 0\)</span> も満たす。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">最速降下線（brachistochrone）と一分野の誕生</div>
+<p>1696年、ヨハン・ベルヌーイ（Johann Bernoulli）はヨーロッパの数学者たちに挑戦状を出した。ある点から別の点へビーズが最短時間で滑り落ちる曲線を求めよ、というものである。解答はニュートン（Newton）（匿名で、一晩のうちに。ベルヌーイは「爪を見ればライオンとわかる」と述べた）、ライプニッツ（Leibniz）、ロピタル（l’Hôpital）、ヤコブ・ベルヌーイ（Jakob Bernoulli）から寄せられた。答えはサイクロイド（cycloid）である。1750年代、オイラー（Euler）と若きジョゼフ＝ルイ・ラグランジュ（Joseph-Louis Lagrange）は、こうした個別の工夫を一般的な方法へとまとめ上げた。<span class="math inline">\(y\)</span> が <span class="math inline">\(\int F(x, y, y&#39;)\,\mathrm{d}x\)</span> を停留させるならば、<span class="math inline">\(y\)</span> は<em>オイラー＝ラグランジュ方程式</em>（Euler–Lagrange equation） <span class="math display">\[\frac{\mathrm{d}}{\mathrm{d}x}\frac{\partial F}{\partial y&#39;} = \frac{\partial F}{\partial y}.\]</span> を満たす。ここでの <span class="math inline">\(J\)</span> では <span class="math inline">\(F = (y&#39;)^2 - a^2y^2\)</span> であり、オイラー＝ラグランジュ方程式は <span class="math inline">\(y&#39;&#39; + a^2y = 0\)</span>、すなわち単振動の方程式となる。</p>
+</div>
+<h3 id="なぜ-pi2-なのか">なぜ <span class="math inline">\(\pi/2\)</span> なのか</h3>
+<p><span class="math inline">\(a &lt; \frac\pi2\)</span> のとき、<span class="math inline">\(J\)</span> の最小値は <span class="math inline">\(0\)</span> であり、それを達成するのは <span class="math inline">\(y \equiv 0\)</span> だけである。<span class="math inline">\(a = \frac\pi2\)</span> では最小値はやはり <span class="math inline">\(0\)</span> であるが、それを達成する関数がもう一つ現れる。<span class="math inline">\(a &gt; \frac\pi2\)</span> のときは、同じ関数 <span class="math inline">\(y = \cos\frac{\pi x}{2}\)</span> が <span class="math display">\[J = \frac{\pi^2}{8} - \frac{a^2}{2} &lt; 0,\]</span> を与え、<span class="math inline">\(y\)</span> を定数倍で大きくすれば、<span class="math inline">\(J\)</span> はいくらでも小さな負の値にできる。つまり最小値はまったく存在しない（図 4.7.1）。臨界値とは、<span class="math inline">\(y&#39;&#39; + a^2y = 0\)</span> が境界条件（<span class="math inline">\(y(1) = 0\)</span> と、自由端における「自然な」条件 <span class="math inline">\(y&#39;(0) = 0\)</span>）を満たす <span class="math inline">\(0\)</span> でない解をもつような最初の <span class="math inline">\(a\)</span> である。これは<em>固有値問題</em>（eigenvalue problem）であり、<span class="math inline">\(a^2 = \frac{\pi^2}{4}\)</span> はその最小固有値である。<a href="../ch03/wirtinger.html">第 3.7 節</a> と比べてみよ。そこでは長さ <span class="math inline">\(\pi\)</span> の区間の両端で関数を固定し、臨界値は <span class="math inline">\(1\)</span> であった。ここでは区間の長さは <span class="math inline">\(1\)</span> で、固定されているのは一方の端だけである。これは長さ <span class="math inline">\(2\)</span> の区間の半分のようなものなので、臨界値となる <span class="math inline">\(a\)</span> は <span class="math inline">\(\frac{\pi}{2}\)</span> になる。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-7-1.svg" alt="図 4.7.1"><figcaption><span class="fig-label">図 4.7.1</span> <span class="math inline">\(y(1) = 0\)</span> を満たす二つの試験関数について、<span class="math inline">\(a\)</span> に対する <span class="math inline">\(J\)</span> の値を示したもの。<span class="math inline">\(y = 1 - x\)</span> の場合、<span class="math inline">\(J = 1 - \frac{a^2}{3}\)</span> が負になるのは <span class="math inline">\(a &gt; \sqrt3\)</span> のときだけである。<span class="math inline">\(y = \cos\frac{\pi x}{2}\)</span> の場合、<span class="math inline">\(J = \frac{\pi^2}{8} - \frac{a^2}{2}\)</span> は <span class="math inline">\(a &gt; \frac\pi2\)</span> となった途端に負になり、これより良い関数は存在しない。実際、<span class="math inline">\(a &lt; \frac\pi2\)</span> のときはどの <span class="math inline">\(y\)</span> に対しても <span class="math inline">\(J \geq 0\)</span> である。</figcaption></figure>
+<h3 id="物理学と最小作用の原理">物理学と最小作用の原理</h3>
+<p>変分法は、自然そのものを記述するものであることが明らかになった。18世紀から19世紀にかけて、運動の法則は次のように述べられることがわかってきた。力学系は、<em>作用</em>（action）とよばれる積分を停留させるように運動する。同様に、光は所要時間が最小となる経路に沿って進み（フェルマー（Fermat）の原理）、これによって屈折が説明される。20世紀には、リチャード・ファインマン（Richard Feynman）の「経路の総和」を通じて、同じ考え方が量子力学の基礎となった。この問題に現れる2次の積分はその最も単純な例であり、そこから導かれる固有値問題は、<a href="../ch08/quantum-oscillator.html">第 8.6 節</a> で量子振動子のエネルギー準位として再び現れる。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">平方完成をし、それから境界に注意せよ</div>
+<p><em>2次の式が非負であることを示すには、それを平方と、制御できる何かとの和として書け。積分の場合、その「何か」はある関数の導関数そのものであることが多く、積分すると境界項になる。</em></p>
+<p>そして、方法がどこで使えなくなるかを常に問え。ここで破綻した点は偶然ではなかった。それはこの問題で最も重要な数であった。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>臨界値を超えて。</strong> <span class="math inline">\(a &gt; \frac\pi2\)</span> ならば、<span class="math inline">\(y = \cos\frac{\pi x}{2}\)</span> が <span class="math inline">\(J &lt; 0\)</span> を与えることを示せ。</p></li>
+<li><p><strong>オイラー＝ラグランジュ方程式。</strong> <span class="hard">発展</span> <span class="math inline">\(y\)</span> が、<span class="math inline">\(y(1) = 0\)</span> を満たす関数の中で <span class="math inline">\(J\)</span> を最小にするとする。<span class="math inline">\(\eta(1) = 0\)</span> を満たす任意の関数 <span class="math inline">\(\eta\)</span> と任意の数 <span class="math inline">\(\varepsilon\)</span> に対して <span class="math inline">\(J(y + \varepsilon\eta) \geq J(y)\)</span> が成り立つ。<span class="math inline">\(J(y + \varepsilon\eta)\)</span> を <span class="math inline">\(\varepsilon\)</span> のべきで展開し、<span class="math inline">\(\int_0^1 (y&#39;\eta&#39; - a^2y\eta)\,\mathrm{d}x = 0\)</span> を導け。部分積分を用いて、<span class="math inline">\(y&#39;&#39; + a^2y = 0\)</span> かつ <span class="math inline">\(y&#39;(0) = 0\)</span> であることを示せ（<span class="math inline">\(y\)</span> は十分滑らかであると仮定せよ）。</p></li>
+<li><p><strong>より長い区間。</strong> 置換を用いて、<span class="math inline">\(y(L) = 0\)</span> ならば、すべての <span class="math inline">\(y\)</span> に対して <span class="math inline">\(\int_0^L \bigl((y&#39;)^2 - a^2y^2\bigr)\,\mathrm{d}x \geq 0\)</span> が成り立つのはちょうど <span class="math inline">\(a \leq \frac{\pi}{2L}\)</span> のときであり、<span class="math inline">\(0\)</span> でない <span class="math inline">\(y\)</span> が等号を与えるのは <span class="math inline">\(a = \frac{\pi}{2L}\)</span> のときに限ることを示せ。</p></li>
+<li><p><strong>サイクロイド。</strong> 最速降下線問題を調べ、サイクロイドの媒介変数表示を求めよ。上下を逆さにしたサイクロイド上のどこからビーズを静かに放しても、最下点に達するまでの時間が同じであることを示せ（<em>等時曲線</em>（tautochrone）の性質。1659年にホイヘンス（Huygens）が発見した）。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Paul Nahin, <a href="https://uk.bookshop.org/search?keywords=When+Least+Is+Best+Nahin"><em>When Least Is Best</em></a></strong>（Princeton University Press）。最速降下線を含む最適化の歴史と数学を、学生向けに書いたもの。</p></li>
+<li><p><strong>Richard Feynman, <a href="https://www.feynmanlectures.caltech.edu/"><em>The Feynman Lectures on Physics</em></a></strong>（『ファインマン物理学』）, Volume II, Chapter 19（「The principle of least action」、最小作用の原理）。オンラインで無料で読める。</p></li>
+<li><p><strong>Bruce van Brunt, <a href="https://uk.bookshop.org/search?keywords=The+Calculus+of+Variations+Brunt"><em>The Calculus of Variations</em></a></strong>（Springer）。学部生向けの教科書。最初のいくつかの章は A レベル（A level、英国の大学入学資格試験）の微分積分だけで読める。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="no-formula.html">← 4.6 公式で表せない積分</a><a class="next" href="spherical-loaf.html">→ 4.8 球形のパンを切る</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

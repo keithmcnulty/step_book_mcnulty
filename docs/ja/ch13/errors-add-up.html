@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>積み重なる誤差 (STEP II 1993 Q15) — Beyond STEP</title>
+<meta name="description" content="STEP II 1993 問題 15：解説付き解答とその背後にある大学数学。 1982年、バンクーバー証券取引所は 1000 から始まる新しい株価指数を導入した。株価が変化するたびに指数は再計算され、小数第3位までで 切り捨て （truncation）られた。1回の切り捨てで失われる量は平均 0.0005 であり、無視できるほど小さく見える。しかし再計算は1日に約 3000…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch13/errors-add-up.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="積み重なる誤差 (STEP II 1993 Q15) — Beyond STEP">
+<meta property="og:description" content="STEP II 1993 問題 15：解説付き解答とその背後にある大学数学。 1982年、バンクーバー証券取引所は 1000 から始まる新しい株価指数を導入した。株価が変化するたびに指数は再計算され、小数第3位までで 切り捨て （truncation）られた。1回の切り捨てで失われる量は平均 0.0005 であり、無視できるほど小さく見える。しかし再計算は1日に約 3000…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch13/errors-add-up.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="積み重なる誤差 (STEP II 1993 Q15) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1993 問題 15：解説付き解答とその背後にある大学数学。 1982年、バンクーバー証券取引所は 1000 から始まる新しい株価指数を導入した。株価が変化するたびに指数は再計算され、小数第3位までで 切り捨て （truncation）られた。1回の切り捨てで失われる量は平均 0.0005 であり、無視できるほど小さく見える。しかし再計算は1日に約 3000…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "積み重なる誤差", "headline": "積み重なる誤差", "description": "STEP II 1993 問題 15：解説付き解答とその背後にある大学数学。 1982年、バンクーバー証券取引所は 1000 から始まる新しい株価指数を導入した。株価が変化するたびに指数は再計算され、小数第3位までで 切り捨て （truncation）られた。1回の切り捨てで失われる量は平均 0.0005 であり、無視できるほど小さく見える。しかし再計算は1日に約 3000…", "url": "https://beyondstep.keithmcnulty.org/ja/ch13/errors-add-up.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1993 問題 15", "世界における統計とランダムネス"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "世界における統計とランダムネス", "url": "https://beyondstep.keithmcnulty.org/ja/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第13章：世界における統計とランダムネス", "item": "https://beyondstep.keithmcnulty.org/ja/ch13/"}, {"@type": "ListItem", "position": 3, "name": "積み重なる誤差", "item": "https://beyondstep.keithmcnulty.org/ja/ch13/errors-add-up.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch13/errors-add-up.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch13/errors-add-up.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch13/errors-add-up.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch13/errors-add-up.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第13章 · 世界における統計とランダムネス</a>
+    <div class="src">STEP II · 1993 · 問題 15</div>
+    <div class="sec-head"><span class="sec-num">13.6</span><h1>積み重なる誤差</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-6-errors-add-up.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第13章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 1993、第15問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/93-s2-q15">step.maths.org/questions/93-s2-q15</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>1982年、バンクーバー証券取引所は <span class="math inline">\(1000\)</span> から始まる新しい株価指数を導入した。株価が変化するたびに指数は再計算され、小数第3位までで<em>切り捨て</em>（truncation）られた。1回の切り捨てで失われる量は平均 <span class="math inline">\(0.0005\)</span> であり、無視できるほど小さく見える。しかし再計算は1日に約 <span class="math inline">\(3000\)</span> 回行われ、22か月後には、市場全体は上昇していたにもかかわらず、指数は約 <span class="math inline">\(520\)</span> になっていた。正しく計算し直したところ、指数は一晩で約 <span class="math inline">\(1100\)</span> に跳ね上がった。</p>
+<p>この問題は、何が起きたのかを説明するものである。切り捨て誤差はすべて同じ向きを持つので、演算回数に比例して着実に積み重なっていく。一方、四捨五入（rounding）による誤差は両方の向きを持ち、大部分が打ち消し合う。その増え方は演算回数の平方根程度にすぎず、これは中心極限定理（central limit theorem、<a href="../ch12/clt.html">第 12.24 節</a>）が予言するランダムウォーク（random walk）の振る舞いである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>ある数の小数部分（fractional part）<span class="math inline">\(U\)</span> が <span class="math inline">\([0, 1)\)</span> 上の一様分布（uniform distribution）に従うとき、その数を切り捨てたときの誤差はどうなるか。四捨五入したときはどうか。それぞれの平均（mean）と分散（variance）は何か。</p>
+</div>
+<p>切り捨ては <span class="math inline">\(a\)</span> を <span class="math inline">\(\lfloor a\rfloor\)</span> で置き換えるので、誤差（真の値から近似値を引いたもの）は <span class="math inline">\(U\)</span> であり、<span class="math inline">\([0, 1)\)</span> 上の一様分布に従う。平均は <span class="math inline">\(\frac12\)</span>、分散は <span class="math inline">\(\frac{1}{12}\)</span> である。四捨五入の誤差は <span class="math inline">\((-\frac12, \frac12]\)</span> 上の一様分布に従い、平均は <span class="math inline">\(0\)</span>、分散は <span class="math inline">\(\frac{1}{12}\)</span> である。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-誤差の総和" class="stage"><span class="stage-n">段階 1</span> 誤差の総和</h4>
+<p><span class="math inline">\(1500\)</span> 個の数を足したあとの誤差の総和は、<span class="math inline">\(1500\)</span> 個の独立な誤差の和であり、中心極限定理により近似的に正規分布（normal distribution）に従う。</p>
+<ul>
+<li><p>LEP（四捨五入）：平均 <span class="math inline">\(0\)</span>、分散 <span class="math inline">\(\frac{1500}{12} = 125\)</span>、標準偏差（standard deviation）<span class="math inline">\(\sqrt{125} \approx 11.18\)</span>。</p></li>
+<li><p>VOZ（切り捨て）：平均 <span class="math inline">\(\frac{1500}{2} = 750\)</span>、標準偏差は同じく <span class="math inline">\(11.18\)</span>。</p></li>
+</ul>
+<h4 id="stagemark2-大きな誤差が生じる確率" class="stage"><span class="stage-n">段階 2</span> 大きな誤差が生じる確率</h4>
+<div class="askyourself">
+<p>LEP について、<span class="math inline">\(E \sim \mathrm{N}(0, 125)\)</span> のとき <span class="math inline">\(\mathrm{P}(|E| &gt; 15)\)</span> はいくらか。VOZ について、誤差はほぼ確実にどのあたりにあるか。</p>
+</div>
+<p>LEP については <span class="math inline">\(\frac{15}{11.18} \approx 1.342\)</span> であるから、 <span class="math display">\[\mathrm{P}(|E| &gt; 15) \approx 2\bigl(1 - \Phi(1.342)\bigr) \approx 2 \times 0.090 = 0.18.\]</span> VOZ については、誤差はおよそ <span class="math inline">\(750 \pm 11\)</span> である。その絶対値が <span class="math inline">\(15\)</span> 未満となる確率は実質的に <span class="math inline">\(0\)</span> なので、<span class="math inline">\(\mathrm{P}(|E| &gt; 15) \approx 1\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-何回足せるか" class="stage"><span class="stage-n">段階 3</span> 何回足せるか</h4>
+<div class="askyourself">
+<p><span class="math inline">\(n\)</span> 回の加算のあと、LEP の誤差の標準偏差は <span class="math inline">\(\sqrt{n/12}\)</span> である。<span class="math inline">\(\mathrm{P}(|E| &lt; 10) \geq 0.9\)</span> となるのはどのようなときか。</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(|Z| &lt; 1.645) = 0.9\)</span> であるから、<span class="math inline">\(\frac{10}{\sqrt{n/12}} \geq 1.645\)</span> が必要である。すなわち <span class="math inline">\(\frac{n}{12} \leq \bigl(\frac{10}{1.645}\bigr)^2 \approx 36.95\)</span> であり、<span class="math inline">\(n \leq 443\)</span> となる。LEP は約 <span class="math inline">\(443\)</span> 回の加算を行うことができる。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-6-1.svg" alt="図 13.6.1"><figcaption><span class="fig-label">図 13.6.1</span> 誤差の蓄積の様子。切り捨て誤差（紫）はすべて同じ符号を持ち、<span class="math inline">\(n\)</span> に比例して増える。<span class="math inline">\(1500\)</span> 回の加算のあと、総和は約 <span class="math inline">\(750\)</span> になる。四捨五入の誤差（青緑の帯、<span class="math inline">\(0\)</span> の両側に標準偏差2つ分）は平均的には打ち消し合い、<span class="math inline">\(\sqrt n\)</span> 程度にしか増えない。<span class="math inline">\(1500\)</span> 回の加算のあとでも、通常はおよそ <span class="math inline">\(\pm22\)</span> の範囲に収まる。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>個々の誤差をモデル化する。</strong> 小数部分が一様分布に従うことから、各誤差は簡単な分布を持つことになった。</p></li>
+<li><p><strong>平均と分散を足し合わせる。</strong> 平均は足し合わされ（偏り <span class="math inline">\(\frac n2\)</span> が生じる）、誤差が独立ならば分散も足し合わされる。</p></li>
+<li><p><strong>正規近似。</strong> 中心極限定理によって、<span class="math inline">\(1500\)</span> 個の一様分布に従う誤差の和は正規分布に置き換えられた。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="偏りと分散">偏りと分散</h3>
+<p>切り捨ては<em>偏りがある</em>（biased）。すなわち、その誤差の平均は <span class="math inline">\(0\)</span> でなく、偏りは線形に蓄積する。四捨五入は<em>不偏</em>（unbiased）であり、その誤差はランダムウォークのように振る舞って <span class="math inline">\(\sqrt n\)</span> 程度で増える。100万回の演算のあとでは、その差は <span class="math inline">\(500\,000\)</span> 程度の誤差と <span class="math inline">\(300\)</span> 程度の誤差の違いになる。これは、実験における系統誤差（systematic error、たとえば校正の狂った測定器）と偶然誤差（random error）の区別と同じである。多数の測定値を平均すれば偶然誤差は小さくなるが、系統誤差にはまったく効果がない。</p>
+<h3 id="浮動小数点">浮動小数点</h3>
+<p>あらゆるコンピュータは実数を有限の精度で保存し、あらゆる算術演算はその結果を丸める。現代のコンピュータは IEEE 754 規格に従っており、表現可能な最も近い数に丸める。ちょうど中間の場合には最後の桁が偶数になる方へ丸めるが、これはまさに丸めが平均的に不偏となるようにするためである。それでも、多数の数を不用意に足し合わせると精度が失われることがある。カハン（William Kahan）の<em>補償付き総和</em>（compensated summation）アルゴリズム（1965年）は、失われた下位の桁を記録しておき、それを足し戻す。1991年の湾岸戦争では、パトリオットミサイルの砲台が飛来するミサイルの迎撃に失敗した。その時計は時間を0.1秒単位で数えていたが、0.1は2進法では正確に表せない数である。<span class="math inline">\(100\)</span> 時間の稼働のあと、切り捨て誤差は約3分の1秒にまで増え、標的の位置を0.5キロメートル以上見誤るのに十分な大きさになっていた。</p>
+<div class="historybox">
+<div class="box-title">バンクーバー指数</div>
+<p>バンクーバー証券取引所の指数は、1982年1月に <span class="math inline">\(1000.000\)</span> という値で創設された。1983年11月までに、市場全体はおおむね上昇していたにもかかわらず、指数は約 <span class="math inline">\(524\)</span> にまで下がっていた。コンサルタントたちは、指数が1日に何千回も再計算され、そのたびに小数第3位まで（四捨五入ではなく）切り捨てられていたことを突き止めた。週末をかけて正しく計算し直した結果、指数は約 <span class="math inline">\(1098\)</span> で取引を再開した。この出来事は、数値計算の講義で定番の戒めとなっている。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">系統誤差と偶然誤差を区別する</div>
+<p><em>符号が一定の誤差は線形に蓄積する。平均 <span class="math inline">\(0\)</span> の独立な誤差は平方根のように蓄積する。自分が扱っている誤差がどちらの種類なのかを見極めよ。</em></p>
+<p>大学では、数値解析（numerical analysis）で誤差が計算の中をどのように伝わるかを学び、統計学では偏りと分散を区別する。「バイアス–バリアンスのトレードオフ」（bias–variance trade-off）は、現代の機械学習の中心にある考え方である。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>VOZ の補正。</strong> VOZ が最後に答えに <span class="math inline">\(\frac n2\)</span> を加えるとすると、その誤差はどのような分布に従うか。これで LEP と同じくらい良くなったといえるか。</p></li>
+<li><p><strong>小数第1位への四捨五入。</strong> 数を小数第1位に四捨五入し、捨てられる桁が一様分布に従うとき、<span class="math inline">\(10\,000\)</span> 個の数を足したときの誤差の総和の標準偏差を求めよ。</p></li>
+<li><p><strong>バンクーバー指数。</strong> 指数が1日に <span class="math inline">\(3000\)</span> 回再計算され、1回の切り捨てで平均 <span class="math inline">\(0.0005\)</span> が失われたとすると、取引日 <span class="math inline">\(250\)</span> 日の1年間でどれだけ失われるか。</p></li>
+<li><p><strong>厳密な分布。</strong> 2つの四捨五入誤差の和について、厳密な確率密度関数（三角形になる）を求めよ。3つの場合については、その概形を描け。どのくらいの速さで正規分布らしく見えてくるか。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Nicholas Higham, <a href="https://uk.bookshop.org/search?keywords=Accuracy+and+Stability+of+Numerical+Algorithms+Higham"><em>Accuracy and Stability of Numerical Algorithms</em></a></strong>（SIAM）。丸め誤差に関する定評ある本であり、第1章は読みやすい。</p></li>
+<li><p><strong>David Goldberg, “<a href="https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html">What every computer scientist should know about floating-point arithmetic</a>”</strong>, <em>ACM Computing Surveys</em> 23 (1991)。古典的な論文で、オンラインで無料で読める。</p></li>
+<li><p><strong>Tim Harford, <a href="https://uk.bookshop.org/search?keywords=How+to+Make+the+World+Add+Up+Harford"><em>How to Make the World Add Up</em></a></strong>（Bridge Street）。データにおける系統誤差を扱っている。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="awkward-questions.html">← 13.5 答えにくい質問をする</a><a class="next" href="correlation.html">→ 13.7 相関をつくり出す</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

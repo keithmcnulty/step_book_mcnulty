@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>公理から考える微分 (STEP II 1992 Q4) — Beyond STEP</title>
+<meta name="description" content="STEP II 1992 問題 4：解説付き解答とその背後にある大学数学。 微分（differentiation）とは何か。学校では極限（limit） lim_h → 0(f(x+h) - f(x))/(h) によって定義され、そのあとで規則を学ぶ。和の導関数（derivative）は導関数の和であること、積の法則（product…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch06/derivations.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch06/derivations.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/derivations.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/derivations.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/derivations.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch06/derivations.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/derivations.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="公理から考える微分 (STEP II 1992 Q4) — Beyond STEP">
+<meta property="og:description" content="STEP II 1992 問題 4：解説付き解答とその背後にある大学数学。 微分（differentiation）とは何か。学校では極限（limit） lim_h → 0(f(x+h) - f(x))/(h) によって定義され、そのあとで規則を学ぶ。和の導関数（derivative）は導関数の和であること、積の法則（product…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch06/derivations.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="公理から考える微分 (STEP II 1992 Q4) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1992 問題 4：解説付き解答とその背後にある大学数学。 微分（differentiation）とは何か。学校では極限（limit） lim_h → 0(f(x+h) - f(x))/(h) によって定義され、そのあとで規則を学ぶ。和の導関数（derivative）は導関数の和であること、積の法則（product…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "公理から考える微分", "headline": "公理から考える微分", "description": "STEP II 1992 問題 4：解説付き解答とその背後にある大学数学。 微分（differentiation）とは何か。学校では極限（limit） lim_h → 0(f(x+h) - f(x))/(h) によって定義され、そのあとで規則を学ぶ。和の導関数（derivative）は導関数の和であること、積の法則（product…", "url": "https://beyondstep.keithmcnulty.org/ja/ch06/derivations.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1992 問題 4", "代数と構造"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 6, "name": "代数と構造", "url": "https://beyondstep.keithmcnulty.org/ja/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第6章：代数と構造", "item": "https://beyondstep.keithmcnulty.org/ja/ch06/"}, {"@type": "ListItem", "position": 3, "name": "公理から考える微分", "item": "https://beyondstep.keithmcnulty.org/ja/ch06/derivations.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch06/derivations.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/derivations.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch06/derivations.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch06/derivations.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第6章 · 代数と構造</a>
+    <div class="src">STEP II · 1992 · 問題 4</div>
+    <div class="sec-head"><span class="sec-num">6.5</span><h1>公理から考える微分</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-5-derivations.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第6章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 1992、第4問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/92-s2-q4">step.maths.org/questions/92-s2-q4</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>微分（differentiation）とは何か。学校では極限（limit）<span class="math inline">\(\lim_{h \to 0}\frac{f(x+h) - f(x)}{h}\)</span> によって定義され、そのあとで規則を学ぶ。和の導関数（derivative）は導関数の和であること、積の法則（product rule）などである。この問題はその順序をひっくり返す。極限のことは完全に忘れよう。ある演算について知っているのは、それが和の法則、積の法則、定数に関する規則に従い、<span class="math inline">\(x\)</span> を <span class="math inline">\(1\)</span> に写すということだけだとする。すると、少なくとも多項式（polynomial）の上では、それは微分で<em>なければならない</em>ことを、この問題は示している。</p>
+<p>これは微積分に対する代数学者の見方である。すなわち、演算は公式によってではなく、それが従う規則によって特徴づけられる。積の法則に従う演算は<em>導分</em>（derivation）とよばれ、代数学、幾何学、物理学のいたるところに現れる。意外なことに、同じ考え方が現代の機械学習（machine learning）システムを訓練するソフトウェアの内部でも働いている。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>規則 (i) は積の法則である。積の法則から、定数について何がわかるだろうか。（定数を積とみなしてみよう。）</p>
+</div>
+<p>数 <span class="math inline">\(1\)</span> は <span class="math inline">\(1 \times 1\)</span> に等しい。<span class="math inline">\(1 \times 1\)</span> に積の法則を適用すると <span class="math inline">\(\lozenge 1\)</span> がそれ自身と関係づけられ、そこからそれが <span class="math inline">\(0\)</span> でなければならないことが導かれる。一般に、このような公理（axiom）を扱うときのこつは、巧みに選んだ単純な入力に公理を適用することである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-定数" class="stage"><span class="stage-n">段階 1</span> 定数</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{f} = \mathrm{g} = 1\)</span> として規則 (i) を適用せよ。次に、ほかの定数に対しては規則 (iv) を用いよ。</p>
+</div>
+<p><span class="math inline">\(\lozenge 1 = \lozenge(1 \cdot 1) = 1 \cdot \lozenge 1 + 1 \cdot \lozenge 1 = 2\lozenge 1\)</span> であるから、<span class="math inline">\(\lozenge 1 = 0\)</span> である。任意の定数（constant）<span class="math inline">\(\lambda\)</span> に対して、規則 (iv) より <span class="math inline">\(\lozenge\lambda = \lozenge(\lambda \cdot 1) = \lambda\lozenge 1 = 0\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-累乗" class="stage"><span class="stage-n">段階 2</span> 累乗</h4>
+<p>規則 (iii) を用いると <span class="math inline">\(\lozenge x^2 = \lozenge(x \cdot x) = x\lozenge x + x\lozenge x = 2x\)</span> である。さらに <span class="math display">\[\lozenge x^3 = \lozenge(x^2 \cdot x) = x\lozenge x^2 + x^2\lozenge x = x \cdot 2x + x^2 = 3x^2.\]</span></p>
+<div class="pausebox">
+<p>すべての正の整数 <span class="math inline">\(n\)</span> について <span class="math inline">\(\lozenge x^n = nx^{n-1}\)</span> であることを、数学的帰納法（induction）によって証明せよ。</p>
+</div>
+<p><span class="math inline">\(n = 1\)</span> の場合は規則 (iii) そのものである。<span class="math inline">\(\lozenge x^n = nx^{n-1}\)</span> ならば <span class="math display">\[\lozenge x^{n+1} = \lozenge(x^n \cdot x) = x\lozenge x^n + x^n\lozenge x = x \cdot nx^{n-1} + x^n = (n + 1)x^n. \qed\]</span></p>
+<h4 id="stagemark3-すべての多項式" class="stage"><span class="stage-n">段階 3</span> すべての多項式</h4>
+<p>一般の多項式は <span class="math inline">\(\mathrm{h}(x) = a_0 + a_1x + \cdots + a_mx^m\)</span> である。規則 (ii)（を繰り返し適用したもの）と規則 (iv) により <span class="math display">\[\begin{aligned}
+  \lozenge\mathrm{h}(x) &amp;= \lozenge a_0 + a_1\lozenge x + a_2\lozenge x^2 + \cdots + a_m\lozenge x^m \\
+  &amp;= a_1 + 2a_2x + \cdots + ma_mx^{m-1} = \mathrm{h}&#39;(x). \qed
+\end{aligned}\]</span></p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>公理が演算を決定する。</strong>極限に一切触れない4つの規則が、多項式上の <span class="math inline">\(\lozenge\)</span> を完全に決定した。</p></li>
+<li><p><strong>生成元（generators）。</strong>すべての多項式は、定数と <span class="math inline">\(x\)</span> から加法と乗法を用いて組み立てられる。構成要素に対して <span class="math inline">\(\lozenge\)</span> が何をするか、そしてそれが組み立てのための演算とどう関わるかがわかれば、それはいたるところで決まる。</p></li>
+<li><p><strong>構成に沿った帰納法。</strong>証明は多項式の組み立て方をなぞっていた。まず乗法の繰り返しによって累乗を扱い、次に和を扱ったのである。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">導分</div>
+<p>ある代数系の上の演算 <span class="math inline">\(D\)</span> が加法的であり、積の法則 <span class="math inline">\(D(fg) = fD(g) + gD(f)\)</span> を満たすとき、それを<em>導分</em>という。この問題が示すのは、多項式の上では、定数を <span class="math inline">\(0\)</span> に写す導分は <span class="math inline">\(D(x)\)</span> によって完全に決定されるということである。実際 <span class="math inline">\(D(h) = h&#39;(x)\,D(x)\)</span> であり、自由に選べるのは多項式 <span class="math inline">\(D(x)\)</span> だけである。規則 (iii) は <span class="math inline">\(D(x) = 1\)</span> と定めている。導分は数学のさまざまな場面に現れる。幾何学では、曲面上の<em>ベクトル場</em>（vector field）を、その曲面上の関数に対する導分として定義できる（ベクトル場の方向に関数を微分するのである）。代数学では、ある構造の導分はその「無限小の対称性」を測る。物理学では、量子力学の交換子（commutator）<span class="math inline">\([A, B] = AB - BA\)</span> が各引数について導分になっている。</p>
+</div>
+<h3 id="極限を使わない微積分">極限を使わない微積分</h3>
+<p>代数的な導関数は、極限がまったく意味をもたない状況でも機能する。素数 <span class="math inline">\(p\)</span> を法とする算術のような有限体（finite field）の上には極限は存在しないが、多項式の形式的導関数（formal derivative）は同じ規則によって定義され、それでもなお重根（repeated root）を検出できる。多項式 <span class="math inline">\(f\)</span> が重根をもつのは、<span class="math inline">\(f\)</span> と <span class="math inline">\(f&#39;\)</span> が共通因数をもつときであり、かつそのときに限る。たとえば、<span class="math inline">\(p \nmid n\)</span> のとき <span class="math inline">\(x^n - 1\)</span> が重根をもたないことはこのようにして示される。これは、<a href="../ch06/cyclotomic.html">第 6.1 節</a> の円分多項式（cyclotomic polynomial）を有限体上で定義するのに必要な事実である。同じ考え方は符号理論（coding theory）や暗号理論（cryptography）でも用いられている。</p>
+<h3 id="自動微分">自動微分</h3>
+<p>ここで現代的な応用を紹介しよう。<span class="math inline">\(\varepsilon^2 = 0\)</span> だが <span class="math inline">\(\varepsilon \neq 0\)</span> であるような数 <span class="math inline">\(\varepsilon\)</span> を考え出し、<em>二重数</em>（dual numbers）<span class="math inline">\(a + b\varepsilon\)</span> で計算を行う。すると <span class="math inline">\((a + b\varepsilon)(c + d\varepsilon) = ac + (ad + bc)\varepsilon\)</span> となり、<span class="math inline">\(\varepsilon\)</span> の部分はまさに積の法則に従う。したがって、任意の多項式について <span class="math display">\[f(x + \varepsilon) = f(x) + f&#39;(x)\,\varepsilon,\]</span> が成り立ち、二重数 <span class="math inline">\(x + \varepsilon\)</span> において <span class="math inline">\(f\)</span> を評価すると、値と導関数の値が同時に、しかも正確に計算される。極限は不要であり、小さな差をとることによる丸め誤差も生じない（図 6.5.1）。これを<em>フォワードモード自動微分</em>（forward-mode automatic differentiation）という。その親戚であるリバースモードは、数十億のパラメータをもつニューラルネットワーク（neural networks）を訓練するのに使われるアルゴリズム（<em>誤差逆伝播法</em>（backpropagation））である。このようなシステムが学習するたびに、積の法則と連鎖律（chain rule）を導分として一歩ずつ適用しているのである。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-6-5-1.svg" alt="図 6.5.1"><figcaption><span class="fig-label">図 6.5.1</span> 二重数（<span class="math inline">\(\varepsilon^2 = 0\)</span>）を用いた、<span class="math inline">\(x = 3\)</span> における <span class="math inline">\(f(x) = x^2(x + 1)\)</span> の自動微分。各段階は問題の規則に従っている。すなわち <span class="math inline">\((3 + \varepsilon)^2 = 9 + 6\varepsilon\)</span>、<span class="math inline">\((9 + 6\varepsilon)(4 + \varepsilon) = 36 + (9 + 24)\varepsilon\)</span> である。<span class="math inline">\(\varepsilon\)</span> の係数は <span class="math inline">\(f&#39;(3) = 3 \cdot 9 + 2 \cdot 3 = 33\)</span> であり、正確に計算されている。</figcaption></figure>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">性質によって特徴づける</div>
+<p><em>演算をそれが従う規則によって記述し、その規則が演算をただ一つに決定することを示す。</em></p>
+<p>これは公理的方法（axiomatic method）であり、大学の代数学の中心にある。その強みは、公理から証明したことが、それを満たすあらゆる演算に当てはまる点にある。多項式の微分であれ、曲面上の関数の微分であれ、まだ発明されていない何かであれ、である。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>別の導分。</strong><span class="math inline">\(\lozenge\)</span> が規則 (i)、(ii)、(iv) を満たすが、<span class="math inline">\(1\)</span> の代わりに <span class="math inline">\(\lozenge x = x\)</span> であるとする。<span class="math inline">\(\lozenge\mathrm{h}(x) = x\,\mathrm{h}&#39;(x)\)</span> を示せ。<span class="math inline">\(\lozenge\)</span> は <span class="math inline">\(x^n\)</span> をどう写すか。</p></li>
+<li><p><strong>商の法則。</strong>規則 (i) が引き続き成り立つと仮定して、<span class="math inline">\(\lozenge\)</span> を有理関数（rational functions）<span class="math inline">\(\mathrm{f}/\mathrm{g}\)</span> に拡張する。<span class="math inline">\(\mathrm{g} \cdot \frac{\mathrm{f}}{\mathrm{g}} = \mathrm{f}\)</span> に規則 (i) を適用して、商の法則（quotient rule）を導け。</p></li>
+<li><p><strong>重根。</strong><span class="math inline">\((x - a)^2\)</span> が多項式 <span class="math inline">\(\mathrm{f}\)</span> を割り切るならば、<span class="math inline">\(x - a\)</span> は <span class="math inline">\(\mathrm{f}&#39;\)</span> を割り切ることを示せ。これを用いて、<span class="math inline">\(x^n - 1\)</span> が重根をもたないことを示せ。</p></li>
+<li><p><strong>二重数。</strong>二重数を用いて、<span class="math inline">\(f(x) = (x^2 + 1)^3\)</span> に対する <span class="math inline">\(f(2)\)</span> と <span class="math inline">\(f&#39;(2)\)</span> を計算し、連鎖律で検算せよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Peter Cameron, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Algebra+Cameron"><em>Introduction to Algebra</em></a></strong>（Oxford University Press）。大学1年次の水準で環（rings）、多項式、体（fields）を扱い、形式的導関数も取り上げている。</p></li>
+<li><p><strong>Andreas Griewank &amp; Andrea Walther, <a href="https://uk.bookshop.org/search?keywords=Evaluating+Derivatives+Griewank+Walther"><em>Evaluating Derivatives</em></a></strong>（SIAM）。自動微分に関する標準的な文献。上級者向け。</p></li>
+<li><p><strong>Michael Nielsen, <a href="http://neuralnetworksanddeeplearning.com/"><em>Neural Networks and Deep Learning</em></a></strong>（オンラインで無料公開）。第 2 章で誤差逆伝播法がわかりやすく解説されている。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="quartic.html">← 6.4 四次方程式を解く</a><a class="next" href="subgroup-unions.html">→ 6.6 部分群の和集合</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

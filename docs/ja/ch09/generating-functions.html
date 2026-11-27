@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>関数としての数列 (STEP I 2016 Q8) — Beyond STEP</title>
+<meta name="description" content="STEP I 2016 問題 8：解説付き解答とその背後にある大学数学。 電卓で 1/89 を計算してみよう。 0.011235955ldots となる。数字は 0, 1, 1, 2, 3, 5 と始まり、これはフィボナッチ数（Fibonacci numbers）である。これは偶然だろうか。偶然ではない。この問題はその理由を明らかにする。…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch09/generating-functions.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch09/generating-functions.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/generating-functions.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/generating-functions.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/generating-functions.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch09/generating-functions.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/generating-functions.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="関数としての数列 (STEP I 2016 Q8) — Beyond STEP">
+<meta property="og:description" content="STEP I 2016 問題 8：解説付き解答とその背後にある大学数学。 電卓で 1/89 を計算してみよう。 0.011235955ldots となる。数字は 0, 1, 1, 2, 3, 5 と始まり、これはフィボナッチ数（Fibonacci numbers）である。これは偶然だろうか。偶然ではない。この問題はその理由を明らかにする。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch09/generating-functions.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="関数としての数列 (STEP I 2016 Q8) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2016 問題 8：解説付き解答とその背後にある大学数学。 電卓で 1/89 を計算してみよう。 0.011235955ldots となる。数字は 0, 1, 1, 2, 3, 5 と始まり、これはフィボナッチ数（Fibonacci numbers）である。これは偶然だろうか。偶然ではない。この問題はその理由を明らかにする。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "関数としての数列", "headline": "関数としての数列", "description": "STEP I 2016 問題 8：解説付き解答とその背後にある大学数学。 電卓で 1/89 を計算してみよう。 0.011235955ldots となる。数字は 0, 1, 1, 2, 3, 5 と始まり、これはフィボナッチ数（Fibonacci numbers）である。これは偶然だろうか。偶然ではない。この問題はその理由を明らかにする。…", "url": "https://beyondstep.keithmcnulty.org/ja/ch09/generating-functions.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2016 問題 8", "数え上げと確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "数え上げと確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第9章：数え上げと確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch09/"}, {"@type": "ListItem", "position": 3, "name": "関数としての数列", "item": "https://beyondstep.keithmcnulty.org/ja/ch09/generating-functions.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch09/generating-functions.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch09/generating-functions.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch09/generating-functions.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch09/generating-functions.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第9章 · 数え上げと確率</a>
+    <div class="src">STEP I · 2016 · 問題 8</div>
+    <div class="sec-head"><span class="sec-num">9.4</span><h1>関数としての数列</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-4-generating-functions.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第9章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP I 2016、第8問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/16-s1-q8">step.maths.org/questions/16-s1-q8</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>電卓で <span class="math inline">\(1/89\)</span> を計算してみよう。<span class="math inline">\(0.011235955\ldots\)</span> となる。数字は <span class="math inline">\(0, 1, 1, 2, 3, 5\)</span> と始まり、これはフィボナッチ数（Fibonacci numbers）である。これは偶然だろうか。偶然ではない。この問題はその理由を明らかにする。</p>
+<p>ここで使う考え方は、組合せ論（combinatorics）で最も強力なものの一つである。無限数列をとり、その項を冪級数（power series）の係数として用いることで、数列全体を一つの関数にまとめてしまうのである。すると数列についての事実は関数についての事実となり、代数や微積分を使って扱えるようになる。ハーバート・ウィルフ（Herbert Wilf）はこれを印象的な言葉で表した。「母関数とは、数列を並べて見せるために吊るす物干しロープである。」</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>母関数（generating function）が <span class="math inline">\(\dfrac{1}{1 - x}\)</span> である数列は何か。<span class="math inline">\(\dfrac{1}{1 - 2x}\)</span> ではどうか。数列の母関数に <span class="math inline">\(x\)</span> を掛けると、数列はどうなるか。</p>
+</div>
+<p>等比級数（geometric series）<span class="math inline">\(\frac{1}{1 - x} = 1 + x + x^2 + \cdots\)</span> は数列 <span class="math inline">\(1, 1, 1, \ldots\)</span> の母関数であり、<span class="math inline">\(\frac{1}{1 - 2x} = 1 + 2x + 4x^2 + \cdots\)</span> は <span class="math inline">\(2\)</span> の冪の母関数である。<span class="math inline">\(x\)</span> を掛けると、すべての項が一つずつ後ろにずれる。<span class="math inline">\(x \cdot \frac{1}{1-x} = x + x^2 + \cdots\)</span> は <span class="math inline">\(0, 1, 1, 1, \ldots\)</span> の母関数である。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-自然数と三角数" class="stage"><span class="stage-n">段階 1</span> 自然数と三角数</h4>
+<div class="askyourself">
+<p><span class="math inline">\((1 - x)^{-2}\)</span> を二項級数で展開せよ。<span class="math inline">\(x^n\)</span> の係数は何か。</p>
+</div>
+<p>二項級数（binomial series）により <span class="math display">\[(1 - x)^{-2} = 1 + 2x + 3x^2 + 4x^3 + \cdots = \sum_{n \geq 0}(n + 1)x^n,\]</span> であるから、<span class="math inline">\(x(1 - x)^{-2} = x + 2x^2 + 3x^3 + \cdots = \sum n x^n\)</span> となる。これは <span class="math inline">\(u_n = n\)</span> の母関数である。</p>
+<p>同様に、<span class="math inline">\((1 - x)^{-3}\)</span> における <span class="math inline">\(x^n\)</span> の係数は <span class="math inline">\(\frac{(-3)(-4)\cdots(-3-n+1)}{n!}(-1)^n = \frac{(n + 1)(n + 2)}{2}\)</span> であるから、 <span class="math display">\[x(1 - x)^{-3} = \sum_{n \geq 1}\frac{n(n + 1)}{2}\,x^n = x + 3x^2 + 6x^3 + 10x^4 + \cdots,\]</span> となり、これは三角数（triangle numbers）<span class="math inline">\(u_n = \frac12 n(n + 1)\)</span> の母関数である。</p>
+<div class="askyourself">
+<p><span class="math inline">\(n^2\)</span> を <span class="math inline">\(n\)</span> と <span class="math inline">\(\frac12n(n + 1)\)</span> を用いて表すにはどうすればよいか。</p>
+</div>
+<p><span class="math inline">\(n^2 = 2 \cdot \frac12 n(n + 1) - n\)</span> であり、母関数は数列と同じように足し合わせられるので、 <span class="math display">\[\sum n^2 x^n = \frac{2x}{(1 - x)^3} - \frac{x}{(1 - x)^2} = \frac{2x - x(1 - x)}{(1 - x)^3} = \frac{x(1 + x)}{(1 - x)^3}. \qed\]</span></p>
+<h4 id="stagemark2-漸化式が方程式になる" class="stage"><span class="stage-n">段階 2</span> 漸化式が方程式になる</h4>
+<div class="askyourself">
+<p><span class="math inline">\(u_n = ku_{n-1}\)</span> の両辺に <span class="math inline">\(x^n\)</span> を掛け、<span class="math inline">\(n \geq 1\)</span> のすべての <span class="math inline">\(n\)</span> について足し合わせよ。各辺は <span class="math inline">\(\mathrm{f}\)</span> を用いてどう表されるか。</p>
+</div>
+<p>左辺は <span class="math inline">\(\sum_{n \geq 1}u_nx^n = \mathrm{f}(x) - u_0 = \mathrm{f}(x) - a\)</span> である。右辺は <span class="math inline">\(kx\sum_{n \geq 1}u_{n-1}x^{n-1} = kx\,\mathrm{f}(x)\)</span> である。よって <span class="math inline">\(\mathrm{f}(x) = a + kx\,\mathrm{f}(x)\)</span> であり、 <span class="math display">\[\mathrm{f}(x) = \frac{a}{1 - kx}. \qed\]</span> もちろん <span class="math inline">\(u_n = ak^n\)</span> である。<span class="math inline">\(\frac{a}{1 - kx}\)</span> を等比級数として展開すれば、このことが確かめられる。</p>
+<h4 id="stagemark3-フィボナッチ数" class="stage"><span class="stage-n">段階 3</span> フィボナッチ数</h4>
+<p>漸化式（recurrence）<span class="math inline">\(u_n = u_{n-1} + u_{n-2}\)</span>（<span class="math inline">\(n \geq 2\)</span>）にも同じことを行う。 <span class="math display">\[\sum_{n \geq 2}u_nx^n = x\sum_{n \geq 2}u_{n-1}x^{n-1} + x^2\sum_{n \geq 2}u_{n-2}x^{n-2},\]</span> すなわち <span class="math display">\[\mathrm{f}(x) - u_0 - u_1x = x\bigl(\mathrm{f}(x) - u_0\bigr) + x^2\,\mathrm{f}(x).\]</span> <span class="math inline">\(u_0 = 0\)</span>、<span class="math inline">\(u_1 = 1\)</span> とすると、これは <span class="math inline">\(\mathrm{f}(x) - x = x\,\mathrm{f}(x) + x^2\,\mathrm{f}(x)\)</span> を意味するので、 <span class="math display">\[\mathrm{f}(x) = \frac{x}{1 - x - x^2}. \qed\]</span></p>
+<h4 id="stagemark4-189-の説明" class="stage"><span class="stage-n">段階 4</span> <span class="math inline">\(1/89\)</span> の説明</h4>
+<div class="pausebox">
+<p>収束（convergence）の問題は無視して（ここでは問題ない。この級数は <span class="math inline">\(|x| &lt; 0.618\)</span> で収束する）、<span class="math inline">\(\mathrm{f}\)</span> に <span class="math inline">\(x = \frac{1}{10}\)</span> を代入せよ。何が得られるか。</p>
+</div>
+<p><span class="math display">\[\frac{1}{10}F_1 + \frac{1}{100}F_2 + \frac{1}{1000}F_3 + \cdots = \mathrm{f}\Bigl(\frac{1}{10}\Bigr) = \frac{1/10}{1 - 1/10 - 1/100} = \frac{10}{89}.\]</span> <span class="math inline">\(10\)</span> で割ると <span class="math inline">\(\frac{1}{89} = \sum F_n/10^{n+1}\)</span> となる。フィボナッチ数が小数の各位に順に置かれ、<span class="math inline">\(9\)</span> より大きくなると互いに重なり合う（図 9.4.1）。<span class="math inline">\(1/89\)</span> の最初のほうの桁にはフィボナッチ数が現れるが、後のほうの桁は繰り上がりによってぼやけてしまう。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-4-1.svg" alt="図 9.4.1"><figcaption><span class="fig-label">図 9.4.1</span> <span class="math inline">\(n = 1, 2, 3, \ldots\)</span> について <span class="math inline">\(F_n/10^{n+1}\)</span> を足し合わせる。各フィボナッチ数の末尾は、一つ前のものより小数点以下で一桁右にくる。2 桁になると互いに重なり、繰り上がりによって小数第 7 位以降の数字が変わる。<span class="math inline">\(\frac{1}{89} = 0.01123595505\ldots\)</span>。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>数列を関数に変える。</strong>無限数列全体が一つの有理関数（rational function）になった。</p></li>
+<li><p><strong>漸化式は方程式になる。</strong><span class="math inline">\(x^n\)</span> を掛けて和をとることで、規則 <span class="math inline">\(u_n = u_{n-1} + u_{n-2}\)</span> が、代数的に解ける <span class="math inline">\(\mathrm{f}\)</span> についての方程式に変わった。</p></li>
+<li><p><strong>古いものから新しいものを作る。</strong>母関数を足したり、ずらしたり、微分したりすることで、一から始めることなく新しい母関数が得られた。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="母関数から公式へ">母関数から公式へ</h3>
+<p>母関数は数列を符号化するだけではない。数列を求めることもできる。分母は <span class="math inline">\(1 - x - x^2 = (1 - \varphi x)(1 - \psi x)\)</span> と因数分解される。ここで <span class="math inline">\(\varphi = \frac{1 + \sqrt5}{2}\)</span> と <span class="math inline">\(\psi = \frac{1 - \sqrt5}{2}\)</span> は <span class="math inline">\(t^2 = t + 1\)</span> の解である。部分分数分解（partial fractions）により <span class="math display">\[\frac{x}{1 - x - x^2} = \frac{1}{\sqrt5}\Bigl(\frac{1}{1 - \varphi x} - \frac{1}{1 - \psi x}\Bigr),\]</span> となり、それぞれの分数を等比級数として展開すると <span class="math display">\[F_n = \frac{\varphi^n - \psi^n}{\sqrt5}.\]</span> これが<em>ビネ（Binet）の公式</em>である。<span class="math inline">\(|\psi| &lt; 1\)</span> であるから第 2 項は非常に小さく、したがって <span class="math inline">\(F_n\)</span> は <span class="math inline">\(\varphi^n/\sqrt5\)</span> に最も近い整数である。また、隣り合うフィボナッチ数の比は黄金比（golden ratio）に収束する（<a href="../ch02/golden-limit.html">第 2.2 節</a> の主題である）。同じ方法で、定数係数の線形漸化式（linear recurrence）はどれも解くことができる。演習には STEP I 2004 の例を含めてある。</p>
+<h3 id="母関数がこれほど役に立つ理由">母関数がこれほど役に立つ理由</h3>
+<p>真の威力は掛け算をするときに現れる。積 <span class="math inline">\(\mathrm{f}(x)\mathrm{g}(x)\)</span> における <span class="math inline">\(x^n\)</span> の係数は <span class="math inline">\(\sum_k u_kv_{n-k}\)</span> であり、これは <span class="math inline">\(n\)</span> を二つの部分に分けるすべての方法にわたる和である。これはまさに、二つの部品から組み立てられたものを数えるのに必要なものである。続く二つの節では、これを用いて両替の方法の数を数え（<a href="../ch09/making-change.html">第 9.5 節</a>）、普通のさいころと同じ目の和の分布をもつ、奇妙な目のさいころを見つける（<a href="../ch09/strange-dice.html">第 9.6 節</a>）。確率論では、同じ考え方から<em>確率母関数</em>（probability generating function）が得られ、独立な確率変数（independent random variables）の和を積に変える。</p>
+<div class="historybox">
+<div class="box-title">ド・モアブル、オイラー、ラプラス</div>
+<p>アブラーム・ド・モアブル（Abraham de Moivre）は 1720 年代に、本質的には上の方法によって、母関数を用いて線形漸化式を解いた。レオンハルト・オイラー（Leonhard Euler）は 1748 年に、自然数の分割（partitions）を研究するために母関数を用い、ピエール＝シモン・ラプラス（Pierre-Simon Laplace）は母関数を著書 <em>Théorie analytique des probabilités</em>（『確率の解析的理論』、1812 年）の基礎に据えた。20 世紀には母関数は組合せ論の中心的な道具となり、現在では解析的な方法（母関数を複素変数（complex variable）の関数として調べること）により、厳密に解くにはあまりに複雑な数え上げの問題に対しても、精密な評価が得られるようになっている。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">表現を変える</div>
+<p><em>数列についての問題は、その数列を関数や行列や図に変えると易しくなることがある。</em></p>
+<p>母関数は漸化式を代数に、数え上げを掛け算に翻訳する。大学ではこうした翻訳に数多く出会うだろう。フーリエ級数（Fourier series）は関数を数列に変え、ラプラス変換（Laplace transform）は微分方程式（differential equation）を代数に変え、行列（matrix）は幾何を計算に変える。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>2 桁ずつ。</strong><a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">STEP II 2022、第3問</a> （OCRが配布している2022年の問題一式、zipファイル） に挑戦せよ。<span class="math inline">\(\frac{1}{89}\)</span> の小数展開がフィボナッチ数で始まる理由を説明し、さらに、小数展開にこのパターンが 2 桁ずつ現れる分数を求める問題である。</p></li>
+<li><p><strong>漸化式を解く。</strong><a href="https://step.maths.org/questions/04-s1-q7">STEP I 2004、第7問</a> に挑戦せよ。母関数と部分分数分解を用いて線形漸化式を解き、次にその方法を逆向きにたどる問題である。</p></li>
+<li><p><strong>数を数える。</strong><span class="math inline">\(\frac{1}{9801} = 0.00\,01\,02\,03\,04\ldots\)</span> となり、2 桁ずつの区切りが 1 ずつ増えていくことを示せ。このパターンが最初に崩れるのはどこか。また、それはなぜか。</p></li>
+<li><p><strong>平方の和。</strong><span class="math inline">\(\frac{1}{1-x}\mathrm{f}(x)\)</span> が部分和（partial sums）<span class="math inline">\(u_0 + u_1 + \cdots + u_n\)</span> の母関数であることを説明せよ。このことと小問 (i) の答えを用いて、<span class="math inline">\(1^2 + 2^2 + \cdots + n^2\)</span> の公式を求めよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Herbert Wilf, <a href="https://www2.math.upenn.edu/~wilf/DownldGF.html"><em>generatingfunctionology</em></a></strong>（A K Peters、オンラインで無料公開）。母関数への古典的な入門書。この節の後に読むには第 1 章が最適である。</p></li>
+<li><p><strong>Ronald Graham, Donald Knuth &amp; Oren Patashnik, <a href="https://uk.bookshop.org/search?keywords=Concrete+Mathematics+Graham+Knuth"><em>Concrete Mathematics</em></a></strong>（Addison-Wesley、邦訳『コンピュータの数学』）、第 7 章。</p></li>
+<li><p><strong>Philippe Flajolet &amp; Robert Sedgewick, <a href="https://uk.bookshop.org/search?keywords=Analytic+Combinatorics+Flajolet+Sedgewick"><em>Analytic Combinatorics</em></a></strong>（Cambridge University Press、オンラインで無料公開。『解析的組合せ論』）。大学 1 年の水準をはるかに超えるが、冒頭の数ページを読めば、この分野がどこへ向かうのかがわかる。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="fence-posts.html">← 9.3 柵の杭を塗り分ける</a><a class="next" href="making-change.html">→ 9.5 両替の仕方</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

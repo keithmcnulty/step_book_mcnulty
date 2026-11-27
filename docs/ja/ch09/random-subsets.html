@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ランダムな部分集合 (STEP III 2019 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP III 2019 問題 12：解説付き解答とその背後にある大学数学。 \1, 2, ldots, 100\ の部分集合（subset）を二つ、まったくランダムに選ぶ。それらが共通の要素を一つももたない確率はどのくらいだろうか。直観は「かなり高い。たいていの集合の組は異なるのだから」と言うかもしれない。実際には、その確率は bigl(frac34bigr)^100 、およそ 3 ×…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch09/random-subsets.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch09/random-subsets.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/random-subsets.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/random-subsets.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/random-subsets.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch09/random-subsets.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/random-subsets.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="ランダムな部分集合 (STEP III 2019 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP III 2019 問題 12：解説付き解答とその背後にある大学数学。 \1, 2, ldots, 100\ の部分集合（subset）を二つ、まったくランダムに選ぶ。それらが共通の要素を一つももたない確率はどのくらいだろうか。直観は「かなり高い。たいていの集合の組は異なるのだから」と言うかもしれない。実際には、その確率は bigl(frac34bigr)^100 、およそ 3 ×…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch09/random-subsets.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ランダムな部分集合 (STEP III 2019 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2019 問題 12：解説付き解答とその背後にある大学数学。 \1, 2, ldots, 100\ の部分集合（subset）を二つ、まったくランダムに選ぶ。それらが共通の要素を一つももたない確率はどのくらいだろうか。直観は「かなり高い。たいていの集合の組は異なるのだから」と言うかもしれない。実際には、その確率は bigl(frac34bigr)^100 、およそ 3 ×…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "ランダムな部分集合", "headline": "ランダムな部分集合", "description": "STEP III 2019 問題 12：解説付き解答とその背後にある大学数学。 \\1, 2, ldots, 100\\ の部分集合（subset）を二つ、まったくランダムに選ぶ。それらが共通の要素を一つももたない確率はどのくらいだろうか。直観は「かなり高い。たいていの集合の組は異なるのだから」と言うかもしれない。実際には、その確率は bigl(frac34bigr)^100 、およそ 3 ×…", "url": "https://beyondstep.keithmcnulty.org/ja/ch09/random-subsets.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2019 問題 12", "数え上げと確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "数え上げと確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第9章：数え上げと確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch09/"}, {"@type": "ListItem", "position": 3, "name": "ランダムな部分集合", "item": "https://beyondstep.keithmcnulty.org/ja/ch09/random-subsets.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch09/random-subsets.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch09/random-subsets.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch09/random-subsets.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch09/random-subsets.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第9章 · 数え上げと確率</a>
+    <div class="src">STEP III · 2019 · 問題 12</div>
+    <div class="sec-head"><span class="sec-num">9.12</span><h1>ランダムな部分集合</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-12-random-subsets.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第9章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2019、第12問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は、OCRが配布している2019年のSTEP問題一式（zipファイル）のSTEP IIIに収録されている： <a href="https://www.ocr.org.uk/Images/696590-2019-past-papers.zip">www.ocr.org.uk/Images/696590-2019-past-papers.zip</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p><span class="math inline">\(\{1, 2, \ldots, 100\}\)</span> の部分集合（subset）を二つ、まったくランダムに選ぶ。それらが共通の要素を一つももたない確率はどのくらいだろうか。直観は「かなり高い。たいていの集合の組は異なるのだから」と言うかもしれない。実際には、その確率は <span class="math inline">\(\bigl(\frac34\bigr)^{100}\)</span>、およそ <span class="math inline">\(3 \times 10^{-13}\)</span> である。ランダムな集合は大きく（全体のおよそ半分を含み）、そのためほとんど必ず重なり合うのである。</p>
+<p>この問題は短いが、その核にある一つの考え方は強力である。集合を全体として考えるのではなく、要素を一つずつ考えるのである。ランダムな部分集合とは、各要素に一回ずつ、合計 <span class="math inline">\(n\)</span> 回の独立（independent）な硬貨投げにすぎず、ランダムな部分集合に関するあらゆる問いは、それらの硬貨投げに関する問いに帰着する。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\{1, \ldots, n\}\)</span> の部分集合を、「はい／いいえ」で答える <span class="math inline">\(n\)</span> 個の問いへの答えの列で表すにはどうすればよいか。</p>
+</div>
+<p>各要素 <span class="math inline">\(i\)</span> について、「<span class="math inline">\(i\)</span> はその集合に含まれるか」という問いに答える。部分集合が決まれば答えが決まり、答えが決まれば部分集合が決まる。各要素について選択肢は <span class="math inline">\(2\)</span> 通りなので、部分集合は全部で <span class="math inline">\(2^n\)</span> 個ある。部分集合を一様ランダムに選ぶことは、各問いに公平な硬貨を独立に投げて答えることと同じである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-一つの要素" class="stage"><span class="stage-n">段階 1</span> 一つの要素</h4>
+<p>硬貨投げによる記述から、<span class="math inline">\(\mathrm{P}(1 \in A_1) = \frac12\)</span> である。実際、<span class="math inline">\(2^n\)</span> 個の部分集合のうちちょうど半分が <span class="math inline">\(1\)</span> を含む。<span class="math inline">\(1\)</span> を含まない各部分集合に、それに <span class="math inline">\(1\)</span> を加えて得られる部分集合を対応させればよい。</p>
+<h4 id="stagemark2-互いに素な集合" class="stage"><span class="stage-n">段階 2</span> 互いに素な集合</h4>
+<div class="askyourself">
+<p><span class="math inline">\(A_1 \cap A_2 = \varnothing\)</span> となるためには、各要素 <span class="math inline">\(i\)</span> について何が成り立たなければならないか。一つの要素について、その確率はいくらか。なぜ要素ごとの確率を掛け合わせてよいのか。</p>
+</div>
+<p><span class="math inline">\(A_1\)</span> と <span class="math inline">\(A_2\)</span> が互いに素（disjoint）であるのは、両方に属する要素が一つもないときであり、またそのときに限る。一つの要素 <span class="math inline">\(i\)</span> については、等確率の四つの可能性がある。どちらの集合にも属さない、<span class="math inline">\(A_1\)</span> のみに属する、<span class="math inline">\(A_2\)</span> のみに属する、両方に属する、の四つである（図 9.12.1 左）。禁じられるのは最後のものだけなので、<span class="math inline">\(i\)</span> が両方には属さない確率は <span class="math inline">\(\frac34\)</span> である。異なる要素は異なる独立な硬貨投げによって決まるので、 <span class="math display">\[\mathrm{P}(A_1 \cap A_2 = \varnothing) = \Bigl(\frac34\Bigr)^n. \qed\]</span> 三つの集合の場合、要素 <span class="math inline">\(i\)</span> が三つすべてに属する確率は <span class="math inline">\(\frac18\)</span> なので、<span class="math inline">\(\mathrm{P}(A_1 \cap A_2 \cap A_3 = \varnothing) = \bigl(\frac78\bigr)^n\)</span> である。一般に、 <span class="math display">\[\mathrm{P}(A_1 \cap \cdots \cap A_m = \varnothing) = \Bigl(1 - \frac{1}{2^m}\Bigr)^n. \qed\]</span></p>
+<h4 id="stagemark3-包含関係" class="stage"><span class="stage-n">段階 3</span> 包含関係</h4>
+<div class="askyourself">
+<p><span class="math inline">\(A_1 \subseteq A_2\)</span> となるためには、一つの要素についての四つの可能性のうちどれが禁じられるか。</p>
+</div>
+<p><span class="math inline">\(A_1 \subseteq A_2\)</span> が成り立たないのは、<span class="math inline">\(A_1\)</span> には属するが <span class="math inline">\(A_2\)</span> には属さない要素が存在するときであり、またそのときに限る。ここでも四つのうち一つのパターンが禁じられるので、 <span class="math display">\[\mathrm{P}(A_1 \subseteq A_2) = \Bigl(\frac34\Bigr)^n,\]</span> となり、互いに素である確率と同じになる。これは偶然ではない。<span class="math inline">\(A_1 \subseteq A_2\)</span> となるのは <span class="math inline">\(A_1\)</span> と <span class="math inline">\(A_2\)</span> の補集合（complement）が互いに素であるときであり、またそのときに限る。そして、ランダムな集合の補集合もまたランダムな集合なのである。</p>
+<div class="askyourself">
+<p><span class="math inline">\(A_1 \subseteq A_2 \subseteq A_3\)</span> となるためには、一つの要素について、所属の仕方（各集合に属するか属さないか）の <span class="math inline">\(8\)</span> 通りのパターンのうちどれが許されるか。</p>
+</div>
+<p>鎖（chain）<span class="math inline">\(A_1, A_2, A_3\)</span> を順にたどると、要素はいったん属したら、その後も属し続けなければならない。したがって許されるパターンは「属さない、属さない、属さない」「属さない、属さない、属する」「属さない、属する、属する」「属する、属する、属する」の <span class="math inline">\(8\)</span> 通り中 <span class="math inline">\(4\)</span> 通りである（図 9.12.1 右）。よって <span class="math inline">\(\mathrm{P}(A_1 \subseteq A_2 \subseteq A_3) = \bigl(\frac48\bigr)^n = \bigl(\frac12\bigr)^n\)</span> である。</p>
+<p><span class="math inline">\(m\)</span> 個の集合からなる鎖については、許されるパターンは、その要素が最初に属する集合（<span class="math inline">\(A_1, \ldots, A_m\)</span> のいずれか、あるいはどれにも属さない）によって決まるので、<span class="math inline">\(2^m\)</span> 通りのパターンのうち <span class="math inline">\(m + 1\)</span> 通りが許される。 <span class="math display">\[\mathrm{P}(A_1 \subseteq A_2 \subseteq \cdots \subseteq A_m) = \Bigl(\frac{m + 1}{2^m}\Bigr)^n. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-12-1.svg" alt="図 9.12.1"><figcaption><span class="fig-label">図 9.12.1</span> 左：<span class="math inline">\(S\)</span> の要素は、<span class="math inline">\(A_1\)</span> と <span class="math inline">\(A_2\)</span> に対して四つの位置のいずれかにあり、それぞれの確率は <span class="math inline">\(\frac14\)</span> である。互いに素であることは「両方」（琥珀色）を禁じ、<span class="math inline">\(A_1 \subseteq A_2\)</span> は「<span class="math inline">\(A_1\)</span> のみ」を禁じる。右：<span class="math inline">\(A_1\)</span>、<span class="math inline">\(A_2\)</span>、<span class="math inline">\(A_3\)</span> への所属の仕方の8通りのパターン（塗りつぶした円は「属する」を表す）。鎖 <span class="math inline">\(A_1 \subseteq A_2 \subseteq A_3\)</span> が許すのは、枠で囲んだ四つのパターンだけであり、そこでは要素はいったん属したら属し続ける。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>要素ごとに分解する。</strong>集合全体についての各条件（互いに素、包含、鎖）は、それぞれの要素についての個別の条件であった。</p></li>
+<li><p><strong>要素間の独立性。</strong>各要素は独立な硬貨投げによって決まるので、確率は掛け合わされる。</p></li>
+<li><p><strong>パターンを数える。</strong>どの答えも（許されるパターンの数 <span class="math inline">\(\div\)</span> すべてのパターンの数）<span class="math inline">\(^n\)</span> であった。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="確率を使わずに数える">確率を使わずに数える</h3>
+<p>選び方の総数を掛けると、各確率は個数に変わる。<span class="math inline">\(A_1 \subseteq A_2\)</span> を満たす順序対 <span class="math inline">\((A_1, A_2)\)</span> の個数は <span class="math inline">\(4^n \times \bigl(\frac34\bigr)^n = 3^n\)</span> である。これらの組は直接数えることもできる。<span class="math inline">\(A_2\)</span> の大きさ <span class="math inline">\(k\)</span> を選び、次に <span class="math inline">\(A_2\)</span> そのものを <span class="math inline">\(\binom nk\)</span> 通りの方法で選び、さらに <span class="math inline">\(A_1\)</span> をその <span class="math inline">\(2^k\)</span> 個の部分集合のいずれかとして選ぶ。したがって <span class="math display">\[\sum_{k=0}^{n}\binom{n}{k}2^k = 3^n,\]</span> となり、これは <span class="math inline">\((1 + 2)^n\)</span> に対する二項定理（binomial theorem）である。同じものを二通りの方法で、一度は要素ごとに、一度は大きさごとに数えることで、恒等式が証明される。これが<em>二重数え上げ（double counting）</em>の方法であり、<a href="../ch07/platonic-solids.html">第 7.9 節</a> で正多面体とともに出会ったものである。同様に、鎖 <span class="math inline">\(A_1 \subseteq \cdots \subseteq A_m\)</span> の個数は <span class="math inline">\((m + 1)^n\)</span> である。</p>
+<h3 id="部分集合の束">部分集合の束</h3>
+<p><span class="math inline">\(\{1, \ldots, n\}\)</span> の部分集合全体は、包含関係によって順序づけると、<em>ブール束（Boolean lattice）</em>と呼ばれる構造をなす。これは <span class="math inline">\(n\)</span> 次元の立方体として図示できる。各部分集合は頂点であり、その「はい／いいえ」の答えの列によってラベルづけされ、辺に沿って移動することは要素を一つ加えるか取り除くことに対応する。鎖は上向きに進む経路である。部分集合の族に条件を課したとき、その族がどこまで大きくなりうるかを記述する深い結果がある。<em>シュペルナー（Sperner）の定理</em>（1928年）は、どの集合も他の集合を含まないような族のうち最大のものは <span class="math inline">\(\binom{n}{\lfloor n/2\rfloor}\)</span> 個の集合からなることを主張する。<em>エルデシュ–コー–ラドー（Erdős–Ko–Rado）の定理</em>（1961年）は、どの二つも重なり合うように <span class="math inline">\(k\)</span> 元集合を最大でいくつ選べるかを述べる。どちらも組合せ論（combinatorics）の最初の講義で標準的に扱われるものであり、部分集合を硬貨投げとして見る視点は、それらの最も鮮やかな証明のいくつかを与える。</p>
+<div class="historybox">
+<div class="box-title">ブールの代数</div>
+<p>ジョージ・ブール（George Boole）の<em>The Laws of Thought</em>（『思考の法則』、1854年）は、論理的な命題を集合として扱い、「かつ」「または」「でない」を共通部分、和集合、補集合として扱った。集合を「はい／いいえ」の答えの列として符号化することは、まさにコンピュータが集合を表現する方法である。<span class="math inline">\(\{1, \ldots, 64\}\)</span> の部分集合は一つの <span class="math inline">\(64\)</span> ビットの数であり、共通部分は「ビットごとの AND」命令である。この問題の方法、すなわち要素（ビット）を一つずつ考えることは、こうした演算を解析する方法そのものである。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">要素を一つずつ考える</div>
+<p><em>対象が各要素についての独立な選択から構成されているとき、各要素に個別に課される条件の確率は積で表される。</em></p>
+<p>この方法により、<span class="math inline">\(2^n\)</span> 個の部分集合についての問いが、<span class="math inline">\(4\)</span> 通りや <span class="math inline">\(8\)</span> 通りのパターンについての問いに変わった。大学では、組合せ論（集合や多重集合（multiset）の母関数（generating function））、確率論（独立な座標）、計算機科学（ビットごとの推論）の中で再び現れる。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>被覆。</strong><span class="math inline">\(\mathrm{P}(A_1 \cup A_2 = S)\)</span> および <span class="math inline">\(\mathrm{P}(A_1 \cup A_2 \cup \cdots \cup A_m = S)\)</span> を求めよ。</p></li>
+<li><p><strong>同じ大きさ。</strong><span class="math inline">\(\mathrm{P}(|A_1| = |A_2|) = \binom{2n}{n}\big/4^n\)</span> を示せ。（<em>ヒント：</em><span class="math inline">\(|A_1| = |A_2|\)</span> となるのは <span class="math inline">\(|A_1| + |S \setminus A_2| = n\)</span> のときであり、またそのときに限る。）さらに、<span class="math inline">\(n\)</span> が大きいとき、これがおよそ <span class="math inline">\(1/\sqrt{\pi n}\)</span> であることを示せ。</p></li>
+<li><p><strong>三つへの分割。</strong><span class="math inline">\(S\)</span> の互いに素な部分集合の順序対 <span class="math inline">\((A, B)\)</span> の個数が <span class="math inline">\(3^n\)</span> であることを示し、互いに素な部分集合の順序を考えない組 <span class="math inline">\(\{A, B\}\)</span> の個数を求めよ。</p></li>
+<li><p><strong>小さい <span class="math inline">\(n\)</span> に対するシュペルナーの定理。</strong><span class="math inline">\(n = 3\)</span> および <span class="math inline">\(n = 4\)</span> のそれぞれについて、どの集合も他の集合を含まないような <span class="math inline">\(\{1, \ldots, n\}\)</span> の部分集合の族のうち最大のものを求めよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Miklós Bóna, <a href="https://uk.bookshop.org/search?keywords=A+Walk+Through+Combinatorics+Bona"><em>A Walk Through Combinatorics</em></a></strong>（World Scientific）。部分集合と半順序集合に関する章。</p></li>
+<li><p><strong>Béla Bollobás, <a href="https://uk.bookshop.org/search?keywords=Combinatorics%3A+Set+Systems%2C+Hypergraphs%2C+Families+of+Vectors+and+Combinatorial+Probability+Bollobas"><em>Combinatorics: Set Systems, Hypergraphs, Families of Vectors and Combinatorial Probability</em></a></strong>（Cambridge University Press）。シュペルナーの定理から始まる、部分集合の族についての短く優美な本。</p></li>
+<li><p><strong>Peter Cameron, <a href="https://uk.bookshop.org/search?keywords=Combinatorics%3A+Topics%2C+Techniques%2C+Algorithms+Cameron"><em>Combinatorics: Topics, Techniques, Algorithms</em></a></strong>（Cambridge University Press）。二通りに数えることに重点を置いた入門書。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="coupon-collector.html">← 9.11 全種類を集める</a><a class="next" href="loaded-dice.html">→ 9.13 いかさまサイコロ</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

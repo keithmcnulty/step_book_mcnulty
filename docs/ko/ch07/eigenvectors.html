@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>돌지 않고 늘어나기 (STEP III 1990 Q6) — Beyond STEP</title>
+<meta name="description" content="STEP III 1990 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 행렬 변환은 보통 모든 벡터를 새로운 방향으로 옮긴다. 그러나 많은 행렬에는 전혀 돌리지 않고 그 방향으로 늘이거나 줄이기만 하는 특별한 방향이 몇 개 있다. 이것을 그 행렬의 고유벡터 (eigenvector)라 하고(독일어 eigen 은 “자신의” 또는 “고유한”이라는…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch07/eigenvectors.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch07/eigenvectors.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/eigenvectors.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/eigenvectors.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/eigenvectors.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch07/eigenvectors.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/eigenvectors.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="돌지 않고 늘어나기 (STEP III 1990 Q6) — Beyond STEP">
+<meta property="og:description" content="STEP III 1990 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 행렬 변환은 보통 모든 벡터를 새로운 방향으로 옮긴다. 그러나 많은 행렬에는 전혀 돌리지 않고 그 방향으로 늘이거나 줄이기만 하는 특별한 방향이 몇 개 있다. 이것을 그 행렬의 고유벡터 (eigenvector)라 하고(독일어 eigen 은 “자신의” 또는 “고유한”이라는…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch07/eigenvectors.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="돌지 않고 늘어나기 (STEP III 1990 Q6) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1990 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 행렬 변환은 보통 모든 벡터를 새로운 방향으로 옮긴다. 그러나 많은 행렬에는 전혀 돌리지 않고 그 방향으로 늘이거나 줄이기만 하는 특별한 방향이 몇 개 있다. 이것을 그 행렬의 고유벡터 (eigenvector)라 하고(독일어 eigen 은 “자신의” 또는 “고유한”이라는…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "돌지 않고 늘어나기", "headline": "돌지 않고 늘어나기", "description": "STEP III 1990 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 행렬 변환은 보통 모든 벡터를 새로운 방향으로 옮긴다. 그러나 많은 행렬에는 전혀 돌리지 않고 그 방향으로 늘이거나 줄이기만 하는 특별한 방향이 몇 개 있다. 이것을 그 행렬의 고유벡터 (eigenvector)라 하고(독일어 eigen 은 “자신의” 또는 “고유한”이라는…", "url": "https://beyondstep.keithmcnulty.org/ko/ch07/eigenvectors.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1990 문제 6", "선형대수학과 기하학"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "선형대수학과 기하학", "url": "https://beyondstep.keithmcnulty.org/ko/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제7장: 선형대수학과 기하학", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/"}, {"@type": "ListItem", "position": 3, "name": "돌지 않고 늘어나기", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/eigenvectors.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch07/eigenvectors.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/eigenvectors.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch07/eigenvectors.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch07/eigenvectors.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제7장 · 선형대수학과 기하학</a>
+    <div class="src">STEP III · 1990 · 문제 6</div>
+    <div class="sec-head"><span class="sec-num">7.2</span><h1>돌지 않고 늘어나기</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-2-eigenvectors.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제7장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 1990, 문제 6</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/90-s3-q6">step.maths.org/questions/90-s3-q6</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>행렬 변환은 보통 모든 벡터를 새로운 방향으로 옮긴다. 그러나 많은 행렬에는 전혀 돌리지 않고 그 방향으로 늘이거나 줄이기만 하는 특별한 방향이 몇 개 있다. 이것을 그 행렬의 <em>고유벡터</em>(eigenvector)라 하고(독일어 <em>eigen</em>은 “자신의” 또는 “고유한”이라는 뜻이다), 늘어나는 비율을 <em>고윳값</em>(eigenvalue)이라 한다. 이 문제의 행렬처럼 대칭행렬에서는 언제나 그렇듯이 고유벡터가 충분히 많으면, 변환이 투명하게 드러난다. 알맞은 좌표에서 보면 그것은 단지 두 축 방향으로 늘이는 것일 뿐이다.</p>
+<p>이 문제는 특정한 행렬의 고유벡터를 구하고, 이를 이용해 그 행렬이 원을 어떻게 바꾸는지 이해한다. 고유벡터는 응용수학 전체에서 가장 유용한 개념 가운데 하나이다. 고유벡터는 다리의 고유 진동, 회전하는 물체의 주축, 원자의 에너지 준위, 데이터 구름에서 가장 중요한 방향, 그리고 구글(Google)의 초기 PageRank 알고리즘에 의한 웹 페이지 순위를 설명한다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p><span class="math inline">\(T\)</span>가 벡터를 “방향은 그대로 두고 스칼라배만 한다”는 것은 무슨 뜻인가? 이를 식으로 써 보아라.</p>
+</div>
+<p>이는 어떤 수 <span class="math inline">\(\lambda\)</span>에 대하여 <span class="math inline">\(T\mathbf{v} = \lambda\mathbf{v}\)</span>라는 뜻이다. 즉 <span class="math inline">\(\mathbf{v}\)</span>는 고윳값이 <span class="math inline">\(\lambda\)</span>인 고유벡터이다. 문제에 나오는 두 벡터 <span class="math inline">\((1, 2)\)</span>와 <span class="math inline">\((2, -1)\)</span>이 서로 수직이라는 점에 주목하자. 이는 우연이 아니다. 이 행렬은 <em>대칭</em>(symmetric)행렬이고, 대칭행렬의 고유벡터는 언제나 서로 수직이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-고유벡터" class="stage"><span class="stage-n">단계 1</span> 고유벡터</h4>
+<p><span class="math display">\[T\begin{pmatrix} 1 \\ 2 \end{pmatrix} = \frac25\begin{pmatrix} 9 - 4 \\ -2 + 12 \end{pmatrix} = \frac25\begin{pmatrix} 5 \\ 10 \end{pmatrix} = 2\begin{pmatrix} 1 \\ 2 \end{pmatrix}, \qquad
+  T\begin{pmatrix} 2 \\ -1 \end{pmatrix} = \frac25\begin{pmatrix} 20 \\ -10 \end{pmatrix} = 4\begin{pmatrix} 2 \\ -1 \end{pmatrix}.\]</span> 따라서 <span class="math inline">\((1, 2)\)</span>는 <span class="math inline">\(2\)</span>배로, <span class="math inline">\((2, -1)\)</span>은 <span class="math inline">\(4\)</span>배로 늘어난다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-원의-상" class="stage"><span class="stage-n">단계 2</span> 원의 상</h4>
+<div class="askyourself">
+<p><span class="math inline">\(E\)</span>의 방정식을 구하려면 <span class="math inline">\(x\)</span>와 <span class="math inline">\(y\)</span>를 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>로 나타내고(역행렬을 구한다), 이를 <span class="math inline">\(x^2 + y^2 = 1\)</span>에 대입하면 된다.</p>
+</div>
+<p>행렬 <span class="math inline">\(\frac25\begin{pmatrix} 9 &amp; -2 \\ -2 &amp; 6 \end{pmatrix}\)</span>의 행렬식(determinant)은 <span class="math inline">\(\frac{4}{25}(54 - 4) = 8\)</span>이고, 역행렬(inverse matrix)은 <span class="math inline">\(\frac{1}{20}\begin{pmatrix} 6 &amp; 2 \\ 2 &amp; 9 \end{pmatrix}\)</span>이다. 따라서 <span class="math inline">\(x = \frac{6X + 2Y}{20}\)</span>, <span class="math inline">\(y = \frac{2X + 9Y}{20}\)</span>이고, <span class="math inline">\(x^2 + y^2 = 1\)</span>은 <span class="math display">\[(6X + 2Y)^2 + (2X + 9Y)^2 = 400 \quad\Longrightarrow\quad 40X^2 + 60XY + 85Y^2 = 400,\]</span> 이 되며, 이를 <span class="math inline">\(5\)</span>로 나누면 <span class="math inline">\(8X^2 + 12XY + 17Y^2 = 80\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(E\)</span>는 어떤 모양이며, 그 넓이는 얼마인가? 고유벡터를 이용하여라.</p>
+</div>
+<p>단위원은 모든 방향으로 반지름이 <span class="math inline">\(1\)</span>이다. <span class="math inline">\((2, -1)\)</span> 방향으로는 <span class="math inline">\(4\)</span>배로, 이에 수직인 방향 <span class="math inline">\((1, 2)\)</span>로는 <span class="math inline">\(2\)</span>배로 늘어난다. 따라서 <span class="math inline">\(E\)</span>는 고유벡터 방향을 따라 반축(semi-axis)의 길이가 <span class="math inline">\(4\)</span>와 <span class="math inline">\(2\)</span>인 타원(ellipse)이고(그림 7.2.1), 그 넓이는 <span class="math inline">\(\pi \times 4 \times 2 = 8\pi\)</span>이다. (같은 이야기로, 모든 선형사상(linear map)은 넓이를 <span class="math inline">\(|\det T| = 8\)</span>배로 만들고, 원의 넓이는 <span class="math inline">\(\pi\)</span>이다.)</p>
+<h4 id="stagemark3-x의-최댓값" class="stage"><span class="stage-n">단계 3</span> <span class="math inline">\(X\)</span>의 최댓값</h4>
+<div class="askyourself">
+<p><span class="math inline">\(C\)</span> 위에서 <span class="math inline">\(X = \frac25(9x - 2y)\)</span>이다. <span class="math inline">\(x^2 + y^2 = 1\)</span>일 때 <span class="math inline">\(9x - 2y\)</span>는 얼마나 커질 수 있는가?</p>
+</div>
+<p><span class="math inline">\(9x - 2y\)</span>는 <span class="math inline">\((9, -2)\)</span>와 단위벡터 <span class="math inline">\((x, y)\)</span>의 내적(dot product)이므로, 그 최댓값은 <span class="math inline">\(|(9, -2)| = \sqrt{85}\)</span>이고 <span class="math inline">\((x, y)\)</span>가 <span class="math inline">\((9, -2)\)</span> 방향을 향할 때 이 값을 가진다. 따라서 <span class="math inline">\(X\)</span>의 최댓값은 <span class="math inline">\(\frac25\sqrt{85} = 2\sqrt{\frac{85}{25}} = 2\sqrt{\frac{17}{5}}\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-접선" class="stage"><span class="stage-n">단계 4</span> 접선</h4>
+<div class="pausebox">
+<p><span class="math inline">\(C\)</span> 위의 점 <span class="math inline">\(\frac15(3, 4)\)</span>에서의 접선(tangent line)은 <span class="math inline">\(3x + 4y = 5\)</span>이다. 선형사상은 접선을 접선으로 보낸다. 이를 이용하여 <span class="math inline">\(E\)</span>의 접선을 구하여라.</p>
+</div>
+<p><span class="math inline">\(3x + 4y = 5\)</span>에 <span class="math inline">\(x = \frac{6X + 2Y}{20}\)</span>, <span class="math inline">\(y = \frac{2X + 9Y}{20}\)</span>을 대입하면 <span class="math display">\[\frac{3(6X + 2Y) + 4(2X + 9Y)}{20} = 5 \quad\Longrightarrow\quad 26X + 42Y = 100,\]</span> 즉 <span class="math inline">\(13X + 21Y = 50\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>(검산: 그 점 자체는 <span class="math inline">\(T\bigl(\frac35, \frac45\bigr) = \bigl(\frac{38}{25}, \frac{36}{25}\bigr)\)</span>이고, <span class="math inline">\(13 \cdot \frac{38}{25} + 21 \cdot \frac{36}{25} = \frac{494 + 756}{25} = 50\)</span>이다.)</p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-2-1.svg" alt="그림 7.2.1"><figcaption><span class="fig-label">그림 7.2.1</span> 단위원 <span class="math inline">\(C\)</span>(점선)와 <span class="math inline">\(T\)</span>에 의한 그 상 <span class="math inline">\(E\)</span>. 고유벡터 <span class="math inline">\((2, -1)\)</span> 방향으로 원은 <span class="math inline">\(4\)</span>배로 늘어나고, 이에 수직인 고유벡터 <span class="math inline">\((1, 2)\)</span> 방향으로는 <span class="math inline">\(2\)</span>배로 늘어난다. 따라서 <span class="math inline">\(E\)</span>는 그 방향들을 따라 반축의 길이가 <span class="math inline">\(4\)</span>와 <span class="math inline">\(2\)</span>이고 넓이가 <span class="math inline">\(8\pi\)</span>인 타원이다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>고유벡터는 자연스러운 축이다.</strong> 고유벡터로 주어지는 좌표에서 <span class="math inline">\(T\)</span>는 단지 <span class="math inline">\(4\)</span>배와 <span class="math inline">\(2\)</span>배로 늘이는 것일 뿐이고, 원에 미치는 효과도 뻔하다.</p></li>
+<li><p><strong>행렬식은 넓이를 잰다.</strong> <span class="math inline">\(E\)</span>의 넓이는 <span class="math inline">\(C\)</span>의 넓이의 <span class="math inline">\(|\det T|\)</span>배이다.</p></li>
+<li><p><strong>선형사상은 접함을 보존한다.</strong> 원의 접선을 변환하자 계산을 거의 하지 않고도 타원의 접선을 얻었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">스펙트럼 정리</div>
+<p>모든 실대칭행렬은 서로 수직인 고유벡터를 빠짐없이 갖추고 있으며, 고윳값은 모두 실수이다. 이것이 <em>스펙트럼 정리</em>(spectral theorem)로, 처음 배우는 선형대수(linear algebra) 과목의 핵심 결과 가운데 하나이다. 이 정리에 따르면 모든 대칭 선형사상은 적절한 직교 좌표에서 각 축 방향으로 늘이는 것일 뿐이다. 같은 이야기로, <span class="math inline">\(8X^2 + 12XY + 17Y^2\)</span> 같은 모든 이차형식(quadratic form)은 회전을 통해 <span class="math inline">\(\lambda_1 u^2 + \lambda_2 v^2\)</span> 꼴로 바꿀 수 있으며, 그래서 모든 유심 원뿔곡선(central conic)은 서로 수직인 축을 가진 타원이나 쌍곡선(hyperbola)이다(<em>주축 정리</em>(principal axis theorem)). 이 아이디어는 1820년대의 코시(Cauchy)까지 거슬러 올라가는데, 그는 이를 이용해 이차곡면의 주축과 고체 내부 응력의 주축을 구했다.</p>
+<p>이것이 성립하게 하는 것은 대칭성이다. 대칭이 아닌 행렬은 이렇게 고분고분하지 않을 수 있다. <span class="math inline">\(90^\circ\)</span> 회전은 모든 방향을 돌리므로 실수 고유벡터가 전혀 없고, 전단(shear) <span class="math inline">\(\begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\)</span>은 고유벡터 방향이 하나뿐이므로 어떤 두 축을 택해도 그 방향으로 늘이는 변환이 되지 않는다.</p>
+</div>
+<h3 id="어디에나-있는-고유벡터">어디에나 있는 고유벡터</h3>
+<p>고유벡터가 등장하는 곳 몇 군데를 소개한다.</p>
+<ul>
+<li><p><strong>진동.</strong> 질점과 용수철로 이루어진 계는 <em>정규 모드</em>(normal mode)로 진동한다. 정규 모드란 모든 부분이 하나의 진동수로 발맞추어 움직이는 패턴이다. 이것은 어떤 행렬의 고유벡터이고, 진동수는 고윳값에서 나온다(<a href="../ch11/normal-modes.html">11.2 절</a>).</p></li>
+<li><p><strong>데이터.</strong> 데이터 점들의 구름이 가장 넓게 퍼져 있는 방향은 그 공분산 행렬(covariance matrix)의 고유벡터이다. 이를 찾는 것이 <em>주성분 분석</em>(principal component analysis)으로, 통계학과 기계 학습의 기본 도구 가운데 하나이다(<a href="../ch13/correlation.html">13.7 절</a>).</p></li>
+<li><p><strong>양자역학.</strong> 어떤 물리량을 측정했을 때 나올 수 있는 결과는 어떤 행렬(또는 연산자(operator))의 고윳값이며, 원자의 에너지 준위도 고윳값이다.</p></li>
+<li><p><strong>웹 검색.</strong> 구글 검색 엔진의 바탕이 된 최초의 아이디어인 PageRank는 페이지 사이의 링크를 나타내는 거대한 행렬에서 고윳값이 <span class="math inline">\(1\)</span>인 고유벡터의 성분에 따라 페이지의 순위를 매긴다.</p></li>
+</ul>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">변환에 맞는 좌표를 골라라</div>
+<p><em>선형변환을 이해하려면 그 변환이 돌리지 않는 방향을 찾아라. 그 좌표에서 변환은 단순해진다.</em></p>
+<p>이것은 <a href="../ch05/fermat-point.html">5.6 절</a>에서 페르마(Fermat) 점을 원점으로 잡은 것이나, <a href="../ch02/squaring-minus-two.html">2.8 절</a>에서 사상을 단순하게 만들려고 변수를 바꾼 것과 같은 아이디어이다. 알맞은 좌표를 잡으면 구조가 뻔히 드러난다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>고윳값 구하기.</strong> <span class="math inline">\(\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span>의 고윳값이 <span class="math inline">\(\lambda^2 - (a + d)\lambda + (ad - bc) = 0\)</span>의 근임을 보이고, 문제의 행렬에서 <span class="math inline">\(\lambda = 2\)</span>와 <span class="math inline">\(4\)</span>가 나옴을 확인하여라.</p></li>
+<li><p><strong>수직인 고유벡터.</strong> <span class="math inline">\(\mathbf{M}\)</span>이 대칭행렬이고 <span class="math inline">\(\lambda \neq \mu\)</span>에 대하여 <span class="math inline">\(\mathbf{Mu} = \lambda\mathbf{u}\)</span>, <span class="math inline">\(\mathbf{Mv} = \mu\mathbf{v}\)</span>이면 <span class="math inline">\(\mathbf{u} \cdot \mathbf{v} = 0\)</span>임을 보여라. (<em>힌트:</em> <span class="math inline">\(\mathbf{v} \cdot \mathbf{Mu}\)</span>를 두 가지 방법으로 계산하여라.)</p></li>
+<li><p><strong>회전.</strong> 회전행렬 <span class="math inline">\(\begin{pmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{pmatrix}\)</span>은 <span class="math inline">\(\theta\)</span>가 <span class="math inline">\(\pi\)</span>의 배수가 아니면 실수 고유벡터를 갖지 않음을 보여라. 이 행렬의 복소수 고윳값은 무엇인가?</p></li>
+<li><p><strong>거듭제곱.</strong> 고유벡터를 이용하여 <span class="math inline">\(T^n\begin{pmatrix} 1 \\ 0 \end{pmatrix}\)</span>을 구하여라. (<em>힌트:</em> <span class="math inline">\((1, 0)\)</span>을 <span class="math inline">\((1, 2)\)</span>와 <span class="math inline">\((2, -1)\)</span>의 일차결합으로 나타내어라.)</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong> (Wellesley-Cambridge). 선형대수 입문서. 6장은 고윳값과 그 응용에 대한 훌륭한 입문이다.</p></li>
+<li><p><strong>Kurt Bryan &amp; Tanya Leise, “The $25<span>,</span>000<span>,</span>000<span>,</span>000 eigenvector: the linear algebra behind Google”</strong>, <em>SIAM Review</em> 48 (2006). 구글 뒤에 숨은 선형대수를 다룬 논문으로, 읽기 쉽고 무료로 볼 수 있다.</p></li>
+<li><p><strong>3Blue1Brown, <a href="https://www.3blue1brown.com/topics/linear-algebra"><em>Essence of Linear Algebra</em></a></strong> (동영상 시리즈, 온라인 무료). 이 절에서 다룬 기하학적 아이디어를 정확히 보여 주는 아름다운 애니메이션이다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="matrix-rules.html">← 7.1 행렬에서는 성립하지 않는 법칙</a><a class="next" href="determinant-axioms.html">→ 7.3 행렬식을 행렬식이게 하는 것</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

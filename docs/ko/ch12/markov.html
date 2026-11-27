@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>앞으로 보고 거꾸로 보는 마르코프 연쇄 (STEP III 1996 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP III 1996 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 엑스(Ecks) 교수의 정리에는 일정한 규칙이 있다. 다음에 무엇을 증명할지는 바로 직전에 무엇을 증명했는지에만 달려 있다. 미래가 현재에는 의존하지만 과거에는 의존하지 않는 과정을 마르코프 연쇄 (Markov chain)라고 하며, 마르코프 연쇄는 어디에나 있다. 날씨…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch12/markov.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/markov.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/markov.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/markov.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/markov.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/markov.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/markov.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="앞으로 보고 거꾸로 보는 마르코프 연쇄 (STEP III 1996 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP III 1996 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 엑스(Ecks) 교수의 정리에는 일정한 규칙이 있다. 다음에 무엇을 증명할지는 바로 직전에 무엇을 증명했는지에만 달려 있다. 미래가 현재에는 의존하지만 과거에는 의존하지 않는 과정을 마르코프 연쇄 (Markov chain)라고 하며, 마르코프 연쇄는 어디에나 있다. 날씨…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch12/markov.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="앞으로 보고 거꾸로 보는 마르코프 연쇄 (STEP III 1996 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1996 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 엑스(Ecks) 교수의 정리에는 일정한 규칙이 있다. 다음에 무엇을 증명할지는 바로 직전에 무엇을 증명했는지에만 달려 있다. 미래가 현재에는 의존하지만 과거에는 의존하지 않는 과정을 마르코프 연쇄 (Markov chain)라고 하며, 마르코프 연쇄는 어디에나 있다. 날씨…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "앞으로 보고 거꾸로 보는 마르코프 연쇄", "headline": "앞으로 보고 거꾸로 보는 마르코프 연쇄", "description": "STEP III 1996 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 엑스(Ecks) 교수의 정리에는 일정한 규칙이 있다. 다음에 무엇을 증명할지는 바로 직전에 무엇을 증명했는지에만 달려 있다. 미래가 현재에는 의존하지만 과거에는 의존하지 않는 과정을 마르코프 연쇄 (Markov chain)라고 하며, 마르코프 연쇄는 어디에나 있다. 날씨…", "url": "https://beyondstep.keithmcnulty.org/ko/ch12/markov.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1996 문제 12", "확률"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "확률", "url": "https://beyondstep.keithmcnulty.org/ko/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제12장: 확률", "item": "https://beyondstep.keithmcnulty.org/ko/ch12/"}, {"@type": "ListItem", "position": 3, "name": "앞으로 보고 거꾸로 보는 마르코프 연쇄", "item": "https://beyondstep.keithmcnulty.org/ko/ch12/markov.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch12/markov.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/markov.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/markov.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch12/markov.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제12장 · 확률</a>
+    <div class="src">STEP III · 1996 · 문제 12</div>
+    <div class="sec-head"><span class="sec-num">12.16</span><h1>앞으로 보고 거꾸로 보는 마르코프 연쇄</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-16-markov.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제12장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 1996, 문제 12</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/96-s3-q12">step.maths.org/questions/96-s3-q12</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>엑스(Ecks) 교수의 정리에는 일정한 규칙이 있다. 다음에 무엇을 증명할지는 바로 직전에 무엇을 증명했는지에만 달려 있다. 미래가 현재에는 의존하지만 과거에는 의존하지 않는 과정을 <em>마르코프 연쇄</em>(Markov chain)라고 하며, 마르코프 연쇄는 어디에나 있다. 날씨 모형에도, 보드게임 뱀과 사다리(Snakes and Ladders)에도, DNA 모형에도, 구글의 초기 페이지랭크(PageRank) 알고리즘에도, 그리고 통계학자들이 복잡한 확률분포를 시뮬레이션할 때 쓰는 방법에도 있다.</p>
+<p>이 문제는 장기적으로 정리의 유형이 어떤 비율로 섞이는지, 즉 <em>정상분포</em>(stationary distribution)를 구한다. 장기적으로 엑스 교수의 정리 여섯 개 중 하나는 새롭고 옳은 정리이고, 절반은 거짓이다. 이어서 문제는 연쇄를 시간을 거슬러 거꾸로 돌려 보고, 오늘의 정리가 주어졌을 때 어제의 정리는 무엇이었는지를 묻는다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>“각 행의 합이 <span class="math inline">\(1\)</span>이다”라는 조건은 무슨 뜻인가? 각 열의 합도 <span class="math inline">\(1\)</span>인가?</p>
+</div>
+<p><span class="math inline">\(i\)</span>행은 현재 유형이 <span class="math inline">\(i\)</span>일 때 다음 유형이 될 확률들을 나열한 것이다. 세 유형 중 하나는 반드시 일어나므로 각 행의 합은 <span class="math inline">\(1\)</span>이다. 열은 그럴 필요가 없다. 둘째 열의 합은 정확히 <span class="math inline">\(1\)</span>이지만, 첫째 열의 합은 <span class="math inline">\(0.6\)</span>이고 셋째 열의 합은 <span class="math inline">\(1.4\)</span>이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-한-단계" class="stage"><span class="stage-n">단계 1</span> 한 단계</h4>
+<p>현재 정리의 유형 <span class="math inline">\(i\)</span>에 대해 조건을 걸고 전확률 법칙(law of total probability)을 쓰면 <span class="math display">\[b_j = \sum_i\mathrm{P}(\text{현재 } i)\,\mathrm{P}(\text{다음 } j \mid \text{현재 } i) = a_1p_{1j} + a_2p_{2j} + a_3p_{3j}. \qed\]</span> 행렬로 쓰면 행벡터(row vector)로 <span class="math inline">\(\mathbf b = \mathbf aP\)</span>이다.</p>
+<h4 id="stagemark2-정상분포" class="stage"><span class="stage-n">단계 2</span> 정상분포</h4>
+<div class="askyourself">
+<p><span class="math inline">\(a_1 + a_2 + a_3 = 1\)</span>이면서 <span class="math inline">\(\mathbf a = \mathbf aP\)</span>인 것을 찾고자 한다. 방정식을 모두 써 보아라. 어느 것이 가장 간단한가?</p>
+</div>
+<p>방정식은 다음과 같다. <span class="math display">\[\begin{aligned}
+  a_1 &amp;= 0.3a_1 + 0.2a_2 + 0.1a_3, \\
+  a_2 &amp;= 0.3a_1 + 0.4a_2 + 0.3a_3, \\
+  a_3 &amp;= 0.4a_1 + 0.4a_2 + 0.6a_3.
+\end{aligned}\]</span> (이 방정식들은 독립이 아니다. 모두 더하면 양변이 모두 <span class="math inline">\(a_1 + a_2 + a_3\)</span>이 된다.) 둘째 식에서 <span class="math inline">\(0.6a_2 = 0.3(a_1 + a_3) = 0.3(1 - a_2)\)</span>이므로 <span class="math inline">\(a_2 = \frac13\)</span>이다. 첫째 식에서 <span class="math inline">\(7a_1 = 2a_2 + a_3 = \frac23 + a_3\)</span>이고 <span class="math inline">\(a_1 + a_3 = \frac23\)</span>이므로 <span class="math inline">\(8a_1 = \frac43\)</span>, <span class="math inline">\(a_1 = \frac16\)</span>, <span class="math inline">\(a_3 = \frac12\)</span>이다. <span class="math display">\[(a_1, a_2, a_3) = \bigl(\tfrac16, \tfrac13, \tfrac12\bigr). \qed\]</span></p>
+<h4 id="stagemark3-연쇄를-거꾸로-돌리기" class="stage"><span class="stage-n">단계 3</span> 연쇄를 거꾸로 돌리기</h4>
+<div class="askyourself">
+<p><span class="math inline">\(q_{ij} = \mathrm{P}(\text{직전 } i \mid \text{현재 } j)\)</span>이다. 직전 정리와 현재 정리 모두에 정상분포를 적용하여 베이즈 정리(Bayes’ theorem)를 써라.</p>
+</div>
+<p>베이즈 정리에 의해 <span class="math display">\[q_{ij} = \frac{\mathrm{P}(\text{직전 } i)\,\mathrm{P}(\text{현재 } j \mid \text{직전 } i)}{\mathrm{P}(\text{현재 } j)} = \frac{a_ip_{ij}}{a_j}.\]</span> 예를 들어 <span class="math inline">\(q_{11} = \frac{\frac16 \times 0.3}{\frac16} = 0.3\)</span>이고 <span class="math inline">\(q_{21} = \frac{\frac13 \times 0.2}{\frac16} = 0.4\)</span>이다. 모두 모으면 (<span class="math inline">\(i\)</span>는 행, <span class="math inline">\(j\)</span>는 열을 나타낸다) <span class="math display">\[(q_{ij}) = \begin{pmatrix} 0.3 &amp; 0.15 &amp; \frac{2}{15} \\ 0.4 &amp; 0.4 &amp; \frac{4}{15} \\ 0.3 &amp; 0.45 &amp; 0.6 \end{pmatrix}. \qed\]</span> 이번에는 각 <em>열</em>의 합이 <span class="math inline">\(1\)</span>이다. <span class="math inline">\(j\)</span>열이 직전 정리가 될 수 있는 유형들을 나열하기 때문이다.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-16-1.svg" alt="그림 12.16.1"><figcaption><span class="fig-label">그림 12.16.1</span> 마르코프 연쇄로 나타낸 엑스 교수의 정리. 화살표는 다음 정리가 각 유형일 확률을 나타낸다. 원 안의 분수는 정상분포이다. 장기적으로 정리 여섯 개 중 하나는 새롭고 옳으며, 세 개 중 하나는 이미 알려져 있고, 절반은 거짓이다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>행렬로 본 전확률 법칙.</strong> 연쇄의 한 단계는 행벡터에 행렬 <span class="math inline">\(P\)</span>를 곱하는 것이다.</p></li>
+<li><p><strong>정상성은 고유벡터이다.</strong> <span class="math inline">\(\mathbf a = \mathbf aP\)</span>는 <span class="math inline">\(\mathbf a\)</span>가 고윳값(eigenvalue) <span class="math inline">\(1\)</span>에 대한 <span class="math inline">\(P\)</span>의 좌고유벡터(left eigenvector)라는 뜻이다.</p></li>
+<li><p><strong>베이즈 정리로 거꾸로 돌리기.</strong> 거꾸로 가는 확률들은 순방향 행렬과 정상분포로부터 만들어지는 또 하나의 확률행렬(stochastic matrix)을 이룬다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="평형으로의-수렴">평형으로의 수렴</h3>
+<p>엑스 교수가 어떤 정리에서 출발하든, <span class="math inline">\(n\)</span>개의 정리를 더 증명한 뒤 유형의 분포는 <span class="math inline">\(\mathbf a_0P^n\)</span>이다. 이 연쇄처럼 모든 유형 다음에 모든 유형이 올 수 있는 연쇄에서는, 출발점에 관계없이 <span class="math inline">\(P^n\)</span>이 모든 행이 정상분포 <span class="math inline">\((\frac16, \frac13, \frac12)\)</span>와 같은 행렬로 수렴(converge)한다. 수렴 속도는 <span class="math inline">\(P\)</span>의 나머지 고윳값들(여기서는 <span class="math inline">\(0.2\)</span>와 <span class="math inline">\(0.1\)</span>)이 결정하며, 이들의 거듭제곱은 기하급수적으로 줄어든다. 단 몇 개의 정리만 지나도 엑스 교수의 과거는 잊혀진다. 마르코프 연쇄에 대한 이 <em>에르고딕 정리</em>(ergodic theorem)는 대학 2학년 확률론 과정의 핵심 결과이며, 마르코프 연쇄 몬테카를로(Markov chain Monte Carlo) 방법이 작동하는 근거이다. 복잡한 분포에서 표본을 뽑으려면, 그 분포를 정상분포로 갖는 마르코프 연쇄를 설계하여 오랫동안 돌리면 된다.</p>
+<h3 id="가역성">가역성</h3>
+<p>거꾸로 가는 연쇄 <span class="math inline">\((q_{ij})\)</span>는 순방향 연쇄 <span class="math inline">\((p_{ij})\)</span>와 다르다. 엑스 교수의 정리를 오랫동안 기록한 것을 보면 시간의 방향을 알아낼 수 있다는 뜻이다. 거꾸로 가는 연쇄와 순방향 연쇄가 일치하는 연쇄, 즉 모든 <span class="math inline">\(i\)</span>, <span class="math inline">\(j\)</span>에 대해 <span class="math inline">\(a_ip_{ij} = a_jp_{ji}\)</span>인 연쇄를 <em>가역적</em>(reversible)이라고 한다. 네트워크 위의 무작위 행보(random walk)와 열평형 상태에 있는 물리계의 모형이 여기에 속한다. 가역성은 정상분포를 쉽게 찾게 해 주므로 강력한 성질이다.</p>
+<div class="historybox">
+<div class="box-title">마르코프와 푸시킨</div>
+<p>안드레이 마르코프(Andrey Markov)는 1906년에 자신의 연쇄를 도입했는데, 큰 수의 법칙(law of large numbers)에 독립성(independence)이 꼭 필요하지는 않다는 것을 보이려는 것이 한 가지 이유였다. 이는 독립성이 필요하다고 주장한 수학자 Pavel Nekrasov와의 논쟁에서 나온 것이다. 1913년에 마르코프는 이 아이디어를 푸시킨(Pushkin)의 운문 소설 <em>예브게니 오네긴</em>(Eugene Onegin)의 처음 <span class="math inline">\(20\,000\)</span>개 글자에 적용했다. 그는 각 글자를 모음과 자음으로 분류하고, 각 글자의 유형이 바로 앞 글자의 유형에 의존하며 그 방식이 두 상태 연쇄로 잘 설명된다는 것을 보였다. 이것은 최초의 텍스트 통계 분석이었으며, 오늘날 모든 예측 입력 시스템의 조상이다.</p>
+</div>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">확률은 벡터로, 전이는 행렬로</div>
+<p><em>어떤 계가 고정된 확률로 상태 사이를 옮겨 다닐 때, 분포는 벡터로, 전이는 행렬로 써라. 그러면 장기적인 거동은 고유벡터에 관한 문제가 된다.</em></p>
+<p>대학에서는 이를 통해 7장의 선형대수가 확률론으로 들어온다. 페론–프로베니우스 정리(Perron–Frobenius theorem)는 정상분포의 존재를 보장하고, 나머지 고윳값들은 그 분포에 얼마나 빨리 도달하는지를 잰다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>토끼 굴.</strong> <a href="https://step.maths.org/questions/03-s3-q13">STEP III 2003, 문제 13</a>에 도전해 보아라. 각 꼭짓점에 출구가 있는 정사각형의 꼭짓점 위를 움직이는 무작위 행보를 첫 단계 방정식으로 푸는 문제이다.</p></li>
+<li><p><strong>두 단계.</strong> 엑스 교수의 마지막 정리가 새롭고 옳은 정리였다면, 그다음다음 정리가 세 유형 각각일 확률을 구하여라.</p></li>
+<li><p><strong>고윳값.</strong> <span class="math inline">\(P\)</span>의 고윳값이 <span class="math inline">\(1\)</span>, <span class="math inline">\(0.2\)</span>, <span class="math inline">\(0.1\)</span>임을 보여라.</p></li>
+<li><p><strong>가역적인가?</strong> 엑스 교수의 연쇄에 대해 <span class="math inline">\(a_ip_{ij} = a_jp_{ji}\)</span>가 성립하는지 확인하여라. 그 답은 무엇을 말해 주는가?</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>James Norris, <a href="https://uk.bookshop.org/search?keywords=Markov+Chains+Norris"><em>Markov Chains</em></a></strong> (Cambridge University Press). 학부 과정의 표준 교재이다.</p></li>
+<li><p><strong>Olle Häggström, <a href="https://uk.bookshop.org/search?keywords=Finite+Markov+Chains+and+Algorithmic+Applications+Haggstrom"><em>Finite Markov Chains and Algorithmic Applications</em></a></strong> (Cambridge University Press). 짧으며, 마르코프 연쇄 몬테카를로를 잘 다룬다.</p></li>
+<li><p><strong>Brian Hayes, “First links in the Markov chain”</strong>, <em>American Scientist</em> 101 (2013). 마르코프의 푸시킨 분석을 다시 들려준다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="branching.html">← 12.15 멸종인가 폭발인가</a><a class="next" href="matchboxes.html">→ 12.17 바나흐의 성냥갑</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

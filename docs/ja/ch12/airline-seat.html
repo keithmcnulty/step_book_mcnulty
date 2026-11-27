@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>最後の乗客の座席 (STEP II 2021 Q11) — Beyond STEP</title>
+<meta name="description" content="STEP II 2021 問題 11：解説付き解答とその背後にある大学数学。 満席の飛行機に100人の乗客が乗り込む。最初の乗客は搭乗券をなくしてしまい、適当な席に座る。それ以降の乗客は、自分の席が空いていればそこに座り、空いていなければ空いている席の中から無作為に1つを選んで座る。最後の乗客が自分の席に座れる確率（probability）はいくらだろうか。混乱が飛行機全体に連鎖していくかもしれな…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch12/airline-seat.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/airline-seat.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/airline-seat.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/airline-seat.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/airline-seat.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/airline-seat.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/airline-seat.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="最後の乗客の座席 (STEP II 2021 Q11) — Beyond STEP">
+<meta property="og:description" content="STEP II 2021 問題 11：解説付き解答とその背後にある大学数学。 満席の飛行機に100人の乗客が乗り込む。最初の乗客は搭乗券をなくしてしまい、適当な席に座る。それ以降の乗客は、自分の席が空いていればそこに座り、空いていなければ空いている席の中から無作為に1つを選んで座る。最後の乗客が自分の席に座れる確率（probability）はいくらだろうか。混乱が飛行機全体に連鎖していくかもしれな…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch12/airline-seat.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="最後の乗客の座席 (STEP II 2021 Q11) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2021 問題 11：解説付き解答とその背後にある大学数学。 満席の飛行機に100人の乗客が乗り込む。最初の乗客は搭乗券をなくしてしまい、適当な席に座る。それ以降の乗客は、自分の席が空いていればそこに座り、空いていなければ空いている席の中から無作為に1つを選んで座る。最後の乗客が自分の席に座れる確率（probability）はいくらだろうか。混乱が飛行機全体に連鎖していくかもしれな…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "最後の乗客の座席", "headline": "最後の乗客の座席", "description": "STEP II 2021 問題 11：解説付き解答とその背後にある大学数学。 満席の飛行機に100人の乗客が乗り込む。最初の乗客は搭乗券をなくしてしまい、適当な席に座る。それ以降の乗客は、自分の席が空いていればそこに座り、空いていなければ空いている席の中から無作為に1つを選んで座る。最後の乗客が自分の席に座れる確率（probability）はいくらだろうか。混乱が飛行機全体に連鎖していくかもしれな…", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/airline-seat.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2021 問題 11", "確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第12章：確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/"}, {"@type": "ListItem", "position": 3, "name": "最後の乗客の座席", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/airline-seat.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch12/airline-seat.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/airline-seat.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/airline-seat.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch12/airline-seat.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第12章 · 確率</a>
+    <div class="src">STEP II · 2021 · 問題 11</div>
+    <div class="sec-head"><span class="sec-num">12.5</span><h1>最後の乗客の座席</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-5-airline-seat.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第12章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 2021、第11問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は、OCRが配布している2021年のSTEP問題一式（zipファイル）のSTEP IIに収録されている： <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">www.ocr.org.uk/Images/696588-2021-past-papers.zip</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>満席の飛行機に100人の乗客が乗り込む。最初の乗客は搭乗券をなくしてしまい、適当な席に座る。それ以降の乗客は、自分の席が空いていればそこに座り、空いていなければ空いている席の中から無作為に1つを選んで座る。最後の乗客が自分の席に座れる確率（probability）はいくらだろうか。混乱が飛行機全体に連鎖していくかもしれないので、確率は小さいと予想する人もいるだろう。あるいは、ほとんどの乗客は影響を受けないので、確率は <span class="math inline">\(1\)</span> に近いはずだと考える人もいるだろう。</p>
+<p>答えは、乗客の人数によらず、ちょうど <span class="math inline">\(\frac12\)</span> である。この問題では、それを漸化式（recurrence）と帰納法（induction）によって証明する。しかし、対称性（symmetry）を用いた美しい1行の議論もあり、それによって答えがなぜ <span class="math inline">\(\frac12\)</span> になるのかが説明でき、さらにどの乗客についても答えをただちに書き下すことができる。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="pausebox">
+<p>起こりうる場合を列挙して、<span class="math inline">\(P_2\)</span> と <span class="math inline">\(P_3\)</span> を求めよ。</p>
+</div>
+<p>座席が2つのとき、<span class="math inline">\(T_1\)</span> は <span class="math inline">\(S_1\)</span> に座る（このとき <span class="math inline">\(T_2\)</span> は <span class="math inline">\(S_2\)</span> に座れる）か <span class="math inline">\(S_2\)</span> に座るかであり、それぞれの確率は <span class="math inline">\(\frac12\)</span> である。よって <span class="math inline">\(P_2 = \frac12\)</span> である。座席が3つのときを考える。<span class="math inline">\(T_1\)</span> が <span class="math inline">\(S_1\)</span> に座れば（確率 <span class="math inline">\(\frac13\)</span>）、全員が自分の席に座れる。<span class="math inline">\(T_1\)</span> が <span class="math inline">\(S_3\)</span> に座れば、<span class="math inline">\(T_3\)</span> は自分の席に座れない。<span class="math inline">\(T_1\)</span> が <span class="math inline">\(S_2\)</span> に座れば、<span class="math inline">\(T_2\)</span> は <span class="math inline">\(S_1\)</span> と <span class="math inline">\(S_3\)</span> のうちから無作為に選び、<span class="math inline">\(T_3\)</span> が自分の席に座れるのは <span class="math inline">\(T_2\)</span> が <span class="math inline">\(S_1\)</span> を選んだときに限る。したがって <span class="math inline">\(P_3 = \frac13 + \frac13\cdot\frac12 = \frac12\)</span> である。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-漸化式" class="stage"><span class="stage-n">段階 1</span> 漸化式</h4>
+<div class="askyourself">
+<p><span class="math inline">\(T_1\)</span> が <span class="math inline">\(S_k\)</span> に座ったとする。ただし <span class="math inline">\(2 \leq k \leq n - 1\)</span> とする。乗客 <span class="math inline">\(T_2, \ldots, T_{k-1}\)</span> はどうなるか。<span class="math inline">\(T_k\)</span> が来たとき、どの席が空いているか。また、その状況はより小さな列車の場合とどう比べられるか。</p>
+</div>
+<p>乗客 <span class="math inline">\(T_2, \ldots, T_{k-1}\)</span> は自分の席が空いているので、そこに座る。<span class="math inline">\(T_k\)</span> が来たとき、空いている席は <span class="math inline">\(S_1\)</span> と <span class="math inline">\(S_{k+1}, \ldots, S_n\)</span> であり、その数は <span class="math inline">\(n - k + 1\)</span> である。<span class="math inline">\(T_k\)</span> はその中から無作為に1つを選び、以後の各乗客は、自分の席が空いていればそこに座り、空いていなければ無作為に選んだ席に座る。これは座席数が <span class="math inline">\(n - k + 1\)</span> の元の問題そのものであり、<span class="math inline">\(T_k\)</span> が最初の乗客の役割を、<span class="math inline">\(S_1\)</span> が <span class="math inline">\(T_k\)</span> の「自分の」席（そこに座れば全てが収まる席）の役割を果たしている。したがって、<span class="math inline">\(T_n\)</span> が <span class="math inline">\(S_n\)</span> に座れる条件付き確率（conditional probability）は <span class="math inline">\(P_{n-k+1}\)</span> である。</p>
+<p>次に、<span class="math inline">\(T_1\)</span> の座る席で場合分けする。各席の確率は <span class="math inline">\(\frac1n\)</span> である。<span class="math inline">\(S_1\)</span> ならば必ず成功し、<span class="math inline">\(S_n\)</span> ならば必ず失敗し、<span class="math inline">\(S_k\)</span> ならば成功の確率は <span class="math inline">\(P_{n-k+1}\)</span> である。よって <span class="math display">\[P_n = \frac1n\Bigl(1 + 0 + \sum_{k=2}^{n-1}P_{n-k+1}\Bigr) = \frac1n\Bigl(1 + \sum_{r=2}^{n-1}P_r\Bigr). \qed\]</span></p>
+<h4 id="stagemark2-答え" class="stage"><span class="stage-n">段階 2</span> 答え</h4>
+<div class="askyourself">
+<p><span class="math inline">\(P_2 = P_3 = \frac12\)</span> である。<span class="math inline">\(P_n\)</span> を予想し、強い帰納法（strong induction）で証明せよ。</p>
+</div>
+<p>主張：すべての <span class="math inline">\(n \geq 2\)</span> に対して <span class="math inline">\(P_n = \frac12\)</span> である。<span class="math inline">\(n = 2\)</span> のときは成り立つ。<span class="math inline">\(2 \leq r \leq n - 1\)</span> に対して <span class="math inline">\(P_r = \frac12\)</span> が成り立つと仮定すると、 <span class="math display">\[P_n = \frac1n\Bigl(1 + \frac{n - 2}{2}\Bigr) = \frac1n\cdot\frac n2 = \frac12. \qed\]</span></p>
+<h4 id="stagemark3-最後から2番目の乗客" class="stage"><span class="stage-n">段階 3</span> 最後から2番目の乗客</h4>
+<div class="askyourself">
+<p>もっと鮮やかな議論を探してみよ。最後に <span class="math inline">\(T_n\)</span> に残される席はどれか。それが <span class="math inline">\(S_2\)</span> になることはありうるか。</p>
+</div>
+<p><span class="math inline">\(T_n\)</span> に最後に残される席は <span class="math inline">\(S_1\)</span> か <span class="math inline">\(S_n\)</span> のいずれかである。<span class="math inline">\(2 \leq k \leq n - 1\)</span> について、それが <span class="math inline">\(S_k\)</span> であることはありえない。なぜなら、その席には <span class="math inline">\(T_k\)</span> が座っているはずだからである。そして、それまでに行われる無作為な選択はすべて、<span class="math inline">\(S_1\)</span> と <span class="math inline">\(S_n\)</span> を対称に扱う。つまり、席を奪われた乗客が選ぶときにはいつでも、<span class="math inline">\(S_1\)</span> と <span class="math inline">\(S_n\)</span> が選ばれる確率は等しい。この2つの席のうち先に選ばれた方が結果を決めるので、どちらも等しい確率で残される席となる。よって <span class="math inline">\(P_n = \frac12\)</span> である。</p>
+<p>同じ議論は、任意の乗客 <span class="math inline">\(T_k\)</span>、<span class="math inline">\(k \geq 2\)</span> についても通用する。<span class="math inline">\(T_k\)</span> が自分の席に座れないのは、それより前の乗客がその席に座った場合に限る。席を奪われる連鎖は、誰かが <span class="math inline">\(S_1\)</span> を選ぶまで続く。<span class="math inline">\(S_1, S_k, S_{k+1}, \ldots, S_n\)</span> の各席は、<span class="math inline">\(T_k\)</span> が来るまでの選択者たちによってすべて同じように扱われるので、これらのうち最初に選ばれる席は、この <span class="math inline">\(n - k + 2\)</span> 個の席のどれである確率も等しい。そして <span class="math inline">\(T_k\)</span> が自分の席に座れないのは、それが <span class="math inline">\(S_k\)</span> である場合に限る。したがって <span class="math display">\[\mathrm{P}(T_k \text{ が座る席が } S_k) = \frac{n - k + 1}{n - k + 2}.\]</span> <span class="math inline">\(k = n - 1\)</span> のとき（<span class="math inline">\(n \geq 3\)</span> として）、これより <span class="math inline">\(Q_n = \frac23\)</span> を得る。また <span class="math inline">\(Q_2 = \frac12\)</span> である。このとき <span class="math inline">\(T_{n-1} = T_1\)</span> であり、この乗客が <span class="math inline">\(S_1\)</span> に座る確率は <span class="math inline">\(\frac12\)</span> だからである。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-5-1.svg" alt="図 12.5.1"><figcaption><span class="fig-label">図 12.5.1</span> <span class="math inline">\(n = 20\)</span> の列車において、乗客 <span class="math inline">\(k\)</span> が自分の席に座れる確率。<span class="math inline">\(2 \leq k \leq n\)</span> に対して、その値は <span class="math inline">\(\frac{n - k + 1}{n - k + 2}\)</span> であり、<span class="math inline">\(T_2\)</span> の <span class="math inline">\(\frac{19}{20}\)</span> から <span class="math inline">\(T_{19}\)</span> の <span class="math inline">\(\frac23\)</span> まで減少し、最後の乗客では <span class="math inline">\(\frac12\)</span> となる（プラム色）。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>より小さな同じ問題に帰着させる。</strong><span class="math inline">\(T_1\)</span> が <span class="math inline">\(S_k\)</span> に座った後、残りの問題は座席数の少ない同じ問題であった。</p></li>
+<li><p><strong>強い帰納法。</strong>漸化式にはより小さなすべての場合が現れるので、帰納法ではそれらすべてについて結果が成り立つことを仮定した。</p></li>
+<li><p><strong>対称性を見つける。</strong>席 <span class="math inline">\(S_1\)</span> と <span class="math inline">\(S_n\)</span> は終始入れ替え可能であり、そのことが計算を一切せずに <span class="math inline">\(\frac12\)</span> を説明する。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="対称性による議論">対称性による議論</h3>
+<p>2つ目の証明は、確率論における強力な考え方の一例である。すなわち、2つの結果が確率過程の対称性によって互いに対応しているならば、それらの確率は等しい。ここでの過程は、どちらかが選ばれるまで <span class="math inline">\(S_1\)</span> と <span class="math inline">\(S_n\)</span> を区別しないので、両者が最後まで残る確率は等しくなければならない。対称性による議論は、長い計算をたった1つの観察で置き換えることが多い。この先のいくつかの節にはそうした議論がたくさん登場する。<a href="../ch12/one-more-coin.html">第 12.6 節</a> での1回余分な硬貨投げ、<a href="../ch12/knockout.html">第 12.7 節</a> でのトーナメントの組み合わせ抽選などである。</p>
+<h3 id="席を奪われる乗客は何人か">席を奪われる乗客は何人か</h3>
+<p>席を奪われる乗客（自分の席に座れない乗客）の人数も、扱いやすい振る舞いをする。<span class="math inline">\(T_1\)</span> は <span class="math inline">\(S_1\)</span> を選ばない限り席を奪われた状態になり、<span class="math inline">\(T_k\)</span>（<span class="math inline">\(k \geq 2\)</span>）が席を奪われる確率は <span class="math inline">\(\frac{1}{n - k + 2}\)</span> である。これらを足し合わせると、席を奪われる乗客の人数の期待値（expected value）は <span class="math display">\[\Bigl(1 - \frac1n\Bigr) + \Bigl(\frac1n + \frac{1}{n - 1} + \cdots + \frac12\Bigr) = H_n - \frac1n,\]</span> となり、およそ <span class="math inline">\(\ln n\)</span> である。乗客が <span class="math inline">\(300\)</span> 人の飛行機であっても、混乱の影響を受けるのは平均して約6人にすぎない。ここでもまた調和数（harmonic numbers）が現れる（<a href="../ch09/coupon-collector.html">第 9.11 節</a>）。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">対称性を探せ</div>
+<p><em>確率過程が2つの結果を区別できないならば、それらは等しい確率で起こる。両者が初めて区別できるようになる瞬間を見つけよ。</em></p>
+<p>大学では、対称性による議論は確率論の至るところに現れる。鏡像原理（reflection principle）（<a href="../ch09/ballot.html">第 9.10 節</a>）から交換可能性（exchangeability）まで、その例は幅広い。交換可能性とは、確率変数（random variables）の列がどのような順序に並べ替えても同じ分布（distribution）をもつという性質であり、現代統計学の多くの部分の基礎となっている。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>忘れっぽい乗客が2人。</strong>最初の<em>2人</em>の乗客がともに無作為に席を選ぶとき、最後の乗客が自分の席に座れる確率はいくらか。</p></li>
+<li><p><strong>席を奪われる乗客。</strong><span class="math inline">\(n = 3\)</span> の場合について、起こりうる場合を列挙して、席を奪われる乗客の人数の期待値を確かめよ。</p></li>
+<li><p><strong>遠回りの道。</strong>漸化式を用いて、<span class="math inline">\(\sum_{r=2}^{n-1}P_r = \frac{n - 2}{2}\)</span> が対称性による議論と矛盾しないことを示せ。</p></li>
+<li><p><strong>最後の席。</strong>最後の乗客が自分の席に座れないという条件のもとで、最後の乗客は確率 <span class="math inline">\(1\)</span> で <span class="math inline">\(S_1\)</span> に座ることを示せ。それはなぜか。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Peter Winkler, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Puzzles%3A+A+Connoisseur%27s+Collection+Winkler"><em>Mathematical Puzzles: A Connoisseur’s Collection</em></a></strong>（A K Peters）。『数学パズル：愛好家のためのコレクション』。飛行機の座席パズルをはじめ、対称性によって解ける多くのパズルを収録している。</p></li>
+<li><p><strong>Frederick Mosteller, <a href="https://uk.bookshop.org/search?keywords=Fifty+Challenging+Problems+in+Probability+Mosteller"><em>Fifty Challenging Problems in Probability</em></a></strong>（Dover）。『確率の50の難問』。古典的な問題集である。</p></li>
+<li><p><strong>Joseph Blitzstein &amp; Jessica Hwang, <a href="https://probabilitybook.net/"><em>Introduction to Probability</em></a></strong>（CRC Press；オンラインで無料公開）。『確率論入門』。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="pairwise-independence.html">← 12.4 二つずつなら独立、全体では独立でない</a><a class="next" href="one-more-coin.html">→ 12.6 もう1枚の硬貨</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

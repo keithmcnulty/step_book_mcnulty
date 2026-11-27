@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>가속하는 기차 안의 중력 (STEP II 2021 Q10) — Beyond STEP</title>
+<meta name="description" content="STEP II 2021 문제 10: 단계별 풀이와 그 바탕에 있는 대학 수학. 기차가 역을 출발할 때 우리는 몸이 좌석 뒤로 눌리는 것을 느낀다. 탁자 위 커피 잔의 수면은 기울어지고, 바닥에 놓인 공은 뒤쪽으로 굴러간다. 기차 안에서 보면 마치 중력이 기울어져서 아래쪽뿐 아니라 약간 뒤쪽으로도 향하는 것처럼 보인다. 아인슈타인(Einstein)은 이것이…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch11/accelerating-frame.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch11/accelerating-frame.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch11/accelerating-frame.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch11/accelerating-frame.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch11/accelerating-frame.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch11/accelerating-frame.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch11/accelerating-frame.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="가속하는 기차 안의 중력 (STEP II 2021 Q10) — Beyond STEP">
+<meta property="og:description" content="STEP II 2021 문제 10: 단계별 풀이와 그 바탕에 있는 대학 수학. 기차가 역을 출발할 때 우리는 몸이 좌석 뒤로 눌리는 것을 느낀다. 탁자 위 커피 잔의 수면은 기울어지고, 바닥에 놓인 공은 뒤쪽으로 굴러간다. 기차 안에서 보면 마치 중력이 기울어져서 아래쪽뿐 아니라 약간 뒤쪽으로도 향하는 것처럼 보인다. 아인슈타인(Einstein)은 이것이…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch11/accelerating-frame.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="가속하는 기차 안의 중력 (STEP II 2021 Q10) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2021 문제 10: 단계별 풀이와 그 바탕에 있는 대학 수학. 기차가 역을 출발할 때 우리는 몸이 좌석 뒤로 눌리는 것을 느낀다. 탁자 위 커피 잔의 수면은 기울어지고, 바닥에 놓인 공은 뒤쪽으로 굴러간다. 기차 안에서 보면 마치 중력이 기울어져서 아래쪽뿐 아니라 약간 뒤쪽으로도 향하는 것처럼 보인다. 아인슈타인(Einstein)은 이것이…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "가속하는 기차 안의 중력", "headline": "가속하는 기차 안의 중력", "description": "STEP II 2021 문제 10: 단계별 풀이와 그 바탕에 있는 대학 수학. 기차가 역을 출발할 때 우리는 몸이 좌석 뒤로 눌리는 것을 느낀다. 탁자 위 커피 잔의 수면은 기울어지고, 바닥에 놓인 공은 뒤쪽으로 굴러간다. 기차 안에서 보면 마치 중력이 기울어져서 아래쪽뿐 아니라 약간 뒤쪽으로도 향하는 것처럼 보인다. 아인슈타인(Einstein)은 이것이…", "url": "https://beyondstep.keithmcnulty.org/ko/ch11/accelerating-frame.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2021 문제 10", "진동, 회전, 움직이는 기준틀"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 11, "name": "진동, 회전, 움직이는 기준틀", "url": "https://beyondstep.keithmcnulty.org/ko/ch11/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제11장: 진동, 회전, 움직이는 기준틀", "item": "https://beyondstep.keithmcnulty.org/ko/ch11/"}, {"@type": "ListItem", "position": 3, "name": "가속하는 기차 안의 중력", "item": "https://beyondstep.keithmcnulty.org/ko/ch11/accelerating-frame.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch11/accelerating-frame.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch11/accelerating-frame.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch11/accelerating-frame.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch11/accelerating-frame.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제11장 · 진동, 회전, 움직이는 기준틀</a>
+    <div class="src">STEP II · 2021 · 문제 10</div>
+    <div class="sec-head"><span class="sec-num">11.5</span><h1>가속하는 기차 안의 중력</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-11-5-accelerating-frame.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-11-oscillations-rotation-and-moving-frames.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제11장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 2021, 문제 10</strong></p>
+<p>다음으로 넘어가기 전에 문제를 먼저 읽어 보자. 이 문제는 OCR에서 내려받을 수 있는 2021년 STEP 문제지 모음(zip 파일)의 STEP II 문제지에 있다: <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">www.ocr.org.uk/Images/696588-2021-past-papers.zip</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>기차가 역을 출발할 때 우리는 몸이 좌석 뒤로 눌리는 것을 느낀다. 탁자 위 커피 잔의 수면은 기울어지고, 바닥에 놓인 공은 뒤쪽으로 굴러간다. 기차 안에서 보면 마치 중력이 기울어져서 아래쪽뿐 아니라 약간 뒤쪽으로도 향하는 것처럼 보인다. 아인슈타인(Einstein)은 이것이 단순한 비유 이상이라는 깨달음을 “내 생애 가장 행복한 생각”이라고 불렀다. 국소적으로는 중력과 가속도를 구별할 수 없다는 것이다.</p>
+<p>이 문제에서는 가속하는 기차 안의 휘어진 철사에 구슬이 꿰어져 있다. 기차에서 보면 구슬은 탄젠트 값이 <span class="math inline">\(a/g\)</span>인 각만큼 기울어진 중력장 속에 있는 것과 똑같이 행동한다. 철사의 맨 아래는 더 이상 가장 낮은 점이 아니며, 구슬은 새로운 평형점(equilibrium)을 중심으로 진동한다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>기차가 서쪽(<span class="math inline">\(x\)</span>의 음의 방향)으로 <span class="math inline">\(a\)</span>의 가속도로 가속한다. 기차 안의 관찰자에게는 질량 <span class="math inline">\(m\)</span>인 물체에 어떤 “가상의” 힘이 작용하는 것처럼 보이는가?</p>
+</div>
+<p>기차의 좌표계에서는 가상력(fictitious force) <span class="math inline">\(-m \times (\text{좌표계의 가속도})\)</span>를 더하면 뉴턴(Newton)의 제2법칙이 성립한다. 좌표계는 <span class="math inline">\(x\)</span> 방향으로 <span class="math inline">\(-a\)</span>의 가속도를 가지므로, 가상력은 동쪽을 향하는 <span class="math inline">\(+ma\)</span>이다. 중력과 합치면 구슬은 단위 질량당 <span class="math inline">\((a, -g)\)</span>의 유효 중력(effective gravity)을 받는다. 즉 중력이 동쪽으로 기울어진 것이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-원점에서는-정지할-수-없다" class="stage"><span class="stage-n">단계 1</span> 원점에서는 정지할 수 없다</h4>
+<p>원점에서 철사 <span class="math inline">\(ky = x^2\)</span>는 수평이다. 그곳에서 수직항력(normal reaction)은 연직 방향이므로 동쪽을 향하는 가상력 <span class="math inline">\(ma\)</span>를 상쇄할 수 없다. 철사 방향의 알짜힘은 <span class="math inline">\(ma \neq 0\)</span>이므로, 구슬은 기차에 대해 정지해 있을 수 없다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-에너지-방정식" class="stage"><span class="stage-n">단계 2</span> 에너지 방정식</h4>
+<div class="askyourself">
+<p>수직항력 <span class="math inline">\(\mathbf{N}\)</span>을 포함하여 기차의 좌표계에서 뉴턴 법칙을 써 보자. 그다음 속도 <span class="math inline">\((\dot x, \dot y)\)</span>와 내적(dot product)을 취하라. 왜 <span class="math inline">\(\mathbf{N}\)</span>이 사라지는가?</p>
+</div>
+<p>기차의 좌표계에서 <span class="math display">\[m(\ddot x, \ddot y) = \mathbf{N} + (ma, -mg).\]</span> 철사가 매끄러우므로 <span class="math inline">\(\mathbf{N}\)</span>은 철사에 수직이고, 따라서 철사 방향인 속도 <span class="math inline">\((\dot x, \dot y)\)</span>에도 수직이다. 속도와 내적을 취하면 <span class="math inline">\(\mathbf{N}\)</span>이 없어진다. <span class="math display">\[m\dot x\ddot x + m\dot y\ddot y = ma\dot x - mg\dot y, \qquad\text{따라서}\qquad \dot x(\ddot x - a) + \dot y(\ddot y + g) = 0. \qed\]</span> 좌변은 <span class="math inline">\(\frac12(\dot x^2 + \dot y^2) - ax + gy\)</span>의 도함수(derivative)이므로, 이 양은 일정하다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>이것은 기차의 좌표계에서의 에너지 보존(conservation of energy)이며, 이때 단위 질량당 위치 에너지(potential energy) <span class="math inline">\(-ax + gy\)</span>는 가상력을 포함한다.</p>
+<h4 id="stagemark3-얼마나-높이-올라가는가" class="stage"><span class="stage-n">단계 3</span> 얼마나 높이 올라가는가?</h4>
+<div class="askyourself">
+<p>구슬이 원점에서 정지 상태로 출발하므로 상수는 <span class="math inline">\(0\)</span>이다. 가장 높은 점에서 구슬은 순간적으로 정지한다. 이로부터 어떤 방정식을 얻는가?</p>
+</div>
+<p>정지해 있을 때 <span class="math inline">\(\frac12(\dot x^2 + \dot y^2) = 0\)</span>이므로 <span class="math inline">\(ax = gy\)</span>이다. <span class="math inline">\(y = \frac{x^2}{k}\)</span>를 대입하면 <span class="math inline">\(ax = \frac{gx^2}{k}\)</span>이므로, (출발점 <span class="math inline">\(x = 0\)</span>을 제외하면) <span class="math inline">\(x = \frac{ak}{g}\)</span>이고 <span class="math display">\[b = \frac{a^2k}{g^2}. \qed\]</span> 구슬은 철사를 따라 동쪽 위로 점 <span class="math inline">\(\bigl(\frac{ak}{g}, \frac{a^2k}{g^2}\bigr)\)</span>까지 올라갔다가 다시 원점으로 돌아오고, 이를 반복한다.</p>
+<h4 id="stagemark4-가장-빠른-점" class="stage"><span class="stage-n">단계 4</span> 가장 빠른 점</h4>
+<div class="askyourself">
+<p>속력의 제곱을 <span class="math inline">\(x\)</span>만의 함수로 나타내라. 어디에서 최대가 되는가?</p>
+</div>
+<p>속력의 제곱은 <span class="math inline">\(2(ax - gy) = 2\bigl(ax - \frac{gx^2}{k}\bigr)\)</span>로 <span class="math inline">\(x\)</span>에 대한 이차식이며, 두 반환점의 한가운데인 <span class="math inline">\(x = \frac{ak}{2g}\)</span>에서 최대가 된다. 그곳에서 속력의 제곱은 <span class="math inline">\(2\bigl(\frac{a^2k}{2g} - \frac{a^2k}{4g}\bigr) = \frac{a^2k}{2g}\)</span>이므로, 최대 속력은 <span class="math display">\[a\sqrt{\frac{k}{2g}}. \qed\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(x = \frac{ak}{2g}\)</span>에서 철사의 기울기를 구하라. 이것은 유효 중력 <span class="math inline">\((a, -g)\)</span>의 방향과 어떤 관계가 있는가?</p>
+</div>
+<p>기울기는 <span class="math inline">\(\frac{2x}{k} = \frac ag\)</span>이다. 따라서 이 점에서 철사는 유효 중력에 수직이다. 즉 이 점이 기울어진 중력장에서 철사의 “가장 낮은” 점이며, 구슬은 이 점을 중심으로 진동한다(그림 11.5.1).</p>
+<figure class="stepfig"><img src="../assets/fig/fig-11-5-1.svg" alt="그림 11.5.1"><figcaption><span class="fig-label">그림 11.5.1</span> 기차의 좌표계에서 본 철사 <span class="math inline">\(ky = x^2\)</span>(청록색, <span class="math inline">\(k = 1\)</span>, <span class="math inline">\(a/g = 0.6\)</span>). 유효 중력(호박색 화살표)은 탄젠트 값이 <span class="math inline">\(a/g\)</span>인 각만큼 동쪽으로 기울어져 있다. 구슬은 원점과 <span class="math inline">\(x = ak/g\)</span> 사이에서(자주색) 진동하며, 진동의 중심은 철사가 유효 중력에 수직인 점으로, 이 점이 새로운 최저점 역할을 한다. 점선은 기울어진 중력장에서의 “수평”선이다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>편리한 좌표계에서 생각하고, 가상력을 더하라.</strong> 기차의 좌표계에서는 철사가 고정되어 있으며, 그 대가는 일정한 힘 하나가 추가되는 것뿐이다.</p></li>
+<li><p><strong>속도와 내적을 취하라.</strong> 이렇게 하면 구속력(constraint force)이 사라지고 에너지 방정식을 얻는다.</p></li>
+<li><p><strong>답을 해석하라.</strong> 반환점과 가장 빠른 점에는 기하학적 의미가 있다. 유효 중력이 기울어져 있는 것이다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="가상력">가상력</h3>
+<p>뉴턴 법칙은 <em>관성계</em>(inertial frame), 즉 가속하지 않는 좌표계에서 성립한다. 가속하는 좌표계에서는 가상력을 더하여 뉴턴 법칙을 되살릴 수 있다. 가속도가 <span class="math inline">\(\mathbf{A}\)</span>인 좌표계에서는 <span class="math inline">\(-m\mathbf{A}\)</span>를 더하고, 회전하는 좌표계에서는 원심력(centrifugal force)과 코리올리 힘(Coriolis force)을 더한다. 이 힘들은 어떤 물체도 작용하지 않으므로 가상력이라고 부르며, 좌표계 때문에 생겨나는 것이다. 그러나 그 좌표계 안에 있는 사람에게는 완벽하게 실재하는 힘이다. 원심력은 지구를 극 방향으로 납작하게 만들고, 코리올리 힘은 허리케인이 도는 방향(북반구에서는 시계 반대 방향)을 정하며 장거리 포탄의 경로를 휘게 한다.</p>
+<h3 id="등가-원리">등가 원리</h3>
+<p>일정한 가상력 <span class="math inline">\(-m\mathbf{A}\)</span>는 중력과 똑같이 질량에 비례한다. 닫힌 상자 안에서 하는 어떤 실험으로도 상자가 행성 위에 놓여 있는지 빈 공간에서 가속하고 있는지 구별할 수 없다. 이것이 <em>등가 원리</em>(equivalence principle)이다. 아인슈타인은 이를 일반 상대성 이론(general relativity)의 출발점으로 삼았다. 가속하는 상자를 가로지르는 빛은 휘어 보이므로, 중력장에서도 빛은 휘어야 한다. 또 가속하는 로켓의 앞쪽과 뒤쪽에 있는 시계는 서로 다른 빠르기로 가므로, 중력장에서 높이가 다른 시계들도 그래야 한다. 두 예측은 모두 확인되었으며, 두 번째 효과는 모든 GPS 위성에서 보정해야 한다. 이 효과만으로도 위성의 시계는 지상의 시계보다 하루에 약 <span class="math inline">\(45\)</span>마이크로초씩 빨리 가기 때문이다.</p>
+<div class="historybox">
+<div class="box-title">아인슈타인의 가장 행복한 생각</div>
+<p>1907년, 베른의 특허청에서 일하던 아인슈타인은 특수 상대성 이론(special relativity)에 관한 총설 논문을 쓰고 있었다. 그때 훗날 그가 회상한 대로 “내 생애 가장 행복한 생각”이 떠올랐다. 지붕에서 자유 낙하하는 사람은 자신의 무게를 느끼지 못한다는 것이다. 낙하하는 좌표계를 택하면 중력을 “변환하여 없앨” 수 있다. 이 생각을 1915년의 일반 상대성 이론으로 완성하기까지는 8년의 시간과 많은 새로운 수학(가우스(Gauss)와 리만(Riemann)이 발전시킨 휘어진 공간의 미분기하학(differential geometry))이 더 필요했다.</p>
+</div>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">움직이는 좌표계에서 보존량 찾기</div>
+<p><em>가속도가 일정한 좌표계에서는 일정한 가상력이 작용한다. 이 힘은 위치 에너지에 포함시킬 수 있으며, 그 좌표계에서 에너지는 보존된다.</em></p>
+<p>운동 방정식과 속도의 내적을 취하여 구속력을 없애는 기법은 어떤 좌표계에서나 통한다. 대학에서는 이것이 일반적인 원리가 된다. 방정식이 시간에 명시적으로 의존하지 않는 계에는 보존되는 에너지가 있다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>기차 안의 대포.</strong> <a href="https://step.maths.org/questions/00-s1-q9">STEP I 2000, 문제 9</a> 문제를 풀어 보자. 가속하는 객차 안에서 발사한 포탄을 다루는데, 여기서 가속도는 중력이 기울어진 것처럼 작용한다.</p></li>
+<li><p><strong>맞바람.</strong> <a href="https://step.maths.org/questions/06-s2-q11">STEP II 2006, 문제 11</a> 문제를 풀어 보자. 일정한 맞바람을 받는 포물체를 다루는데, 바람 때문에 포물체가 땅에 떨어지기 전에 발사한 쪽으로 되밀려 올 수도 있다.</p></li>
+<li><p><strong>기차 안의 커피.</strong> 가속하는 기차 안에서 커피 잔의 수면은 수평면과 <span class="math inline">\(\arctan(a/g)\)</span>의 각을 이루는 평면임을 보여라.</p></li>
+<li><p><strong>작은 진동.</strong> <span class="math inline">\(x = \frac{ak}{2g}\)</span>를 중심으로 한 구슬의 작은 진동의 주기를 구하라. (<em>힌트:</em> 새로운 바닥 근처에서 철사는 반지름이 곡률 반지름(radius of curvature)과 같은 원으로 근사된다.)</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Daniel Kleppner &amp; Robert Kolenkow, <a href="https://uk.bookshop.org/search?keywords=An+Introduction+to+Mechanics+Kleppner+Kolenkow"><em>An Introduction to Mechanics</em></a></strong> (Cambridge University Press). 비관성 좌표계와 가상력을 다룬 장.</p></li>
+<li><p><strong>Albert Einstein, <a href="https://www.gutenberg.org/ebooks/5001"><em>Relativity: The Special and the General Theory</em></a></strong> (여러 판본). 가속하는 상자 이야기를 포함한, 아인슈타인이 직접 쓴 대중적인 해설서.</p></li>
+<li><p><strong>Pedro Ferreira, <a href="https://uk.bookshop.org/search?keywords=The+Perfect+Theory+Ferreira"><em>The Perfect Theory</em></a></strong> (Little, Brown). 일반 상대성 이론의 일대기.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="tautochrone.html">← 11.4 등시 곡선</a><a class="next" href="backspin.html">→ 11.6 백스핀</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>素数はどれほどまばらか？ (STEP III 2016 Q5) — Beyond STEP</title>
+<meta name="description" content="STEP III 2016 問題 5：解説付き解答とその背後にある大学数学。 第 1.1 節 では、素数（prime）が無限に存在することを見た。しかし「無限に存在する」というのは大ざっぱな主張である。素数は確かにまばらになっていく。 100 未満の素数は 25 個あるが、 900 と 1000 の間には 14 個しかない。では、素数は どの程度 まばらになるのだろうか。…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/prime-distribution.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="素数はどれほどまばらか？ (STEP III 2016 Q5) — Beyond STEP">
+<meta property="og:description" content="STEP III 2016 問題 5：解説付き解答とその背後にある大学数学。 第 1.1 節 では、素数（prime）が無限に存在することを見た。しかし「無限に存在する」というのは大ざっぱな主張である。素数は確かにまばらになっていく。 100 未満の素数は 25 個あるが、 900 と 1000 の間には 14 個しかない。では、素数は どの程度 まばらになるのだろうか。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch01/prime-distribution.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="素数はどれほどまばらか？ (STEP III 2016 Q5) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2016 問題 5：解説付き解答とその背後にある大学数学。 第 1.1 節 では、素数（prime）が無限に存在することを見た。しかし「無限に存在する」というのは大ざっぱな主張である。素数は確かにまばらになっていく。 100 未満の素数は 25 個あるが、 900 と 1000 の間には 14 個しかない。では、素数は どの程度 まばらになるのだろうか。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "素数はどれほどまばらか？", "headline": "素数はどれほどまばらか？", "description": "STEP III 2016 問題 5：解説付き解答とその背後にある大学数学。 第 1.1 節 では、素数（prime）が無限に存在することを見た。しかし「無限に存在する」というのは大ざっぱな主張である。素数は確かにまばらになっていく。 100 未満の素数は 25 個あるが、 900 と 1000 の間には 14 個しかない。では、素数は どの程度 まばらになるのだろうか。…", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/prime-distribution.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2016 問題 5", "数論と証明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "数論と証明", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第1章：数論と証明", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/"}, {"@type": "ListItem", "position": 3, "name": "素数はどれほどまばらか？", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/prime-distribution.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch01/prime-distribution.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/prime-distribution.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/prime-distribution.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch01/prime-distribution.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第1章 · 数論と証明</a>
+    <div class="src">STEP III · 2016 · 問題 5</div>
+    <div class="sec-head"><span class="sec-num">1.2</span><h1>素数はどれほどまばらか？</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-2-prime-distribution.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第1章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2016、第5問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/16-s3-q5">step.maths.org/questions/16-s3-q5</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p><a href="../ch01/fermat-numbers.html">第 1.1 節</a> では、素数（prime）が無限に存在することを見た。しかし「無限に存在する」というのは大ざっぱな主張である。素数は確かにまばらになっていく。<span class="math inline">\(100\)</span> 未満の素数は <span class="math inline">\(25\)</span> 個あるが、<span class="math inline">\(900\)</span> と <span class="math inline">\(1000\)</span> の間には <span class="math inline">\(14\)</span> 個しかない。では、素数は<em>どの程度</em>まばらになるのだろうか。</p>
+<p>この問題で証明するのは、一見ごく控えめな事実である。<span class="math inline">\(n\)</span> 以下のすべての素数を掛け合わせると、その積は <span class="math inline">\(4^n\)</span> より小さい。しかしこの何気ない不等式（inequality）こそが「どの程度まばらか」という問いに答えるための最初の本格的な一歩であり、1932年に若きポール・エルデシュ（Paul Erdős）が与えた、数学で最も有名な短い証明の一つにおける鍵となる補題（lemma）なのである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<p>記号 <span class="math inline">\(P_{r,s}\)</span> は煩わしく見えるが、考え方は単純で、ある範囲にある素数を掛け合わせるだけである。例をしっかり理解しておこう。<span class="math inline">\(P_{3,7}\)</span> は <span class="math inline">\(3\)</span> より大きく <span class="math inline">\(7\)</span> 以下の素数、すなわち <span class="math inline">\(5\)</span> と <span class="math inline">\(7\)</span> を用いるので、<span class="math inline">\(35\)</span> となる。</p>
+<div class="askyourself">
+<p>小問 (iv) では、<em>すべての</em> <span class="math inline">\(n \geq 2\)</span> について命題を証明することが求められている。小問 (iii) では、<span class="math inline">\(2m\)</span> までのすべての <span class="math inline">\(k\)</span> について命題が成り立つと仮定している。これはどのような帰納法（induction）だろうか。</p>
+</div>
+<p>これは<em>強い</em>帰納法（strong induction）である。<span class="math inline">\(n\)</span> の場合を証明するために、直前の場合だけでなく、それ以前の<em>すべての</em>場合を仮定してよい。このことを覚えておこう。問題がこのように構成されているのはそのためである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-二項係数binomial-coefficientはそれほど大きくない" class="stage"><span class="stage-n">段階 1</span> 二項係数（binomial coefficient）はそれほど大きくない</h4>
+<div class="askyourself">
+<p><span class="math inline">\((1+x)^{2m+1}\)</span> の二項展開（binomial expansion）で <span class="math inline">\(x = 1\)</span> とおくと何が得られるか。</p>
+</div>
+<p>次が得られる。 <span class="math display">\[2^{2m+1} = \binom{2m+1}{0} + \binom{2m+1}{1} + \cdots + \binom{2m+1}{2m+1}.\]</span> すべての項は正なので、どの項も <span class="math inline">\(2^{2m+1}\)</span> より小さい。しかしこれでは少し足りない。欲しいのは <span class="math inline">\(2^{2m}\)</span>、つまりその半分である。</p>
+<div class="askyourself">
+<p>パスカルの三角形（Pascal’s triangle）は左右対称である。和の中で <span class="math inline">\(\binom{2m+1}{m}\)</span> と等しい項は他にどれか。</p>
+</div>
+<p>対称性より <span class="math inline">\(\binom{2m+1}{m} = \binom{2m+1}{m+1}\)</span> であり、これらは和の中の<em>異なる</em>2つの項である（<span class="math inline">\(m \neq m+1\)</span> だから）。したがって <span class="math display">\[2\binom{2m+1}{m} = \binom{2m+1}{m} + \binom{2m+1}{m+1} &lt; 2^{2m+1},\]</span> となる。和には <span class="math inline">\(\binom{2m+1}{0} = 1\)</span> など他の正の項も含まれているので、不等号は等号を含まない。<span class="math inline">\(2\)</span> で割ると <span class="math inline">\(\binom{2m+1}{m} &lt; 2^{2m}\)</span> を得る。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-その二項係数を割り切る素数はどれか" class="stage"><span class="stage-n">段階 2</span> その二項係数を割り切る素数はどれか</h4>
+<p>二項係数を書き下すと、 <span class="math display">\[\binom{2m+1}{m} = \frac{(2m+1)!}{m!\,(m+1)!} = \frac{(m+2)(m+3)\cdots(2m+1)}{m!}.\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(p\)</span> を <span class="math inline">\(m + 1 &lt; p \leq 2m+1\)</span> を満たす素数とする。<span class="math inline">\(p\)</span> は分子を割り切るか。分母を割り切ることはあり得るか。</p>
+</div>
+<p>分子 <span class="math inline">\((m+2)(m+3)\cdots(2m+1)\)</span> は因数の一つとして <span class="math inline">\(p\)</span> 自身を含むので、<span class="math inline">\(p\)</span> はこれを割り切る。分母 <span class="math inline">\(m!\)</span> はすべて <span class="math inline">\(p\)</span> より小さい数の積である。<span class="math inline">\(p\)</span> は素数なので、どれも <span class="math inline">\(p\)</span> で割り切れない数の積を割り切ることはできない。よって <span class="math inline">\(p\)</span> は分子を割り切るが分母は割り切らず、したがって二項係数全体（これが整数であることを思い出そう）を割り切る。</p>
+<div class="pausebox">
+<p>これで、この範囲にある<em>各</em>素数が <span class="math inline">\(\binom{2m+1}{m}\)</span> を割り切ることがわかった。では、なぜそれらの<em>積</em> <span class="math inline">\(P_{m+1,2m+1}\)</span> もこれを割り切るといえるのか。（注意：<span class="math inline">\(4\)</span> と <span class="math inline">\(6\)</span> がともにある数を割り切っても、<span class="math inline">\(24\)</span> がその数を割り切るとは限らない。）</p>
+</div>
+<p>違いは、ここでの素数が<em>相異なる素数</em>であることにある。相異なる素数 <span class="math inline">\(p_1, p_2, \ldots\)</span> がそれぞれ <span class="math inline">\(N\)</span> を割り切るならば、それらの積も <span class="math inline">\(N\)</span> を割り切る。実際、<span class="math inline">\(N = p_1 N_1\)</span> と書くと、<span class="math inline">\(p_2\)</span> は <span class="math inline">\(p_1 N_1\)</span> を割り切るが <span class="math inline">\(p_1\)</span> は割り切らないので、<span class="math inline">\(N_1\)</span> を割り切る。以下同様である。（ここでは、素数がある積を割り切るならばその因数のいずれかを割り切る、という事実を用いている。この事実には少し立ち止まって敬意を払う価値がある。<a href="../ch01/factorisation-fails.html">第 1.7 節</a> では、これに相当する性質が成り立たない世界を紹介する。）</p>
+<p>よって <span class="math inline">\(P_{m+1,2m+1}\)</span> は <span class="math inline">\(\binom{2m+1}{m}\)</span> を割り切り、正の数の約数はその数を超えないので、 <span class="math display">\[P_{m+1,\,2m+1} \leq \binom{2m+1}{m} &lt; 2^{2m}. \qed\]</span></p>
+<h4 id="stagemark3-積を分割する" class="stage"><span class="stage-n">段階 3</span> 積を分割する</h4>
+<div class="askyourself">
+<p><span class="math inline">\(2m+1\)</span> 以下のすべての素数の積 <span class="math inline">\(P_{1,2m+1}\)</span> を、すでにわかっている積からどのように組み立てられるか。</p>
+</div>
+<p><span class="math inline">\(2m+1\)</span> 以下の素数を、<span class="math inline">\(m+1\)</span> 以下のものと <span class="math inline">\(m+1\)</span> より大きいものに分ける。 <span class="math display">\[P_{1,2m+1} = P_{1,m+1} \times P_{m+1,2m+1}.\]</span> 2つ目の因数は段階 2 より <span class="math inline">\(2^{2m} = 4^m\)</span> より小さい。1つ目については、<span class="math inline">\(2\)</span> から <span class="math inline">\(2m\)</span> までのすべての <span class="math inline">\(k\)</span> について <span class="math inline">\(P_{1,k} &lt; 4^k\)</span> を仮定してよく、<span class="math inline">\(k = m+1\)</span> はこの範囲に入っている（<span class="math inline">\(m \geq 1\)</span> より <span class="math inline">\(2 \leq m+1 \leq 2m\)</span> だから）。したがって <span class="math display">\[P_{1,2m+1} &lt; 4^{m+1} \times 4^{m} = 4^{2m+1}. \qed\]</span> ここで強い帰納法がその真価を発揮する。<span class="math inline">\(2m+1\)</span> の場合を扱うのに必要だったのは、直前の場合ではなく、およそ<em>半分</em>の大きさである <span class="math inline">\(m+1\)</span> の場合だったのである。</p>
+<h4 id="stagemark4-すべての-n" class="stage"><span class="stage-n">段階 4</span> すべての <span class="math inline">\(n\)</span></h4>
+<div class="askyourself">
+<p>小問 (iii) は奇数を扱っている。偶数 <span class="math inline">\(n = 2m+2\)</span> の場合はどうなるか。それは素数だろうか。</p>
+</div>
+<p>まず出発点を確認する。<span class="math inline">\(P_{1,2} = 2 &lt; 16\)</span>、<span class="math inline">\(P_{1,3} = 6 &lt; 64\)</span> である。次に、<span class="math inline">\(n \geq 4\)</span> として、<span class="math inline">\(2\)</span> から <span class="math inline">\(n-1\)</span> までのすべての <span class="math inline">\(k\)</span> について <span class="math inline">\(P_{1,k} &lt; 4^k\)</span> が成り立つと仮定する。</p>
+<ul>
+<li><p><span class="math inline">\(n\)</span> が偶数ならば、<span class="math inline">\(n\)</span> は（<span class="math inline">\(2\)</span> より大きいので）素数ではなく、<span class="math inline">\(n\)</span> 以下の素数は <span class="math inline">\(n-1\)</span> 以下の素数と同じである。よって <span class="math inline">\(P_{1,n} = P_{1,n-1} &lt; 4^{n-1} &lt; 4^n\)</span> となる。</p></li>
+<li><p><span class="math inline">\(n\)</span> が奇数ならば、<span class="math inline">\(m \geq 2\)</span> として <span class="math inline">\(n = 2m+1\)</span> と書く。すると小問 (iii) により直ちに <span class="math inline">\(P_{1,n} &lt; 4^n\)</span> を得る。</p></li>
+</ul>
+<p>強い帰納法により、すべての <span class="math inline">\(n \geq 2\)</span> について <span class="math inline">\(P_{1,n} &lt; 4^n\)</span> が成り立つ。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>二項係数は数論的な情報を担っている。</strong> <span class="math inline">\(\binom{2m+1}{m}\)</span> は（<span class="math inline">\(4^m\)</span> 未満という）小さな一つの数でありながら、多くの素数で割り切れざるを得ない。多くの素数を小さな数に押し込むことで、それらの素数がそれほど多くはあり得ないことがわかるのである。</p></li>
+<li><p><strong>問題が自らを半分にするとき、強い帰納法は自然な道具である。</strong> <span class="math inline">\(2m+1\)</span> の場合は <span class="math inline">\(m+1\)</span> の場合に依存していた。</p></li>
+<li><p><strong>小さな場合は別に確認する必要がある。</strong> 帰納法が回り始めるのは <span class="math inline">\(n \geq 4\)</span> からなので、<span class="math inline">\(n = 2\)</span> と <span class="math inline">\(3\)</span> は手で確かめなければならなかった。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title"><span class="math inline">\(4^n\)</span> から素数定理（Prime Number Theorem）へ</div>
+<p>結果の対数（logarithm）をとると <span class="math inline">\(\ln P_{1,n} &lt; n \ln 4\)</span>、すなわち <span class="math display">\[\sum_{p \leq n} \ln p &lt; (\ln 4)\, n \approx 1.39\,n .\]</span> となる。1850年代にパフヌティ・チェビシェフ（Pafnuty Chebyshev）は、まさにこの種の評価を上から<em>も下からも</em>証明し、<span class="math inline">\(\sum_{p \leq n} \ln p\)</span> が <span class="math inline">\(n\)</span> に比例して増大することを示した。ガウス（Gauss）はそれ以前、およそ 15 歳のときにすでに、数表から <span class="math inline">\(n\)</span> 以下の素数の個数はおよそ <span class="math inline">\(n / \ln n\)</span> であると予想していた。これが<em>素数定理</em>となり、1896年にジャック・アダマール（Jacques Hadamard）とシャルル・ド・ラ・ヴァレ・プーサン（Charles de la Vallée Poussin）が複素解析（complex analysis）を用いてついに証明した。対数の形で述べると <span class="math display">\[\sum_{p \leq n} \ln p \sim n,\]</span> であり、したがって <span class="math inline">\(n\)</span> 以下の素数の積はおよそ <span class="math inline">\(e^n\)</span> である。我々の上界 <span class="math inline">\(4^n\)</span> はまったく的外れではない。図 1.2.1 に3つすべてを示す。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-1-2-1.svg" alt="図 1.2.1"><figcaption><span class="fig-label">図 1.2.1</span> <span class="math inline">\(n\)</span> 以下のすべての素数の積の対数（青緑）。各素数 <span class="math inline">\(p\)</span> で <span class="math inline">\(\ln p\)</span> だけ跳ね上がる。本節では、これが <span class="math inline">\(n \ln 4\)</span>（琥珀色、破線）より下にとどまることを証明する。素数定理によれば、これは <span class="math inline">\(n\)</span>（紫）と同じように増大する。</figcaption></figure>
+<h3 id="ベルトランの仮説bertrands-postulate">ベルトランの仮説（Bertrand’s postulate）</h3>
+<p>1845年にジョゼフ・ベルトラン（Joseph Bertrand）は、すべての <span class="math inline">\(n \geq 1\)</span> について <span class="math inline">\(n\)</span> と <span class="math inline">\(2n\)</span> の間に必ず素数が存在すると予想した。チェビシェフは1852年にこれを証明した。その80年後、19 歳のポール・エルデシュが美しい初等的証明を見いだした。その鍵となる要素は、この問題の補題と、<em>中央</em>二項係数 <span class="math inline">\(\binom{2n}{n}\)</span> を割り切る素数がどれかを注意深く調べることである。Martin Aigner と Günter Ziegler は、数学で最も優美な証明を集めた <em>Proofs from THE BOOK</em> の第 2 章としてこの証明を選んだ。</p>
+<h3 id="この先へ">この先へ</h3>
+<p>素数の正確な分布は、リーマンゼータ関数（Riemann zeta function） <span class="math display">\[\zeta(s) = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \cdots,\]</span> の零点によって支配されている。この関数には <a href="../ch02/basel.html">第 2.4 節</a> で、ずっと控えめな姿で出会うことになる。そこでは <span class="math inline">\(\zeta(2) = \pi^2/6\)</span> である。これらの零点がどこにあるかを正確に予言する<em>リーマン予想</em>（Riemann Hypothesis）が正しければ、素数定理の誤差を可能な限り厳しく押さえ込むことができる。これはおそらく数学で最も有名な未解決問題であり、ミレニアム懸賞問題（Millennium Prize Problems）の一つでもある。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">強い帰納法と、巧妙な対象から情報を引き出すこと</div>
+<p><em><span class="math inline">\(n\)</span> の場合が <span class="math inline">\(n-1\)</span> よりずっと小さい場合に依存するときは、それ以前のすべての場合を一度に仮定せよ。</em></p>
+<p>ここでのもう一つの考え方はより繊細で、数論（number theory）に極めて特徴的なものである。ある範囲の<em>すべての</em>素数について何かを示すには、それらの素数のどれもが割り切らなければならず、しかもそれほど大きくないことも示せるような一つの対象（ここでは二項係数）を見つけるのである。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>数の感覚をつかむ。</strong> <span class="math inline">\(n = 10, 20, 30\)</span> について <span class="math inline">\(P_{1,n}\)</span> を計算し、<span class="math inline">\(4^n\)</span> および <span class="math inline">\(e^n\)</span> と比較せよ。（ここでは電卓を使ってよい。）</p></li>
+<li><p><strong>中央二項係数。</strong> <span class="math inline">\(\binom{2m}{m}\)</span> が <span class="math inline">\((1+1)^{2m}\)</span> の展開における <span class="math inline">\(2m+1\)</span> 個の項の中で最大であることを示し、<span class="math inline">\(\binom{2m}{m} \geq \dfrac{4^m}{2m+1}\)</span> を導け。</p></li>
+<li><p><strong>素数はそれほど多くない。</strong> <span class="math inline">\(\pi(n)\)</span> を <span class="math inline">\(n\)</span> 以下の素数の個数とする。<span class="math inline">\(\sqrt n\)</span> と <span class="math inline">\(n\)</span> の間にある素数はすべて <span class="math inline">\(\sqrt n\)</span> より大きく、それらの積は <span class="math inline">\(P_{1,n} &lt; 4^n\)</span> 以下である。これより <span class="math display">\[\pi(n) - \pi(\sqrt n) &lt; \frac{2\ln 4}{\ln n}\, n ,\]</span> を導き、さらに <span class="math inline">\(\pi(n) &lt; 2.8\, n/\ln n + \sqrt n\)</span> を導け。これを素数定理の <span class="math inline">\(\pi(n) \approx n / \ln n\)</span> と比較せよ。</p></li>
+<li><p><strong>ベルトランの仮説を確かめる。</strong> <span class="math inline">\(n = 1, 2, \ldots, 50\)</span> のそれぞれについて <span class="math inline">\(n\)</span> と <span class="math inline">\(2n\)</span> の間にある素数を見つけることで、ベルトランの仮説を確かめよ。各素数が直前の素数の2倍未満であるような短い素数のリストを使って、効率よく確かめられるだろうか。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Aigner &amp; Ziegler, <a href="https://uk.bookshop.org/search?keywords=Proofs+from+THE+BOOK+Aigner+Ziegler"><em>Proofs from THE BOOK</em></a></strong>、第 2 章「Bertrand’s postulate」（ベルトランの仮説）。</p></li>
+<li><p><strong>Marcus du Sautoy, <a href="https://uk.bookshop.org/search?keywords=The+Music+of+the+Primes+Sautoy"><em>The Music of the Primes</em></a></strong>（Fourth Estate）。素数定理とリーマン予想の歴史を一般向けに描いた本。</p></li>
+<li><p><strong>G. J. O. Jameson, <a href="https://uk.bookshop.org/search?keywords=The+Prime+Number+Theorem+Jameson"><em>The Prime Number Theorem</em></a></strong>（Cambridge University Press）。厳密でありながら平易で、学部生向けに書かれている。最初の数章は A レベル（A level、英国の大学入学資格試験）程度の微積分しか必要としない。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="fermat-numbers.html">← 1.1 素数を生み出す工場</a><a class="next" href="well-ordering.html">→ 1.3 最小の反例</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

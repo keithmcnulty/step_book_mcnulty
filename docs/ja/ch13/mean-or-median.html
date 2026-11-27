@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>平均か中央値か？ (STEP II 2000 Q14) — Beyond STEP</title>
+<meta name="description" content="STEP II 2000 問題 14：解説付き解答とその背後にある大学数学。 測定値の集まりの中心を推定するには、平均（mean）をとることも中央値（median）をとることもできる。どちらがよいのだろうか。答えはデータによって異なる。ときおり大きく外れた誤差を含む測定値では、中央値のほうがはるかに信頼できる。ばかげた値が一つあるだけで平均はどこへでも引きずられてしまうが、中央値はほとんど動かない…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch13/mean-or-median.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="平均か中央値か？ (STEP II 2000 Q14) — Beyond STEP">
+<meta property="og:description" content="STEP II 2000 問題 14：解説付き解答とその背後にある大学数学。 測定値の集まりの中心を推定するには、平均（mean）をとることも中央値（median）をとることもできる。どちらがよいのだろうか。答えはデータによって異なる。ときおり大きく外れた誤差を含む測定値では、中央値のほうがはるかに信頼できる。ばかげた値が一つあるだけで平均はどこへでも引きずられてしまうが、中央値はほとんど動かない…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch13/mean-or-median.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="平均か中央値か？ (STEP II 2000 Q14) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2000 問題 14：解説付き解答とその背後にある大学数学。 測定値の集まりの中心を推定するには、平均（mean）をとることも中央値（median）をとることもできる。どちらがよいのだろうか。答えはデータによって異なる。ときおり大きく外れた誤差を含む測定値では、中央値のほうがはるかに信頼できる。ばかげた値が一つあるだけで平均はどこへでも引きずられてしまうが、中央値はほとんど動かない…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "平均か中央値か？", "headline": "平均か中央値か？", "description": "STEP II 2000 問題 14：解説付き解答とその背後にある大学数学。 測定値の集まりの中心を推定するには、平均（mean）をとることも中央値（median）をとることもできる。どちらがよいのだろうか。答えはデータによって異なる。ときおり大きく外れた誤差を含む測定値では、中央値のほうがはるかに信頼できる。ばかげた値が一つあるだけで平均はどこへでも引きずられてしまうが、中央値はほとんど動かない…", "url": "https://beyondstep.keithmcnulty.org/ja/ch13/mean-or-median.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2000 問題 14", "世界における統計とランダムネス"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "世界における統計とランダムネス", "url": "https://beyondstep.keithmcnulty.org/ja/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第13章：世界における統計とランダムネス", "item": "https://beyondstep.keithmcnulty.org/ja/ch13/"}, {"@type": "ListItem", "position": 3, "name": "平均か中央値か？", "item": "https://beyondstep.keithmcnulty.org/ja/ch13/mean-or-median.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch13/mean-or-median.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch13/mean-or-median.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch13/mean-or-median.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch13/mean-or-median.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第13章 · 世界における統計とランダムネス</a>
+    <div class="src">STEP II · 2000 · 問題 14</div>
+    <div class="sec-head"><span class="sec-num">13.4</span><h1>平均か中央値か？</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-4-mean-or-median.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第13章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 2000、第14問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/00-s2-q14">step.maths.org/questions/00-s2-q14</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>測定値の集まりの中心を推定するには、平均（mean）をとることも中央値（median）をとることもできる。どちらがよいのだろうか。答えはデータによって異なる。ときおり大きく外れた誤差を含む測定値では、中央値のほうがはるかに信頼できる。ばかげた値が一つあるだけで平均はどこへでも引きずられてしまうが、中央値はほとんど動かない。性質のよいデータでは、たいてい平均のほうが優れている。この問題は、一様分布に従うデータについて、平均がどれほど優れているかを測るものである。中央値の分散（variance）は平均の分散の3倍であり、したがって中央値を平均と同じ精度にするには3倍の観測値が必要になる。</p>
+<p>この比較を通じて、統計的手法を選ぶうえでの主要な考え方の一つである<em>効率</em>（efficiency）と、<a href="../ch04/wallis-beta.html">第 4.4 節</a> にも登場したベータ積分（beta integral）を紹介する。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>中央値の密度（density）が <span class="math inline">\(y^n(1 - y)^n\)</span> に比例するのはなぜか。（<span class="math inline">\(Y\)</span> が <span class="math inline">\(y\)</span> の近くにあるためには、<span class="math inline">\(2n + 1\)</span> 個の値のうちいくつが <span class="math inline">\(y\)</span> より小さく、いくつが <span class="math inline">\(y\)</span> より大きくなければならないか。）</p>
+</div>
+<p>中央値が <span class="math inline">\(y\)</span> にあるためには、値の一つが <span class="math inline">\(y\)</span> にあり、<span class="math inline">\(n\)</span> 個がそれより小さく（それぞれ確率 <span class="math inline">\(y\)</span>）、<span class="math inline">\(n\)</span> 個がそれより大きく（それぞれ確率 <span class="math inline">\(1 - y\)</span>）なければならない。これにより因子 <span class="math inline">\(y^n(1 - y)^n\)</span> が得られる。定数は、どの値がどこに入るかの選び方の数を数えたものである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-定数" class="stage"><span class="stage-n">段階 1</span> 定数</h4>
+<p>密度の積分は <span class="math inline">\(1\)</span> でなければならない。 <span class="math display">\[k\int_0^1y^n(1 - y)^n\,\mathrm{d}y = k\cdot\frac{n!\,n!}{(2n + 1)!} = 1, \qquad k = \frac{(2n + 1)!}{(n!)^2}. \qed\]</span></p>
+<h4 id="stagemark2-平均と分散" class="stage"><span class="stage-n">段階 2</span> 平均と分散</h4>
+<p>密度は <span class="math inline">\(\frac12\)</span> に関して対称である（<span class="math inline">\(y\)</span> を <span class="math inline">\(1 - y\)</span> に置き換えればよい）から、<span class="math inline">\(\mathrm{E}(Y) = \frac12\)</span> である。</p>
+<div class="askyourself">
+<p>ベータ積分を用いて <span class="math inline">\(\mathrm{E}(Y^2) = k\int_0^1y^{n+2}(1 - y)^n\,\mathrm{d}y\)</span> を計算し、階乗を整理せよ。</p>
+</div>
+<p><span class="math display">\[\mathrm{E}(Y^2) = \frac{(2n + 1)!}{(n!)^2}\cdot\frac{(n + 2)!\,n!}{(2n + 3)!} = \frac{(n + 2)(n + 1)}{(2n + 3)(2n + 2)} = \frac{n + 2}{2(2n + 3)}.\]</span> したがって <span class="math display">\[\mathrm{Var}(Y) = \frac{n + 2}{2(2n + 3)} - \frac14 = \frac{2(n + 2) - (2n + 3)}{4(2n + 3)} = \frac{1}{4(2n + 3)}. \qed\]</span></p>
+<h4 id="stagemark3-平均との比較" class="stage"><span class="stage-n">段階 3</span> 平均との比較</h4>
+<div class="askyourself">
+<p><span class="math inline">\(2n + 1\)</span> 個の独立な一様分布に従う確率変数の平均 <span class="math inline">\(\bar X\)</span> の平均と分散はいくらか。</p>
+</div>
+<p>各 <span class="math inline">\(X_i\)</span> の平均は <span class="math inline">\(\frac12\)</span>、分散は <span class="math inline">\(\frac{1}{12}\)</span> であるから、<span class="math inline">\(\mathrm{E}(\bar X) = \frac12\)</span>、<span class="math inline">\(\mathrm{Var}(\bar X) = \frac{1}{12(2n + 1)}\)</span> である。<span class="math inline">\(n\)</span> が大きいとき、 <span class="math display">\[\mathrm{Var}(Y) \approx \frac{1}{8n}, \qquad \mathrm{Var}(\bar X) \approx \frac{1}{24n}.\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(Y\)</span> と <span class="math inline">\(\bar X\)</span> がともに平均 <span class="math inline">\(\frac12\)</span>、標準偏差（standard deviation）<span class="math inline">\(\sigma_Y\)</span>、<span class="math inline">\(\sigma_{\bar X}\)</span> の正規分布に従うとして、両方の確率を標準正規分布の分布関数 <span class="math inline">\(\Phi\)</span> を用いて表せ。</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}\bigl(|Y - \frac12| &lt; \frac{d}{\sqrt n}\bigr) = 2\Phi\bigl(\frac{d}{\sqrt n\,\sigma_Y}\bigr) - 1\)</span> であり、<span class="math inline">\(\sqrt n\,\sigma_Y \to \frac{1}{\sqrt8}\)</span> である。<span class="math inline">\(\bar X\)</span> についても同様で、<span class="math inline">\(\sqrt n\,\sigma_{\bar X} \to \frac{1}{\sqrt{24}}\)</span> となる。よって二つの確率はそれぞれ <span class="math inline">\(2\Phi(d\sqrt8) - 1\)</span> と <span class="math inline">\(2\Phi(d\sqrt{24}) - 1\)</span> に近づく。<span class="math inline">\(\Phi\)</span> は増加関数であり <span class="math inline">\(\sqrt{24} &gt; \sqrt8\)</span> であるから、後者のほうが大きく、したがって十分大きいすべての <span class="math inline">\(n\)</span> について不等式が成り立つ。<span class="qed" aria-label="end of proof">■</span> 平均のほうが真の中心に近い値をとりやすいのである。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-4-1.svg" alt="図 13.4.1"><figcaption><span class="fig-label">図 13.4.1</span> <span class="math inline">\(21\)</span> 個の独立な一様分布の観測値の中央値（紫）と平均（青緑）の標本分布。どちらも真の値 <span class="math inline">\(\frac12\)</span> を中心としているが、平均のほうがより狭く集中している。その分散は中央値の分散の約3分の1である。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>ベータ積分。</strong> <span class="math inline">\(\int_0^1y^r(1 - y)^s\,\mathrm{d}y\)</span> という一つの公式から、正規化定数とモーメントの両方が得られた。</p></li>
+<li><p><strong>対称性から平均が得られた。</strong> <span class="math inline">\(\mathrm{E}(Y)\)</span> を求めるのに積分は必要なかった。</p></li>
+<li><p><strong>ばらつきは適切な尺度で比較する。</strong> 標準偏差に <span class="math inline">\(\sqrt n\)</span> を掛けることで、比較が <span class="math inline">\(n\)</span> によらないものになった。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="効率">効率</h3>
+<p>二つの不偏推定量（unbiased estimator）の<em>相対効率</em>（relative efficiency）とは、それらの分散の比である。これは、一方が他方に匹敵するには何倍の観測値が必要かを表す。一様分布のデータでは、中央値の平均に対する効率は <span class="math inline">\(\frac13\)</span> である。正規分布のデータでは <span class="math inline">\(\frac2\pi \approx 0.64\)</span> であり、中央値には約 <span class="math inline">\(57\%\)</span> 多くの観測値が必要になる。しかし裾の重いデータでは立場が逆転する。コーシー分布（Cauchy distribution、<a href="../ch12/cauchy.html">第 12.22 節</a>）では平均は役に立たない。<span class="math inline">\(n\)</span> 個の観測値の平均は観測値一つと比べて少しもよくならないからである。一方、中央値はうまく機能する。ラプラス分布（Laplace distribution、<a href="../ch12/clt.html">第 12.24 節</a>）では、中央値の効率は平均の2倍である。</p>
+<h3 id="頑健統計">頑健統計</h3>
+<p>中央値は<em>頑健</em>（robust）である。データのほぼ半分を任意の値に変えても、中央値は大きくは動かない。平均にはそのような防御がなく、誤った値が一つあるだけで台なしになりうる。1960年代から1970年代にかけて、ジョン・テューキー（John Tukey）、Peter Huber らは<em>頑健統計</em>（robust statistics）を発展させた。これは、きれいなデータに対しては平均とほぼ同じ効率をもちながら、外れ値（outlier）には強い推定量であり、たとえば<em>刈り込み平均</em>（trimmed mean、最大と最小の <span class="math inline">\(10\%\)</span> を捨てて残りを平均したもの）がある。これは飛び込みや体操などの競技の採点に用いられている。</p>
+<div class="historybox">
+<div class="box-title">ラプラスと中央値</div>
+<p>ラプラス（Laplace）は1774年に、誤差が二重指数分布（ラプラス分布）に従うならば、真の値の最良の推定値は中央値であることを示した。ガウス（Gauss）は1809年に、誤差が正規分布に従うならば最良の推定値は平均であることを示し、これが最小二乗法（method of least squares）へとつながった。どちらが正しいかは誤差のふるまいによって決まり、これは新しい種類のデータが現れるたびに統計学者がいまなお議論している問題である。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">手法はばらつきで比較する</div>
+<p><em>二つの手法がどちらも平均的には正しいことがある。そのときは、答えがどれだけばらつくか、そしてデータが増えるにつれてそのばらつきがどれだけ速く小さくなるかを比較せよ。</em></p>
+<p>大学では、大標本における分散の比較である漸近効率（asymptotic efficiency）が、モデルが誤っているかもしれない場合のための頑健性とともに、統計的手法を選ぶ際の標準的な道具となっている。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>中央値の密度。</strong> 値が一つ <span class="math inline">\([y, y + \delta y]\)</span> にあり、<span class="math inline">\(n\)</span> 個がそれより小さく、<span class="math inline">\(n\)</span> 個がそれより大きいという数え上げによって、密度 <span class="math inline">\(\frac{(2n + 1)!}{(n!)^2}y^n(1 - y)^n\)</span> を導け。</p></li>
+<li><p><strong>三つの観測値。</strong> <span class="math inline">\(n = 1\)</span>（一様分布の観測値が三つ）のとき、<span class="math inline">\(\mathrm{Var}(Y)\)</span> と <span class="math inline">\(\mathrm{Var}(\bar X)\)</span> を正確に求めよ。どちらが小さいか。</p></li>
+<li><p><strong>ミッドレンジ。</strong> 中心のもう一つの推定量に、ミッドレンジ（midrange）<span class="math inline">\(\frac12(\max + \min)\)</span> がある。一様分布のデータで観測値が <span class="math inline">\(m = 2n + 1\)</span> 個のとき、その分散が <span class="math inline">\(\frac{1}{2(m + 1)(m + 2)}\)</span> であることを示せ。平均と比べてどうか。（<a href="../ch13/german-tanks.html">第 13.3 節</a> と比較せよ。）</p></li>
+<li><p><strong>外れ値。</strong> 11個の測定値が <span class="math inline">\(9.8\)</span>、<span class="math inline">\(9.9\)</span>、<span class="math inline">\(10.0\)</span>、<span class="math inline">\(10.0\)</span>、<span class="math inline">\(10.1\)</span>、<span class="math inline">\(10.1\)</span>、<span class="math inline">\(10.2\)</span>、<span class="math inline">\(10.2\)</span>、<span class="math inline">\(10.3\)</span>、<span class="math inline">\(10.4\)</span>、<span class="math inline">\(104\)</span>（入力ミス）である。平均と中央値を比較せよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>John Rice, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Statistics+and+Data+Analysis+Rice"><em>Mathematical Statistics and Data Analysis</em></a></strong>（Duxbury）。順序統計量と効率について。</p></li>
+<li><p><strong>Rand Wilcox, <a href="https://uk.bookshop.org/search?keywords=Fundamentals+of+Modern+Statistical+Methods+Wilcox"><em>Fundamentals of Modern Statistical Methods</em></a></strong>（Springer）。頑健な手法がなぜ重要なのかを、専門家でない読者向けに解説している。</p></li>
+<li><p><strong>Stephen Stigler, <a href="https://uk.bookshop.org/search?keywords=The+Seven+Pillars+of+Statistical+Wisdom+Stigler"><em>The Seven Pillars of Statistical Wisdom</em></a></strong>（Harvard University Press）。集約、平均、中央値を歴史的な視点から論じている。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="german-tanks.html">← 13.3 ドイツ戦車問題</a><a class="next" href="awkward-questions.html">→ 13.5 答えにくい質問をする</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

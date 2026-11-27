@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>フェルマー点 (STEP III 2000 Q3) — Beyond STEP</title>
+<meta name="description" content="STEP III 2000 問題 3：解説付き解答とその背後にある大学数学。 3つの村を結ぶ道路網を、できるだけ短く作りたい。分岐点はどこに置けばよいだろうか。1640年ごろ、フェルマー（Pierre de Fermat）は、三角形の内部の点 P で PA + PB + PC を最小にするものを求める問題を提起し、トリチェリ（Evangelista…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch05/fermat-point.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch05/fermat-point.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch05/fermat-point.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/fermat-point.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/fermat-point.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch05/fermat-point.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch05/fermat-point.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="フェルマー点 (STEP III 2000 Q3) — Beyond STEP">
+<meta property="og:description" content="STEP III 2000 問題 3：解説付き解答とその背後にある大学数学。 3つの村を結ぶ道路網を、できるだけ短く作りたい。分岐点はどこに置けばよいだろうか。1640年ごろ、フェルマー（Pierre de Fermat）は、三角形の内部の点 P で PA + PB + PC を最小にするものを求める問題を提起し、トリチェリ（Evangelista…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch05/fermat-point.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="フェルマー点 (STEP III 2000 Q3) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2000 問題 3：解説付き解答とその背後にある大学数学。 3つの村を結ぶ道路網を、できるだけ短く作りたい。分岐点はどこに置けばよいだろうか。1640年ごろ、フェルマー（Pierre de Fermat）は、三角形の内部の点 P で PA + PB + PC を最小にするものを求める問題を提起し、トリチェリ（Evangelista…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "フェルマー点", "headline": "フェルマー点", "description": "STEP III 2000 問題 3：解説付き解答とその背後にある大学数学。 3つの村を結ぶ道路網を、できるだけ短く作りたい。分岐点はどこに置けばよいだろうか。1640年ごろ、フェルマー（Pierre de Fermat）は、三角形の内部の点 P で PA + PB + PC を最小にするものを求める問題を提起し、トリチェリ（Evangelista…", "url": "https://beyondstep.keithmcnulty.org/ja/ch05/fermat-point.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2000 問題 3", "複素数"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 5, "name": "複素数", "url": "https://beyondstep.keithmcnulty.org/ja/ch05/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第5章：複素数", "item": "https://beyondstep.keithmcnulty.org/ja/ch05/"}, {"@type": "ListItem", "position": 3, "name": "フェルマー点", "item": "https://beyondstep.keithmcnulty.org/ja/ch05/fermat-point.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch05/fermat-point.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch05/fermat-point.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch05/fermat-point.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch05/fermat-point.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第5章 · 複素数</a>
+    <div class="src">STEP III · 2000 · 問題 3</div>
+    <div class="sec-head"><span class="sec-num">5.6</span><h1>フェルマー点</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-6-fermat-point.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第5章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2000、第3問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/00-s3-q3">step.maths.org/questions/00-s3-q3</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>3つの村を結ぶ道路網を、できるだけ短く作りたい。分岐点はどこに置けばよいだろうか。1640年ごろ、フェルマー（Pierre de Fermat）は、三角形の内部の点 <span class="math inline">\(P\)</span> で <span class="math inline">\(PA + PB + PC\)</span> を最小にするものを求める問題を提起し、トリチェリ（Evangelista Torricelli）がこれを解いた。答えは、3つの辺がいずれも <span class="math inline">\(120^\circ\)</span> の角をなして見える点である。</p>
+<p>この問題では、複素数（complex number）を用いて、その点を求める美しい作図法を証明する。三角形の各辺の外側に正三角形（equilateral triangle）を作り、新しくできた各頂点を、もとの三角形の向かい合う頂点と結ぶ。すると3本の直線は1点で交わる。これが<em>フェルマー点</em>（Fermat point）である。しかも3本の線分の長さはすべて等しく、その長さが道路の総延長の最小値になっている。複素数と、<span class="math inline">\(e^{\mathrm{i}\pi/3}\)</span> に関するひとつの恒等式を使えば、全体はわずか数行の計算で済む。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(A\)</span>、<span class="math inline">\(B\)</span>、<span class="math inline">\(C\)</span> はどこにあるか。それぞれの偏角はいくらか。<span class="math inline">\(OA\)</span>、<span class="math inline">\(OB\)</span>、<span class="math inline">\(OC\)</span> は互いにどのような角をなすか。</p>
+</div>
+<p><span class="math inline">\(A = p\)</span> は実軸の正の部分にある（偏角（argument）は <span class="math inline">\(0^\circ\)</span>）。<span class="math inline">\(B = q\alpha^2 = qe^{2\pi\mathrm{i}/3}\)</span> の偏角は <span class="math inline">\(120^\circ\)</span> である。<span class="math inline">\(C = -r\alpha = re^{\mathrm{i}\pi}e^{\mathrm{i}\pi/3}\)</span> の偏角は <span class="math inline">\(240^\circ\)</span> である。したがって原点は三角形の内部の点であり、そこから3つの頂点は互いに <span class="math inline">\(120^\circ\)</span> の角をなす方向に、それぞれ距離 <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span>、<span class="math inline">\(r\)</span> のところに見える。つまり、作り方からして原点<em>こそが</em>フェルマー点なのである。この問題は、正三角形を用いた作図によってこの点が求まることを示すものである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-鍵となる恒等式" class="stage"><span class="stage-n">段階 1</span> 鍵となる恒等式</h4>
+<p><span class="math inline">\(\alpha^3 = e^{\mathrm{i}\pi} = -1\)</span> であるから、<span class="math inline">\(\alpha\)</span> は <span class="math inline">\(z^3 + 1 = (z + 1)(z^2 - z + 1)\)</span> の根である。<span class="math inline">\(\alpha \neq -1\)</span> より <span class="math inline">\(\alpha^2 - \alpha + 1 = 0\)</span>、すなわち <span class="math inline">\(1 + \alpha^2 = \alpha\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<p>ここから導かれる2つの式が役に立つ。<span class="math inline">\(1 - \alpha = -\alpha^2\)</span> と <span class="math inline">\(\alpha - \alpha^2 = 1\)</span> である。また <span class="math inline">\(1 - \alpha = \frac12 - \frac{\sqrt3}{2}\mathrm{i} = e^{-\mathrm{i}\pi/3}\)</span> であり、これは <span class="math inline">\(\alpha\)</span> の共役複素数（complex conjugate）である。</p>
+<h4 id="stagemark2-回転としての正三角形" class="stage"><span class="stage-n">段階 2</span> 回転としての正三角形</h4>
+<div class="askyourself">
+<p>三角形 <span class="math inline">\(CAN\)</span> は正三角形で、頂点は時計回りに名前がつけられている。<span class="math inline">\(C\)</span> に立ったとき、<span class="math inline">\(A\)</span> からどうすれば <span class="math inline">\(N\)</span> に移れるか。<span class="math inline">\(N - C\)</span> を <span class="math inline">\(A - C\)</span> を用いて表せ。</p>
+</div>
+<p><span class="math inline">\(C\)</span>、<span class="math inline">\(A\)</span>、<span class="math inline">\(N\)</span> の順に時計回りに進むので、点 <span class="math inline">\(N\)</span> は <span class="math inline">\(A\)</span> を <span class="math inline">\(C\)</span> のまわりに時計回りに <span class="math inline">\(60^\circ\)</span> 回転（rotation）させて得られる。<span class="math inline">\(e^{-\mathrm{i}\pi/3} = 1 - \alpha\)</span> を掛けることは時計回りに <span class="math inline">\(60^\circ\)</span> 回転させることであるから、 <span class="math display">\[\begin{aligned}
+  N = C + (1 - \alpha)(A - C) &amp;= -r\alpha + (1 - \alpha)(p + r\alpha) \\
+  &amp;= (1 - \alpha)p + r(\alpha - \alpha^2 - \alpha) = (1 - \alpha)p - \alpha^2r. \qed
+\end{aligned}\]</span> （反時計回りではなく時計回りに回転させることで、<span class="math inline">\(N\)</span> は <span class="math inline">\(CA\)</span> に関して原点と反対側、すなわち三角形の外側に置かれる。）</p>
+<div class="pausebox">
+<p>同じ方法で <span class="math inline">\(L\)</span> と <span class="math inline">\(M\)</span> を求め、小問1の恒等式を用いて簡単にせよ。</p>
+</div>
+<p>同様に <span class="math inline">\(L = A + (1 - \alpha)(B - A)\)</span>、<span class="math inline">\(M = B + (1 - \alpha)(C - B)\)</span> であるから、 <span class="math display">\[\begin{aligned}
+  L &amp;= p + (1 - \alpha)(q\alpha^2 - p) = \alpha p + (\alpha^2 - \alpha^3)q = \alpha p + (\alpha^2 + 1)q = \alpha(p + q), \\
+  M &amp;= q\alpha^2 + (1 - \alpha)(-r\alpha - q\alpha^2) = q\alpha^3 + r(\alpha^2 - \alpha) = -q - r.
+\end{aligned}\]</span> さらに <span class="math inline">\(1 - \alpha = -\alpha^2\)</span> を用いると、<span class="math inline">\(N = -\alpha^2p - \alpha^2r = -\alpha^2(p + r)\)</span> である。</p>
+<h4 id="stagemark3-原点を通る3本の直線" class="stage"><span class="stage-n">段階 3</span> 原点を通る3本の直線</h4>
+<div class="askyourself">
+<p><span class="math inline">\(L = \alpha(p + q)\)</span> と <span class="math inline">\(C = -r\alpha\)</span> を比べよ。何に気づくか。<span class="math inline">\(M\)</span> と <span class="math inline">\(A\)</span>、<span class="math inline">\(N\)</span> と <span class="math inline">\(B\)</span> についても同じことをせよ。</p>
+</div>
+<p><span class="math inline">\(L\)</span> は <span class="math inline">\(\alpha\)</span> の正の実数倍であり、<span class="math inline">\(C\)</span> は <span class="math inline">\(\alpha\)</span> の負の実数倍である。したがって <span class="math inline">\(L\)</span> と <span class="math inline">\(C\)</span> は <span class="math inline">\(O\)</span> を通る同一直線上で <span class="math inline">\(O\)</span> をはさんで反対側にあり、線分 <span class="math inline">\(LC\)</span> は原点を通る。その長さは <span class="math inline">\(|L - C| = |\alpha|(p + q + r) = p + q + r\)</span> である。</p>
+<p>同様に、<span class="math inline">\(M = -(q + r)\)</span> と <span class="math inline">\(A = p\)</span> は実軸上で <span class="math inline">\(O\)</span> をはさんで反対側にあるので、<span class="math inline">\(MA\)</span> は <span class="math inline">\(O\)</span> を通り、長さは <span class="math inline">\(p + q + r\)</span> である。また <span class="math inline">\(N = -\alpha^2(p + r)\)</span> と <span class="math inline">\(B = q\alpha^2\)</span> は、<span class="math inline">\(O\)</span> を通り <span class="math inline">\(\alpha^2\)</span> の方向に伸びる直線上で互いに反対側にあるので、<span class="math inline">\(NB\)</span> は <span class="math inline">\(O\)</span> を通り、長さは <span class="math inline">\(p + q + r\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-5-6-1.svg" alt="図 5.6.1"><figcaption><span class="fig-label">図 5.6.1</span> <span class="math inline">\(p = 2\)</span>、<span class="math inline">\(q = 1.4\)</span>、<span class="math inline">\(r = 1.1\)</span> のときのフェルマー点。<span class="math inline">\(ABC\)</span> の各辺の外側に正三角形（琥珀色）を作る。直線 <span class="math inline">\(LC\)</span>、<span class="math inline">\(MA\)</span>、<span class="math inline">\(NB\)</span>（紫）はすべて原点 <span class="math inline">\(O\)</span> を通る。<span class="math inline">\(O\)</span> からは <span class="math inline">\(ABC\)</span> の各辺が <span class="math inline">\(120^\circ\)</span> の角をなして見え、3本の線分の長さはいずれも <span class="math inline">\(p + q + r = 4.5\)</span> である。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>回転は掛け算である。</strong>正三角形を作ることは、ある頂点を別の頂点のまわりに <span class="math inline">\(60^\circ\)</span> 回転させることであり、それは <span class="math inline">\(e^{\pm\mathrm{i}\pi/3}\)</span> を掛けることにほかならない。</p></li>
+<li><p><strong>座標の巧みな選び方。</strong>フェルマー点を原点に置き、頂点を <span class="math inline">\(1\)</span>、<span class="math inline">\(\alpha^2\)</span>、<span class="math inline">\(-\alpha\)</span> の方向に並べたことで、すべての式が劇的に簡単になった。</p></li>
+<li><p><strong>ひとつの恒等式を繰り返し使う。</strong>式の簡略化はすべて <span class="math inline">\(\alpha^2 - \alpha + 1 = 0\)</span> と <span class="math inline">\(\alpha^3 = -1\)</span> から得られた。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">フェルマー点で距離の和が最小になる理由</div>
+<p>なぜ <span class="math inline">\(PA + PB + PC\)</span> は、各辺が <span class="math inline">\(120^\circ\)</span> の角をなして見える点で最小になるのだろうか。ここに見事な論法がある。図全体を <span class="math inline">\(B\)</span> のまわりに <span class="math inline">\(60^\circ\)</span> 回転させ、<span class="math inline">\(A\)</span> を <span class="math inline">\(L&#39;\)</span>（<span class="math inline">\(AB\)</span> 上に作った正三角形の頂点）に、<span class="math inline">\(P\)</span> を <span class="math inline">\(P&#39;\)</span> に移す。三角形 <span class="math inline">\(BPP&#39;\)</span> は正三角形であるから <span class="math inline">\(PB = PP&#39;\)</span> であり、また <span class="math inline">\(PA = P&#39;L&#39;\)</span> である。よって <span class="math inline">\(PA + PB + PC = L&#39;P&#39; + P&#39;P + PC\)</span> となり、これは <span class="math inline">\(L&#39;\)</span> から <span class="math inline">\(C\)</span> へ至る折れ線の長さである。これは <span class="math inline">\(|L&#39;C|\)</span> 以上であり、等号が成り立つのは折れ線がまっすぐなとき、すなわち <span class="math inline">\(P\)</span> における角がすべて <span class="math inline">\(120^\circ\)</span> のときに限る。したがって総延長の最小値は、問題で求めたとおり <span class="math inline">\(|LC| = p + q + r\)</span> である。（これは三角形のどの角も <span class="math inline">\(120^\circ\)</span> より小さい場合に成り立つ。そうでない場合、最小となるのは鈍角（obtuse angle）の頂点である。）</p>
+</div>
+<h3 id="石けん膜とシュタイナー木">石けん膜とシュタイナー木</h3>
+<p>3本の杭（<span class="math inline">\(A\)</span>、<span class="math inline">\(B\)</span>、<span class="math inline">\(C\)</span> を表す）をつけた枠を石けん水に浸すと、石けん膜は表面張力（surface tension）によるエネルギーを最小にしようとして、フェルマー点で <span class="math inline">\(120^\circ\)</span> の角をなして交わる3枚の膜を作る。点の数がもっと多い場合、それらを結ぶ最短のネットワークは<em>シュタイナー木</em>（Steiner tree）であり、3本の辺が <span class="math inline">\(120^\circ\)</span> で交わる分岐点が新たに加わる。シュタイナー木を求めることは一般には計算量的に難しい（NP困難（NP-hard）な問題である）が、道路網やパイプライン、コンピュータチップの配線の設計など、実用上重要である。</p>
+<h3 id="ナポレオンの定理">ナポレオンの定理</h3>
+<p>同じ配置には、もうひとつの宝石が隠れている。任意の三角形の各辺の上に作った3つの正三角形の<em>中心</em>は、正三角形をなすのである。これは伝統的にナポレオン・ボナパルト（Napoleon Bonaparte、熱心なアマチュア数学者であった）の功績とされ、ナポレオンの定理（Napoleon’s theorem）と呼ばれるが、彼が発見したという証拠はない。この定理も、<span class="math inline">\(1 + \alpha^2 = \alpha\)</span> を用いれば複素数で短く証明できる。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">問題に合った座標を選ぶ</div>
+<p><em>最も重要な点を原点に置き、問題の対称性に合わせて配置せよ。うまく選べば、計算はほとんど自明になる。</em></p>
+<p>ここでは原点をフェルマー点とし、3つの頂点は（符号を除いて）<span class="math inline">\(-1\)</span> の3乗根の方向に並んでいた。ほかの座標を使えば、同じ計算がはるかに煩雑になったであろう。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>頂点の名前のつけ方を確かめる。</strong>正三角形の頂点を反時計回りに名づけた（内側に作った）場合、3本の直線は一般には <span class="math inline">\(O\)</span> を通らないことを示せ。</p></li>
+<li><p><strong>ナポレオンの定理。</strong>正三角形 <span class="math inline">\(ABL\)</span> の中心が <span class="math inline">\(\frac13(A + B + L)\)</span> であることを示せ。上で求めた式を用いて、3つの中心が正三角形をなすことを示せ。</p></li>
+<li><p><strong>最小値。</strong><span class="math inline">\(p = 2\)</span>、<span class="math inline">\(q = 1.4\)</span>、<span class="math inline">\(r = 1.1\)</span> のとき、<span class="math inline">\(P\)</span> を各頂点および重心（centroid）<span class="math inline">\(\frac13(A + B + C)\)</span> に置いて <span class="math inline">\(PA + PB + PC\)</span> を計算し、いずれも <span class="math inline">\(4.5\)</span> より大きいことを確かめよ。</p></li>
+<li><p><strong>正三角形の判定。</strong><span class="math inline">\(z_1\)</span>、<span class="math inline">\(z_2\)</span>、<span class="math inline">\(z_3\)</span> が（どちらの向きであれ）正三角形をなすための必要十分条件は <span class="math inline">\(z_1^2 + z_2^2 + z_3^2 = z_1z_2 + z_2z_3 + z_3z_1\)</span> であることを示せ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Richard Courant &amp; Herbert Robbins, <a href="https://uk.bookshop.org/search?keywords=What+Is+Mathematics%3F+Courant+Robbins"><em>What Is Mathematics?</em></a></strong>（Oxford University Press）。邦題『数学とは何か』。第7章でフェルマー点、シュタイナー木、石けん膜を論じている。</p></li>
+<li><p><strong>Liang-shin Hahn, <a href="https://uk.bookshop.org/search?keywords=Complex+Numbers+and+Geometry+Hahn"><em>Complex Numbers and Geometry</em></a></strong>（Mathematical Association of America）。多くの幾何の定理を、まさにこの水準の複素数を用いて証明している。</p></li>
+<li><p><strong>Tristan Needham, <a href="https://uk.bookshop.org/search?keywords=Visual+Complex+Analysis+Needham"><em>Visual Complex Analysis</em></a></strong>（Oxford University Press）。邦題『ヴィジュアル複素解析』。第1章にナポレオンの定理をはじめとする幾何の結果が収められている。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="rational-angles.html">← 5.5 有理角になりそうでならない角</a><a class="next" href="complex-exponential.html">→ 5.7 写像としての複素指数関数</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

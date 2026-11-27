@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第8章：微分方程式と力学系 — Beyond STEP</title>
+<meta name="description" content="まず解の存在と定性的な振る舞いを扱い、次にモデル化、最後に離散写像におけるカオスを考察する。">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch08/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch08/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch08/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch08/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第8章：微分方程式と力学系 — Beyond STEP">
+<meta property="og:description" content="まず解の存在と定性的な振る舞いを扱い、次にモデル化、最後に離散写像におけるカオスを考察する。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch08/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第8章：微分方程式と力学系 — Beyond STEP">
+<meta name="twitter:description" content="まず解の存在と定性的な振る舞いを扱い、次にモデル化、最後に離散写像におけるカオスを考察する。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 8, "name": "微分方程式と力学系", "url": "https://beyondstep.keithmcnulty.org/ja/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "まず解の存在と定性的な振る舞いを扱い、次にモデル化、最後に離散写像におけるカオスを考察する。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第8章：微分方程式と力学系", "item": "https://beyondstep.keithmcnulty.org/ja/ch08/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch08/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch08/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch08/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch08/index.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">8</div>
+    <h1>微分方程式と力学系</h1>
+    <p class="strap">ほとんどの微分方程式は解けない。それでも理解すること、そこに技がある。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">章全体をダウンロード</span><span class="dl-sub">PDF（印刷用組版）</span></span></a>
+  </div>
+  <h2 class="contents-head">この章の内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="non-uniqueness.html"><span class="toc-num">8.1</span>
+<span class="toc-title">解が一意でないとき</span>
+<span class="toc-src">STEP III 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-1-non-uniqueness.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="bounding-without-solving.html"><span class="toc-num">8.2</span>
+<span class="toc-title">解かずに評価する</span>
+<span class="toc-src">STEP III 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-2-bounding-without-solving.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="harvesting.html"><span class="toc-num">8.3</span>
+<span class="toc-title">個体群の収穫</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-3-harvesting.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="limit-cycle.html"><span class="toc-num">8.4</span>
+<span class="toc-title">渦を巻いて円に近づく</span>
+<span class="toc-src">STEP III 2015</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-4-limit-cycle.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="pursuit.html"><span class="toc-num">8.5</span>
+<span class="toc-title">グレイハウンドを追うグレイハウンド</span>
+<span class="toc-src">STEP III 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-5-pursuit.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="quantum-oscillator.html"><span class="toc-num">8.6</span>
+<span class="toc-title">量子振動子</span>
+<span class="toc-src">STEP III 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-6-quantum-oscillator.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="solvable-chaos.html"><span class="toc-num">8.7</span>
+<span class="toc-title">解けるカオス</span>
+<span class="toc-src">STEP I 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-7-solvable-chaos.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="period-three.html"><span class="toc-num">8.8</span>
+<span class="toc-title">周期3ならばカオス</span>
+<span class="toc-src">STEP III 2025</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-8-period-three.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">振り返り：ここで学んだこと</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「次はこれに挑戦」の演習問題の解答</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第8章  \(\cdot\)  序論</div>
+    <h1 class="essay-title">変化の規則</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>自然は積分の困難を笑う。</p>
+<p class="who">— ピエール＝シモン・ラプラス（Pierre-Simon Laplace）の言葉とされる</p>
+</div>
+<p>学校では、微分方程式（differential equation）は解くべきものである。変数を分離する（separation of variables）か、積分因子（integrating factor）を見つけるか、<span class="math inline">\(e^{\lambda x}\)</span> の形の解を推測するかして、最後には公式が得られる。教科書の方程式は、この方法がうまくいくように選ばれているのである。残念ながら、現実世界から生じるほとんどすべての微分方程式（三つの惑星の運動、天気、捕食者と被食者の個体群、大きな振幅で揺れる振り子）には、既知の関数で書き下せる解が存在しない。</p>
+<p>本章では、その代わりに何をすればよいかを扱う。「公式は何か？」と問うのではなく、公式がなくても答えられる問いを立てる。そもそも解は存在するのか、そしてそれは一つだけか。解は有界にとどまるか。定常状態や繰り返す周期に落ち着くのか、それともいつまでもさまよい続けるのか。長い時間の後にどうなるのか。解くことから理解することへのこの視点の転換は、1880年代にポアンカレ（Henri Poincaré）によって始められ、今日<em>力学系</em>（dynamical systems）と呼ばれる分野を生み出した。</p>
+<h3 id="微分方程式はなぜ重要か">微分方程式はなぜ重要か</h3>
+<p>微分方程式は科学の言語である。ニュートン（Newton）の第二法則は微分方程式であり、電磁気学のマクスウェル（Maxwell）方程式、量子力学のシュレーディンガー（Schrödinger）方程式、そして天気予報や航空機の設計に用いられる流体の方程式もまたそうである。疫学者は病気の広がりを、生態学者は魚の資源量を、経済学者は経済成長を、そして技術者はサーモスタットから自動操縦装置に至るあらゆる制御系の応答を、微分方程式で表す。ある量が現在の状態に依存する速さで変化するときには必ず微分方程式があり、たいていそれは誰にも厳密には解けないものである。</p>
+<p>こうした連続的なモデルと並んで、時間が一歩ずつ進む離散的なモデルもある。今年の個体数が来年の個体数を決めるといったものである。このような<em>反復写像</em>（iterated map）は書き下すのはより簡単だが、最後の二つの節で見るように、同じくらい激しい振る舞いを示しうる。1970年代の偉大な発見の一つは、ごく単純な規則が<em>カオス</em>（chaos）、すなわち完全に決定されていながら実際上は予測できない振る舞いを生み出しうるということであった。</p>
+<h3 id="大学で出会うこと">大学で出会うこと</h3>
+<p>大学1年の微分方程式の講義では標準的な解法を学ぶが、本章のような問いも導入される。解が存在するのはいつか、また解が初期値によって一意に定まるのはいつかを教えてくれる存在と一意性の定理（existence and uniqueness theorem）に出会うであろう。すべての解を一度に描いた図である<em>相図</em>（phase portrait）を描くこと、そして線形化（linearisation）によって平衡点（equilibrium）を安定（stable）か不安定（unstable）かに分類することを学ぶ。その後の講義はさらに先へ進む。<em>非線形力学</em>（nonlinear dynamics）はリミットサイクル（limit cycle）、分岐（bifurcation）、カオスを研究し、<em>数理生物学</em>（mathematical biology）はそれらを個体群や感染症に応用する。そして偏微分方程式（partial differential equation）、フーリエ級数（Fourier series）、直交関数（orthogonal functions）の理論（<a href="../ch08/quantum-oscillator.html">第 8.6 節</a> でその一端を垣間見る）は、量子力学と応用数学の多くを支えている。</p>
+<h3 id="本章を貫く問い">本章を貫く問い</h3>
+<div class="skillbox">
+<div class="box-title">三つの大きな問い</div>
+<ol class="arabic">
+<li><p><strong>現在は未来を決定するか？</strong> 微分方程式が初期値とともに与えられたとき、解がちょうど一つ存在するのはどのような場合か。</p></li>
+<li><p><strong>解かずに何がわかるか？</strong> 公式が存在しないとき、どうすれば解を評価し、解が落ち着く先を見つけ、その形を記述できるか。</p></li>
+<li><p><strong>長い時間の後に何が起こるか？</strong> 解は定常状態に落ち着くのか、周期に近づくのか、それともカオス的に振る舞うのか。そしてそれをどう見分けるのか。</p></li>
+</ol>
+</div>
+<p>本章はまず一意性と、それが成り立たないときに何が起こるか（<a href="../ch08/non-uniqueness.html">第 8.1 節</a>）から始め、続いて方程式を解かずに理解するための道具を展開する。増加しえないエネルギーのような量、平衡点とその安定性、そして問題の対称性に合わせた座標である。二つの節では、これらの考え方を物理的な問題に応用する。正方形の中で互いを追いかける犬と、量子調和振動子（quantum harmonic oscillator）である。本章の最後は離散写像を扱う。そこでは公式がカオスを明らかにし、また長さ3の周期がただ一つあるだけで、あらゆる長さの周期が存在することが強制される。</p>
+<h3 id="本章の考え方">本章の考え方</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">主題</th>
+<th style="text-align: left;">考え方</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">8.1</td>
+<td style="text-align: left;">一意性</td>
+<td style="text-align: left;">包絡線（envelope）と特異解（singular solution）、解の貼り合わせ</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.2</td>
+<td style="text-align: left;">エネルギー法</td>
+<td style="text-align: left;">決して増加しない量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.3</td>
+<td style="text-align: left;">個体群モデル</td>
+<td style="text-align: left;">平衡点、安定性、転換点（tipping point）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.4</td>
+<td style="text-align: left;">リミットサイクル</td>
+<td style="text-align: left;">極座標とベルヌーイ（Bernoulli）型の置換</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.5</td>
+<td style="text-align: left;">追跡曲線（pursuit curve）</td>
+<td style="text-align: left;">対称性により四体を一体に帰着する</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.6</td>
+<td style="text-align: left;">直交関数</td>
+<td style="text-align: left;">ロンスキアン（Wronskian）と直交性</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.7</td>
+<td style="text-align: left;">カオス</td>
+<td style="text-align: left;">変数変換：ロジスティック写像（logistic map）は姿を変えた角の倍化である</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.8</td>
+<td style="text-align: left;">周期軌道</td>
+<td style="text-align: left;">区間の被覆、シャルコフスキー（Sharkovskii）の定理</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="本章の読み方">本章の読み方</h3>
+<p>何かを解く前に、まず図を描くこと。微分方程式 <span class="math inline">\(y&#39; = F(y)\)</span> については、<span class="math inline">\(F\)</span> が正、負、零になるところに印をつけ、<span class="math inline">\(y\)</span> 軸上に矢印を描く。写像 <span class="math inline">\(x \mapsto \mathrm{f}(x)\)</span> については、そのグラフを直線 <span class="math inline">\(y = x\)</span> とともに描き、クモの巣図法（cobweb method）でいくつかの数列をたどる。こうした図は1分もあれば描けるし、たいていは計算を始める前に、答えがどのような形になるべきかを教えてくれる。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="non-uniqueness.html">→ 読み始める： 8.1 解が一意でないとき</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

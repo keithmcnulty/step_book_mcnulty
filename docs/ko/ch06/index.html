@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제6장: 대수와 구조 — Beyond STEP</title>
+<meta name="description" content="1의 거듭제곱근과 다항식을 통해 갈루아 이론으로 나아가며, 세 개의 군론 문제로 장을 마무리한다.">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch06/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch06/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch06/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="제6장: 대수와 구조 — Beyond STEP">
+<meta property="og:description" content="1의 거듭제곱근과 다항식을 통해 갈루아 이론으로 나아가며, 세 개의 군론 문제로 장을 마무리한다.">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch06/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="제6장: 대수와 구조 — Beyond STEP">
+<meta name="twitter:description" content="1의 거듭제곱근과 다항식을 통해 갈루아 이론으로 나아가며, 세 개의 군론 문제로 장을 마무리한다.">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 6, "name": "대수와 구조", "url": "https://beyondstep.keithmcnulty.org/ko/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "1의 거듭제곱근과 다항식을 통해 갈루아 이론으로 나아가며, 세 개의 군론 문제로 장을 마무리한다."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제6장: 대수와 구조", "item": "https://beyondstep.keithmcnulty.org/ko/ch06/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch06/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch06/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch06/index.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">장</div>
+    <div class="ch-num">6</div>
+    <h1>대수와 구조</h1>
+    <p class="strap">대수학의 모든 기발한 요령 뒤에는 구조가 있으며, 그 구조를 이해하는 것은 요령을 아무리 많이 아는 것보다 값지다.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">장 전체 내려받기</span><span class="dl-sub">인쇄용으로 조판한 PDF</span></span></a>
+  </div>
+  <h2 class="contents-head">이 장의 내용</h2>
+  <ol class="toc"><li><a class="toc-link" href="cyclotomic.html"><span class="toc-num">6.1</span>
+<span class="toc-title">근이 모두 단위근인 다항식</span>
+<span class="toc-src">STEP III 2010</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-1-cyclotomic.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="gauss-17gon.html"><span class="toc-num">6.2</span>
+<span class="toc-title">가우스의 정17각형</span>
+<span class="toc-src">STEP II 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-2-gauss-17gon.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="field-extensions.html"><span class="toc-num">6.3</span>
+<span class="toc-title">\(\sqrt2 + \sqrt3 + \sqrt5\)를 근으로 갖는 다항식</span>
+<span class="toc-src">STEP II 2023</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-3-field-extensions.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="quartic.html"><span class="toc-num">6.4</span>
+<span class="toc-title">사차방정식 풀기</span>
+<span class="toc-src">STEP III 2017</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-4-quartic.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="derivations.html"><span class="toc-num">6.5</span>
+<span class="toc-title">공리에서 출발하는 미분</span>
+<span class="toc-src">STEP II 1992</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-5-derivations.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="subgroup-unions.html"><span class="toc-num">6.6</span>
+<span class="toc-title">부분군의 합집합</span>
+<span class="toc-src">STEP II 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-6-subgroup-unions.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="quaternions.html"><span class="toc-num">6.7</span>
+<span class="toc-title">사원수군</span>
+<span class="toc-src">STEP III 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-7-quaternions.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="singular-group.html"><span class="toc-num">6.8</span>
+<span class="toc-title">특이행렬로 이루어진 군</span>
+<span class="toc-src">STEP III 1996</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-8-singular-group.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">돌아보기: 지금까지 배운 것</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“다음으로 풀어 보기” 연습문제의 답</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">제6장  \(\cdot\)  들어가며</div>
+    <h1 class="essay-title">방정식에서 구조로</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>수학은 서로 다른 것에 같은 이름을 붙이는 기술이다.</p>
+<p class="who">— 앙리 푸앵카레(Henri Poincaré)</p>
+</div>
+<p>역사의 대부분 동안 대수학(algebra)은 방정식을 푸는 일을 뜻했다. 바빌로니아인은 4000년 전에 이차방정식(quadratic equation)을 풀었고, 16세기 이탈리아 수학자들은 삼차방정식(cubic equation)과 사차방정식(quartic equation)을 풀었다. 그러고 나서 거의 300년 동안 오차방정식(quintic equation)은 모든 시도를 견뎌 냈다. 1820년대와 1830년대에 마침내 해결이 이루어졌을 때, 대수학은 완전히 바뀌었다. 닐스 헨리크 아벨(Niels Henrik Abel)은 오차방정식의 일반적인 근의 공식이 존재하지 않음을 증명했고, 에바리스트 갈루아(Évariste Galois)는 어떤 방정식을 풀 수 있는지를 정확히 설명했는데, 방정식 자체가 아니라 <em>근(root)의 대칭(symmetry)</em>을 연구함으로써 그렇게 했다. 이를 위해 그는 새로운 종류의 수학적 대상, 곧 군(group)을 고안해야 했다.</p>
+<p>답을 계산하는 것에서 구조를 연구하는 것으로의 이 전환이 바로 이 장의 주제이다. 현대 대수학은 “해가 무엇인가?”라고 묻는 대신 “이것은 어떤 종류의 대상이며, 어떤 연산을 허용하는가?”라고 묻는다. 그 답은 옛 요령들이 왜 통했는지를 설명해 주고, 요령만으로는 결코 해결할 수 없었던 문제들을 매듭짓는다.</p>
+<h3 id="구조가-왜-중요한가">구조가 왜 중요한가</h3>
+<p>2000년 동안 모든 시도를 견뎌 낸 세 가지 고대 문제가 있다. 자와 컴퍼스(ruler and compasses)만으로 정육면체의 부피를 두 배로 늘리는 것, 임의의 각을 삼등분하는 것, 정<span class="math inline">\(7\)</span>각형을 작도(construction)하는 것이다. 이 가운데 어느 것도 불가능하며, 19세기에 발견된 그 증명은 기발한 작도가 아니라 구조에 관한 논증이다. 곧 자와 컴퍼스로 도달할 수 있는 수들이 이루는 체(field)의 <em>차수(degree)</em>에 관한 논증이다(<a href="../ch06/field-extensions.html">6.3 절</a>). 같은 이론으로 정<span class="math inline">\(17\)</span>각형은 왜 작도<em>할 수 있는지</em>(<a href="../ch06/gauss-17gon.html">6.2 절</a>), 그리고 사차방정식은 풀 수 있지만 오차방정식은 왜 풀 수 없는지(<a href="../ch06/quartic.html">6.4 절</a>)도 설명된다.</p>
+<p>구조는 또한 여러 곳으로 옮겨 간다. 결정(crystal)의 대칭, 다항식의 근들의 치환(permutation), 3차원 공간의 회전, 루빅스 큐브의 움직임, 타원곡선(elliptic curve) 위의 점들은 모두 군의 공리(axiom)를 만족한다. 공리로부터 한 번 증명한 정리는 이 모두에서 성립한다. 푸앵카레의 말처럼 “서로 다른 것에 같은 이름을 붙이는” 이 경제성이야말로 추상대수학(abstract algebra)을 그토록 강력하게 만드는 것이다.</p>
+<h3 id="대학에서-만나게-될-것">대학에서 만나게 될 것</h3>
+<p>1학년 때는 <em>군</em>(세 가지 공리를 만족하는 연산이 주어진 집합)을 만나고, 대개 <em>환(ring)</em>과 <em>체</em>(덧셈과 곱셈이 주어진 집합)도 만난다. 부분군(subgroup)의 크기가 군의 크기를 나눈다는 라그랑주(Lagrange) 정리를 증명하고, 치환, 대칭군(symmetry group), 행렬군(matrix group)을 만난다. 2학년과 3학년에는 이것들이 체와 군을 연결하고 방정식과 작도에 관한 고전적인 질문에 답하는 <em>갈루아 이론(Galois theory)</em>, 행렬을 통해 군을 연구하는 <em>표현론(representation theory)</em>, 그리고 <a href="../ch01/factorisation-fails.html">1.7 절</a>의 아이디어를 튼튼한 기반 위에 세우는 <em>대수적 정수론(algebraic number theory)</em>으로 이어진다. 이 장의 마지막 세 절은 군에 관한 것이다. 군은 더 이상 STEP 출제 범위(syllabus)에 포함되지 않지만(2019년에 빠졌다), 문제들은 그 자체로 완결되어 있으며 각 절에서 필요한 정의를 제시한다.</p>
+<h3 id="이-장을-관통하는-질문들">이 장을 관통하는 질문들</h3>
+<div class="skillbox">
+<div class="box-title">세 가지 큰 질문</div>
+<ol class="arabic">
+<li><p><strong>무엇으로부터 무엇을 만들 수 있는가?</strong> 유리수(rational number)로부터 제곱근을 취하거나 방정식을 풀어서 어떤 수에 도달할 수 있으며, 어떤 수에 도달할 수 없다는 것은 어떻게 증명하는가?</p></li>
+<li><p><strong>방정식의 근의 공식은 왜 성립하는가?</strong> 이차, 삼차, 사차방정식에 근의 공식이 있는 숨은 이유는 무엇이며, 오차가 되면 무엇이 달라지는가?</p></li>
+<li><p><strong>추상화로 무엇을 얻는가?</strong> 대상을 그것이 따르는 규칙만으로 기술하면 어떤 일이 일어나는가?</p></li>
+</ol>
+</div>
+<h3 id="이-장의-아이디어">이 장의 아이디어</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">주제</th>
+<th style="text-align: left;">아이디어</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">6.1</td>
+<td style="text-align: left;">원분다항식(cyclotomic polynomial)</td>
+<td style="text-align: left;">1의 거듭제곱근(root of unity)을 위수(order)에 따라 분류한다</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6.2</td>
+<td style="text-align: left;">정<span class="math inline">\(17\)</span>각형</td>
+<td style="text-align: left;">가우스(Gauss) 주기: 합과 곱이 이차방정식을 준다</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6.3</td>
+<td style="text-align: left;">최소다항식(minimal polynomial)</td>
+<td style="text-align: left;">거듭제곱근(radical)을 소거한다; 차수는 곱해진다</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6.4</td>
+<td style="text-align: left;">사차방정식 풀기</td>
+<td style="text-align: left;">대칭함수(symmetric function); 분해 삼차식(resolvent cubic)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6.5</td>
+<td style="text-align: left;">공리로부터 출발하는 미분(differentiation)</td>
+<td style="text-align: left;">규칙에 의해 결정되는 연산</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6.6</td>
+<td style="text-align: left;">부분군의 합집합</td>
+<td style="text-align: left;">군의 공리로부터 논증하기</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6.7</td>
+<td style="text-align: left;">사원수군(quaternion group)</td>
+<td style="text-align: left;">연산을 행렬로 표현하기</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6.8</td>
+<td style="text-align: left;">특이행렬(singular matrix)로 이루어진 군</td>
+<td style="text-align: left;">정의를 문자 그대로 읽기</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="이-장을-읽는-방법">이 장을 읽는 방법</h3>
+<p>이 문제들 중 상당수는 힘으로 밀어붙이는 계산(brute force)으로 풀 수 있다. 모든 것을 전개하고, 계수를 비교하고, 모든 경우를 확인하는 것이다. 필요하다면 먼저 그렇게 하라. 그런 다음 돌아보며, 무엇 덕분에 그 계산이 통했는지, 그리고 그 뒤에 구조적인 이유가 있는지 물어보라. 구조적인 이유는 대개 더 짧고, 언제나 더 많은 것을 밝혀 주며, 힘으로 밀어붙이는 계산이 불가능해질 때 필요한 것이 바로 그것이다.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="cyclotomic.html">→ 시작: 6.1 근이 모두 단위근인 다항식</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -27,12 +27,17 @@
     win.focus();
   });
 
+  var TITLES = {
+    zh: "在本頁旁邊的小視窗開啟題目（英文原題）",
+    ja: "このページの横の小さなウィンドウで問題（英語の原題）を開きます",
+    ko: "이 페이지 옆의 작은 창에서 문제(영어 원문)를 엽니다"
+  };
   document.addEventListener("DOMContentLoaded", function () {
     var links = document.querySelectorAll('a[href^="' + PREFIX + '"]');
     for (var i = 0; i < links.length; i++) {
       links[i].classList.add("q-popup");
-      if (!links[i].title) links[i].title = /^zh/i.test(document.documentElement.lang || "")
-        ? "在本頁旁邊的小視窗開啟題目（英文原題）" : "Opens the question in a small window beside this page";
+      if (!links[i].title) links[i].title = TITLES[(document.documentElement.lang || "").slice(0, 2).toLowerCase()]
+        || "Opens the question in a small window beside this page";
     }
   });
 })();

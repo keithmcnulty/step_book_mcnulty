@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7장 정리 — Beyond STEP</title>
+<meta name="description" content="이 장은 행렬(matrix)이 그 자체로 생명을 지닌 공간의 변환(transformation)이라는 말로 시작했고, 세 가지 질문을 던졌다. 행렬은 수와 어떤 점에서 닮았고 어떤 점에서 다른가, 행렬은 실제로 무엇을 하는가, 그리고 무엇이 변하지 않는가. 이 장의 아홉 문제가 보여 준 것을 정리하면 다음과 같다. 1. 행렬은 수와 어떤 점에서 닮았고…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch07/wrap-up.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch07/wrap-up.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/wrap-up.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/wrap-up.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/wrap-up.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch07/wrap-up.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/wrap-up.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="7장 정리 — Beyond STEP">
+<meta property="og:description" content="이 장은 행렬(matrix)이 그 자체로 생명을 지닌 공간의 변환(transformation)이라는 말로 시작했고, 세 가지 질문을 던졌다. 행렬은 수와 어떤 점에서 닮았고 어떤 점에서 다른가, 행렬은 실제로 무엇을 하는가, 그리고 무엇이 변하지 않는가. 이 장의 아홉 문제가 보여 준 것을 정리하면 다음과 같다. 1. 행렬은 수와 어떤 점에서 닮았고…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch07/wrap-up.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="7장 정리 — Beyond STEP">
+<meta name="twitter:description" content="이 장은 행렬(matrix)이 그 자체로 생명을 지닌 공간의 변환(transformation)이라는 말로 시작했고, 세 가지 질문을 던졌다. 행렬은 수와 어떤 점에서 닮았고 어떤 점에서 다른가, 행렬은 실제로 무엇을 하는가, 그리고 무엇이 변하지 않는가. 이 장의 아홉 문제가 보여 준 것을 정리하면 다음과 같다. 1. 행렬은 수와 어떤 점에서 닮았고…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제7장: 선형대수학과 기하학", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/"}, {"@type": "ListItem", "position": 3, "name": "우리가 배운 것", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/wrap-up.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch07/wrap-up.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/wrap-up.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch07/wrap-up.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch07/wrap-up.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제7장 · 선형대수학과 기하학</a>
+    <div class="sec-head"><h1>우리가 배운 것</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <article class="prose">
+<p>이 장은 행렬(matrix)이 그 자체로 생명을 지닌 공간의 변환(transformation)이라는 말로 시작했고, 세 가지 질문을 던졌다. 행렬은 수와 어떤 점에서 닮았고 어떤 점에서 다른가, 행렬은 실제로 무엇을 하는가, 그리고 무엇이 변하지 않는가. 이 장의 아홉 문제가 보여 준 것을 정리하면 다음과 같다.</p>
+<h3 id="행렬은-수와-어떤-점에서-닮았고-어떤-점에서-다른가">1. 행렬은 수와 어떤 점에서 닮았고, 어떤 점에서 다른가?</h3>
+<p>행렬은 더하고 곱할 수 있지만, <a href="../ch07/matrix-rules.html">7.1 절</a>에서는 익숙한 규칙 가운데 어떤 것이 성립하지 않는지 살펴보았다. 곱셈은 교환법칙(commutative law)이 성립하지 않으므로 <span class="math inline">\((\mathbf{A} - \mathbf{B})(\mathbf{A} + \mathbf{B})\)</span>가 반드시 <span class="math inline">\(\mathbf{A}^2 - \mathbf{B}^2\)</span>인 것은 아니다. 영인자(zero divisor)가 존재하므로 <span class="math inline">\(\mathbf{AB} = \mathbf{0}\)</span>이라고 해서 <span class="math inline">\(\mathbf{BA} = \mathbf{0}\)</span>이 되는 것도 아니다. 또한 행렬에 대한 이차방정식은 근을 무수히 많이 가질 수 있다. 이러한 실패에는 저마다 행렬이 평면에 무엇을 하는지에 근거한 기하학적 설명이 있었다. 결정적으로 살아남는 성질은 행렬식(determinant)이 곱셈을 보존한다는 것, 곧 <span class="math inline">\(\det(\mathbf{AB}) = \det\mathbf{A}\det\mathbf{B}\)</span>이다. <a href="../ch07/determinant-axioms.html">7.3 절</a>에서는 이 성질이 사실상 행렬식을 <em>규정한다</em>는 것을 보였고, <a href="../ch07/four-squares.html">7.8 절</a>에서는 이 성질을 이용해 오일러(Euler)의 네 제곱수 항등식(four-square identity)을 증명(proof)했다. 이 항등식은 모든 자연수가 네 제곱수의 합이라는 라그랑주(Lagrange)의 정리에서 핵심 단계이다.</p>
+<h3 id="행렬은-실제로-무엇을-하는가">2. 행렬은 실제로 무엇을 하는가?</h3>
+<p>여러 절에서 올바른 관점을 찾아 이 질문에 답했다.</p>
+<ul>
+<li><p><strong>고유벡터(eigenvector)</strong>(<a href="../ch07/eigenvectors.html">7.2 절</a>)는 행렬이 방향을 돌리지 않는 벡터이다. 고유벡터를 좌표축으로 삼으면 대칭행렬(symmetric matrix)은 단순한 늘이기에 지나지 않으며, 원의 상은 타원(ellipse)이 되고 그 축과 넓이를 바로 읽어 낼 수 있다.</p></li>
+<li><p><strong>행렬식</strong>(<a href="../ch07/determinant-axioms.html">7.3 절</a>)은 부호가 있는 넓이 배율이다. 층밀림(shear)은 넓이를 보존하고, 두 축을 맞바꾸면 방향(orientation)이 뒤집히며, 특이행렬(singular matrix)은 평면을 납작하게 짓누른다.</p></li>
+<li><p><strong>대각합(trace)과 행렬식</strong>(<a href="../ch07/finite-order.html">7.4 절</a>)은 케일리–해밀턴 정리(Cayley–Hamilton theorem)를 통해 행렬이 몇 단계 뒤에 항등행렬(identity matrix)로 돌아오는지를 결정한다. <span class="math inline">\(\mathbf{M}^8 = \mathbf{I}\)</span>인 행렬이 반드시 회전일 필요는 없다. 그것은 비스듬한 좌표에서 본 회전이다. 그리고 정수 행렬의 대각합은 정수이므로, 결정(crystal)은 5회 대칭을 가질 수 없다.</p></li>
+<li><p><strong>3차원 회전</strong>(<a href="../ch07/rotations-3d.html">7.5 절</a>)은 로드리게스 공식(Rodrigues’ formula)에 따라 외적(cross product)으로 만들어진다. 이 공식은 <span class="math inline">\(e^{\mathrm{i}\theta} = \cos\theta + \mathrm{i}\sin\theta\)</span>의 3차원 판이다.</p></li>
+<li><p><strong>쌍곡회전(hyperbolic rotation)</strong>(<a href="../ch07/hyperbolic-rotations.html">7.6 절</a>)은 점을 쌍곡선을 따라 옮기며, 쌍곡각은 더해진다. 쌍곡회전은 특수상대성이론(special relativity)의 로런츠 부스트(Lorentz boost)이고, 그 불변직선은 빛의 경로이다.</p></li>
+</ul>
+<h3 id="무엇이-변하지-않는가">3. 무엇이 변하지 않는가?</h3>
+<p>불변량(invariant)은 어디에나 있었다. 회전은 <span class="math inline">\(x^2 + y^2\)</span>을 보존하고, 로런츠 부스트는 <span class="math inline">\(x^2 - y^2\)</span>을 보존하며, 닮은 행렬(similar matrices)은 대각합과 행렬식이 같다. <a href="../ch07/lax-pairs.html">7.7 절</a>에서는 <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span>에 따라 변하는 행렬이 성분이 아무리 바뀌어도 대각합과 행렬식, 따라서 고유값(eigenvalue)을 일정하게 유지했다. 이것이 솔리톤(soliton)의 보존 법칙(conservation law) 뒤에 숨은 원리이다. 그리고 <a href="../ch07/platonic-solids.html">7.9 절</a>에서는 불변량이 하나의 수, <span class="math inline">\(V - E + F = 2\)</span>였다. 이 식은 모든 볼록다면체(convex polyhedron)에서 성립하며, 정다면체를 단 다섯 개로 한정한다. 이 수, 곧 오일러 지표(Euler characteristic)는 위상수학(topology)의 최초의 불변량 가운데 하나였다.</p>
+<h3 id="선형대수학의-도구-상자">4. 선형대수학의 도구 상자</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">방법</th>
+<th style="text-align: left;">사용한 곳</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">기하학적 반례</td>
+<td style="text-align: left;">성립하지 않는 규칙 (7.1)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">자연스러운 축으로서의 고유벡터</td>
+<td style="text-align: left;">타원 (7.2); 부스트 (7.6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">특수한 행렬로 탐색하기</td>
+<td style="text-align: left;">행렬식 (7.3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">케일리–해밀턴 정리</td>
+<td style="text-align: left;">유한 위수 (7.4)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">평행 성분과 수직 성분으로 나누기</td>
+<td style="text-align: left;">로드리게스 공식 (7.5)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">알맞은 매개변수 고르기</td>
+<td style="text-align: left;">라피디티(rapidity) (7.6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\operatorname{tr}(\mathbf{MN}) = \operatorname{tr}(\mathbf{NM})\)</span></td>
+<td style="text-align: left;">보존량 (7.7)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">행렬식의 곱셈성</td>
+<td style="text-align: left;">네 제곱수 (7.8)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">이중 세기(double counting)</td>
+<td style="text-align: left;">플라톤 입체(Platonic solids) (7.9)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="다음으로">다음으로</h3>
+<ul>
+<li><p><a href="../ch11/normal-modes.html">11.2 절</a>에서는 고유값과 고유벡터가 용수철과 질점으로 이루어진 계의 진동을 지배한다.</p></li>
+<li><p><a href="../ch13/correlation.html">13.7 절</a>에서는 공분산 행렬(covariance matrix)의 고유벡터가 통계학에 등장한다.</p></li>
+<li><p>미분방정식(differential equation)과 동역학계(dynamical system)는 8장의 주제이다.</p></li>
+</ul>
+<div class="skillbox">
+<div class="box-title">대학에 가기 전에 더 나아가고 싶다면</div>
+<ul>
+<li><p><strong>3Blue1Brown, <a href="https://www.3blue1brown.com/topics/linear-algebra"><em>Essence of Linear Algebra</em></a></strong>(선형대수학의 본질): 행렬이 무엇을 하는지 보여 주는 무료 동영상 시리즈이다. 가장 먼저 보기를 권한다.</p></li>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong>(선형대수학 입문): 이해와 응용을 강하게 강조하는 고전적인 입문 교재이다.</p></li>
+<li><p><strong>Sheldon Axler, <a href="https://uk.bookshop.org/search?keywords=Linear+Algebra+Done+Right+Axler"><em>Linear Algebra Done Right</em></a></strong>: 선형사상을 중심에 둔 좀 더 추상적인 접근이다. 온라인에서 무료로 볼 수 있다.</p></li>
+<li><p><strong>David Richeson, <a href="https://uk.bookshop.org/search?keywords=Euler%27s+Gem+Richeson"><em>Euler’s Gem</em></a></strong>(오일러의 보석): 오일러 공식과 위상수학의 탄생을 다룬다.</p></li>
+</ul>
+</div>
+<p>Kaplansky는 자신과 Halmos가 좌표 없이 생각하지만, 닫힌 문 뒤에서는 행렬로 “미친 듯이” 계산한다고 농담한 적이 있다. 이 말은 이 장이 보여 주려 한 것을 잘 담고 있다. 행렬은 구체적이고 계산할 수 있지만, 모든 계산 뒤에는 기하(늘이기, 회전, 사영, 부스트)가 있고, 어떻게 적느냐에 따라 달라지지 않는 불변량이 있다. 이 두 관점 사이를 자유롭게 오가는 법을 익히는 것은 수학자가 지닐 수 있는 가장 값진 기술 가운데 하나이다.</p>
+
+  </article>
+  <p class="newsletter-callout"><strong>이 장이 즐거웠는가?</strong> The STEP Up에서는 매주 이와 같은 문제를 하나씩 보내며, 풀이 과정을 빠짐없이 담는다. <a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=chapter-end">무료 구독 →</a></p>
+  <nav class="pager"><a class="prev" href="platonic-solids.html">← 7.9 정다면체는 다섯 개뿐이다</a><a class="next" href="answers.html">→ 연습문제 해답</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

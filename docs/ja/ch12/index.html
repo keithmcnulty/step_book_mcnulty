@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第12章：確率 — Beyond STEP</title>
+<meta name="description" content="5つのテーマ：明晰な思考、対称性、期待値とゲーム、確率過程、そして極限。">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch12/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第12章：確率 — Beyond STEP">
+<meta property="og:description" content="5つのテーマ：明晰な思考、対称性、期待値とゲーム、確率過程、そして極限。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch12/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第12章：確率 — Beyond STEP">
+<meta name="twitter:description" content="5つのテーマ：明晰な思考、対称性、期待値とゲーム、確率過程、そして極限。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 12, "name": "確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "5つのテーマ：明晰な思考、対称性、期待値とゲーム、確率過程、そして極限。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第12章：確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch12/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch12/index.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">12</div>
+    <h1>確率</h1>
+    <p class="strap">不確かさについても厳密に推論することはできる。ところが直観のほうは、そうはいかないのである。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">章全体をダウンロード</span><span class="dl-sub">PDF（印刷用組版）</span></span></a>
+  </div>
+  <h2 class="contents-head">この章の内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="conditioning.html"><span class="toc-num">12.1</span>
+<span class="toc-title">正確な条件付け</span>
+<span class="toc-src">STEP I 2007</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-1-conditioning.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="base-rate.html"><span class="toc-num">12.2</span>
+<span class="toc-title">基準率の誤謬</span>
+<span class="toc-src">STEP II 1998</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-2-base-rate.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="bertrand.html"><span class="toc-num">12.3</span>
+<span class="toc-title">「ランダム」とは何を意味するか？</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-3-bertrand.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="pairwise-independence.html"><span class="toc-num">12.4</span>
+<span class="toc-title">二つずつなら独立、全体では独立でない</span>
+<span class="toc-src">STEP III 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-4-pairwise-independence.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="airline-seat.html"><span class="toc-num">12.5</span>
+<span class="toc-title">最後の乗客の座席</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-5-airline-seat.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="one-more-coin.html"><span class="toc-num">12.6</span>
+<span class="toc-title">もう1枚の硬貨</span>
+<span class="toc-src">STEP I 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-6-one-more-coin.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="knockout.html"><span class="toc-num">12.7</span>
+<span class="toc-title">勝ち抜き戦で誰と誰が当たるか</span>
+<span class="toc-src">STEP II Specimen paper</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-7-knockout.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="penney.html"><span class="toc-num">12.8</span>
+<span class="toc-title">ペニーのゲーム</span>
+<span class="toc-src">STEP III 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-8-penney.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="von-neumann.html"><span class="toc-num">12.9</span>
+<span class="toc-title">偏った硬貨から公平な判定を</span>
+<span class="toc-src">STEP I 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-9-von-neumann.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="loose-ends.html"><span class="toc-num">12.10</span>
+<span class="toc-title">ひもの端を結ぶ</span>
+<span class="toc-src">STEP III 2008</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-10-loose-ends.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="stamps-and-e.html"><span class="toc-num">12.11</span>
+<span class="toc-title">切手、カップ、そして \(e\)</span>
+<span class="toc-src">STEP I 1996</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-11-stamps-and-e.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="secretary.html"><span class="toc-num">12.12</span>
+<span class="toc-title">いつ探すのをやめるか</span>
+<span class="toc-src">STEP I 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-12-secretary.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="truel.html"><span class="toc-num">12.13</span>
+<span class="toc-title">三つ巴の決闘</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-13-truel.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="mixed-strategies.html"><span class="toc-num">12.14</span>
+<span class="toc-title">混合戦略</span>
+<span class="toc-src">STEP I 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-14-mixed-strategies.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="branching.html"><span class="toc-num">12.15</span>
+<span class="toc-title">絶滅か爆発か</span>
+<span class="toc-src">STEP II 2003</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-15-branching.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="markov.html"><span class="toc-num">12.16</span>
+<span class="toc-title">マルコフ連鎖を順向きにも逆向きにも</span>
+<span class="toc-src">STEP III 1996</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-16-markov.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="matchboxes.html"><span class="toc-num">12.17</span>
+<span class="toc-title">バナッハのマッチ箱</span>
+<span class="toc-src">STEP II 1992</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-17-matchboxes.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="memoryless.html"><span class="toc-num">12.18</span>
+<span class="toc-title">無記憶性</span>
+<span class="toc-src">STEP III 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-18-memoryless.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="spatial-poisson.html"><span class="toc-num">12.19</span>
+<span class="toc-title">平面上のランダムな点</span>
+<span class="toc-src">STEP II 2012</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-19-spatial-poisson.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="buffon.html"><span class="toc-num">12.20</span>
+<span class="toc-title">ビュフォンの針</span>
+<span class="toc-src">STEP I 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-20-buffon.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="broken-stick.html"><span class="toc-num">12.21</span>
+<span class="toc-title">棒を折る</span>
+<span class="toc-src">STEP III 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-21-broken-stick.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="cauchy.html"><span class="toc-num">12.22</span>
+<span class="toc-title">平均をもたない分布</span>
+<span class="toc-src">STEP III 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-22-cauchy.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="stirling-probability.html"><span class="toc-num">12.23</span>
+<span class="toc-title">確率から導くスターリングの公式</span>
+<span class="toc-src">STEP II 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-23-stirling-probability.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="clt.html"><span class="toc-num">12.24</span>
+<span class="toc-title">中心極限定理</span>
+<span class="toc-src">STEP III 2008</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-24-clt.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="extremes.html"><span class="toc-num">12.25</span>
+<span class="toc-title">多数の中の最大値</span>
+<span class="toc-src">STEP III 2025</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-25-extremes.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">振り返り：ここで学んだこと</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「次はこれに挑戦」の演習問題の解答</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第12章  \(\cdot\)  序論</div>
+    <h1 class="essay-title">偶然について推論する</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>確率論とは、計算に還元された常識にほかならない。</p>
+<p class="who">— ピエール＝シモン・ラプラス（Pierre-Simon Laplace）、<em>Théorie analytique des probabilités</em>（『確率の解析的理論』、1812年）</p>
+</div>
+<p>ラプラスのこの有名な言葉は、半分だけ正しい。確率（probability）とは常識を精密にしたものである。しかし本章で繰り返し見るように、常識はそれだけに任せておくと誤る。人はこう考えがちである。まれな病気の検査で陽性が出たら、おそらくその病気にかかっている。飛行機に最初に乗り込んだ乗客が違う席に座ってしまったら、最後の乗客が自分の席に座れる見込みはほとんどない。コイン投げのある並びが、同じ長さの別の並びに勝ちやすいということはありえない。多数の測定値の平均はいつでも一定の値に落ち着く。これらはすべて誤りであり、どの場合も、短い計算によって真実が明らかになる。さらによいことに、その理由まで明らかになるのである。</p>
+<p>確率論は17世紀、ブレーズ・パスカル（Blaise Pascal）とピエール・ド・フェルマー（Pierre de Fermat）の間で交わされた書簡の中で、賭け事に関する問いから始まった。それが厳密な数学の一分野となったのは、ようやく1933年、アンドレイ・コルモゴロフ（Andrey Kolmogorov）がその公理（axiom）を定めたときである。その間にも、そしてそれ以後も、確率論は数学の中で最も広く使われる分野の一つへと成長してきた。</p>
+<h3 id="確率はなぜ重要なのか">確率はなぜ重要なのか</h3>
+<p>不確かさを扱う分野はどれも確率を用いる。医学（診断検査や臨床試験）、法学（証拠の重み）、金融（リスクと保険）、工学（信頼性や洪水）、計算機科学（乱択アルゴリズム（randomised algorithm）、暗号、機械学習）、物理学（量子力学や統計力学）、生物学（遺伝学や感染症の流行）などである。現代の人工知能は、その大部分が応用確率論であるといってよい。言語モデルは次に来る単語の確率を予測しているのである。そして、リスク、偶然、証拠について正しく推論する能力は、教養ある人なら誰にとっても最も価値ある技能の一つである。</p>
+<h3 id="大学で出会うこと">大学で出会うこと</h3>
+<p>大学1年の確率論では、公理、条件付き確率（conditional probability）とベイズの定理（Bayes’ theorem）、独立性（independence）、離散型および連続型の確率変数（random variable）、期待値（expectation）と分散（variance）、母関数（generating function）、そして二つの偉大な極限定理である大数の法則（law of large numbers）と中心極限定理（central limit theorem）を学ぶ。その後の講義では、確率過程（random process）（マルコフ連鎖（Markov chain）、ポアソン過程（Poisson process）、ランダムウォーク（random walk）、分枝過程（branching process））、測度論的確率論（measure-theoretic probability）（極限や連続分布を確固とした基礎の上に置くもの）、マルチンゲール（martingale）を学び、確率論を統計学、解析学、組合せ論、物理学と結びつけていく。</p>
+<h3 id="本章を貫く問い">本章を貫く問い</h3>
+<div class="skillbox">
+<div class="box-title">三つの大きな問い</div>
+<ol class="arabic">
+<li><p><strong>問われていることは正確には何か？</strong>　ランダムな試行とは何か、何を条件としているのか、そして「無作為に」とはどういう意味か。</p></li>
+<li><p><strong>うまい切り口は何か？</strong>　対称性（symmetry）、指示変数（indicator）、条件付け、あるいはうまく選んだ状態を用いることで、長い計算を省けるのはどのようなときか。</p></li>
+<li><p><strong>長い目で見ると何が起こるか？</strong>　確率過程は時間とともにどのように振る舞うのか。また、多数のランダムな量の和、平均、最大値はどのような姿をしているのか。</p></li>
+</ol>
+</div>
+<p>本章は五つの部分からなる。<em>明晰に考える</em>（<a href="../ch12/conditioning.html">第 12.1 節</a>～<a href="../ch12/pairwise-independence.html">第 12.4 節</a>）では落とし穴を扱う。条件付け、基準率（base rate）、「ランダム」の意味、独立性の意味である。<em>対称性と巧妙な議論</em>（<a href="../ch12/airline-seat.html">第 12.5 節</a>～<a href="../ch12/von-neumann.html">第 12.9 節</a>）には、美しく短い解法をもつ問題を集めた。<em>期待値、ゲーム、停止</em>（<a href="../ch12/loose-ends.html">第 12.10 節</a>～<a href="../ch12/mixed-strategies.html">第 12.14 節</a>）では平均と意思決定に目を向ける。いつ止めるべきか、誰を撃つべきか、どのようにランダム化すべきか、である。<em>確率過程</em>（<a href="../ch12/branching.html">第 12.15 節</a>～<a href="../ch12/spatial-poisson.html">第 12.19 節</a>）では、時間と空間の中でのランダムさを追いかける。そして<em>極限と連続型の確率</em>（<a href="../ch12/buffon.html">第 12.20 節</a>～<a href="../ch12/extremes.html">第 12.25 節</a>）は、幾何的確率（geometric probability）と偉大な極限定理で締めくくる。</p>
+<h3 id="本章で扱う考え方">本章で扱う考え方</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">主題</th>
+<th style="text-align: left;">考え方</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">12.1</td>
+<td style="text-align: left;">条件付け</td>
+<td style="text-align: left;">「特定の一つ」と「少なくとも一つ」の違い</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.2</td>
+<td style="text-align: left;">ベイズの定理</td>
+<td style="text-align: left;">基準率と自然頻度（natural frequency）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.3</td>
+<td style="text-align: left;">ベルトラン（Bertrand）の逆説</td>
+<td style="text-align: left;">「ランダム」には定義が必要である</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.4</td>
+<td style="text-align: left;">独立性</td>
+<td style="text-align: left;">対ごとに独立（pairwise）であっても互いに独立（mutual）とは限らない</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.5</td>
+<td style="text-align: left;">飛行機の座席</td>
+<td style="text-align: left;">二つの座席の間の対称性</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.6</td>
+<td style="text-align: left;">もう1枚のコイン</td>
+<td style="text-align: left;">互いに補い合う対称な事象</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.7</td>
+<td style="text-align: left;">トーナメント</td>
+<td style="text-align: left;">試合数と組の数を数える</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.8</td>
+<td style="text-align: left;">Penney のゲーム</td>
+<td style="text-align: left;">第一歩解析（first-step analysis）、非推移性（non-transitivity）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.9</td>
+<td style="text-align: left;">公平なコイン</td>
+<td style="text-align: left;">偏りから公平さを取り出す</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.10</td>
+<td style="text-align: left;">ランダムな輪</td>
+<td style="text-align: left;">無記憶な指示変数の和</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.11</td>
+<td style="text-align: left;">カップと <span class="math inline">\(e\)</span></td>
+<td style="text-align: left;">階乗と指数関数の級数</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.12</td>
+<td style="text-align: left;">最適停止（optimal stopping）</td>
+<td style="text-align: left;"><span class="math inline">\(\frac1e\)</span> の法則</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.13</td>
+<td style="text-align: left;">三者決闘（truel）</td>
+<td style="text-align: left;">戦略上の弱さ</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.14</td>
+<td style="text-align: left;">ゲーム理論（game theory）</td>
+<td style="text-align: left;">ランダム化された戦略、ミニマックス（minimax）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.15</td>
+<td style="text-align: left;">分枝過程</td>
+<td style="text-align: left;">不動点（fixed point）としての絶滅</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.16</td>
+<td style="text-align: left;">マルコフ連鎖</td>
+<td style="text-align: left;">定常分布（stationary distribution）、時間反転</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.17</td>
+<td style="text-align: left;">バナッハ（Banach）のマッチ箱</td>
+<td style="text-align: left;">負の二項分布（negative binomial distribution）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.18</td>
+<td style="text-align: left;">指数分布（exponential distribution）</td>
+<td style="text-align: left;">無記憶性（memorylessness）と独立性</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.19</td>
+<td style="text-align: left;">空間のランダムさ</td>
+<td style="text-align: left;">最近接点、レイリー（Rayleigh）分布</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.20</td>
+<td style="text-align: left;">ビュフォン（Buffon）の針</td>
+<td style="text-align: left;">幾何的確率と <span class="math inline">\(\pi\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.21</td>
+<td style="text-align: left;">ランダムな三角形</td>
+<td style="text-align: left;">面積としての確率</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.22</td>
+<td style="text-align: left;">コーシー（Cauchy）分布</td>
+<td style="text-align: left;">平均をもたない分布</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.23</td>
+<td style="text-align: left;">スターリング（Stirling）の公式</td>
+<td style="text-align: left;">正規曲線から得られる階乗</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.24</td>
+<td style="text-align: left;">中心極限定理</td>
+<td style="text-align: left;">積率母関数（moment generating function）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.25</td>
+<td style="text-align: left;">極値（extreme value）</td>
+<td style="text-align: left;">ガンベル（Gumbel）分布</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="../ch12/clt.html">第 12.24 節</a> の一節では積率母関数を用いる。これは2019年に STEP の出題範囲から外されたが、この節では必要なことを説明している。</p>
+<h3 id="本章の読み方">本章の読み方</h3>
+<p>確率の問題がわかりにくく思えるときは、小さな場合について標本空間（sample space）を書き出し、数えてみるとよい。答えが怪しいほど簡単に出てきたときは、それを説明する対称性を探すとよい。そして直観と計算が食い違うときは、計算を信じ、そのうえでなぜ直観が誤っていたのかを突き止めることである。学びが生まれるのはまさにそこなのである。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="conditioning.html">→ 読み始める： 12.1 正確な条件付け</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

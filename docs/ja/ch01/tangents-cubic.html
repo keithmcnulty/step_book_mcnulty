@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三次曲線の接線 (STEP I 2009 Q2) — Beyond STEP</title>
+<meta name="description" content="STEP I 2009 問題 2：解説付き解答とその背後にある大学数学。 一見すると、これはありふれた座標幾何の問題である。微分して接線（tangent）を求め、三次方程式（cubic equation）を解く。ところが最後の一行では、ある立方数（cube）をほかの三つの立方数の和として表すことが求められ、幾何がまるで魔法のようにそれを生み出してくれる。…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch01/tangents-cubic.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/tangents-cubic.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/tangents-cubic.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/tangents-cubic.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/tangents-cubic.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/tangents-cubic.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/tangents-cubic.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="三次曲線の接線 (STEP I 2009 Q2) — Beyond STEP">
+<meta property="og:description" content="STEP I 2009 問題 2：解説付き解答とその背後にある大学数学。 一見すると、これはありふれた座標幾何の問題である。微分して接線（tangent）を求め、三次方程式（cubic equation）を解く。ところが最後の一行では、ある立方数（cube）をほかの三つの立方数の和として表すことが求められ、幾何がまるで魔法のようにそれを生み出してくれる。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch01/tangents-cubic.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="三次曲線の接線 (STEP I 2009 Q2) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2009 問題 2：解説付き解答とその背後にある大学数学。 一見すると、これはありふれた座標幾何の問題である。微分して接線（tangent）を求め、三次方程式（cubic equation）を解く。ところが最後の一行では、ある立方数（cube）をほかの三つの立方数の和として表すことが求められ、幾何がまるで魔法のようにそれを生み出してくれる。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "三次曲線の接線", "headline": "三次曲線の接線", "description": "STEP I 2009 問題 2：解説付き解答とその背後にある大学数学。 一見すると、これはありふれた座標幾何の問題である。微分して接線（tangent）を求め、三次方程式（cubic equation）を解く。ところが最後の一行では、ある立方数（cube）をほかの三つの立方数の和として表すことが求められ、幾何がまるで魔法のようにそれを生み出してくれる。…", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/tangents-cubic.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2009 問題 2", "数論と証明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "数論と証明", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第1章：数論と証明", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/"}, {"@type": "ListItem", "position": 3, "name": "三次曲線の接線", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/tangents-cubic.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch01/tangents-cubic.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/tangents-cubic.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/tangents-cubic.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch01/tangents-cubic.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第1章 · 数論と証明</a>
+    <div class="src">STEP I · 2009 · 問題 2</div>
+    <div class="sec-head"><span class="sec-num">1.9</span><h1>三次曲線の接線</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-9-tangents-cubic.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第1章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP I 2009、第2問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/09-s1-q2">step.maths.org/questions/09-s1-q2</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>一見すると、これはありふれた座標幾何の問題である。微分して接線（tangent）を求め、三次方程式（cubic equation）を解く。ところが最後の一行では、ある立方数（cube）をほかの三つの立方数の和として表すことが求められ、幾何がまるで魔法のようにそれを生み出してくれる。</p>
+<p>曲線上の既知の点を通る直線を引いて新しい点を見つけるというこの技法は、3世紀のアレクサンドリアのディオファントス（Diophantus）にまでさかのぼる。現代の数学者の手によって、それは<em>楕円曲線</em>（elliptic curves）の理論となった。この理論は現代の数論（number theory）の中心に位置し、フェルマーの最終定理（Fermat’s Last Theorem）の証明の土台となり、さらに世界のインターネット通信の大部分の安全を支えている。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>点 <span class="math inline">\((-a, b)\)</span> はこの曲線上にある。なぜか。また、そのことは立方数の和とどう関係するのか。</p>
+</div>
+<p>代入すると <span class="math inline">\((-a)^3 + a^3 + b^3 = b^3\)</span> となるので、確かに曲線上にある。<span class="math inline">\(y^3 = x^3 + a^3 + b^3\)</span> 上の<em>有理数</em>（rational）座標をもつ点こそ、まさに求めたいものである。<span class="math inline">\(x = q/s&#39;\)</span>、<span class="math inline">\(y = p/s&#39;\)</span> ならば、分母を払うことで立方数どうしの関係式が得られる。方針は、見つけやすい一つの点から出発し、幾何を用いてもっと見つけにくい点を探すことである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-接線" class="stage"><span class="stage-n">段階 1</span> 接線</h4>
+<p><span class="math inline">\(y^3 = x^3 + a^3 + b^3\)</span> を陰関数微分（implicit differentiation）すると <span class="math inline">\(3y^2 \dfrac{dy}{dx} = 3x^2\)</span> であるから、<span class="math inline">\(\dfrac{dy}{dx} = \dfrac{x^2}{y^2}\)</span> となる。<span class="math inline">\((-a, b)\)</span> における傾き（gradient）は <span class="math inline">\(a^2/b^2\)</span> であるから、接線は <span class="math display">\[y - b = \frac{a^2}{b^2}(x + a) \quad\Longrightarrow\quad b^2 y - b^3 = a^2 x + a^3 \quad\Longrightarrow\quad b^2 y - a^2 x = a^3 + b^3. \qed\]</span></p>
+<h4 id="stagemark2-接線が曲線と再び交わる点" class="stage"><span class="stage-n">段階 2</span> 接線が曲線と再び交わる点</h4>
+<p><span class="math inline">\(a = 1\)</span>、<span class="math inline">\(b = 2\)</span> のとき、曲線は <span class="math inline">\(y^3 = x^3 + 9\)</span> であり、<span class="math inline">\((-1, 2)\)</span> における接線は <span class="math inline">\(4y - x = 9\)</span>、すなわち <span class="math inline">\(y = \dfrac{x + 9}{4}\)</span> である。これを曲線の式に代入すると <span class="math display">\[\frac{(x+9)^3}{64} = x^3 + 9 \quad\Longrightarrow\quad x^3 + 27x^2 + 243x + 729 = 64x^3 + 576,\]</span> となり、整理すると <span class="math inline">\(63x^3 - 27x^2 - 243x - 153 = 0\)</span>、両辺を <span class="math inline">\(9\)</span> で割ると <span class="math inline">\(7x^3 - 3x^2 - 27x - 17 = 0\)</span> を得る。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-三次方程式を解く" class="stage"><span class="stage-n">段階 3</span> 三次方程式を解く</h4>
+<div class="askyourself">
+<p>この三次方程式の根の一つは、計算をしなくてもすでにわかっている。それはどれか。また、なぜそれは<em>二重に</em>現れるはずなのか。</p>
+</div>
+<p>接線は <span class="math inline">\(x = -1\)</span> で曲線に接しており（図 1.9.1）、「接する」とは重根（repeated root）をもつということである。これは、放物線の接線が放物線と二次方程式の重根で交わるのとまったく同じである。したがって <span class="math inline">\((x + 1)^2\)</span> が因数になるはずである。確かめると、<span class="math inline">\(7(-1)^3 - 3(1) - 27(-1) - 17 = -7 - 3 + 27 - 17 = 0\)</span> であり、導関数 <span class="math inline">\(21x^2 - 6x - 27\)</span> も <span class="math inline">\(x = -1\)</span> で <span class="math inline">\(0\)</span> になる。割り算をすると <span class="math display">\[7x^3 - 3x^2 - 27x - 17 = (x+1)^2 (7x - 17).\]</span></p>
+<div class="pausebox">
+<p>したがって、接線は <span class="math inline">\(x = \frac{17}{7}\)</span> で再び曲線と交わる。<span class="math inline">\(y\)</span> を求め、この点を立方数どうしの関係式に書き直せ。</p>
+</div>
+<p><span class="math inline">\(y = \dfrac{17/7 + 9}{4} = \dfrac{80/7}{4} = \dfrac{20}{7}\)</span> である。点 <span class="math inline">\(\bigl(\frac{17}{7}, \frac{20}{7}\bigr)\)</span> は <span class="math inline">\(y^3 = x^3 + 9\)</span> 上にあるから <span class="math display">\[\frac{20^3}{7^3} = \frac{17^3}{7^3} + 9 \quad\Longrightarrow\quad 20^3 = 17^3 + 9 \times 7^3.\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(9 \times 7^3\)</span> を二つの立方数の和として表したい。<span class="math inline">\(9\)</span> がどこから来たのかを思い出そう。</p>
+</div>
+<p><span class="math inline">\(9 = a^3 + b^3 = 1^3 + 2^3\)</span> であるから、<span class="math inline">\(9 \times 7^3 = 7^3 + 14^3\)</span> となる。したがって <span class="math display">\[20^3 = 17^3 + 14^3 + 7^3.\]</span> 検算：<span class="math inline">\(8000 = 4913 + 2744 + 343\)</span>。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-9-1.svg" alt="図 1.9.1"><figcaption><span class="fig-label">図 1.9.1</span> 曲線 <span class="math inline">\(y^3 = x^3 + 9\)</span>（青緑）は、原点から遠く離れたところで直線 <span class="math inline">\(y = x\)</span> に近づく。有理点 <span class="math inline">\((-1, 2)\)</span> における接線（琥珀色）はその点で曲線に接しており、これは二重の交点として数えられる。そして接線はもう一度、別の有理点 <span class="math inline">\(\bigl(\frac{17}{7}, \frac{20}{7}\bigr)\)</span> で曲線と交わる。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>接することは重根を意味する。</strong>これにより、明らかな根が見当たらない三次方程式が、すぐに因数分解できるものに変わった。</p></li>
+<li><p><strong>新しい根は自動的に有理数になる。</strong>三つの根のうち二つが有理数であれば（ここではどちらも <span class="math inline">\(-1\)</span>）、根の和 <span class="math inline">\(\frac{3}{7}\)</span> が有理数であることから、三つ目の根も有理数でなければならない。これがこの方法の核心である。</p></li>
+<li><p><strong>幾何が数論の答えを生み出した。</strong>立方数を探し回ったわけではない。一本の接線がそれを見つけてくれたのである。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">弦と接線の方法</div>
+<p><span class="math inline">\(y^3 = x^3 + 9\)</span> や、より標準的な形 <span class="math inline">\(y^2 = x^3 + Ax + B\)</span> のような三次曲線を考える。その上にある有理数座標の点を二つ知っていれば、それらを通る直線は曲線とちょうどもう一点で交わり、その点も有理数座標をもつ（<em>振り返り</em>での議論による）。一点しか知らなければ、代わりにその点での接線を使えばよい。いずれにしても、既知の有理点から新しい有理点が生まれる。</p>
+<p>驚くべきことに、この「弦（chord）と接線」による構成は、曲線上の点を<em>足し合わせる</em>方法に仕立てることができ、そのとき有理点全体は<em>群</em>（group）をなす。群とは、大学1年次で学ぶ代数的構造である。Louis Mordell は1922年に、この群が有限個の点で生成されることを証明した。すなわち、有理点がどれだけたくさんあっても、そのすべては有限個の点から弦と接線を用いて作り出せる。彼の証明は、<a href="../ch01/infinite-descent.html">第 1.5 節</a> で扱ったフェルマー（Fermat）の無限降下法（descent）の一種である。</p>
+</div>
+<h3 id="今日の楕円曲線">今日の楕円曲線</h3>
+<p>このような曲線は<em>楕円曲線</em>とよばれる（楕円であるからではなく、楕円の弧長との歴史的なつながりによる）。楕円曲線は現代数学のいたるところに現れる。</p>
+<ul>
+<li><p><strong>フェルマーの最終定理。</strong>1980年代、Gerhard Frey は、<span class="math inline">\(x^n + y^n = z^n\)</span> の解が存在すれば、非常に奇妙な楕円曲線が生じることに気づいた。1994年、アンドリュー・ワイルズ（Andrew Wiles）はそのような奇妙な曲線が存在しえないことを証明し、こうしてフェルマーの最終定理を証明した。</p></li>
+<li><p><strong>バーチ・スウィンナートン＝ダイアー予想（Birch and Swinnerton-Dyer conjecture）。</strong>有理点のなす群には、生成元（generator）がいくつ必要なのだろうか。1960年代に、ケンブリッジで行われた数学における最初期のコンピュータ実験をもとに立てられた予想は、素数を法として点を数えることから作られる関数を用いて、その答えを予言している。これは七つのミレニアム懸賞問題（Millennium Prize Problems）の一つである。</p></li>
+<li><p><strong>暗号（cryptography）。</strong>有限の数の体系の上の楕円曲線では、点 <span class="math inline">\(P\)</span> を自分自身に <span class="math inline">\(n\)</span> 回足す計算は、<span class="math inline">\(n\)</span> が何百桁もあっても速く行える（高い累乗を二乗の繰り返しで計算するのと同じように、<span class="math inline">\(P\)</span> を繰り返し2倍すればよい）。ところが、<span class="math inline">\(P\)</span> と結果 <span class="math inline">\(nP\)</span> が与えられたとき、<span class="math inline">\(n\)</span> を求めることはきわめて難しいと考えられている。これが<em>楕円曲線離散対数問題</em>（elliptic-curve discrete logarithm problem）である。この非対称性が、今日のオンライン通信の多くを守っている。</p></li>
+</ul>
+<h3 id="同じ次数の累乗の和">同じ次数の累乗の和</h3>
+<p>三つの正の立方数の和となる最小の立方数は <span class="math inline">\(6^3 = 3^3 + 4^3 + 5^3\)</span> である。接線の方法で見つかった <span class="math inline">\(20^3 = 7^3 + 14^3 + 17^3\)</span> はその倍数ではなく、この方法を繰り返すと新しい恒等式が次々に得られる（ただし負の数を含むものもある）。ある <span class="math inline">\(k\)</span> 乗数を作るには、<span class="math inline">\(k\)</span> 乗数がいくつ必要だろうか。オイラー（Euler）は1769年に、ある <span class="math inline">\(k\)</span> 乗数を作るには少なくとも <span class="math inline">\(k\)</span> 個の <span class="math inline">\(k\)</span> 乗数が必要であると予想した。4乗と5乗については、この予想は誤りであった。1966年、Leon Lander と Thomas Parkin はコンピュータによる探索で <span class="math display">\[27^5 + 84^5 + 110^5 + 133^5 = 144^5\]</span> を発見し、1988年には Noam Elkies が楕円曲線を用いて4乗の場合の反例を見つけた。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">幾何で数論を解く</div>
+<p><em>方程式の整数解や有理数解を求めるには、方程式を曲線とみなし、既知の点を通る直線を探せ。</em></p>
+<p>その背後にある代数は単純である。有理数係数の多項式の根が一つを除いてすべて有理数であれば、残りの根も有理数である。このように図と式の間を行き来することは、数学者がもちうる最も強力な習慣の一つである。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>円上の有理点。</strong><span class="math inline">\((-1, 0)\)</span> を通り傾きが <span class="math inline">\(t\)</span> の直線は、円 <span class="math inline">\(x^2 + y^2 = 1\)</span> ともう一点で交わる。その点が <span class="math inline">\(\left(\dfrac{1 - t^2}{1 + t^2}, \dfrac{2t}{1 + t^2}\right)\)</span> であることを示し、これを用いてピタゴラス数（Pythagorean triples）を無数に作れ。</p></li>
+<li><p><strong>交わらない弦。</strong>点 <span class="math inline">\((1, 2)\)</span> と <span class="math inline">\((2, 1)\)</span> は <span class="math inline">\(x^3 + y^3 = 9\)</span> 上にある。これらを通る直線は、曲線とほかの点では交わらないことを示せ。「三つ目の点」はどこへ行ったのだろうか。（<em>無限遠点</em>（point at infinity）について調べてみよ。）</p></li>
+<li><p><strong>技法を繰り返す。</strong><span class="math inline">\(\bigl(\frac{17}{7}, \frac{20}{7}\bigr)\)</span> における <span class="math inline">\(y^3 = x^3 + 9\)</span> の接線と、それが曲線と交わる三つ目の点を求めよ。（数式処理システム（computer algebra system）を使うとよい。数がいかに急速に大きくなるかに注目せよ。）</p></li>
+<li><p><strong>タクシー数（taxicab numbers）。</strong><span class="math inline">\(1729 = 1^3 + 12^3 = 9^3 + 10^3\)</span> である。<span class="math inline">\((1, 12)\)</span> と <span class="math inline">\((9, 10)\)</span> を通る直線が曲線 <span class="math inline">\(x^3 + y^3 = 1729\)</span> と交わる三つ目の点を求め、<span class="math inline">\(p^3 = q^3 + r^3 + s^3\)</span> の形の新しい恒等式を導け。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Joseph Silverman &amp; John Tate, <a href="https://uk.bookshop.org/search?keywords=Rational+Points+on+Elliptic+Curves+Silverman+Tate"><em>Rational Points on Elliptic Curves</em></a></strong>（Springer）。邦題『楕円曲線論入門』。学部生向けに書かれており、第 1章は Aレベル（A level、英国の大学入学資格試験）を超える知識を必要としない。</p></li>
+<li><p><strong>Avner Ash &amp; Robert Gross, <a href="https://uk.bookshop.org/search?keywords=Elliptic+Tales+Ash+Gross"><em>Elliptic Tales</em></a></strong>（Princeton University Press）。バーチ・スウィンナートン＝ダイアー予想へと至る一般向けの解説書。</p></li>
+<li><p><strong>Simon Singh, <a href="https://uk.bookshop.org/search?keywords=Fermat%27s+Last+Theorem+Singh"><em>Fermat’s Last Theorem</em></a></strong>。邦題『フェルマーの最終定理』。楕円曲線が350年来の難問を解決するに至った経緯を描く。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="counting-rationals.html">← 1.8 有理数を数える</a><a class="next" href="wrap-up.html">→ 振り返り</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

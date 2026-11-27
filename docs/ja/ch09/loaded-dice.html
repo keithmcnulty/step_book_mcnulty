@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>いかさまサイコロ (STEP I 1999 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP I 1999 問題 12：解説付き解答とその背後にある大学数学。 公正なさいころを二つ振ると、合計が 7 になる確率は合計が 2 になる確率の六倍である。ボードゲームの設計者は、そうでなければよいのにと思うことがある。さいころに細工をして（load、特定の目が出やすくなるように重りを入れて）、 2 から 12 までのどの合計も同じ確率 (1)/(11)…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch09/loaded-dice.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch09/loaded-dice.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/loaded-dice.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/loaded-dice.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/loaded-dice.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch09/loaded-dice.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/loaded-dice.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="いかさまサイコロ (STEP I 1999 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP I 1999 問題 12：解説付き解答とその背後にある大学数学。 公正なさいころを二つ振ると、合計が 7 になる確率は合計が 2 になる確率の六倍である。ボードゲームの設計者は、そうでなければよいのにと思うことがある。さいころに細工をして（load、特定の目が出やすくなるように重りを入れて）、 2 から 12 までのどの合計も同じ確率 (1)/(11)…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch09/loaded-dice.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="いかさまサイコロ (STEP I 1999 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 1999 問題 12：解説付き解答とその背後にある大学数学。 公正なさいころを二つ振ると、合計が 7 になる確率は合計が 2 になる確率の六倍である。ボードゲームの設計者は、そうでなければよいのにと思うことがある。さいころに細工をして（load、特定の目が出やすくなるように重りを入れて）、 2 から 12 までのどの合計も同じ確率 (1)/(11)…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "いかさまサイコロ", "headline": "いかさまサイコロ", "description": "STEP I 1999 問題 12：解説付き解答とその背後にある大学数学。 公正なさいころを二つ振ると、合計が 7 になる確率は合計が 2 になる確率の六倍である。ボードゲームの設計者は、そうでなければよいのにと思うことがある。さいころに細工をして（load、特定の目が出やすくなるように重りを入れて）、 2 から 12 までのどの合計も同じ確率 (1)/(11)…", "url": "https://beyondstep.keithmcnulty.org/ja/ch09/loaded-dice.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 1999 問題 12", "数え上げと確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "数え上げと確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第9章：数え上げと確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch09/"}, {"@type": "ListItem", "position": 3, "name": "いかさまサイコロ", "item": "https://beyondstep.keithmcnulty.org/ja/ch09/loaded-dice.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch09/loaded-dice.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch09/loaded-dice.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch09/loaded-dice.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch09/loaded-dice.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第9章 · 数え上げと確率</a>
+    <div class="src">STEP I · 1999 · 問題 12</div>
+    <div class="sec-head"><span class="sec-num">9.13</span><h1>いかさまサイコロ</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-13-loaded-dice.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第9章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP I 1999、第12問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/99-s1-q12">step.maths.org/questions/99-s1-q12</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>公正なさいころを二つ振ると、合計が <span class="math inline">\(7\)</span> になる確率は合計が <span class="math inline">\(2\)</span> になる確率の六倍である。ボードゲームの設計者は、そうでなければよいのにと思うことがある。さいころに細工をして（load、特定の目が出やすくなるように重りを入れて）、<span class="math inline">\(2\)</span> から <span class="math inline">\(12\)</span> までのどの合計も同じ確率 <span class="math inline">\(\frac{1}{11}\)</span> で出るようにできないだろうか。十二個の確率は自由に選べるのだから、余地は十分にありそうに見える。</p>
+<p>答えは「できない」であり、その証明は珠玉である。十一通りの合計のうち三つと、不等式 <span class="math inline">\(x + \frac1x \geq 2\)</span> しか使わないのである。これは何かが<em>不可能</em>であることを証明する方法の手本である。不可能性の証明は、何かが可能であることを示すよりも難しく、そしてより面白いことが多い。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(x &gt; 0\)</span> に対して <span class="math inline">\(x + \frac1x \geq 2\)</span> をどのように証明するか。等号が成り立つのはどのようなときか。</p>
+</div>
+<p><span class="math inline">\(x &gt; 0\)</span> を掛けると、不等式は <span class="math inline">\(x^2 + 1 \geq 2x\)</span>、すなわち <span class="math inline">\((x - 1)^2 \geq 0\)</span> となり、これは正しい。等号は <span class="math inline">\(x = 1\)</span> のときに限り成り立つ。（別解として、<span class="math inline">\(x + \frac1x - 2 = \bigl(\sqrt x - \frac{1}{\sqrt x}\bigr)^2\)</span> としてもよい。）これは最も単純な形の相加平均・相乗平均の不等式（AM–GM inequality）である。すなわち、<span class="math inline">\(x\)</span> と <span class="math inline">\(\frac1x\)</span> の相加平均は、それらの相乗平均 <span class="math inline">\(1\)</span> 以上である。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-両端の合計" class="stage"><span class="stage-n">段階 1</span> 両端の合計</h4>
+<div class="askyourself">
+<p>合計 <span class="math inline">\(2\)</span> を出す方法は何通りあるか。合計 <span class="math inline">\(12\)</span> はどうか。それらの確率を <span class="math inline">\(q_i\)</span> と <span class="math inline">\(r_j\)</span> を用いて表せ。</p>
+</div>
+<p>合計 <span class="math inline">\(2\)</span> には両方のさいころで <span class="math inline">\(1\)</span> が、<span class="math inline">\(12\)</span> には両方で <span class="math inline">\(6\)</span> が必要であるから、<span class="math inline">\(\mathrm{P}(2) = q_1r_1\)</span>、<span class="math inline">\(\mathrm{P}(12) = q_6r_6\)</span> である。</p>
+<p>背理法（proof by contradiction）のために、十一通りの合計がすべて等確率、すなわちそれぞれ確率 <span class="math inline">\(\frac{1}{11}\)</span> であると仮定する。このとき <span class="math display">\[q_1r_1 = \frac{1}{11}, \qquad q_6r_6 = \frac{1}{11}.\]</span> 特に、<span class="math inline">\(q_1\)</span>、<span class="math inline">\(r_1\)</span>、<span class="math inline">\(q_6\)</span>、<span class="math inline">\(r_6\)</span> の四つはすべて正である。</p>
+<h4 id="stagemark2-真ん中の合計" class="stage"><span class="stage-n">段階 2</span> 真ん中の合計</h4>
+<div class="askyourself">
+<p>合計 <span class="math inline">\(7\)</span> の作り方は六通りある。そのうち <span class="math inline">\(1\)</span> と <span class="math inline">\(6\)</span> の目だけを含むのはどの二つか。上の等式を用いて、それらの確率を表せ。</p>
+</div>
+<p>合計 <span class="math inline">\(7\)</span> には結果 (<span class="math inline">\(1\)</span>, <span class="math inline">\(6\)</span>) と (<span class="math inline">\(6\)</span>, <span class="math inline">\(1\)</span>) が含まれるから <span class="math display">\[\mathrm{P}(7) \geq q_1r_6 + q_6r_1.\]</span> ここでステージ 1 の等式を用いて比を導入する。<span class="math inline">\(q_1 = \frac{1}{11r_1}\)</span>、<span class="math inline">\(q_6 = \frac{1}{11r_6}\)</span> であるから <span class="math display">\[q_1r_6 + q_6r_1 = \frac{1}{11}\Bigl(\frac{r_6}{r_1} + \frac{r_1}{r_6}\Bigr) \geq \frac{1}{11} \times 2 = \frac{2}{11},\]</span> となる。ここで <span class="math inline">\(x = r_6/r_1 &gt; 0\)</span> として <span class="math inline">\(x + \frac1x \geq 2\)</span> を用いた。よって <span class="math inline">\(\mathrm{P}(7) \geq \frac{2}{11}\)</span> となり、<span class="math inline">\(\mathrm{P}(7) = \frac{1}{11}\)</span> に矛盾する。したがって、合計がすべて等確率になることはありえない。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>何が証明をうまく機能させたかを見てみよう。<span class="math inline">\(2\)</span> と <span class="math inline">\(12\)</span> を <span class="math inline">\(7\)</span> と同じくらい出やすくすると、<span class="math inline">\(1\)</span> と <span class="math inline">\(6\)</span> の目がかなり出やすくなければならない。すると「混ざった」結果 (<span class="math inline">\(1\)</span>, <span class="math inline">\(6\)</span>) と (<span class="math inline">\(6\)</span>, <span class="math inline">\(1\)</span>) だけで、<span class="math inline">\(7\)</span> が出やすくなりすぎてしまうのである。図 9.13.1 に関係するマスを示す。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-9-13-1.svg" alt="図 9.13.1"><figcaption><span class="fig-label">図 9.13.1</span> 二つのさいころの <span class="math inline">\(36\)</span> 通りの結果。各マスには合計を記してある。証明では四隅のマスだけを用いる。琥珀色の二つの確率の積は濃い青緑色の二つの確率の積に等しく、<span class="math inline">\(q_1r_1q_6r_6 = q_1r_6 \cdot q_6r_1\)</span> であり、相加平均・相乗平均の不等式により、青緑色の組の和は琥珀色の組の相乗平均の二倍以上である。</figcaption></figure>
+<h4 id="stagemark3-一つのさいころを二回振る" class="stage"><span class="stage-n">段階 3</span> 一つのさいころを二回振る</h4>
+<div class="askyourself">
+<p>一つのさいころを二回振るとき、二つの目が一致する確率を <span class="math inline">\(q_j\)</span> を用いて表せ。公正なさいころではいくらか。</p>
+</div>
+<p>二回の目が一致する確率は <span class="math inline">\(q_1^2 + q_2^2 + \cdots + q_6^2\)</span> である。公正なさいころではこれは <span class="math inline">\(6 \times \frac{1}{36} = \frac16\)</span> であり、すでに <span class="math inline">\(\frac{1}{36}\)</span> よりずっと大きい。</p>
+<div class="askyourself">
+<p>細工によって <span class="math inline">\(\sum q_j^2\)</span> を <span class="math inline">\(\frac16\)</span> より小さくできるか。<span class="math inline">\(\sum q_j = 1\)</span> であることはわかっている。</p>
+</div>
+<p><span class="math inline">\(q_j = \frac16 + e_j\)</span> とおく。ここで偏差 <span class="math inline">\(e_j\)</span> の和は <span class="math inline">\(0\)</span> である。すると <span class="math display">\[\sum q_j^2 = \sum\Bigl(\frac{1}{36} + \frac{e_j}{3} + e_j^2\Bigr) = \frac16 + \frac13\sum e_j + \sum e_j^2 = \frac16 + \sum e_j^2 \geq \frac16.\]</span> よって同じ目が続く確率はつねに <span class="math inline">\(\frac16\)</span> 以上であり、等号は公正なさいころの場合に限り成り立つ。まして <span class="math inline">\(\frac{1}{36}\)</span> 未満になることはありえない。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>背理法。</strong>すべての合計が等確率であると仮定し、不可能なことを導いた。</p></li>
+<li><p><strong>必要なものだけを使う。</strong>十一個の等式のうち、三つで十分であった。正しい等式を選ぶことが鍵となる一歩であった。</p></li>
+<li><p><strong>不等式は不可能性を証明する。</strong>小問 (i) では相加平均・相乗平均の不等式が、小問 (ii) では「平方和は負でない」ことが、可能性の族全体を一挙に排除した。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="多項式による証明">多項式による証明</h3>
+<p>ここでは <a href="../ch09/strange-dice.html">第 9.6 節</a> の母関数（generating function）を用いた、まったく別の証明を紹介する。<span class="math inline">\(Q(x) = q_1x + \cdots + q_6x^6\)</span>、<span class="math inline">\(R(x) = r_1x + \cdots + r_6x^6\)</span> とおく。すべての合計の確率が <span class="math inline">\(\frac{1}{11}\)</span> であるとすると <span class="math display">\[Q(x)R(x) = \frac{x^2 + x^3 + \cdots + x^{12}}{11} = \frac{x^2}{11}\bigl(1 + x + \cdots + x^{10}\bigr).\]</span> ここで <span class="math inline">\(Q(x)/x\)</span> は実数係数の <span class="math inline">\(5\)</span> 次多項式であり、奇数次の実数係数多項式はすべて実数解をもつ（グラフが <span class="math inline">\(-\infty\)</span> から <span class="math inline">\(+\infty\)</span> へ、あるいはその逆へ向かうからである）。よって左辺は <span class="math inline">\(0\)</span> でない実数解をもつ。ところが <span class="math inline">\(1 + x + \cdots + x^{10} = \frac{x^{11} - 1}{x - 1}\)</span> であり、その解は <span class="math inline">\(1\)</span> 以外の <span class="math inline">\(11\)</span> 乗の単位根（roots of unity）で、そのどれも実数ではない。これは矛盾である。同じ議論により、<span class="math inline">\(n - 1\)</span> が奇数のとき、すなわち <span class="math inline">\(n\)</span> が偶数のとき、二つの <span class="math inline">\(n\)</span> 面さいころにどのような細工をしても合計を等確率にはできないことがわかる。（<span class="math inline">\(n\)</span> が奇数のときは多項式による議論にはさらに工夫が必要であるが、上の相加平均・相乗平均の不等式による証明はすべての <span class="math inline">\(n \geq 2\)</span> で通用する。）</p>
+<h3 id="衝突確率">衝突確率</h3>
+<p>小問 (ii) の量 <span class="math inline">\(\sum q_j^2\)</span>、すなわち独立な二回の抽出が一致する確率は、分布の<em>衝突確率</em>（collision probability）とよばれる。小問 (ii) は、これが一様分布のとき最小になることを示している。衝突確率は分布がどれほど集中しているかを測る量である。生態学では、<span class="math inline">\(q_j\)</span> をある生息地における種 <span class="math inline">\(j\)</span> の割合として、<span class="math inline">\(\sum q_j^2\)</span> はシンプソンの多様度指数（Simpson’s index）である。経済学では市場集中度を表すハーフィンダール指数（Herfindahl index）であり、暗号理論ではパスワードの分布がどれほど推測されやすいかを測る。さらにこれは <a href="../ch09/birthday.html">第 9.9 節</a> の最後で述べたこと、すなわち誕生日の確率が不均等であれば誕生日が一致する確率は大きくなるしかない、ということを説明している。</p>
+<div class="historybox">
+<div class="box-title">不可能性の証明</div>
+<p>数学で最も有名な結果のいくつかは、何かができないことを主張するものである。2乗して <span class="math inline">\(2\)</span> になる分数は存在しない。定規とコンパスによる作図で任意の角を三等分することはできない。冪根を用いた公式ですべての五次方程式を解くことはできない。あらゆる数学的命題の真偽を判定するアルゴリズムは存在しない。これらはどれもその分野を変えた。なぜなら、<em>どの</em>方法もうまくいかないことを証明するには、方法の全体を理解しなければならないからである。細工したさいころの問題はその縮図である。あらゆる細工を排除するために、どの細工も従わねばならない不変な性質（相加平均・相乗平均の不等式）が必要であった。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">背理法と不等式で不可能性を証明する</div>
+<p><em>どのようなパラメータの選び方もうまくいかないことを示すには、うまくいく選び方があると仮定し、互いに衝突する少数の条件を選び出し、不等式を用いてそれらが同時には成り立たないことを示す。</em></p>
+<p>大学では、背理法と不等式の組合せは、対象が存在しないことを証明する標準的な方法である。解析学でも、組合せ論でも、最適化でもそうであり、最適化では相加平均・相乗平均の不等式やコーシー＝シュワルツ（Cauchy–Schwarz）の不等式のような不等式が、達成できることの限界を定める。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>コーシー＝シュワルツの不等式。</strong>コーシー＝シュワルツの不等式 <span class="math inline">\(\bigl(\sum a_jb_j\bigr)^2 \leq \sum a_j^2\sum b_j^2\)</span> を <span class="math inline">\(a_j = q_j\)</span>、<span class="math inline">\(b_j = 1\)</span> として用い、小問 (ii) の一行の証明を与えよ。</p></li>
+<li><p><strong>異なる二つのさいころ。</strong><em>異なる</em>二つの細工したさいころをそれぞれ一回ずつ振るとき、同じ目が出る確率は <span class="math inline">\(\frac16\)</span> より小さくなりうるか。<span class="math inline">\(0\)</span> になりうるか。</p></li>
+<li><p><strong>別の目をもつさいころでの一様な合計。</strong>目の数の付け方が異なれば、二つのさいころで合計を等確率に<em>できる</em>ことを示せ。一方のさいころの目を <span class="math inline">\(0, 1, 2, 3, 4, 5\)</span>、もう一方を <span class="math inline">\(0, 6, 12, 18, 24, 30\)</span> としてみよ。どのような合計が現れるか。これが問題と矛盾しないのはなぜか。</p></li>
+<li><p><strong>三つのさいころ。</strong>目が <span class="math inline">\(1\)</span> から <span class="math inline">\(6\)</span> である三つの細工した六面さいころで、<span class="math inline">\(3\)</span> から <span class="math inline">\(18\)</span> までのすべての合計を等確率にできるか。（<em>ヒント：</em>合計 <span class="math inline">\(3\)</span>、<span class="math inline">\(8\)</span>、<span class="math inline">\(13\)</span>、<span class="math inline">\(18\)</span> と、六つの数に対する相加平均・相乗平均の不等式を用いよ。今回、多項式による証明がうまくいかないのはなぜか。）</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>J. Michael Steele, <a href="https://uk.bookshop.org/search?keywords=The+Cauchy-Schwarz+Master+Class+Steele"><em>The Cauchy–Schwarz Master Class</em></a></strong>（Cambridge University Press）。相加平均・相乗平均の不等式から始まる、不等式への美しい入門書。</p></li>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <a href="https://uk.bookshop.org/search?keywords=Probability%3A+An+Introduction+Grimmett+Welsh"><em>Probability: An Introduction</em></a></strong>（Oxford University Press）。母関数と、上のような証明におけるその使い方。</p></li>
+<li><p><strong>Ian Stewart, <a href="https://uk.bookshop.org/search?keywords=Galois+Theory+Stewart"><em>Galois Theory</em></a></strong>（CRC Press）、冒頭の数章。五次方程式に関する、あらゆる不可能性の証明の中で最も有名なもの。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="random-subsets.html">← 9.12 ランダムな部分集合</a><a class="next" href="wrap-up.html">→ 振り返り</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

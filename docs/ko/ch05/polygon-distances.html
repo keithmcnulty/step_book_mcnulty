@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>정다각형 속의 거리 (STEP III 2016 Q7) — Beyond STEP</title>
+<meta name="description" content="STEP III 2016 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 반지름이 1 인 원에 정칠각형(regular heptagon)을 그린다. 한 꼭짓점에서 나머지 꼭짓점으로 여섯 개의 현(chord)을 긋고 그 길이를 잰다. 여섯 길이를 모두 곱한다. 답은 정확히 7 이다. 정 100 각형에서 한 꼭짓점에서 그은 99 개의 현의 길이를 모두…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch05/polygon-distances.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="정다각형 속의 거리 (STEP III 2016 Q7) — Beyond STEP">
+<meta property="og:description" content="STEP III 2016 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 반지름이 1 인 원에 정칠각형(regular heptagon)을 그린다. 한 꼭짓점에서 나머지 꼭짓점으로 여섯 개의 현(chord)을 긋고 그 길이를 잰다. 여섯 길이를 모두 곱한다. 답은 정확히 7 이다. 정 100 각형에서 한 꼭짓점에서 그은 99 개의 현의 길이를 모두…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch05/polygon-distances.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="정다각형 속의 거리 (STEP III 2016 Q7) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2016 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 반지름이 1 인 원에 정칠각형(regular heptagon)을 그린다. 한 꼭짓점에서 나머지 꼭짓점으로 여섯 개의 현(chord)을 긋고 그 길이를 잰다. 여섯 길이를 모두 곱한다. 답은 정확히 7 이다. 정 100 각형에서 한 꼭짓점에서 그은 99 개의 현의 길이를 모두…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "정다각형 속의 거리", "headline": "정다각형 속의 거리", "description": "STEP III 2016 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 반지름이 1 인 원에 정칠각형(regular heptagon)을 그린다. 한 꼭짓점에서 나머지 꼭짓점으로 여섯 개의 현(chord)을 긋고 그 길이를 잰다. 여섯 길이를 모두 곱한다. 답은 정확히 7 이다. 정 100 각형에서 한 꼭짓점에서 그은 99 개의 현의 길이를 모두…", "url": "https://beyondstep.keithmcnulty.org/ko/ch05/polygon-distances.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2016 문제 7", "복소수"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 5, "name": "복소수", "url": "https://beyondstep.keithmcnulty.org/ko/ch05/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제5장: 복소수", "item": "https://beyondstep.keithmcnulty.org/ko/ch05/"}, {"@type": "ListItem", "position": 3, "name": "정다각형 속의 거리", "item": "https://beyondstep.keithmcnulty.org/ko/ch05/polygon-distances.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch05/polygon-distances.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch05/polygon-distances.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch05/polygon-distances.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch05/polygon-distances.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제5장 · 복소수</a>
+    <div class="src">STEP III · 2016 · 문제 7</div>
+    <div class="sec-head"><span class="sec-num">5.4</span><h1>정다각형 속의 거리</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-4-polygon-distances.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제5장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 2016, 문제 7</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/16-s3-q7">step.maths.org/questions/16-s3-q7</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>반지름이 <span class="math inline">\(1\)</span>인 원에 정칠각형(regular heptagon)을 그린다. 한 꼭짓점에서 나머지 꼭짓점으로 여섯 개의 현(chord)을 긋고 그 길이를 잰다. 여섯 길이를 모두 곱한다. 답은 정확히 <span class="math inline">\(7\)</span>이다. 정<span class="math inline">\(100\)</span>각형에서 한 꼭짓점에서 그은 <span class="math inline">\(99\)</span>개의 현의 길이를 모두 곱하면 정확히 <span class="math inline">\(100\)</span>이다.</p>
+<p>이렇게 깔끔한 결과가 왜 성립할까? 현의 길이 자체는 지저분하다(<span class="math inline">\(2\sin\frac{\pi}{7}\)</span>, <span class="math inline">\(2\sin\frac{2\pi}{7}\)</span> 등). 이 문제는 이 결과가 간단한 대수적 항등식, 즉 단위근(roots of unity)을 이용한 <span class="math inline">\(z^n - 1\)</span>의 인수분해(factorisation)의 기하학적 그림자라는 것, 그리고 평면 위의 거리가 복소수의 절댓값(modulus)이라는 것을 보여 준다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>다각형의 꼭짓점을 1의 <span class="math inline">\(n\)</span>제곱근 <span class="math inline">\(X_k = \omega^k\)</span>에 놓자. <span class="math inline">\(P\)</span>가 점 <span class="math inline">\(z\)</span>일 때 <span class="math inline">\(|PX_k|\)</span>를 <span class="math inline">\(z\)</span>로 나타내면 무엇인가? 그렇다면 모든 거리의 곱은 무엇인가?</p>
+</div>
+<p><span class="math inline">\(|PX_k| = |z - \omega^k|\)</span>이고, 이들을 모두 곱하면 <span class="math inline">\(|(z - 1)(z - \omega)\cdots(z - \omega^{n-1})|\)</span>인데, 문제의 첫 부분에 따르면 이는 <span class="math inline">\(|z^n - 1|\)</span>이다. <span class="math inline">\(n\)</span>개의 거리의 곱이 하나의 절댓값이 되었다. 나머지는 모두 <span class="math inline">\(z\)</span>를 영리하게 고르는 일이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-인수분해" class="stage"><span class="stage-n">단계 1</span> 인수분해</h4>
+<p>각 <span class="math inline">\(\omega^k\)</span>는 <span class="math inline">\((\omega^k)^n = (\omega^n)^k = 1\)</span>을 만족하므로 <span class="math inline">\(1, \omega, \ldots, \omega^{n-1}\)</span>은 <span class="math inline">\(z^n - 1\)</span>의 근이다. 이들은 서로 다르다(편각 <span class="math inline">\(\frac{2\pi k}{n}\)</span>이 <span class="math inline">\(0\)</span>과 <span class="math inline">\(2\pi\)</span> 사이에서 모두 다르다). 따라서 이들은 이 <span class="math inline">\(n\)</span>차 다항식의 근 <span class="math inline">\(n\)</span>개 전부이고, 최고차항의 계수가 <span class="math inline">\(1\)</span>이므로 <span class="math inline">\(z^n - 1 = \prod_{k=0}^{n-1}(z - \omega^k)\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-수직이등분선-위의-점" class="stage"><span class="stage-n">단계 2</span> 수직이등분선 위의 점</h4>
+<p>그림을 회전하여 <span class="math inline">\(X_k = \omega^k\)</span>가 되게 하자. <span class="math inline">\(X_0 = 1\)</span>과 <span class="math inline">\(X_1 = \omega\)</span>에서 같은 거리에 있는 점들은 <span class="math inline">\(X_0X_1\)</span>의 수직이등분선(perpendicular bisector)을 이루며, 이는 <span class="math inline">\(O\)</span>를 지나고 각이 <span class="math inline">\(\frac\pi n\)</span>인 직선이다.</p>
+<div class="askyourself">
+<p>따라서 <span class="math inline">\(P\)</span>는 어떤 실수 <span class="math inline">\(t\)</span>(양수 또는 음수)에 대해 <span class="math inline">\(z = te^{\mathrm{i}\pi/n}\)</span>이고, <span class="math inline">\(|OP| = |t|\)</span>이다. <span class="math inline">\(z^n\)</span>은 무엇인가?</p>
+</div>
+<p><span class="math inline">\(z^n = t^ne^{\mathrm{i}\pi} = -t^n\)</span>이다. 따라서 <span class="math display">\[|PX_0| \times \cdots \times |PX_{n-1}| = |z^n - 1| = |{-t^n} - 1| = |t^n + 1|.\]</span> <span class="math inline">\(n\)</span>이 짝수이면 <span class="math inline">\(t^n = |t|^n \geq 0\)</span>이므로 이 값은 <span class="math inline">\(|OP|^n + 1\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p><span class="math inline">\(n\)</span>이 홀수이면 어떻게 될까? <span class="math inline">\(t &gt; 0\)</span>인 경우와 <span class="math inline">\(t &lt; 0\)</span>인 경우를 따로 생각하고, 각 경우가 기하학적으로 무엇을 뜻하는지 말해 보아라.</p>
+</div>
+<p><span class="math inline">\(n\)</span>이 홀수이면 <span class="math inline">\(t^n\)</span>은 <span class="math inline">\(t\)</span>와 부호가 같다.</p>
+<ul>
+<li><p><span class="math inline">\(t \geq 0\)</span>이면, 즉 <span class="math inline">\(P\)</span>가 <span class="math inline">\(O\)</span>를 기준으로 <span class="math inline">\(X_0X_1\)</span>의 중점과 같은 쪽에 있으면, 곱은 <span class="math inline">\(|OP|^n + 1\)</span>이다.</p></li>
+<li><p><span class="math inline">\(t &lt; 0\)</span>이면, 즉 <span class="math inline">\(P\)</span>가 <span class="math inline">\(O\)</span>를 기준으로 반대쪽(변 <span class="math inline">\(X_0X_1\)</span>의 맞은편 꼭짓점 쪽)에 있으면, <span class="math inline">\(t^n = -|OP|^n\)</span>이고 곱은 <span class="math inline">\(\bigl|1 - |OP|^n\bigr|\)</span>이다.</p></li>
+</ul>
+<p><span class="math inline">\(n\)</span>이 홀수일 때, <span class="math inline">\(O\)</span>를 지나고 <span class="math inline">\(X_0X_1\)</span>에 수직인 직선은 반대편의 한 꼭짓점을 지난다. 두 번째 경우에서 <span class="math inline">\(P\)</span>가 그 꼭짓점일 때(<span class="math inline">\(|OP| = 1\)</span>) 곱은 0이 되는데, 이때 거리 중 하나가 0이므로 당연한 결과이다.</p>
+<h4 id="stagemark3-꼭짓점에서-그은-현" class="stage"><span class="stage-n">단계 3</span> 꼭짓점에서 그은 현</h4>
+<div class="askyourself">
+<p>이제 <span class="math inline">\(P = X_0\)</span>이고 거리 중 하나인 <span class="math inline">\(|X_0X_0|\)</span>가 0이므로 <span class="math inline">\(|z^n - 1| = 0\)</span>은 쓸모가 없다. <span class="math inline">\(\omega, \omega^2, \ldots, \omega^{n-1}\)</span>을 근으로 갖지만 <span class="math inline">\(1\)</span>은 근으로 갖지 않는 다항식은 무엇인가?</p>
+</div>
+<p><span class="math inline">\(z^n - 1\)</span>을 <span class="math inline">\(z - 1\)</span>로 나누면 <span class="math display">\[(z - \omega)(z - \omega^2)\cdots(z - \omega^{n-1}) = \frac{z^n - 1}{z - 1} = 1 + z + z^2 + \cdots + z^{n-1}.\]</span> 우변은 다항식이므로 이 식은 모든 <span class="math inline">\(z\)</span>에 대해 성립하며, <span class="math inline">\(z = 1\)</span>에서도 성립하고 이때 값은 <span class="math inline">\(n\)</span>이다. <span class="math inline">\(z = 1\)</span>에서 절댓값을 취하면 <span class="math display">\[|X_0X_1| \times |X_0X_2| \times \cdots \times |X_0X_{n-1}| = |1 - \omega|\,|1 - \omega^2|\cdots|1 - \omega^{n-1}| = n. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-5-4-1.svg" alt="그림 5.4.1"><figcaption><span class="fig-label">그림 5.4.1</span> 반지름이 <span class="math inline">\(1\)</span>인 원에 내접하는 정칠각형. <span class="math inline">\(X_0\)</span>에서 그은 여섯 현의 길이는 <span class="math inline">\(2\sin\frac{k\pi}{7}\)</span>이며, 약 <span class="math inline">\(0.868\)</span>(청록색), <span class="math inline">\(1.564\)</span>(호박색), <span class="math inline">\(1.950\)</span>(자주색)이 각각 두 번씩 나타난다. 이들의 곱은 정확히 <span class="math inline">\(7\)</span>이다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>거리는 절댓값이다.</strong> <span class="math inline">\(|PX_k| = |z - \omega^k|\)</span>이므로 거리의 곱은 곱의 절댓값이고, 그 곱은 닫힌 꼴(closed form)로 나타낼 수 있었다.</p></li>
+<li><p><strong>대칭을 이용해 좌표를 정한다.</strong> 꼭짓점이 단위근이 되도록 회전하고 <span class="math inline">\(O\)</span>를 지나는 대칭축을 이용하자 <span class="math inline">\(z^n\)</span>을 쉽게 계산할 수 있었다.</p></li>
+<li><p><strong>대입하기 전에 0이 되는 인수를 소거한다.</strong> <a href="../ch05/z2n-plus-one.html">5.3 절</a>에서처럼, 관심 있는 점에서 0이 되는 인수를 나누어 없애자 대입이 가능해졌다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">코츠(Cotes)의 정리</div>
+<p>소문항 (i)은 로저 코츠의 정리이다. 코츠는 뉴턴(Newton)의 <em>Principia</em>(프린키피아) 제2판을 편집한 케임브리지의 뛰어난 젊은 수학자로, 1716년 서른세 살의 나이로 세상을 떠났다(뉴턴은 “그가 살았더라면 우리는 무언가를 알게 되었을 것이다”라고 말했다). 코츠는 <span class="math inline">\(P\)</span>가 <span class="math inline">\(O\)</span>에서 정<span class="math inline">\(n\)</span>각형의 한 꼭짓점을 지나는 반직선 위에 있으면 <span class="math inline">\(P\)</span>에서 꼭짓점들까지의 거리의 곱이 <span class="math inline">\(\bigl||OP|^n - 1\bigr|\)</span>이고, <span class="math inline">\(P\)</span>가 한 변의 중점을 지나는 반직선 위에 있으면 그 곱이 <span class="math inline">\(|OP|^n + 1\)</span>임을 발견했다. 그는 복소수를 쓰지 않고 이 결과를 이용해 <span class="math inline">\(x^n \pm 1\)</span>을 실수 계수 이차식들로 인수분해했는데, 이는 유리함수(rational function)를 적분하는 데 필요했다. 이 정리는 그가 죽은 뒤인 1722년에 출판되었다.</p>
+</div>
+<h3 id="사인의-곱">사인의 곱</h3>
+<p><span class="math inline">\(|1 - \omega^k| = |e^{-\mathrm{i}\pi k/n} - e^{\mathrm{i}\pi k/n}| = 2\sin\frac{k\pi}{n}\)</span>이므로 소문항 (ii)는 다음을 말한다. <span class="math display">\[\prod_{k=1}^{n-1}\sin\frac{k\pi}{n} = \frac{n}{2^{n-1}}.\]</span> 이것은 <a href="../ch05/z2n-plus-one.html">5.3 절</a>의 코사인 곱과 짝을 이룬다. 이와 관련된 곱은 <span class="math inline">\(z^n - 1\)</span>의 <em>판별식</em>(discriminant)을 준다. 서로 다른 1의 <span class="math inline">\(n\)</span>제곱근의 모든 쌍 사이 거리의 제곱을 곱하면 <span class="math inline">\(n^n\)</span>이다. 판별식은 다항식의 근들이 서로 얼마나 떨어져 있는지를 재며, 다항식의 대수학과 수체(number field)의 대수학에서 핵심적인 역할을 한다. 이 내용은 6장에서 다룬다.</p>
+<h3 id="정전기학과-균등한-간격">정전기학과 균등한 간격</h3>
+<p>물리적으로 해석할 수도 있다. 원 위에 크기가 같은 전하 <span class="math inline">\(n\)</span>개를 놓자. (2차원 정전기학의 로그 퍼텐셜을 쓸 때) 퍼텐셜 에너지를 최소화하는 배치는 정다각형이며, 그 에너지에는 정확히 <span class="math inline">\(\sum\ln|X_jX_k|\)</span>, 즉 거리의 곱의 로그가 들어 있다. “가능한 한 넓게 퍼진” 점들은 수치해석(<a href="../ch03/markov-bound.html">3.6 절</a>에서 최적의 보간점은 <span class="math inline">\(x = \cos\theta\)</span>를 통해 정다각형에서 나온다)과 무작위 행렬(random matrices) 이론에서 중요하다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">복소수로 기하를 대수로 바꾸기</div>
+<p><em>평면 위의 점은 복소수이고, 거리는 절댓값이며, 정다각형은 단위근이다. 거리의 곱은 다항식의 절댓값이 된다.</em></p>
+<p>이렇게 옮기면 <span class="math inline">\(z^n - 1\)</span>의 인수분해 같은 대수적 항등식으로, 직접 보기는 매우 어려운 기하학적 사실을 증명할 수 있다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>작은 경우 확인하기.</strong> 정사각형(<span class="math inline">\(n = 4\)</span>)과 정삼각형(<span class="math inline">\(n = 3\)</span>)에 대해 소문항 (ii)를 직접 확인하여라.</p></li>
+<li><p><strong>꼭짓점을 지나는 경우.</strong> <span class="math inline">\(P\)</span>가 <span class="math inline">\(O\)</span>에서 <span class="math inline">\(X_0\)</span>을 지나는 반직선 위에 있으면 <span class="math inline">\(|PX_0| \times \cdots \times |PX_{n-1}| = \bigl||OP|^n - 1\bigr|\)</span>임을 보여라.</p></li>
+<li><p><strong>평균 거리.</strong> 소문항 (ii)와 <a href="../ch03/am-gm-backwards.html">3.2 절</a>의 산술-기하 평균 부등식(AM–GM inequality)을 이용하여 <span class="math inline">\(X_0\)</span>에서 그은 <span class="math inline">\(n - 1\)</span>개의 현의 평균 길이가 <span class="math inline">\(n^{1/(n-1)}\)</span> 이상임을 보여라. 실제 평균 <span class="math inline">\(\frac{1}{n-1}\sum_k 2\sin\frac{k\pi}{n}\)</span>을 <span class="math inline">\(n = 6\)</span>일 때 구하고 비교하여라.</p></li>
+<li><p><strong>모든 현.</strong> <span class="hard">심화</span> 단위원에 내접하는 정<span class="math inline">\(n\)</span>각형의 <span class="math inline">\(\binom n2\)</span>개 현의 길이를 모두 곱하면 <span class="math inline">\(n^{n/2}\)</span>임을 보여라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Tristan Needham, <a href="https://uk.bookshop.org/search?keywords=Visual+Complex+Analysis+Needham"><em>Visual Complex Analysis</em></a></strong> (Oxford University Press). 복소수를 이용한 기하학을 아름다운 그림과 함께 다룬다.</p></li>
+<li><p><strong>Ross Honsberger, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Gems+Honsberger"><em>Mathematical Gems</em></a></strong> (Mathematical Association of America). 정다각형에 관한 우아한 문제 여러 개가 실려 있다.</p></li>
+<li><p><strong>Ronald Gowing, <a href="https://uk.bookshop.org/search?keywords=Roger+Cotes%3A+Natural+Philosopher+Gowing"><em>Roger Cotes: Natural Philosopher</em></a></strong> (Cambridge University Press). 코츠의 생애와 그의 수학을 다룬 전기이다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="z2n-plus-one.html">← 5.3 z²ⁿ + 1의 인수분해</a><a class="next" href="rational-angles.html">→ 5.5 유리수처럼 보이지만 아닌 각</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

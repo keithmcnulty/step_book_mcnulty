@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>쌍곡 회전과 상대성 이론 (STEP III 1991 Q6) — Beyond STEP</title>
+<meta name="description" content="STEP III 1991 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 회전행렬(rotation matrix) beginpmatrix cos u &amp; -sin u \\ sin u &amp; cos u endpmatrix 은 점을 원 x^2 + y^2 = 1 위에서 돌려 옮기고, u 만큼 회전한 뒤 w 만큼 회전하는 것은 u + w 만큼 회전하는 것과 같다.…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch07/hyperbolic-rotations.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch07/hyperbolic-rotations.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/hyperbolic-rotations.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/hyperbolic-rotations.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/hyperbolic-rotations.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch07/hyperbolic-rotations.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/hyperbolic-rotations.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="쌍곡 회전과 상대성 이론 (STEP III 1991 Q6) — Beyond STEP">
+<meta property="og:description" content="STEP III 1991 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 회전행렬(rotation matrix) beginpmatrix cos u &amp; -sin u \\ sin u &amp; cos u endpmatrix 은 점을 원 x^2 + y^2 = 1 위에서 돌려 옮기고, u 만큼 회전한 뒤 w 만큼 회전하는 것은 u + w 만큼 회전하는 것과 같다.…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch07/hyperbolic-rotations.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="쌍곡 회전과 상대성 이론 (STEP III 1991 Q6) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1991 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 회전행렬(rotation matrix) beginpmatrix cos u &amp; -sin u \\ sin u &amp; cos u endpmatrix 은 점을 원 x^2 + y^2 = 1 위에서 돌려 옮기고, u 만큼 회전한 뒤 w 만큼 회전하는 것은 u + w 만큼 회전하는 것과 같다.…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "쌍곡 회전과 상대성 이론", "headline": "쌍곡 회전과 상대성 이론", "description": "STEP III 1991 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 회전행렬(rotation matrix) beginpmatrix cos u & -sin u \\\\ sin u & cos u endpmatrix 은 점을 원 x^2 + y^2 = 1 위에서 돌려 옮기고, u 만큼 회전한 뒤 w 만큼 회전하는 것은 u + w 만큼 회전하는 것과 같다.…", "url": "https://beyondstep.keithmcnulty.org/ko/ch07/hyperbolic-rotations.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1991 문제 6", "선형대수학과 기하학"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "선형대수학과 기하학", "url": "https://beyondstep.keithmcnulty.org/ko/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제7장: 선형대수학과 기하학", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/"}, {"@type": "ListItem", "position": 3, "name": "쌍곡 회전과 상대성 이론", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/hyperbolic-rotations.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch07/hyperbolic-rotations.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/hyperbolic-rotations.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch07/hyperbolic-rotations.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch07/hyperbolic-rotations.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제7장 · 선형대수학과 기하학</a>
+    <div class="src">STEP III · 1991 · 문제 6</div>
+    <div class="sec-head"><span class="sec-num">7.6</span><h1>쌍곡 회전과 상대성 이론</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-6-hyperbolic-rotations.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제7장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 1991, 문제 6</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/91-s3-q6">step.maths.org/questions/91-s3-q6</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>회전행렬(rotation matrix) <span class="math inline">\(\begin{pmatrix} \cos u &amp; -\sin u \\ \sin u &amp; \cos u \end{pmatrix}\)</span>은 점을 원 <span class="math inline">\(x^2 + y^2 = 1\)</span> 위에서 돌려 옮기고, <span class="math inline">\(u\)</span>만큼 회전한 뒤 <span class="math inline">\(w\)</span>만큼 회전하는 것은 <span class="math inline">\(u + w\)</span>만큼 회전하는 것과 같다. 여기서 <span class="math inline">\(\cos\)</span>와 <span class="math inline">\(\sin\)</span>을 <span class="math inline">\(\cosh\)</span>와 <span class="math inline">\(\sinh\)</span>로 바꾸고 부호 하나를 조정하면 이 문제의 행렬을 얻는다. 이 행렬은 점을 원 대신 쌍곡선(hyperbola) <span class="math inline">\(x^2 - y^2 = 1\)</span>을 따라 옮기며, 역시 “각”을 더한다. 이것이 <em>쌍곡회전(hyperbolic rotation)</em>이다.</p>
+<p>이것은 단순한 호기심거리가 아니다. <span class="math inline">\(x\)</span>를 시간, <span class="math inline">\(y\)</span>를 거리로 보면(빛의 속력이 <span class="math inline">\(1\)</span>이 되는 단위에서), 이 행렬은 <em>로렌츠 부스트(Lorentz boost)</em>가 된다. 즉 아인슈타인(Einstein)의 특수상대성이론(special relativity)에서 발견된, 서로에 대해 일정한 속도로 움직이는 두 관찰자의 측정값 사이의 변환이다. “쌍곡각(hyperbolic angle)” <span class="math inline">\(u\)</span>는 <em>신속도(rapidity)</em>이며, 신속도가 더해진다는 사실이 <a href="../ch03/addition-laws.html">3.8 절</a>에서 만난 기묘한 속도 덧셈 법칙을 설명해 준다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\cos^2u + \sin^2u = 1\)</span>에 대응하여 <span class="math inline">\(\cosh u\)</span>와 <span class="math inline">\(\sinh u\)</span>가 만족하는 항등식(identity)은 무엇인가? 또 <span class="math inline">\(\cosh(u + v)\)</span>와 <span class="math inline">\(\sinh(u + v)\)</span>의 덧셈정리(addition formula)는 무엇인가?</p>
+</div>
+<p><span class="math inline">\(\cosh^2u - \sinh^2u = 1\)</span>이고, <span class="math display">\[\begin{aligned}
+  \cosh(u + v) &amp;= \cosh u\cosh v + \sinh u\sinh v, \\
+  \sinh(u + v) &amp;= \sinh u\cosh v + \cosh u\sinh v.
+\end{aligned}\]</span> 이 식들은 정의 <span class="math inline">\(\cosh u = \frac12(e^u + e^{-u})\)</span>와 <span class="math inline">\(\sinh u = \frac12(e^u - e^{-u})\)</span>로부터 확인할 수 있다. <span class="math inline">\((\cos v, \sin v)\)</span>가 원 위에 있는 것과 마찬가지로, 점 <span class="math inline">\((\cosh v, \sinh v)\)</span>는 쌍곡선 <span class="math inline">\(x^2 - y^2 = 1\)</span> 위에 있다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-쌍곡선은-불변이다" class="stage"><span class="stage-n">단계 1</span> 쌍곡선은 불변이다</h4>
+<p><span class="math display">\[\begin{aligned}
+  x&#39;^2 - y&#39;^2 &amp;= (x\cosh u + y\sinh u)^2 - (x\sinh u + y\cosh u)^2 \\
+  &amp;= (x^2 - y^2)(\cosh^2u - \sinh^2u) = x^2 - y^2,
+\end{aligned}\]</span> 교차항 <span class="math inline">\(2xy\cosh u\sinh u\)</span>가 서로 소거되기 때문이다. 따라서 <span class="math inline">\(T\)</span>는 <span class="math inline">\(x^2 - y^2\)</span>을 보존하며, 특히 쌍곡선 <span class="math inline">\(x^2 - y^2 = 1\)</span>을 자기 자신으로 보낸다.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>원점을 지나는 직선 가운데 자기 자신으로 옮겨지는 것은 어느 것인가? (고유벡터(eigenvector)를 찾아보라.)</p>
+</div>
+<p><span class="math inline">\(T\begin{pmatrix} 1 \\ 1 \end{pmatrix} = (\cosh u + \sinh u)\begin{pmatrix} 1 \\ 1 \end{pmatrix} = e^u\begin{pmatrix} 1 \\ 1 \end{pmatrix}\)</span>이고 <span class="math inline">\(T\begin{pmatrix} 1 \\ -1 \end{pmatrix} = e^{-u}\begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span>이다. 따라서 직선 <span class="math inline">\(y = x\)</span>와 <span class="math inline">\(y = -x\)</span>는 각각 자기 자신으로 옮겨진다. 하나는 <span class="math inline">\(e^u\)</span>배로 늘어나고, 다른 하나는 <span class="math inline">\(e^{-u}\)</span>배로 줄어든다. 이 두 직선은 쌍곡선의 점근선(asymptote)이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-쌍곡각의-덧셈" class="stage"><span class="stage-n">단계 2</span> 쌍곡각의 덧셈</h4>
+<p>기울기(gradient)가 <span class="math inline">\(\tanh v\)</span>인 직선은 방향벡터(direction vector) <span class="math inline">\((\cosh v, \sinh v)\)</span>를 갖는다. 그 상의 방향은 <span class="math display">\[T\begin{pmatrix} \cosh v \\ \sinh v \end{pmatrix} = \begin{pmatrix} \cosh u\cosh v + \sinh u\sinh v \\ \sinh u\cosh v + \cosh u\sinh v \end{pmatrix} = \begin{pmatrix} \cosh(u + v) \\ \sinh(u + v) \end{pmatrix},\]</span> 이고, 이 벡터의 기울기는 <span class="math inline">\(\tanh(u + v)\)</span>이다. 선형사상(linear map)은 평행한 직선을 평행한 직선으로 보내므로, 이 결과는 직선이 원점을 지나든 지나지 않든 성립한다. 따라서 <span class="math inline">\(v&#39; = v + u\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-각은-언제-보존되는가" class="stage"><span class="stage-n">단계 3</span> 각은 언제 보존되는가?</h4>
+<div class="askyourself">
+<p>기울기가 <span class="math inline">\(m_1\)</span>, <span class="math inline">\(m_2\)</span>인 두 직선 사이의 각 <span class="math inline">\(\psi\)</span>는 <span class="math inline">\(\tan\psi = \left|\frac{m_1 - m_2}{1 + m_1m_2}\right|\)</span>를 만족한다. <span class="math inline">\(m_i = \tanh v_i\)</span>일 때 이 식을 간단히 하라. (<em>힌트:</em> 모든 것을 <span class="math inline">\(\cosh v_1\cosh v_2\)</span>를 분모로 하여 나타내라.)</p>
+</div>
+<p><span class="math inline">\(\tanh v_1 - \tanh v_2 = \dfrac{\sinh(v_1 - v_2)}{\cosh v_1\cosh v_2}\)</span>와 <span class="math inline">\(1 + \tanh v_1\tanh v_2 = \dfrac{\cosh(v_1 + v_2)}{\cosh v_1\cosh v_2}\)</span>를 이용하면 <span class="math display">\[\tan\psi = \left|\frac{\sinh(v_1 - v_2)}{\cosh(v_1 + v_2)}\right|.\]</span> 변환 후 <span class="math inline">\(v_1 - v_2\)</span>는 변하지 않고, <span class="math inline">\(v_1 + v_2\)</span>는 <span class="math inline">\(v_1 + v_2 + 2u\)</span>가 된다.</p>
+<div class="pausebox">
+<p><span class="math inline">\(\cosh(v_1 + v_2) = \cosh(v_1 + v_2 + 2u)\)</span>는 언제 성립하는가?</p>
+</div>
+<p>두 직선이 평행하지 않다고(<span class="math inline">\(v_1 \neq v_2\)</span>) 가정하면, 두 각이 같을 필요충분조건은 <span class="math inline">\(\cosh(v_1 + v_2) = \cosh(v_1 + v_2 + 2u)\)</span>이다. <span class="math inline">\(\cosh\)</span>는 우함수(even function)이고 <span class="math inline">\([0, \infty)\)</span>에서 순증가하므로, 이는 <span class="math inline">\(v_1 + v_2 = \pm(v_1 + v_2 + 2u)\)</span>를 뜻한다. 양의 부호이면 <span class="math inline">\(u = 0\)</span>이 되는데 이는 제외되므로, <span class="math display">\[v_1 + v_2 = -u. \qed\]</span></p>
+<h4 id="stagemark4-그림으로-보기" class="stage"><span class="stage-n">단계 4</span> 그림으로 보기</h4>
+<p><span class="math inline">\(v_1 + v_2 = -u\)</span>일 때, 변환된 각은 <span class="math inline">\(v_1&#39; = v_1 + u = -v_2\)</span>와 <span class="math inline">\(v_2&#39; = v_2 + u = -v_1\)</span>이다. 따라서 <span class="math inline">\(\ell_1\)</span>의 상은 기울기가 <span class="math inline">\(-\tanh v_2\)</span>이다. 즉 <span class="math inline">\(\ell_1\)</span>의 상은 <span class="math inline">\(\ell_2\)</span>를 <span class="math inline">\(x\)</span>축에 대하여 대칭이동한 것이고, <span class="math inline">\(\ell_2\)</span>의 상은 <span class="math inline">\(\ell_1\)</span>을 대칭이동한 것이다. 원점을 지나는 직선의 경우, 이 변환은 두 직선을 맞바꾸고 대칭이동하므로, 두 직선 사이의 각이 변하지 않는 이유가 설명된다(그림 7.6.1).</p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-6-1.svg" alt="그림 7.6.1"><figcaption><span class="fig-label">그림 7.6.1</span> <span class="math inline">\(u = 0.7\)</span>인 쌍곡회전을 원점을 지나는 직선 <span class="math inline">\(\ell_1\)</span>, <span class="math inline">\(\ell_2\)</span>(<span class="math inline">\(v_1 = 0.3\)</span>, <span class="math inline">\(v_2 = -1.0\)</span>)에 적용한 모습으로, <span class="math inline">\(v_1 + v_2 = -u\)</span>가 성립한다. <span class="math inline">\(\ell_1\)</span>의 상(자주색 점선)은 <span class="math inline">\(\ell_2\)</span>의 거울상이고, <span class="math inline">\(\ell_2\)</span>의 상(호박색 점선)은 <span class="math inline">\(\ell_1\)</span>의 거울상이므로, 두 직선 사이의 각이 보존된다. 쌍곡선 위의 청록색 점들은 쌍곡각으로 같은 간격(<span class="math inline">\(v = 0, 0.5, 1, 1.5\)</span>)에 놓여 있으며, <span class="math inline">\(T\)</span>는 각 점을 쌍곡선을 따라 <span class="math inline">\(0.7\)</span>만큼 더 나아간 점으로 옮긴다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>불변 이차형식.</strong> 회전이 <span class="math inline">\(x^2 + y^2\)</span>을 보존하듯이, <span class="math inline">\(T\)</span>는 <span class="math inline">\(x^2 - y^2\)</span>을 보존한다. 이를 불변 이차형식(invariant quadratic form)이라 한다.</p></li>
+<li><p><strong>고유벡터는 점근선이다.</strong> 변하지 않는 직선은 <span class="math inline">\(y = \pm x\)</span>이며, 각각 <span class="math inline">\(e^{\pm u}\)</span>배로 늘어나고 줄어든다.</p></li>
+<li><p><strong>쌍곡각은 더해진다.</strong> 방향을 <span class="math inline">\(\tanh v\)</span>로 매개화하자 <span class="math inline">\(T\)</span>의 작용이 단순한 덧셈 <span class="math inline">\(v \mapsto v + u\)</span>가 되었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">특수상대성이론</div>
+<p>아인슈타인의 특수상대성이론(1905)에서, 서로에 대해 일정한 속도로 움직이는 관찰자들은 시간과 거리에 대해서는 서로 다른 값을 얻지만, 양 <span class="math inline">\(t^2 - x^2\)</span>(빛의 속력 <span class="math inline">\(c = 1\)</span>)에 대해서는 모두 같은 값을 얻는다. 이 양을 <em>시공간 간격(spacetime interval)</em>이라 한다. 이것을 보존하는 변환이 <em>로렌츠 변환(Lorentz transformation)</em>이며, 공간이 1차원일 때 이 변환은 <span class="math inline">\(x\)</span>를 시간, <span class="math inline">\(y\)</span>를 거리로 볼 때 정확히 이 문제의 행렬들이다. 속도 <span class="math inline">\(v = \tanh u\)</span>로 움직이는 관찰자는 우리 좌표와 이 행렬로 연결되는 좌표를 사용하며, 이때 <span class="math inline">\(\cosh u = \frac{1}{\sqrt{1 - v^2}}\)</span>은 시간 지연(time dilation)의 유명한 인자 <span class="math inline">\(\gamma\)</span>이다. 1908년 민코프스키(Hermann Minkowski)는 이로써 시공간이 부호에 음수가 섞인 “거리”를 갖는 4차원 기하가 된다는 것을 간파했다. “이제부터 공간 그 자체와 시간 그 자체는 단순한 그림자로 사라질 운명이다.”</p>
+</div>
+<h3 id="문제의-물리적-의미">문제의 물리적 의미</h3>
+<ul>
+<li><p><strong>불변 직선</strong> <span class="math inline">\(y = \pm x\)</span>는 광선의 경로이다. 이 직선들은 모든 관찰자에게 같다. 빛의 속력이 누구에게나 같다는 것, 이것이 상대성이론의 기본 원리이다.</p></li>
+<li><p><strong>쌍곡선</strong> <span class="math inline">\(x^2 - y^2 = 1\)</span>은 가능한 모든 일정한 속도로 움직이는 관찰자들이 측정했을 때 원점으로부터 “고유시간(proper time)” 한 단위만큼 떨어진 사건들의 집합이다.</p></li>
+<li><p><strong>신속도의 덧셈.</strong> 원점을 지나고 기울기가 <span class="math inline">\(\tanh v\)</span>인 직선은 속도 <span class="math inline">\(\tanh v\)</span>로 움직이는 물체의 경로이다. 신속도 <span class="math inline">\(u\)</span>만큼 부스트하면 그 속도는 <span class="math inline">\(\tanh(v + u) = \frac{\tanh v + \tanh u}{1 + \tanh v\tanh u}\)</span>로 바뀌는데, 이것이 바로 <a href="../ch03/addition-laws.html">3.8 절</a>에서 본 아인슈타인의 속도 덧셈 공식이다. 속도는 더해지지 않지만, 신속도는 더해진다.</p></li>
+</ul>
+<p>그리고 <a href="../ch05/poincare-disc.html">5.8 절</a>에서 우리는 같은 덧셈 공식을 푸앵카레 원판(Poincaré disc)의 거리 규칙으로 만났다. 상대성이론에서 가능한 속도들의 집합은 신속도로 측정하면 쌍곡공간(hyperbolic space)이 된다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">알맞은 매개화를 찾아라</div>
+<p><em>변환이 단순해지는 매개변수로 대상을 나타내라.</em></p>
+<p>방향을 기울기로 나타내면 <span class="math inline">\(T\)</span>는 복잡한 식으로 작용하지만, 기울기가 <span class="math inline">\(\tanh v\)</span>가 되도록 <span class="math inline">\(v\)</span>로 나타내면 단순히 <span class="math inline">\(u\)</span>를 더할 뿐이다. 같은 아이디어로 각을 쓰면 회전이 단순해졌고, <a href="../ch02/squaring-minus-two.html">2.8 절</a>에서는 사상 <span class="math inline">\(x \mapsto x^2 - 2\)</span>가 단순해졌다. 이런 방법을 매개화(parametrisation)라 한다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>부스트의 합성.</strong> <span class="math inline">\(T(u)\)</span>가 문제의 행렬일 때 <span class="math inline">\(T(u)T(w) = T(u + w)\)</span>임을 보여라. <span class="math inline">\(T(u)^{-1}\)</span>은 무엇인가?</p></li>
+<li><p><strong>시간 지연.</strong> 우주선이 빛의 속력의 <span class="math inline">\(0.8\)</span>배로 날아간다. 신속도 <span class="math inline">\(u\)</span>와 <span class="math inline">\(\cosh u\)</span>를 구하라. 지구에서 <span class="math inline">\(10\)</span>년이 흐르면 우주선에서는 시간이 얼마나 흐르는가? (<span class="math inline">\(t_{\text{우주선}} = t_{\text{지구}}/\cosh u\)</span>를 이용하라.)</p></li>
+<li><p><strong>쌍곡 넓이.</strong> 쌍곡선 <span class="math inline">\(x^2 - y^2 = 1\)</span>, <span class="math inline">\(x\)</span>축, 그리고 원점에서 <span class="math inline">\((\cosh v, \sinh v)\)</span>까지의 선분으로 둘러싸인 넓이가 <span class="math inline">\(\frac v2\)</span>임을 보여라. 이는 원에서 대응하는 넓이가 <span class="math inline">\(\frac\theta2\)</span>인 것과 같다. <span class="math inline">\(T\)</span>가 이러한 넓이를 보존해야 하는 이유는 무엇인가?</p></li>
+<li><p><strong>압착.</strong> 좌표를 <span class="math inline">\(p = x + y\)</span>, <span class="math inline">\(q = x - y\)</span>로 바꾸어라. <span class="math inline">\(T\)</span>가 <span class="math inline">\(p \mapsto e^up\)</span>, <span class="math inline">\(q \mapsto e^{-u}q\)</span>가 되고, 쌍곡선이 <span class="math inline">\(pq = 1\)</span>이 됨을 보여라. 이 좌표에서 변환을 기하적으로 설명하라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Edwin Taylor &amp; John Wheeler, <a href="https://www.eftaylor.com/spacetimephysics/"><em>Spacetime Physics</em></a></strong> (W. H. Freeman). 신속도와 시공간 도표로 설명하는 특수상대성이론으로, A 레벨(A level, 영국의 대학 입학 자격 시험) 수학을 갖춘 학생을 대상으로 한다.</p></li>
+<li><p><strong>Tevian Dray, <a href="https://uk.bookshop.org/search?keywords=The+Geometry+of+Special+Relativity+Dray"><em>The Geometry of Special Relativity</em></a></strong> (CRC Press). 상대성이론을 쌍곡 삼각법으로 다루며, 이 절의 정신과 꼭 맞는다.</p></li>
+<li><p><strong>Albert Einstein, <a href="https://www.gutenberg.org/ebooks/5001"><em>Relativity: The Special and the General Theory</em></a></strong> (여러 판). 아인슈타인 자신이 쓴 대중 해설서로, 지금도 매우 읽기 쉽다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="rotations-3d.html">← 7.5 3차원에서의 회전</a><a class="next" href="lax-pairs.html">→ 7.7 결코 변하지 않는 양</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

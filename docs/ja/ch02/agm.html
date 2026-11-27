@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>算術幾何平均 (STEP II 2024 Q8) — Beyond STEP</title>
+<meta name="description" content="STEP II 2024 問題 8：解説付き解答とその背後にある大学数学。 2つの正の数、たとえば sqrt2 と 1 をとる。これらを、その相加平均（arithmetic mean）と相乗平均（geometric mean）で置き換える。これを何度も繰り返す。すると次のようになる。 n x_n （相加平均） y_n （相乗平均） 0 1.4142135623730950488 1 1…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch02/agm.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch02/agm.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/agm.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/agm.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch02/agm.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch02/agm.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/agm.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="算術幾何平均 (STEP II 2024 Q8) — Beyond STEP">
+<meta property="og:description" content="STEP II 2024 問題 8：解説付き解答とその背後にある大学数学。 2つの正の数、たとえば sqrt2 と 1 をとる。これらを、その相加平均（arithmetic mean）と相乗平均（geometric mean）で置き換える。これを何度も繰り返す。すると次のようになる。 n x_n （相加平均） y_n （相乗平均） 0 1.4142135623730950488 1 1…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch02/agm.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="算術幾何平均 (STEP II 2024 Q8) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2024 問題 8：解説付き解答とその背後にある大学数学。 2つの正の数、たとえば sqrt2 と 1 をとる。これらを、その相加平均（arithmetic mean）と相乗平均（geometric mean）で置き換える。これを何度も繰り返す。すると次のようになる。 n x_n （相加平均） y_n （相乗平均） 0 1.4142135623730950488 1 1…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "算術幾何平均", "headline": "算術幾何平均", "description": "STEP II 2024 問題 8：解説付き解答とその背後にある大学数学。 2つの正の数、たとえば sqrt2 と 1 をとる。これらを、その相加平均（arithmetic mean）と相乗平均（geometric mean）で置き換える。これを何度も繰り返す。すると次のようになる。 n x_n （相加平均） y_n （相乗平均） 0 1.4142135623730950488 1 1…", "url": "https://beyondstep.keithmcnulty.org/ja/ch02/agm.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2024 問題 8", "数列・級数・収束"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 2, "name": "数列・級数・収束", "url": "https://beyondstep.keithmcnulty.org/ja/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第2章：数列・級数・収束", "item": "https://beyondstep.keithmcnulty.org/ja/ch02/"}, {"@type": "ListItem", "position": 3, "name": "算術幾何平均", "item": "https://beyondstep.keithmcnulty.org/ja/ch02/agm.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch02/agm.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch02/agm.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch02/agm.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch02/agm.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第2章 · 数列・級数・収束</a>
+    <div class="src">STEP II · 2024 · 問題 8</div>
+    <div class="sec-head"><span class="sec-num">2.6</span><h1>算術幾何平均</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-6-agm.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第2章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 2024、第8問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は、OCRが配布している2024年のSTEP問題一式（zipファイル）のSTEP IIに収録されている： <a href="https://www.ocr.org.uk/Images/725753-2024-past-papers.zip">www.ocr.org.uk/Images/725753-2024-past-papers.zip</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>2つの正の数、たとえば <span class="math inline">\(\sqrt2\)</span> と <span class="math inline">\(1\)</span> をとる。これらを、その相加平均（arithmetic mean）と相乗平均（geometric mean）で置き換える。これを何度も繰り返す。すると次のようになる。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: left;"><span class="math inline">\(x_n\)</span>（相加平均）</th>
+<th style="text-align: left;"><span class="math inline">\(y_n\)</span>（相乗平均）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: left;"><span class="math inline">\(1.4142135623730950488\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1.2071067811865475244\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.1892071150027210667\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><span class="math inline">\(1.1981569480946342956\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.1981235214931201226\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><span class="math inline">\(1.1981402347938772091\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.1981402346773072058\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><span class="math inline">\(1.1981402347355922074\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.1981402347355922074\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>わずか4回の操作で、2つの数は小数第20位まで一致する。この共通の極限が<em>算術幾何平均</em>（arithmetic–geometric mean）<span class="math inline">\(M(\sqrt2, 1) = 1.19814\ldots\)</span> である。</p>
+<p>1799年5月30日、21歳のガウス（Carl Friedrich Gauss）は日記に、<span class="math inline">\(1/M(\sqrt2, 1)\)</span> が、まったく別の問題、すなわちレムニスケート（lemniscate）と呼ばれる曲線の弧長（arc length）に現れる定数と小数第11位まで一致することに気づいた、と書き記した。「これはきっと、解析学のまったく新しい分野を切り開くであろう」と彼は書いている。実際にそのとおりになった。本問は、ガウスの発見の背後にある鍵となる事実を証明するものである。すなわち、算術幾何平均（AGM）を用いると、通常のどの方法でも計算できない積分の値が求まるのである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>相異なる2つの正の数の相加平均が、つねに相乗平均より大きいのはなぜか。1行で証明できるだろうか。</p>
+</div>
+<p>これは相加相乗平均の不等式（AM–GM inequality）であり、小問 (i) のヒントがその1行の証明を与えている。<span class="math inline">\(x \neq y\)</span> のとき <span class="math inline">\(\bigl(\sqrt{x} - \sqrt{y}\bigr)^2 &gt; 0\)</span> であり、これを展開すると <span class="math inline">\(x + y &gt; 2\sqrt{xy}\)</span> となる。小問 (i) のすべては、この事実と、それぞれの平均がもとの2数の間にあるという事実から導かれる。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-2つの数列が挟み込まれる" class="stage"><span class="stage-n">段階 1</span> 2つの数列が挟み込まれる</h4>
+<p><span class="math inline">\(y_n &lt; x_n\)</span> ならば <span class="math inline">\(\sqrt{x_n} \neq \sqrt{y_n}\)</span> であるから <span class="math inline">\(x_n - 2\sqrt{x_n y_n} + y_n &gt; 0\)</span> であり、これは <span class="math inline">\(x_{n+1} &gt; y_{n+1}\)</span> を意味する。<span class="math inline">\(y_0 &lt; x_0\)</span> であるから、数学的帰納法（induction）により、すべての <span class="math inline">\(n\)</span> について <span class="math inline">\(y_n &lt; x_n\)</span> が成り立つ。</p>
+<div class="askyourself">
+<p><span class="math inline">\(x_n\)</span> と <span class="math inline">\(y_n\)</span> の相加平均が <span class="math inline">\(x_n\)</span> より小さく、相乗平均が <span class="math inline">\(y_n\)</span> より大きいのはなぜか。</p>
+</div>
+<p><span class="math inline">\(y_n &lt; x_n\)</span> であるから、<span class="math inline">\(x_{n+1} = \frac{x_n + y_n}{2} &lt; \frac{x_n + x_n}{2} = x_n\)</span> であり、<span class="math inline">\(y_{n+1} = \sqrt{x_n y_n} &gt; \sqrt{y_n y_n} = y_n\)</span> である。したがって <span class="math display">\[y_0 &lt; y_1 &lt; y_2 &lt; \cdots &lt; x_2 &lt; x_1 &lt; x_0.\]</span> <span class="math inline">\(y_n\)</span> は単調増加（increasing）で、上から <span class="math inline">\(x_0\)</span> で抑えられている（bounded above）から、問題文の定理により、ある極限 <span class="math inline">\(M\)</span> に収束する。</p>
+<p>差については、 <span class="math display">\[x_{n+1} - y_{n+1} &lt; x_{n+1} - y_n = \frac{x_n + y_n}{2} - y_n = \frac12(x_n - y_n),\]</span> であり、前半の結果よりこれは正である。よって差は各段階で少なくとも半分になる。すなわち <span class="math inline">\(0 &lt; x_n - y_n &lt; (x_0 - y_0)/2^n\)</span> であり、これは <span class="math inline">\(0\)</span> に収束する。</p>
+<p>最後に、<span class="math inline">\(x_n = y_n + (x_n - y_n)\)</span> は <span class="math inline">\(M\)</span> に収束する数列と <span class="math inline">\(0\)</span> に収束する数列の和であるから、<span class="math inline">\(x_n \to M\)</span> も成り立つ。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-置換積分" class="stage"><span class="stage-n">段階 2</span> 置換積分</h4>
+<p>この置換（substitution）は唐突に見えるが、根号の中の2つの括弧がいずれも完全平方式（あるいはそれに近いもの）になるように設計されている。</p>
+<div class="askyourself">
+<p><span class="math inline">\(t = \frac12\left(x - \frac{pq}{x}\right)\)</span> として <span class="math inline">\(t^2 + pq\)</span> を計算せよ。次に <span class="math inline">\(t^2 + \frac14(p + q)^2\)</span> を計算せよ。どちらかはきれいに因数分解できるだろうか。</p>
+</div>
+<p>まず、 <span class="math display">\[t^2 + pq = \frac14\left(x^2 - 2pq + \frac{p^2q^2}{x^2}\right) + pq = \frac14\left(x + \frac{pq}{x}\right)^2.\]</span> 次に、 <span class="math display">\[\begin{aligned}
+  t^2 + \tfrac14(p + q)^2 &amp;= \frac14\left(x^2 - 2pq + \frac{p^2q^2}{x^2} + p^2 + 2pq + q^2\right) \\
+  &amp;= \frac{x^4 + (p^2 + q^2)x^2 + p^2q^2}{4x^2} = \frac{(x^2 + p^2)(x^2 + q^2)}{4x^2}.
+\end{aligned}\]</span> また <span class="math inline">\(\dfrac{\mathrm{d}t}{\mathrm{d}x} = \dfrac12\left(1 + \dfrac{pq}{x^2}\right) = \dfrac{x^2 + pq}{2x^2}\)</span> である。</p>
+<div class="pausebox">
+<p>これらを組み合わせよ。<span class="math inline">\(x\)</span> が <span class="math inline">\(0\)</span> から <span class="math inline">\(\infty\)</span> まで動くとき、<span class="math inline">\(t\)</span> はどう動くか。<span class="math inline">\(t\)</span> についての積分は何になるか。</p>
+</div>
+<p><span class="math inline">\(x\)</span> が <span class="math inline">\(0\)</span> から <span class="math inline">\(\infty\)</span> まで増加するとき、<span class="math inline">\(t\)</span> は（導関数が正であるから）<span class="math inline">\(-\infty\)</span> から <span class="math inline">\(\infty\)</span> まで増加する。<span class="math inline">\(x &gt; 0\)</span> に対して <span class="math display">\[\sqrt{\bigl(t^2 + \tfrac14(p+q)^2\bigr)\bigl(t^2 + pq\bigr)} = \frac{\sqrt{(x^2+p^2)(x^2+q^2)}}{2x} \cdot \frac{x^2 + pq}{2x},\]</span> であるから、 <span class="math display">\[\frac{\mathrm{d}t}{\sqrt{\cdots}} = \frac{x^2 + pq}{2x^2} \cdot \frac{4x^2}{(x^2 + pq)\sqrt{(x^2+p^2)(x^2+q^2)}}\,\mathrm{d}x = \frac{2\,\mathrm{d}x}{\sqrt{(x^2+p^2)(x^2+q^2)}}.\]</span> よって <span class="math inline">\(t\)</span> についての積分は <span class="math inline">\(2\,\mathrm{I}(p, q)\)</span> に等しい。</p>
+<p>一方、<span class="math inline">\(t\)</span> についての積分は、<span class="math inline">\(p\)</span> と <span class="math inline">\(q\)</span> をそれぞれ <span class="math inline">\(\frac12(p+q) = \mathrm{a}(p, q)\)</span> と <span class="math inline">\(\sqrt{pq} = \mathrm{g}(p, q)\)</span> で置き換えた <span class="math inline">\(\mathrm{I}\)</span> とまったく同じ形をしている。ただし積分範囲は実数全体である。被積分関数は <span class="math inline">\(t\)</span> について偶関数（even）であるから、<span class="math inline">\(t\)</span> についての積分は <span class="math inline">\(2\,\mathrm{I}\bigl(\mathrm{a}(p,q), \mathrm{g}(p,q)\bigr)\)</span> である。両者を比べて、 <span class="math display">\[\mathrm{I}(p, q) = \mathrm{I}\bigl(\mathrm{a}(p, q), \mathrm{g}(p, q)\bigr). \qed\]</span></p>
+<h4 id="stagemark3-積分の値を求める" class="stage"><span class="stage-n">段階 3</span> 積分の値を求める</h4>
+<div class="askyourself">
+<p><span class="math inline">\((x_0, y_0)\)</span> から始めて、この恒等式を繰り返し適用せよ。<span class="math inline">\(n\)</span> 回適用すると <span class="math inline">\(\mathrm{I}(x_0, y_0)\)</span> は何に等しくなるか。<span class="math inline">\(n \to \infty\)</span> のとき何が起こるか。</p>
+</div>
+<p>すべての <span class="math inline">\(n\)</span> について <span class="math inline">\(\mathrm{I}(x_0, y_0) = \mathrm{I}(x_1, y_1) = \mathrm{I}(x_2, y_2) = \cdots = \mathrm{I}(x_n, y_n)\)</span> である。<span class="math inline">\(n \to \infty\)</span> のとき2つの引数はいずれも <span class="math inline">\(M\)</span> に収束し、 <span class="math display">\[\mathrm{I}(M, M) = \int_0^\infty \frac{\mathrm{d}x}{M^2 + x^2} = \left[\frac1M \arctan\frac{x}{M}\right]_0^\infty = \frac{\pi}{2M}.\]</span> したがって <span class="math display">\[\mathrm{I}(x_0, y_0) = \frac{\pi}{2M}. \qed\]</span></p>
+<p>問題文では「<span class="math inline">\(\mathrm{I}(x_n, y_n) \to \mathrm{I}(M, M)\)</span>」という段階を認めてよいことになっているが、これはきれいに正当化できる。<span class="math inline">\(p\)</span> または <span class="math inline">\(q\)</span> を大きくすると被積分関数は小さくなり、また <span class="math inline">\(y_n &lt; x_n\)</span> であるから、 <span class="math display">\[\frac{\pi}{2x_n} = \mathrm{I}(x_n, x_n) &lt; \mathrm{I}(x_n, y_n) &lt; \mathrm{I}(y_n, y_n) = \frac{\pi}{2y_n}.\]</span> 両側の評価はともに <span class="math inline">\(\frac{\pi}{2M}\)</span> に収束し、しかも <span class="math inline">\(\mathrm{I}(x_n, y_n)\)</span> はすべての <span class="math inline">\(n\)</span> について同じ数 <span class="math inline">\(\mathrm{I}(x_0, y_0)\)</span> であるから、これは <span class="math inline">\(\frac{\pi}{2M}\)</span> に等しくなければならない。<a href="../ch02/basel.html">第 2.4 節</a> と同様、ここでもはさみうちの原理が用いられている。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-2-6-1.svg" alt="図 2.6.1"><figcaption><span class="fig-label">図 2.6.1</span> <span class="math inline">\(x_0 = 1\)</span> と <span class="math inline">\(y_0 = 0.1\)</span> の算術幾何平均。相加平均 <span class="math inline">\(x_n\)</span>（ティール）は減少し、相乗平均 <span class="math inline">\(y_n\)</span>（プラム）は増加して、共通の極限 <span class="math inline">\(M = 0.425040709\ldots\)</span> に驚くほど速く近づく。いったん近くなると、正しい桁数は各ステップでおよそ2倍になる。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>挟み込まれる2つの単調数列。</strong>一方は増加し、他方は減少し、その差は <span class="math inline">\(0\)</span> に縮む。これは2つの数列が共通の極限をもつことを示す最も明快な方法である。</p></li>
+<li><p><strong>不変量。</strong><span class="math inline">\(\mathrm{I}(x_n, y_n)\)</span> という量はステップごとに決して変化しない。他のすべてが動く中で変わらないものを見つけることは、数学における最も強力な考え方の一つである。</p></li>
+<li><p><strong>巧妙な置換は当て推量ではなく、設計されたものである。</strong>この置換は、根号の中の式が因数分解できるように選ばれていた。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">問題が認めるよりも速い</div>
+<p>小問 (i) は差が各ステップで少なくとも半分になることを示しており、これはステップごとにおよそ2進数1桁ずつ精度が上がることを意味する。しかし導入の表は、はるかに劇的なことを示している。正しい桁数が各ステップでおよそ<em>2倍</em>になっているのである（<span class="math inline">\(2, 4, 10, 21, 43, \ldots\)</span>）。実際、 <span class="math display">\[x_{n+1} - y_{n+1} = \frac12\bigl(\sqrt{x_n} - \sqrt{y_n}\bigr)^2 = \frac{(x_n - y_n)^2}{2\bigl(\sqrt{x_n} + \sqrt{y_n}\bigr)^2},\]</span> であるから、各段階の差はおよそ直前の差の<em>2乗</em>の定数倍である。これを<em>二次収束</em>（quadratic convergence）といい、<a href="../ch02/newton-speed.html">第 2.7 節</a> できちんと学ぶ。</p>
+</div>
+<h3 id="楕円積分">楕円積分</h3>
+<p>本問の積分 <span class="math inline">\(\mathrm{I}(p, q)\)</span> は、姿を変えた<em>完全楕円積分</em>（complete elliptic integral）である。これは楕円の弧長を計算する際に現れる種類の積分であり、読者の知っている関数を用いて表すことはできない。その最も有名な応用は振り子（pendulum）である。周期を表すAレベル（A level、英国の大学入学資格試験）の公式 <span class="math inline">\(T = 2\pi\sqrt{L/g}\)</span> は、振れ幅が小さい場合の近似にすぎない。角度 <span class="math inline">\(\theta_0\)</span> から放した振り子の正確な周期は <span class="math display">\[T = \frac{2\pi\sqrt{L/g}}{M\bigl(1, \cos\frac{\theta_0}{2}\bigr)},\]</span> であり、これは算術幾何平均によって値が求まる楕円積分である。<span class="math inline">\(\theta_0 = 90^\circ\)</span> のとき、真の周期は簡単な公式の予測より約 <span class="math inline">\(18\%\)</span> 長い。ガウスの日記の記述はレムニスケート、すなわち8の字形の曲線に関するものであった。その全弧長には <span class="math inline">\(\int_0^1 \frac{\mathrm{d}t}{\sqrt{1-t^4}}\)</span> が現れ、この積分は姿を変えた <span class="math inline">\(\mathrm{I}(\sqrt2, 1)\)</span> に等しいので、算術幾何平均によって値が求まるのである。</p>
+<h3 id="pi-の計算"><span class="math inline">\(\pi\)</span> の計算</h3>
+<p>1976年、Richard Brent と Eugene Salamin はそれぞれ独立に、ガウスの考えを、正しい桁数が各ステップで2倍になる <span class="math inline">\(\pi\)</span> の計算アルゴリズムへと仕立てた。25ステップで数千万桁が得られる。この種のアルゴリズムは1980年代から1990年代にかけて <span class="math inline">\(\pi\)</span> の記録的な計算に用いられ、現在では高精度が必要なあらゆる場面で、このような二次収束するアルゴリズムが標準となっている。ステップごとに約 <span class="math inline">\(0.6\)</span> 桁しか精度が上がらない <a href="../ch02/viete.html">第 2.5 節</a> のヴィエト（Viète）の積と比べてみるとよい。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">不変量を探す</div>
+<p><em>ある操作が多くのものを一度に変えるときは、変わらない量を探せ。そしてその量を、すべてが単純になる操作の最後で評価せよ。</em></p>
+<p>ここでは操作が算術幾何平均のステップであり、不変量（invariant）が積分 <span class="math inline">\(\mathrm{I}\)</span> であった。操作の最後では2つの引数が等しくなり、積分は初等的に計算できた。不変量は、力学におけるエネルギー保存（第10章）から、ある種のパズルが解けないことの証明に至るまで、数学のあらゆるところに現れる。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>二次収束。</strong>恒等式 <span class="math inline">\(x_{n+1} - y_{n+1} = \dfrac{(x_n - y_n)^2}{2(\sqrt{x_n} + \sqrt{y_n})^2}\)</span> を証明し、<span class="math inline">\(x_{n+1} - y_{n+1} \leq \dfrac{(x_n - y_n)^2}{8 y_0}\)</span> を導け。</p></li>
+<li><p><strong>手計算。</strong>電卓を使って <span class="math inline">\(M(2, 1)\)</span> を小数第6位まで求めよ。何ステップ必要だったか。</p></li>
+<li><p><strong>スケーリング。</strong><span class="math inline">\(\lambda &gt; 0\)</span> に対して <span class="math inline">\(M(\lambda x, \lambda y) = \lambda M(x, y)\)</span> であること、および <span class="math inline">\(\mathrm{I}(\lambda p, \lambda q) = \lambda^{-1}\mathrm{I}(p, q)\)</span> であることを示せ。これら2つの事実が <span class="math inline">\(\mathrm{I}(x_0, y_0) = \pi/(2M)\)</span> と矛盾しないことを確かめよ。</p></li>
+<li><p><strong>振り子。</strong>上の公式を用いて、<span class="math inline">\(60^\circ\)</span> から放した振り子の周期が、小振幅での予測よりどれだけ長いかを有効数字3桁で求めよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>David Cox,「The arithmetic–geometric mean of Gauss」</strong>, <em>L’Enseignement Mathématique</em> 30 (1984)（ガウスの算術幾何平均）。歴史と数学についての古典的な解説である。最初の数節は微積分の知識だけで読める。</p></li>
+<li><p><strong>Jonathan Borwein &amp; Peter Borwein, <a href="https://uk.bookshop.org/search?keywords=Pi+and+the+AGM+Borwein+Borwein"><em>Pi and the AGM</em></a></strong> (Wiley)（円周率と算術幾何平均）。算術幾何平均と <span class="math inline">\(\pi\)</span> の高速計算についての決定版といえる本である。</p></li>
+<li><p><strong>Jonathan Borwein &amp; Keith Devlin, <a href="https://uk.bookshop.org/search?keywords=The+Computer+as+Crucible+Borwein+Devlin"><em>The Computer as Crucible</em></a></strong> (A. K. Peters)（るつぼとしてのコンピュータ）。実験数学を扱い、ガウスの発見のように数値の一致に気づくことから生まれた発見も紹介している。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="viete.html">← 2.5 ヴィエトの無限積</a><a class="next" href="newton-speed.html">→ 2.7 6桁か、600桁か</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

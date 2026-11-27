@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>가장 작은 반례 (STEP III 2015 Q5) — Beyond STEP</title>
+<meta name="description" content="STEP III 2015 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. sqrt2 가 무리수(irrational)라는 증명은 아마 본 적이 있을 것이다. sqrt2 = a/b 를 기약분수(lowest terms)로 놓고 양변을 제곱한 다음, a 가 짝수이고 이어서 b 도 짝수임을 이끌어 내어 모순을 얻는다. 훌륭한 증명이다. 그러나 이 증명은 짝수…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch01/well-ordering.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/well-ordering.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/well-ordering.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/well-ordering.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/well-ordering.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/well-ordering.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/well-ordering.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="가장 작은 반례 (STEP III 2015 Q5) — Beyond STEP">
+<meta property="og:description" content="STEP III 2015 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. sqrt2 가 무리수(irrational)라는 증명은 아마 본 적이 있을 것이다. sqrt2 = a/b 를 기약분수(lowest terms)로 놓고 양변을 제곱한 다음, a 가 짝수이고 이어서 b 도 짝수임을 이끌어 내어 모순을 얻는다. 훌륭한 증명이다. 그러나 이 증명은 짝수…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch01/well-ordering.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="가장 작은 반례 (STEP III 2015 Q5) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2015 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. sqrt2 가 무리수(irrational)라는 증명은 아마 본 적이 있을 것이다. sqrt2 = a/b 를 기약분수(lowest terms)로 놓고 양변을 제곱한 다음, a 가 짝수이고 이어서 b 도 짝수임을 이끌어 내어 모순을 얻는다. 훌륭한 증명이다. 그러나 이 증명은 짝수…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "가장 작은 반례", "headline": "가장 작은 반례", "description": "STEP III 2015 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. sqrt2 가 무리수(irrational)라는 증명은 아마 본 적이 있을 것이다. sqrt2 = a/b 를 기약분수(lowest terms)로 놓고 양변을 제곱한 다음, a 가 짝수이고 이어서 b 도 짝수임을 이끌어 내어 모순을 얻는다. 훌륭한 증명이다. 그러나 이 증명은 짝수…", "url": "https://beyondstep.keithmcnulty.org/ko/ch01/well-ordering.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2015 문제 5", "정수론과 증명"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "정수론과 증명", "url": "https://beyondstep.keithmcnulty.org/ko/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제1장: 정수론과 증명", "item": "https://beyondstep.keithmcnulty.org/ko/ch01/"}, {"@type": "ListItem", "position": 3, "name": "가장 작은 반례", "item": "https://beyondstep.keithmcnulty.org/ko/ch01/well-ordering.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch01/well-ordering.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/well-ordering.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/well-ordering.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch01/well-ordering.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제1장 · 정수론과 증명</a>
+    <div class="src">STEP III · 2015 · 문제 5</div>
+    <div class="sec-head"><span class="sec-num">1.3</span><h1>가장 작은 반례</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-3-well-ordering.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제1장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 2015, 문제 5</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/15-s3-q5">step.maths.org/questions/15-s3-q5</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p><span class="math inline">\(\sqrt2\)</span>가 무리수(irrational)라는 증명은 아마 본 적이 있을 것이다. <span class="math inline">\(\sqrt2 = a/b\)</span>를 기약분수(lowest terms)로 놓고 양변을 제곱한 다음, <span class="math inline">\(a\)</span>가 짝수이고 이어서 <span class="math inline">\(b\)</span>도 짝수임을 이끌어 내어 모순을 얻는다. 훌륭한 증명이다. 그러나 이 증명은 <em>짝수</em>에 관한 요령에 기대고 있어서 다른 경우로 쉽게 일반화되지 않는다. <span class="math inline">\(\sqrt[3]{2}\)</span>는 어떨까? <span class="math inline">\(\sqrt{7}\)</span>은?</p>
+<p>이 문제는 다른 증명을 제시하는데, 그 핵심 아이디어는 놀라울 만큼 단순하다. 바로 <em>가장 작은 것을 보라</em>는 것이다. 같은 아이디어가 이 장에서 모습을 바꾸어 여러 번 다시 등장한다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<p>이 문제는 STEP 문제로서는 특이하다. 증명의 뼈대를 주고 빠진 근거를 채우라고 요구하기 때문이다. 이것이 바로 대학생이 수학을 읽는 법을 배우는 방식이다. 교과서의 증명은 흔히 “명백히” 또는 “따라서  이다”라고 말하는데, 그것이 정말로 그런지 확인하는 것도 읽는 사람의 일이다.</p>
+<div class="askyourself">
+<p>4단계에서는 “<span class="math inline">\(k\)</span>를 <span class="math inline">\(S\)</span>에 속하는 가장 작은 양의 정수로 정의한다”고 한다. 왜 그렇게 할 수 있을까? <span class="math inline">\(S\)</span>가 양의 <em>실수</em>의 집합이라도 이렇게 할 수 있을까?</p>
+</div>
+<p>공집합이 아닌 양의 정수의 집합에는 언제나 가장 작은 원소가 있다. 이를 <em>정렬성 원리</em>(well-ordering principle)라 하며, 이는 수학적 귀납법(mathematical induction)의 원리와 동치이다. 양의 실수의 집합에 대해서는 이것이 <em>거짓</em>이다. 집합 <span class="math inline">\(\{x : x &gt; 0\}\)</span>에는 가장 작은 원소가 없다. 따라서 4단계는 3단계(<span class="math inline">\(S\)</span>가 공집합이 아니어야 한다는 것)와 <span class="math inline">\(S\)</span>가 정수로 이루어져 있다는 사실에 의존한다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-3단계-s는-공집합이-아니다" class="stage"><span class="stage-n">단계 1</span> 3단계: <span class="math inline">\(S\)</span>는 공집합이 아니다</h4>
+<div class="askyourself">
+<p>양의 정수 <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>에 대해 <span class="math inline">\(\sqrt2 = a/b\)</span>라면, <span class="math inline">\(S\)</span>의 원소 하나를 적을 수 있는가?</p>
+</div>
+<p><span class="math inline">\(\sqrt2 = a/b\)</span>이면 <span class="math inline">\(b\sqrt2 = a\)</span>이고, 이는 정수이다. 따라서 <span class="math inline">\(b\)</span>는 <span class="math inline">\(S\)</span>에 속하고, <span class="math inline">\(S\)</span>는 공집합이 아니다.</p>
+<h4 id="stagemark2-5단계-더-작은-원소" class="stage"><span class="stage-n">단계 2</span> 5단계: 더 작은 원소</h4>
+<p>이제 <span class="math inline">\(k\)</span>가 <span class="math inline">\(S\)</span>의 가장 작은 원소이므로 <span class="math inline">\(k\sqrt2\)</span>는 정수이다. 이것을 <span class="math inline">\(j\)</span>라 하자.</p>
+<div class="pausebox">
+<p><span class="math inline">\((\sqrt2 - 1)k\)</span>가 <span class="math inline">\(S\)</span>에 속함을 보이려면 세 가지를 확인해야 한다. 그것은 무엇인가?</p>
+</div>
+<p><span class="math inline">\((\sqrt2-1)k\)</span>가 (a) 정수이고, (b) 양수이며, (c) 여기에 <span class="math inline">\(\sqrt2\)</span>를 곱하면 정수가 됨을 보여야 한다.</p>
+<ul>
+<li><p>(a) <span class="math inline">\((\sqrt2 - 1)k = k\sqrt2 - k = j - k\)</span>이므로 정수의 차이다.</p></li>
+<li><p>(b) <span class="math inline">\(\sqrt2 &gt; 1\)</span>이므로 <span class="math inline">\(\sqrt2 - 1 &gt; 0\)</span>이고, 따라서 <span class="math inline">\((\sqrt2-1)k &gt; 0\)</span>이다.</p></li>
+<li><p>(c) <span class="math inline">\((\sqrt2-1)k \cdot \sqrt2 = 2k - k\sqrt2 = 2k - j\)</span>이므로 정수이다.</p></li>
+</ul>
+<p>따라서 <span class="math inline">\((\sqrt2 - 1)k \in S\)</span>이다.</p>
+<h4 id="stagemark3-6단계-모순" class="stage"><span class="stage-n">단계 3</span> 6단계: 모순</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\sqrt2 - 1\)</span>은 얼마나 큰가?</p>
+</div>
+<p><span class="math inline">\(1 &lt; \sqrt2 &lt; 2\)</span>이므로 <span class="math inline">\(0 &lt; \sqrt2 - 1 &lt; 1\)</span>이고, 따라서 <span class="math inline">\((\sqrt2 - 1)k &lt; k\)</span>이다. <span class="math inline">\(S\)</span>의 가장 작은 원소인 <span class="math inline">\(k\)</span>보다 더 작은 <span class="math inline">\(S\)</span>의 원소를 찾은 것이다. 이는 불가능하므로 1단계의 가정이 거짓이었다. 즉 <span class="math inline">\(\sqrt2\)</span>는 무리수이다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>“기약분수”나 짝수와 홀수에 관한 어떤 사실도 필요하지 않았다는 점에 주목하라. 증명 전체는 세 가지 사실에 기대고 있다. <span class="math inline">\(\sqrt2 \cdot \sqrt2\)</span>가 정수라는 것, <span class="math inline">\(\sqrt2\)</span>가 연속한 두 정수 사이에 엄격하게 놓여 있다는 것, 그리고 정수가 정렬성을 가진다는 것이다.</p>
+<h4 id="stagemark4-세제곱근-두-수를-연결하기" class="stage"><span class="stage-n">단계 4</span> 세제곱근: 두 수를 연결하기</h4>
+<p><span class="math inline">\(c = 2^{1/3}\)</span>이라 하면 <span class="math inline">\(c^2 = 2^{2/3}\)</span>이고 <span class="math inline">\(c^3 = 2\)</span>이다.</p>
+<div class="askyourself">
+<p><span class="math inline">\(c\)</span>가 유리수(rational)이면 <span class="math inline">\(c^2\)</span>도 유리수인가? 또 <span class="math inline">\(c^2\)</span>이 유리수이면 곱셈과 나눗셈만으로 <span class="math inline">\(c\)</span>로 되돌아갈 수 있는가?</p>
+</div>
+<p><span class="math inline">\(c\)</span>가 유리수이면 <span class="math inline">\(c^2 = c \times c\)</span>도 유리수이다. 거꾸로 <span class="math inline">\(c^2\)</span>이 유리수이면 <span class="math inline">\(2 / c^2 = c^3 / c^2 = c\)</span>도 유리수이다. 따라서 <span class="math inline">\(2^{1/3}\)</span>이 유리수일 필요충분조건은 <span class="math inline">\(2^{2/3}\)</span>이 유리수인 것이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark5-논증을-변형하기" class="stage"><span class="stage-n">단계 5</span> 논증을 변형하기</h4>
+<div class="askyourself">
+<p>소문항 (i)에서 핵심은 <span class="math inline">\((\sqrt2)^2 = 2\)</span>가 정수라는 것이었고, 그래서 <span class="math inline">\(S\)</span>의 원소에 <span class="math inline">\(\sqrt2\)</span>를 두 번 곱하면 다시 정수로 돌아온다. <span class="math inline">\(c = 2^{1/3}\)</span>의 경우에는 <em>세</em> 번 곱해야 한다. 집합 <span class="math inline">\(S\)</span>를 어떻게 바꾸어야 할까?</p>
+</div>
+<p><span class="math inline">\(c\)</span>가 유리수라고 가정하자. 그러면 <span class="math inline">\(c^2\)</span>도 유리수이다. 다음과 같이 정의한다. <span class="math display">\[S = \{ n \text{ 은 양의 정수} : nc \text{ 와 } nc^2 \text{ 이 모두 정수} \}.\]</span></p>
+<ul>
+<li><p><strong><span class="math inline">\(S\)</span>는 공집합이 아니다.</strong> <span class="math inline">\(c = a/b\)</span>이고 <span class="math inline">\(c^2 = a&#39;/b&#39;\)</span>이면 <span class="math inline">\(bb&#39;\)</span>는 <span class="math inline">\(S\)</span>에 속한다.</p></li>
+<li><p><strong><span class="math inline">\(S\)</span>의 가장 작은 원소를 <span class="math inline">\(k\)</span>라 하고</strong> <span class="math inline">\((c - 1)k\)</span>를 생각하자. <span class="math inline">\(1^3 &lt; 2 &lt; 2^3\)</span>이므로 <span class="math inline">\(1 &lt; c &lt; 2\)</span>이고, 따라서 <span class="math inline">\(0 &lt; (c-1)k &lt; k\)</span>이다.</p></li>
+<li><p><strong>이것은 정수이다:</strong> <span class="math inline">\((c-1)k = kc - k\)</span>.</p></li>
+<li><p><strong><span class="math inline">\(c\)</span>를 곱하면:</strong> <span class="math inline">\((c-1)k \cdot c = kc^2 - kc\)</span>이므로 정수이다.</p></li>
+<li><p><strong><span class="math inline">\(c^2\)</span>을 곱하면:</strong> <span class="math inline">\((c-1)k \cdot c^2 = kc^3 - kc^2 = 2k - kc^2\)</span>이므로 정수이다.</p></li>
+</ul>
+<p>따라서 <span class="math inline">\((c-1)k \in S\)</span>이고 이것은 <span class="math inline">\(k\)</span>보다 작으므로 모순이다. 그러므로 <span class="math inline">\(2^{1/3}\)</span>은 무리수이고, 4단계에 의해 <span class="math inline">\(2^{2/3}\)</span>도 무리수이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>“가장 작은 것을 잡아라”는 하나의 증명 기법이다.</strong> 반례가 존재한다고 가정하고, 그중 가장 작은 것을 잡은 다음, 그보다 더 작은 반례를 만들어 낸다. 이를 <em>극단 원리</em>(extremal principle) 또는 <em>최소 반례</em>(minimal counterexample) 논법이라 한다.</p></li>
+<li><p><strong>집합 <span class="math inline">\(S\)</span>가 장부 정리를 맡았다.</strong> 분자와 분모를 이리저리 다루는 대신 “좋은” 곱수를 모두 하나의 집합에 모았다.</p></li>
+<li><p><strong>일반화한다는 것은 증명이 실제로 무엇 때문에 성립했는지 묻는 것이었다.</strong> <span class="math inline">\(\sqrt2\)</span>의 경우에는 <span class="math inline">\(\sqrt2\)</span>를 한 번 곱하는 것으로 충분했고, <span class="math inline">\(\sqrt[3]{2}\)</span>의 경우에는 두 번이 필요했다. 이 점을 알아차리자 <span class="math inline">\(S\)</span>를 어떻게 다시 정의해야 할지 정확히 알 수 있었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">그림으로 그릴 수 있는 증명</div>
+<p>소문항 (i) 뒤에는 Stanley Tennenbaum이 고안한 아름다운 그림이 있다. <span class="math inline">\(\sqrt2 = a/b\)</span>이면 <span class="math inline">\(a^2 = 2b^2\)</span>이다. 즉 한 변이 <span class="math inline">\(a\)</span>인 정사각형의 넓이는 한 변이 <span class="math inline">\(b\)</span>인 정사각형 두 개의 넓이와 같다. 그림 1.3.1처럼 두 개의 <span class="math inline">\(b\)</span>-정사각형을 <span class="math inline">\(a\)</span>-정사각형의 서로 마주 보는 모서리에 놓자. 둘은 작은 정사각형 하나에서 겹치고, 작은 정사각형 두 개를 덮지 못한 채 남긴다. 넓이가 같으므로 겹친 부분은 덮이지 않은 두 정사각형을 합한 것과 넓이가 같아야 하고, 따라서 같은 성질을 가진 <em>더 작은</em> 정수 쌍이 생긴다. 점점 더 작은 쌍이 끝없이 이어질 수는 없으므로 그런 정사각형은 존재하지 않는다. 더 작은 쌍은 정확히 <span class="math inline">\((2b - a,\; a - b)\)</span>이며, 이것은 바로 우리의 <span class="math inline">\((\sqrt2 - 1)k\)</span> 단계가 모습을 바꾼 것이다.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-1-3-1.svg" alt="그림 1.3.1"><figcaption><span class="fig-label">그림 1.3.1</span> Tennenbaum의 증명. 한 변이 <span class="math inline">\(b\)</span>인 정사각형 두 개(청록색)가 한 변이 <span class="math inline">\(a\)</span>인 정사각형의 마주 보는 모서리에 놓여 있다. <span class="math inline">\(a^2 = 2b^2\)</span>이면 두 번 센 넓이(자주색으로 겹친 부분)는 빠진 넓이(호박색의 두 모서리)와 같아야 하므로 <span class="math inline">\((2b-a)^2 = 2(a-b)^2\)</span>이다. 즉 더 작은 해가 생긴다.</figcaption></figure>
+<h3 id="정렬성-귀납법-그리고-강하법">정렬성, 귀납법, 그리고 강하법</h3>
+<p>정렬성 원리와 귀납법의 원리는 논리적으로 동치이다. 즉 어느 하나로부터 다른 하나를 증명할 수 있다. 대학에서는 두 원리가 모두 자연수의 기초로 쓰이는 것을 보게 될 것이다. <a href="../ch01/infinite-descent.html">1.5 절</a>에서는 같은 원리를 다른 형태, 곧 페르마(Fermat)의 <em>무한 강하법</em>(method of infinite descent)으로 사용할 것이다. 양의 정수로 이루어진 무한한 순감소수열은 존재하지 않는다는 것이다.</p>
+<h3 id="어디까지-갈-수-있을까">어디까지 갈 수 있을까?</h3>
+<p>이 논증으로 <span class="math inline">\(N\)</span>이 완전제곱수(perfect square)가 아닐 때마다 <span class="math inline">\(\sqrt N\)</span>이 무리수임을 증명할 수 있으며(연습문제 참고), 더 일반적으로 자연수의 <span class="math inline">\(n\)</span>제곱근은 자연수이거나 무리수임을 증명할 수 있다. 대학에서는 이것이 <em>대수적 정수</em>(algebraic integers)에 관한 명제가 된다. <span class="math inline">\(x^3 - 2 = 0\)</span>처럼 정수 계수를 가지고 최고차항의 계수가 1인 다항식(monic polynomial) 방정식을 만족하는 유리수는 반드시 정수여야 한다. 이 아이디어는 <a href="../ch06/field-extensions.html">6.3 절</a>에서 다시 만나게 된다.</p>
+<p>피타고라스학파(Pythagoreans)가 <span class="math inline">\(\sqrt2\)</span>의 무리성을 폭로했다는 이유로 히파소스(Hippasus)를 물에 빠뜨려 죽였다는 전설은 아마 사실이 아닐 것이다. 사실인 것은 이 발견 때문에 그리스 수학자들이 수에 대한 연구와 길이에 대한 연구를 분리할 수밖에 없었다는 점이며, 이 분열은 19세기에 이르러 데데킨트(Dedekind)가 실수를 구성하고 나서야 비로소 메워졌다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">극단 원리</div>
+<p><em>어떤 일이 결코 일어나지 않음을 보이고 싶다면, 그 일이 일어난다고 가정하고, 가장 작은(또는 가장 큰, 또는 가장 단순한) 경우를 골라, 그것으로 그보다 더 작은 경우를 만들어라.</em></p>
+<p>“가장 작은”이 무엇을 뜻하는지 정하는 것이 창의적인 단계이다. 여기서는 <span class="math inline">\(n\sqrt2\)</span>를 정수로 만드는 가장 작은 <span class="math inline">\(n\)</span>이었다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>다른 제곱근.</strong> 이 논증을 변형하여 <span class="math inline">\(\sqrt3\)</span>이 무리수임을 보여라. 어떤 수가 <span class="math inline">\(\sqrt2 - 1\)</span>의 역할을 하는가?</p></li>
+<li><p><strong>완전제곱수가 아닌 모든 수.</strong> <span class="math inline">\(N\)</span>을 완전제곱수가 아닌 양의 정수라 하고, <span class="math inline">\(m\)</span>을 <span class="math inline">\(m &lt; \sqrt N &lt; m+1\)</span>을 만족하는 정수라 하자. <span class="math inline">\((\sqrt N - m)k\)</span>를 생각하여 <span class="math inline">\(\sqrt N\)</span>이 무리수임을 증명하여라.</p></li>
+<li><p><strong>결함을 찾아라.</strong> 이 논증을 <span class="math inline">\(\sqrt 4\)</span>에 적용해 보아라. 정확히 어느 단계가 실패하는가?</p></li>
+<li><p><strong>Tennenbaum의 그림.</strong> 그림 1.3.1을 이용하여 <span class="math inline">\(a^2 = 2b^2\)</span>이면 <span class="math inline">\((2b-a)^2 = 2(a-b)^2\)</span>임을 보여라. 이 항등식을 대수적으로도 확인하여라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Daniel Velleman, <a href="https://uk.bookshop.org/search?keywords=How+to+Prove+It+Velleman"><em>How to Prove It</em></a></strong> (Cambridge University Press). 귀납법과 정렬성을 포함하여 증명을 꼼꼼하게 소개하는 입문서이다.</p></li>
+<li><p><strong>R. P. Burn, <a href="https://uk.bookshop.org/search?keywords=A+Pathway+into+Number+Theory+Burn"><em>A Pathway into Number Theory</em></a></strong> (Cambridge University Press). 세심하게 순서를 정한 질문들로만 이루어진 책으로, 대학 1학년 강의를 준비하기에 이상적이다.</p></li>
+<li><p><strong>John Conway &amp; Joseph Shipman, “Extreme proofs I: the irrationality of <span class="math inline">\(\sqrt2\)</span>”</strong> (<em>Mathematical Intelligencer</em>, 2013). 하나의 사실에 대한 여러 증명을 재치 있게 비교한다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="prime-distribution.html">← 1.2 소수는 얼마나 드문드문 흩어져 있는가?</a><a class="next" href="e-irrational.html">→ 1.4 e는 무리수이고, e²도 그렇다</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

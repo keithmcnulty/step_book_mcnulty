@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>아무도 자기 셔츠를 받지 못한다 (STEP II 2016 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP II 2016 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 열한 명의 축구 선수가 급하게 옷을 갈아입느라 아무 셔츠나 집어 든다. 아무도 자기 셔츠를 입지 않게 될 확률(probability)은 얼마일까? 이번에는 선수단이 쉰 명이라고, 혹은 군중이 백만 명이라고 해 보자. 틀릴 사람이 더 많아지니 확률이 올라갈까? 아니면 운 좋게…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch09/derangements.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch09/derangements.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/derangements.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/derangements.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/derangements.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch09/derangements.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/derangements.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="아무도 자기 셔츠를 받지 못한다 (STEP II 2016 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP II 2016 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 열한 명의 축구 선수가 급하게 옷을 갈아입느라 아무 셔츠나 집어 든다. 아무도 자기 셔츠를 입지 않게 될 확률(probability)은 얼마일까? 이번에는 선수단이 쉰 명이라고, 혹은 군중이 백만 명이라고 해 보자. 틀릴 사람이 더 많아지니 확률이 올라갈까? 아니면 운 좋게…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch09/derangements.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="아무도 자기 셔츠를 받지 못한다 (STEP II 2016 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2016 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 열한 명의 축구 선수가 급하게 옷을 갈아입느라 아무 셔츠나 집어 든다. 아무도 자기 셔츠를 입지 않게 될 확률(probability)은 얼마일까? 이번에는 선수단이 쉰 명이라고, 혹은 군중이 백만 명이라고 해 보자. 틀릴 사람이 더 많아지니 확률이 올라갈까? 아니면 운 좋게…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "아무도 자기 셔츠를 받지 못한다", "headline": "아무도 자기 셔츠를 받지 못한다", "description": "STEP II 2016 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 열한 명의 축구 선수가 급하게 옷을 갈아입느라 아무 셔츠나 집어 든다. 아무도 자기 셔츠를 입지 않게 될 확률(probability)은 얼마일까? 이번에는 선수단이 쉰 명이라고, 혹은 군중이 백만 명이라고 해 보자. 틀릴 사람이 더 많아지니 확률이 올라갈까? 아니면 운 좋게…", "url": "https://beyondstep.keithmcnulty.org/ko/ch09/derangements.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2016 문제 12", "세기와 확률"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "세기와 확률", "url": "https://beyondstep.keithmcnulty.org/ko/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제9장: 세기와 확률", "item": "https://beyondstep.keithmcnulty.org/ko/ch09/"}, {"@type": "ListItem", "position": 3, "name": "아무도 자기 셔츠를 받지 못한다", "item": "https://beyondstep.keithmcnulty.org/ko/ch09/derangements.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch09/derangements.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch09/derangements.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch09/derangements.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch09/derangements.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제9장 · 세기와 확률</a>
+    <div class="src">STEP II · 2016 · 문제 12</div>
+    <div class="sec-head"><span class="sec-num">9.8</span><h1>아무도 자기 셔츠를 받지 못한다</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-8-derangements.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제9장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 2016, 문제 12</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/16-s2-q12">step.maths.org/questions/16-s2-q12</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>열한 명의 축구 선수가 급하게 옷을 갈아입느라 아무 셔츠나 집어 든다. 아무도 자기 셔츠를 입지 않게 될 확률(probability)은 얼마일까? 이번에는 선수단이 쉰 명이라고, 혹은 군중이 백만 명이라고 해 보자. 틀릴 사람이 더 많아지니 확률이 올라갈까? 아니면 운 좋게 맞힐 사람도 더 많아지니 내려갈까? 놀랍게도 확률은 거의 변하지 않는다. 다섯 명부터는 확률이 <span class="math inline">\(1/e \approx 0.368\)</span>과 0.5퍼센트 이내로 차이 난다.</p>
+<p>이것은 조합적 확률론에서 가장 오래된 문제로, 1708년 Pierre de Montmort가 <em>problème des rencontres</em>(만남의 문제)라는 이름으로 제기하였다. 이 문제는 겹치는 대상을 세는 도구인 <em>포함배제의 원리</em>(inclusion–exclusion principle)로 이 문제를 풀며, 그 답은 수학에서 <span class="math inline">\(e\)</span>가 가장 뜻밖에 등장하는 사례 가운데 하나이다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="pausebox">
+<p><span class="math inline">\(n = 3\)</span>인 경우를 해 보자. 카드 <span class="math inline">\(1, 2, 3\)</span>을 늘어놓는 여섯 가지 순서를 모두 적고, 어떤 카드도 제자리에 있지 않은 것이 몇 개인지 세어 보자. 인내심이 있다면 <span class="math inline">\(n = 4\)</span>인 경우도 해 보자(<span class="math inline">\(24\)</span>가지 순서가 있다).</p>
+</div>
+<p><span class="math inline">\(n = 3\)</span>일 때 어떤 카드도 제자리에 있지 않은 것은 <span class="math inline">\(231\)</span>과 <span class="math inline">\(312\)</span>뿐이므로 확률은 <span class="math inline">\(\frac26 = \frac13\)</span>이다. <span class="math inline">\(n = 4\)</span>일 때는 <span class="math inline">\(24\)</span>가지 중 <span class="math inline">\(9\)</span>가지가 그러하므로 확률은 <span class="math inline">\(\frac38 = 0.375\)</span>이다. 제자리에 고정된 카드가 하나도 없는 배열을 <em>교란순열</em>(derangement)이라 한다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-세-사건에-대한-포함배제" class="stage"><span class="stage-n">단계 1</span> 세 사건에 대한 포함배제</h4>
+<div class="askyourself">
+<p>두 사건에 대한 공식을 적용할 수 있도록 <span class="math inline">\(A \cup B \cup C\)</span>를 두 사건의 합사건으로 나타내려면 어떻게 해야 할까?</p>
+</div>
+<p><span class="math inline">\(A \cup B\)</span>를 하나의 사건으로 보고, 이것과 <span class="math inline">\(C\)</span>에 공식을 적용한다. <span class="math display">\[\mathrm{P}(A \cup B \cup C) = \mathrm{P}(A \cup B) + \mathrm{P}(C) - \mathrm{P}\bigl((A \cup B) \cap C\bigr).\]</span> 이제 <span class="math inline">\((A \cup B) \cap C = (A \cap C) \cup (B \cap C)\)</span>이고, 공식을 한 번 더 적용하면 <span class="math inline">\(\mathrm{P}\bigl((A \cap C) \cup (B \cap C)\bigr) = \mathrm{P}(A \cap C) + \mathrm{P}(B \cap C) - \mathrm{P}(A \cap B \cap C)\)</span>이다. <span class="math inline">\(\mathrm{P}(A \cup B)\)</span>도 전개하여 항을 정리하면 결과를 얻는다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>네 사건에 대해서도 같은 패턴이 이어진다. 네 개의 단일 확률을 더하고, 여섯 개의 두 사건 교집합을 빼고, 네 개의 세 사건 교집합을 더한 다음, <span class="math inline">\(\mathrm{P}(A \cap B \cap C \cap D)\)</span>를 뺀다.</p>
+<h4 id="stagemark2-확률-구하기" class="stage"><span class="stage-n">단계 2</span> 확률 구하기</h4>
+<div class="askyourself">
+<p>카드 <span class="math inline">\(i\)</span>가 <span class="math inline">\(i\)</span>번째 자리에 있다면 나머지를 배열하는 방법은 몇 가지일까? 카드 <span class="math inline">\(i\)</span>와 <span class="math inline">\(j\)</span>가 모두 고정되어 있다면 어떨까?</p>
+</div>
+<p>일어날 가능성이 같은 순서가 <span class="math inline">\(n!\)</span>가지 있다. 카드 <span class="math inline">\(i\)</span>가 <span class="math inline">\(i\)</span>번째 자리에 고정되면 나머지 <span class="math inline">\(n - 1\)</span>장의 카드는 어떤 순서로든 놓일 수 있으므로 <span class="math inline">\((n - 1)!\)</span>가지이다. 따라서 <span class="math display">\[\begin{gathered}
+  \mathrm{P}(E_i) = \frac{(n - 1)!}{n!} = \frac{1}{n}, \qquad \mathrm{P}(E_i \cap E_j) = \frac{(n - 2)!}{n!} = \frac{1}{n(n - 1)}, \\
+  \mathrm{P}(E_i \cap E_j \cap E_k) = \frac{(n - 3)!}{n!} = \frac{1}{n(n - 1)(n - 2)}.
+\end{gathered}\]</span> 일반적으로, 지정된 <span class="math inline">\(k\)</span>장의 카드가 모두 제자리에 있을 확률은 <span class="math inline">\(\frac{(n - k)!}{n!}\)</span>이다.</p>
+<h4 id="stagemark3-모두-더하기" class="stage"><span class="stage-n">단계 3</span> 모두 더하기</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{P}(E_1 \cup \cdots \cup E_n)\)</span>에 대한 포함배제 공식에서 <span class="math inline">\(k\)</span>개 사건의 교집합을 포함하는 항은 몇 개이며, 그 합은 얼마일까?</p>
+</div>
+<p><span class="math inline">\(k\)</span>개의 사건을 고르는 방법은 <span class="math inline">\(\binom{n}{k}\)</span>가지이고, 각 교집합의 확률은 <span class="math inline">\(\frac{(n - k)!}{n!}\)</span>이다. 따라서 <span class="math inline">\(k\)</span>겹 항들의 합은 <span class="math display">\[\binom{n}{k}\frac{(n - k)!}{n!} = \frac{n!}{k!\,(n - k)!}\cdot\frac{(n - k)!}{n!} = \frac{1}{k!}.\]</span> <span class="math inline">\(k!\)</span>를 제외한 모든 것이 약분된다. 부호를 번갈아 붙이면 <span class="math display">\[\mathrm{P}(\text{적어도 한 장의 카드가 제자리에 있음}) = 1 - \frac{1}{2!} + \frac{1}{3!} - \cdots + (-1)^{n+1}\frac{1}{n!}. \qed\]</span> 따라서 교란순열이 될 확률은 <span class="math display">\[d_n = 1 - 1 + \frac{1}{2!} - \frac{1}{3!} + \cdots + (-1)^n\frac{1}{n!} = \sum_{k=0}^{n}\frac{(-1)^k}{k!}.\]</span></p>
+<h4 id="stagemark4-정확히-한-장" class="stage"><span class="stage-n">단계 4</span> 정확히 한 장</h4>
+<div class="askyourself">
+<p>정확히 한 장의 카드만 제자리에 있으려면, 그 카드는 어느 것이고 나머지 카드는 어떠해야 할까?</p>
+</div>
+<p>제자리에 있을 카드를 고른다(<span class="math inline">\(n\)</span>가지). 카드 <span class="math inline">\(i\)</span>가 제자리에 있을 확률은 <span class="math inline">\(\frac1n\)</span>이고, 그런 조건에서 나머지 <span class="math inline">\(n - 1\)</span>장의 카드는 자기들끼리 교란순열을 이루어야 하며, 그 확률은 <span class="math inline">\(d_{n-1}\)</span>이다. 따라서 <span class="math display">\[\mathrm{P}(\text{정확히 한 장}) = n \cdot \frac{1}{n} \cdot d_{n-1} = \sum_{k=0}^{n-1}\frac{(-1)^k}{k!}. \qed\]</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>많이 센 다음 바로잡기.</strong> <span class="math inline">\(\mathrm{P}(E_i)\)</span>를 더하면 두 장의 카드가 고정된 배열이 두 번 세어진다. 두 사건의 교집합을 빼면 이것은 바로잡히지만 세 사건의 경우에는 너무 많이 빼게 되며, 이런 식으로 계속된다.</p></li>
+<li><p><strong>대칭성이 항들을 같게 만든다.</strong> 모든 <span class="math inline">\(k\)</span>겹 교집합의 확률이 같으므로, 공식의 각 층은 하나의 수에 이항계수를 곱한 것이 된다.</p></li>
+<li><p><strong>더 작은 경우로 환원하기.</strong> “정확히 한 장”은 <span class="math inline">\(n - 1\)</span>장 카드의 교란순열 문제가 되었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="e는-어디서-오는가"><span class="math inline">\(e\)</span>는 어디서 오는가</h3>
+<p>급수(series) <span class="math inline">\(\sum (-1)^k/k!\)</span>는 지수급수 <span class="math inline">\(e^x = \sum x^k/k!\)</span>에 <span class="math inline">\(x = -1\)</span>을 대입한 것이다. 따라서 <span class="math inline">\(n \to \infty\)</span>일 때 <span class="math display">\[d_n \to e^{-1} \approx 0.3679,\]</span> 이고, 정확히 한 장이 일치할 확률도 같은 극한으로 간다. 수렴(convergence)은 놀라울 정도로 빠르다(그림 9.8.1). <span class="math inline">\(1/n!\)</span>에서 멈출 때의 오차는 <span class="math inline">\(1/(n + 1)!\)</span>보다 작으므로, <span class="math inline">\(n = 7\)</span>이면 이미 답이 소수점 아래 넷째 자리까지 <span class="math inline">\(1/e\)</span>와 일치한다. 사실 <span class="math inline">\(n\)</span>개 대상의 교란순열의 개수 <span class="math inline">\(n!\,d_n\)</span>은 정확히 <span class="math inline">\(n!/e\)</span>에 가장 가까운 정수이다.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-8-1.svg" alt="그림 9.8.1"><figcaption><span class="fig-label">그림 9.8.1</span> <span class="math inline">\(n\)</span>장의 카드를 무작위로 섞었을 때 어떤 카드도 제자리에 남지 않을 확률. 이 확률은 <span class="math inline">\(1/e\)</span>의 위아래를 번갈아 오가며, <span class="math inline">\(n = 6\)</span>부터는 이 척도에서 <span class="math inline">\(1/e\)</span>와 구별할 수 없다.</figcaption></figure>
+<h3 id="일치하는-개수는-푸아송-분포를-따른다">일치하는 개수는 푸아송 분포를 따른다</h3>
+<p>더 많은 것이 성립한다. 제자리에 있는 카드의 수를 <span class="math inline">\(N\)</span>이라 하자. 그러면 각 <span class="math inline">\(k\)</span>에 대하여 <span class="math inline">\(\mathrm{P}(N = k) \to \frac{e^{-1}}{k!}\)</span>이다. 즉 일치하는 개수는 극한에서 평균이 <span class="math inline">\(1\)</span>인 <em>푸아송 분포</em>(Poisson distribution)를 따른다. 평균이 <span class="math inline">\(1\)</span>인 이유는 계산 없이도 알 수 있다. <span class="math inline">\(N\)</span>은 <span class="math inline">\(E_1, \ldots, E_n\)</span>의 지시변수(indicator variable)들의 합이고, 각 지시변수의 기댓값(expectation)은 <span class="math inline">\(\frac1n\)</span>이며, 사건들이 독립이 아니더라도 기댓값은 더할 수 있다. STEP III 2004 Q12(연습문제에 있다)는 분산(variance)도 <span class="math inline">\(1\)</span>임을 보인다. 푸아송 분포는 일어날 가능성이 낮고 거의 독립인 사건이 많을 때마다 나타난다. 교란순열은 그 고전적인 예이며, 12장 <a href="../ch12/stamps-and-e.html">12.11 절</a>의 주제이기도 하다.</p>
+<div class="historybox">
+<div class="box-title">Montmort의 <em>treize</em> 게임</div>
+<p>프랑스 귀족 Pierre Rémond de Montmort는 <em>Essay d’analyse sur les jeux de hazard</em>(1708)에서 운에 좌우되는 게임을 연구하였다. <em>treize</em>(열셋) 게임에서 한 사람이 “하나, 둘, 셋, …”을 외치며 카드 열세 장을 한 장씩 나누어 주는데, 나누어 준 카드가 외친 수와 한 번이라도 일치하면 이긴다. Montmort는 이길 확률을 구하였고, 니콜라우스 베르누이(Nicolaus Bernoulli)와 주고받은 서신을 통해 1713년까지 일반 공식이 확립되었다. 오일러(Euler)는 1753년에 이를 다시 발견하였다. 포함배제의 원리는 나중에 드 무아브르(Abraham de Moivre)가, 그리고 일반적인 형태로는 19세기에 실베스터(James Joseph Sylvester)가 정식화하였다.</p>
+</div>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">포함배제</div>
+<p><em>서로 겹치는 집합들의 합집합의 크기를 세려면, 각 집합의 크기를 더하고, 두 집합씩 겹치는 부분을 빼고, 세 집합씩 겹치는 부분을 더하는 식으로 계속한다.</em></p>
+<p>이 방법은 이 문제에서처럼 대칭성 덕분에 같은 크기의 겹침이 모두 같을 때 가장 강력하다. 대학에서는 조합론, 확률론, 그리고 정수론에서 나타난다. 정수론에서는 주어진 소수(prime)들 중 어느 것으로도 나누어떨어지지 않는 정수를 세는 데 쓰이며, 오일러 피 함수(Euler’s totient function)와 뫼비우스 함수(Möbius function)로 이어진다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>셔츠.</strong> <a href="https://step.maths.org/questions/04-s3-q12">STEP III 2004, 문제 12</a>를 풀어 보자. 이 문제는 자기 셔츠를 입은 선수의 수를 지시변수로 세고, 평균과 분산을 구한 다음, 그 결과를 푸아송 분포와 비교한다.</p></li>
+<li><p><strong>점화식.</strong> <span class="math inline">\(n\)</span>개 대상의 교란순열의 개수를 <span class="math inline">\(D_n\)</span>이라 하자. 카드 <span class="math inline">\(1\)</span>이 어디로 가는지, 그리고 그 자리에 있던 카드가 <span class="math inline">\(1\)</span>번째 자리로 가는지를 고려하여 <span class="math inline">\(D_n = (n - 1)(D_{n-1} + D_{n-2})\)</span>임을 보여라. 이 식을 <span class="math inline">\(D_3 = 2\)</span>, <span class="math inline">\(D_4 = 9\)</span>와 대조하여 확인해 보자.</p></li>
+<li><p><strong>정확히 <span class="math inline">\(k\)</span>장.</strong> 정확히 <span class="math inline">\(k\)</span>장의 카드가 제자리에 있을 확률이 <span class="math inline">\(\frac{1}{k!}d_{n-k}\)</span>이고, 이것이 <span class="math inline">\(\frac{e^{-1}}{k!}\)</span>로 수렴함을 보여라.</p></li>
+<li><p><strong>서로소인 정수.</strong> 포함배제를 이용하여 <span class="math inline">\(1\)</span>부터 <span class="math inline">\(30\)</span>까지의 정수 중 <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(5\)</span> 어느 것으로도 나누어떨어지지 않는 것의 개수를 세어라. 그 답은 <span class="math inline">\(30\bigl(1 - \frac12\bigr)\bigl(1 - \frac13\bigr)\bigl(1 - \frac15\bigr)\)</span>와 어떤 관계가 있는가?</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <a href="https://uk.bookshop.org/search?keywords=Probability%3A+An+Introduction+Grimmett+Welsh"><em>Probability: An Introduction</em></a></strong> (Oxford University Press). 포함배제와 일치 문제를 다루는 대학 1학년 교재이다.</p></li>
+<li><p><strong>William Feller, <a href="https://uk.bookshop.org/search?keywords=An+Introduction+to+Probability+Theory+and+Its+Applications+Feller"><em>An Introduction to Probability Theory and Its Applications</em></a>, Vol. 1</strong> (Wiley), Chapter IV. 일치 문제의 다양한 변형을 담은 고전이다.</p></li>
+<li><p><strong>Miklós Bóna, <a href="https://uk.bookshop.org/search?keywords=A+Walk+Through+Combinatorics+Bona"><em>A Walk Through Combinatorics</em></a></strong> (World Scientific). 포함배제에 관한 내용이 있다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="equal-power-sums.html">← 9.7 같은 거듭제곱의 합</a><a class="next" href="birthday.html">→ 9.9 생일 문제</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>소수는 얼마나 드문드문 흩어져 있는가? (STEP III 2016 Q5) — Beyond STEP</title>
+<meta name="description" content="STEP III 2016 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. 1.1 절 에서 소수(prime)가 무한히 많다는 것을 보았다. 그러나 “무한히 많다”는 것은 투박한 말이다. 소수는 분명히 점점 드물어진다. 100 미만의 소수는 25 개이지만, 900 과 1000 사이의 소수는 14 개뿐이다. 그렇다면 소수는 얼마나 드물어지는가? 이 문제는…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/prime-distribution.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/prime-distribution.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="소수는 얼마나 드문드문 흩어져 있는가? (STEP III 2016 Q5) — Beyond STEP">
+<meta property="og:description" content="STEP III 2016 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. 1.1 절 에서 소수(prime)가 무한히 많다는 것을 보았다. 그러나 “무한히 많다”는 것은 투박한 말이다. 소수는 분명히 점점 드물어진다. 100 미만의 소수는 25 개이지만, 900 과 1000 사이의 소수는 14 개뿐이다. 그렇다면 소수는 얼마나 드물어지는가? 이 문제는…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch01/prime-distribution.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="소수는 얼마나 드문드문 흩어져 있는가? (STEP III 2016 Q5) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2016 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. 1.1 절 에서 소수(prime)가 무한히 많다는 것을 보았다. 그러나 “무한히 많다”는 것은 투박한 말이다. 소수는 분명히 점점 드물어진다. 100 미만의 소수는 25 개이지만, 900 과 1000 사이의 소수는 14 개뿐이다. 그렇다면 소수는 얼마나 드물어지는가? 이 문제는…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "소수는 얼마나 드문드문 흩어져 있는가?", "headline": "소수는 얼마나 드문드문 흩어져 있는가?", "description": "STEP III 2016 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. 1.1 절 에서 소수(prime)가 무한히 많다는 것을 보았다. 그러나 “무한히 많다”는 것은 투박한 말이다. 소수는 분명히 점점 드물어진다. 100 미만의 소수는 25 개이지만, 900 과 1000 사이의 소수는 14 개뿐이다. 그렇다면 소수는 얼마나 드물어지는가? 이 문제는…", "url": "https://beyondstep.keithmcnulty.org/ko/ch01/prime-distribution.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2016 문제 5", "정수론과 증명"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "정수론과 증명", "url": "https://beyondstep.keithmcnulty.org/ko/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제1장: 정수론과 증명", "item": "https://beyondstep.keithmcnulty.org/ko/ch01/"}, {"@type": "ListItem", "position": 3, "name": "소수는 얼마나 드문드문 흩어져 있는가?", "item": "https://beyondstep.keithmcnulty.org/ko/ch01/prime-distribution.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch01/prime-distribution.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/prime-distribution.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/prime-distribution.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch01/prime-distribution.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제1장 · 정수론과 증명</a>
+    <div class="src">STEP III · 2016 · 문제 5</div>
+    <div class="sec-head"><span class="sec-num">1.2</span><h1>소수는 얼마나 드문드문 흩어져 있는가?</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-2-prime-distribution.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제1장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 2016, 문제 5</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/16-s3-q5">step.maths.org/questions/16-s3-q5</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p><a href="../ch01/fermat-numbers.html">1.1 절</a>에서 소수(prime)가 무한히 많다는 것을 보았다. 그러나 “무한히 많다”는 것은 투박한 말이다. 소수는 분명히 점점 드물어진다. <span class="math inline">\(100\)</span> 미만의 소수는 <span class="math inline">\(25\)</span>개이지만, <span class="math inline">\(900\)</span>과 <span class="math inline">\(1000\)</span> 사이의 소수는 <span class="math inline">\(14\)</span>개뿐이다. 그렇다면 소수는 <em>얼마나</em> 드물어지는가?</p>
+<p>이 문제는 꽤 소박해 보이는 사실을 증명한다. <span class="math inline">\(n\)</span> 이하의 모든 소수를 곱하면 그 값이 <span class="math inline">\(4^n\)</span>보다 작다는 것이다. 그러나 이 순진해 보이는 부등식(inequality)은 “얼마나 드문가?”라는 물음에 답하는 첫 번째 진정한 발걸음이며, 1932년 젊은 에르되시(Paul Erdős)가 내놓은, 수학에서 가장 유명한 짧은 증명 가운데 하나의 핵심 보조정리(lemma)이다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<p>기호 <span class="math inline">\(P_{r,s}\)</span>는 까다로워 보이지만 생각은 단순하다. 어떤 범위에 있는 소수들을 모두 곱하는 것이다. 예시를 꼭 이해하고 넘어가자. <span class="math inline">\(P_{3,7}\)</span>은 <span class="math inline">\(3\)</span>보다 크고 <span class="math inline">\(7\)</span> 이하인 소수, 곧 <span class="math inline">\(5\)</span>와 <span class="math inline">\(7\)</span>을 사용하므로 그 값은 <span class="math inline">\(35\)</span>이다.</p>
+<div class="askyourself">
+<p>문항 (iv)는 <em>모든</em> <span class="math inline">\(n \geq 2\)</span>에 대하여 어떤 명제를 증명하라고 한다. 문항 (iii)은 <span class="math inline">\(2m\)</span> 이하의 모든 <span class="math inline">\(k\)</span>에 대하여 그 명제가 성립한다고 가정한다. 이것은 어떤 종류의 귀납법(induction)인가?</p>
+</div>
+<p>이것은 <em>강한</em> 귀납법(strong induction)이다. <span class="math inline">\(n\)</span>인 경우를 증명할 때, 바로 앞의 경우만이 아니라 그 이전의 <em>모든</em> 경우를 가정해도 된다. 이 점을 기억해 두자. 문제가 이런 식으로 구성된 까닭이 바로 이것이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-이항계수는-너무-크지-않다" class="stage"><span class="stage-n">단계 1</span> 이항계수는 너무 크지 않다</h4>
+<div class="askyourself">
+<p><span class="math inline">\((1+x)^{2m+1}\)</span>의 이항전개(binomial expansion)에 <span class="math inline">\(x = 1\)</span>을 대입하면 무엇을 얻는가?</p>
+</div>
+<p>다음을 얻는다. <span class="math display">\[2^{2m+1} = \binom{2m+1}{0} + \binom{2m+1}{1} + \cdots + \binom{2m+1}{2m+1}.\]</span> 모든 항이 양수이므로 각 항은 <span class="math inline">\(2^{2m+1}\)</span>보다 작다. 하지만 이것으로는 충분하지 않다. 우리가 원하는 것은 그 절반인 <span class="math inline">\(2^{2m}\)</span>이다.</p>
+<div class="askyourself">
+<p>파스칼의 삼각형(Pascal’s triangle)은 대칭이다. 합에서 <span class="math inline">\(\binom{2m+1}{m}\)</span>과 같은 다른 항은 무엇인가?</p>
+</div>
+<p>대칭성에 의해 <span class="math inline">\(\binom{2m+1}{m} = \binom{2m+1}{m+1}\)</span>이고, 이 둘은 합에서 <em>서로 다른</em> 두 항이다(<span class="math inline">\(m \neq m+1\)</span>이므로). 따라서 <span class="math display">\[2\binom{2m+1}{m} = \binom{2m+1}{m} + \binom{2m+1}{m+1} &lt; 2^{2m+1},\]</span> 이며, 합에는 <span class="math inline">\(\binom{2m+1}{0} = 1\)</span>과 같은 다른 양수 항도 들어 있으므로 등호 없는 부등식이 성립한다. 양변을 <span class="math inline">\(2\)</span>로 나누면 <span class="math inline">\(\binom{2m+1}{m} &lt; 2^{2m}\)</span>을 얻는다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-그-이항계수를-나누는-소수는-무엇인가" class="stage"><span class="stage-n">단계 2</span> 그 이항계수를 나누는 소수는 무엇인가?</h4>
+<p>이항계수(binomial coefficient)를 풀어 쓰면 다음과 같다. <span class="math display">\[\binom{2m+1}{m} = \frac{(2m+1)!}{m!\,(m+1)!} = \frac{(m+2)(m+3)\cdots(2m+1)}{m!}.\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(p\)</span>를 <span class="math inline">\(m + 1 &lt; p \leq 2m+1\)</span>인 소수라 하자. <span class="math inline">\(p\)</span>는 분자를 나누는가? 분모를 나눌 수 있는가?</p>
+</div>
+<p>분자 <span class="math inline">\((m+2)(m+3)\cdots(2m+1)\)</span>은 <span class="math inline">\(p\)</span> 자신을 인수로 포함하므로 <span class="math inline">\(p\)</span>는 분자를 나눈다. 분모 <span class="math inline">\(m!\)</span>은 모두 <span class="math inline">\(p\)</span>보다 작은 수들의 곱이다. <span class="math inline">\(p\)</span>는 소수이므로, 어느 인수도 나누지 못하는 수들의 곱을 나눌 수 없다. 따라서 <span class="math inline">\(p\)</span>는 분자는 나누지만 분모는 나누지 않으며, 그러므로 <span class="math inline">\(p\)</span>는 이항계수 전체를 나눈다(이항계수가 정수라는 점을 기억하자).</p>
+<div class="pausebox">
+<p>이제 범위 안의 <em>각</em> 소수가 <span class="math inline">\(\binom{2m+1}{m}\)</span>을 나눈다는 것을 알았다. 그렇다면 왜 그들의 <em>곱</em> <span class="math inline">\(P_{m+1,2m+1}\)</span>도 이 수를 나누는가? (주의: <span class="math inline">\(4\)</span>와 <span class="math inline">\(6\)</span>이 모두 어떤 수를 나눈다고 해서 <span class="math inline">\(24\)</span>가 그 수를 나누는 것은 아니다.)</p>
+</div>
+<p>차이는 우리의 소수들이 <em>서로 다른 소수</em>(distinct primes)라는 데 있다. 서로 다른 소수 <span class="math inline">\(p_1, p_2, \ldots\)</span>가 각각 <span class="math inline">\(N\)</span>을 나누면 그들의 곱도 <span class="math inline">\(N\)</span>을 나눈다. <span class="math inline">\(N = p_1 N_1\)</span>이라 쓰자. 그러면 <span class="math inline">\(p_2\)</span>는 <span class="math inline">\(p_1 N_1\)</span>을 나누지만 <span class="math inline">\(p_1\)</span>은 나누지 않으므로 <span class="math inline">\(N_1\)</span>을 나눈다. 이와 같이 계속하면 된다. (여기서는 소수가 곱을 나누면 그 인수 가운데 하나를 나눈다는 사실을 사용했다. 이 사실은 잠시 경의를 표할 만하다. <a href="../ch01/factorisation-fails.html">1.7 절</a>에서는 이와 비슷한 성질이 무너지는 세계를 보여 준다.)</p>
+<p>따라서 <span class="math inline">\(P_{m+1,2m+1}\)</span>은 <span class="math inline">\(\binom{2m+1}{m}\)</span>을 나누고, 양수의 약수(divisor)는 그 수보다 크지 않으므로 <span class="math display">\[P_{m+1,\,2m+1} \leq \binom{2m+1}{m} &lt; 2^{2m}. \qed\]</span></p>
+<h4 id="stagemark3-곱을-나누기" class="stage"><span class="stage-n">단계 3</span> 곱을 나누기</h4>
+<div class="askyourself">
+<p><span class="math inline">\(2m+1\)</span> 이하의 모든 소수의 곱인 <span class="math inline">\(P_{1,2m+1}\)</span>을 이미 알고 있는 곱들로 어떻게 만들 수 있는가?</p>
+</div>
+<p><span class="math inline">\(2m+1\)</span> 이하의 소수를 <span class="math inline">\(m+1\)</span> 이하인 것과 <span class="math inline">\(m+1\)</span>보다 큰 것으로 나누자. <span class="math display">\[P_{1,2m+1} = P_{1,m+1} \times P_{m+1,2m+1}.\]</span> 2단계에 의해 두 번째 인수는 <span class="math inline">\(2^{2m} = 4^m\)</span>보다 작다. 첫 번째 인수에 대해서는, <span class="math inline">\(2\)</span>부터 <span class="math inline">\(2m\)</span>까지의 모든 <span class="math inline">\(k\)</span>에 대하여 <span class="math inline">\(P_{1,k} &lt; 4^k\)</span>라고 가정해도 되며, <span class="math inline">\(k = m+1\)</span>은 이 범위 안에 있다(<span class="math inline">\(m \geq 1\)</span>이면 <span class="math inline">\(2 \leq m+1 \leq 2m\)</span>이므로). 따라서 <span class="math display">\[P_{1,2m+1} &lt; 4^{m+1} \times 4^{m} = 4^{2m+1}. \qed\]</span> 바로 여기서 강한 귀납법이 제 몫을 한다. <span class="math inline">\(2m+1\)</span>을 다루기 위해 필요했던 것은 바로 앞의 경우가 아니라, 대략 그 <em>절반</em> 크기인 <span class="math inline">\(m+1\)</span>인 경우였다.</p>
+<h4 id="stagemark4-모든-n" class="stage"><span class="stage-n">단계 4</span> 모든 <span class="math inline">\(n\)</span></h4>
+<div class="askyourself">
+<p>문항 (iii)은 홀수를 다룬다. 짝수 <span class="math inline">\(n = 2m+2\)</span>이면 어떻게 되는가? 이 수는 소수인가?</p>
+</div>
+<p>처음 경우를 확인하자. <span class="math inline">\(P_{1,2} = 2 &lt; 16\)</span>이고 <span class="math inline">\(P_{1,3} = 6 &lt; 64\)</span>이다. 이제 <span class="math inline">\(n \geq 4\)</span>일 때, <span class="math inline">\(2\)</span>부터 <span class="math inline">\(n-1\)</span>까지의 모든 <span class="math inline">\(k\)</span>에 대하여 <span class="math inline">\(P_{1,k} &lt; 4^k\)</span>라고 가정하자.</p>
+<ul>
+<li><p><span class="math inline">\(n\)</span>이 짝수이면, <span class="math inline">\(n\)</span>은 소수가 아니다(<span class="math inline">\(2\)</span>보다 크므로). 따라서 <span class="math inline">\(n\)</span> 이하의 소수는 <span class="math inline">\(n-1\)</span> 이하의 소수와 같다. 그러므로 <span class="math inline">\(P_{1,n} = P_{1,n-1} &lt; 4^{n-1} &lt; 4^n\)</span>이다.</p></li>
+<li><p><span class="math inline">\(n\)</span>이 홀수이면, <span class="math inline">\(m \geq 2\)</span>인 <span class="math inline">\(m\)</span>에 대하여 <span class="math inline">\(n = 2m+1\)</span>로 쓰자. 그러면 문항 (iii)에 의해 곧바로 <span class="math inline">\(P_{1,n} &lt; 4^n\)</span>이다.</p></li>
+</ul>
+<p>강한 귀납법에 의해, 모든 <span class="math inline">\(n \geq 2\)</span>에 대하여 <span class="math inline">\(P_{1,n} &lt; 4^n\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>이항계수는 수론적 정보를 담고 있다.</strong> <span class="math inline">\(\binom{2m+1}{m}\)</span>은 작으면서(<span class="math inline">\(4^m\)</span>보다 작다) 많은 소수로 나누어떨어질 수밖에 없는 하나의 수이다. 많은 소수를 작은 수 안에 밀어 넣으면, 그런 소수가 너무 많을 수는 없다는 것을 알 수 있다.</p></li>
+<li><p><strong>문제가 스스로를 절반으로 줄일 때는 강한 귀납법이 자연스러운 도구이다.</strong> <span class="math inline">\(2m+1\)</span>인 경우는 <span class="math inline">\(m+1\)</span>인 경우에 의존했다.</p></li>
+<li><p><strong>작은 경우는 따로 확인해야 한다.</strong> 귀납법은 <span class="math inline">\(n \geq 4\)</span>가 되어서야 작동하므로, <span class="math inline">\(n = 2\)</span>와 <span class="math inline">\(3\)</span>은 직접 처리해야 했다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title"><span class="math inline">\(4^n\)</span>에서 소수 정리까지</div>
+<p>결과에 로그(logarithm)를 취하면 <span class="math inline">\(\ln P_{1,n} &lt; n \ln 4\)</span>, 곧 <span class="math display">\[\sum_{p \leq n} \ln p &lt; (\ln 4)\, n \approx 1.39\,n .\]</span> 1850년대에 체비쇼프(Pafnuty Chebyshev)는 바로 이런 종류의 상계와 <em>하계</em>를 증명하여, <span class="math inline">\(\sum_{p \leq n} \ln p\)</span>가 <span class="math inline">\(n\)</span>에 비례하여 증가함을 보였다. 가우스(Gauss)는 약 15세 무렵 이미 표를 보고 <span class="math inline">\(n\)</span> 이하의 소수의 개수가 대략 <span class="math inline">\(n / \ln n\)</span>이라고 추측했다. 이것이 <em>소수 정리</em>(Prime Number Theorem)가 되었으며, 1896년 아다마르(Jacques Hadamard)와 드 라 발레 푸생(Charles de la Vallée Poussin)이 복소해석학(complex analysis)을 이용하여 마침내 증명하였다. 로그 형태로 쓰면 소수 정리는 <span class="math display">\[\sum_{p \leq n} \ln p \sim n,\]</span> 을 말하며, 따라서 <span class="math inline">\(n\)</span> 이하의 소수의 곱은 대략 <span class="math inline">\(e^n\)</span>이다. 우리가 얻은 상계 <span class="math inline">\(4^n\)</span>은 전혀 동떨어진 값이 아니다. 그림 1.2.1에 세 가지를 모두 나타내었다.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-1-2-1.svg" alt="그림 1.2.1"><figcaption><span class="fig-label">그림 1.2.1</span> <span class="math inline">\(n\)</span> 이하의 모든 소수의 곱의 로그(청록색). 각 소수 <span class="math inline">\(p\)</span>에서 <span class="math inline">\(\ln p\)</span>만큼 뛰어오른다. 이 절에서는 이 값이 <span class="math inline">\(n \ln 4\)</span>(호박색, 점선) 아래에 머문다는 것을 증명한다. 소수 정리에 따르면 이 값은 <span class="math inline">\(n\)</span>(자주색)처럼 증가한다.</figcaption></figure>
+<h3 id="베르트랑-공준">베르트랑 공준</h3>
+<p>1845년 베르트랑(Joseph Bertrand)은 모든 <span class="math inline">\(n \geq 1\)</span>에 대하여 <span class="math inline">\(n\)</span>과 <span class="math inline">\(2n\)</span> 사이에 항상 소수가 존재한다고 추측했다. 체비쇼프는 1852년에 이를 증명했다. 80년 뒤, 약관 19세의 에르되시가 아름다운 초등적 증명을 찾아냈다. 그 핵심 재료는 이 문제의 보조정리와, <em>가운데</em> 이항계수 <span class="math inline">\(\binom{2n}{n}\)</span>을 나누는 소수가 무엇인지에 대한 세심한 분석이다. Martin Aigner와 Günter Ziegler는 수학에서 가장 우아한 증명들을 모은 책 <em>Proofs from THE BOOK</em>의 제2장으로 이 증명을 골랐다.</p>
+<h3 id="이-다음은">이 다음은</h3>
+<p>소수의 정확한 분포는 리만 제타 함수(Riemann zeta function) <span class="math display">\[\zeta(s) = 1 + \frac{1}{2^s} + \frac{1}{3^s} + \cdots,\]</span> 의 영점에 의해 결정된다. 이 함수는 <a href="../ch02/basel.html">2.4 절</a>에서 훨씬 소박한 모습으로 만나게 되는데, 거기서 <span class="math inline">\(\zeta(2) = \pi^2/6\)</span>이다. 그 영점들이 정확히 어디에 있는지 예측하는 <em>리만 가설</em>(Riemann Hypothesis)이 참이라면, 소수 정리의 오차를 가능한 한 가장 정밀하게 잡아낼 수 있다. 리만 가설은 아마도 수학에서 가장 유명한 미해결 문제이며, 밀레니엄 문제(Millennium Prize Problems) 가운데 하나이다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">강한 귀납법, 그리고 영리한 대상에서 정보 끌어내기</div>
+<p><em><span class="math inline">\(n\)</span>인 경우가 <span class="math inline">\(n-1\)</span>보다 훨씬 작은 경우에 의존한다면, 이전의 모든 경우를 한꺼번에 가정하라.</em></p>
+<p>여기에 담긴 또 하나의 아이디어는 더 미묘하며 정수론(number theory)의 특징을 잘 보여 준다. 어떤 범위의 <em>모든</em> 소수에 대해 무언가를 보이려면, 그 소수들이 모두 나누어야만 하면서 동시에 너무 크지 않다는 것도 보일 수 있는 하나의 대상(여기서는 이항계수)을 찾아라.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>수를 느껴 보기.</strong> <span class="math inline">\(n = 10, 20, 30\)</span>에 대하여 <span class="math inline">\(P_{1,n}\)</span>을 계산하고, <span class="math inline">\(4^n\)</span> 및 <span class="math inline">\(e^n\)</span>과 비교하여라. (여기서는 계산기를 써도 좋다.)</p></li>
+<li><p><strong>가운데 이항계수.</strong> <span class="math inline">\(\binom{2m}{m}\)</span>이 <span class="math inline">\((1+1)^{2m}\)</span>의 전개에 나오는 <span class="math inline">\(2m+1\)</span>개의 항 가운데 가장 큼을 보이고, 이로부터 <span class="math inline">\(\binom{2m}{m} \geq \dfrac{4^m}{2m+1}\)</span>임을 유도하여라.</p></li>
+<li><p><strong>소수는 너무 많지 않다.</strong> <span class="math inline">\(\pi(n)\)</span>을 <span class="math inline">\(n\)</span> 이하의 소수의 개수라 하자. <span class="math inline">\(\sqrt n\)</span>과 <span class="math inline">\(n\)</span> 사이의 모든 소수는 <span class="math inline">\(\sqrt n\)</span>보다 크고, 그들의 곱은 많아야 <span class="math inline">\(P_{1,n} &lt; 4^n\)</span>이다. 이로부터 <span class="math display">\[\pi(n) - \pi(\sqrt n) &lt; \frac{2\ln 4}{\ln n}\, n ,\]</span> 임을 유도하고, 따라서 <span class="math inline">\(\pi(n) &lt; 2.8\, n/\ln n + \sqrt n\)</span>임을 보여라. 이를 소수 정리의 <span class="math inline">\(\pi(n) \approx n / \ln n\)</span>과 비교하여라.</p></li>
+<li><p><strong>베르트랑 확인하기.</strong> <span class="math inline">\(n = 1, 2, \ldots, 50\)</span> 각각에 대하여 <span class="math inline">\(n\)</span>과 <span class="math inline">\(2n\)</span> 사이의 소수를 찾아 베르트랑 공준(Bertrand’s postulate)을 확인하여라. 각 소수가 바로 앞 소수의 두 배보다 작은 짧은 소수 목록을 이용하여 효율적으로 할 수 있는가?</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Aigner &amp; Ziegler, <a href="https://uk.bookshop.org/search?keywords=Proofs+from+THE+BOOK+Aigner+Ziegler"><em>Proofs from THE BOOK</em></a></strong>, 제2장, “Bertrand’s postulate”(베르트랑 공준).</p></li>
+<li><p><strong>Marcus du Sautoy, <a href="https://uk.bookshop.org/search?keywords=The+Music+of+the+Primes+Sautoy"><em>The Music of the Primes</em></a></strong> (Fourth Estate). 소수 정리와 리만 가설의 역사를 다룬 대중서이다.</p></li>
+<li><p><strong>G. J. O. Jameson, <a href="https://uk.bookshop.org/search?keywords=The+Prime+Number+Theorem+Jameson"><em>The Prime Number Theorem</em></a></strong> (Cambridge University Press). 엄밀하면서도 친절하며 학부생을 위해 쓰였다. 앞쪽 장들은 A 레벨(A level, 영국의 대학 입학 자격 시험) 수준의 미적분만 있으면 읽을 수 있다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="fermat-numbers.html">← 1.1 소수 공장</a><a class="next" href="well-ordering.html">→ 1.3 가장 작은 반례</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

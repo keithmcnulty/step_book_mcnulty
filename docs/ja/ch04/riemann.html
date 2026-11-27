@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>積分とは何か？ (STEP III 1989 Q10) — Beyond STEP</title>
+<meta name="description" content="STEP III 1989 問題 10：解説付き解答とその背後にある大学数学。 読者は何年も積分を計算してきたはずである。 int_0^a x^5\,dx = frac16 a^6 であることも、「積分は微分の逆である」から知っている。しかしそれは定理であって、定義ではない。では、積分（integral）とは そもそも 何なのか。…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch04/riemann.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch04/riemann.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/riemann.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/riemann.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/riemann.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch04/riemann.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/riemann.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="積分とは何か？ (STEP III 1989 Q10) — Beyond STEP">
+<meta property="og:description" content="STEP III 1989 問題 10：解説付き解答とその背後にある大学数学。 読者は何年も積分を計算してきたはずである。 int_0^a x^5\,dx = frac16 a^6 であることも、「積分は微分の逆である」から知っている。しかしそれは定理であって、定義ではない。では、積分（integral）とは そもそも 何なのか。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch04/riemann.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="積分とは何か？ (STEP III 1989 Q10) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1989 問題 10：解説付き解答とその背後にある大学数学。 読者は何年も積分を計算してきたはずである。 int_0^a x^5\,dx = frac16 a^6 であることも、「積分は微分の逆である」から知っている。しかしそれは定理であって、定義ではない。では、積分（integral）とは そもそも 何なのか。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "積分とは何か？", "headline": "積分とは何か？", "description": "STEP III 1989 問題 10：解説付き解答とその背後にある大学数学。 読者は何年も積分を計算してきたはずである。 int_0^a x^5\\,dx = frac16 a^6 であることも、「積分は微分の逆である」から知っている。しかしそれは定理であって、定義ではない。では、積分（integral）とは そもそも 何なのか。…", "url": "https://beyondstep.keithmcnulty.org/ja/ch04/riemann.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1989 問題 10", "きちんと学ぶ微分積分学"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 4, "name": "きちんと学ぶ微分積分学", "url": "https://beyondstep.keithmcnulty.org/ja/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第4章：きちんと学ぶ微分積分学", "item": "https://beyondstep.keithmcnulty.org/ja/ch04/"}, {"@type": "ListItem", "position": 3, "name": "積分とは何か？", "item": "https://beyondstep.keithmcnulty.org/ja/ch04/riemann.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch04/riemann.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch04/riemann.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch04/riemann.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch04/riemann.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第4章 · きちんと学ぶ微分積分学</a>
+    <div class="src">STEP III · 1989 · 問題 10</div>
+    <div class="sec-head"><span class="sec-num">4.1</span><h1>積分とは何か？</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-1-riemann.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第4章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 1989、第10問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/89-s3-q10">step.maths.org/questions/89-s3-q10</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>読者は何年も積分を計算してきたはずである。<span class="math inline">\(\int_0^a x^5\,\mathrm{d}x = \frac16 a^6\)</span> であることも、「積分は微分の逆である」から知っている。しかしそれは定理であって、定義ではない。では、積分（integral）とは<em>そもそも</em>何なのか。</p>
+<p>正直に答えれば、積分とは面積であり、細い長方形の面積の和の極限（limit）として定義されるものである。この問題では、その定義だけから積分を計算することが求められる。原始関数（antiderivative）も微分積分学の基本定理（fundamental theorem of calculus）も使わず、長方形を足し合わせて極限をとることしか許されない。これは予想以上に難しい。そしてまさにそのことが、この計算を簡単にしてくれる微分積分学の基本定理がいかに驚くべき結果であるかを物語っている。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>小問 (iii) の二つの和は、幅 <span class="math inline">\(\frac an\)</span> の長方形の面積の和である。増加関数（increasing function）<span class="math inline">\(\mathrm{f}\)</span> について、どちらの和が曲線の下の面積を過小に見積もり、どちらが過大に見積もるか。</p>
+</div>
+<p>一つ目の和は、各帯の<em>左</em>端 <span class="math inline">\(x = \frac{ra}{n}\)</span>（<span class="math inline">\(r = 0, \ldots, n-1\)</span>）での高さを用いている。増加関数ではこれが帯の中で最も低い点なので、長方形は曲線の下に収まる。これが<em>下和</em>（lower sum）である。二つ目の和は右端 <span class="math inline">\(r = 1, \ldots, n\)</span> を用いるので、長方形は曲線の上にはみ出す。これが<em>上和</em>（upper sum）である（図 4.1.1）。定義によれば、帯を細くしていったときに両方の和が同じ極限に近づくならば、積分が存在する。</p>
+<p><span class="math inline">\(\mathrm{f}(x) = x^5\)</span> の場合、どちらの和にも <span class="math inline">\(\sum r^5\)</span> が現れる。小問 (i) と (ii) は、この和を上と下から評価するものである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-望遠鏡和" class="stage"><span class="stage-n">段階 1</span> 望遠鏡和</h4>
+<div class="askyourself">
+<p>連続する六つの整数の積を <span class="math inline">\(P(r) = r(r+1)(r+2)(r+3)(r+4)(r+5)\)</span> とおく。<span class="math inline">\(P(r) - P(r-1)\)</span> はどうなるか。</p>
+</div>
+<p><span class="math inline">\(P(r)\)</span> と <span class="math inline">\(P(r-1) = (r-1)r(r+1)(r+2)(r+3)(r+4)\)</span> は五つの因数 <span class="math inline">\(r(r+1)(r+2)(r+3)(r+4)\)</span> を共有しているので、 <span class="math display">\[\begin{aligned}
+  P(r) - P(r-1) &amp;= r(r+1)(r+2)(r+3)(r+4)\bigl[(r+5) - (r-1)\bigr] \\
+  &amp;= 6\,r(r+1)(r+2)(r+3)(r+4).
+\end{aligned}\]</span> <span class="math inline">\(r = 1\)</span> から <span class="math inline">\(n\)</span> まで和をとると、右辺は隣り合う項が打ち消し合う望遠鏡和（telescoping sum）となり、<span class="math inline">\(P(n) - P(0) = P(n)\)</span> に帰着する。よって <span class="math display">\[\sum_{r=1}^{n} r(r+1)(r+2)(r+3)(r+4) = \tfrac16 P(n) = \tfrac16 n(n+1)(n+2)(n+3)(n+4)(n+5).\]</span><span class="qed" aria-label="end of proof">■</span></p>
+<p>すべての <span class="math inline">\(r \geq 1\)</span> について <span class="math inline">\(r^5 &lt; r(r+1)(r+2)(r+3)(r+4)\)</span> であるから、不等式（inequality）が従う。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-下からの評価" class="stage"><span class="stage-n">段階 2</span> 下からの評価</h4>
+<div class="pausebox">
+<p>段階 1 の方法を、<em>下がっていく</em>連続する五つの整数の積 <span class="math inline">\(r(r-1)(r-2)(r-3)(r-4)\)</span> に応用せよ。<span class="math inline">\(r = 0\)</span> から <span class="math inline">\(n - 1\)</span> までの和を求め、<span class="math inline">\(r^5\)</span> と比較せよ。</p>
+</div>
+<p><span class="math inline">\(Q(r) = (r-5)(r-4)(r-3)(r-2)(r-1)r\)</span> とおく。すると <span class="math inline">\(Q(r+1) - Q(r) = (r-4)(r-3)(r-2)(r-1)r\bigl[(r+1) - (r-5)\bigr] = 6\,(r-4)(r-3)(r-2)(r-1)r\)</span> である。<span class="math inline">\(r = 0\)</span> から <span class="math inline">\(n - 1\)</span> まで和をとると、打ち消し合って <span class="math inline">\(Q(n) - Q(0) = Q(n)\)</span> となるので、 <span class="math display">\[\sum_{r=0}^{n-1} (r-4)(r-3)(r-2)(r-1)r = \tfrac16 (n-5)(n-4)(n-3)(n-2)(n-1)n.\]</span> ここで項ごとに比較する。<span class="math inline">\(r = 0\)</span> のときは両辺とも <span class="math inline">\(0\)</span> である。<span class="math inline">\(1 \leq r \leq 4\)</span> のときは積が <span class="math inline">\(0\)</span> の因数を含むが、<span class="math inline">\(r^5 &gt; 0\)</span> である。<span class="math inline">\(r \geq 5\)</span> のときはすべての因数が正で <span class="math inline">\(r\)</span> 以下であり、そのうちいくつかは真に小さいので、積は <span class="math inline">\(r^5\)</span> より小さい。<span class="math inline">\(n &gt; 1\)</span> であるから和には <span class="math inline">\(r = 1\)</span> の項が含まれ、そこでは不等号が厳密に成り立つ。よって <span class="math display">\[\sum_{r=0}^{n-1} r^5 &gt; \tfrac16 (n-5)(n-4)(n-3)(n-2)(n-1)n. \qed\]</span></p>
+<h4 id="stagemark3-積分" class="stage"><span class="stage-n">段階 3</span> 積分</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{f}(x) = x^5\)</span> に対する下和と上和を <span class="math inline">\(\sum r^5\)</span> を用いて表せ。分母には <span class="math inline">\(n\)</span> の何乗が現れるか。</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(x) = x^5\)</span> のとき、 <span class="math display">\[L_n = \sum_{r=0}^{n-1} \frac{a}{n}\left(\frac{ra}{n}\right)^5 = \frac{a^6}{n^6}\sum_{r=0}^{n-1} r^5, \qquad U_n = \frac{a^6}{n^6}\sum_{r=1}^{n} r^5.\]</span> 小問 (i) と (ii)、および <span class="math inline">\(L_n &lt; U_n\)</span> より、 <span class="math display">\[\frac{a^6}{6}\cdot\frac{(n-5)(n-4)\cdots n}{n^6} \;&lt;\; L_n \;&lt;\; U_n \;&lt;\; \frac{a^6}{6}\cdot\frac{n(n+1)\cdots(n+5)}{n^6}.\]</span> 二つの分数はいずれも、<span class="math inline">\(\frac{n-3}{n} = 1 - \frac3n\)</span> や <span class="math inline">\(\frac{n+3}{n} = 1 + \frac3n\)</span> のような六つの因数の積であり、各因数は <span class="math inline">\(1\)</span> に収束（converge）する。よって外側の評価はどちらも <span class="math inline">\(\frac{a^6}{6}\)</span> に収束し、はさみうちの原理（squeeze theorem）により <span class="math inline">\(L_n\)</span> と <span class="math inline">\(U_n\)</span> も同じ値に収束する。両方の極限が存在して一致するので、定義により <span class="math display">\[\int_0^a x^5\,\mathrm{d}x = \tfrac16 a^6. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-1-1.svg" alt="図 4.1.1"><figcaption><span class="fig-label">図 4.1.1</span> <span class="math inline">\([0, a]\)</span> 上の <span class="math inline">\(x^5\)</span> に対する、<span class="math inline">\(n = 6\)</span> 本の帯による下和と上和。下和は青緑色の部分（曲線の下にある長方形）の面積であり、上和はそれに琥珀色の部分を加えたものである。両者の差はちょうど最後の最も高い長方形の面積 <span class="math inline">\(\frac an\,\mathrm{f}(a)\)</span> に等しく、<span class="math inline">\(n\)</span> が大きくなると <span class="math inline">\(0\)</span> に近づく。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>またしても望遠鏡和。</strong>連続する整数の積の和は、第 2 章の和や積とまったく同じように打ち消し合って消えた。</p></li>
+<li><p><strong>評価してから、はさみうち。</strong><span class="math inline">\(\sum r^5\)</span> の正確な値（<span class="math inline">\(\frac{1}{12}n^2(n+1)^2(2n^2 + 2n - 1)\)</span> である）は一度も求めなかった。両側からの評価だけで十分であった。</p></li>
+<li><p><strong>定義がすべてを担う。</strong>原始関数はどこにも現れなかった。すべては、和の極限としての積分の定義から導かれた。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">リーマンの定義</div>
+<p>細い帯を足し合わせて面積を求めるという発想は、アルキメデス（Archimedes）にまでさかのぼる。彼は紀元前 250 年ごろ、まさにこの議論の一種によって放物線の下の面積を求めた。ニュートン（Newton）とライプニッツ（Leibniz）は積分を微分の逆として捉え直し、その後一世紀半にわたって、ほとんどの人はそのように積分を考えていた。1854 年、ベルンハルト・リーマン（Bernhard Riemann）は、今日でも大学の講義が出発点とする定義を与えた。<span class="math inline">\([a, b]\)</span> を小さな区間に分割し、（幅）<span class="math inline">\(\times\)</span>（その区間内のどこかでの <span class="math inline">\(\mathrm{f}\)</span> の高さ）の和をつくり、区間を細かくしていったときにそのような和がすべて一つの極限に近づくならば、<span class="math inline">\(\mathrm{f}\)</span> は可積分（integrable）であるという。この問題での形、すなわち等幅の帯と左右の端点を用いるものは、増加関数に対して有効な特別な場合である。一般の場合は、ジャン＝ガストン・ダルブー（Jean-Gaston Darboux）の「上和と下和」によってすっきりと扱える。</p>
+</div>
+<h3 id="すべての関数が積分をもつわけではない">すべての関数が積分をもつわけではない</h3>
+<p>厳密な定義があれば、どのような関数が可積分であるかを問うことができる。閉区間上の連続関数（continuous function）はすべて可積分であり、増加関数もすべて可積分である。しかし、ディリクレ（Dirichlet）の関数、すなわち <span class="math inline">\(x\)</span> が有理数（rational number）ならば <span class="math inline">\(\mathrm{f}(x) = 1\)</span>、無理数（irrational number）ならば <span class="math inline">\(0\)</span> とする関数を考えてみよう。どれほど細い帯にも有理数と無理数の両方が含まれるので、上和はつねに <span class="math inline">\(1\)</span>、下和はつねに <span class="math inline">\(0\)</span> となる。両者は決して一致せず、<span class="math inline">\(\int_0^1 \mathrm{f}\)</span> はリーマンの意味では存在しない。1902 年、アンリ・ルベーグ（Henri Lebesgue）は、この関数も扱える（そのルベーグ積分は <span class="math inline">\(0\)</span> である）うえに、極限操作に対してはるかに扱いやすい、より強力な積分を考案した。ルベーグ積分（Lebesgue integral）は現代の確率論（probability theory）の基礎であり、大学の 2、3 年次で出会うことになる。</p>
+<h3 id="離散的な微分積分">離散的な微分積分</h3>
+<p>段階 1 の望遠鏡和は、姿を変えた微分積分である。「上昇階乗」（rising factorial）<span class="math inline">\(r(r+1)\cdots(r+k-1)\)</span> は、和をとる操作に対して、<span class="math inline">\(x^k\)</span> が積分に対して振る舞うのとまったく同じように振る舞う。和をとると因数の個数が一つ増え、新しい因数の個数で割られる。これは <span class="math inline">\(\int x^k\,\mathrm{d}x = \frac{x^{k+1}}{k+1}\)</span> とちょうど対応している。和と積分、差分と導関数の間のこの類似は<em>差分法</em>（calculus of finite differences）と呼ばれ、和を計算するための強力な道具である。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">定義から出発する</div>
+<p><em>「定義を用いて」何かを証明せよと言われたら、定義以外は何も使わないこと。証明しようとしている事柄に依存する定理も、使い慣れた近道も使わない。</em></p>
+<p>これは意外なほど難しく、近道にどれほどの価値があるかをはっきりと教えてくれる。大学では、どの講義も最初の数週間はこのように進む。まず定義があり、次に、定義から直接議論しなくて済むようにしてくれる定理が続くのである。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>積分としての極限。</strong><a href="https://step.maths.org/questions/99-s3-q3">STEP III 1999、第3問</a> に挑戦せよ。この問題では和の極限を積分に書き換える。それぞれの和について、曲線の下にある長方形を見つけよ。</p></li>
+<li><p><strong>アルキメデスの放物線。</strong><span class="math inline">\(\sum_{r=1}^{n} r^2 = \frac16 n(n+1)(2n+1)\)</span> と小問 (iii) の定義を用いて、<span class="math inline">\(\int_0^a x^2\,\mathrm{d}x = \frac13 a^3\)</span> を証明せよ。</p></li>
+<li><p><strong>上昇階乗。</strong>すべての正の整数 <span class="math inline">\(k\)</span> に対して <span class="math inline">\(\displaystyle\sum_{r=1}^{n} r(r+1)\cdots(r+k-1) = \frac{n(n+1)\cdots(n+k)}{k+1}\)</span> が成り立つことを示せ。</p></li>
+<li><p><strong>正確な和。</strong>恒等式 <span class="math inline">\(r(r+1)(r+2)(r+3)(r+4) = r^5 + 10r^4 + 35r^3 + 50r^2 + 24r\)</span> と、<span class="math inline">\(k \leq 4\)</span> に対する <span class="math inline">\(\sum r^k\)</span> の既知の公式を用いて、<span class="math inline">\(\sum_{r=1}^n r^5\)</span> を正確に求めよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>David Bressoud, <a href="https://uk.bookshop.org/search?keywords=A+Radical+Approach+to+Lebesgue%27s+Theory+of+Integration+Bressoud"><em>A Radical Approach to Lebesgue’s Theory of Integration</em></a></strong>（Cambridge University Press）。リーマン積分からルベーグ積分に至る物語を、各段階を必然とした問題を通して語る。</p></li>
+<li><p><strong>Michael Spivak, <a href="https://uk.bookshop.org/search?keywords=Calculus+Spivak"><em>Calculus</em></a></strong>（Cambridge University Press）。第 13 章では、ここでの方法とまったく同じように、上和と下和によって積分を定義している。</p></li>
+<li><p><strong>Graham, Knuth &amp; Patashnik, <a href="https://uk.bookshop.org/search?keywords=Concrete+Mathematics+Graham+Knuth"><em>Concrete Mathematics</em></a></strong>（Addison-Wesley）。第 2 章では、上昇階乗と下降階乗（falling factorial）を用いて差分法を展開している。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 章の導入</a><a class="next" href="trig-from-integral.html">→ 4.2 積分から三角関数を構成する</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

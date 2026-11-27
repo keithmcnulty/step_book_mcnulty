@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제2장: 수열, 급수, 수렴 — Beyond STEP</title>
+<meta name="description" content="극한이 실제로 무엇인지 살펴본 뒤, 유명한 무한급수와 무한곱을 다루고, 이어서 수렴이 얼마나 빠르게 일어나는지를 다룬다.">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch02/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch02/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch02/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch02/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="제2장: 수열, 급수, 수렴 — Beyond STEP">
+<meta property="og:description" content="극한이 실제로 무엇인지 살펴본 뒤, 유명한 무한급수와 무한곱을 다루고, 이어서 수렴이 얼마나 빠르게 일어나는지를 다룬다.">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch02/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="제2장: 수열, 급수, 수렴 — Beyond STEP">
+<meta name="twitter:description" content="극한이 실제로 무엇인지 살펴본 뒤, 유명한 무한급수와 무한곱을 다루고, 이어서 수렴이 얼마나 빠르게 일어나는지를 다룬다.">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 2, "name": "수열, 급수, 수렴", "url": "https://beyondstep.keithmcnulty.org/ko/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "극한이 실제로 무엇인지 살펴본 뒤, 유명한 무한급수와 무한곱을 다루고, 이어서 수렴이 얼마나 빠르게 일어나는지를 다룬다."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제2장: 수열, 급수, 수렴", "item": "https://beyondstep.keithmcnulty.org/ko/ch02/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch02/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch02/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch02/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch02/index.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">장</div>
+    <div class="ch-num">2</div>
+    <h1>수열, 급수, 수렴</h1>
+    <p class="strap">무한은 수학이 흥미로워지는 곳이며, 동시에 가장 틀리기 쉬운 곳이다.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">장 전체 내려받기</span><span class="dl-sub">인쇄용으로 조판한 PDF</span></span></a>
+  </div>
+  <h2 class="contents-head">이 장의 내용</h2>
+  <ol class="toc"><li><a class="toc-link" href="eventually.html"><span class="toc-num">2.1</span>
+<span class="toc-title">“결국”이란 무슨 뜻인가</span>
+<span class="toc-src">STEP III 2015</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-1-eventually.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="golden-limit.html"><span class="toc-num">2.2</span>
+<span class="toc-title">극한으로서의 황금비</span>
+<span class="toc-src">STEP II 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-2-golden-limit.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="kempner.html"><span class="toc-num">2.3</span>
+<span class="toc-title">발산하는 급수와 수렴하는 그 사촌</span>
+<span class="toc-src">STEP III 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-3-kempner.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="basel.html"><span class="toc-num">2.4</span>
+<span class="toc-title">\(\pi^2/6\)</span>
+<span class="toc-src">STEP III 2018</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-4-basel.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="viete.html"><span class="toc-num">2.5</span>
+<span class="toc-title">비에트의 곱</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-5-viete.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="agm.html"><span class="toc-num">2.6</span>
+<span class="toc-title">산술–기하 평균</span>
+<span class="toc-src">STEP II 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-6-agm.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="newton-speed.html"><span class="toc-num">2.7</span>
+<span class="toc-title">여섯 자리인가, 육백 자리인가</span>
+<span class="toc-src">STEP II 2023</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-7-newton-speed.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="squaring-minus-two.html"><span class="toc-num">2.8</span>
+<span class="toc-title">제곱하고 2 빼기</span>
+<span class="toc-src">STEP III 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-8-squaring-minus-two.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="e-approximations.html"><span class="toc-num">2.9</span>
+<span class="toc-title">e에 다가가는 분수들</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-9-e-approximations.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">돌아보기: 지금까지 배운 것</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“다음으로 풀어 보기” 연습문제의 답</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">2장  \(\cdot\)  들어가며</div>
+    <h1 class="essay-title">무한 길들이기</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>무한이여! 이보다 더 깊이 인간의 정신을 뒤흔든 질문은 없었다.</p>
+<p class="who">— 다비트 힐베르트(David Hilbert)</p>
+</div>
+<p>2500년 전, 엘레아의 제논(Zeno of Elea)은 운동이 불가능하다고 주장했다. 방을 가로질러 걸어가려면 먼저 절반을 걸어야 하고, 그다음 남은 거리의 절반을, 또 그 남은 거리의 절반을 걸어야 하며, 이것이 끝없이 이어진다. 무한히 많은 일을 해야 하는데, 이를 유한한 시간 안에 끝낼 수는 없을 것이다. 사람들은 실제로 방을 가로지르므로 제논이 틀렸다는 것은 누구나 알았지만, 아주 오랫동안 그가 정확히 <em>왜</em> 틀렸는지는 아무도 말하지 못했다. 답은 무한합 <span class="math inline">\(\frac12 + \frac14 + \frac18 + \cdots\)</span>이 유한한 값 <span class="math inline">\(1\)</span>을 가진다는 것이다. 그런데 무한히 많은 수를 더해서 어떤 값이 된다는 것은 도대체 무슨 <em>뜻</em>일까?</p>
+<p>이 질문은 2000년 동안 수학의 한가운데에 놓여 있었다. 17세기에 뉴턴(Newton)과 라이프니츠(Leibniz)는 이 질문에 끝내 제대로 답하지 않은 채 그 위에 미적분학을 세웠고, 그 후계자들은 놀라운 결과들과 함께 엄청난 헛소리도 만들어 냈다. 역사상 가장 위대한 계산가인 오일러(Euler)는 거리낌 없이 <span class="math inline">\(1 - 1 + 1 - 1 + \cdots = \frac12\)</span>이라고 썼다. 다른 이들은 같은 무한급수(infinite series)에 대해 서로 모순되는 것들을 “증명”했다. 19세기에 이르러 코시(Cauchy), 바이어슈트라스(Weierstrass) 등의 연구를 거친 뒤에야 수학자들은 참인 결과와 거짓인 결과를 가려낼 만큼 정밀한 정의를 갖게 되었다. 그 정의들이 이 장의 주제이다.</p>
+<h3 id="왜-중요한가">왜 중요한가</h3>
+<p>여러분이 계산에 쓰게 될 거의 모든 수는 무언가의 극한(limit)이다. 계산기는 <span class="math inline">\(\sqrt2\)</span>나 <span class="math inline">\(\pi\)</span>나 <span class="math inline">\(e\)</span>를 알지 못한다. 계산기가 아는 것은 그 수들에 점점 더 가까워지는 방법이며, 충분히 가까워지면 계산을 멈춘다. 어떤 방법이 <em>얼마나 빨리</em> 가까워지는지 이해하느냐에 따라 1밀리초 만에 끝나는 알고리즘과 영원히 끝나지 않는 알고리즘이 갈린다. 날씨를 예보하고, 항공기를 설계하고, 금융 상품의 가격을 매기는 데 쓰이는 컴퓨터 시뮬레이션의 바탕에도 같은 아이디어가 있다. 그리고 가장 순수한 쪽에서는, 극한에 대한 연구가 수학에서 가장 아름다운 공식들로 이어진다. 이 장에서 여러분은 <span class="math display">\[1 + \frac14 + \frac19 + \frac1{16} + \cdots = \frac{\pi^2}{6},\]</span> 임을 증명하게 된다. 이것은 오일러를 유명하게 만든 결과이며, 지금도 거의 마법처럼 보인다.</p>
+<h3 id="대학에서-만나게-될-것">대학에서 만나게 될 것</h3>
+<p>거의 모든 대학에서 <em>해석학(Analysis)</em>은 가장 먼저 듣는 과목 가운데 하나이며, 많은 학생에게 가장 큰 충격을 주는 과목이다. 학교 수학에서는 극한을 계산하는 법을 배우지만, 해석학에서는 정밀한 정의에서 출발하여 극한에 대한 사실을 <em>증명</em>하는 법을 배운다. 여러분은 <a href="../ch02/eventually.html">2.1 절</a>에 나오는 “모든 <span class="math inline">\(\varepsilon &gt; 0\)</span>에 대하여”와 “<span class="math inline">\(N\)</span>이 존재한다”라는 표현을 써서 수열(sequence)이 수렴(converge)한다는 것이 무슨 뜻인지 정의하게 된다. 유계(bounded)인 증가수열(increasing sequence)은 모두 수렴한다는 것을 증명하고, 이것이 유리수에는 없는 실수의 성질인 <em>완비성(completeness)</em>에 달려 있다는 것을 알게 된다. 급수(series)의 수렴 판정법을 공부하고, 같은 아이디어를 써서 연속성, 미분, 적분에 엄밀한 의미를 부여하게 된다.</p>
+<p>이후의 과목들은 이 기초 위에서 여러 방향으로 뻗어 나간다. <em>수치해석(numerical analysis)</em>은 근삿값이 얼마나 빨리 수렴하는지, 그리고 어떻게 하면 더 빠르게 만들 수 있는지를 묻는다(<a href="../ch02/newton-speed.html">2.7 절</a>, <a href="../ch02/agm.html">2.6 절</a>). <em>동역학계(dynamical systems)</em>는 어떤 규칙을 거듭 적용할 때 무슨 일이 일어나는지를 연구하는데, 때로는 극한에 도달하고 때로는 혼돈이 생겨난다(<a href="../ch02/golden-limit.html">2.2 절</a>, <a href="../ch02/squaring-minus-two.html">2.8 절</a>). <em>복소해석(complex analysis)</em>은 왜 그토록 많은 무한합과 무한곱에 <span class="math inline">\(\pi\)</span>가 나타나는지를 설명한다(<a href="../ch02/basel.html">2.4 절</a>, <a href="../ch02/viete.html">2.5 절</a>). 그리고 <em>해석적 정수론(analytic number theory)</em>은 <a href="../ch02/e-approximations.html">2.9 절</a>에서처럼 극한을 이용하여 정수에 관한 질문에 답한다.</p>
+<h3 id="이-장을-관통하는-질문들">이 장을 관통하는 질문들</h3>
+<div class="skillbox">
+<div class="box-title">세 가지 큰 질문</div>
+<ol class="arabic">
+<li><p><strong>무한한 과정이 답을 가진다는 것은 무슨 뜻인가?</strong> 수열이 극한에 “가까워진다”거나 무한합이 어떤 수로 “더해진다”는 것을 어떻게 정확하게 말할 수 있는가?</p></li>
+<li><p><strong>무엇으로 수렴하는지 모르는 채로 어떤 것이 수렴한다는 것을 어떻게 증명할 수 있는가?</strong> 그리고 극한이 존재한다는 것을 알고 나면, 그 극한을 어떻게 구하는가?</p></li>
+<li><p><strong>얼마나 빠른가?</strong> 두 과정이 같은 극한을 가지면서도 전혀 다른 속도로 그 극한에 다가갈 수 있다. 왜 그런가, 그리고 그 속도를 어떻게 측정하는가?</p></li>
+</ol>
+</div>
+<p>첫 번째 절(<a href="../ch02/eventually.html">2.1 절</a>)은 언어에 관한 것으로, 수학자들이 “결국에는”을 말하는 정밀한 방식을 다룬다. 그다음 다섯 절은 유명한 극한들을 다룬다. 연분수(continued fraction)로서의 황금비(golden ratio), 수렴하는 사촌을 가진 발산(divergent) 급수, <span class="math inline">\(\pi^2/6\)</span>, <span class="math inline">\(2/\pi\)</span>에 대한 비에트(Viète)의 곱, 그리고 가우스(Gauss)의 산술–기하 평균(arithmetic–geometric mean)이다. 마지막 세 절은 속도와 구조를 다룬다. 선형 수렴(linear convergence)과 이차 수렴(quadratic convergence)의 비교, 폭발하거나 혼돈스럽게 떠도는 반복, 그리고 <span class="math inline">\(e\)</span>로 좁혀 들어가는 적분들의 족이다.</p>
+<h3 id="수렴을-다루는-도구들">수렴을 다루는 도구들</h3>
+<p>여러분은 몇 안 되는 도구를 서로 다른 상황에서 거듭 만나게 될 것이다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">주제</th>
+<th style="text-align: left;">도구</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2.1</td>
+<td style="text-align: left;">“결국에는 더 작다”</td>
+<td style="text-align: left;">한정기호(quantifier): <span class="math inline">\(m\)</span> 찾아내기, 명제의 부정</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.2</td>
+<td style="text-align: left;">황금비</td>
+<td style="text-align: left;">단조(monotone)이고 유계인 부분수열(subsequence)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.3</td>
+<td style="text-align: left;">조화급수(harmonic series)와 켐프너(Kempner) 급수</td>
+<td style="text-align: left;">묶음별 비교</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.4</td>
+<td style="text-align: left;"><span class="math inline">\(\pi^2/6\)</span></td>
+<td style="text-align: left;">다항식의 근, 그리고 조임(squeeze)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.5</td>
+<td style="text-align: left;">비에트의 곱</td>
+<td style="text-align: left;">망원(telescoping) 소거, 그리고 간단한 극한 하나</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.6</td>
+<td style="text-align: left;">산술–기하 평균</td>
+<td style="text-align: left;">서로 조여 드는 두 수열; 불변량(invariant)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.7</td>
+<td style="text-align: left;"><span class="math inline">\(\sqrt2\)</span>의 근사</td>
+<td style="text-align: left;">오차 점화식(recurrence): 선형과 이차</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.8</td>
+<td style="text-align: left;"><span class="math inline">\(x \mapsto x^2 - 2\)</span></td>
+<td style="text-align: left;">사상을 단순하게 만드는 치환(substitution)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.9</td>
+<td style="text-align: left;"><span class="math inline">\(e\)</span>에 대한 분수</td>
+<td style="text-align: left;">작지만 0은 아닌 적분</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="이-장을-읽는-방법">이 장을 읽는 방법</h3>
+<p>1장 에서와 마찬가지로, 각 절은 출제된 그대로의 STEP 문제로 시작한다. 계속 읽기 전에 먼저 풀어 보라. 이 장의 문제들은 어떤 도구를 써야 하는지 알려 주는 경우가 많다(“…을 고려하여”, “…정리를 이용해도 좋다”). 문제를 풀어 나가면서 같은 몇 가지 도구가 얼마나 자주 다시 등장하는지 눈여겨보라. 대학에서는 그 도구들을 스스로 골라야 하기 때문이다.</p>
+<p>몇몇 문제는 극한이 존재한다거나 무한합과 무한곱이 수렴한다고 가정하라고 한다. 그런 경우에는 그것을 증명하려면 무엇이 필요한지 해당 절에서 설명한다. “당연히 성립한다”와 “성립한다는 것을 증명할 수 있다” 사이의 간극을 의식하는 것이 해석학자처럼 생각하는 첫걸음이다.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="eventually.html">→ 시작: 2.1 “결국”이란 무슨 뜻인가</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

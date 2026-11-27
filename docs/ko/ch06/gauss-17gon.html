@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>가우스의 정17각형 (STEP II 1991 Q4) — Beyond STEP</title>
+<meta name="description" content="STEP II 1991 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. 1796년 3월 30일, 괴팅겐의 열여덟 살 학생이 평생 쓰게 될 수학 일기의 첫 항목을 적었다. 그는 자와 컴퍼스(ruler and compasses)만으로 정 17 각형을 작도하는 방법을 발견한 것이다. 그리스인들은 변이 3 개, 4 개, 5 개, 15 개인…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch06/gauss-17gon.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch06/gauss-17gon.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/gauss-17gon.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/gauss-17gon.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/gauss-17gon.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch06/gauss-17gon.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/gauss-17gon.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="가우스의 정17각형 (STEP II 1991 Q4) — Beyond STEP">
+<meta property="og:description" content="STEP II 1991 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. 1796년 3월 30일, 괴팅겐의 열여덟 살 학생이 평생 쓰게 될 수학 일기의 첫 항목을 적었다. 그는 자와 컴퍼스(ruler and compasses)만으로 정 17 각형을 작도하는 방법을 발견한 것이다. 그리스인들은 변이 3 개, 4 개, 5 개, 15 개인…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch06/gauss-17gon.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="가우스의 정17각형 (STEP II 1991 Q4) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1991 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. 1796년 3월 30일, 괴팅겐의 열여덟 살 학생이 평생 쓰게 될 수학 일기의 첫 항목을 적었다. 그는 자와 컴퍼스(ruler and compasses)만으로 정 17 각형을 작도하는 방법을 발견한 것이다. 그리스인들은 변이 3 개, 4 개, 5 개, 15 개인…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "가우스의 정17각형", "headline": "가우스의 정17각형", "description": "STEP II 1991 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. 1796년 3월 30일, 괴팅겐의 열여덟 살 학생이 평생 쓰게 될 수학 일기의 첫 항목을 적었다. 그는 자와 컴퍼스(ruler and compasses)만으로 정 17 각형을 작도하는 방법을 발견한 것이다. 그리스인들은 변이 3 개, 4 개, 5 개, 15 개인…", "url": "https://beyondstep.keithmcnulty.org/ko/ch06/gauss-17gon.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1991 문제 4", "대수와 구조"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 6, "name": "대수와 구조", "url": "https://beyondstep.keithmcnulty.org/ko/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제6장: 대수와 구조", "item": "https://beyondstep.keithmcnulty.org/ko/ch06/"}, {"@type": "ListItem", "position": 3, "name": "가우스의 정17각형", "item": "https://beyondstep.keithmcnulty.org/ko/ch06/gauss-17gon.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch06/gauss-17gon.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/gauss-17gon.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch06/gauss-17gon.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch06/gauss-17gon.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제6장 · 대수와 구조</a>
+    <div class="src">STEP II · 1991 · 문제 4</div>
+    <div class="sec-head"><span class="sec-num">6.2</span><h1>가우스의 정17각형</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-2-gauss-17gon.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제6장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 1991, 문제 4</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/91-s2-q4">step.maths.org/questions/91-s2-q4</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>1796년 3월 30일, 괴팅겐의 열여덟 살 학생이 평생 쓰게 될 수학 일기의 첫 항목을 적었다. 그는 자와 컴퍼스(ruler and compasses)만으로 정<span class="math inline">\(17\)</span>각형을 작도하는 방법을 발견한 것이다. 그리스인들은 변이 <span class="math inline">\(3\)</span>개, <span class="math inline">\(4\)</span>개, <span class="math inline">\(5\)</span>개, <span class="math inline">\(15\)</span>개인 정다각형(regular polygon)과 그 변의 수를 두 배씩 늘린 정다각형을 작도하는 법을 알고 있었지만, 그 뒤 이천 년 동안 아무도 새로운 정다각형을 단 하나도 더하지 못했다. 카를 프리드리히 가우스(Carl Friedrich Gauss)는 훗날 이 발견 덕분에 문헌학자가 아니라 수학자가 되기로 마음먹었다고 말했고, 자신의 묘비에 정<span class="math inline">\(17\)</span>각형을 새겨 달라고 부탁했다고 전해진다.</p>
+<p>이 작도의 핵심은 이 문제의 후반부에 있다. 특정한 네 코사인의 합이 <span class="math inline">\(\frac{\sqrt{17} - 1}{4}\)</span>, 즉 제곱근만 들어 있는 수와 같다는 것이다. 제곱근으로 만들어지는 길이는 자와 컴퍼스로 작도할 수 있으며, 같은 종류의 단계를 세 번 더 거쳐 가우스는 <span class="math inline">\(\cos\frac{2\pi}{17}\)</span> 자체를 작도할 수 있었다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>정<span class="math inline">\(17\)</span>각형에 관한 문제에 왜 <span class="math inline">\(\cos\frac{2\pi}{5}\)</span>에 관한 첫 부분이 나오는가?</p>
+</div>
+<p>이것은 같은 아이디어를 더 작은 다각형에 적용해 보는 준비 운동이다. 정오각형의 경우 합 <span class="math inline">\(\cos\phi + \cos 2\phi\)</span>는 유리수 계수의 이차방정식(quadratic equation)을 만족하므로, 이차방정식을 풀어 구할 수 있다. 정<span class="math inline">\(17\)</span>각형의 경우에도 네 코사인의 합 <span class="math inline">\(z\)</span>가 이차방정식을 만족함이 드러날 것이다. 두 경우 모두의 요령은 코사인끼리 곱한 다음 <span class="math inline">\(\cos A\cos B = \frac12\bigl(\cos(A + B) + \cos(A - B)\bigr)\)</span>를 이용하여 곱을 다시 같은 각들의 코사인의 합으로 바꾸는 것이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-정오각형" class="stage"><span class="stage-n">단계 1</span> 정오각형</h4>
+<div class="askyourself">
+<p><span class="math inline">\(y^2 = (\cos\phi + \cos 2\phi)^2\)</span>을 전개하고, 각 곱을 합으로 바꾼 뒤, <span class="math inline">\(5\phi = 2\pi\)</span>를 이용하여 <span class="math inline">\(3\phi\)</span>나 <span class="math inline">\(4\phi\)</span> 같은 각을 줄여 보자.</p>
+</div>
+<p><span class="math display">\[y^2 = \cos^2\phi + 2\cos\phi\cos2\phi + \cos^2 2\phi = \tfrac12(1 + \cos 2\phi) + (\cos 3\phi + \cos\phi) + \tfrac12(1 + \cos 4\phi).\]</span> <span class="math inline">\(5\phi = 2\pi\)</span>이므로 <span class="math inline">\(\cos 3\phi = \cos(2\pi - 2\phi) = \cos 2\phi\)</span>이고 <span class="math inline">\(\cos 4\phi = \cos\phi\)</span>이다. 따라서 <span class="math display">\[y^2 = 1 + \tfrac12(\cos\phi + \cos2\phi) + (\cos\phi + \cos 2\phi) = 1 + \tfrac32 y,\]</span> 즉 <span class="math inline">\(2y^2 = 3y + 2\)</span>이다.<span class="qed" aria-label="end of proof">■</span> <span class="math inline">\(2y^2 - 3y - 2 = (2y + 1)(y - 2) = 0\)</span>의 근은 <span class="math inline">\(y = 2\)</span>와 <span class="math inline">\(y = -\frac12\)</span>이다. 그런데 <span class="math inline">\(y = 2\)</span>가 되려면 두 코사인이 모두 <span class="math inline">\(1\)</span>이어야 하는데 그렇지 않으므로 <span class="math inline">\(y = -\frac12\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-17제곱-단위근의-합은-0이다" class="stage"><span class="stage-n">단계 2</span> <span class="math inline">\(17\)</span>제곱 단위근의 합은 <span class="math inline">\(0\)</span>이다</h4>
+<p><span class="math inline">\(\sum_{k=0}^{16}\cos k\theta\)</span>는 <span class="math inline">\(\sum_{k=0}^{16}\omega^k\)</span>의 실수부이다. 여기서 <span class="math inline">\(\omega = e^{\mathrm{i}\theta}\)</span>는 원시(primitive) <span class="math inline">\(17\)</span>제곱 단위근(root of unity)이다. 이 등비급수(geometric series)는 <span class="math inline">\(\frac{\omega^{17} - 1}{\omega - 1} = 0\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>따라서 <span class="math inline">\(\sum_{k=1}^{16}\cos k\theta = -1\)</span>이다. <span class="math inline">\(\cos(17 - k)\theta = \cos k\theta\)</span>이므로 항들이 짝을 이루고, <span class="math display">\[\sum_{k=1}^{8}\cos k\theta = -\tfrac12.\]</span></p>
+<h4 id="stagemark3-코사인을-두-묶음으로-나누기" class="stage"><span class="stage-n">단계 3</span> 코사인을 두 묶음으로 나누기</h4>
+<div class="askyourself">
+<p><span class="math inline">\(z = \cos\theta + \cos2\theta + \cos4\theta + \cos8\theta\)</span>라 하고, 나머지 네 코사인의 합 <span class="math inline">\(\cos3\theta + \cos5\theta + \cos6\theta + \cos7\theta\)</span>를 <span class="math inline">\(z&#39;\)</span>이라 하자. <span class="math inline">\(z + z&#39;\)</span>은 얼마인가?</p>
+</div>
+<p>2단계에 의해 <span class="math inline">\(z + z&#39; = -\frac12\)</span>이다. <span class="math inline">\(zz&#39;\)</span>도 구할 수 있다면 <span class="math inline">\(z\)</span>와 <span class="math inline">\(z&#39;\)</span>은 어떤 이차방정식의 두 근이 된다.</p>
+<div class="pausebox">
+<p><span class="math inline">\(zz&#39;\)</span>을 계산하라. 이를 <span class="math inline">\(16\)</span>개의 곱 <span class="math inline">\(\cos a\theta\cos b\theta\)</span>로 전개하고, 각각을 두 코사인의 합으로 바꾼 다음, <span class="math inline">\(\cos\theta, \cos2\theta, \ldots, \cos8\theta\)</span>가 각각 몇 번 나타나는지 세어 보라. (<span class="math inline">\(\cos k\theta = \cos(17 - k)\theta\)</span>와 <span class="math inline">\(\cos(-k\theta) = \cos k\theta\)</span>를 이용하여 각을 줄인다.)</p>
+</div>
+<p>각 곱은 <span class="math inline">\(\cos a\theta\cos b\theta = \frac12\bigl(\cos(a + b)\theta + \cos(a - b)\theta\bigr)\)</span>가 되므로, <span class="math inline">\(zz&#39;\)</span>은 <span class="math inline">\(32\)</span>개의 코사인의 합에 <span class="math inline">\(\frac12\)</span>을 곱한 것이다. <span class="math inline">\(a \in \{1, 2, 4, 8\}\)</span>, <span class="math inline">\(b \in \{3, 5, 6, 7\}\)</span>인 <span class="math inline">\(16\)</span>개의 쌍을 차례로 살펴보자. 예를 들어 <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(b = 3\)</span>이면 <span class="math inline">\(\cos4\theta\)</span>와 <span class="math inline">\(\cos2\theta\)</span>가 나오고, <span class="math inline">\(a = 8\)</span>, <span class="math inline">\(b = 7\)</span>이면 <span class="math inline">\(\cos15\theta = \cos2\theta\)</span>와 <span class="math inline">\(\cos\theta\)</span>가 나온다. 열여섯 쌍 모두에 대해 이렇게 계산하면 <span class="math inline">\(\cos\theta, \ldots, \cos8\theta\)</span>가 각각 정확히 네 번씩 나타난다. 그러므로 <span class="math display">\[zz&#39; = \tfrac12 \times 4 \times \sum_{k=1}^{8}\cos k\theta = 2 \times \left(-\tfrac12\right) = -1.\]</span></p>
+<h4 id="stagemark4-이차방정식" class="stage"><span class="stage-n">단계 4</span> 이차방정식</h4>
+<p>따라서 <span class="math inline">\(z\)</span>와 <span class="math inline">\(z&#39;\)</span>은 <span class="math inline">\(t^2 + \frac12 t - 1 = 0\)</span>, 즉 <span class="math inline">\(4t^2 + 2t - 4 = 0\)</span>의 두 근이고, 그 근은 <span class="math inline">\(t = \frac{-1 \pm \sqrt{17}}{4}\)</span>이다. 어느 쪽이 <span class="math inline">\(z\)</span>인가? 수치로 보면 <span class="math inline">\(\cos\theta \approx 0.932\)</span>, <span class="math inline">\(\cos2\theta \approx 0.739\)</span>, <span class="math inline">\(\cos4\theta \approx 0.092\)</span>, <span class="math inline">\(\cos8\theta \approx -0.983\)</span>이므로 <span class="math inline">\(z \approx 0.78 &gt; 0\)</span>이다. 그러므로 <span class="math display">\[z = \frac{-1 + \sqrt{17}}{4} = -\frac{1 - \sqrt{17}}{4}. \qed\]</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>곱을 합으로.</strong> 코사인의 곱셈 공식은 <span class="math inline">\(y^2\)</span>과 <span class="math inline">\(zz&#39;\)</span>을 같은 코사인들의 합으로 바꾸어 주었고, 그래서 계산이 닫힌 형태로 마무리되었다.</p></li>
+<li><p><strong>합과 곱이 이차방정식을 준다.</strong> <span class="math inline">\(z + z&#39;\)</span>과 <span class="math inline">\(zz&#39;\)</span>을 아는 것은 <span class="math inline">\(z\)</span>와 <span class="math inline">\(z&#39;\)</span>을 두 근으로 하는 이차방정식을 아는 것과 같다.</p></li>
+<li><p><strong>올바르게 나누는 것이 중요하다.</strong> 여덟 개의 코사인을 <span class="math inline">\(\{1, 2, 4, 8\}\)</span>과 <span class="math inline">\(\{3, 5, 6, 7\}\)</span>로 나누었기 때문에 <span class="math inline">\(zz&#39;\)</span>에서 모든 지표가 똑같은 횟수만큼 나타났다. 아무렇게나 나누면 이렇게 되지 않는다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">가우스 주기</div>
+<p>왜 <span class="math inline">\(\{1, 2, 4, 8\}\)</span>인가? <span class="math inline">\(17\)</span>을 법으로 할 때, <span class="math inline">\(3\)</span>의 거듭제곱 <span class="math inline">\(3^0, 3^1, 3^2, \ldots\)</span>은 <span class="math inline">\(0\)</span>이 아닌 모든 나머지(residue)를 거친다. <span class="math display">\[1, 3, 9, 10, 13, 5, 15, 11, 16, 14, 8, 7, 4, 12, 2, 6.\]</span> 하나 걸러 하나씩, 즉 <span class="math inline">\(3^0, 3^2, 3^4, \ldots\)</span>을 택하면 <span class="math inline">\(1\)</span>, <span class="math inline">\(9\)</span>, <span class="math inline">\(13\)</span>, <span class="math inline">\(15\)</span>, <span class="math inline">\(16\)</span>, <span class="math inline">\(8\)</span>, <span class="math inline">\(4\)</span>, <span class="math inline">\(2\)</span>가 나오는데, 이는 <span class="math inline">\(17\)</span>을 법으로 <span class="math inline">\(\pm1\)</span>, <span class="math inline">\(\pm2\)</span>, <span class="math inline">\(\pm4\)</span>, <span class="math inline">\(\pm8\)</span>이며, 정확히 <span class="math inline">\(z\)</span>에 들어 있는 각들이다. 나머지 절반은 <span class="math inline">\(\pm3, \pm5, \pm6, \pm7\)</span>로, <span class="math inline">\(z&#39;\)</span>에 들어 있는 각들이다. 가우스는 이러한 묶음에 걸친 <span class="math inline">\(\omega^k\)</span>의 합을 <em>주기(period)</em>라고 불렀다. <span class="math inline">\(17 - 1 = 16 = 2^4\)</span>이므로 나머지들을 네 번 반으로 나눌 수 있고, 각 단계에서 주기들은 이전 단계의 주기들이 계수에 들어 있는 이차방정식을 만족한다. 이차방정식 네 개, 즉 제곱근 네 개를 거쳐 유리수에서 <span class="math inline">\(\cos\frac{2\pi}{17}\)</span>까지 내려갈 수 있다. <span class="math display">\[\begin{gathered}
+  \cos\tfrac{2\pi}{17} = \tfrac{1}{16}\Bigl(-1 + \sqrt{17} + \sqrt{34 - 2\sqrt{17}} \\
+  {} + 2\sqrt{17 + 3\sqrt{17} - \sqrt{34 - 2\sqrt{17}} - 2\sqrt{34 + 2\sqrt{17}}}\Bigr).
+\end{gathered}\]</span> 모든 단계에 제곱근만 들어 있고, 제곱근은 (닮은 삼각형이나 반원을 이용하여) 자와 컴퍼스로 작도할 수 있으므로, 정<span class="math inline">\(17\)</span>각형은 작도 가능(constructible)하다.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-2-1.svg" alt="그림 6.2.1"><figcaption><span class="fig-label">그림 6.2.1</span> 가우스의 두 주기로 나눈 정<span class="math inline">\(17\)</span>각형의 꼭짓점. 청록색 꼭짓점은 (<span class="math inline">\(\frac{2\pi}{17}\)</span> 단위로) 각 <span class="math inline">\(\pm1, \pm2, \pm4, \pm8\)</span>에 있으며, 이들의 <span class="math inline">\(x\)</span>좌표의 합은 <span class="math inline">\(2z = \frac{-1 + \sqrt{17}}{2}\)</span>이다. 호박색 꼭짓점은 <span class="math inline">\(2z&#39; = \frac{-1 - \sqrt{17}}{2}\)</span>을 준다.</figcaption></figure>
+<h3 id="어떤-다각형을-작도할-수-있는가">어떤 다각형을 작도할 수 있는가?</h3>
+<p>가우스가 주장하고 1837년 피에르 방첼(Pierre Wantzel)이 증명한 바에 따르면, 정<span class="math inline">\(n\)</span>각형을 자와 컴퍼스로 작도할 수 있는 것은 <span class="math inline">\(n\)</span>이 <span class="math inline">\(2\)</span>의 거듭제곱과 서로 다른 <em>페르마 소수(Fermat prime)</em>들의 곱의 곱일 때, 그리고 그때뿐이다. 페르마 소수란 <span class="math inline">\(2^{2^m} + 1\)</span> 꼴의 소수이다. 알려진 페르마 소수는 <span class="math inline">\(3\)</span>, <span class="math inline">\(5\)</span>, <span class="math inline">\(17\)</span>, <span class="math inline">\(257\)</span>, <span class="math inline">\(65537\)</span>이며, 이는 <a href="../ch01/fermat-numbers.html">1.1 절</a>의 페르마 수이다. (페르마(Fermat)는 이런 수가 모두 소수라고 추측했지만, 오일러(Euler)가 <span class="math inline">\(2^{32} + 1\)</span>이 <span class="math inline">\(641\)</span>로 나누어떨어짐을 보였고, 그 뒤로 더 이상의 페르마 소수는 발견되지 않았다.) 따라서 정<span class="math inline">\(257\)</span>각형과 정<span class="math inline">\(65537\)</span>각형은 작도 가능하다. 19세기에 Johann Hermes는 약 십 년에 걸쳐 정<span class="math inline">\(65537\)</span>각형의 작도법을 완성했고, 그의 원고는 괴팅겐에 보관되어 있다. 정<span class="math inline">\(7\)</span>각형과 정<span class="math inline">\(11\)</span>각형은 작도할 수 없는데, <span class="math inline">\(7\)</span>과 <span class="math inline">\(11\)</span>이 페르마 소수가 아니기 때문이다(<span class="math inline">\(7 - 1 = 6\)</span>과 <span class="math inline">\(11 - 1 = 10\)</span>은 <span class="math inline">\(2\)</span>의 거듭제곱이 아니다). 정<span class="math inline">\(9\)</span>각형도 작도할 수 없는데, <span class="math inline">\(9 = 3^2\)</span>에서 페르마 소수 <span class="math inline">\(3\)</span>이 반복되기 때문이다. 방첼의 증명은 <a href="../ch06/field-extensions.html">6.3 절</a>에서 다루는 체의 차수(degree of a field extension) 이론을 이용한다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">합과 곱을 계산하여 이차방정식 찾기</div>
+<p><em>어떤 양을 구하려면, 그것과 자연스럽게 짝을 이루는 상대를 찾아 둘의 합과 곱을 계산하고, 그로부터 얻은 이차방정식을 풀어라.</em></p>
+<p>요령은 합과 곱을 모두 계산할 수 있도록 짝을 고르는 데 있다. 여기서는 <span class="math inline">\(17\)</span>을 법으로 한 나머지들의 대칭성에서 짝이 나왔고, 이 아이디어를 네 번 되풀이하여 가우스는 작도법을 얻었다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>정칠각형.</strong> <a href="https://step.maths.org/questions/95-s2-q6">STEP II 1995, 문제 6</a>을 풀어 보라. 단위근을 묶는 가우스의 아이디어를 <span class="math inline">\(7\)</span>제곱 단위근에 적용하여, 코사인의 합과 사인의 합의 정확한 값을 구하는 문제이다. 사인 합의 부호를 결정하는 것이 미묘한 단계이다.</p></li>
+<li><p><strong>정오각형.</strong> <span class="math inline">\(\cos\frac{2\pi}{5} = \frac{\sqrt5 - 1}{4}\)</span>임을 보이고, 이를 이용하여 자와 컴퍼스로 정오각형을 작도하는 방법을 설명하라.</p></li>
+<li><p><strong>다른 주기.</strong> <span class="math inline">\(z&#39; = \cos3\theta + \cos5\theta + \cos6\theta + \cos7\theta = \frac{-1 - \sqrt{17}}{4}\)</span>임을 수치로 확인하라.</p></li>
+<li><p><strong>생성원.</strong> <span class="math inline">\(17\)</span>을 법으로 할 때 <span class="math inline">\(3\)</span>의 거듭제곱은 <span class="math inline">\(0\)</span>이 아닌 모든 나머지를 주지만, <span class="math inline">\(2\)</span>의 거듭제곱은 그렇지 않음을 보여라. <span class="math inline">\(2\)</span>의 거듭제곱은 어떤 나머지들을 주는가?</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Ian Stewart, <a href="https://uk.bookshop.org/search?keywords=Galois+Theory+Stewart"><em>Galois Theory</em></a></strong> (CRC Press). 자와 컴퍼스 작도와 정<span class="math inline">\(17\)</span>각형을 다루는 장이 있다.</p></li>
+<li><p><strong>Richard Courant &amp; Herbert Robbins, <a href="https://uk.bookshop.org/search?keywords=What+Is+Mathematics%3F+Courant+Robbins"><em>What Is Mathematics?</em></a></strong> (Oxford University Press). 제3장은 정<span class="math inline">\(17\)</span>각형을 포함하여 작도를 초등적으로 아름답게 설명한다.</p></li>
+<li><p><strong>Daniel Kehlmann, <a href="https://uk.bookshop.org/search?keywords=Measuring+the+World+Kehlmann"><em>Measuring the World</em></a></strong> (Quercus). 가우스와 알렉산더 폰 훔볼트(Alexander von Humboldt)에 관한 유쾌한 소설로, 머리를 식히기에 좋다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="cyclotomic.html">← 6.1 근이 모두 단위근인 다항식</a><a class="next" href="field-extensions.html">→ 6.3 √2 + √3 + √5를 근으로 갖는 다항식</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

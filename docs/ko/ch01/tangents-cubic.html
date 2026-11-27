@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>삼차곡선의 접선 (STEP I 2009 Q2) — Beyond STEP</title>
+<meta name="description" content="STEP I 2009 문제 2: 단계별 풀이와 그 바탕에 있는 대학 수학. 얼핏 보면 평범한 좌표기하 문제이다. 미분하고, 접선(tangent)을 구하고, 삼차방정식을 푼다. 그런데 마지막 줄에서 세 세제곱수의 합이 되는 세제곱수를 찾으라고 하고, 기하가 마치 마법처럼 그런 수를 만들어 낸다. 곡선 위의 이미 아는 점을 지나는 직선을 그어 새로운 점을…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch01/tangents-cubic.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/tangents-cubic.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/tangents-cubic.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/tangents-cubic.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/tangents-cubic.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/tangents-cubic.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/tangents-cubic.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="삼차곡선의 접선 (STEP I 2009 Q2) — Beyond STEP">
+<meta property="og:description" content="STEP I 2009 문제 2: 단계별 풀이와 그 바탕에 있는 대학 수학. 얼핏 보면 평범한 좌표기하 문제이다. 미분하고, 접선(tangent)을 구하고, 삼차방정식을 푼다. 그런데 마지막 줄에서 세 세제곱수의 합이 되는 세제곱수를 찾으라고 하고, 기하가 마치 마법처럼 그런 수를 만들어 낸다. 곡선 위의 이미 아는 점을 지나는 직선을 그어 새로운 점을…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch01/tangents-cubic.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="삼차곡선의 접선 (STEP I 2009 Q2) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2009 문제 2: 단계별 풀이와 그 바탕에 있는 대학 수학. 얼핏 보면 평범한 좌표기하 문제이다. 미분하고, 접선(tangent)을 구하고, 삼차방정식을 푼다. 그런데 마지막 줄에서 세 세제곱수의 합이 되는 세제곱수를 찾으라고 하고, 기하가 마치 마법처럼 그런 수를 만들어 낸다. 곡선 위의 이미 아는 점을 지나는 직선을 그어 새로운 점을…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "삼차곡선의 접선", "headline": "삼차곡선의 접선", "description": "STEP I 2009 문제 2: 단계별 풀이와 그 바탕에 있는 대학 수학. 얼핏 보면 평범한 좌표기하 문제이다. 미분하고, 접선(tangent)을 구하고, 삼차방정식을 푼다. 그런데 마지막 줄에서 세 세제곱수의 합이 되는 세제곱수를 찾으라고 하고, 기하가 마치 마법처럼 그런 수를 만들어 낸다. 곡선 위의 이미 아는 점을 지나는 직선을 그어 새로운 점을…", "url": "https://beyondstep.keithmcnulty.org/ko/ch01/tangents-cubic.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2009 문제 2", "정수론과 증명"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "정수론과 증명", "url": "https://beyondstep.keithmcnulty.org/ko/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제1장: 정수론과 증명", "item": "https://beyondstep.keithmcnulty.org/ko/ch01/"}, {"@type": "ListItem", "position": 3, "name": "삼차곡선의 접선", "item": "https://beyondstep.keithmcnulty.org/ko/ch01/tangents-cubic.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch01/tangents-cubic.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/tangents-cubic.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/tangents-cubic.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch01/tangents-cubic.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제1장 · 정수론과 증명</a>
+    <div class="src">STEP I · 2009 · 문제 2</div>
+    <div class="sec-head"><span class="sec-num">1.9</span><h1>삼차곡선의 접선</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-9-tangents-cubic.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제1장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP I 2009, 문제 2</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/09-s1-q2">step.maths.org/questions/09-s1-q2</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>얼핏 보면 평범한 좌표기하 문제이다. 미분하고, 접선(tangent)을 구하고, 삼차방정식을 푼다. 그런데 마지막 줄에서 세 세제곱수의 합이 되는 세제곱수를 찾으라고 하고, 기하가 마치 마법처럼 그런 수를 만들어 낸다.</p>
+<p>곡선 위의 이미 아는 점을 지나는 직선을 그어 새로운 점을 찾는 이 기법은 3세기 알렉산드리아의 디오판토스(Diophantus)까지 거슬러 올라간다. 현대에 와서 이 기법은 <em>타원곡선(elliptic curves)</em> 이론으로 발전했다. 타원곡선은 오늘날 정수론의 한가운데에 있고, 페르마의 마지막 정리(Fermat’s Last Theorem)의 증명을 떠받치며, 전 세계 인터넷 통신의 상당 부분을 안전하게 지킨다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>점 <span class="math inline">\((-a, b)\)</span>는 곡선 위에 있다. 왜 그런가? 그리고 이것이 세제곱수의 합과 무슨 관계가 있는가?</p>
+</div>
+<p>대입하면 <span class="math inline">\((-a)^3 + a^3 + b^3 = b^3\)</span>이므로 그렇다. <span class="math inline">\(y^3 = x^3 + a^3 + b^3\)</span> 위에서 좌표가 <em>유리수(rational)</em>인 점이 바로 우리가 원하는 것이다. <span class="math inline">\(x = q/s&#39;\)</span>, <span class="math inline">\(y = p/s&#39;\)</span>이면 분모를 없앴을 때 세제곱수들 사이의 관계식이 나오기 때문이다. 계획은 쉬운 점 하나에서 출발하여 기하를 이용해 덜 뻔한 점을 찾는 것이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-접선" class="stage"><span class="stage-n">단계 1</span> 접선</h4>
+<p><span class="math inline">\(y^3 = x^3 + a^3 + b^3\)</span>을 음함수 미분(implicit differentiation)하면 <span class="math inline">\(3y^2 \dfrac{dy}{dx} = 3x^2\)</span>이므로 <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{x^2}{y^2}\)</span>이다. <span class="math inline">\((-a, b)\)</span>에서 기울기는 <span class="math inline">\(a^2/b^2\)</span>이므로 접선은 <span class="math display">\[y - b = \frac{a^2}{b^2}(x + a) \quad\Longrightarrow\quad b^2 y - b^3 = a^2 x + a^3 \quad\Longrightarrow\quad b^2 y - a^2 x = a^3 + b^3. \qed\]</span></p>
+<h4 id="stagemark2-접선이-곡선과-다시-만나는-곳" class="stage"><span class="stage-n">단계 2</span> 접선이 곡선과 다시 만나는 곳</h4>
+<p><span class="math inline">\(a = 1\)</span>, <span class="math inline">\(b = 2\)</span>일 때 곡선은 <span class="math inline">\(y^3 = x^3 + 9\)</span>이고, <span class="math inline">\((-1, 2)\)</span>에서의 접선은 <span class="math inline">\(4y - x = 9\)</span>, 즉 <span class="math inline">\(y = \dfrac{x + 9}{4}\)</span>이다. 이를 곡선의 식에 대입하면 <span class="math display">\[\frac{(x+9)^3}{64} = x^3 + 9 \quad\Longrightarrow\quad x^3 + 27x^2 + 243x + 729 = 64x^3 + 576,\]</span> 이고, 정리하면 <span class="math inline">\(63x^3 - 27x^2 - 243x - 153 = 0\)</span>이다. 양변을 <span class="math inline">\(9\)</span>로 나누면 <span class="math inline">\(7x^3 - 3x^2 - 27x - 17 = 0\)</span>을 얻는다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-삼차방정식-풀기" class="stage"><span class="stage-n">단계 3</span> 삼차방정식 풀기</h4>
+<div class="askyourself">
+<p>이 삼차방정식의 근 하나는 계산하지 않아도 이미 알고 있다. 그 근은 무엇이며, 왜 <em>두 번</em> 나타나야 하는가?</p>
+</div>
+<p>접선은 <span class="math inline">\(x = -1\)</span>에서 곡선에 접하고(그림 1.9.1), “접한다”는 것은 중근(repeated root)을 뜻한다. 포물선의 접선이 포물선과 이차방정식의 중근에서 만나는 것과 같다. 따라서 <span class="math inline">\((x + 1)^2\)</span>이 인수여야 한다. 확인해 보면 <span class="math inline">\(7(-1)^3 - 3(1) - 27(-1) - 17 = -7 - 3 + 27 - 17 = 0\)</span>이고, 도함수 <span class="math inline">\(21x^2 - 6x - 27\)</span>도 <span class="math inline">\(x = -1\)</span>에서 <span class="math inline">\(0\)</span>이 된다. 나누어 보면 <span class="math display">\[7x^3 - 3x^2 - 27x - 17 = (x+1)^2 (7x - 17).\]</span></p>
+<div class="pausebox">
+<p>따라서 접선은 <span class="math inline">\(x = \frac{17}{7}\)</span>에서 곡선과 다시 만난다. <span class="math inline">\(y\)</span>를 구하고, 이 점을 세제곱수들 사이의 관계식으로 바꾸어 보아라.</p>
+</div>
+<p><span class="math inline">\(y = \dfrac{17/7 + 9}{4} = \dfrac{80/7}{4} = \dfrac{20}{7}\)</span>이다. 점 <span class="math inline">\(\bigl(\frac{17}{7}, \frac{20}{7}\bigr)\)</span>은 <span class="math inline">\(y^3 = x^3 + 9\)</span> 위에 있으므로 <span class="math display">\[\frac{20^3}{7^3} = \frac{17^3}{7^3} + 9 \quad\Longrightarrow\quad 20^3 = 17^3 + 9 \times 7^3.\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(9 \times 7^3\)</span>을 두 세제곱수의 합으로 나타내고 싶다. <span class="math inline">\(9\)</span>가 어디에서 왔는지 떠올려 보아라.</p>
+</div>
+<p><span class="math inline">\(9 = a^3 + b^3 = 1^3 + 2^3\)</span>이므로 <span class="math inline">\(9 \times 7^3 = 7^3 + 14^3\)</span>이다. 따라서 <span class="math display">\[20^3 = 17^3 + 14^3 + 7^3.\]</span> 검산: <span class="math inline">\(8000 = 4913 + 2744 + 343\)</span>.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-9-1.svg" alt="그림 1.9.1"><figcaption><span class="fig-label">그림 1.9.1</span> 곡선 <span class="math inline">\(y^3 = x^3 + 9\)</span>(청록색)는 원점에서 멀어질수록 직선 <span class="math inline">\(y = x\)</span>에 가까워진다. 유리점 <span class="math inline">\((-1, 2)\)</span>에서의 접선(호박색)은 그 점에서 곡선에 접하는데, 이는 두 번 만나는 것으로 센다. 그리고 접선은 또 다른 유리점 <span class="math inline">\(\bigl(\frac{17}{7}, \frac{20}{7}\bigr)\)</span>에서 곡선과 한 번 더 만난다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>접한다는 것은 중근을 뜻한다.</strong> 덕분에 뻔한 근이 없어 보이던 삼차방정식을 곧바로 인수분해할 수 있었다.</p></li>
+<li><p><strong>새 근은 저절로 유리수가 된다.</strong> 세 근 중 두 근이 유리수이면(여기서는 둘 다 <span class="math inline">\(-1\)</span>), 근의 합 <span class="math inline">\(\frac{3}{7}\)</span>이 유리수이므로 나머지 한 근도 유리수여야 한다. 이것이 이 방법의 핵심이다.</p></li>
+<li><p><strong>기하가 산술을 만들어 냈다.</strong> 우리는 세제곱수를 찾아 헤맨 적이 없다. 접선 하나가 그것을 찾아 주었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">할선–접선 방법</div>
+<p><span class="math inline">\(y^3 = x^3 + 9\)</span>나 더 표준적인 꼴인 <span class="math inline">\(y^2 = x^3 + Ax + B\)</span> 같은 삼차곡선을 생각하자. 그 위에서 좌표가 유리수인 두 점을 알면, 두 점을 지나는 직선은 곡선과 정확히 한 점에서 더 만나고, 그 점의 좌표도 유리수이다(<em>돌아보기</em>의 논증에 의해). 한 점만 알 때에는 그 점에서의 접선을 대신 쓴다. 어느 쪽이든 기존의 유리점에서 새로운 유리점이 만들어진다.</p>
+<p>놀랍게도 이 “할선–접선(chord–tangent)” 작도는 곡선 위의 점들을 <em>더하는</em> 방법으로 바꿀 수 있고, 그러면 유리점들은 <em>군(group)</em>을 이룬다. 군은 대학 1학년 때 배우게 될 대수적 구조이다. 1922년 Louis Mordell은 이 군이 유한개의 점으로 생성된다는 것을 증명했다. 즉 유리점이 아무리 많더라도 모두 유한집합에서 출발하여 할선과 접선으로 만들어 낼 수 있다. 그의 증명은 <a href="../ch01/infinite-descent.html">1.5 절</a>에서 다룬 페르마의 강하법(descent)의 한 형태이다.</p>
+</div>
+<h3 id="오늘날의-타원곡선">오늘날의 타원곡선</h3>
+<p>이런 곡선을 <em>타원곡선</em>이라고 부른다(타원이어서가 아니라, 타원의 호의 길이와 역사적으로 연관되어 있기 때문이다). 타원곡선은 현대 수학 곳곳에 등장한다.</p>
+<ul>
+<li><p><strong>페르마의 마지막 정리.</strong> 1980년대에 Gerhard Frey는 <span class="math inline">\(x^n + y^n = z^n\)</span>의 해가 있다면 매우 이상한 타원곡선이 만들어진다는 것을 알아차렸다. 1994년 앤드루 와일스(Andrew Wiles)는 그런 이상한 곡선이 존재할 수 없음을 증명했고, 그리하여 페르마의 마지막 정리를 증명했다.</p></li>
+<li><p><strong>버치–스위너턴다이어 추측.</strong> 유리점들의 군에는 생성원(generator)이 몇 개 필요할까? 1960년대에 케임브리지에서 수학 역사상 가장 이른 컴퓨터 실험 중 일부를 이용하여 세워진 추측(conjecture)은, 소수(prime)를 법으로 하여 점의 개수를 세어 만든 함수를 통해 그 답을 예측한다. 이 버치–스위너턴다이어 추측(Birch and Swinnerton-Dyer conjecture)은 7대 밀레니엄 문제(Millennium Prize Problems) 가운데 하나이다.</p></li>
+<li><p><strong>암호학.</strong> 유한한 수 체계 위의 타원곡선에서는 점 <span class="math inline">\(P\)</span>를 자기 자신에 <span class="math inline">\(n\)</span>번 더하는 계산이 빠르다. <span class="math inline">\(n\)</span>이 수백 자리 수라도 그렇다(거듭제곱을 반복 제곱으로 계산하듯 <span class="math inline">\(P\)</span>를 거듭 두 배하면 된다). 그러나 <span class="math inline">\(P\)</span>와 결과 <span class="math inline">\(nP\)</span>가 주어졌을 때 <span class="math inline">\(n\)</span>을 찾는 것은 극도로 어려운 것으로 보인다. 이것이 <em>타원곡선 이산 로그 문제(elliptic-curve discrete logarithm problem)</em>이다. 이 비대칭성이 오늘날 온라인 통신의 상당 부분을 보호한다.</p></li>
+</ul>
+<h3 id="같은-차수의-거듭제곱의-합">같은 차수의 거듭제곱의 합</h3>
+<p>세 양의 세제곱수의 합이 되는 가장 작은 세제곱수는 <span class="math inline">\(6^3 = 3^3 + 4^3 + 5^3\)</span>이다. 접선 방법으로 찾은 <span class="math inline">\(20^3 = 7^3 + 14^3 + 17^3\)</span>은 이것의 배수가 아니며, 이 방법을 되풀이하면 새로운 항등식이 계속 나온다(다만 음수가 섞인 것도 있다). 어떤 <span class="math inline">\(k\)</span>제곱수를 만들려면 <span class="math inline">\(k\)</span>제곱수가 몇 개 필요할까? 오일러(Euler)는 1769년에 다른 <span class="math inline">\(k\)</span>제곱수를 만들려면 적어도 <span class="math inline">\(k\)</span>개의 <span class="math inline">\(k\)</span>제곱수가 필요하다고 추측했다. 네제곱과 다섯제곱에 대해서는 이 추측이 틀렸다. 1966년 Leon Lander와 Thomas Parkin은 컴퓨터 탐색으로 <span class="math display">\[27^5 + 84^5 + 110^5 + 133^5 = 144^5\]</span> 를 찾았고, 1988년 Noam Elkies는 타원곡선을 이용해 네제곱에 대한 반례를 찾았다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">산술을 푸는 기하</div>
+<p><em>방정식의 정수해나 유리수해를 찾으려면, 방정식을 곡선으로 보고 이미 아는 점을 지나는 직선을 찾아보아라.</em></p>
+<p>그 뒤에 있는 대수는 간단하다. 유리수 계수 다항식의 근이 하나를 빼고 모두 유리수이면, 마지막 근도 유리수이다. 이처럼 그림과 방정식 사이를 오가는 것은 수학자가 지닐 수 있는 가장 강력한 습관 가운데 하나이다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>원 위의 유리점.</strong> <span class="math inline">\((-1, 0)\)</span>을 지나고 기울기가 <span class="math inline">\(t\)</span>인 직선은 원 <span class="math inline">\(x^2 + y^2 = 1\)</span>과 다시 만난다. 다른 교점이 <span class="math inline">\(\left(\dfrac{1 - t^2}{1 + t^2}, \dfrac{2t}{1 + t^2}\right)\)</span>임을 보이고, 이를 이용하여 피타고라스 세 쌍(Pythagorean triples)을 무수히 많이 만들어라.</p></li>
+<li><p><strong>빗나가는 할선.</strong> 점 <span class="math inline">\((1, 2)\)</span>와 <span class="math inline">\((2, 1)\)</span>은 <span class="math inline">\(x^3 + y^3 = 9\)</span> 위에 있다. 두 점을 지나는 직선이 곡선과 다른 점에서 만나지 않음을 보여라. “세 번째 점”은 어디로 갔을까? (<em>무한원점(point at infinity)</em>을 찾아보아라.)</p></li>
+<li><p><strong>기법을 되풀이하기.</strong> <span class="math inline">\(\bigl(\frac{17}{7}, \frac{20}{7}\bigr)\)</span>에서 <span class="math inline">\(y^3 = x^3 + 9\)</span>의 접선을 구하고, 그 접선이 곡선과 만나는 세 번째 점을 구하여라. (컴퓨터 대수 시스템이 도움이 된다. 수가 얼마나 빨리 커지는지 살펴보아라.)</p></li>
+<li><p><strong>택시 수.</strong> <span class="math inline">\(1729 = 1^3 + 12^3 = 9^3 + 10^3\)</span>이다. <span class="math inline">\((1, 12)\)</span>와 <span class="math inline">\((9, 10)\)</span>을 지나는 직선이 곡선 <span class="math inline">\(x^3 + y^3 = 1729\)</span>와 만나는 세 번째 점을 구하고, 이로부터 <span class="math inline">\(p^3 = q^3 + r^3 + s^3\)</span> 꼴의 새로운 항등식을 이끌어 내어라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Joseph Silverman &amp; John Tate, <a href="https://uk.bookshop.org/search?keywords=Rational+Points+on+Elliptic+Curves+Silverman+Tate"><em>Rational Points on Elliptic Curves</em></a></strong> (Springer). 『타원곡선 위의 유리점』. 학부생을 위해 쓰인 책으로, 1장은 A 레벨(A level, 영국의 대학 입시 과목 시험) 이상의 지식이 필요하지 않다.</p></li>
+<li><p><strong>Avner Ash &amp; Robert Gross, <a href="https://uk.bookshop.org/search?keywords=Elliptic+Tales+Ash+Gross"><em>Elliptic Tales</em></a></strong> (Princeton University Press). 『타원 이야기』. 버치–스위너턴다이어 추측까지 이어지는 대중서이다.</p></li>
+<li><p><strong>Simon Singh, <a href="https://uk.bookshop.org/search?keywords=Fermat%27s+Last+Theorem+Singh"><em>Fermat’s Last Theorem</em></a></strong>. 『페르마의 마지막 정리』. 타원곡선이 어떻게 350년 묵은 문제를 풀게 되었는지 들려준다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="counting-rationals.html">← 1.8 유리수 세기</a><a class="next" href="wrap-up.html">→ 돌아보기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

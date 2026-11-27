@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第10章：保存則・衝突・重力 — Beyond STEP</title>
+<meta name="description" content="制約条件としての運動量とエネルギー、質量が変化する系、およびニュートンの万有引力を扱う。">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch10/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch10/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch10/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch10/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch10/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch10/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch10/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第10章：保存則・衝突・重力 — Beyond STEP">
+<meta property="og:description" content="制約条件としての運動量とエネルギー、質量が変化する系、およびニュートンの万有引力を扱う。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch10/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第10章：保存則・衝突・重力 — Beyond STEP">
+<meta name="twitter:description" content="制約条件としての運動量とエネルギー、質量が変化する系、およびニュートンの万有引力を扱う。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 10, "name": "保存則・衝突・重力", "url": "https://beyondstep.keithmcnulty.org/ja/ch10/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "制約条件としての運動量とエネルギー、質量が変化する系、およびニュートンの万有引力を扱う。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第10章：保存則・衝突・重力", "item": "https://beyondstep.keithmcnulty.org/ja/ch10/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch10/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch10/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch10/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch10/index.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">10</div>
+    <h1>保存則・衝突・重力</h1>
+    <p class="strap">決して変わらないものがある。それが何かを知ることが、物理学の半分である。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-10-conservation-laws-collisions-and-gravity.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">章全体をダウンロード</span><span class="dl-sub">PDF（印刷用組版）</span></span></a>
+  </div>
+  <h2 class="contents-head">この章の内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="newtons-cradle.html"><span class="toc-num">10.1</span>
+<span class="toc-title">ニュートンのゆりかご</span>
+<span class="toc-src">STEP II 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-1-newtons-cradle.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="stacked-balls.html"><span class="toc-num">10.2</span>
+<span class="toc-title">重ねたボールの効果</span>
+<span class="toc-src">STEP II 2010</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-2-stacked-balls.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="rockets.html"><span class="toc-num">10.3</span>
+<span class="toc-title">ロケットと大砲</span>
+<span class="toc-src">STEP III 2017</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-3-rockets.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="piston.html"><span class="toc-num">10.4</span>
+<span class="toc-title">分子とピストン</span>
+<span class="toc-src">STEP I 2002</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-4-piston.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="zeno-wedge.html"><span class="toc-num">10.5</span>
+<span class="toc-title">有限時間に無限回の跳ね返り</span>
+<span class="toc-src">STEP III 2002</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-5-zeno-wedge.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="two-body.html"><span class="toc-num">10.6</span>
+<span class="toc-title">二体が一体になる</span>
+<span class="toc-src">STEP III 2004</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-6-two-body.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="shell-theorem.html"><span class="toc-num">10.7</span>
+<span class="toc-title">球殻の内部の重力</span>
+<span class="toc-src">STEP III 1999</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-7-shell-theorem.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="three-stars.html"><span class="toc-num">10.8</span>
+<span class="toc-title">三角形をなす三つの星</span>
+<span class="toc-src">STEP I 1999</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-10-8-three-stars.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">振り返り：ここで学んだこと</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「次はこれに挑戦」の演習問題の解答</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第10章  \(\cdot\)  序論</div>
+    <h1 class="essay-title">変わらないもの</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>現在までに知られているあらゆる自然現象を支配する事実、あるいはお望みなら法則と呼んでもよいが、そういうものが一つある。この法則には、知られている限り例外がない。</p>
+<p class="who">— リチャード・ファインマン（Richard Feynman）、エネルギー保存について、<em>The Feynman Lectures on Physics</em>（『ファインマン物理学』、1963）</p>
+</div>
+<p>学校で学ぶ力学は、たいてい力の問題である。図を描き、力を分解し、<span class="math inline">\(F = ma\)</span> を適用する。斜面上の物体ならそれでうまくいく。しかし、1000分の1秒しか続かない衝突で、その間の力が巨大でしかも未知である場合や、進みながら質量が変わるロケット、互いに同時に引き合う三つの星の場合には、それではうまくいかない。これらすべてにおいて、前に進む道は、力について問うのをやめ、代わりに何が<em>変わり得ないか</em>を問うことである。</p>
+<p>運動量（momentum）は、外力がはたらかない限り保存される。エネルギーは弾性衝突（elastic collision）で保存され、それ以外の衝突ではその損失を測ることができる。質量、角運動量（angular momentum）、重心（centre of mass）の運動も同様の規則に従う。これらの法則がすべてを教えてくれるわけではないが、常に成り立ち、細部まで解析するには複雑すぎる系にも適用でき、しかも計算を始める前に可能性の大部分を排除してくれることが多い。</p>
+<h3 id="保存則はなぜ重要か">保存則はなぜ重要か</h3>
+<p>保存則（conservation law）は、物理学で最も信頼できる道具である。ベータ崩壊（beta decay）と呼ばれる放射性の過程では、放出される粒子のエネルギーの合計が合わなかった。ヴォルフガング・パウリ（Wolfgang Pauli）はエネルギー保存則を捨てる代わりに、1930年、失われたエネルギーを運ぶ目に見えない粒子の存在を予言し、26年後にニュートリノ（neutrino）が検出された。技術者は、衝突防護柵やエアバッグ、ロケットを、運動量とエネルギーの収支によって設計する。天文学者は、重心の動きを観測することで星の質量を量り、惑星を発見する。そして1918年、エミー・ネーター（Emmy Noether）は、なぜこれらの法則が成り立つのかを説明した。各保存則は自然の対称性（symmetry）の影なのである。運動量が保存されるのは物理法則がどこでも同じだからであり、エネルギーが保存されるのは物理法則がいつでも同じだからである。</p>
+<p>本章の第二のテーマは重力である。重力は、ニュートン（Newton）が天上と地上を統一するために用いた力であり、保存則の自然な相棒でもある。軌道、スイングバイ、収縮する雲は、いずれもエネルギーと運動量、そして球に関するある驚くべき事実一つによって理解される。</p>
+<h3 id="大学で出会うこと">大学で出会うこと</h3>
+<p>大学1年の力学の講義はここから始まる。質点系、重心と換算質量（reduced mass）、さまざまな座標系（frame）から見た衝突、ロケットのような可変質量系（variable-mass system）、そして重力のもとでの物体の運動、すなわちケプラーの法則（Kepler’s laws）、軌道、脱出速度（escape velocity）に出会うことになる。その後の講義では、力学をラグランジュ（Lagrange）とハミルトン（Hamilton）の言葉で定式化し直す。そこではネーターの定理（Noether’s theorem）が厳密な命題となり、保存則はただ一つの関数の対称性から読み取れるようになる。さらにその先には、天体力学（celestial mechanics）と三体問題（three-body problem）、気体分子運動論（kinetic theory）と統計力学（statistical mechanics）（ここで<a href="../ch10/piston.html">第 10.4 節</a>のピストンは気体の理論となる）、そしてアインシュタイン（Einstein）の重力理論が控えている。</p>
+<h3 id="本章を貫く問い">本章を貫く問い</h3>
+<div class="skillbox">
+<div class="box-title">三つの大きな問い</div>
+<ol class="arabic">
+<li><p><strong>保存則だけで何が決まるか。</strong>運動量とエネルギーが結果を決定するのはどのようなときで、可能性を排除するだけにとどまるのはどのようなときか。</p></li>
+<li><p><strong>小さな段階はどのように積み重なるか。</strong>衝突や発射といった単純な出来事が何度も、あるいは無限回繰り返されると、何が起こるか。</p></li>
+<li><p><strong>多くの物体をどう手なずけるか。</strong>どのような座標の選び方、どのような対称性によって、互いに作用し合う複数の物体の問題を解ける問題に変えられるか。</p></li>
+</ol>
+</div>
+<p>本章は衝突から始まる。ニュートンのゆりかご（Newton’s cradle）に何ができて何ができないか（<a href="../ch10/newtons-cradle.html">第 10.1 節</a>）、そして球の連なりがどのように速さを増幅するか（<a href="../ch10/stacked-balls.html">第 10.2 節</a>）を見る。続いて繰り返される過程を追う。トラックから発射される砲とロケット方程式（rocket equation）、ピストンに当たって加速していく分子、そして有限の時間に無限回跳ねるパックである。最後の三つの節では、引き合う、あるいは反発し合う物体を扱う。重心と換算質量、球殻の重力、そしてラグランジュの回転する星の三角形である。</p>
+<h3 id="本章で扱う考え方">本章で扱う考え方</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">話題</th>
+<th style="text-align: left;">考え方</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">10.1</td>
+<td style="text-align: left;">ニュートンのゆりかご</td>
+<td style="text-align: left;">制約としての保存則</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.2</td>
+<td style="text-align: left;">積み重ねた球</td>
+<td style="text-align: left;">一つの衝突の反復、スイングバイ（slingshot）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10.3</td>
+<td style="text-align: left;">ロケット</td>
+<td style="text-align: left;">可変質量、ロケット方程式</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.4</td>
+<td style="text-align: left;">気体分子運動論</td>
+<td style="text-align: left;">断熱不変量（adiabatic invariant）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10.5</td>
+<td style="text-align: left;">非弾性衝突（inelastic collision）</td>
+<td style="text-align: left;">有限時間内の無限回の跳ね返り</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.6</td>
+<td style="text-align: left;">二体問題（two-body problem）</td>
+<td style="text-align: left;">重心と換算質量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10.7</td>
+<td style="text-align: left;">ニュートン力学の重力</td>
+<td style="text-align: left;">殻定理（shell theorem）、自由落下による収縮（free-fall collapse）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10.8</td>
+<td style="text-align: left;">三体問題</td>
+<td style="text-align: left;">ラグランジュの正三角形解（equilateral solution）</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="本章の読み方">本章の読み方</h3>
+<p>計算する前に、何が保存されるのか、そしてどの座標系においてかを書き出すこと。次に、別の場所から見れば問題がもっと簡単に見えないかを問うこと。重心から、動くピストンから、跳ねる球から見るのである。本章の問題の多くは、適切な座標系をとればほとんど自明になる。そして力学の仕事の大部分は、その座標系を見つけることにある。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="newtons-cradle.html">→ 読み始める： 10.1 ニュートンのゆりかご</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

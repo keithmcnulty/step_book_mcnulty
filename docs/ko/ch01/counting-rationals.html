@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유리수 세기 (STEP III 2020 Q8) — Beyond STEP</title>
+<meta name="description" content="STEP III 2020 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 양의 분수(fraction)를 모두 하나씩 차례로 나열하되, 모든 분수가 정확히 한 번씩 나타나게 할 수 있을까? 불가능해 보인다. 어떤 두 분수 사이에도 무수히 많은 분수가 있으므로, 받아 적을 “다음” 분수라는 것이 없기 때문이다. 그런데도 칸토어(Georg Cantor)는…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch01/counting-rationals.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/counting-rationals.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/counting-rationals.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/counting-rationals.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/counting-rationals.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/counting-rationals.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/counting-rationals.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="유리수 세기 (STEP III 2020 Q8) — Beyond STEP">
+<meta property="og:description" content="STEP III 2020 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 양의 분수(fraction)를 모두 하나씩 차례로 나열하되, 모든 분수가 정확히 한 번씩 나타나게 할 수 있을까? 불가능해 보인다. 어떤 두 분수 사이에도 무수히 많은 분수가 있으므로, 받아 적을 “다음” 분수라는 것이 없기 때문이다. 그런데도 칸토어(Georg Cantor)는…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch01/counting-rationals.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="유리수 세기 (STEP III 2020 Q8) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2020 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 양의 분수(fraction)를 모두 하나씩 차례로 나열하되, 모든 분수가 정확히 한 번씩 나타나게 할 수 있을까? 불가능해 보인다. 어떤 두 분수 사이에도 무수히 많은 분수가 있으므로, 받아 적을 “다음” 분수라는 것이 없기 때문이다. 그런데도 칸토어(Georg Cantor)는…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "유리수 세기", "headline": "유리수 세기", "description": "STEP III 2020 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 양의 분수(fraction)를 모두 하나씩 차례로 나열하되, 모든 분수가 정확히 한 번씩 나타나게 할 수 있을까? 불가능해 보인다. 어떤 두 분수 사이에도 무수히 많은 분수가 있으므로, 받아 적을 “다음” 분수라는 것이 없기 때문이다. 그런데도 칸토어(Georg Cantor)는…", "url": "https://beyondstep.keithmcnulty.org/ko/ch01/counting-rationals.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2020 문제 8", "정수론과 증명"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "정수론과 증명", "url": "https://beyondstep.keithmcnulty.org/ko/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제1장: 정수론과 증명", "item": "https://beyondstep.keithmcnulty.org/ko/ch01/"}, {"@type": "ListItem", "position": 3, "name": "유리수 세기", "item": "https://beyondstep.keithmcnulty.org/ko/ch01/counting-rationals.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch01/counting-rationals.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/counting-rationals.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/counting-rationals.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch01/counting-rationals.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제1장 · 정수론과 증명</a>
+    <div class="src">STEP III · 2020 · 문제 8</div>
+    <div class="sec-head"><span class="sec-num">1.8</span><h1>유리수 세기</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-8-counting-rationals.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제1장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 2020, 문제 8</strong></p>
+<p>다음으로 넘어가기 전에 문제를 먼저 읽어 보자. 이 문제는 OCR에서 내려받을 수 있는 2020년 STEP 문제지 모음(zip 파일)의 STEP III 문제지에 있다: <a href="https://www.ocr.org.uk/Images/696589-2020-past-papers.zip">www.ocr.org.uk/Images/696589-2020-past-papers.zip</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>양의 분수(fraction)를 모두 하나씩 차례로 나열하되, 모든 분수가 정확히 한 번씩 나타나게 할 수 있을까? 불가능해 보인다. 어떤 두 분수 사이에도 무수히 많은 분수가 있으므로, 받아 적을 “다음” 분수라는 것이 없기 때문이다. 그런데도 칸토어(Georg Cantor)는 1870년대에 이것이 가능하다는 것을 보였다. 이는 엄밀한 의미에서 분수가 자연수보다 많지 않다는 뜻이다.</p>
+<p>칸토어의 목록은 깔끔하지 않았다. <span class="math inline">\(\frac12\)</span>뿐 아니라 <span class="math inline">\(\frac{2}{4}\)</span>도 들어 있어서, 중복된 것은 지워야 했다. 이 문제는 터무니없이 간단한 규칙을 가진 수열로부터 중복이 전혀 없는 목록을 만든다. 이 목록은 2000년에 Neil Calkin과 Herbert Wilf가 발표했지만, 수열 자체는 1858년에 이미 Moritz Stern이 연구한 것이다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>무엇이든 증명하기 전에 처음 열다섯 항 정도를 계산해 보자. 비 <span class="math inline">\(u_n / u_{n+1}\)</span>에 대해 무엇을 알 수 있는가?</p>
+</div>
+<p>수열은 다음과 같이 시작하고 <span class="math display">\[1,\ 1,\ 2,\ 1,\ 3,\ 2,\ 3,\ 1,\ 4,\ 3,\ 5,\ 2,\ 5,\ 3,\ 4,\ 1,\ 5,\ \ldots\]</span> 비 <span class="math inline">\(u_n / u_{n+1}\)</span>는 다음과 같다. <span class="math display">\[\tfrac11,\ \tfrac12,\ \tfrac21,\ \tfrac13,\ \tfrac32,\ \tfrac23,\ \tfrac31,\ \tfrac14,\ \tfrac43,\ \tfrac35,\ \tfrac52,\ \tfrac25,\ \tfrac53,\ \tfrac34,\ \tfrac41,\ \ldots\]</span> 모든 분수가 기약분수(lowest terms)로 나타나고, 어느 것도 중복되지 않는다. 문제는 이 현상이 끝없이 계속되며, 모든 양의 분수가 언젠가는 나타난다는 것을 증명하라고 요구한다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-홀수-번째가-짝수-번째보다-크다" class="stage"><span class="stage-n">단계 1</span> 홀수 번째가 짝수 번째보다 크다</h4>
+<p>연속한 두 항은 <span class="math inline">\((u_{2k}, u_{2k+1})\)</span> 꼴이거나 <span class="math inline">\((u_{2k+1}, u_{2k+2})\)</span> 꼴이다.</p>
+<div class="askyourself">
+<p>이 두 쌍을 각각 <span class="math inline">\(u_k\)</span>와 <span class="math inline">\(u_{k+1}\)</span>로 나타내어 보자. 어느 항이 더 큰가?</p>
+</div>
+<p><span class="math inline">\((u_{2k}, u_{2k+1}) = (u_k,\ u_k + u_{k+1})\)</span>이고 <span class="math inline">\((u_{2k+1}, u_{2k+2}) = (u_k + u_{k+1},\ u_{k+1})\)</span>이다. 모든 항이 양의 정수이므로(간단한 수학적 귀납법(induction)으로 보일 수 있다), <span class="math inline">\(u_k + u_{k+1}\)</span>은 <span class="math inline">\(u_k\)</span>와 <span class="math inline">\(u_{k+1}\)</span>보다 모두 크다. 유일한 예외는 첫 번째 쌍 <span class="math inline">\((u_1, u_2) = (1, 1)\)</span>인데, <span class="math inline">\(u_1\)</span>이 직접 정의되므로 이 쌍은 어느 꼴에도 맞지 않는다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-연속한-두-항은-서로소이다" class="stage"><span class="stage-n">단계 2</span> 연속한 두 항은 서로소이다</h4>
+<div class="askyourself">
+<p><span class="math inline">\(d &gt; 1\)</span>이 <span class="math inline">\(u_{2k}\)</span>와 <span class="math inline">\(u_{2k+1}\)</span>을 모두 나눈다고, 즉 <span class="math inline">\(u_k\)</span>와 <span class="math inline">\(u_k + u_{k+1}\)</span>을 모두 나눈다고 하자. <span class="math inline">\(d\)</span>는 또 무엇을 나누는가?</p>
+</div>
+<p><span class="math inline">\(d\)</span>는 <span class="math inline">\((u_k + u_{k+1}) - u_k = u_{k+1}\)</span>을 나누므로, <span class="math inline">\(d\)</span>는 수열에서 더 앞에 있는 연속한 쌍 <span class="math inline">\(u_k, u_{k+1}\)</span>을 나눈다. 다른 경우도 똑같다. <span class="math inline">\(d\)</span>가 <span class="math inline">\(u_k + u_{k+1}\)</span>과 <span class="math inline">\(u_{k+1}\)</span>을 나누면 <span class="math inline">\(u_k\)</span>도 나눈다.</p>
+<p>따라서 연속한 쌍의 공약수는 더 앞의 쌍으로 넘어가고, 다시 그보다 앞의 쌍으로 넘어가는 식으로 계속된다. 위치는 끝없이 줄어들 수 없으므로(이번에도 정렬 원리(well-ordering)이다), 결국 <span class="math inline">\(d\)</span>는 첫 번째 쌍 <span class="math inline">\(u_1 = u_2 = 1\)</span>을 나누어야 한다. 이는 <span class="math inline">\(d &gt; 1\)</span>일 때 불가능하다. 그러므로 연속한 모든 쌍은 서로소(coprime)이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-같은-쌍은-두-번-나타나지-않는다" class="stage"><span class="stage-n">단계 3</span> 같은 쌍은 두 번 나타나지 않는다</h4>
+<div class="pausebox">
+<p>1단계에서 유용한 사실을 알 수 있다. 연속한 쌍 <span class="math inline">\((a, b)\)</span>를 보면, <span class="math inline">\(a\)</span>가 홀수 번째 위치에 있는지 짝수 번째 위치에 있는지 알 수 있다. 어떻게 알 수 있을까? 그렇다면 2단계의 의미에서 그 앞의 쌍을 되찾을 수 있을까?</p>
+</div>
+<p><span class="math inline">\(a &lt; b\)</span>이면 (1단계에 의해) <span class="math inline">\(b\)</span>가 홀수 번째 위치에 있으므로, 어떤 <span class="math inline">\(k\)</span>에 대하여 이 쌍은 <span class="math inline">\((u_{2k}, u_{2k+1}) = (u_k, u_k + u_{k+1})\)</span>이고, “부모” 쌍 <span class="math inline">\((u_k, u_{k+1})\)</span>은 <span class="math inline">\((a,\ b - a)\)</span>이다. <span class="math inline">\(a &gt; b\)</span>이면 이 쌍은 <span class="math inline">\((u_{2k+1}, u_{2k+2})\)</span>이고 그 부모는 <span class="math inline">\((a - b,\ b)\)</span>이다. <span class="math inline">\(a = b\)</span>이면 1단계에 의해 이 쌍은 맨 첫 번째 쌍 <span class="math inline">\((1,1)\)</span>이어야 한다.</p>
+<p>따라서 첫 번째 쌍을 제외한 연속한 각 쌍은 자신의 부모 쌍과 <em>부모의 위치</em>를 결정한다(이 구조를 그림 1.8.1에서 트리(tree)로 볼 수 있다). 자식이 <span class="math inline">\(2k\)</span>나 <span class="math inline">\(2k+1\)</span>번째에 있으면 부모는 <span class="math inline">\(k\)</span>번째에 있다. 이제 <span class="math inline">\((a, b)\)</span>가 서로 다른 두 위치에 나타났다고 하자. 그러면 그 부모들은 두 위치에 있는 같은 쌍이 되고, <em>그들의</em> 부모도 마찬가지이며, 이런 식으로 계속된다. 이를 거슬러 올라가면 결국 <span class="math inline">\(1\)</span>이 아닌 위치에서 <span class="math inline">\((1,1)\)</span>을 찾게 되는데, 이는 1단계에 의해 불가능하다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-서로소인-모든-쌍이-나타난다" class="stage"><span class="stage-n">단계 4</span> 서로소인 모든 쌍이 나타난다</h4>
+<div class="askyourself">
+<p>서로소인 어떤 쌍 <span class="math inline">\((a, b)\)</span>가 연속한 두 항으로 결코 나타나지 않는다고 하자. 그러한 쌍 중 어느 것을 살펴보아야 할까?</p>
+</div>
+<p><span class="math inline">\(a + b\)</span>의 값이 가장 작은 “빠진” 서로소 쌍, 즉 최소 반례(minimal counterexample)를 택하자. 이 쌍은 실제로 나타나는 <span class="math inline">\((1,1)\)</span>일 수 없으므로 <span class="math inline">\(a \neq b\)</span>이다(서로소이면서 같으면 <span class="math inline">\(a = b = 1\)</span>이어야 한다).</p>
+<ul>
+<li><p><span class="math inline">\(a &gt; b\)</span>인 경우: 쌍 <span class="math inline">\((a - b, b)\)</span>는 서로소이고(<span class="math inline">\(a-b\)</span>와 <span class="math inline">\(b\)</span>의 공약수는 <span class="math inline">\(a\)</span>를 나눈다), 그 합 <span class="math inline">\(a\)</span>는 <span class="math inline">\(a + b\)</span>보다 작다. 최소성에 의해 이 쌍은 나타나며, 그 위치를 <span class="math inline">\(k, k+1\)</span>이라 하자. 그러면 <span class="math inline">\(u_{2k+1} = u_k + u_{k+1} = a\)</span>이고 <span class="math inline">\(u_{2k+2} = u_{k+1} = b\)</span>이므로, 결국 <span class="math inline">\((a, b)\)</span>가 나타난다.</p></li>
+<li><p><span class="math inline">\(a &lt; b\)</span>인 경우: 마찬가지로 <span class="math inline">\((a, b - a)\)</span>가 어떤 <span class="math inline">\(k, k+1\)</span>에 나타나고, 그러면 <span class="math inline">\((u_{2k}, u_{2k+1}) = (a, b)\)</span>이다.</p></li>
+</ul>
+<p>어느 경우든 모순이다. 따라서 서로소인 양의 정수의 모든 쌍은 연속한 두 항으로 나타난다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>(문제에서는 (iv)를 무한강하법(descent)으로 표현한다. 빠진 쌍이 있으면 그보다 작은 빠진 쌍이 생긴다는 것이다. 이는 같은 논증을 반대 방향으로 읽은 것이다.)</p>
+<h4 id="stagemark5-모든-분수의-목록" class="stage"><span class="stage-n">단계 5</span> 모든 분수의 목록</h4>
+<p>모든 양의 유리수(rational number)는 <span class="math inline">\(a, b\)</span>가 서로소인 기약분수 <span class="math inline">\(a/b\)</span>로 유일하게 나타낼 수 있다. 4단계에 의해 <span class="math inline">\((a, b)\)</span>는 연속한 어떤 쌍 <span class="math inline">\((u_n, u_{n+1})\)</span>으로 나타나므로 <span class="math inline">\(f(n) = a/b\)</span>이다. 즉 <span class="math inline">\(f\)</span>의 치역(range)은 모든 양의 유리수이다. 3단계에 의해 이 쌍은 한 번만 나타나고, 2단계에 의해 모든 값 <span class="math inline">\(f(n)\)</span>은 이미 기약분수이므로, 서로 다른 두 <span class="math inline">\(n\)</span>이 같은 분수를 줄 수 없다. 그러므로 <span class="math inline">\(f\)</span>는 양의 정수에서 양의 유리수로의 전단사 함수(bijection)이고, 역함수(inverse)를 가진다.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>무한강하법과 그 역.</strong> 공약수와 중복된 쌍은 수열의 처음으로 <em>거슬러</em> 추적했다. 빠진 쌍은 최소 반례를 이용해 <em>앞으로</em> 쌓아 나가며 다루었다.</p></li>
+<li><p><strong>전단사 함수에는 두 부분이 필요하다.</strong> “모든 분수가 나타난다”(전사(onto))와 “어떤 분수도 두 번 나타나지 않는다”(단사(one-to-one))는 별개의 주장이며, 따로 증명했다.</p></li>
+<li><p><strong>먼저 계산하라.</strong> 열다섯 항을 적어 보니 주장을 믿을 수 있게 되었고, 증명을 이끈 부모–자식 구조도 떠올릴 수 있었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">Calkin–Wilf 트리</div>
+<p>양의 분수를 트리 모양으로 배열하자. 맨 위에 <span class="math inline">\(\frac11\)</span>을 놓고, 각 분수 <span class="math inline">\(\frac{a}{b}\)</span>에 두 자식, 즉 왼쪽에 <span class="math inline">\(\frac{a}{a+b}\)</span>, 오른쪽에 <span class="math inline">\(\frac{a+b}{b}\)</span>를 준다. 트리를 한 줄씩 왼쪽에서 오른쪽으로 읽으면 정확히 이 문제의 목록 <span class="math inline">\(f(1), f(2), f(3), \ldots\)</span>이 된다(그림 1.8.1). 3단계는 모든 분수가 유일한 부모를 가진다는 것이고, 4단계는 모든 분수가 트리 안에 있다는 것이다. 2003년에 Moshe Newman은 트리조차 필요 없다는 것을 발견했다. 목록의 각 분수는 바로 앞의 분수로부터 다음과 같이 계산할 수 있다. <span class="math display">\[x_{n+1} = \frac{1}{2\lfloor x_n \rfloor - x_n + 1}.\]</span></p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-1-8-1.svg" alt="그림 1.8.1"><figcaption><span class="fig-label">그림 1.8.1</span> Calkin–Wilf 트리의 처음 네 줄. 한 줄씩 왼쪽에서 오른쪽으로 읽으면 <span class="math inline">\(f(1), f(2), f(3), \ldots\)</span>이 된다. 작은 회색 숫자는 위치 <span class="math inline">\(n\)</span>이다. 모든 양의 분수가 기약분수로 정확히 한 번씩 나타난다.</figcaption></figure>
+<h3 id="무한의-서로-다른-크기">무한의 서로 다른 크기</h3>
+<p>이처럼 나열할 수 있는 집합을 <em>가산</em>(countable) 집합이라 한다. 분수는 가산인데, 분수가 자연수보다 훨씬 많아 보이므로 이는 놀라운 일이다. 대학 첫 학기에는 칸토어의 <em>대각선 논법</em>(diagonal argument)도 배우게 되는데, 이 논법은 <em>실수</em>(real number)가 가산이 아님을 보여 준다. 즉 실수의 어떤 목록이든 반드시 빠뜨리는 실수가 있다. 따라서 무한에는 정말로 서로 다른 크기가 있으며, 실수는 유리수보다 진짜로 더 큰 무한을 이룬다. 이것은 대학 1학년 과정에서 만나게 될 가장 놀라운 결과 중 하나이다.</p>
+<h3 id="stern-수열">Stern 수열</h3>
+<p>수열 <span class="math inline">\(u_n\)</span>은 <em>Stern의 이원자 수열</em>(Stern’s diatomic sequence)이며, 다른 곳에서도 여러 모습으로 등장한다. 예를 들어 <span class="math inline">\(u_{n+1}\)</span>은 각 거듭제곱을 많아야 두 번 사용하여 <span class="math inline">\(n\)</span>을 <span class="math inline">\(2\)</span>의 거듭제곱의 합으로 나타내는 방법의 수이다. 이 수열은 <em>Stern–Brocot 트리</em>(Stern–Brocot tree), 그리고 무리수에 대한 최良의 유리수 근삿값을 주는 연분수(continued fraction)와도 밀접하게 관련되어 있다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">전단사 함수 만들기</div>
+<p><em>두 집합의 크기가 같음을 보이려면 두 집합을 정확히 짝지어라. 즉 목표 집합의 모든 원소가 대응됨(전사)과 어떤 원소도 두 번 대응되지 않음(단사)을 증명하라.</em></p>
+<p>전단사 함수는 유한이든 무한이든 셈의 기초이며, 대학에서 끊임없이 사용하게 된다. 여기서는 두 부분 모두 구조를 출발점까지 거슬러 추적하여 증명했다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>분수 찾기.</strong> 어떤 <span class="math inline">\(n\)</span>에 대하여 <span class="math inline">\(f(n) = \frac{3}{5}\)</span>인가? 또 <span class="math inline">\(f(n) = \frac{5}{3}\)</span>인 <span class="math inline">\(n\)</span>은? 부모 규칙을 이용해 <span class="math inline">\(\frac11\)</span>까지 거슬러 올라가 보라.</p></li>
+<li><p><strong>Newman의 공식.</strong> <span class="math inline">\(x_1 = 1\)</span>에서 시작하여 Newman의 공식이 목록의 처음 열 개의 분수를 만들어 냄을 확인하라.</p></li>
+<li><p><strong>칸토어의 대각선 논법.</strong> <span class="math inline">\(0\)</span>과 <span class="math inline">\(1\)</span> 사이의 모든 실수를 소수로 적은 목록이 있다고 하자. 목록의 <span class="math inline">\(n\)</span>번째 수와 <span class="math inline">\(n\)</span>번째 자리가 다른 소수를 만들어라. 이것이 왜 목록이 불완전함을 보여 주는가? (<span class="math inline">\(0.0999\ldots = 0.1\)</span>과 같은 소수에는 어떤 주의가 필요한가?)</p></li>
+<li><p><strong>가산 합집합.</strong> <span class="hard">심화</span> 양의 정수의 모든 쌍 <span class="math inline">\((m, n)\)</span>의 집합이 가산임을, 양의 정수와의 전단사 함수를 명시적으로 제시하여 보여라. (<span class="math inline">\(2^{m-1}(2n-1)\)</span>을 시도해 보라.)</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Neil Calkin &amp; Herbert Wilf, “<a href="https://doi.org/10.1080/00029890.2000.12005205">Recounting the rationals</a>”</strong> (<em>American Mathematical Monthly</em>, 2000). 유리수 다시 세기. 네 쪽 분량이며, 전부 읽을 만하다.</p></li>
+<li><p><strong>Aigner &amp; Ziegler, <a href="https://uk.bookshop.org/search?keywords=Proofs+from+THE+BOOK+Aigner+Ziegler"><em>Proofs from THE BOOK</em></a></strong>, 제 17장 “Sets, functions, and the continuum hypothesis”(집합, 함수, 연속체 가설). Calkin–Wilf 트리를 다룬다.</p></li>
+<li><p><strong>Ian Stewart &amp; David Tall, <a href="https://uk.bookshop.org/search?keywords=The+Foundations+of+Mathematics+Stewart+Tall"><em>The Foundations of Mathematics</em></a></strong> (Oxford University Press). 대학 1학년 과정에서처럼 가산성, 칸토어, 실수를 다룬다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="factorisation-fails.html">← 1.7 인수분해가 무너질 때</a><a class="next" href="tangents-cubic.html">→ 1.9 삼차곡선의 접선</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

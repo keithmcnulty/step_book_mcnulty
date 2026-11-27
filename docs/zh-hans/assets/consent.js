@@ -49,8 +49,23 @@
     b.id = "consent-banner";
     b.className = "consent-banner";
     b.setAttribute("role", "region");
-    var zh = /^zh/i.test(document.documentElement.lang || "");
-    var t = zh ? {
+    var lang = document.documentElement.lang || "";
+    var zh = /^zh/i.test(lang);
+    var t = /^ja/i.test(lang) ? {
+      label: "Cookie の同意设置", title: "Cookie とプライバシー",
+      body: "英国のプライバシー法（PECR および UK GDPR）により、本サイトは分析用 Cookie を設定する前にあなたの同意を得る必要があります。" +
+            "同意すると、Google Analytics があなたが閲覧したページを記録し、本書がどのように使われているかを把握できます。" +
+            "拒否すると、分析用 Cookie は設定されず、Google には何も送信されません。" +
+            "選択は各ページ下部の Cookie 設定リンクからいつでも変更できます。",
+      notice: "プライバシーに関する通知", reject: "拒否", accept: "同意"
+    } : /^ko/i.test(lang) ? {
+      label: "쿠키 동의 설정", title: "쿠키와 개인정보",
+      body: "영국 개인정보 보호법(PECR 및 UK GDPR)에 따라 이 사이트는 분석용 쿠키를 설정하기 전에 동의를 받아야 합니다. " +
+            "동의하시면 Google Analytics가 방문한 페이지를 기록하여 이 책이 어떻게 쓰이는지 파악할 수 있습니다. " +
+            "거부하시면 분석용 쿠키는 설정되지 않으며 Google에 아무것도 전송되지 않습니다. " +
+            "선택은 각 페이지 하단의 쿠키 설정 링크에서 언제든지 바꿀 수 있습니다.",
+      notice: "개인정보 처리방침", reject: "거부", accept: "동의"
+    } : zh ? {
       label: "Cookie 同意设置", title: "Cookie 与你的隐私",
       body: "英国隐私法例（PECR 及 UK GDPR）规定，本网站在设置分析用 Cookie 前必须先征得你的同意。" +
             "如你接受，Google Analytics 会记录你浏览了哪些页面，让我们了解本书的使用情况。" +

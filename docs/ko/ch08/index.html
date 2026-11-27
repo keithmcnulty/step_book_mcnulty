@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제8장: 미분방정식과 동역학계 — Beyond STEP</title>
+<meta name="description" content="먼저 해의 존재성과 정성적 성질을 다루고, 이어서 모델링을 다룬 뒤, 이산 사상에서의 혼돈을 다룬다.">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch08/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch08/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch08/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch08/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="제8장: 미분방정식과 동역학계 — Beyond STEP">
+<meta property="og:description" content="먼저 해의 존재성과 정성적 성질을 다루고, 이어서 모델링을 다룬 뒤, 이산 사상에서의 혼돈을 다룬다.">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch08/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="제8장: 미분방정식과 동역학계 — Beyond STEP">
+<meta name="twitter:description" content="먼저 해의 존재성과 정성적 성질을 다루고, 이어서 모델링을 다룬 뒤, 이산 사상에서의 혼돈을 다룬다.">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 8, "name": "미분방정식과 동역학계", "url": "https://beyondstep.keithmcnulty.org/ko/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "먼저 해의 존재성과 정성적 성질을 다루고, 이어서 모델링을 다룬 뒤, 이산 사상에서의 혼돈을 다룬다."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제8장: 미분방정식과 동역학계", "item": "https://beyondstep.keithmcnulty.org/ko/ch08/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch08/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch08/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch08/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch08/index.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">장</div>
+    <div class="ch-num">8</div>
+    <h1>미분방정식과 동역학계</h1>
+    <p class="strap">대부분의 미분방정식은 풀 수 없다. 그래도 이해하는 것, 그것이 기술이다.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">장 전체 내려받기</span><span class="dl-sub">인쇄용으로 조판한 PDF</span></span></a>
+  </div>
+  <h2 class="contents-head">이 장의 내용</h2>
+  <ol class="toc"><li><a class="toc-link" href="non-uniqueness.html"><span class="toc-num">8.1</span>
+<span class="toc-title">해가 유일하지 않을 때</span>
+<span class="toc-src">STEP III 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-1-non-uniqueness.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="bounding-without-solving.html"><span class="toc-num">8.2</span>
+<span class="toc-title">풀지 않고 범위 구하기</span>
+<span class="toc-src">STEP III 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-2-bounding-without-solving.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="harvesting.html"><span class="toc-num">8.3</span>
+<span class="toc-title">개체군 수확하기</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-3-harvesting.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="limit-cycle.html"><span class="toc-num">8.4</span>
+<span class="toc-title">원으로 감겨드는 나선</span>
+<span class="toc-src">STEP III 2015</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-4-limit-cycle.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="pursuit.html"><span class="toc-num">8.5</span>
+<span class="toc-title">그레이하운드를 쫓는 그레이하운드</span>
+<span class="toc-src">STEP III 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-5-pursuit.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="quantum-oscillator.html"><span class="toc-num">8.6</span>
+<span class="toc-title">양자 진동자</span>
+<span class="toc-src">STEP III 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-6-quantum-oscillator.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="solvable-chaos.html"><span class="toc-num">8.7</span>
+<span class="toc-title">풀 수 있는 혼돈</span>
+<span class="toc-src">STEP I 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-7-solvable-chaos.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="period-three.html"><span class="toc-num">8.8</span>
+<span class="toc-title">주기 3이면 혼돈이다</span>
+<span class="toc-src">STEP III 2025</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-8-8-period-three.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">돌아보기: 지금까지 배운 것</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“다음으로 풀어 보기” 연습문제의 답</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">제8장  \(\cdot\)  들어가며</div>
+    <h1 class="essay-title">변화의 규칙</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>자연은 적분의 어려움을 비웃는다.</p>
+<p class="who">— 피에르시몽 라플라스(Pierre-Simon Laplace)의 말로 전해짐</p>
+</div>
+<p>학교에서 미분방정식(differential equation)은 푸는 대상이다. 변수를 분리하거나, 적분인자(integrating factor)를 찾거나, <span class="math inline">\(e^{\lambda x}\)</span> 꼴의 해를 추측하면 마지막에 공식 하나를 얻는다. 교과서에 나오는 방정식들은 이 방법이 통하기 때문에 골라 놓은 것이다. 안타깝게도 현실 세계에서 나오는 미분방정식(세 행성의 운동, 날씨, 포식자와 피식자의 개체군, 진폭이 큰 진자의 흔들림) 거의 모두는 우리가 아는 함수로 적어 낼 수 있는 해를 갖지 않는다.</p>
+<p>이 장은 그 대신 무엇을 할 것인가에 관한 것이다. “공식은 무엇인가?”라고 묻는 대신, 공식 없이도 답할 수 있는 질문을 던진다. 애초에 해가 존재하는가, 그리고 하나뿐인가? 해는 유계로 남는가? 정상 상태나 반복되는 순환으로 안착하는가, 아니면 끝없이 헤매는가? 오랜 시간이 지나면 어떻게 되는가? 푸는 것에서 이해하는 것으로의 이러한 관점 전환은 1880년대에 앙리 푸앵카레(Henri Poincaré)가 시작했으며, 오늘날 <em>동역학계</em>(dynamical systems)라고 부르는 분야를 탄생시켰다.</p>
+<h3 id="미분방정식이-중요한-이유">미분방정식이 중요한 이유</h3>
+<p>미분방정식은 과학의 언어이다. 뉴턴(Newton)의 운동 제2법칙은 미분방정식이며, 전자기학의 맥스웰(Maxwell) 방정식, 양자역학의 슈뢰딩거(Schrödinger) 방정식, 그리고 날씨를 예보하고 항공기를 설계하는 데 쓰이는 유체 흐름의 방정식도 마찬가지이다. 역학자는 질병의 확산을, 생태학자는 어류 자원의 개체 수를, 경제학자는 경제 성장을, 공학자는 온도 조절기에서 자동 조종 장치에 이르는 모든 제어 시스템의 반응을 미분방정식으로 모형화한다. 어떤 양이 현재 상태에 따라 정해지는 비율로 변할 때마다 그곳에는 미분방정식이 있으며, 대개는 아무도 정확히 풀 수 없는 방정식이다.</p>
+<p>이러한 연속 모형과 나란히, 시간이 한 단계씩 나아가는 이산 모형도 있다. 올해의 개체 수가 내년의 개체 수를 결정하는 식이다. 이러한 <em>반복 사상</em>(iterated map)은 적어 내기는 더 간단하지만, 마지막 두 절에서 보듯이 그만큼 격렬하게 움직일 수 있다. 1970년대의 위대한 발견 중 하나는 아주 단순한 규칙이 <em>혼돈</em>(chaos), 곧 완전히 결정되어 있으면서도 실제로는 예측할 수 없는 행동을 만들어 낼 수 있다는 것이었다.</p>
+<h3 id="대학에서-만나게-될-것">대학에서 만나게 될 것</h3>
+<p>대학 1학년 미분방정식 강좌는 표준적인 풀이법을 다루지만, 이 장의 질문들도 소개한다. 해가 언제 존재하는지, 그리고 언제 초깃값에 의해 결정되는지를 알려 주는 존재성과 유일성 정리(existence and uniqueness theorem)를 만나게 된다. 모든 해를 한꺼번에 나타낸 그림인 <em>상 초상</em>(phase portrait)을 그리는 법과, 선형화(linearisation)를 통해 평형점(equilibrium)을 안정 또는 불안정으로 분류하는 법을 배운다. 이후의 강좌는 훨씬 더 나아간다. <em>비선형 동역학</em>(nonlinear dynamics)은 극한 순환(limit cycle), 분기(bifurcation), 혼돈을 연구하고, <em>수리생물학</em>(mathematical biology)은 이를 개체군과 전염병에 적용하며, 편미분방정식(partial differential equation), 푸리에 급수(Fourier series), 직교 함수(orthogonal function)의 이론(<a href="../ch08/quantum-oscillator.html">8.6 절</a>에서 엿볼 수 있다)은 양자역학과 응용수학의 많은 부분을 떠받친다.</p>
+<h3 id="이-장을-관통하는-질문들">이 장을 관통하는 질문들</h3>
+<div class="skillbox">
+<div class="box-title">세 가지 큰 질문</div>
+<ol class="arabic">
+<li><p><strong>현재가 미래를 결정하는가?</strong> 초깃값이 주어진 미분방정식은 언제 정확히 하나의 해를 갖는가?</p></li>
+<li><p><strong>풀지 않고 무엇을 알 수 있는가?</strong> 공식이 존재하지 않을 때, 어떻게 해의 범위를 제한하고, 해가 어디에 안착하는지 찾고, 해의 모양을 기술할 수 있는가?</p></li>
+<li><p><strong>오랜 시간이 지나면 어떻게 되는가?</strong> 해는 정상 상태로 안착하는가, 순환에 다가가는가, 아니면 혼돈스럽게 행동하는가? 그리고 이를 어떻게 알 수 있는가?</p></li>
+</ol>
+</div>
+<p>이 장은 유일성과 그것이 깨질 때 일어나는 일(<a href="../ch08/non-uniqueness.html">8.1 절</a>)에서 시작하여, 방정식을 풀지 않고 이해하는 도구들을 발전시킨다. 증가할 수 없는 에너지 비슷한 양, 평형점과 그 안정성, 그리고 문제의 대칭성에 맞춘 좌표가 그것이다. 두 절에서는 이러한 아이디어를 물리 문제에 적용한다. 정사각형 위에서 서로를 쫓는 개들과 양자 조화 진동자(quantum harmonic oscillator)이다. 이 장은 이산 사상으로 끝을 맺는데, 여기서는 공식 하나가 혼돈을 드러내고, 길이 3인 순환 하나가 모든 길이의 순환을 강제한다.</p>
+<h3 id="이-장의-아이디어">이 장의 아이디어</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">주제</th>
+<th style="text-align: left;">아이디어</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">8.1</td>
+<td style="text-align: left;">유일성</td>
+<td style="text-align: left;">포락선(envelope)과 특이해(singular solution); 이어 붙이기</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.2</td>
+<td style="text-align: left;">에너지 방법</td>
+<td style="text-align: left;">결코 증가하지 않는 양</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.3</td>
+<td style="text-align: left;">개체군 모형</td>
+<td style="text-align: left;">평형점, 안정성, 그리고 임계점(tipping point)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.4</td>
+<td style="text-align: left;">극한 순환</td>
+<td style="text-align: left;">극좌표와 베르누이 치환(Bernoulli substitution)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.5</td>
+<td style="text-align: left;">추적 곡선(pursuit curve)</td>
+<td style="text-align: left;">대칭성이 네 물체를 하나로 줄인다</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.6</td>
+<td style="text-align: left;">직교 함수</td>
+<td style="text-align: left;">론스키안(Wronskian)과 직교성</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8.7</td>
+<td style="text-align: left;">혼돈</td>
+<td style="text-align: left;">변수 변환: 로지스틱 사상(logistic map)은 변장한 각의 두 배 사상이다</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8.8</td>
+<td style="text-align: left;">주기 궤도(periodic orbit)</td>
+<td style="text-align: left;">구간 덮기; 샤르코프스키 정리(Sharkovskii’s theorem)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="이-장을-읽는-방법">이 장을 읽는 방법</h3>
+<p>무엇이든 풀기 전에 먼저 그려 보아라. 미분방정식 <span class="math inline">\(y&#39; = F(y)\)</span>에 대해서는 <span class="math inline">\(F\)</span>가 양수, 음수, 0인 곳을 표시하고 <span class="math inline">\(y\)</span>축 위에 화살표를 그린다. 사상 <span class="math inline">\(x \mapsto \mathrm{f}(x)\)</span>에 대해서는 직선 <span class="math inline">\(y = x\)</span>와 함께 그래프를 그리고, 거미줄 방법(cobweb method)으로 수열 몇 개를 따라가 본다. 이런 그림은 1분이면 그릴 수 있고, 대수 계산을 시작하기도 전에 답이 어떤 모습이어야 하는지 대개 알려 줄 것이다.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="non-uniqueness.html">→ 시작: 8.1 해가 유일하지 않을 때</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>새로운 함수 만들기 (STEP II 2021 Q4) — Beyond STEP</title>
+<meta name="description" content="STEP II 2021 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. e^-x = 5x 를 풀 수 있을까? 계산기에 있는 어떤 함수로도 풀 수 없다. 식을 이리저리 정리해 보아도 소용없다. x 가 지수함수의 안과 밖에 동시에 갇혀 있기 때문이다. 시행착오(trial and improvement)로 수치적인 답을 찾을 수는 있지만, “공식”은 없다.…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch03/lambert-w.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch03/lambert-w.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch03/lambert-w.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/lambert-w.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch03/lambert-w.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch03/lambert-w.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch03/lambert-w.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="새로운 함수 만들기 (STEP II 2021 Q4) — Beyond STEP">
+<meta property="og:description" content="STEP II 2021 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. e^-x = 5x 를 풀 수 있을까? 계산기에 있는 어떤 함수로도 풀 수 없다. 식을 이리저리 정리해 보아도 소용없다. x 가 지수함수의 안과 밖에 동시에 갇혀 있기 때문이다. 시행착오(trial and improvement)로 수치적인 답을 찾을 수는 있지만, “공식”은 없다.…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch03/lambert-w.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="새로운 함수 만들기 (STEP II 2021 Q4) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2021 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. e^-x = 5x 를 풀 수 있을까? 계산기에 있는 어떤 함수로도 풀 수 없다. 식을 이리저리 정리해 보아도 소용없다. x 가 지수함수의 안과 밖에 동시에 갇혀 있기 때문이다. 시행착오(trial and improvement)로 수치적인 답을 찾을 수는 있지만, “공식”은 없다.…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "새로운 함수 만들기", "headline": "새로운 함수 만들기", "description": "STEP II 2021 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. e^-x = 5x 를 풀 수 있을까? 계산기에 있는 어떤 함수로도 풀 수 없다. 식을 이리저리 정리해 보아도 소용없다. x 가 지수함수의 안과 밖에 동시에 갇혀 있기 때문이다. 시행착오(trial and improvement)로 수치적인 답을 찾을 수는 있지만, “공식”은 없다.…", "url": "https://beyondstep.keithmcnulty.org/ko/ch03/lambert-w.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2021 문제 4", "함수, 부등식, 그리고 엄밀함"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 3, "name": "함수, 부등식, 그리고 엄밀함", "url": "https://beyondstep.keithmcnulty.org/ko/ch03/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제3장: 함수, 부등식, 그리고 엄밀함", "item": "https://beyondstep.keithmcnulty.org/ko/ch03/"}, {"@type": "ListItem", "position": 3, "name": "새로운 함수 만들기", "item": "https://beyondstep.keithmcnulty.org/ko/ch03/lambert-w.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch03/lambert-w.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch03/lambert-w.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch03/lambert-w.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch03/lambert-w.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제3장 · 함수, 부등식, 그리고 엄밀함</a>
+    <div class="src">STEP II · 2021 · 문제 4</div>
+    <div class="sec-head"><span class="sec-num">3.9</span><h1>새로운 함수 만들기</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-9-lambert-w.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제3장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 2021, 문제 4</strong></p>
+<p>다음으로 넘어가기 전에 문제를 먼저 읽어 보자. 이 문제는 OCR에서 내려받을 수 있는 2021년 STEP 문제지 모음(zip 파일)의 STEP II 문제지에 있다: <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">www.ocr.org.uk/Images/696588-2021-past-papers.zip</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p><span class="math inline">\(e^{-x} = 5x\)</span>를 풀 수 있을까? 계산기에 있는 어떤 함수로도 풀 수 없다. 식을 이리저리 정리해 보아도 소용없다. <span class="math inline">\(x\)</span>가 지수함수의 안과 밖에 동시에 갇혀 있기 때문이다. 시행착오(trial and improvement)로 수치적인 답을 찾을 수는 있지만, “공식”은 없다.</p>
+<p>정말 그럴까? 이 문제는 대담한 한 걸음을 내딛는다. 어떤 방정식들의 모임이 알려진 함수로 나타낸 해를 갖지 않는다면, 그 방정식들을 푸는 <em>새로운 함수를 만들어 내는</em> 것이다. 수학자들이 <span class="math inline">\(\sqrt{x}\)</span>(<span class="math inline">\(x^2\)</span>의 역함수), <span class="math inline">\(\ln x\)</span>(<span class="math inline">\(e^x\)</span>의 역함수), <span class="math inline">\(\arcsin x\)</span>를 가지고 한 일이 바로 이것이다. 여기서 새로 등장하는 함수는 <span class="math inline">\(xe^x\)</span>의 역함수(inverse function)로, 오늘날 <em>람베르트 W 함수</em>(Lambert W function)라고 부른다. 이 함수만 있으면 <span class="math inline">\(x^x = 10\)</span>에서부터 물리 법칙에 이르기까지 놀라울 만큼 다양한 방정식을 정확하게 풀 수 있다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>방정식을 “푼다”는 것은 정확히 무슨 뜻일까? <span class="math inline">\(x = \sqrt{2}\)</span>는 <span class="math inline">\(x^2 = 2\)</span>의 해일까, 아니면 단지 그 해에 붙인 이름일까?</p>
+</div>
+<p>둘 다이다. <span class="math inline">\(\sqrt2\)</span>는 “제곱하면 <span class="math inline">\(2\)</span>가 되는 양수”에 붙인 이름이다. 우리가 이것을 답으로 받아들이는 까닭은 함수 <span class="math inline">\(\sqrt{\phantom{x}}\)</span>를 잘 이해하고 있고, 값을 계산하기 쉬우며, 그 성질이 알려져 있기 때문이다. 어떤 답을 “공식”으로 볼지는 우리가 어떤 함수들에 이름을 붙이기로 합의했는지에 달려 있다. 이 문제는 그 목록에 함수를 하나 더 보탠다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-곡선-y-xex" class="stage"><span class="stage-n">단계 1</span> 곡선 <span class="math inline">\(y = xe^x\)</span></h4>
+<p><span class="math inline">\(\frac{\mathrm{d}y}{\mathrm{d}x} = e^x + xe^x = (1 + x)e^x\)</span>이고, 이는 <span class="math inline">\(x = -1\)</span>에서만 0이 되며, 이때 <span class="math inline">\(y = -e^{-1}\)</span>이다. 도함수(derivative)는 <span class="math inline">\(x &lt; -1\)</span>에서 음수이고 <span class="math inline">\(x &gt; -1\)</span>에서 양수이므로, 이 점은 극소(minimum)이다.</p>
+<div class="askyourself">
+<p><span class="math inline">\(x \to +\infty\)</span>일 때와 <span class="math inline">\(x \to -\infty\)</span>일 때 <span class="math inline">\(xe^x\)</span>는 어떻게 될까? 곡선은 좌표축과 어디에서 만날까?</p>
+</div>
+<p><span class="math inline">\(x \to \infty\)</span>일 때 <span class="math inline">\(xe^x \to \infty\)</span>이다. <span class="math inline">\(x \to -\infty\)</span>일 때는 지수적 감소가 일차적 증가를 이기므로 <span class="math inline">\(xe^x \to 0\)</span>이며, 아래쪽에서 0에 다가간다. 곡선은 원점을 지난다. 따라서 곡선은 <span class="math inline">\(x\)</span>축의 음의 부분 바로 아래에서 들어와 최솟점 <span class="math inline">\((-1, -\frac1e)\)</span>까지 내려간 다음, <span class="math inline">\((0, 0)\)</span>을 지나 위로 가파르게 솟아오른다(그림 3.9.1).</p>
+<h4 id="stagemark2-역함수" class="stage"><span class="stage-n">단계 2</span> 역함수</h4>
+<p>역함수를 가지려면 <span class="math inline">\(\mathrm{f}\)</span>는 일대일(one-to-one)이어야 하므로, 순증가하거나 순감소하는 구간으로 정의역을 제한해야 한다. 오른쪽 부분을 포함하는 그런 구간 가운데 가장 큰 것은 <span class="math inline">\([-1, \infty)\)</span>이므로 <span class="math inline">\(a = -1\)</span>이다. <span class="math inline">\([-1, \infty)\)</span>에서 <span class="math inline">\(\mathrm{f}\)</span>는 <span class="math inline">\(-\frac1e\)</span>에서 <span class="math inline">\(\infty\)</span>까지 증가하므로, 역함수 <span class="math inline">\(\mathrm{g}\)</span>는 <span class="math inline">\([-\frac1e, \infty)\)</span>에서 정의되고, <span class="math inline">\(\mathrm{g}(-\frac1e) = -1\)</span>에서 시작하여 증가하면서 <span class="math inline">\(\mathrm{g}(0) = 0\)</span>을 지나고, 천천히 커진다(큰 <span class="math inline">\(x\)</span>에 대해서는 <span class="math inline">\(\ln x\)</span>보다도 더 천천히 커진다). 그 그래프는 <span class="math inline">\(y = xe^x\)</span>의 오른쪽 부분을 직선 <span class="math inline">\(y = x\)</span>에 대하여 대칭이동한 것이며, <span class="math inline">\((-\frac1e, -1)\)</span>에서 수직인 접선(tangent)을 가진다.</p>
+<p><span class="math inline">\(\mathrm{g}\)</span>를 정의하는 성질은 다음과 같다. <span class="math display">\[\mathrm{g}(z)\,e^{\mathrm{g}(z)} = z, \qquad \mathrm{g}(z) \geq -1.\]</span> 따라서 (iii)의 모든 소문항에 대한 전략은 같다. 방정식을 <span class="math inline">\((\text{어떤 것})\,e^{(\text{같은 그것})} = (\text{어떤 수})\)</span>의 꼴로 정리하는 것이다.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-3-9-1.svg" alt="그림 3.9.1"><figcaption><span class="fig-label">그림 3.9.1</span> 곡선 <span class="math inline">\(y = xe^x\)</span>(청록색)는 <span class="math inline">\((-1, -\frac1e)\)</span>에서 최솟값을 가진다. <span class="math inline">\(x \geq -1\)</span>로 제한하고 <span class="math inline">\(y = x\)</span>에 대하여 대칭이동하면 역함수 <span class="math inline">\(\mathrm{g}\)</span>(호박색 실선), 곧 람베르트 W 함수를 얻는다. 호박색 점선 곡선은 <span class="math inline">\(y = xe^x\)</span>의 왼쪽 부분을 대칭이동한 것으로, 소문항 (iii)의 두 번째 근을 구할 때 필요한 두 번째 분지(branch)이다.</figcaption></figure>
+<h4 id="stagemark3-네-개의-방정식" class="stage"><span class="stage-n">단계 3</span> 네 개의 방정식</h4>
+<p><strong>(a)</strong> <span class="math inline">\(e^{-x} = 5x\)</span>. 양변에 <span class="math inline">\(e^x\)</span>를 곱하고 <span class="math inline">\(5\)</span>로 나누면 <span class="math inline">\(xe^x = \frac15\)</span>이다. 따라서 <span class="math inline">\(x = \mathrm{g}\bigl(\frac15\bigr) \approx 0.169\)</span>이다. <span class="math inline">\(x &lt; 0\)</span>에서 <span class="math inline">\(xe^x\)</span>는 음수이므로 근은 모두 양수이고, <span class="math inline">\(x &gt; 0\)</span>에서 <span class="math inline">\(xe^x\)</span>는 증가하므로 이것이 유일한 근이다.</p>
+<div class="askyourself">
+<p>(b)와 (c)에서 미지수는 <span class="math inline">\(x\ln x\)</span>의 꼴로 나타난다. 어떤 치환(substitution)을 하면 <span class="math inline">\(x\ln x\)</span>가 <span class="math inline">\(ue^u\)</span> 꼴이 될까?</p>
+</div>
+<p><span class="math inline">\(x = e^u\)</span>로 놓으면 <span class="math inline">\(\ln x = u\)</span>이고 <span class="math inline">\(x\ln x = ue^u\)</span>이다.</p>
+<p><strong>(b)</strong> <span class="math inline">\(2x\ln x + 1 = 0\)</span>은 <span class="math inline">\(ue^u = -\frac12\)</span>가 된다. 그런데 모든 실수 <span class="math inline">\(u\)</span>에 대하여 <span class="math inline">\(ue^u \geq -\frac1e \approx -0.368\)</span>이고, <span class="math inline">\(-\frac12 &lt; -\frac1e\)</span>이다. 따라서 <strong>실근은 없다</strong>.</p>
+<p><strong>(c)</strong> <span class="math inline">\(3x\ln x + 1 = 0\)</span>은 <span class="math inline">\(ue^u = -\frac13\)</span>이 되고, <span class="math inline">\(-\frac1e &lt; -\frac13 &lt; 0\)</span>이다. 높이 <span class="math inline">\(-\frac13\)</span>인 수평선은 <span class="math inline">\(y = ue^u\)</span>와 <em>두 번</em> 만나는데, <span class="math inline">\(u = -1\)</span>에서의 최솟점 양쪽에서 한 번씩 만난다. 오른쪽 근은 <span class="math inline">\(u = \mathrm{g}\bigl(-\frac13\bigr)\)</span>이므로 <span class="math display">\[x = e^{\mathrm{g}(-1/3)} \approx 0.538\]</span> 이다. 다른 근에서는 <span class="math inline">\(u &lt; -1 &lt; \mathrm{g}\bigl(-\frac13\bigr)\)</span>이고, <span class="math inline">\(x = e^u\)</span>는 <span class="math inline">\(u\)</span>에 대하여 증가하므로, 우리가 구한 근은 두 근 가운데 <strong>더 큰</strong> 근이다. (다른 근은 약 <span class="math inline">\(0.220\)</span>이다.)</p>
+<div class="pausebox">
+<p>이제 (d) <span class="math inline">\(x = 3\ln x\)</span>를 풀어 보자. (<em>힌트:</em> 양변을 지수로 올린 다음, <span class="math inline">\((\text{어떤 것})\,e^{\text{어떤 것}}\)</span>의 꼴을 만들되 그 “어떤 것”이 <span class="math inline">\(x\)</span>의 상수배가 되도록 하라.)</p>
+</div>
+<p><strong>(d)</strong> <span class="math inline">\(x = 3\ln x\)</span>는 <span class="math inline">\(e^{x/3} = x\)</span>를 뜻하므로 <span class="math inline">\(xe^{-x/3} = 1\)</span>이고, 양변에 <span class="math inline">\(-\frac13\)</span>을 곱하면 <span class="math display">\[\left(-\frac x3\right)e^{-x/3} = -\frac13\]</span> 이다. 따라서 <span class="math inline">\(-\frac x3\)</span>은 (c)에서 찾은 <span class="math inline">\(ue^u = -\frac13\)</span>의 두 해 가운데 하나이다. <span class="math inline">\(\mathrm{g}\)</span>로 주어지는 해를 택하면 <span class="math inline">\(x = -3\,\mathrm{g}\bigl(-\frac13\bigr) \approx 1.857\)</span>이다. 다른 근은 다른 해 <span class="math inline">\(u &lt; \mathrm{g}(-\frac13)\)</span>에서 나오며, 이는 더 큰 <span class="math inline">\(x = -3u\)</span>를 준다. 따라서 이번에는 우리가 구한 근이 두 근 가운데 <strong>더 작은</strong> 근이다. (다른 근은 약 <span class="math inline">\(4.536\)</span>이다.)<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-xx-10" class="stage"><span class="stage-n">단계 4</span> <span class="math inline">\(x^x = 10\)</span></h4>
+<p>양변에 로그를 취하면 <span class="math inline">\(x\ln x = \ln 10\)</span>이다. <span class="math inline">\(x = e^u\)</span>로 놓으면 이는 <span class="math inline">\(ue^u = \ln 10\)</span>이므로 <span class="math inline">\(u = \mathrm{g}(\ln 10)\)</span>이고 <span class="math display">\[x = e^{\mathrm{g}(\ln 10)} \approx 2.506\]</span> 이다. <span class="math inline">\(\mathrm{g}(z)e^{\mathrm{g}(z)} = z\)</span>이므로 이를 <span class="math inline">\(x = \dfrac{\ln 10}{\mathrm{g}(\ln 10)}\)</span>로 쓸 수도 있다.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>없는 함수에 이름을 붙여라.</strong> 알려진 함수로 방정식을 풀 수 없을 때, 역함수로서 새로운 함수를 정의하는 것은 정당한 방법이며, 흔히 많은 것을 밝혀 주는 방법이다.</p></li>
+<li><p><strong>표준형으로 정리하라.</strong> (iii)과 (iv)의 모든 소문항은 <span class="math inline">\(x = e^u\)</span>나 <span class="math inline">\(u = -\frac x3\)</span> 같은 치환을 써서 결국 <span class="math inline">\(ue^u = \text{상수}\)</span>로 귀결되었다.</p></li>
+<li><p><strong>그래프로 근의 개수를 세어라.</strong> <span class="math inline">\(ue^u = c\)</span>의 해가 0개, 1개, 2개 가운데 몇 개인지는 오로지 <span class="math inline">\(c\)</span>가 최솟값 <span class="math inline">\(-\frac1e\)</span>에 대하여 어디에 있는지에만 달려 있다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">오랜 역사와 최근의 이름을 가진 함수</div>
+<p>요한 하인리히 람베르트(Johann Heinrich Lambert)는 1758년에 이런 꼴의 방정식을 연구하였고, 오일러(Euler)는 1783년에 이를 더 발전시켰다. 그러나 이 함수는 1990년대까지 표준적인 이름이 없었는데, 그때 컴퓨터 대수 시스템 Maple의 개발자들에게 이름이 필요해졌다. 1996년에 Robert Corless, Gaston Gonnet, David Hare, David Jeffrey, 그리고 도널드 커누스(Donald Knuth)는 이 함수의 성질과 응용을 정리한 논문 “On the Lambert W function”을 발표하였다. 이 논문은 수천 번 인용되었고, 이제 W는 대부분의 수학 소프트웨어에 내장되어 있다. 문제의 함수 <span class="math inline">\(\mathrm{g}\)</span>는 <em>주분지</em>(principal branch) <span class="math inline">\(W_0\)</span>이다. 그림 3.9.1의 점선 곡선은 (c)와 (d)에서 두 번째 근을 주었는데, 이것이 또 하나의 실수 분지 <span class="math inline">\(W_{-1}\)</span>이다.</p>
+</div>
+<h3 id="w가-나타나는-곳">W가 나타나는 곳</h3>
+<ul>
+<li><p><strong>빈의 변위 법칙(Wien’s displacement law).</strong> 뜨거운 물체가 가장 강하게 복사하는 파장은 그 물체의 온도에 반비례한다. 그 비례상수는 <span class="math inline">\(5(1 - e^{-x}) = x\)</span>를 풀어서 얻는데, 이 방정식의 양의 해는 <span class="math inline">\(x = 5 + W\bigl(-5e^{-5}\bigr) \approx 4.965\)</span>이다. 약 <span class="math inline">\(5800\)</span> K인 태양이 노르스름한 흰색으로 보이고, 더 차가운 적색 왜성이 붉게 보이는 까닭이 여기에 있다.</p></li>
+<li><p><strong>거듭제곱 탑.</strong> 무한히 쌓은 탑 <span class="math inline">\(x^{x^{x^{\cdot^{\cdot^{\cdot}}}}}\)</span>은 <span class="math inline">\(e^{-e} \leq x \leq e^{1/e}\)</span>일 때 수렴(converge)하고, 그 값은 <span class="math inline">\(\dfrac{W(-\ln x)}{-\ln x}\)</span>이다.</p></li>
+<li><p><strong>인구 모형과 전염병 모형.</strong> 가장 단순한 모형에서 전염병의 최종 규모와, 몇몇 성장 모형에서 주어진 인구에 도달하는 데 걸리는 시간은 모두 W로 주어진다.</p></li>
+</ul>
+<h3 id="초등함수">초등함수</h3>
+<p><span class="math inline">\(W\)</span>는 정말 새로운 함수일까, 아니면 <span class="math inline">\(\exp\)</span>, <span class="math inline">\(\ln\)</span>, 거듭제곱근, 삼각함수를 써서 나타낼 수 있을까? 이 함수는 진정으로 새로운 함수이다. 1830년대의 리우빌(Joseph Liouville)까지 거슬러 올라가는 정리에 따르면 <span class="math inline">\(W\)</span>는 <em>초등함수</em>(elementary function)가 아니다. 같은 이론에 따르면 <span class="math inline">\(\int e^{-x^2}\,\mathrm{d}x\)</span>처럼 겉보기에 순진해 보이는 어떤 적분들은 초등함수로 계산할 수 없으며, 정규분포에 고유한 특수함수가 필요한 것도 이 때문이다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">해로서의 역함수</div>
+<p><em><span class="math inline">\(\mathrm{f}\)</span>를 일대일이 되도록 제한하기만 하면, 방정식 <span class="math inline">\(\mathrm{f}(x) = c\)</span>의 해는 <span class="math inline">\(x = \mathrm{f}^{-1}(c)\)</span>이다. 어떻게 제한하느냐에 따라 어떤 해를 얻는지가 정해진다.</em></p>
+<p>겉보기에 달라 보이는 많은 방정식이 사실은 모습만 바꾼 같은 방정식이다. 공통된 꼴을 드러내 주는 치환을 찾는 것이 핵심 단계이다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>2, 4, 그리고 하나 더.</strong> 방정식 <span class="math inline">\(x^2 = 2^x\)</span>는 자명한 해 <span class="math inline">\(x = 2\)</span>와 <span class="math inline">\(x = 4\)</span>를 가진다(<a href="../ch03/pi-e-or-e-pi.html">3.5 절</a>와 비교해 보라). 이 방정식이 음의 해도 가지며, 그 해가 <span class="math display">\[x = -\frac{2}{\ln 2}\,\mathrm{g}\!\left(\frac{\ln 2}{2}\right) \approx -0.767\]</span> 임을 보여라.</p></li>
+<li><p><strong>도함수.</strong> <span class="math inline">\(\mathrm{g}(x)e^{\mathrm{g}(x)} = x\)</span>를 음함수 미분(implicit differentiation)하여, <span class="math inline">\(x \neq 0\)</span>일 때 <span class="math display">\[\mathrm{g}&#39;(x) = \frac{\mathrm{g}(x)}{x\bigl(1 + \mathrm{g}(x)\bigr)}\]</span> 임을 보여라. <span class="math inline">\(x = -\frac1e\)</span>에서는 어떤 일이 일어나는가?</p></li>
+<li><p><strong>적분.</strong> 치환 <span class="math inline">\(x = we^w\)</span>를 이용하여 <span class="math inline">\(\displaystyle\int_0^e \mathrm{g}(x)\,\mathrm{d}x = e - 1\)</span>임을 보여라.</p></li>
+<li><p><strong>탑.</strong> 탑 <span class="math inline">\(T = \sqrt2^{\sqrt2^{\sqrt2^{\cdots}}}\)</span>이 수렴한다고 가정하고, <span class="math inline">\(T = \sqrt2^{\,T}\)</span>임을 보인 다음, <span class="math inline">\(T = 2\)</span> 또는 <span class="math inline">\(T = 4\)</span>임을 이끌어 내어라. 어느 쪽일까? (수열 <span class="math inline">\(t_1 = \sqrt2\)</span>, <span class="math inline">\(t_{n+1} = \sqrt2^{\,t_n}\)</span>의 몇몇 항을 계산해 보고, <a href="../ch02/golden-limit.html">2.2 절</a>의 거미줄 그림(cobweb diagram)을 생각해 보라.)</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Robert Corless et al., “On the Lambert W function”</strong>, <em>Advances in Computational Mathematics</em> 5 (1996). 이 함수에 이름을 붙인 논문이다. 이 절을 공부했다면 앞부분은 읽을 수 있다.</p></li>
+<li><p><strong>Brian Hayes, “Why W?”</strong>, <em>American Scientist</em> 93 (2005). 이 함수의 역사와 쓰임새를 다룬 생동감 있는 에세이(“왜 W인가?”)이다. 온라인에서 무료로 볼 수 있다.</p></li>
+<li><p><strong>Brian Conrad, “Impossibility theorems for elementary integration”</strong>. 리우빌의 이론을 설명하는 강의 노트(초등 적분의 불가능성 정리)로, 온라인에서 볼 수 있다. 고급 수준이다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="addition-laws.html">← 3.8 덧셈 법칙으로 정해지는 함수</a><a class="next" href="wrap-up.html">→ 돌아보기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>산술–기하 평균 (STEP II 2024 Q8) — Beyond STEP</title>
+<meta name="description" content="STEP II 2024 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 두 양수, 예를 들어 sqrt2 와 1 을 생각하자. 이 두 수를 각각 두 수의 산술평균(arithmetic mean)과 기하평균(geometric mean)으로 바꾼다. 이 과정을 다시, 또다시 반복한다. 그러면 다음과 같은 일이 일어난다. n x_n (산술) y_n (기하)…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch02/agm.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch02/agm.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/agm.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/agm.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch02/agm.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch02/agm.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/agm.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="산술–기하 평균 (STEP II 2024 Q8) — Beyond STEP">
+<meta property="og:description" content="STEP II 2024 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 두 양수, 예를 들어 sqrt2 와 1 을 생각하자. 이 두 수를 각각 두 수의 산술평균(arithmetic mean)과 기하평균(geometric mean)으로 바꾼다. 이 과정을 다시, 또다시 반복한다. 그러면 다음과 같은 일이 일어난다. n x_n (산술) y_n (기하)…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch02/agm.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="산술–기하 평균 (STEP II 2024 Q8) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2024 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 두 양수, 예를 들어 sqrt2 와 1 을 생각하자. 이 두 수를 각각 두 수의 산술평균(arithmetic mean)과 기하평균(geometric mean)으로 바꾼다. 이 과정을 다시, 또다시 반복한다. 그러면 다음과 같은 일이 일어난다. n x_n (산술) y_n (기하)…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "산술–기하 평균", "headline": "산술–기하 평균", "description": "STEP II 2024 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 두 양수, 예를 들어 sqrt2 와 1 을 생각하자. 이 두 수를 각각 두 수의 산술평균(arithmetic mean)과 기하평균(geometric mean)으로 바꾼다. 이 과정을 다시, 또다시 반복한다. 그러면 다음과 같은 일이 일어난다. n x_n (산술) y_n (기하)…", "url": "https://beyondstep.keithmcnulty.org/ko/ch02/agm.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2024 문제 8", "수열, 급수, 수렴"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 2, "name": "수열, 급수, 수렴", "url": "https://beyondstep.keithmcnulty.org/ko/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제2장: 수열, 급수, 수렴", "item": "https://beyondstep.keithmcnulty.org/ko/ch02/"}, {"@type": "ListItem", "position": 3, "name": "산술–기하 평균", "item": "https://beyondstep.keithmcnulty.org/ko/ch02/agm.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch02/agm.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch02/agm.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch02/agm.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch02/agm.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제2장 · 수열, 급수, 수렴</a>
+    <div class="src">STEP II · 2024 · 문제 8</div>
+    <div class="sec-head"><span class="sec-num">2.6</span><h1>산술–기하 평균</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-6-agm.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제2장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 2024, 문제 8</strong></p>
+<p>다음으로 넘어가기 전에 문제를 먼저 읽어 보자. 이 문제는 OCR에서 내려받을 수 있는 2024년 STEP 문제지 모음(zip 파일)의 STEP II 문제지에 있다: <a href="https://www.ocr.org.uk/Images/725753-2024-past-papers.zip">www.ocr.org.uk/Images/725753-2024-past-papers.zip</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>두 양수, 예를 들어 <span class="math inline">\(\sqrt2\)</span>와 <span class="math inline">\(1\)</span>을 생각하자. 이 두 수를 각각 두 수의 산술평균(arithmetic mean)과 기하평균(geometric mean)으로 바꾼다. 이 과정을 다시, 또다시 반복한다. 그러면 다음과 같은 일이 일어난다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: left;"><span class="math inline">\(x_n\)</span> (산술)</th>
+<th style="text-align: left;"><span class="math inline">\(y_n\)</span> (기하)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: left;"><span class="math inline">\(1.4142135623730950488\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1.2071067811865475244\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.1892071150027210667\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><span class="math inline">\(1.1981569480946342956\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.1981235214931201226\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><span class="math inline">\(1.1981402347938772091\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.1981402346773072058\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><span class="math inline">\(1.1981402347355922074\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.1981402347355922074\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>네 단계 만에 두 수는 소수점 아래 스무 자리까지 일치한다. 이 공통의 극한을 <em>산술기하평균</em>(arithmetic–geometric mean) <span class="math inline">\(M(\sqrt2, 1) = 1.19814\ldots\)</span>이라고 한다.</p>
+<p>1799년 5월 30일, 스물한 살의 카를 프리드리히 가우스(Carl Friedrich Gauss)는 일기에 <span class="math inline">\(1/M(\sqrt2, 1)\)</span>이 전혀 다른 문제, 즉 렘니스케이트(lemniscate)라는 곡선의 호의 길이(arc length)에서 나타난 상수와 소수점 아래 열한 자리까지 일치한다는 것을 알아차렸다고 적었다. “이것은 분명 해석학의 완전히 새로운 분야를 열어 줄 것이다.”라고 그는 썼다. 실제로 그렇게 되었다. 이 문제는 가우스의 발견 뒤에 있는 핵심 사실, 즉 산술기하평균(AGM)이 통상적인 어떤 방법으로도 계산할 수 없는 적분의 값을 구해 준다는 사실을 증명한다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>서로 다른 두 양수의 산술평균이 기하평균보다 항상 큰 이유는 무엇인가? 한 줄로 증명할 수 있는가?</p>
+</div>
+<p>이것이 산술-기하 평균 부등식(AM–GM inequality)이며, 소문항 (i)의 힌트가 한 줄 증명을 알려 준다. <span class="math inline">\(x \neq y\)</span>일 때 <span class="math inline">\(\bigl(\sqrt{x} - \sqrt{y}\bigr)^2 &gt; 0\)</span>이고, 이를 전개하면 <span class="math inline">\(x + y &gt; 2\sqrt{xy}\)</span>가 된다. 소문항 (i)의 모든 내용은 이 사실과, 각 평균이 그것을 만든 두 수 사이에 놓인다는 사실로부터 따라 나온다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-두-수열이-서로-조여든다" class="stage"><span class="stage-n">단계 1</span> 두 수열이 서로 조여든다</h4>
+<p><span class="math inline">\(y_n &lt; x_n\)</span>이면 <span class="math inline">\(\sqrt{x_n} \neq \sqrt{y_n}\)</span>이므로 <span class="math inline">\(x_n - 2\sqrt{x_n y_n} + y_n &gt; 0\)</span>이고, 이는 <span class="math inline">\(x_{n+1} &gt; y_{n+1}\)</span>을 뜻한다. <span class="math inline">\(y_0 &lt; x_0\)</span>이므로 귀납법(induction)에 의해 모든 <span class="math inline">\(n\)</span>에 대하여 <span class="math inline">\(y_n &lt; x_n\)</span>이다.</p>
+<div class="askyourself">
+<p><span class="math inline">\(x_n\)</span>과 <span class="math inline">\(y_n\)</span>의 산술평균이 <span class="math inline">\(x_n\)</span>보다 작고, 기하평균이 <span class="math inline">\(y_n\)</span>보다 큰 이유는 무엇인가?</p>
+</div>
+<p><span class="math inline">\(y_n &lt; x_n\)</span>이기 때문이다. <span class="math inline">\(x_{n+1} = \frac{x_n + y_n}{2} &lt; \frac{x_n + x_n}{2} = x_n\)</span>이고 <span class="math inline">\(y_{n+1} = \sqrt{x_n y_n} &gt; \sqrt{y_n y_n} = y_n\)</span>이다. 따라서 <span class="math display">\[y_0 &lt; y_1 &lt; y_2 &lt; \cdots &lt; x_2 &lt; x_1 &lt; x_0.\]</span> <span class="math inline">\(y_n\)</span>은 증가하고 위로 <span class="math inline">\(x_0\)</span>에 의해 유계이므로, 정리에 의해 어떤 극한 <span class="math inline">\(M\)</span>으로 수렴한다.</p>
+<p>두 수의 차에 대해서는 <span class="math display">\[x_{n+1} - y_{n+1} &lt; x_{n+1} - y_n = \frac{x_n + y_n}{2} - y_n = \frac12(x_n - y_n),\]</span> 이고, 앞부분에 의해 이 차는 양수이다. 따라서 차는 매 단계마다 적어도 절반으로 줄어든다. 즉 <span class="math inline">\(0 &lt; x_n - y_n &lt; (x_0 - y_0)/2^n\)</span>이며, 이는 <span class="math inline">\(0\)</span>으로 수렴한다.</p>
+<p>마지막으로 <span class="math inline">\(x_n = y_n + (x_n - y_n)\)</span>은 <span class="math inline">\(M\)</span>으로 수렴하는 수열과 <span class="math inline">\(0\)</span>으로 수렴하는 수열의 합이므로 <span class="math inline">\(x_n \to M\)</span>도 성립한다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-치환" class="stage"><span class="stage-n">단계 2</span> 치환</h4>
+<p>이 치환(substitution)은 뜬금없어 보이지만, 제곱근 안의 두 괄호가 모두 완전제곱식(또는 그에 가까운 꼴)이 되도록 설계된 것이다.</p>
+<div class="askyourself">
+<p><span class="math inline">\(t = \frac12\left(x - \frac{pq}{x}\right)\)</span>일 때 <span class="math inline">\(t^2 + pq\)</span>를 계산하라. 그다음 <span class="math inline">\(t^2 + \frac14(p + q)^2\)</span>을 계산하라. 둘 중 어느 것이 깔끔하게 인수분해되는가?</p>
+</div>
+<p>먼저 <span class="math display">\[t^2 + pq = \frac14\left(x^2 - 2pq + \frac{p^2q^2}{x^2}\right) + pq = \frac14\left(x + \frac{pq}{x}\right)^2.\]</span> 다음으로 <span class="math display">\[\begin{aligned}
+  t^2 + \tfrac14(p + q)^2 &amp;= \frac14\left(x^2 - 2pq + \frac{p^2q^2}{x^2} + p^2 + 2pq + q^2\right) \\
+  &amp;= \frac{x^4 + (p^2 + q^2)x^2 + p^2q^2}{4x^2} = \frac{(x^2 + p^2)(x^2 + q^2)}{4x^2}.
+\end{aligned}\]</span> 또한 <span class="math inline">\(\dfrac{\mathrm{d}t}{\mathrm{d}x} = \dfrac12\left(1 + \dfrac{pq}{x^2}\right) = \dfrac{x^2 + pq}{2x^2}\)</span>이다.</p>
+<div class="pausebox">
+<p>이것들을 종합하라. <span class="math inline">\(x\)</span>가 <span class="math inline">\(0\)</span>부터 <span class="math inline">\(\infty\)</span>까지 움직일 때 <span class="math inline">\(t\)</span>는 어떻게 되는가? <span class="math inline">\(t\)</span>에 대한 적분은 무엇이 되는가?</p>
+</div>
+<p><span class="math inline">\(x\)</span>가 <span class="math inline">\(0\)</span>부터 <span class="math inline">\(\infty\)</span>까지 증가할 때, <span class="math inline">\(t\)</span>는 (도함수가 양수이므로) <span class="math inline">\(-\infty\)</span>부터 <span class="math inline">\(\infty\)</span>까지 증가한다. <span class="math inline">\(x &gt; 0\)</span>에 대하여 <span class="math display">\[\sqrt{\bigl(t^2 + \tfrac14(p+q)^2\bigr)\bigl(t^2 + pq\bigr)} = \frac{\sqrt{(x^2+p^2)(x^2+q^2)}}{2x} \cdot \frac{x^2 + pq}{2x},\]</span> 이므로 <span class="math display">\[\frac{\mathrm{d}t}{\sqrt{\cdots}} = \frac{x^2 + pq}{2x^2} \cdot \frac{4x^2}{(x^2 + pq)\sqrt{(x^2+p^2)(x^2+q^2)}}\,\mathrm{d}x = \frac{2\,\mathrm{d}x}{\sqrt{(x^2+p^2)(x^2+q^2)}}.\]</span> 따라서 <span class="math inline">\(t\)</span>에 대한 적분은 <span class="math inline">\(2\,\mathrm{I}(p, q)\)</span>와 같다.</p>
+<p>한편 <span class="math inline">\(t\)</span>에 대한 적분은 <span class="math inline">\(\mathrm{I}\)</span>에서 <span class="math inline">\(p\)</span>와 <span class="math inline">\(q\)</span>를 각각 <span class="math inline">\(\frac12(p+q) = \mathrm{a}(p, q)\)</span>와 <span class="math inline">\(\sqrt{pq} = \mathrm{g}(p, q)\)</span>로 바꾼 것과 정확히 같은 꼴인데, 다만 실수 전체에 걸쳐 적분한다는 점만 다르다. 피적분함수(integrand)는 <span class="math inline">\(t\)</span>에 대한 우함수(even function)이므로, <span class="math inline">\(t\)</span>에 대한 적분은 <span class="math inline">\(2\,\mathrm{I}\bigl(\mathrm{a}(p,q), \mathrm{g}(p,q)\bigr)\)</span>이다. 두 결과를 비교하면 <span class="math display">\[\mathrm{I}(p, q) = \mathrm{I}\bigl(\mathrm{a}(p, q), \mathrm{g}(p, q)\bigr). \qed\]</span></p>
+<h4 id="stagemark3-적분의-값-구하기" class="stage"><span class="stage-n">단계 3</span> 적분의 값 구하기</h4>
+<div class="askyourself">
+<p><span class="math inline">\((x_0, y_0)\)</span>에서 시작하여 이 항등식을 반복해서 적용하라. <span class="math inline">\(n\)</span>단계 후 <span class="math inline">\(\mathrm{I}(x_0, y_0)\)</span>는 무엇과 같은가? <span class="math inline">\(n \to \infty\)</span>일 때 어떻게 되는가?</p>
+</div>
+<p>모든 <span class="math inline">\(n\)</span>에 대하여 <span class="math inline">\(\mathrm{I}(x_0, y_0) = \mathrm{I}(x_1, y_1) = \mathrm{I}(x_2, y_2) = \cdots = \mathrm{I}(x_n, y_n)\)</span>이다. <span class="math inline">\(n \to \infty\)</span>일 때 두 인수는 모두 <span class="math inline">\(M\)</span>으로 수렴하고, <span class="math display">\[\mathrm{I}(M, M) = \int_0^\infty \frac{\mathrm{d}x}{M^2 + x^2} = \left[\frac1M \arctan\frac{x}{M}\right]_0^\infty = \frac{\pi}{2M}.\]</span> 따라서 <span class="math display">\[\mathrm{I}(x_0, y_0) = \frac{\pi}{2M}. \qed\]</span></p>
+<p>문제에서는 “<span class="math inline">\(\mathrm{I}(x_n, y_n) \to \mathrm{I}(M, M)\)</span>”이라는 단계를 그대로 받아들이도록 허용하지만, 이것은 깔끔하게 정당화할 수 있다. <span class="math inline">\(p\)</span>나 <span class="math inline">\(q\)</span>를 크게 하면 피적분함수가 작아지고, <span class="math inline">\(y_n &lt; x_n\)</span>이므로 <span class="math display">\[\frac{\pi}{2x_n} = \mathrm{I}(x_n, x_n) &lt; \mathrm{I}(x_n, y_n) &lt; \mathrm{I}(y_n, y_n) = \frac{\pi}{2y_n}.\]</span> 양쪽 경계가 모두 <span class="math inline">\(\frac{\pi}{2M}\)</span>으로 수렴하고, <span class="math inline">\(\mathrm{I}(x_n, y_n)\)</span>은 모든 <span class="math inline">\(n\)</span>에 대하여 같은 수 <span class="math inline">\(\mathrm{I}(x_0, y_0)\)</span>이므로, 이 값은 <span class="math inline">\(\frac{\pi}{2M}\)</span>이어야 한다. <a href="../ch02/basel.html">2.4 절</a>에서처럼 여기서도 조임 정리(squeeze theorem)가 쓰인 것이다.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-2-6-1.svg" alt="그림 2.6.1"><figcaption><span class="fig-label">그림 2.6.1</span> <span class="math inline">\(x_0 = 1\)</span>과 <span class="math inline">\(y_0 = 0.1\)</span>의 산술기하평균. 산술평균 <span class="math inline">\(x_n\)</span>(청록색)은 감소하고 기하평균 <span class="math inline">\(y_n\)</span>(자주색)은 증가하며, 두 수열은 공통의 극한 <span class="math inline">\(M = 0.425040709\ldots\)</span>에 놀라울 만큼 빠르게 다가간다. 일단 두 값이 가까워지면, 정확한 자릿수가 매 단계마다 대략 두 배가 된다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>서로 조여드는 두 단조수열.</strong> 하나는 증가하고 하나는 감소하며, 그 차가 0으로 줄어든다. 이것은 두 수열이 공통의 극한을 가짐을 증명하는 가장 깔끔한 방법이다.</p></li>
+<li><p><strong>불변량.</strong> <span class="math inline">\(\mathrm{I}(x_n, y_n)\)</span>이라는 양은 단계가 바뀌어도 결코 변하지 않는다. 다른 모든 것이 움직이는 동안 고정된 채로 남는 것을 찾는 것은 수학에서 가장 강력한 아이디어 가운데 하나이다.</p></li>
+<li><p><strong>영리한 치환은 추측이 아니라 설계의 결과이다.</strong> 이 치환은 제곱근 안의 식이 인수분해되도록 선택된 것이다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">문제가 말해 주는 것보다 더 빠르다</div>
+<p>소문항 (i)은 차가 매 단계마다 적어도 절반으로 줄어든다는 것을 보여 주는데, 이는 단계마다 이진 자릿수가 대략 하나씩 늘어난다는 뜻이다. 그런데 도입의 표는 훨씬 더 극적인 것을 보여 준다. 정확한 자릿수가 매 단계마다 대략 <em>두 배</em>가 된다(<span class="math inline">\(2, 4, 10, 21, 43, \ldots\)</span>). 실제로 <span class="math display">\[x_{n+1} - y_{n+1} = \frac12\bigl(\sqrt{x_n} - \sqrt{y_n}\bigr)^2 = \frac{(x_n - y_n)^2}{2\bigl(\sqrt{x_n} + \sqrt{y_n}\bigr)^2},\]</span> 이므로 각 차는 대략 이전 차의 <em>제곱</em>에 상수를 곱한 것이다. 이를 <em>이차 수렴</em>(quadratic convergence)이라 하며, <a href="../ch02/newton-speed.html">2.7 절</a>에서 제대로 공부할 것이다.</p>
+</div>
+<h3 id="타원적분">타원적분</h3>
+<p>우리의 적분 <span class="math inline">\(\mathrm{I}(p, q)\)</span>는 모습을 바꾼 <em>완전 타원적분</em>(complete elliptic integral)이다. 이것은 타원의 호의 길이를 계산할 때 나타나는 적분으로, 여러분이 아는 함수들로는 나타낼 수 없다. 가장 유명한 응용은 진자(pendulum)이다. 주기에 대한 A 레벨(A level, 영국의 대학 입시 과정) 공식 <span class="math inline">\(T = 2\pi\sqrt{L/g}\)</span>는 작은 진폭에 대해서만 성립하는 근삿값이다. 각 <span class="math inline">\(\theta_0\)</span>에서 놓은 진자의 정확한 주기는 <span class="math display">\[T = \frac{2\pi\sqrt{L/g}}{M\bigl(1, \cos\frac{\theta_0}{2}\bigr)},\]</span> 로, 산술기하평균으로 값을 구하는 타원적분이다. <span class="math inline">\(\theta_0 = 90^\circ\)</span>일 때 실제 주기는 단순한 공식이 예측하는 것보다 약 <span class="math inline">\(18\%\)</span> 더 길다. 가우스의 일기 내용은 8자 모양의 곡선인 렘니스케이트에 관한 것이었는데, 그 전체 호의 길이에는 <span class="math inline">\(\int_0^1 \frac{\mathrm{d}t}{\sqrt{1-t^4}}\)</span>가 들어 있다. 이 적분은 모습만 바꾼 <span class="math inline">\(\mathrm{I}(\sqrt2, 1)\)</span>과 같으므로, 산술기하평균으로 그 값을 구할 수 있다.</p>
+<h3 id="pi-계산하기"><span class="math inline">\(\pi\)</span> 계산하기</h3>
+<p>1976년에 Richard Brent와 Eugene Salamin은 각자 독립적으로 가우스의 아이디어를 매 단계마다 정확한 자릿수를 두 배로 늘리는 <span class="math inline">\(\pi\)</span> 계산 알고리즘으로 바꾸어 놓았다. 스물다섯 단계면 수천만 자리를 얻는다. 이런 종류의 알고리즘은 1980년대와 1990년대에 <span class="math inline">\(\pi\)</span> 계산의 기록을 경신하는 데 쓰였으며, 이와 같은 이차 수렴 알고리즘은 오늘날 높은 정밀도가 필요한 곳이면 어디서나 표준으로 쓰인다. 단계마다 약 <span class="math inline">\(0.6\)</span>자리씩 늘어나는 <a href="../ch02/viete.html">2.5 절</a>의 비에트(Viète)의 곱과 비교해 보라.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">불변량을 찾아라</div>
+<p><em>어떤 과정이 여러 가지를 한꺼번에 바꿀 때는, 변하지 않는 양을 찾아라. 그리고 모든 것이 단순해지는 과정의 끝에서 그 값을 구하라.</em></p>
+<p>여기서 과정은 산술기하평균 단계였고, 불변량(invariant)은 적분 <span class="math inline">\(\mathrm{I}\)</span>였다. 과정의 끝에서 두 인수는 같아졌고 적분은 초등적으로 계산할 수 있었다. 불변량은 역학의 에너지 보존(10장)에서부터 어떤 퍼즐이 불가능하다는 증명에 이르기까지 수학 곳곳에 나타난다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>이차 수렴.</strong> 항등식 <span class="math inline">\(x_{n+1} - y_{n+1} = \dfrac{(x_n - y_n)^2}{2(\sqrt{x_n} + \sqrt{y_n})^2}\)</span>을 증명하고, 이로부터 <span class="math inline">\(x_{n+1} - y_{n+1} \leq \dfrac{(x_n - y_n)^2}{8 y_0}\)</span>임을 보여라.</p></li>
+<li><p><strong>손으로 계산하기.</strong> 계산기를 사용하여 <span class="math inline">\(M(2, 1)\)</span>을 소수점 아래 여섯 자리까지 구하라. 몇 단계가 필요했는가?</p></li>
+<li><p><strong>스케일링.</strong> <span class="math inline">\(\lambda &gt; 0\)</span>에 대하여 <span class="math inline">\(M(\lambda x, \lambda y) = \lambda M(x, y)\)</span>이고 <span class="math inline">\(\mathrm{I}(\lambda p, \lambda q) = \lambda^{-1}\mathrm{I}(p, q)\)</span>임을 보여라. 이 두 사실이 <span class="math inline">\(\mathrm{I}(x_0, y_0) = \pi/(2M)\)</span>과 모순되지 않음을 확인하라.</p></li>
+<li><p><strong>진자.</strong> 위의 공식을 이용하여, <span class="math inline">\(60^\circ\)</span>에서 놓은 진자의 주기가 작은 각 근사의 예측보다 얼마나 더 긴지 유효숫자 세 자리까지 구하라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>David Cox, “The arithmetic–geometric mean of Gauss”</strong>, <em>L’Enseignement Mathématique</em> 30 (1984). 역사와 수학을 다룬 고전적인 해설로, 앞부분은 미적분만 알면 읽을 수 있다.</p></li>
+<li><p><strong>Jonathan Borwein &amp; Peter Borwein, <a href="https://uk.bookshop.org/search?keywords=Pi+and+the+AGM+Borwein+Borwein"><em>Pi and the AGM</em></a></strong> (Wiley). 산술기하평균과 <span class="math inline">\(\pi\)</span>의 고속 계산에 관한 결정판이라 할 만한 책이다.</p></li>
+<li><p><strong>Jonathan Borwein &amp; Keith Devlin, <a href="https://uk.bookshop.org/search?keywords=The+Computer+as+Crucible+Borwein+Devlin"><em>The Computer as Crucible</em></a></strong> (A. K. Peters). 실험 수학을 다룬 책으로, 가우스의 발견처럼 수치적 우연의 일치를 포착하여 이루어진 발견들을 담고 있다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="viete.html">← 2.5 비에트의 곱</a><a class="next" href="newton-speed.html">→ 2.7 여섯 자리인가, 육백 자리인가</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>誰も自分のシャツを受け取らない (STEP II 2016 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP II 2016 問題 12：解説付き解答とその背後にある大学数学。 11人のサッカーチームが大急ぎで着替え、ユニフォームを無作為につかみ取ったとする。誰ひとり自分のユニフォームを着ていない確率はいくらか。では、それが50人の選手団だったら、あるいは100万人の群衆だったらどうか。間違える人が増えるのだから確率は上がるのだろうか。それとも、偶然正しいものを取る人も増えるのだから下がるのだろ…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch09/derangements.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch09/derangements.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/derangements.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/derangements.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/derangements.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch09/derangements.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/derangements.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="誰も自分のシャツを受け取らない (STEP II 2016 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP II 2016 問題 12：解説付き解答とその背後にある大学数学。 11人のサッカーチームが大急ぎで着替え、ユニフォームを無作為につかみ取ったとする。誰ひとり自分のユニフォームを着ていない確率はいくらか。では、それが50人の選手団だったら、あるいは100万人の群衆だったらどうか。間違える人が増えるのだから確率は上がるのだろうか。それとも、偶然正しいものを取る人も増えるのだから下がるのだろ…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch09/derangements.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="誰も自分のシャツを受け取らない (STEP II 2016 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2016 問題 12：解説付き解答とその背後にある大学数学。 11人のサッカーチームが大急ぎで着替え、ユニフォームを無作為につかみ取ったとする。誰ひとり自分のユニフォームを着ていない確率はいくらか。では、それが50人の選手団だったら、あるいは100万人の群衆だったらどうか。間違える人が増えるのだから確率は上がるのだろうか。それとも、偶然正しいものを取る人も増えるのだから下がるのだろ…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "誰も自分のシャツを受け取らない", "headline": "誰も自分のシャツを受け取らない", "description": "STEP II 2016 問題 12：解説付き解答とその背後にある大学数学。 11人のサッカーチームが大急ぎで着替え、ユニフォームを無作為につかみ取ったとする。誰ひとり自分のユニフォームを着ていない確率はいくらか。では、それが50人の選手団だったら、あるいは100万人の群衆だったらどうか。間違える人が増えるのだから確率は上がるのだろうか。それとも、偶然正しいものを取る人も増えるのだから下がるのだろ…", "url": "https://beyondstep.keithmcnulty.org/ja/ch09/derangements.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2016 問題 12", "数え上げと確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "数え上げと確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第9章：数え上げと確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch09/"}, {"@type": "ListItem", "position": 3, "name": "誰も自分のシャツを受け取らない", "item": "https://beyondstep.keithmcnulty.org/ja/ch09/derangements.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch09/derangements.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch09/derangements.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch09/derangements.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch09/derangements.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第9章 · 数え上げと確率</a>
+    <div class="src">STEP II · 2016 · 問題 12</div>
+    <div class="sec-head"><span class="sec-num">9.8</span><h1>誰も自分のシャツを受け取らない</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-8-derangements.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第9章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 2016、第12問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/16-s2-q12">step.maths.org/questions/16-s2-q12</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>11人のサッカーチームが大急ぎで着替え、ユニフォームを無作為につかみ取ったとする。誰ひとり自分のユニフォームを着ていない確率はいくらか。では、それが50人の選手団だったら、あるいは100万人の群衆だったらどうか。間違える人が増えるのだから確率は上がるのだろうか。それとも、偶然正しいものを取る人も増えるのだから下がるのだろうか。驚くべきことに、確率はほとんど変わらない。5人以上であれば、その確率は <span class="math inline">\(1/e \approx 0.368\)</span> との差が0.5パーセント以内に収まるのである。</p>
+<p>これは組合せ確率論（combinatorial probability）における最古の問題であり、1708年にピエール・ド・モンモール（Pierre de Montmort）が <em>problème des rencontres</em>（一致の問題）として提起したものである。本問はこれを<em>包除原理</em>（inclusion–exclusion principle）、すなわち重なり合うものを数えるための道具を用いて解く。そしてその答えは、数学において <span class="math inline">\(e\)</span> が現れる最も意外な場面のひとつなのである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="pausebox">
+<p><span class="math inline">\(n = 3\)</span> の場合を試してみよ。カード <span class="math inline">\(1, 2, 3\)</span> の並べ方6通りをすべて書き出し、どのカードも自分の位置にないものがいくつあるか数えよ。根気があれば、<span class="math inline">\(n = 4\)</span> の場合も試してみよ（並べ方は <span class="math inline">\(24\)</span> 通りある）。</p>
+</div>
+<p><span class="math inline">\(n = 3\)</span> のとき、どのカードも自分の位置にないのは <span class="math inline">\(231\)</span> と <span class="math inline">\(312\)</span> だけであるから、確率は <span class="math inline">\(\frac26 = \frac13\)</span> である。<span class="math inline">\(n = 4\)</span> のときは <span class="math inline">\(24\)</span> 通りのうち <span class="math inline">\(9\)</span> 通りがそのような並べ方であり、確率は <span class="math inline">\(\frac38 = 0.375\)</span> となる。どのカードも元の位置にない並べ方を<em>完全順列</em>（derangement）という。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-3つの事象に対する包除原理" class="stage"><span class="stage-n">段階 1</span> 3つの事象に対する包除原理</h4>
+<div class="askyourself">
+<p>2つの事象に対する公式が使えるように、<span class="math inline">\(A \cup B \cup C\)</span> を2つの事象の和として表すにはどうすればよいか。</p>
+</div>
+<p><span class="math inline">\(A \cup B\)</span> をひとつの事象とみなし、それと <span class="math inline">\(C\)</span> に公式を適用すると <span class="math display">\[\mathrm{P}(A \cup B \cup C) = \mathrm{P}(A \cup B) + \mathrm{P}(C) - \mathrm{P}\bigl((A \cup B) \cap C\bigr).\]</span> ここで <span class="math inline">\((A \cup B) \cap C = (A \cap C) \cup (B \cap C)\)</span> であり、公式をもう一度適用すると <span class="math inline">\(\mathrm{P}\bigl((A \cap C) \cup (B \cap C)\bigr) = \mathrm{P}(A \cap C) + \mathrm{P}(B \cap C) - \mathrm{P}(A \cap B \cap C)\)</span> となる。<span class="math inline">\(\mathrm{P}(A \cup B)\)</span> も展開して項を整理すれば、結果が得られる。<span class="qed" aria-label="end of proof">■</span></p>
+<p>4つの事象についても同じパターンが続く。4つの単独の確率を足し、6つの2つずつの共通部分を引き、4つの3つずつの共通部分を足し、最後に <span class="math inline">\(\mathrm{P}(A \cap B \cap C \cap D)\)</span> を引けばよい。</p>
+<h4 id="stagemark2-各確率" class="stage"><span class="stage-n">段階 2</span> 各確率</h4>
+<div class="askyourself">
+<p>カード <span class="math inline">\(i\)</span> が位置 <span class="math inline">\(i\)</span> にあるとき、残りのカードの並べ方は何通りあるか。カード <span class="math inline">\(i\)</span> と <span class="math inline">\(j\)</span> がともに固定されているときはどうか。</p>
+</div>
+<p>並べ方は全部で <span class="math inline">\(n!\)</span> 通りあり、どれも同様に確からしい。カード <span class="math inline">\(i\)</span> が位置 <span class="math inline">\(i\)</span> に固定されているとき、他の <span class="math inline">\(n - 1\)</span> 枚のカードはどのような順でもよいから、<span class="math inline">\((n - 1)!\)</span> 通りである。したがって <span class="math display">\[\begin{gathered}
+  \mathrm{P}(E_i) = \frac{(n - 1)!}{n!} = \frac{1}{n}, \qquad \mathrm{P}(E_i \cap E_j) = \frac{(n - 2)!}{n!} = \frac{1}{n(n - 1)}, \\
+  \mathrm{P}(E_i \cap E_j \cap E_k) = \frac{(n - 3)!}{n!} = \frac{1}{n(n - 1)(n - 2)}.
+\end{gathered}\]</span> 一般に、指定された <span class="math inline">\(k\)</span> 枚のカードがすべて自分の位置にある確率は <span class="math inline">\(\frac{(n - k)!}{n!}\)</span> である。</p>
+<h4 id="stagemark3-足し合わせる" class="stage"><span class="stage-n">段階 3</span> 足し合わせる</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{P}(E_1 \cup \cdots \cup E_n)\)</span> に対する包除原理の式において、<span class="math inline">\(k\)</span> 個の事象の共通部分を含む項はいくつあり、その合計はいくらか。</p>
+</div>
+<p><span class="math inline">\(k\)</span> 個の事象の選び方は <span class="math inline">\(\binom{n}{k}\)</span> 通りあり、それぞれの共通部分の確率は <span class="math inline">\(\frac{(n - k)!}{n!}\)</span> である。よって <span class="math inline">\(k\)</span> 重の項の合計は <span class="math display">\[\binom{n}{k}\frac{(n - k)!}{n!} = \frac{n!}{k!\,(n - k)!}\cdot\frac{(n - k)!}{n!} = \frac{1}{k!}.\]</span> <span class="math inline">\(k!\)</span> 以外はすべて約分される。符号を交互につけると <span class="math display">\[\mathrm{P}(\text{少なくとも1枚のカードが自分の位置にある}) = 1 - \frac{1}{2!} + \frac{1}{3!} - \cdots + (-1)^{n+1}\frac{1}{n!}. \qed\]</span> したがって、完全順列となる確率は <span class="math display">\[d_n = 1 - 1 + \frac{1}{2!} - \frac{1}{3!} + \cdots + (-1)^n\frac{1}{n!} = \sum_{k=0}^{n}\frac{(-1)^k}{k!}.\]</span></p>
+<h4 id="stagemark4-ちょうど1枚" class="stage"><span class="stage-n">段階 4</span> ちょうど1枚</h4>
+<div class="askyourself">
+<p>ちょうど1枚のカードが自分の位置にあるとき、それはどのカードであり、他のカードはどうなっていなければならないか。</p>
+</div>
+<p>自分の位置にあるカードを選ぶ（<span class="math inline">\(n\)</span> 通り）。カード <span class="math inline">\(i\)</span> が自分の位置にある確率は <span class="math inline">\(\frac1n\)</span> であり、そのもとで残りの <span class="math inline">\(n - 1\)</span> 枚のカードはそれらの間で完全順列をなさなければならず、その確率は <span class="math inline">\(d_{n-1}\)</span> である。したがって <span class="math display">\[\mathrm{P}(\text{ちょうど1枚}) = n \cdot \frac{1}{n} \cdot d_{n-1} = \sum_{k=0}^{n-1}\frac{(-1)^k}{k!}. \qed\]</span></p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>数えすぎてから修正する。</strong> <span class="math inline">\(\mathrm{P}(E_i)\)</span> を足し合わせると、2枚のカードが固定された並べ方は2回数えられる。2つずつの組を引けばこれは修正されるが、3つずつの組については引きすぎになる。以下同様である。</p></li>
+<li><p><strong>対称性により項が等しくなる。</strong> <span class="math inline">\(k\)</span> 重の共通部分はどれも同じ確率をもつので、公式の各層はひとつの数と二項係数（binomial coefficient）の積になる。</p></li>
+<li><p><strong>より小さな場合に帰着させる。</strong> 「ちょうど1枚」は <span class="math inline">\(n - 1\)</span> 枚のカードの完全順列の問題になった。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="e-はどこから来るのか"><span class="math inline">\(e\)</span> はどこから来るのか</h3>
+<p>級数 <span class="math inline">\(\sum (-1)^k/k!\)</span> は、指数級数（exponential series）<span class="math inline">\(e^x = \sum x^k/k!\)</span> に <span class="math inline">\(x = -1\)</span> を代入したものである。したがって <span class="math inline">\(n \to \infty\)</span> のとき <span class="math display">\[d_n \to e^{-1} \approx 0.3679,\]</span> となり、ちょうど1枚が一致する確率も同じ極限に近づく。この収束は驚くほど速い（図 9.8.1）。<span class="math inline">\(1/n!\)</span> の項で打ち切ったときの誤差は <span class="math inline">\(1/(n + 1)!\)</span> より小さいので、<span class="math inline">\(n = 7\)</span> の時点ですでに答えは小数第4位まで <span class="math inline">\(1/e\)</span> と一致する。実際、<span class="math inline">\(n\)</span> 個の対象の完全順列の個数 <span class="math inline">\(n!\,d_n\)</span> は、<span class="math inline">\(n!/e\)</span> に最も近い整数にちょうど等しい。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-8-1.svg" alt="図 9.8.1"><figcaption><span class="fig-label">図 9.8.1</span> <span class="math inline">\(n\)</span> 枚のカードを無作為に並べ替えたとき、どのカードも自分の位置にない確率。値は <span class="math inline">\(1/e\)</span> の上下を交互に行き来し、<span class="math inline">\(n = 6\)</span> 以降はこの縮尺では <span class="math inline">\(1/e\)</span> と区別がつかない。</figcaption></figure>
+<h3 id="一致の個数はポアソン分布に従う">一致の個数はポアソン分布に従う</h3>
+<p>さらに多くのことが成り立つ。自分の位置にあるカードの枚数を <span class="math inline">\(N\)</span> とする。このとき各 <span class="math inline">\(k\)</span> について <span class="math inline">\(\mathrm{P}(N = k) \to \frac{e^{-1}}{k!}\)</span> となる。すなわち、一致の個数は極限において平均 <span class="math inline">\(1\)</span> の<em>ポアソン分布</em>（Poisson distribution）に従う。平均が <span class="math inline">\(1\)</span> である理由は計算なしでもわかる。<span class="math inline">\(N\)</span> は <span class="math inline">\(E_1, \ldots, E_n\)</span> の指示変数（indicator variable）の和であり、それぞれの期待値（expectation）は <span class="math inline">\(\frac1n\)</span> である。そして事象が独立（independent）でなくても期待値は加法的である。STEP III 2004 Q12（演習問題を参照）では、分散（variance）も <span class="math inline">\(1\)</span> であることを示す。ポアソン分布は、起こりにくい事象がほぼ独立に多数あるときに必ず現れる。完全順列はその古典的な例であり、第 12 章の <a href="../ch12/stamps-and-e.html">第 12.11 節</a> の主題でもある。</p>
+<div class="historybox">
+<div class="box-title">モンモールの <em>treize</em> ゲーム</div>
+<p>フランスの貴族ピエール・レモン・ド・モンモール（Pierre Rémond de Montmort）は、著書 <em>Essay d’analyse sur les jeux de hazard</em>（『偶然のゲームに関する解析の試論』、1708年）で賭けごとを研究した。<em>treize</em>（13）というゲームでは、プレイヤーが「1、2、3、…」と数を唱えながら13枚のカードを配り、配ったカードが唱えた数と一度でも一致すれば勝ちとなる。モンモールは勝つ確率を求め、ニコラウス・ベルヌーイ（Nicolaus Bernoulli）との書簡のやりとりを通じて、1713年までに一般的な公式が確立された。オイラー（Euler）は1753年にこれを再発見した。包除原理はその後、ド・モアブル（Abraham de Moivre）によって、また一般的な形では19世紀にシルベスター（James Joseph Sylvester）によって定式化された。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">包除原理</div>
+<p><em>重なり合う集合の和集合の要素を数えるには、各集合の大きさを足し、2つずつの重なりを引き、3つずつの重なりを足し、以下同様に続ければよい。</em></p>
+<p>本問のように、対称性によって同じ大きさの重なりがすべて等しくなるとき、最も威力を発揮する。大学では、組合せ論（combinatorics）、確率論、そして整数論（number theory）で現れる。整数論では、与えられた素数のどれでも割り切れない整数を数えるのに使われ、オイラーのトーシェント関数（Euler’s totient function）やメビウス関数（Möbius function）につながる。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>ユニフォーム。</strong> <a href="https://step.maths.org/questions/04-s3-q12">STEP III 2004、第12問</a> に挑戦せよ。この問題では、自分のユニフォームを着ている選手の人数を指示変数を用いて数え、平均と分散を求め、その結果をポアソン分布と比較する。</p></li>
+<li><p><strong>漸化式。</strong> <span class="math inline">\(n\)</span> 個の対象の完全順列の個数を <span class="math inline">\(D_n\)</span> とする。カード <span class="math inline">\(1\)</span> がどこへ行くか、そしてその位置にあったカードが位置 <span class="math inline">\(1\)</span> へ行くかどうかを考えることにより、漸化式（recurrence）<span class="math inline">\(D_n = (n - 1)(D_{n-1} + D_{n-2})\)</span> を示せ。<span class="math inline">\(D_3 = 2\)</span>、<span class="math inline">\(D_4 = 9\)</span> と照らし合わせて確かめよ。</p></li>
+<li><p><strong>ちょうど <span class="math inline">\(k\)</span> 枚。</strong> ちょうど <span class="math inline">\(k\)</span> 枚のカードが自分の位置にある確率は <span class="math inline">\(\frac{1}{k!}d_{n-k}\)</span> であり、それが <span class="math inline">\(\frac{e^{-1}}{k!}\)</span> に近づくことを示せ。</p></li>
+<li><p><strong>互いに素な整数。</strong> 包除原理を用いて、<span class="math inline">\(1\)</span> から <span class="math inline">\(30\)</span> までの整数のうち <span class="math inline">\(2\)</span>、<span class="math inline">\(3\)</span>、<span class="math inline">\(5\)</span> のいずれでも割り切れないものの個数を求めよ。その答えは <span class="math inline">\(30\bigl(1 - \frac12\bigr)\bigl(1 - \frac13\bigr)\bigl(1 - \frac15\bigr)\)</span> とどのような関係にあるか。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <a href="https://uk.bookshop.org/search?keywords=Probability%3A+An+Introduction+Grimmett+Welsh"><em>Probability: An Introduction</em></a></strong>（Oxford University Press）。包除原理と一致の問題を扱う大学1年生向けの教科書。</p></li>
+<li><p><strong>William Feller, <a href="https://uk.bookshop.org/search?keywords=An+Introduction+to+Probability+Theory+and+Its+Applications+Feller"><em>An Introduction to Probability Theory and Its Applications</em></a>, Vol. 1</strong>（Wiley）、第IV章。一致の問題のさまざまな変形を収めた古典。</p></li>
+<li><p><strong>Miklós Bóna, <a href="https://uk.bookshop.org/search?keywords=A+Walk+Through+Combinatorics+Bona"><em>A Walk Through Combinatorics</em></a></strong>（World Scientific）。包除原理について。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="equal-power-sums.html">← 9.7 等しい累乗和</a><a class="next" href="birthday.html">→ 9.9 誕生日問題</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

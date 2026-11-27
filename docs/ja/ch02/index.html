@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第2章：数列・級数・収束 — Beyond STEP</title>
+<meta name="description" content="極限とは本当は何であるかを論じ、次に有名な無限級数と無限乗積を扱い、さらに収束の速さを考察する。">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch02/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch02/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch02/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch02/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第2章：数列・級数・収束 — Beyond STEP">
+<meta property="og:description" content="極限とは本当は何であるかを論じ、次に有名な無限級数と無限乗積を扱い、さらに収束の速さを考察する。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch02/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第2章：数列・級数・収束 — Beyond STEP">
+<meta name="twitter:description" content="極限とは本当は何であるかを論じ、次に有名な無限級数と無限乗積を扱い、さらに収束の速さを考察する。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 2, "name": "数列・級数・収束", "url": "https://beyondstep.keithmcnulty.org/ja/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "極限とは本当は何であるかを論じ、次に有名な無限級数と無限乗積を扱い、さらに収束の速さを考察する。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第2章：数列・級数・収束", "item": "https://beyondstep.keithmcnulty.org/ja/ch02/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch02/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch02/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch02/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch02/index.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">2</div>
+    <h1>数列・級数・収束</h1>
+    <p class="strap">無限こそ数学が面白くなる場所であり、そして最も誤りやすい場所でもある。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">章全体をダウンロード</span><span class="dl-sub">PDF（印刷用組版）</span></span></a>
+  </div>
+  <h2 class="contents-head">この章の内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="eventually.html"><span class="toc-num">2.1</span>
+<span class="toc-title">「いずれは」とは何を意味するか</span>
+<span class="toc-src">STEP III 2015</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-1-eventually.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="golden-limit.html"><span class="toc-num">2.2</span>
+<span class="toc-title">極限としての黄金比</span>
+<span class="toc-src">STEP II 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-2-golden-limit.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="kempner.html"><span class="toc-num">2.3</span>
+<span class="toc-title">発散する級数と、収束するその親戚</span>
+<span class="toc-src">STEP III 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-3-kempner.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="basel.html"><span class="toc-num">2.4</span>
+<span class="toc-title">\(\pi^2/6\)</span>
+<span class="toc-src">STEP III 2018</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-4-basel.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="viete.html"><span class="toc-num">2.5</span>
+<span class="toc-title">ヴィエトの無限積</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-5-viete.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="agm.html"><span class="toc-num">2.6</span>
+<span class="toc-title">算術幾何平均</span>
+<span class="toc-src">STEP II 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-6-agm.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="newton-speed.html"><span class="toc-num">2.7</span>
+<span class="toc-title">6桁か、600桁か</span>
+<span class="toc-src">STEP II 2023</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-7-newton-speed.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="squaring-minus-two.html"><span class="toc-num">2.8</span>
+<span class="toc-title">2乗して2を引く</span>
+<span class="toc-src">STEP III 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-8-squaring-minus-two.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="e-approximations.html"><span class="toc-num">2.9</span>
+<span class="toc-title">e に迫る分数</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-2-9-e-approximations.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">振り返り：ここで学んだこと</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「次はこれに挑戦」の演習問題の解答</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第2章  \(\cdot\)  序論</div>
+    <h1 class="essay-title">無限を飼いならす</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>無限！　これほど深く人間の精神を揺り動かした問いはほかにない。</p>
+<p class="who">— ヒルベルト（David Hilbert）</p>
+</div>
+<p>2500年前、エレアのゼノン（Zeno of Elea）は運動が不可能であると論じた。部屋を横切って歩くには、まず半分まで歩き、次に残りの半分を歩き、さらにその半分を歩き、と永遠に続けなければならない。これは無限個の作業であり、有限の時間で終えられるはずがない、というのである。人は実際に部屋を横切れるのだから、ゼノンが間違っていることは誰もが知っていた。しかし、彼が<em>なぜ</em>間違っているのかを正確に説明できる者は、非常に長い間いなかった。答えは、無限和 <span class="math inline">\(\frac12 + \frac14 + \frac18 + \cdots\)</span> が有限の値 <span class="math inline">\(1\)</span> をもつということである。だが、そもそも無限個の数を足し合わせて何かになるとは、どういう<em>意味</em>なのだろうか。</p>
+<p>この問いは二千年にわたって数学の中心にあり続けた。17世紀にニュートン（Newton）とライプニッツ（Leibniz）はこの問いの上に微積分（calculus）を築いたが、ついに完全な答えを出すことはなかった。その後継者たちは見事な結果を生み出す一方で、とんでもない誤りも生み出した。史上最高の計算家であるオイラー（Euler）は、平然と <span class="math inline">\(1 - 1 + 1 - 1 + \cdots = \frac12\)</span> と書いた。また別の者たちは、同じ無限級数（infinite series）について互いに矛盾することを「証明」した。正しい結果と誤った結果を区別できるほど精密な定義を数学者が手にしたのは、19世紀になって、コーシー（Cauchy）やワイエルシュトラス（Weierstrass）らの仕事によってであった。それらの定義こそが本章の主題である。</p>
+<h3 id="なぜ重要なのか">なぜ重要なのか</h3>
+<p>あなたがこれから計算に使うほとんどすべての数は、何かの極限（limit）である。電卓は <span class="math inline">\(\sqrt2\)</span> や <span class="math inline">\(\pi\)</span> や <span class="math inline">\(e\)</span> そのものを知っているわけではない。電卓が知っているのは、それらにどんどん近づいていく手順であり、十分近づいたところで計算を止めるのである。手順が<em>どれくらい速く</em>近づくかを理解しているかどうかが、1ミリ秒で終わるアルゴリズムと永遠に終わらないアルゴリズムとの違いを生む。同じ考え方は、天気予報、航空機の設計、金融商品の価格付けに使われるコンピュータ・シミュレーションの基盤にもなっている。そして最も純粋な側面では、極限の研究は数学で最も美しい公式のいくつかへと導く。本章では <span class="math display">\[1 + \frac14 + \frac19 + \frac1{16} + \cdots = \frac{\pi^2}{6},\]</span> を証明する。これはオイラーを有名にした結果であり、今なおほとんど魔法のように見える。</p>
+<h3 id="大学で出会うもの">大学で出会うもの</h3>
+<p>ほとんどすべての大学で、<em>解析学</em>（Analysis）は最初に履修する科目の一つであり、多くの学生にとって最大の衝撃となる。学校の数学では極限を計算することを学ぶが、解析学では精密な定義から出発して、極限についての事柄を<em>証明</em>することを学ぶ。数列（sequence）が収束する（converge）とはどういうことかを、<a href="../ch02/eventually.html">第 2.1 節</a> に登場する「任意の <span class="math inline">\(\varepsilon &gt; 0\)</span> に対して」と「<span class="math inline">\(N\)</span> が存在して」という言い回しを用いて定義する。有界な単調増加数列（bounded increasing sequence）はすべて収束することを証明し、それが実数のもつ性質である<em>完備性</em>（completeness）に依存しており、有理数にはこの性質がないことを知るだろう。級数（series）の収束判定法を学び、さらに同じ考え方を用いて、連続性、微分、積分に厳密な意味を与える。</p>
+<p>その後の科目は、この土台の上にさまざまな方向へと発展していく。<em>数値解析</em>（numerical analysis）は、近似がどれくらい速く収束するか、そしてどうすればより速くできるかを問う（<a href="../ch02/newton-speed.html">第 2.7 節</a>、<a href="../ch02/agm.html">第 2.6 節</a>）。<em>力学系</em>（dynamical systems）は、ある規則を何度も繰り返し適用したときに何が起こるかを研究する。極限に到達することもあれば、カオスを生み出すこともある（<a href="../ch02/golden-limit.html">第 2.2 節</a>、<a href="../ch02/squaring-minus-two.html">第 2.8 節</a>）。<em>複素解析</em>（complex analysis）は、なぜ <span class="math inline">\(\pi\)</span> がこれほど多くの無限和や無限積に現れるのかを説明する（<a href="../ch02/basel.html">第 2.4 節</a>、<a href="../ch02/viete.html">第 2.5 節</a>）。そして<em>解析的整数論</em>（analytic number theory）は、<a href="../ch02/e-approximations.html">第 2.9 節</a> のように、極限を用いて整数に関する問いに答える。</p>
+<h3 id="本章を貫く問い">本章を貫く問い</h3>
+<div class="skillbox">
+<div class="box-title">三つの大きな問い</div>
+<ol class="arabic">
+<li><p><strong>無限の過程が答えをもつとはどういうことか。</strong>数列が極限に「近づく」こと、あるいは無限和がある数に「なる」ことを、どうすれば正確に言い表せるか。</p></li>
+<li><p><strong>何に収束するかを知らずに、収束することをどうやって証明できるか。</strong>そして、極限が存在することがわかったら、それをどうやって求めるか。</p></li>
+<li><p><strong>どれくらい速いか。</strong>二つの過程が同じ極限をもちながら、まったく異なる速さでそこに近づくことがある。それはなぜか、そしてその速さをどう測るか。</p></li>
+</ol>
+</div>
+<p>最初の節（<a href="../ch02/eventually.html">第 2.1 節</a>）は言葉についての節であり、数学者が「いずれは」ということをどのように正確に表現するかを扱う。続く五つの節は有名な極限を扱う。連分数（continued fraction）としての黄金比（golden ratio）、発散する級数とその収束する親戚、<span class="math inline">\(\pi^2/6\)</span>、<span class="math inline">\(2/\pi\)</span> に対するヴィエト（Viète）の積、そしてガウス（Gauss）の算術幾何平均（arithmetic–geometric mean）である。最後の三つの節は速さと構造を扱う。一次収束と二次収束の比較、爆発するかカオス的にさまようかのどちらかになる反復、そして <span class="math inline">\(e\)</span> に迫っていく積分の族である。</p>
+<h3 id="収束のための道具">収束のための道具</h3>
+<p>少数の道具に、それぞれ異なる場面で何度も出会うことになる。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">主題</th>
+<th style="text-align: left;">道具</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2.1</td>
+<td style="text-align: left;">「いずれは小さくなる」</td>
+<td style="text-align: left;">量化子：<span class="math inline">\(m\)</span> を構成する、命題を否定する</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.2</td>
+<td style="text-align: left;">黄金比</td>
+<td style="text-align: left;">単調で有界な部分列</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.3</td>
+<td style="text-align: left;">調和級数と Kempner 級数</td>
+<td style="text-align: left;">ブロックごとの比較</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.4</td>
+<td style="text-align: left;"><span class="math inline">\(\pi^2/6\)</span></td>
+<td style="text-align: left;">多項式の根、そしてはさみうち</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.5</td>
+<td style="text-align: left;">ヴィエトの積</td>
+<td style="text-align: left;">望遠鏡和、そして一つの簡単な極限</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.6</td>
+<td style="text-align: left;">算術幾何平均</td>
+<td style="text-align: left;">互いに挟み込む二つの数列；不変量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.7</td>
+<td style="text-align: left;"><span class="math inline">\(\sqrt2\)</span> の近似</td>
+<td style="text-align: left;">誤差の漸化式：一次と二次</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2.8</td>
+<td style="text-align: left;"><span class="math inline">\(x \mapsto x^2 - 2\)</span></td>
+<td style="text-align: left;">写像を単純にする置換</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2.9</td>
+<td style="text-align: left;"><span class="math inline">\(e\)</span> を表す分数</td>
+<td style="text-align: left;">小さいが零ではない積分</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="本章の読み方">本章の読み方</h3>
+<p>第 1 章と同様に、各節は出題されたままの STEP の問題から始まる。読み進める前に、まず自分で解いてみてほしい。本章の問題では、どの道具を使うべきかが問題文に示されていることが多い（「〜を考えることにより」「〜の定理を用いてよい」など）。解き進めながら、同じ少数の道具がいかに繰り返し現れるかに注目してほしい。大学では、それを自分で選ばなければならないからである。</p>
+<p>いくつかの問題では、極限が存在すること、あるいは無限和や無限積が収束することを仮定するよう求められる。そのような場合には、それを証明するために何が必要かを各節で説明する。「明らかにうまくいく」と「うまくいくことを証明できる」との間の隔たりを意識することが、解析学者のように考えるための第一歩である。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="eventually.html">→ 読み始める： 2.1 「いずれは」とは何を意味するか</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

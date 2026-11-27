@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>行列では成り立たない法則 (STEP II 1993 Q6) — Beyond STEP</title>
+<meta name="description" content="STEP II 1993 問題 6：解説付き解答とその背後にある大学数学。 行列（matrix）は足すことも掛けることもできるので、数と同じように扱いたくなる。この問題はその誘惑を試すものである。数については正しい四つの「規則」を挙げ、そのうちどれが行列でも成り立つかを問う。ほとんどは成り立たず、その成り立たなさ方から学ぶことは多い。行列の積は可換（commutative）ではない。零でない行列ど…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch07/matrix-rules.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/matrix-rules.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="行列では成り立たない法則 (STEP II 1993 Q6) — Beyond STEP">
+<meta property="og:description" content="STEP II 1993 問題 6：解説付き解答とその背後にある大学数学。 行列（matrix）は足すことも掛けることもできるので、数と同じように扱いたくなる。この問題はその誘惑を試すものである。数については正しい四つの「規則」を挙げ、そのうちどれが行列でも成り立つかを問う。ほとんどは成り立たず、その成り立たなさ方から学ぶことは多い。行列の積は可換（commutative）ではない。零でない行列ど…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch07/matrix-rules.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="行列では成り立たない法則 (STEP II 1993 Q6) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1993 問題 6：解説付き解答とその背後にある大学数学。 行列（matrix）は足すことも掛けることもできるので、数と同じように扱いたくなる。この問題はその誘惑を試すものである。数については正しい四つの「規則」を挙げ、そのうちどれが行列でも成り立つかを問う。ほとんどは成り立たず、その成り立たなさ方から学ぶことは多い。行列の積は可換（commutative）ではない。零でない行列ど…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "行列では成り立たない法則", "headline": "行列では成り立たない法則", "description": "STEP II 1993 問題 6：解説付き解答とその背後にある大学数学。 行列（matrix）は足すことも掛けることもできるので、数と同じように扱いたくなる。この問題はその誘惑を試すものである。数については正しい四つの「規則」を挙げ、そのうちどれが行列でも成り立つかを問う。ほとんどは成り立たず、その成り立たなさ方から学ぶことは多い。行列の積は可換（commutative）ではない。零でない行列ど…", "url": "https://beyondstep.keithmcnulty.org/ja/ch07/matrix-rules.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1993 問題 6", "線形代数と幾何"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "線形代数と幾何", "url": "https://beyondstep.keithmcnulty.org/ja/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第7章：線形代数と幾何", "item": "https://beyondstep.keithmcnulty.org/ja/ch07/"}, {"@type": "ListItem", "position": 3, "name": "行列では成り立たない法則", "item": "https://beyondstep.keithmcnulty.org/ja/ch07/matrix-rules.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch07/matrix-rules.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/matrix-rules.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch07/matrix-rules.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch07/matrix-rules.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第7章 · 線形代数と幾何</a>
+    <div class="src">STEP II · 1993 · 問題 6</div>
+    <div class="sec-head"><span class="sec-num">7.1</span><h1>行列では成り立たない法則</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-1-matrix-rules.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第7章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 1993、第6問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/93-s2-q6">step.maths.org/questions/93-s2-q6</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>行列（matrix）は足すことも掛けることもできるので、数と同じように扱いたくなる。この問題はその誘惑を試すものである。数については正しい四つの「規則」を挙げ、そのうちどれが行列でも成り立つかを問う。ほとんどは成り立たず、その成り立たなさ方から学ぶことは多い。行列の積は可換（commutative）ではない。零でない行列どうしの積が零になることがある。そして、行列についての二次方程式（quadratic equation）は無限に多くの解をもちうる。</p>
+<p>これらの不成立は欠陥ではない。むしろ行列が役に立つ理由そのものである。行列は空間の変換を表し、二つの変換を異なる順序で行えば、実際に異なる結果が得られる。1925年、ハイゼンベルク（Werner Heisenberg）は、量子力学（quantum mechanics）に現れる量が数ではなく行列のようにふるまうこと、そして <span class="math inline">\(\mathbf{AB} = \mathbf{BA}\)</span> が成り立たないことこそが不確定性原理（uncertainty principle）の数学的な姿であることを発見した。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>実数について、<span class="math inline">\(ab = 0\)</span> ならば <span class="math inline">\(a = 0\)</span> または <span class="math inline">\(b = 0\)</span> であるのはなぜか。その議論は数のどの性質を使っているか。また、その性質は行列でも成り立つか。</p>
+</div>
+<p><span class="math inline">\(ab = 0\)</span> かつ <span class="math inline">\(a \neq 0\)</span> ならば、両辺を <span class="math inline">\(a\)</span> で割って <span class="math inline">\(b = 0\)</span> を得る。この議論には、零でないすべての数が逆数をもつことが必要である。零でない行列は逆行列（inverse）をもつとは限らない（行列式（determinant）が零の行列はもたない）ので、この議論は破綻する。<em>幾何的な</em>描像も念頭に置いておくとよい。行列は平面の変換であり、積 <span class="math inline">\(\mathbf{AB}\)</span> は「まず <span class="math inline">\(\mathbf{B}\)</span> を行い、次に <span class="math inline">\(\mathbf{A}\)</span> を行う」ことを意味する。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-mathbfab-mathbf0-だが-mathbfba-neq-mathbf0-となりうるか" class="stage"><span class="stage-n">段階 1</span> <span class="math inline">\(\mathbf{AB} = \mathbf{0}\)</span> だが <span class="math inline">\(\mathbf{BA} \neq \mathbf{0}\)</span> となりうるか</h4>
+<div class="askyourself">
+<p>幾何的に考えよう。<span class="math inline">\(\mathbf{B}\)</span> がすべてを一本の直線の中へ送り、その直線を <span class="math inline">\(\mathbf{A}\)</span> が零へ押しつぶすようにしたい。しかし逆の順序では、<span class="math inline">\(\mathbf{A}\)</span> が残したものを <span class="math inline">\(\mathbf{B}\)</span> がすべて消してしまってはいけない。</p>
+</div>
+<p><span class="math inline">\(\mathbf{A} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\)</span> とする。これは <span class="math inline">\(x\)</span> 軸への射影（projection）であり、<span class="math inline">\(y\)</span> 軸を零へ送る。また <span class="math inline">\(\mathbf{B} = \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}\)</span> とする。これは <span class="math inline">\((x, y)\)</span> を <span class="math inline">\((0, x)\)</span>、すなわち <span class="math inline">\(y\)</span> 軸上へ送る。このとき <span class="math display">\[\mathbf{AB} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix} = \begin{pmatrix} 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}, \qquad \mathbf{BA} = \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix} \neq \mathbf{0}.\]</span> よって、この主張は<strong>偽</strong>である（図 7.1.1）。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-二乗の差" class="stage"><span class="stage-n">段階 2</span> 二乗の差</h4>
+<p>すべての積の順序を保ったまま、注意深く展開すると <span class="math display">\[(\mathbf{A} - \mathbf{B})(\mathbf{A} + \mathbf{B}) = \mathbf{A}^2 + \mathbf{AB} - \mathbf{BA} - \mathbf{B}^2.\]</span> これが <span class="math inline">\(\mathbf{A}^2 - \mathbf{B}^2\)</span> に等しくなるのは、ちょうど <span class="math inline">\(\mathbf{AB} = \mathbf{BA}\)</span> のときである。段階 1 の行列では <span class="math inline">\(\mathbf{AB} - \mathbf{BA} = -\mathbf{BA} \neq \mathbf{0}\)</span> であるから、この主張は<strong>偽</strong>である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-mathbfax-mathbf0-の零でない解" class="stage"><span class="stage-n">段階 3</span> <span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span> の零でない解</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\det\mathbf{A} \neq 0\)</span> ならば、<span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span> に対して何ができるか。<span class="math inline">\(\det\mathbf{A} = 0\)</span> ならば、<span class="math inline">\(\mathbf{Av} = \mathbf{0}\)</span> を満たす零でない列ベクトル <span class="math inline">\(\mathbf{v}\)</span> を見つけられるか。</p>
+</div>
+<p><span class="math inline">\(\det\mathbf{A} \neq 0\)</span> ならば <span class="math inline">\(\mathbf{A}^{-1}\)</span> が存在し、<span class="math inline">\(\mathbf{X} = \mathbf{A}^{-1}\mathbf{AX} = \mathbf{0}\)</span> となる。したがって零でない解は存在しない。</p>
+<p><span class="math inline">\(\det\mathbf{A} = 0\)</span> ならば、<span class="math inline">\(\mathbf{A} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span>、<span class="math inline">\(ad = bc\)</span> と書ける。ベクトル <span class="math inline">\(\begin{pmatrix} b \\ -a \end{pmatrix}\)</span> と <span class="math inline">\(\begin{pmatrix} d \\ -c \end{pmatrix}\)</span> は <span class="math inline">\(\mathbf{A}\begin{pmatrix} b \\ -a \end{pmatrix} = \begin{pmatrix} ab - ba \\ cb - da \end{pmatrix} = \mathbf{0}\)</span> を満たし、もう一方についても同様である。<span class="math inline">\(\mathbf{A} \neq \mathbf{0}\)</span> であるから、少なくとも一方は零でない。それを <span class="math inline">\(\mathbf{v}\)</span> とする。すると、二つの列がともに <span class="math inline">\(\mathbf{v}\)</span> である行列 <span class="math inline">\(\mathbf{X}\)</span> は零でなく、<span class="math inline">\(\mathbf{AX} = \mathbf{0}\)</span> を満たす。よって、この主張は<strong>真</strong>である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-平方根はいくつあるか" class="stage"><span class="stage-n">段階 4</span> 平方根はいくつあるか</h4>
+<div class="pausebox">
+<p><span class="math inline">\(\mathbf{X}^2 + \mathbf{AX} + \mathbf{B} = \mathbf{0}\)</span> が無限に多くの解をもつような、零でない <span class="math inline">\(\mathbf{A}\)</span> と <span class="math inline">\(\mathbf{B}\)</span> を求めよ。（<em>ヒント：</em>左辺を完全平方 <span class="math inline">\((\mathbf{X} - \mathbf{I})^2\)</span> にし、二乗すると零になる行列について考えよ。）</p>
+</div>
+<p><span class="math inline">\(\mathbf{A} = -2\mathbf{I}\)</span>、<span class="math inline">\(\mathbf{B} = \mathbf{I}\)</span> とする。どちらも零ではない。方程式は <span class="math inline">\((\mathbf{X} - \mathbf{I})^2 = \mathbf{0}\)</span> となる。<span class="math inline">\(\mathbf{N}^2 = \mathbf{0}\)</span> を満たす任意の行列 <span class="math inline">\(\mathbf{N}\)</span> から解 <span class="math inline">\(\mathbf{X} = \mathbf{I} + \mathbf{N}\)</span> が得られ、そのような <span class="math inline">\(\mathbf{N}\)</span> は無限に存在する。 <span class="math display">\[\mathbf{N} = \begin{pmatrix} 0 &amp; t \\ 0 &amp; 0 \end{pmatrix}, \qquad \mathbf{N}^2 = \mathbf{0} \text{ ，任意の実数 } t.\]</span> したがって、すべての <span class="math inline">\(t\)</span> に対して <span class="math inline">\(\mathbf{X} = \begin{pmatrix} 1 &amp; t \\ 0 &amp; 1 \end{pmatrix}\)</span> は解であり、この主張は<strong>偽</strong>である。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>順序が重要である。</strong>どの展開でも積の順序を保たなければならない。<span class="math inline">\(\mathbf{AB}\)</span> と <span class="math inline">\(\mathbf{BA}\)</span> は通常異なる。</p></li>
+<li><p><strong>零因子。</strong>零でない行列どうしの積が零になりうる。このことが「二次方程式の根は高々二つ」という議論の根拠を崩す。</p></li>
+<li><p><strong>変換として考える。</strong>どの反例も、行列が平面に何をするかを思い描くことで容易に見つかった。</p></li>
+</ul>
+<figure class="stepfig"><img src="../assets/fig/fig-7-1-1.svg" alt="図 7.1.1"><figcaption><span class="fig-label">図 7.1.1</span> <span class="math inline">\(\mathbf{AB} = \mathbf{0}\)</span> なのに <span class="math inline">\(\mathbf{BA} \neq \mathbf{0}\)</span> となる理由。上段：<span class="math inline">\(\mathbf{B}\)</span> はすべてのベクトルを <span class="math inline">\(y\)</span> 軸上へ送り、それを <span class="math inline">\(\mathbf{A}\)</span>（<span class="math inline">\(x\)</span> 軸への射影）が零へ押しつぶす。下段：逆の順序では、<span class="math inline">\(\mathbf{A}\)</span> が <span class="math inline">\(x\)</span> 成分を残し、<span class="math inline">\(\mathbf{B}\)</span> がそれを <span class="math inline">\(y\)</span> 軸上へ移すので、零にならずに残る。</figcaption></figure>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">代数としての行列</div>
+<p>ケイリー（Arthur Cayley）は1858年に行列の代数を導入し、行列を単なる係数の表ではなく、足したり掛けたりできる一つの対象として扱った。彼はすぐに積が可換でないことに気づき、<em>ケイリー–ハミルトンの定理</em>（Cayley–Hamilton theorem）を証明した。すなわち、すべての正方行列は自身の固有方程式（characteristic equation）を満たす。トレース（trace）が <span class="math inline">\(t\)</span>、行列式が <span class="math inline">\(d\)</span> である <span class="math inline">\(2 \times 2\)</span> 行列については、これは <span class="math inline">\(\mathbf{M}^2 - t\mathbf{M} + d\mathbf{I} = \mathbf{0}\)</span> を意味し、本章ではこの事実を繰り返し用いる（<a href="../ch07/finite-order.html">第 7.4 節</a>）。<span class="math inline">\(2 \times 2\)</span> 実行列の全体は<em>環</em>（ring）をなす。足し算、引き算、掛け算ができるが、掛け算は可換ではなく、<em>零因子</em>（zero divisor）、すなわち積が零になる零でない元が存在する。</p>
+</div>
+<h3 id="無限に多くの平方根">無限に多くの平方根</h3>
+<p>段階 4 はさらに印象的にできる。方程式 <span class="math inline">\(\mathbf{X}^2 = \mathbf{I}\)</span> は明らかな解 <span class="math inline">\(\pm\mathbf{I}\)</span> をもつが、それだけでなく、原点を通る直線に関する平面のすべての鏡映（reflection）<span class="math inline">\(\mathbf{X} = \begin{pmatrix} \cos\theta &amp; \sin\theta \\ \sin\theta &amp; -\cos\theta \end{pmatrix}\)</span> も解である。二回鏡映すれば何も変わらないからである。つまり <span class="math inline">\(\mathbf{I}\)</span> の平方根が円周ひとつ分だけ存在する。数を係数とする <span class="math inline">\(n\)</span> 次多項式の根が高々 <span class="math inline">\(n\)</span> 個であるのは、数に零因子がないからである。行列には零因子があり、この個数の評価は成り立たなくなる。</p>
+<h3 id="物理学における非可換性">物理学における非可換性</h3>
+<p>古典力学では、位置 <span class="math inline">\(x\)</span> と運動量（momentum）<span class="math inline">\(p\)</span> は数であり、<span class="math inline">\(xp = px\)</span> である。量子力学ではこれらは演算子（operator、無限行列）となり、<span class="math inline">\(xp - px = \mathrm{i}\hbar\)</span> を満たす。ここで <span class="math inline">\(\hbar\)</span> はプランク定数（Planck’s constant）を <span class="math inline">\(2\pi\)</span> で割ったものである。このただ一つの非可換関係から、ハイゼンベルクの不確定性原理、すなわち位置と運動量を同時に正確に知ることはできないという原理が導かれる。1925年にハイゼンベルクが量子力学の規則を発見したとき、彼は行列が何であるかを知らなかった。ハイゼンベルクが考案した奇妙な乗法の規則が行列の積であることに気づいたのは、マックス・ボルン（Max Born）であった。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">なじみの規則を新しい場面で試す</div>
+<p><em>新しい種類の対象に出会ったら、なじみのある規則のうちどれがまだ成り立つかを確かめ、それぞれの規則がどの性質に依存しているのかを正確に突き止めよ。</em></p>
+<p>「<span class="math inline">\(ab = 0\)</span> ならば <span class="math inline">\(a = 0\)</span> または <span class="math inline">\(b = 0\)</span>」という規則は割り算に依存し、「<span class="math inline">\((a - b)(a + b) = a^2 - b^2\)</span>」は可換性に依存する。それぞれの規則が何に支えられているかを知っていれば、いつまだそれを使えるかがわかる。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>いつ可換になるか。</strong><span class="math inline">\(\begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\)</span> と可換なすべての <span class="math inline">\(2 \times 2\)</span> 行列を求めよ。</p></li>
+<li><p><strong>零の平方根。</strong><span class="math inline">\(\mathbf{N}^2 = \mathbf{0}\)</span> を満たすすべての <span class="math inline">\(2 \times 2\)</span> 実行列 <span class="math inline">\(\mathbf{N}\)</span> を求めよ。（<em>ヒント：</em>ケイリー–ハミルトンの定理を用いて <span class="math inline">\(\operatorname{tr}\mathbf{N} = \det\mathbf{N} = 0\)</span> を示せ。）</p></li>
+<li><p><strong>鏡映。</strong>すべての鏡映行列 <span class="math inline">\(\begin{pmatrix} \cos\theta &amp; \sin\theta \\ \sin\theta &amp; -\cos\theta \end{pmatrix}\)</span> の二乗が <span class="math inline">\(\mathbf{I}\)</span> になることを示し、その鏡映の軸となる直線を求めよ。</p></li>
+<li><p><strong>ケイリー–ハミルトン。</strong>すべての <span class="math inline">\(2 \times 2\)</span> 行列が <span class="math inline">\(\mathbf{M}^2 - (\operatorname{tr}\mathbf{M})\mathbf{M} + (\det\mathbf{M})\mathbf{I} = \mathbf{0}\)</span> を満たすことを、直接計算によって証明せよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong>（Wellesley-Cambridge）。最も広く読まれている線形代数の入門書であり、理解を重視している。</p></li>
+<li><p><strong>Sheldon Axler, <a href="https://uk.bookshop.org/search?keywords=Linear+Algebra+Done+Right+Axler"><em>Linear Algebra Done Right</em></a></strong>（Springer、オンラインで無料公開）。行列よりも線形写像（linear map）を中心に据えた、より抽象的な取り組み方。</p></li>
+<li><p><strong>Jim Baggott, <a href="https://uk.bookshop.org/search?keywords=The+Quantum+Story+Baggott"><em>The Quantum Story</em></a></strong>（Oxford University Press）。ハイゼンベルクの行列力学を含む、量子力学の歴史。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 章の導入</a><a class="next" href="eigenvectors.html">→ 7.2 向きを変えずに伸ばす</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

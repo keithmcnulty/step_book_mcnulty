@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>e は無理数であり、e² もまた無理数である (STEP III 2024 Q7) — Beyond STEP</title>
+<meta name="description" content="STEP III 2024 問題 7：解説付き解答とその背後にある大学数学。 第 1.3 節 では、 sqrt2 が単純な方程式 x^2 = 2 を満たすという事実を用いて、 sqrt2 が無理数であることを証明した。しかし e は、知られている限りそのような方程式を満たさない。手がかりは次の級数（series）だけである。 e = 1 + (1)/(1!) + (1)/(2!) +…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch01/e-irrational.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/e-irrational.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/e-irrational.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/e-irrational.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/e-irrational.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/e-irrational.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/e-irrational.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="e は無理数であり、e² もまた無理数である (STEP III 2024 Q7) — Beyond STEP">
+<meta property="og:description" content="STEP III 2024 問題 7：解説付き解答とその背後にある大学数学。 第 1.3 節 では、 sqrt2 が単純な方程式 x^2 = 2 を満たすという事実を用いて、 sqrt2 が無理数であることを証明した。しかし e は、知られている限りそのような方程式を満たさない。手がかりは次の級数（series）だけである。 e = 1 + (1)/(1!) + (1)/(2!) +…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch01/e-irrational.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="e は無理数であり、e² もまた無理数である (STEP III 2024 Q7) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2024 問題 7：解説付き解答とその背後にある大学数学。 第 1.3 節 では、 sqrt2 が単純な方程式 x^2 = 2 を満たすという事実を用いて、 sqrt2 が無理数であることを証明した。しかし e は、知られている限りそのような方程式を満たさない。手がかりは次の級数（series）だけである。 e = 1 + (1)/(1!) + (1)/(2!) +…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "e は無理数であり、e^2 もまた無理数である", "headline": "e は無理数であり、e^2 もまた無理数である", "description": "STEP III 2024 問題 7：解説付き解答とその背後にある大学数学。 第 1.3 節 では、 sqrt2 が単純な方程式 x^2 = 2 を満たすという事実を用いて、 sqrt2 が無理数であることを証明した。しかし e は、知られている限りそのような方程式を満たさない。手がかりは次の級数（series）だけである。 e = 1 + (1)/(1!) + (1)/(2!) +…", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/e-irrational.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2024 問題 7", "数論と証明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "数論と証明", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第1章：数論と証明", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/"}, {"@type": "ListItem", "position": 3, "name": "e は無理数であり、e^2 もまた無理数である", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/e-irrational.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch01/e-irrational.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/e-irrational.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/e-irrational.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch01/e-irrational.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第1章 · 数論と証明</a>
+    <div class="src">STEP III · 2024 · 問題 7</div>
+    <div class="sec-head"><span class="sec-num">1.4</span><h1>\(e\) は無理数であり、\(e^2\) もまた無理数である</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-4-e-irrational.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第1章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<p>この節では2つの問題を扱う。1つ目は1997年の問題で、<span class="math inline">\(e\)</span> が無理数（irrational）であることを証明する。2つ目は2024年の問題で、同じ考え方をより巧妙にした形を用いて <span class="math inline">\(e^2\)</span> が無理数であることを証明する。こちらは本当に難しくなる。</p>
+<div class="stepquestion">
+<div class="box-title">ウォームアップ</div>
+<p><strong>STEP III 1997、第7問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/97-s3-q7">step.maths.org/questions/97-s3-q7</a></p>
+</div>
+<div class="stepquestion">
+<div class="box-title">本題</div>
+<p><strong>STEP III 2024、第7問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は、OCRが配布している2024年のSTEP問題一式（zipファイル）のSTEP IIIに収録されている： <a href="https://www.ocr.org.uk/Images/725753-2024-past-papers.zip">www.ocr.org.uk/Images/725753-2024-past-papers.zip</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p><a href="../ch01/well-ordering.html">第 1.3 節</a> では、<span class="math inline">\(\sqrt2\)</span> が単純な方程式 <span class="math inline">\(x^2 = 2\)</span> を満たすという事実を用いて、<span class="math inline">\(\sqrt2\)</span> が無理数であることを証明した。しかし <span class="math inline">\(e\)</span> は、知られている限りそのような方程式を満たさない。手がかりは次の級数（series）だけである。 <span class="math display">\[e = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \cdots.\]</span> 級数から、ある数が分数でないことがどうしてわかるのだろうか。</p>
+<p>その答えは、数論（number theory）で最も役に立つ考え方の1つである。すなわち、<em>整数は <span class="math inline">\(0\)</span> と <span class="math inline">\(1\)</span> の間に（両端を除いて）存在しえない</em>。ある量が整数であり、しかも <span class="math inline">\(0\)</span> より大きく <span class="math inline">\(1\)</span> より小さいことを示せれば、矛盾（contradiction）が得られる。この節の内容はすべて、この主題の変奏である。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(e = p/q\)</span> と仮定する。<span class="math inline">\(e\)</span> に <span class="math inline">\(q\)</span> を掛けると整数になる。では、<span class="math inline">\(q!\)</span> を掛けると <span class="math inline">\(e\)</span> の級数の各項はどうなるか。</p>
+</div>
+<p><span class="math inline">\(k \leq q\)</span> であれば、<span class="math inline">\(\dfrac{1}{k!}\)</span> に <span class="math inline">\(q!\)</span> を掛けると整数になる。したがって <span class="math inline">\(q!\,e\)</span> は、整数の部分（最初の <span class="math inline">\(q+1\)</span> 項）と「裾」（tail、それ以降のすべて）に分かれる。<span class="math inline">\(e = p/q\)</span> ならば <span class="math inline">\(q!\,e\)</span> 自身が整数なので、裾も整数でなければならない。方針は、裾が <span class="math inline">\(0\)</span> と <span class="math inline">\(1\)</span> の間に（両端を除いて）あることを示すことである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-ウォームアップe-は無理数である" class="stage"><span class="stage-n">段階 1</span> ウォームアップ：<span class="math inline">\(e\)</span> は無理数である</h4>
+<p>級数 <span class="math inline">\(b_n\)</span> は初項と公比がともに <span class="math inline">\(\frac{1}{n+1}\)</span> の等比級数（geometric series）であるから、 <span class="math display">\[b_n = \frac{1/(n+1)}{1 - 1/(n+1)} = \frac{1}{n}.\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(a_n\)</span> と <span class="math inline">\(b_n\)</span> を項ごとに比べよ。どちらが大きいか。</p>
+</div>
+<p>初項は等しい。それ以降は <span class="math inline">\((n+1)(n+2) &gt; (n+1)^2\)</span> であり、一般に <span class="math inline">\(k \geq 2\)</span> に対して <span class="math inline">\((n+1)(n+2)\cdots(n+k) &gt; (n+1)^k\)</span> が成り立つので、<span class="math inline">\(a_n\)</span> の2項目以降の各項は <span class="math inline">\(b_n\)</span> の対応する項より小さい。よって <span class="math inline">\(0 &lt; a_n &lt; b_n = 1/n\)</span> である。</p>
+<p>ここで <span class="math inline">\(a_n\)</span> が実際には何であるかを見てみよう。<span class="math inline">\(e\)</span> の級数に <span class="math inline">\(n!\)</span> を掛けると <span class="math display">\[n!\,e = \underbrace{\frac{n!}{0!} + \frac{n!}{1!} + \cdots + \frac{n!}{n!}}_{\text{整数}} + \underbrace{\frac{n!}{(n+1)!} + \frac{n!}{(n+2)!} + \cdots}_{=\,a_n}.\]</span> <span class="math inline">\(0 &lt; a_n &lt; 1\)</span> であるから、<span class="math inline">\(n!\,e\)</span> の整数部分は最初のまとまりであり、<span class="math inline">\(a_n\)</span> は小数部分（fractional part）である。すなわち <span class="math inline">\(a_n = n!\,e - [n!\,e]\)</span> である。</p>
+<div class="pausebox">
+<p>では証明を完成させよう。<span class="math inline">\(e = p/q\)</span> と仮定する。<span class="math inline">\(n\)</span> をどの値に選べばよいか。</p>
+</div>
+<p><span class="math inline">\(n = q\)</span> とする。すると <span class="math inline">\(q!\,e = (q-1)!\,p\)</span> は整数なので、その小数部分 <span class="math inline">\(a_q\)</span> は <span class="math inline">\(0\)</span> である。しかし <span class="math inline">\(a_q &gt; 0\)</span> である。これは矛盾であり、<span class="math inline">\(e\)</span> は無理数である。<span class="qed" aria-label="end of proof">■</span></p>
+<p>この証明は、1815年ごろのフーリエ（Fourier）によるものである。</p>
+<h4 id="stagemark2-e2-が難しい理由" class="stage"><span class="stage-n">段階 2</span> <span class="math inline">\(e^2\)</span> が難しい理由</h4>
+<div class="askyourself">
+<p>同じ考え方を <span class="math inline">\(e^2\)</span> に試してみよ。その級数は <span class="math inline">\(\sum 2^k/k!\)</span> である。<span class="math inline">\(n!\)</span> を掛けて裾を見ると、何がうまくいかないか。</p>
+</div>
+<p>今度は裾が <span class="math inline">\(\dfrac{2^{n+1}}{n+1} + \dfrac{2^{n+2}}{(n+1)(n+2)} + \cdots\)</span> となり、<span class="math inline">\(2\)</span> のべきがすべてを台無しにする。裾はもはや小さくないのである。<span class="math inline">\(n!\)</span> を掛けても、分子の <span class="math inline">\(2^k\)</span> には何の効果もない。</p>
+<p>2024年の問題の工夫は、<span class="math inline">\(e^2\)</span> をまったく扱わないようにすることである。<span class="math inline">\(e^2 = p/q\)</span> ならば <span class="math display">\[qe = \frac{p}{e}.\]</span> こうすると2つの数 <span class="math inline">\(e\)</span> と <span class="math inline">\(1/e\)</span> が得られ、どちらも階乗（factorial）による級数をもち、厄介な <span class="math inline">\(2\)</span> のべきを含まない。 <span class="math display">\[e = \sum_{k=0}^{\infty} \frac{1}{k!}, \qquad \frac1e = \sum_{k=0}^{\infty} \frac{(-1)^k}{k!}.\]</span></p>
+<h4 id="stagemark3-2つの裾" class="stage"><span class="stage-n">段階 3</span> 2つの裾</h4>
+<p>小問 (i) はウォームアップそのものであり、<span class="math inline">\(0 &lt; f(n) &lt; 1/n\)</span> である。</p>
+<p>小問 (ii) の <span class="math inline">\(g(n)\)</span> は、項の大きさが減少していく<em>交代</em>級数（alternating series）である。</p>
+<div class="askyourself">
+<p><span class="math inline">\(t_1 &gt; t_2 &gt; t_3 &gt; \cdots &gt; 0\)</span> である交代級数 <span class="math inline">\(t_1 - t_2 + t_3 - \cdots\)</span> について、和が <span class="math inline">\(0\)</span> と <span class="math inline">\(t_1\)</span> の間にあるのはなぜか。</p>
+</div>
+<p>項を2つずつ組にすると、<span class="math inline">\((t_1 - t_2) + (t_3 - t_4) + \cdots\)</span> は正の括弧の和なので正である。組み方を変えると、<span class="math inline">\(t_1 - (t_2 - t_3) - (t_4 - t_5) - \cdots\)</span> は <span class="math inline">\(t_1\)</span> から正の括弧を引いたものなので <span class="math inline">\(t_1\)</span> より小さい。ここでは <span class="math inline">\(t_1 = \frac{1}{n+1}\)</span> であり、各項は前の項を <span class="math inline">\(1\)</span> より大きい数で割ったものなので項は減少する。よって <span class="math inline">\(0 &lt; g(n) &lt; \frac{1}{n+1}\)</span> である。</p>
+<h4 id="stagemark4-再び整数" class="stage"><span class="stage-n">段階 4</span> 再び整数</h4>
+<p>ウォームアップとまったく同様に、<span class="math inline">\(e\)</span> に <span class="math inline">\((2n)!\)</span> を掛けて裾を切り離すと <span class="math display">\[(2n)!\,e = (\text{整数}) + f(2n).\]</span> よって <span class="math inline">\((2n)!\,e - f(2n)\)</span> は整数である。<span class="math inline">\(1/e\)</span> についても同じことを行うと <span class="math display">\[\frac{(2n)!}{e} = \sum_{k=0}^{2n} (-1)^k \frac{(2n)!}{k!} + \sum_{k=2n+1}^{\infty} (-1)^k \frac{(2n)!}{k!}.\]</span></p>
+<div class="askyourself">
+<p>裾の最初の項 <span class="math inline">\(k = 2n+1\)</span> の符号は何か。裾は <span class="math inline">\(g(2n)\)</span> とどのような関係にあるか。</p>
+</div>
+<p>裾の最初の項は <span class="math inline">\(k = 2n+1\)</span> で奇数なので、負である。裾は <span class="math display">\[-\frac{1}{2n+1} + \frac{1}{(2n+1)(2n+2)} - \cdots = -g(2n).\]</span> よって <span class="math inline">\(\dfrac{(2n)!}{e} + g(2n)\)</span> は整数である。<span class="qed" aria-label="end of proof">■</span></p>
+<p>問題で <span class="math inline">\(n\)</span> ではなく <span class="math inline">\(2n\)</span> を用いているのはこのためである。偶数の階乗を掛けると、<span class="math inline">\(1/e\)</span> の裾は予測どおりの符号をもち、<em>ちょうど</em> <span class="math inline">\(-g\)</span> になる。</p>
+<h4 id="stagemark5-矛盾" class="stage"><span class="stage-n">段階 5</span> 矛盾</h4>
+<p><span class="math inline">\(qe = p/e\)</span> と仮定する。両辺に <span class="math inline">\((2n)!\)</span> を掛け、段階 4 を用いると <span class="math display">\[q\bigl(\text{整数} + f(2n)\bigr) = p\bigl(\text{整数} - g(2n)\bigr).\]</span> 整理すると、<span class="math inline">\(q f(2n) + p g(2n)\)</span> は整数の組合せに等しいので整数である。これが小問 (iv) である。</p>
+<div class="pausebox">
+<p>では段階 3 で得た評価を使おう。<span class="math inline">\(n\)</span> が非常に大きいとき、<span class="math inline">\(q f(2n) + p g(2n)\)</span> はどうなるか。</p>
+</div>
+<p><span class="math inline">\(f(2n)\)</span> と <span class="math inline">\(g(2n)\)</span> はどちらも正なので、<span class="math inline">\(q f(2n) + p g(2n) &gt; 0\)</span> である。また <span class="math display">\[q f(2n) + p g(2n) &lt; \frac{q}{2n} + \frac{p}{2n+1} &lt; \frac{p+q}{2n}.\]</span> <span class="math inline">\(n &gt; (p+q)/2\)</span> と選ぶ。すると <span class="math inline">\(q f(2n) + p g(2n)\)</span> は <span class="math inline">\(0\)</span> と <span class="math inline">\(1\)</span> の間に（両端を除いて）ある整数となる。これはありえないので、<span class="math inline">\(e^2\)</span> は無理数である。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-4-1.svg" alt="図 1.4.1"><figcaption><span class="fig-label">図 1.4.1</span> 裾 <span class="math inline">\(a_n = n!\,e - [n!\,e]\)</span>（青緑色）。これは <span class="math inline">\(n!\,e\)</span> の小数部分である。これは常に <span class="math inline">\(\frac{1}{n+1}\)</span> と <span class="math inline">\(\frac1n\)</span> の間に（両端を除いて）あり、決して <span class="math inline">\(0\)</span> にはならないが、<span class="math inline">\(1\)</span> より小さい。もし <span class="math inline">\(e\)</span> が分数 <span class="math inline">\(\frac pq\)</span> であれば、<span class="math inline">\(n \geq q\)</span> であるすべての <span class="math inline">\(n\)</span> に対して <span class="math inline">\(n!\,e\)</span> は整数となり、青緑色の点は <span class="math inline">\(0\)</span> になるはずである。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>原動力は「0 と 1 の間に（両端を除いて）整数は存在しない」ことである。</strong> どちらの証明も、整数でなければならない量を作り、それを挟み込んでいる。</p></li>
+<li><p><strong>階乗は裾を小さくする。</strong> <span class="math inline">\(n!\)</span> を掛けることで級数の初めの部分が整数になり、<span class="math inline">\(1/n\)</span> のように小さくなる裾が残った。</p></li>
+<li><p><strong>正面から攻めてうまくいかなければ、式を変形せよ。</strong> <span class="math inline">\(e^2 = p/q\)</span> に正面から取り組む代わりに、<span class="math inline">\(qe = p/e\)</span> と書き直し、難しさを扱いやすい2つの数に分散させた。</p></li>
+<li><p><strong>細部が重要である。</strong> <span class="math inline">\(n\)</span> ではなく <span class="math inline">\(2n\)</span> を選んだことで、裾の符号が定まった。多くの証明は、このような小さな細部にかかっている。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title"><span class="math inline">\(e\)</span> はどれほど無理数なのか</div>
+<p>リウヴィル（Liouville）は1840年に、<span class="math inline">\(e^2\)</span> が無理数であること、さらには整数係数の二次方程式（quadratic equation）を満たさないことを証明した。1873年、エルミート（Hermite）ははるかに先へ進み、<span class="math inline">\(e\)</span> が<em>超越数</em>（transcendental）であること、すなわち整数係数の<em>いかなる</em>多項式（polynomial）の根でもないことを証明した。その証明は、まさに上の議論を高度にしたものである。つまり、整数を作り、それが <span class="math inline">\(0\)</span> と <span class="math inline">\(1\)</span> の間に（両端を除いて）あることを示すのである。その9年後、リンデマン（Lindemann）はエルミートの方法を応用して <span class="math inline">\(\pi\)</span> が超越数であることを示し、定規とコンパスによる「円積問題」という古代からの問題が不可能であることをついに証明した。</p>
+</div>
+<h3 id="まだわかっていないこと">まだわかっていないこと</h3>
+<p>これらの方法がこれほど強力であるにもかかわらず、きまりが悪いほど単純な問題が未解決のまま残っている。<span class="math inline">\(e + \pi\)</span> は無理数か。<span class="math inline">\(e\pi\)</span> はどうか。誰も知らない。ただし、少なくとも一方は超越数でなければならない（演習 4）。<span class="math inline">\(\zeta(3) = 1 + \frac{1}{8} + \frac{1}{27} + \cdots\)</span> は無理数か。答えは「はい」である。アペリー（Apéry）が1978年にこれを証明し、数学界を驚かせた。<span class="math inline">\(\zeta(5)\)</span> はどうか。誰も知らない。</p>
+<h3 id="近似">近似</h3>
+<p>これらの証明の背後には、より深い考え方がある。それは、ある数が分数によって<em>あまりにもよく</em>近似できるならば、その数は無理数である、というものである。<span class="math inline">\(e\)</span> の級数の部分和（partial sums）は、非常に速く <span class="math inline">\(e\)</span> に非常に近づく分数である。分数は、他の分数によってそれほどよく近似されることはありえない。これが<em>ディオファントス近似</em>（Diophantine approximation）の出発点であり、数論のこの分野については <a href="../ch02/e-approximations.html">第 2.9 節</a> でさらに探究できる。そこでは別の種類の積分から、<span class="math inline">\(e\)</span> にさらに迫るよりよい分数が得られる。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">整数を挟み込む</div>
+<p><em>ある数が無理数であることを証明するには、それが分数であると仮定し、そこから整数でなければならない量を作り、その量が <span class="math inline">\(0\)</span> と <span class="math inline">\(1\)</span> の間に（両端を除いて）あることを示せ。</em></p>
+<p>腕の見せどころは、その量の選び方にある。ここでは階乗を掛けることで級数の大部分が整数になり、小さいが正である裾が残った。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong><span class="math inline">\(1/e\)</span> だけを用いる。</strong> <span class="math inline">\(1/e = p/q\)</span> と仮定し、<span class="math inline">\(1/e\)</span> の交代級数だけを用いて、<span class="math inline">\(e\)</span> が無理数であることを証明せよ。</p></li>
+<li><p><strong><span class="math inline">\(\sin 1\)</span> は無理数である。</strong> <span class="math inline">\(\sin 1 = 1 - \dfrac{1}{3!} + \dfrac{1}{5!} - \cdots\)</span> を用いて、<span class="math inline">\(\sin 1\)</span> が無理数であることを証明せよ。（適当な奇数の階乗を掛けよ。）</p></li>
+<li><p><strong>なぜ <span class="math inline">\(\pi\)</span> ではうまくいかないのか。</strong> この方法が <span class="math inline">\(\pi\)</span> に直接は使えない理由を説明せよ。次に、級数の代わりに積分を用いて <span class="math inline">\(\pi\)</span> が無理数であることを示した、ニーヴン（Niven）による1ページの証明（1947年）を調べよ。これは優秀な A レベル（A level、英国の大学入学資格試験）の生徒の手の届く範囲にある。</p></li>
+<li><p><strong>どちらか一方は超越数である。</strong> <span class="hard">発展</span> <span class="math inline">\(e\)</span> と <span class="math inline">\(\pi\)</span> が <span class="math inline">\(x^2 - (e+\pi)x + e\pi = 0\)</span> の根であることを示せ。係数が代数的数（algebraic number）である多項式の根はそれ自身代数的であること、および <span class="math inline">\(\pi\)</span> が代数的でないこと（リンデマン）は仮定してよい。<span class="math inline">\(e + \pi\)</span> と <span class="math inline">\(e\pi\)</span> の少なくとも一方が超越数であることを導け。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Aigner &amp; Ziegler, <a href="https://uk.bookshop.org/search?keywords=Proofs+from+THE+BOOK+Aigner+Ziegler"><em>Proofs from THE BOOK</em></a></strong>（『天書の証明』）、第 8 章「Some irrational numbers」（いくつかの無理数）。まさにこれらの考え方を用いて、<span class="math inline">\(e\)</span>、<span class="math inline">\(e^2\)</span>、<span class="math inline">\(e^4\)</span>、<span class="math inline">\(\pi^2\)</span> が無理数であることを証明している。</p></li>
+<li><p><strong>Ivan Niven, <a href="https://uk.bookshop.org/search?keywords=Irrational+Numbers+Niven"><em>Irrational Numbers</em></a></strong>（Mathematical Association of America）。<span class="math inline">\(\sqrt2\)</span> から超越性までを扱う、短い古典的名著である。</p></li>
+<li><p><strong>Julian Havil, <a href="https://uk.bookshop.org/search?keywords=The+Irrationals+Havil"><em>The Irrationals</em></a></strong>（Princeton University Press）。無理数の歴史を読みやすく描いた本である。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="well-ordering.html">← 1.3 最小の反例</a><a class="next" href="infinite-descent.html">→ 1.5 無限降下法</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

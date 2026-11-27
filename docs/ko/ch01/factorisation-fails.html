@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>인수분해가 무너질 때 (STEP I 2016 Q7) — Beyond STEP</title>
+<meta name="description" content="STEP I 2016 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 1 보다 큰 모든 자연수는 소수(prime)의 곱으로 나타내는 방법이 정확히 한 가지뿐이다. 예를 들어 60 = 2 × 2 × 3 × 5 이며, 다른 방법은 없다. 아마 이 사실을 너무 자주 써 왔기 때문에 증명할 필요조차 없을 만큼 당연하게 느껴질 것이다. 이 문제는 겉보기에는…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/factorisation-fails.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="인수분해가 무너질 때 (STEP I 2016 Q7) — Beyond STEP">
+<meta property="og:description" content="STEP I 2016 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 1 보다 큰 모든 자연수는 소수(prime)의 곱으로 나타내는 방법이 정확히 한 가지뿐이다. 예를 들어 60 = 2 × 2 × 3 × 5 이며, 다른 방법은 없다. 아마 이 사실을 너무 자주 써 왔기 때문에 증명할 필요조차 없을 만큼 당연하게 느껴질 것이다. 이 문제는 겉보기에는…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch01/factorisation-fails.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="인수분해가 무너질 때 (STEP I 2016 Q7) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2016 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 1 보다 큰 모든 자연수는 소수(prime)의 곱으로 나타내는 방법이 정확히 한 가지뿐이다. 예를 들어 60 = 2 × 2 × 3 × 5 이며, 다른 방법은 없다. 아마 이 사실을 너무 자주 써 왔기 때문에 증명할 필요조차 없을 만큼 당연하게 느껴질 것이다. 이 문제는 겉보기에는…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "인수분해가 무너질 때", "headline": "인수분해가 무너질 때", "description": "STEP I 2016 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 1 보다 큰 모든 자연수는 소수(prime)의 곱으로 나타내는 방법이 정확히 한 가지뿐이다. 예를 들어 60 = 2 × 2 × 3 × 5 이며, 다른 방법은 없다. 아마 이 사실을 너무 자주 써 왔기 때문에 증명할 필요조차 없을 만큼 당연하게 느껴질 것이다. 이 문제는 겉보기에는…", "url": "https://beyondstep.keithmcnulty.org/ko/ch01/factorisation-fails.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2016 문제 7", "정수론과 증명"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "정수론과 증명", "url": "https://beyondstep.keithmcnulty.org/ko/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제1장: 정수론과 증명", "item": "https://beyondstep.keithmcnulty.org/ko/ch01/"}, {"@type": "ListItem", "position": 3, "name": "인수분해가 무너질 때", "item": "https://beyondstep.keithmcnulty.org/ko/ch01/factorisation-fails.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch01/factorisation-fails.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/factorisation-fails.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/factorisation-fails.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch01/factorisation-fails.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제1장 · 정수론과 증명</a>
+    <div class="src">STEP I · 2016 · 문제 7</div>
+    <div class="sec-head"><span class="sec-num">1.7</span><h1>인수분해가 무너질 때</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-7-factorisation-fails.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제1장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP I 2016, 문제 7</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/16-s1-q7">step.maths.org/questions/16-s1-q7</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p><span class="math inline">\(1\)</span>보다 큰 모든 자연수는 소수(prime)의 곱으로 나타내는 방법이 정확히 한 가지뿐이다. 예를 들어 <span class="math inline">\(60 = 2 \times 2 \times 3 \times 5\)</span>이며, 다른 방법은 없다. 아마 이 사실을 너무 자주 써 왔기 때문에 증명할 필요조차 없을 만큼 당연하게 느껴질 것이다.</p>
+<p>이 문제는 겉보기에는 아주 그럴듯하지만 그 “당연한” 사실이 성립하지 않는 작은 수의 세계를 만든다. STEP I 문제이므로 수학 자체는 어렵지 않지만, 여기서 얻는 교훈은 깊다. 바로 이 교훈이 1847년에 시도된 페르마의 마지막 정리(Fermat’s Last Theorem)의 유명한 증명을 무너뜨렸고, 대수학의 새로운 분야 하나를 탄생시켰다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p><span class="math inline">\(S\)</span>와 <span class="math inline">\(T\)</span>의 처음 몇 원소를 나열해 보자. 소문항 (iv)의 정의에 따르면 <span class="math inline">\(S\)</span>의 원소 중 어느 것이 <em><span class="math inline">\(S\)</span>-소수</em>인가?</p>
+</div>
+<p><span class="math inline">\(S = \{1, 5, 9, 13, 17, 21, 25, 29, 33, \ldots\}\)</span>이고 <span class="math inline">\(T = \{3, 7, 11, 15, 19, 23, \ldots\}\)</span>이다. <span class="math inline">\(S\)</span>에 속하는 수가 (<span class="math inline">\(1\)</span>이 아닌) <span class="math inline">\(S\)</span>의 더 작은 원소들의 곱으로 나타내어지지 않으면, 그 수를 <span class="math inline">\(S\)</span>-소수라 한다. 보통의 정수에서는 <span class="math inline">\(9 = 3 \times 3\)</span>이지만, <span class="math inline">\(3\)</span>이 <span class="math inline">\(S\)</span>에 속하지 않으므로 <span class="math inline">\(9\)</span>는 <span class="math inline">\(S\)</span>-소수라는 점에 주목하자. 어떤 수가 “소수”인지는 어떤 수들을 쓸 수 있느냐에 달려 있다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-합집합-교집합-곱" class="stage"><span class="stage-n">단계 1</span> 합집합, 교집합, 곱</h4>
+<p>모든 홀수는 <span class="math inline">\(4\)</span>로 나눈 나머지가 <span class="math inline">\(1\)</span> 또는 <span class="math inline">\(3\)</span>이므로, <span class="math inline">\(S \cup T\)</span>는 모든 양의 홀수의 집합이다. 어떤 수도 서로 다른 두 나머지를 가질 수는 없으므로 <span class="math inline">\(S \cap T\)</span>는 공집합이다.</p>
+<div class="askyourself">
+<p><span class="math inline">\(S\)</span>의 일반적인 원소는 어떻게 나타낼까? 그런 원소 두 개의 곱은 무엇인가?</p>
+</div>
+<p><span class="math inline">\(S\)</span>의 원소는 <span class="math inline">\(a \geq 0\)</span>에 대하여 <span class="math inline">\(4a + 1\)</span> 꼴이고, <span class="math display">\[(4a+1)(4b+1) = 16ab + 4a + 4b + 1 = 4(4ab + a + b) + 1 \in S.\]</span> 따라서 <span class="math inline">\(S\)</span>는 곱셈에 대하여 닫혀 있다(closed under multiplication). <span class="math inline">\(T\)</span>에 대해서는 <span class="math display">\[(4a+3)(4b+3) = 16ab + 12a + 12b + 9 = 4(4ab + 3a + 3b + 2) + 1,\]</span> 이므로 이 값은 <span class="math inline">\(T\)</span>가 <em>아니라</em> <span class="math inline">\(S\)</span>에 속한다. 예를 들어 <span class="math inline">\(3 \times 7 = 21 \in S\)</span>이다. 따라서 <span class="math inline">\(T\)</span>는 곱셈에 대하여 닫혀 있지 않다.</p>
+<h4 id="stagemark2-t에-속하는-소인수" class="stage"><span class="stage-n">단계 2</span> <span class="math inline">\(T\)</span>에 속하는 소인수</h4>
+<div class="askyourself">
+<p><span class="math inline">\(T\)</span>에 속하면서 소수가 아닌 수를 하나 잡자. 그 수의 소인수는 모두 홀수이다. 소인수가 모두 <span class="math inline">\(S\)</span>에 속한다면 어떻게 될까?</p>
+</div>
+<p>이 수는 홀수이므로 그 소인수(prime factor)도 모두 홀수이고, 각각 <span class="math inline">\(S\)</span> 또는 <span class="math inline">\(T\)</span>에 속한다. 소인수가 <em>모두</em> <span class="math inline">\(S\)</span>에 속한다면, <span class="math inline">\(S\)</span>는 곱셈에 대하여 닫혀 있으므로 그 곱도 <span class="math inline">\(S\)</span>에 속한다. 그런데 그 곱은 바로 처음의 수이고, 이 수는 <span class="math inline">\(T\)</span>에 속한다. 따라서 적어도 하나의 소인수는 <span class="math inline">\(T\)</span>에 속한다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-홀수-개의-인수" class="stage"><span class="stage-n">단계 3</span> 홀수 개의 인수</h4>
+<div class="askyourself">
+<p><span class="math inline">\(T\)</span>의 원소를 짝수 개 곱하면 그 곱은 어디에 속할까? 홀수 개라면 어떨까?</p>
+</div>
+<p><span class="math inline">\(T\)</span>의 수 두 개를 곱하면 <span class="math inline">\(S\)</span>의 수가 되고, <span class="math inline">\(S\)</span>의 수끼리 곱하면 <span class="math inline">\(S\)</span>의 수가 되므로, <span class="math inline">\(T\)</span>의 인수가 짝수 개이면 곱은 <span class="math inline">\(S\)</span>에 속한다. 홀수 개이면 곱은 (<span class="math inline">\(S\)</span>에 속하는 수) <span class="math inline">\(\times\)</span> (<span class="math inline">\(T\)</span>의 원소 하나)가 되고, 같은 종류의 계산에 의해 이는 <span class="math inline">\(T\)</span>에 속한다.</p>
+<p>이제 <span class="math inline">\(t \in T\)</span>를 잡자. <span class="math inline">\(t\)</span>가 <span class="math inline">\(T\)</span>-소수이면 더 할 일이 없다. 그렇지 않으면 <span class="math inline">\(t\)</span>를 <span class="math inline">\(T\)</span>의 원소들의 곱으로 나타내는데, 각 원소는 <span class="math inline">\(1\)</span>보다 크므로 <span class="math inline">\(t\)</span>보다 작다. 이 중 <span class="math inline">\(T\)</span>-소수가 아닌 것은 다시 더 분해할 수 있고, 이를 계속 반복한다. 인수는 매번 더 작아지므로 이 과정은 언젠가 끝나고(이번에도 정렬성 원리(well-ordering)이다), 결국 <span class="math inline">\(t\)</span>는 <span class="math inline">\(T\)</span>-소수들의 곱으로 나타내어진다. 그 곱이 <span class="math inline">\(T\)</span>에 속하므로 인수의 개수는 홀수여야 한다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-두-가지-인수분해" class="stage"><span class="stage-n">단계 4</span> 두 가지 인수분해</h4>
+<div class="pausebox">
+<p><span class="math inline">\(S\)</span>-소수로의 인수분해가 본질적으로 서로 다른 두 가지인 <span class="math inline">\(S\)</span>의 수를 찾아라. <em>힌트:</em> <span class="math inline">\(9\)</span>처럼, 보통의 소인수가 <span class="math inline">\(S\)</span>에 없기 때문에 비로소 <span class="math inline">\(S\)</span>-소수가 되는 수를 이용하라.</p>
+</div>
+<p><span class="math inline">\(S\)</span>-소수는 <span class="math inline">\(5, 9, 13, 17, 21, 29, 33, 37, 41, 49, \ldots\)</span>로 시작한다. 이제 <span class="math inline">\(21 = 3 \times 7\)</span>, <span class="math inline">\(9 = 3 \times 3\)</span>, <span class="math inline">\(49 = 7 \times 7\)</span>은 모두 <span class="math inline">\(S\)</span>-소수인데, <span class="math inline">\(3\)</span>과 <span class="math inline">\(7\)</span>이 <span class="math inline">\(S\)</span>에 속하지 않기 때문이다. 그리고 <span class="math display">\[441 = 21 \times 21 = 9 \times 49.\]</span> 이처럼 <span class="math inline">\(441\)</span>은 <span class="math inline">\(S\)</span>-소수로의 인수분해(factorisation)를 서로 다른 두 가지로 가진다(그림 1.7.1). <span class="math inline">\(S\)</span>에서는 유일 인수분해(unique factorisation)가 성립하지 않는다.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-7-1.svg" alt="그림 1.7.1"><figcaption><span class="fig-label">그림 1.7.1</span> <span class="math inline">\(441\)</span>을 <span class="math inline">\(S\)</span>-소수로 인수분해하는 두 가지 방법. 보통의 정수에서는 두 나무 모두 <span class="math inline">\(3 \times 3 \times 7 \times 7\)</span>까지 내려가지만, <span class="math inline">\(3\)</span>과 <span class="math inline">\(7\)</span>은 <span class="math inline">\(S\)</span>에 속하지 않으므로 <span class="math inline">\(S\)</span> 안에서는 인수분해가 둘째 줄에서 멈추고, 그 결과는 서로 다르다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>“소수”인지는 체계에 따라 달라진다.</strong> <span class="math inline">\(9\)</span>와 <span class="math inline">\(21\)</span>은 정수에서는 합성수(composite)이지만 <span class="math inline">\(S\)</span>에서는 소수이다. 이들을 인수분해하는 데 필요한 수가 없기 때문이다.</p></li>
+<li><p><strong>닫혀 있는지가 중요하다.</strong> <span class="math inline">\(S\)</span>는 곱셈에 대하여 닫혀 있지만 <span class="math inline">\(T\)</span>는 그렇지 않다. 이 하나의 차이가 소문항 (iii)과 (iv)를 이끌었다.</p></li>
+<li><p><strong>당연한 사실도 정리일 수 있다.</strong> 정수에서 유일 인수분해가 성립한다는 것에는 증명이 필요하다. 이 문제가 그 이유를 보여 준다. 매우 비슷해 보이는 체계에서는 그것이 거짓이다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="정수는-무엇이-특별한가">정수는 무엇이 특별한가</h3>
+<p>보통의 정수에서는 <em>왜</em> 인수분해가 잘 되는 것일까? 핵심이 되는 사실은 <em>유클리드의 보조정리</em>(Euclid’s lemma)이다. 소수 <span class="math inline">\(p\)</span>가 곱 <span class="math inline">\(ab\)</span>를 나누면, <span class="math inline">\(p\)</span>는 <span class="math inline">\(a\)</span>를 나누거나 <span class="math inline">\(p\)</span>는 <span class="math inline">\(b\)</span>를 나눈다. 이 보조정리는 유클리드 호제법(Euclidean algorithm)을 이용하여 증명하며, 바로 이것이 <span class="math inline">\(S\)</span>에서 성립하지 않는다. 거기서는 <span class="math inline">\(S\)</span>-소수 <span class="math inline">\(9\)</span>가 <span class="math inline">\(21 \times 21 = 441\)</span>을 나누지만(<span class="math inline">\(441 = 9 \times 49\)</span>이므로), <span class="math inline">\(9\)</span>는 <span class="math inline">\(21\)</span>을 <span class="math inline">\(S\)</span> 안에서 나누지 않는다. 대학 1학년 때 유클리드의 보조정리를 엄밀하게 증명하고, 유일 인수분해가 그로부터 따라 나온다는 것을 보게 될 것이다.</p>
+<div class="historybox">
+<div class="box-title">페르마의 마지막 정리의 실패한 증명</div>
+<p>1847년 3월 1일, 가브리엘 라메(Gabriel Lamé)는 파리 과학 아카데미(Paris Academy)에서 페르마의 마지막 정리를 증명했다고 발표했다. 그의 아이디어는 복소수 단위근(roots of unity)을 이용하여 <span class="math inline">\(x^n + y^n\)</span>을 <span class="math display">\[x^n + y^n = (x + y)(x + \zeta y)(x + \zeta^2 y) \cdots (x + \zeta^{n-1} y), \qquad \zeta = e^{2\pi \mathrm{i}/n}\]</span> (단, <span class="math inline">\(n\)</span>은 홀수)과 같이 인수분해한 다음, 각 괄호의 소인수에 대해 논증하는 것이었다. 조제프 리우빌(Joseph Liouville)은 곧바로 이의를 제기했다. <span class="math inline">\(\zeta\)</span>로 만들어진 수들이 왜 유일하게 인수분해되어야 하는가? 몇 주 뒤, 에른스트 쿠머(Ernst Kummer)가 그런 수들이 유일하게 인수분해되지 않는 경우가 많다는 것을 이미 보였다는 사실이 밝혀졌다. 처음으로 실패하는 경우는 <span class="math inline">\(n = 23\)</span>이다.</p>
+<p>쿠머는 유일 인수분해를 회복시켜 주는 새로운 대상인 “아이디얼 수(ideal numbers)”를 고안하여 살릴 수 있는 것을 살려 냈고, 매우 많은 지수에 대해 페르마의 마지막 정리를 증명했다. 리하르트 데데킨트(Richard Dedekind)는 쿠머의 아이디얼 수를 현대 대수학의 핵심 개념 중 하나인 <em>아이디얼</em>(ideal)로 발전시켰다.</p>
+</div>
+<h3 id="기억해-둘-만한-더-작은-예">기억해 둘 만한 더 작은 예</h3>
+<p>수 체계 <span class="math inline">\(\mathbb{Z}[\sqrt{-5}] = \{a + b\sqrt{-5} : a, b \in \mathbb{Z}\}\)</span>에서는 <span class="math display">\[6 = 2 \times 3 = (1 + \sqrt{-5})(1 - \sqrt{-5}),\]</span> 이고, 네 인수는 모두 그 체계에서 “소수”이다(연습문제 3). 이를 인수분해가 <em>실제로</em> 유일한 <a href="../ch01/two-squares.html">1.6 절</a>의 가우스 정수(Gaussian integers)와 비교해 보자. 이런 종류의 체계 중 어떤 것에서 유일 인수분해가 성립하는지는 깊은 문제이다. 가우스(Gauss)는 <span class="math inline">\(\mathbb{Z}[\sqrt{-d}]\)</span> 꼴의 체계와 그와 가까운 체계들 가운데 이 성질을 가지는 것은 아홉 개뿐이라고 추측했다. 이 추측은 1952년부터 1967년 사이에 Heegner, Baker, Stark에 의해 마침내 증명되었다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">당연하게 여기는 것을 의심하기</div>
+<p><em>어떤 사실이 너무 당연해서 증명할 필요가 없어 보일 때, 그것이 무엇에 의존하는지 묻고, 그것이 성립하지 않는 상황을 찾아보라.</em></p>
+<p>반례(counterexample), 즉 “당연한” 사실이 거짓이 되는 세계를 만들어 보는 것은 증명에 정말로 필요한 것이 무엇인지 알아내는 가장 좋은 방법 중 하나이다. 학부 대수학의 상당 부분은 정수의 익숙한 성질 중 어떤 것이 더 일반적인 체계에서도 살아남는지를 묻는 일이다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>또 다른 예.</strong> <span class="math inline">\(693\)</span>이 <span class="math inline">\(S\)</span>-소수로의 인수분해를 서로 다른 두 가지로 가짐을 보여라. 이런 예를 만들어 내는 일반적인 방법을 찾을 수 있는가?</p></li>
+<li><p><strong>짝수.</strong> <span class="math inline">\(E = \{2, 4, 6, 8, \ldots\}\)</span>라 하자. 어떤 수가 <span class="math inline">\(E\)</span>-소수인가? <span class="math inline">\(60\)</span>이 <span class="math inline">\(E\)</span>-소수로의 인수분해를 두 가지 이상 가짐을 보여라.</p></li>
+<li><p><strong><span class="math inline">\(\mathbb{Z}[\sqrt{-5}]\)</span>.</strong> <em>노름</em>(norm)을 <span class="math inline">\(N(a + b\sqrt{-5}) = a^2 + 5b^2\)</span>으로 정의하자. <span class="math inline">\(N(zw) = N(z)N(w)\)</span>임을 보여라. 노름이 <span class="math inline">\(2\)</span> 또는 <span class="math inline">\(3\)</span>인 원소가 없음을 보여서, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(1 \pm \sqrt{-5}\)</span>가 <span class="math inline">\(\mathbb{Z}[\sqrt{-5}]\)</span>에서 더 이상 인수분해되지 않음을 유도하라.</p></li>
+<li><p><strong>유클리드의 보조정리 활용.</strong> <span class="hard">심화</span> 유클리드의 보조정리(소수가 <span class="math inline">\(ab\)</span>를 나누면 그 소수는 <span class="math inline">\(a\)</span> 또는 <span class="math inline">\(b\)</span>를 나눈다)를 가정하고, <span class="math inline">\(1\)</span>보다 큰 모든 정수는 인수의 순서를 무시하면 소수로의 인수분해를 단 하나만 가짐을 증명하라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Ian Stewart &amp; David Tall, <a href="https://uk.bookshop.org/search?keywords=Algebraic+Number+Theory+and+Fermat%27s+Last+Theorem+Stewart+Tall"><em>Algebraic Number Theory and Fermat’s Last Theorem</em></a></strong> (CRC Press). 앞부분의 장들에서 라메, 쿠머, 아이디얼의 이야기를 의욕 있는 대학 1학년 학생이 따라갈 수 있는 수준으로 들려준다.</p></li>
+<li><p><strong>John Stillwell, <a href="https://uk.bookshop.org/search?keywords=Elements+of+Number+Theory+Stillwell"><em>Elements of Number Theory</em></a></strong>. 정수와 가우스 정수에서의 유일 인수분해를 나란히 비교한다.</p></li>
+<li><p><strong>Harold Edwards, <a href="https://uk.bookshop.org/search?keywords=Fermat%27s+Last+Theorem%3A+A+Genetic+Introduction+Edwards"><em>Fermat’s Last Theorem: A Genetic Introduction</em></a></strong> (Springer). 야심 있는 독자를 위한 책으로, 쿠머의 업적을 그 역사를 통해 설명한다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="two-squares.html">← 1.6 두 제곱수의 합</a><a class="next" href="counting-rationals.html">→ 1.8 유리수 세기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

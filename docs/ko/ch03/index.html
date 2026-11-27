@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제3장: 함수, 부등식, 그리고 엄밀함 — Beyond STEP</title>
+<meta name="description" content="오류 찾기로 시작하여 고전적인 부등식을 다룬 뒤, 성질에 의해 정의되는 함수를 다룬다.">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch03/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch03/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch03/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch03/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch03/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch03/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="제3장: 함수, 부등식, 그리고 엄밀함 — Beyond STEP">
+<meta property="og:description" content="오류 찾기로 시작하여 고전적인 부등식을 다룬 뒤, 성질에 의해 정의되는 함수를 다룬다.">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch03/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="제3장: 함수, 부등식, 그리고 엄밀함 — Beyond STEP">
+<meta name="twitter:description" content="오류 찾기로 시작하여 고전적인 부등식을 다룬 뒤, 성질에 의해 정의되는 함수를 다룬다.">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 3, "name": "함수, 부등식, 그리고 엄밀함", "url": "https://beyondstep.keithmcnulty.org/ko/ch03/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "오류 찾기로 시작하여 고전적인 부등식을 다룬 뒤, 성질에 의해 정의되는 함수를 다룬다."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제3장: 함수, 부등식, 그리고 엄밀함", "item": "https://beyondstep.keithmcnulty.org/ko/ch03/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch03/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch03/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch03/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch03/index.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">장</div>
+    <div class="ch-num">3</div>
+    <h1>함수, 부등식, 그리고 엄밀함</h1>
+    <p class="strap">어떤 것이 참이라는 사실을 아는 것과 왜 참인지 아는 것은 같지 않으며, 바로 그 차이 속에 수학이 있다.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">장 전체 내려받기</span><span class="dl-sub">인쇄용으로 조판한 PDF</span></span></a>
+  </div>
+  <h2 class="contents-head">이 장의 내용</h2>
+  <ol class="toc"><li><a class="toc-link" href="spot-the-flaw.html"><span class="toc-num">3.1</span>
+<span class="toc-title">오류 찾기</span>
+<span class="toc-src">STEP I 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-1-spot-the-flaw.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="am-gm-backwards.html"><span class="toc-num">3.2</span>
+<span class="toc-title">AM–GM, 거꾸로</span>
+<span class="toc-src">STEP II 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-2-am-gm-backwards.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="convexity.html"><span class="toc-num">3.3</span>
+<span class="toc-title">볼록성의 힘</span>
+<span class="toc-src">STEP II 2007</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-3-convexity.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="areas-inequalities.html"><span class="toc-num">3.4</span>
+<span class="toc-title">부등식을 증명하는 넓이</span>
+<span class="toc-src">STEP III 2011</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-4-areas-inequalities.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="pi-e-or-e-pi.html"><span class="toc-num">3.5</span>
+<span class="toc-title">\(\pi^e\)인가, \(e^\pi\)인가?</span>
+<span class="toc-src">STEP II 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-5-pi-e-or-e-pi.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="markov-bound.html"><span class="toc-num">3.6</span>
+<span class="toc-title">기울기의 한계</span>
+<span class="toc-src">STEP I 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-6-markov-bound.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="wirtinger.html"><span class="toc-num">3.7</span>
+<span class="toc-title">\(\pi^2 \leq 10\)</span>
+<span class="toc-src">STEP II 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-7-wirtinger.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="addition-laws.html"><span class="toc-num">3.8</span>
+<span class="toc-title">덧셈 법칙으로 정해지는 함수</span>
+<span class="toc-src">STEP III 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-8-addition-laws.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="lambert-w.html"><span class="toc-num">3.9</span>
+<span class="toc-title">새로운 함수 만들기</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-9-lambert-w.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">돌아보기: 지금까지 배운 것</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“다음으로 풀어 보기” 연습문제의 답</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">3장  \(\cdot\)  들어가며</div>
+    <h1 class="essay-title">제대로 맞히기</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>수학에서는 무언가를 이해하는 것이 아니다. 그저 익숙해질 뿐이다.</p>
+<p class="who">— 존 폰 노이만(John von Neumann)</p>
+</div>
+<p>여기 <span class="math inline">\(1 = 2\)</span>라는 “증명(proof)”이 있다. <span class="math inline">\(a = b\)</span>라 하자. 그러면 <span class="math inline">\(a^2 = ab\)</span>이므로 <span class="math inline">\(a^2 - b^2 = ab - b^2\)</span>이고, 이를 인수분해하면 <span class="math inline">\((a + b)(a - b) = b(a - b)\)</span>이다. 양변에서 <span class="math inline">\(a - b\)</span>를 약분하면 <span class="math inline">\(a + b = b\)</span>이고, <span class="math inline">\(a = b\)</span>이므로 이는 <span class="math inline">\(2b = b\)</span>, 곧 <span class="math inline">\(2 = 1\)</span>이라는 뜻이다.</p>
+<p>아마 문제를 알아챘을 것이다. <span class="math inline">\(a = b\)</span>이므로 “<span class="math inline">\(a - b\)</span>를 약분한다”는 것은 0으로 나누는 것이다. 그러나 모든 단계가 얼마나 그럴듯해 보였는지, 그리고 그 오류가 일상적인 조작 속에 얼마나 쉽게 숨어 있었는지 주목하자. 실제 수학에서 저지르는 실제 실수는 이렇게 뻔한 경우가 드물며, 역사상 가장 위대한 수학자들조차 그런 실수에 속아 넘어갔다. 이 장은 그런 실수를 잡아내는 사고 습관에 관한 것이다. 정확한 정의, 정리의 신중한 사용, 그리고 너무 쉬워 보이는 논증에 대한 건강한 의심이 그것이다.</p>
+<h3 id="엄밀함이-왜-중요한가">엄밀함이 왜 중요한가</h3>
+<p>학교에서 수학은 대체로 답을 구하는 일이다. 대학에서 수학은 대체로 <em>자신의 답이 옳다는 것을 아는 일</em>이며, 다른 사람을 납득시킬 수 있는 일이다. 이러한 전환은 학교 수학과 대학 수학 사이의 가장 큰 변화이며, 당혹스러울 수 있다. “당연히” 성립하는 것을 증명하는 데 왜 한 쪽이나 써야 하는가?</p>
+<p>그 답은 “당연함”을 믿을 수 없다는 것이다. 해석학(analysis)의 역사는 당연해 보였지만 거짓이었던 결과들로 가득하다. 연속함수(continuous function)는 몇몇 고립된 점을 제외하면 반드시 미분가능(differentiable)하다는 주장(앙드레마리 앙페르(André-Marie Ampère)가 1806년에 “증명”을 발표했으나, 1872년 바이어슈트라스(Weierstrass)가 <em>어디에서도</em> 미분가능하지 않은 연속함수를 찾아냈다), 연속함수들의 수렴하는 합은 연속이라는 주장(코시(Cauchy)는 이를 믿었으나 아벨(Abel)이 반례(counterexample)를 찾아냈다), 수렴하는 급수(convergent series)의 항의 순서를 바꾸어도 그 합은 변하지 않는다는 주장(일반적으로는 그렇지 않다)이 그 예이다. 엄밀함(rigour)은 현학이 아니다. 엄밀함은 참인 것과 그럴듯한 것을 구별하는 유일하게 믿을 만한 방법이다.</p>
+<h3 id="부등식-해석학의-실무-도구">부등식: 해석학의 실무 도구</h3>
+<p>이 장의 두 번째 주제는 <em>부등식(inequality)</em>이다. 학교 수학에서 대부분의 결과는 등식, 곧 이것이 저것과 같다는 형태이다. 해석학에서 대부분의 결과는 부등식, 곧 이것이 많아야 저것이라는 형태이다. 수열이 수렴함을 증명하려면 오차가 어떤 허용치보다도 <em>작음</em>을 보이고, 적분이 존재함을 증명하려면 어떤 합이 <em>유계(bounded)</em>임을 보이며, 근삿값이 얼마나 좋은지 추정하려면 오차의 상한을 구한다. 전문 해석학자는 등식보다 부등식을 증명하는 데 훨씬 많은 시간을 쓰며, 여기서 만나게 될 고전적인 부등식들(산술-기하 평균 부등식(AM–GM), 옌센(Jensen) 부등식, 영(Young) 부등식, 횔더(Hölder) 부등식, 코시–슈바르츠(Cauchy–Schwarz) 부등식)은 이 분야의 필수 도구이다.</p>
+<p>이 부등식들은 그 자체로도 놀랍다. 함수에 관한 부등식 하나에 잘 고른 예를 적용하면 <span class="math inline">\(\pi^2 \leq 10\)</span>이 증명된다(<a href="../ch03/wirtinger.html">3.7 절</a>). 로그함수의 모양에 관한 사실 하나로 <span class="math inline">\(\pi^e\)</span>와 <span class="math inline">\(e^\pi\)</span> 중 어느 쪽이 더 큰지 판가름 난다(<a href="../ch03/pi-e-or-e-pi.html">3.5 절</a>). 측정 오차에 관한 한 화학자의 질문은 수학에서 가장 중요한 다항식들 가운데 일부로 이어진다(<a href="../ch03/markov-bound.html">3.6 절</a>).</p>
+<h3 id="대학에서-만나게-될-것">대학에서 만나게 될 것</h3>
+<p>엄밀함은 1학년 <em>해석학</em> 과목의 주제이며, 증명을 정확하게 쓰는 법을 배우는 <em>수와 집합(Numbers and Sets)</em> 또는 <em>수학의 기초(Foundations)</em>라고 흔히 불리는 과목의 주제이기도 하다. 여기서 연속성과 미분가능성의 형식적인 정의를 만나고, 가정이 정확하게 주어진 정리들(사잇값 정리(intermediate value theorem), 평균값 정리(mean value theorem), 최대·최소 정리(extreme value theorem))을 만나는데, 이 정리들의 가정은 정말로 중요하다. 이후의 과목들은 이 장의 부등식들을 하나의 분야로 발전시킨다. <em>함수해석학(functional analysis)</em>은 <a href="../ch03/areas-inequalities.html">3.4 절</a>와 <a href="../ch03/wirtinger.html">3.7 절</a>에 나오는 것과 같은 적분으로 크기를 재는 함수 공간을 연구한다. <em>볼록해석학(convex analysis)</em>과 <em>최적화(optimisation)</em>는 <a href="../ch03/convexity.html">3.3 절</a>에서, <em>근사 이론(approximation theory)</em>은 <a href="../ch03/markov-bound.html">3.6 절</a>에서 자라 나온다. 그리고 <a href="../ch03/lambert-w.html">3.9 절</a>에 나오는 것과 같은 <em>특수함수(special functions)</em>는 응용수학과 물리학 전반에 걸쳐 등장한다.</p>
+<h3 id="이-장을-관통하는-질문들">이 장을 관통하는 질문들</h3>
+<div class="skillbox">
+<div class="box-title">세 가지 큰 질문</div>
+<ol class="arabic">
+<li><p><strong>논증이 옳다는 것을 어떻게 아는가?</strong> 그럴듯한 논증이 무너지는 흔한 방식은 무엇이며, 이를 어떻게 점검하는가?</p></li>
+<li><p><strong>부등식은 어떻게 증명하는가?</strong> 고전적인 부등식들은 어디에서 오며, 어느 것을 쓸지 어떻게 고르는가?</p></li>
+<li><p><strong>함수란 정말로 무엇인가?</strong> 함수를 공식이 아니라 그 함수가 가진 성질로 정의할 수 있는가? 그리고 기존의 함수로 충분하지 않을 때 새로운 함수를 만들어 낼 수 있는가?</p></li>
+</ol>
+</div>
+<p>이 장은 오류 찾기(<a href="../ch03/spot-the-flaw.html">3.1 절</a>)로 시작하여, 고전적인 부등식들을 각기 다른 각도에서 차례로 다룬다. 독특한 귀납법(induction), 볼록성(convexity), 넓이, 그래프의 모양, 다항식 보간(polynomial interpolation), 시험 함수(test function)가 그것이다. 마지막으로 성질로 정의되는 함수에 관한 두 절로 끝맺는다. 덧셈 법칙으로부터 얻는 <span class="math inline">\(e^x\)</span>와 <span class="math inline">\(\tanh x\)</span>, 그리고 역함수로 정의되는 완전히 새로운 함수이다.</p>
+<h3 id="이-장의-아이디어">이 장의 아이디어</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">주제</th>
+<th style="text-align: left;">아이디어</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">3.1</td>
+<td style="text-align: left;">그럴듯하지만 틀린 논증</td>
+<td style="text-align: left;">계산, 논리, 숨은 가정 점검하기</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.2</td>
+<td style="text-align: left;">산술-기하 평균 부등식</td>
+<td style="text-align: left;">앞으로–뒤로 귀납법</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.3</td>
+<td style="text-align: left;">옌센 부등식</td>
+<td style="text-align: left;">오목한 곡선은 현보다 위에 있다</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.4</td>
+<td style="text-align: left;">영 부등식</td>
+<td style="text-align: left;">그림 속 넓이 비교하기</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.5</td>
+<td style="text-align: left;"><span class="math inline">\(\pi^e\)</span>인가 <span class="math inline">\(e^\pi\)</span>인가?</td>
+<td style="text-align: left;">하나의 함수로 귀착시켜 그 그래프 조사하기</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.6</td>
+<td style="text-align: left;">이차함수의 기울기</td>
+<td style="text-align: left;">모르는 것을 아는 것으로 나타내기</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.7</td>
+<td style="text-align: left;"><span class="math inline">\(\pi^2 \leq 10\)</span></td>
+<td style="text-align: left;">일반적인 부등식에 시험 함수 대입하기</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.8</td>
+<td style="text-align: left;"><span class="math inline">\(e^x\)</span>와 <span class="math inline">\(\tanh x\)</span></td>
+<td style="text-align: left;">함수방정식으로 정의되는 함수</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.9</td>
+<td style="text-align: left;">W 함수</td>
+<td style="text-align: left;">역함수로 함수 만들어 내기</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="이-장을-읽는-방법">이 장을 읽는 방법</h3>
+<p>앞에서와 마찬가지로, 풀이를 읽기 전에 각 문제를 먼저 풀어 보자. 이 장에서는 한 가지를 더 해 보자. 각 풀이를 읽은 뒤에 되돌아가서, 부주의한 학생이 틀릴 만한 한두 단계를 찾아보는 것이다. 숨은 가정은 어디에 끼어들 수 있는가? 어느 정리의 어느 가정을 점검해야 하는가? 이렇게 비판적이고 능동적으로 읽는 것은 대학에 가기 전에 기를 수 있는 가장 유용한 습관이다.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="spot-the-flaw.html">→ 시작: 3.1 오류 찾기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

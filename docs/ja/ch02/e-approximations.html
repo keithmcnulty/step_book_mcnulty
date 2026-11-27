@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>e に迫る分数 (STEP II 2021 Q8) — Beyond STEP</title>
+<meta name="description" content="STEP II 2021 問題 8：解説付き解答とその背後にある大学数学。 e をよく近似する分数はどうすれば見つかるだろうか。級数（series） 1 + 1 + frac12 + frac16 + cdots を途中で打ち切るという手もあるが、そうして得られる分数は、分母の大きさの割にはそれほど良い近似ではない。この問題は、はるかに巧妙なことを行う。積分の族を作り、そのどれもが「整数 +…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch02/e-approximations.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch02/e-approximations.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/e-approximations.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/e-approximations.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch02/e-approximations.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch02/e-approximations.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/e-approximations.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="e に迫る分数 (STEP II 2021 Q8) — Beyond STEP">
+<meta property="og:description" content="STEP II 2021 問題 8：解説付き解答とその背後にある大学数学。 e をよく近似する分数はどうすれば見つかるだろうか。級数（series） 1 + 1 + frac12 + frac16 + cdots を途中で打ち切るという手もあるが、そうして得られる分数は、分母の大きさの割にはそれほど良い近似ではない。この問題は、はるかに巧妙なことを行う。積分の族を作り、そのどれもが「整数 +…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch02/e-approximations.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="e に迫る分数 (STEP II 2021 Q8) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2021 問題 8：解説付き解答とその背後にある大学数学。 e をよく近似する分数はどうすれば見つかるだろうか。級数（series） 1 + 1 + frac12 + frac16 + cdots を途中で打ち切るという手もあるが、そうして得られる分数は、分母の大きさの割にはそれほど良い近似ではない。この問題は、はるかに巧妙なことを行う。積分の族を作り、そのどれもが「整数 +…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "e に迫る分数", "headline": "e に迫る分数", "description": "STEP II 2021 問題 8：解説付き解答とその背後にある大学数学。 e をよく近似する分数はどうすれば見つかるだろうか。級数（series） 1 + 1 + frac12 + frac16 + cdots を途中で打ち切るという手もあるが、そうして得られる分数は、分母の大きさの割にはそれほど良い近似ではない。この問題は、はるかに巧妙なことを行う。積分の族を作り、そのどれもが「整数 +…", "url": "https://beyondstep.keithmcnulty.org/ja/ch02/e-approximations.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2021 問題 8", "数列・級数・収束"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 2, "name": "数列・級数・収束", "url": "https://beyondstep.keithmcnulty.org/ja/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第2章：数列・級数・収束", "item": "https://beyondstep.keithmcnulty.org/ja/ch02/"}, {"@type": "ListItem", "position": 3, "name": "e に迫る分数", "item": "https://beyondstep.keithmcnulty.org/ja/ch02/e-approximations.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch02/e-approximations.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch02/e-approximations.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch02/e-approximations.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch02/e-approximations.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第2章 · 数列・級数・収束</a>
+    <div class="src">STEP II · 2021 · 問題 8</div>
+    <div class="sec-head"><span class="sec-num">2.9</span><h1>e に迫る分数</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-9-e-approximations.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第2章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 2021、第8問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は、OCRが配布している2021年のSTEP問題一式（zipファイル）のSTEP IIに収録されている： <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">www.ocr.org.uk/Images/696588-2021-past-papers.zip</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p><span class="math inline">\(e\)</span> をよく近似する分数はどうすれば見つかるだろうか。級数（series）<span class="math inline">\(1 + 1 + \frac12 + \frac16 + \cdots\)</span> を途中で打ち切るという手もあるが、そうして得られる分数は、分母の大きさの割にはそれほど良い近似ではない。この問題は、はるかに巧妙なことを行う。積分の族を作り、そのどれもが「整数 <span class="math inline">\(+\)</span> 整数 <span class="math inline">\(\times\, e\)</span>」の形をした小さな数になるようにするのである。<span class="math inline">\(a + be\)</span> が非常に小さければ <span class="math inline">\(e\)</span> は <span class="math inline">\(-a/b\)</span> にきわめて近く、こうして積分から優れた分数の列 <span class="math inline">\(\frac{19}{7}\)</span>, <span class="math inline">\(\frac{193}{71}\)</span>, <span class="math inline">\(\frac{2721}{1001}\)</span>, …が得られる。</p>
+<p>小さいと同時に「対象とする数の整数係数の結合」の形をした積分を使うという同じ手法は、数学における最も深い無理性（irrationality）の証明のいくつかの背後にある。<span class="math inline">\(e\)</span> が超越数であることのエルミート（Hermite）による証明や、<span class="math inline">\(\zeta(3)\)</span> が無理数であることのアペリー（Apéry）による証明もその例である。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<p>区間 <span class="math inline">\([0, 1]\)</span> 上の被積分関数（integrand）<span class="math inline">\(\frac{t^n(1-t)^n}{n!}e^t\)</span> を見てみよう。</p>
+<div class="askyourself">
+<p><span class="math inline">\([0, 1]\)</span> 上での <span class="math inline">\(t(1-t)\)</span> の最大値はいくつか。そこから、<span class="math inline">\(n\)</span> が大きくなるときの <span class="math inline">\(T_n\)</span> の大きさについて何がわかるか。</p>
+</div>
+<p><span class="math inline">\(t(1-t)\)</span> の最大値は <span class="math inline">\(t = \frac12\)</span> における <span class="math inline">\(\frac14\)</span> である。したがって被積分関数は高々 <span class="math inline">\(\frac{e}{4^n n!}\)</span> であり、これは驚くほど速く小さくなる（図 2.9.1）。この小ささが話の半分である。残りの半分、すなわち <span class="math inline">\(T_n\)</span> が <span class="math inline">\(a_n + b_n e\)</span> という特別な形をもつことは、部分積分（integration by parts）から得られる。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-2回微分する" class="stage"><span class="stage-n">段階 1</span> 2回微分する</h4>
+<p><span class="math inline">\(p(t) = t^n(1-t)^n\)</span> とおく。積の微分法則（product rule）により <span class="math display">\[p&#39;(t) = n t^{n-1}(1-t)^n - n t^n(1-t)^{n-1} = n t^{n-1}(1-t)^{n-1}(1 - 2t).\]</span></p>
+<div class="askyourself">
+<p>もう一度微分せよ。2つの項が現れるので、共通因数 <span class="math inline">\(n t^{n-2}(1-t)^{n-2}\)</span> をくくり出す。求められている形に合わせるには、<span class="math inline">\((1 - 2t)^2\)</span> を <span class="math inline">\(t(1-t)\)</span> を用いて書き直す必要がある。どうすればよいか。</p>
+</div>
+<p><span class="math inline">\(n\,[t(1-t)]^{n-1}(1 - 2t)\)</span> を積の微分法則で微分する（<span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}[t(1-t)] = 1 - 2t\)</span> に注意）： <span class="math display">\[\begin{aligned}
+  p&#39;&#39;(t) &amp;= n(n-1)[t(1-t)]^{n-2}(1-2t)^2 - 2n[t(1-t)]^{n-1} \\
+  &amp;= n t^{n-2}(1-t)^{n-2}\Bigl[(n-1)(1-2t)^2 - 2t(1-t)\Bigr].
+\end{aligned}\]</span> ここで <span class="math inline">\((1 - 2t)^2 = 1 - 4t + 4t^2 = 1 - 4t(1-t)\)</span> であるから、括弧の中は <span class="math inline">\((n-1) - 4(n-1)t(1-t) - 2t(1-t) = (n-1) - 2(2n-1)t(1-t)\)</span> となる。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-2回部分積分する" class="stage"><span class="stage-n">段階 2</span> 2回部分積分する</h4>
+<div class="askyourself">
+<p><span class="math inline">\(p(t)\)</span> は <span class="math inline">\(t = 0\)</span> でも <span class="math inline">\(t = 1\)</span> でも <span class="math inline">\(0\)</span> である。<span class="math inline">\(n \geq 2\)</span> のとき、<span class="math inline">\(p&#39;(t)\)</span> はどうか。<span class="math inline">\(p(t)e^t\)</span> を部分積分するとき、なぜそれが重要なのか。</p>
+</div>
+<p><span class="math inline">\(n \geq 2\)</span> のとき、<span class="math inline">\(p&#39;(t)\)</span> は因数 <span class="math inline">\(t^{n-1}(1-t)^{n-1}\)</span> を含むので、やはり両端で <span class="math inline">\(0\)</span> になる。2回部分積分すると、境界項はすべて <span class="math inline">\(0\)</span> である： <span class="math display">\[\int_0^1 p\, e^t\,\mathrm{d}t = \Bigl[p\,e^t\Bigr]_0^1 - \int_0^1 p&#39;\, e^t\,\mathrm{d}t = -\Bigl[p&#39;\,e^t\Bigr]_0^1 + \int_0^1 p&#39;&#39;\, e^t\,\mathrm{d}t = \int_0^1 p&#39;&#39;\, e^t\,\mathrm{d}t.\]</span> 段階 1 より <span class="math inline">\(p&#39;&#39;(t) = n(n-1)\,t^{n-2}(1-t)^{n-2} - 2n(2n-1)\,t^{n-1}(1-t)^{n-1}\)</span> である。これを <span class="math inline">\(n!\)</span> で割ると <span class="math display">\[\frac{p&#39;&#39;(t)}{n!} = \frac{t^{n-2}(1-t)^{n-2}}{(n-2)!} - 2(2n-1)\frac{t^{n-1}(1-t)^{n-1}}{(n-1)!}.\]</span> <span class="math inline">\(e^t\)</span> を掛けて積分すると、<span class="math inline">\(T_n = T_{n-2} - 2(2n-1)T_{n-1}\)</span> が得られる。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-整数の構造" class="stage"><span class="stage-n">段階 3</span> 整数の構造</h4>
+<p><span class="math inline">\(T_0 = \int_0^1 e^t\,\mathrm{d}t = e - 1\)</span> である。<span class="math inline">\(T_1 = \int_0^1 (t - t^2)e^t\,\mathrm{d}t\)</span> については、部分積分により <span class="math inline">\(\int_0^1 t e^t\,\mathrm{d}t = 1\)</span>、<span class="math inline">\(\int_0^1 t^2 e^t\,\mathrm{d}t = e - 2\)</span> となるので、<span class="math inline">\(T_1 = 1 - (e - 2) = 3 - e\)</span> である。</p>
+<div class="askyourself">
+<p><span class="math inline">\(T_0 = -1 + 1 \cdot e\)</span>、<span class="math inline">\(T_1 = 3 + (-1)\cdot e\)</span> である。なぜすべての <span class="math inline">\(T_n\)</span> が、整数 <span class="math inline">\(a_n\)</span>, <span class="math inline">\(b_n\)</span> を用いて <span class="math inline">\(a_n + b_n e\)</span> の形になるのか。</p>
+</div>
+<p>累積帰納法（strong induction）による。<span class="math inline">\(T_{n-2} = a_{n-2} + b_{n-2}e\)</span>、<span class="math inline">\(T_{n-1} = a_{n-1} + b_{n-1}e\)</span> で係数が整数ならば <span class="math display">\[T_n = \bigl(a_{n-2} - 2(2n-1)a_{n-1}\bigr) + \bigl(b_{n-2} - 2(2n-1)b_{n-1}\bigr)e,\]</span> であり、新しい係数もまた整数である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-小さいからこそ情報をもつ" class="stage"><span class="stage-n">段階 4</span> 小さいからこそ情報をもつ</h4>
+<p><span class="math inline">\(0 &lt; t &lt; 1\)</span> のとき被積分関数は正であり、<span class="math inline">\(t^n(1-t)^n \leq 1\)</span> かつ <span class="math inline">\(e^t &lt; e\)</span> である。したがって <span class="math display">\[0 &lt; T_n &lt; \int_0^1 \frac{e}{n!}\,\mathrm{d}t = \frac{e}{n!}.\]</span></p>
+<div class="pausebox">
+<p><span class="math inline">\(0 &lt; a_n + b_n e &lt; \dfrac{e}{n!}\)</span> を <span class="math inline">\(|b_n|\)</span> で割れ。これは <span class="math inline">\(e\)</span> と <span class="math inline">\(-a_n/b_n\)</span> の距離について何を語っているか。</p>
+</div>
+<p><span class="math inline">\(|b_n|\)</span> は正の整数であるから <span class="math inline">\(1\)</span> 以上であり、<span class="math inline">\(|b_n|\)</span> で割ると <span class="math display">\[\left| e - \left(\frac{-a_n}{b_n}\right) \right| = \frac{|a_n + b_n e|}{|b_n|} &lt; \frac{e}{n!\,|b_n|} \leq \frac{e}{n!}.\]</span> 右辺は <span class="math inline">\(0\)</span> に収束するので、<span class="math inline">\(-a_n/b_n \to e\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<p>漸化式（recurrence）から計算した最初のいくつかを示す：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5</th>
+<th style="text-align: right;">6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(-a_n/b_n\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{19}{7}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{193}{71}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{2721}{1001}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{49171}{18089}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{1084483}{398959}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">誤差</td>
+<td style="text-align: right;"><span class="math inline">\(4 \times 10^{-3}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3 \times 10^{-5}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1 \times 10^{-7}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3 \times 10^{-10}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(5 \times 10^{-13}\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>分数 <span class="math inline">\(\frac{2721}{1001}\)</span> は、分母がわずか4桁であるにもかかわらず、小数第 <span class="math inline">\(6\)</span> 位まで正しい。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-2-9-1.svg" alt="図 2.9.1"><figcaption><span class="fig-label">図 2.9.1</span> <span class="math inline">\(n = 1, 2, 3\)</span> に対する被積分関数 <span class="math inline">\(\frac{t^n(1-t)^n}{n!}e^t\)</span>。いずれも <span class="math inline">\((0, 1)\)</span> 上で正なので、各 <span class="math inline">\(T_n\)</span> は正である。しかも非常に速く小さくなり、<span class="math inline">\(n = 3\)</span> では曲線がほとんど見えないほどである。正であってしかもごく小さいこと、それこそがこの議論に必要なことである。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>漸化式を生み出す装置としての部分積分。</strong> 多項式とその導関数が両端で <span class="math inline">\(0\)</span> になったので、部分積分によって境界項のないすっきりした漸化式が得られた。</p></li>
+<li><p><strong>構造と大きさを組み合わせる。</strong> 漸化式によって <span class="math inline">\(T_n\)</span> が <span class="math inline">\(a_n + b_n e\)</span> の形であることがわかり、評価によってそれが小さいことがわかった。どちらか一方だけでは、<span class="math inline">\(e\)</span> の近似について何も言えない。</p></li>
+<li><p><strong>必要のないものは計算しない。</strong> 問題は <span class="math inline">\(a_n\)</span> と <span class="math inline">\(b_n\)</span> を求めなくてよいと述べており、実際に議論の中でそれらの値は一度も必要にならなかった。必要だったのは、それらが整数であるということだけである。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title"><span class="math inline">\(e\)</span> が無理数であることの別証明</div>
+<p>この問題は、ある有名な定理のすぐ手前で止まっている。<span class="math inline">\(p, q\)</span> を正の整数として <span class="math inline">\(e = p/q\)</span> と仮定する。すると <span class="math display">\[q\,T_n = q a_n + b_n p\]</span> は<em>整数</em>である。ところが <span class="math inline">\(0 &lt; q\,T_n &lt; \dfrac{qe}{n!}\)</span> であり、<span class="math inline">\(n\)</span> が大きければ右辺は <span class="math inline">\(1\)</span> より小さい。すると <span class="math inline">\(q T_n\)</span> は <span class="math inline">\(0\)</span> と <span class="math inline">\(1\)</span> の間に厳密に挟まれた整数ということになり、これは不可能である。よって <span class="math inline">\(e\)</span> は無理数（irrational number）である。これは <a href="../ch01/e-irrational.html">第 1.4 節</a> で見た「整数を <span class="math inline">\(0\)</span> と <span class="math inline">\(1\)</span> の間に閉じ込める」という考え方を、級数の代わりに積分で実現したものである。<span class="math inline">\(t^n(1-t)^n\)</span> のような多項式を含む、まさにこの種の積分を用いて、シャルル・エルミートは1873年に <span class="math inline">\(e\)</span> が<em>超越数</em>（transcendental number）であること、すなわち整数係数のどんな多項式の根にもならないことを証明した。</p>
+</div>
+<h3 id="連分数">連分数</h3>
+<p>表の分数は単に良い近似であるだけではない。それらは<em>最良</em>の近似の一部なのである。オイラー（Euler）が発見した <span class="math inline">\(e\)</span> の連分数（continued fraction）展開には、美しい規則性がある： <span class="math display">\[e = [2; 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, \ldots],\]</span> そしてその近似分数（convergent）は <span class="math inline">\(2, 3, \frac83, \frac{11}{4}, \frac{19}{7}, \frac{87}{32}, \frac{106}{39}, \frac{193}{71}, \ldots, \frac{2721}{1001}, \ldots\)</span> である。私たちの <span class="math inline">\(-a_n/b_n\)</span> は、ちょうど3つおきの近似分数になっている。これより小さい分母をもつ分数で、<span class="math inline">\(e\)</span> にこれ以上近いものは存在しない。オイラーが見出したこの規則性そのものが、<span class="math inline">\(e\)</span> が無理数であることの最初の証明であった。有限の連分数をもつのは有理数だけだからである。</p>
+<h3 id="アペリーの奇跡">アペリーの奇跡</h3>
+<p>1978年、ロジェ・アペリー（Roger Apéry）は、オイラー以来未解決であった問題（<a href="../ch02/kempner.html">第 2.3 節</a> を参照）、すなわち <span class="math inline">\(\zeta(3) = 1 + \frac18 + \frac1{27} + \cdots\)</span> が無理数であることの証明を発表した。その証明はあまりに意外なものであったため、聴衆は当初それを信じなかった。1年後、Frits Beukers は次の形の積分を用いた短い証明を見つけた： <span class="math display">\[\int_0^1\!\!\int_0^1 \frac{-\ln(xy)}{1 - xy}\, P_n(x) P_n(y)\,\mathrm{d}x\,\mathrm{d}y,\]</span> ここで <span class="math inline">\(P_n\)</span> は <span class="math inline">\(\frac{\mathrm{d}^n}{\mathrm{d}x^n}\bigl(x^n(1-x)^n\bigr)\)</span> から作られる。これらの積分は小さく、正であり、「整数 <span class="math inline">\(+\)</span> 整数 <span class="math inline">\(\times\, \zeta(3)\)</span>」を制御された分母で割った形をしている。まさにこの問題と同じ戦略である。<span class="math inline">\(\zeta(5)\)</span> や <span class="math inline">\(e + \pi\)</span> が無理数かどうかは、いまだにわかっていない。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">小さいがゼロではない</div>
+<p><em>ある量がいくつかの数の整数係数の結合であることがわかっており、しかも小さいがゼロではないこともわかっているならば、その量は情報をもっている。近似についての情報であり、ときには無理性についての情報でもある。</em></p>
+<p>この型は「構造は代数から、大きさは解析から」とまとめられる。これは数論の至るところに現れ、解析と代数が最も実り豊かに出会う場面の一つである。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>漸化式を回してみる。</strong> <span class="math inline">\(n = 2, 3, 4\)</span> について漸化式から <span class="math inline">\(a_n\)</span> と <span class="math inline">\(b_n\)</span> を計算し、表の分数を確かめよ。<span class="math inline">\(b_n\)</span> の符号が交互に変わることを示せ。</p></li>
+<li><p><strong>より鋭い評価。</strong> <span class="math inline">\(0 &lt; T_n &lt; \dfrac{e}{4^n\, n!}\)</span> を示せ。これによって <span class="math inline">\(-a_n/b_n\)</span> の誤差評価はどれだけ改善されるか。</p></li>
+<li><p><strong>無理性の証明。</strong> 上の囲みの議論を丁寧に書き下せ。<span class="math inline">\(T_n &gt; 0\)</span> であることは、正確にはどこで使われているか。</p></li>
+<li><p><strong>別の重み。</strong> <span class="hard">発展</span> <span class="math inline">\(e^t\)</span> を <span class="math inline">\(e^{2t}\)</span> に置き換えて（すなわち <span class="math inline">\(U_n = \int_0^1 \frac{t^n(1-t)^n}{n!}e^{2t}\,\mathrm{d}t\)</span> として）問題をやり直せ。<span class="math inline">\(U_n\)</span> の漸化式を求め、<span class="math inline">\(U_n\)</span> が <span class="math inline">\(1\)</span> と <span class="math inline">\(e^2\)</span> の有理数係数の結合であることを示し、この議論で <span class="math inline">\(e^2\)</span> が無理数であることがなお証明できるかどうかを調べよ。（<a href="../ch01/e-irrational.html">第 1.4 節</a> と比較せよ。）</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Ivan Niven, <a href="https://uk.bookshop.org/search?keywords=Irrational+Numbers+Niven"><em>Irrational Numbers</em></a></strong> (Mathematical Association of America)。無理性の証明についての古典的な小著で、エルミートの方法も扱っている。</p></li>
+<li><p><strong>Alfred van der Poorten, 「A proof that Euler missed」</strong>, <em>The Mathematical Intelligencer</em> 1 (1979)。アペリーの証明とその受け止められ方を生き生きと描いた記事。</p></li>
+<li><p><strong>Julian Havil, <a href="https://uk.bookshop.org/search?keywords=The+Irrationals+Havil"><em>The Irrationals</em></a></strong> (Princeton University Press)。数学に関心のある一般読者向けに書かれた無理数の歴史。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="squaring-minus-two.html">← 2.8 2乗して2を引く</a><a class="next" href="wrap-up.html">→ 振り返り</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

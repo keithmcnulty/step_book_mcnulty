@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>「ランダム」とは何を意味するか？ (STEP III 2022 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP III 2022 問題 12：解説付き解答とその背後にある大学数学。 「円の弦（chord）を無作為に1本選ぶ。その長さの期待値（expected value）はいくらか。」この問いには答えがありそうに聞こえる。しかし「無作為に」が何を意味するかを決めるまでは、答えは存在しない。円周上に無作為に2点をとって結べば、長さの期待値は (4a)/(π) approx 1.27a…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch12/bertrand.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/bertrand.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/bertrand.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/bertrand.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/bertrand.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/bertrand.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/bertrand.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="「ランダム」とは何を意味するか？ (STEP III 2022 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP III 2022 問題 12：解説付き解答とその背後にある大学数学。 「円の弦（chord）を無作為に1本選ぶ。その長さの期待値（expected value）はいくらか。」この問いには答えがありそうに聞こえる。しかし「無作為に」が何を意味するかを決めるまでは、答えは存在しない。円周上に無作為に2点をとって結べば、長さの期待値は (4a)/(π) approx 1.27a…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch12/bertrand.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="「ランダム」とは何を意味するか？ (STEP III 2022 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2022 問題 12：解説付き解答とその背後にある大学数学。 「円の弦（chord）を無作為に1本選ぶ。その長さの期待値（expected value）はいくらか。」この問いには答えがありそうに聞こえる。しかし「無作為に」が何を意味するかを決めるまでは、答えは存在しない。円周上に無作為に2点をとって結べば、長さの期待値は (4a)/(π) approx 1.27a…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "「ランダム」とは何を意味するか？", "headline": "「ランダム」とは何を意味するか？", "description": "STEP III 2022 問題 12：解説付き解答とその背後にある大学数学。 「円の弦（chord）を無作為に1本選ぶ。その長さの期待値（expected value）はいくらか。」この問いには答えがありそうに聞こえる。しかし「無作為に」が何を意味するかを決めるまでは、答えは存在しない。円周上に無作為に2点をとって結べば、長さの期待値は (4a)/(π) approx 1.27a…", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/bertrand.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2022 問題 12", "確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第12章：確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/"}, {"@type": "ListItem", "position": 3, "name": "「ランダム」とは何を意味するか？", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/bertrand.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch12/bertrand.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/bertrand.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/bertrand.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch12/bertrand.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第12章 · 確率</a>
+    <div class="src">STEP III · 2022 · 問題 12</div>
+    <div class="sec-head"><span class="sec-num">12.3</span><h1>「ランダム」とは何を意味するか？</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-3-bertrand.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第12章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2022、第12問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は、OCRが配布している2022年のSTEP問題一式（zipファイル）のSTEP IIIに収録されている： <a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">www.ocr.org.uk/Images/696587-2022-past-papers.zip</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>「円の弦（chord）を無作為に1本選ぶ。その長さの期待値（expected value）はいくらか。」この問いには答えがありそうに聞こえる。しかし「無作為に」が何を意味するかを決めるまでは、答えは存在しない。円周上に無作為に2点をとって結べば、長さの期待値は <span class="math inline">\(\frac{4a}{\pi} \approx 1.27a\)</span> である。円の内部に無作為に1点をとり、その点を通る方向を無作為に選べば、答えは <span class="math inline">\(\frac{16a}{3\pi} \approx 1.70a\)</span> となる。どちらも「無作為な弦」の選び方としてまったく妥当である。</p>
+<p>これが<em>ベルトランの逆説</em>（Bertrand’s paradox）であり、ジョゼフ・ベルトラン（Joseph Bertrand）が1889年に警告として発表したものである。確率は、確率的な試行が明確に指定されて初めて定まる。この逆説は、20世紀に築かれた確率論の厳密な基礎へと数学者たちを向かわせる一因となった。その基礎においては、あらゆる確率は厳密に定義された結果の空間の上で考えられる。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>角 <span class="math inline">\(AOB\)</span> が <span class="math inline">\(\theta\)</span> のとき、弦 <span class="math inline">\(AB\)</span> の長さはいくらか。（<span class="math inline">\(O\)</span> から垂線を下ろしてみよ。）</p>
+</div>
+<p><span class="math inline">\(O\)</span> からの垂線は弦と角をともに二等分するので、<span class="math inline">\(AB = 2a\sin\frac\theta2\)</span> である。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-円周上の2点" class="stage"><span class="stage-n">段階 1</span> 円周上の2点</h4>
+<p><span class="math display">\[\mathrm{E}(AB) = \frac{1}{2\pi}\int_0^{2\pi}2a\sin\frac\theta2\,\mathrm{d}\theta = \frac{a}{\pi}\Bigl[-2\cos\frac\theta2\Bigr]_0^{2\pi} = \frac{a}{\pi}\cdot 4 = \frac{4a}{\pi}. \qed\]</span></p>
+<h4 id="stagemark2-内部の無作為な点" class="stage"><span class="stage-n">段階 2</span> 内部の無作為な点</h4>
+<div class="askyourself">
+<p><span class="math inline">\(0 \leq r \leq a\)</span> に対して <span class="math inline">\(\mathrm{P}(R \leq r)\)</span> はいくらか。微分して確率密度を求めよ。</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(R \leq r)\)</span> は半径 <span class="math inline">\(r\)</span> の円板の面積を円板全体の面積で割ったもの、すなわち <span class="math inline">\(\frac{r^2}{a^2}\)</span> である。したがって <span class="math inline">\(R\)</span> は <span class="math inline">\([0, a]\)</span> 上で確率密度（density）<span class="math inline">\(\frac{2r}{a^2}\)</span> をもつ。（中心から遠い点ほど選ばれやすい。そこにより多くの面積があるからである。）</p>
+<div class="askyourself">
+<p><span class="math inline">\(C\)</span> を通る弦が <span class="math inline">\(OC\)</span> と角 <span class="math inline">\(t\)</span> をなすとする。この弦は <span class="math inline">\(O\)</span> からどれだけ離れているか。</p>
+</div>
+<p><span class="math inline">\(O\)</span> からこの直線までの距離は <span class="math inline">\(R\sin t\)</span> なので、弦の長さは <span class="math inline">\(2\sqrt{a^2 - R^2\sin^2t}\)</span> である。</p>
+<h4 id="stagemark3-c-について平均する" class="stage"><span class="stage-n">段階 3</span> <span class="math inline">\(C\)</span> について平均する</h4>
+<p><span class="math inline">\(s = \sin t\)</span> とおくと、 <span class="math display">\[\begin{aligned}
+  L(t) &amp;= \int_0^a 2\sqrt{a^2 - r^2s^2}\cdot\frac{2r}{a^2}\,\mathrm{d}r = \frac{4}{a^2}\Bigl[-\frac{(a^2 - r^2s^2)^{3/2}}{3s^2}\Bigr]_0^a \\
+  &amp;= \frac{4}{a^2}\cdot\frac{a^3 - a^3(1 - s^2)^{3/2}}{3s^2} = \frac{4a(1 - \cos^3t)}{3\sin^2t}. \qed
+\end{aligned}\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(1 - \cos^3t\)</span> と <span class="math inline">\(\sin^2t = 1 - \cos^2t\)</span> を因数分解せよ。何が約分できるか。</p>
+</div>
+<p><span class="math inline">\(c = \cos t\)</span> とおくと <span class="math inline">\(\frac{1 - c^3}{1 - c^2} = \frac{(1 - c)(1 + c + c^2)}{(1 - c)(1 + c)} = \frac{1 + c + c^2}{1 + c} = c + \frac{1}{1 + c}\)</span> であり、また <span class="math inline">\(1 + \cos t = 2\cos^2\frac t2\)</span> である。よって <span class="math display">\[L(t) = \frac{4a}{3}\Bigl(\cos t + \tfrac12\sec^2\tfrac t2\Bigr). \qed\]</span></p>
+<h4 id="stagemark4-方向も無作為に" class="stage"><span class="stage-n">段階 4</span> 方向も無作為に</h4>
+<p><span class="math display">\[\begin{aligned}
+  \mathrm{E}\bigl(L(T)\bigr) &amp;= \frac2\pi\int_0^{\pi/2}\frac{4a}{3}\Bigl(\cos t + \tfrac12\sec^2\tfrac t2\Bigr)\mathrm{d}t \\
+  &amp;= \frac{8a}{3\pi}\Bigl[\sin t + \tan\tfrac t2\Bigr]_0^{\pi/2} = \frac{8a}{3\pi}(1 + 1) = \frac{16a}{3\pi}. \qed
+\end{aligned}\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-3-1.svg" alt="図 12.3.1"><figcaption><span class="fig-label">図 12.3.1</span> 2通りの方法で選んだ28本の「無作為な弦」。左：円周上の独立な一様（uniform）な2点。右：円板内の一様に無作為な点を弦の中点とする。右の方法では、縁の近くの短い弦が少なくなる。方法が異なれば分布が異なり、答えも異なる。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>試行を指定する。</strong>「無作為な弦」は各小問で明確な手順となり、手順ごとに異なる答えが得られた。</p></li>
+<li><p><strong>面積から確率密度を得る。</strong><span class="math inline">\(\mathrm{P}(R \leq r)\)</span> は幾何から直接得られ、それを微分すると確率密度が得られた。</p></li>
+<li><p><strong>段階的に平均する。</strong>まず（<span class="math inline">\(t\)</span> を固定して）<span class="math inline">\(C\)</span> の位置について平均し、次に <span class="math inline">\(t\)</span> について平均した。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="ベルトランの3つの答え">ベルトランの3つの答え</h3>
+<p>ベルトラン自身の問いは、無作為な弦が内接正三角形（inscribed equilateral triangle）の1辺 <span class="math inline">\(\sqrt3a\)</span> より長くなる確率はいくらか、というものであった。彼は3つの方法と3つの答えを示した。</p>
+<ul>
+<li><p>無作為な端点：一方の端点を固定する。もう一方の端点が円周の中央の3分の1にあれば、弦は長い。確率は <span class="math inline">\(\frac13\)</span>。</p></li>
+<li><p>無作為な半径とその上の無作為な点を中点とする：<span class="math inline">\(O\)</span> からの距離が <span class="math inline">\(\frac a2\)</span> より小さければ、弦は長い。確率は <span class="math inline">\(\frac12\)</span>。</p></li>
+<li><p>円板内のどこかに無作為な中点をとる：中点が <span class="math inline">\(O\)</span> から <span class="math inline">\(\frac a2\)</span> 以内にあれば、弦は長い。確率は <span class="math inline">\(\frac14\)</span>。</p></li>
+</ul>
+<p>それぞれの方法は弦の集合の上の異なる確率分布であり、矛盾はない。これらは異なる問いに答えているのである。教訓は、「一様に無作為に」という言葉は選んだパラメータ付け（parametrisation）に対してのみ意味をもち、連続的な集合に対しては、自然なパラメータ付けがただ1つに定まることはふつうない、ということである。</p>
+<h3 id="正しい答えはあるのか">正しい答えはあるのか</h3>
+<p>1973年、物理学者のエドウィン・ジェインズ（Edwin Jaynes）は、2番目の方法こそが「正しい」と論じた。その根拠は、円を少し動かしたり拡大縮小したりしても答えは変わるべきではない、というものである。無作為な弦とは、床に描いた円の上にストローを投げたようなものであるべきだ、というわけである。この不変性（invariance）をもつのは、中心からの距離が一様な分布だけであり、実際にストローを投げる実験でも <span class="math inline">\(\frac12\)</span> が確かめられている。正しい分布とはその状況の対称性を尊重するものである、という同じ考え方が、無作為な直線の数学である<em>積分幾何学</em>（integral geometry）の根底にあり、これは<a href="../ch12/buffon.html">第 12.20 節</a>のビュフォン（Buffon）の針も説明する。</p>
+<div class="historybox">
+<div class="box-title">逆説から公理へ</div>
+<p>ベルトランは弦の逆説を『<em>Calcul des probabilités</em>』（1889年）で発表した。その目的の一部は、彼が「幾何学的確率」の軽率な使い方とみなしたものを皮肉ることであった。アンリ・ポアンカレ（Henri Poincaré）もこれを論じている。1900年、ダフィット・ヒルベルト（David Hilbert）は新世紀に向けた有名な問題の中に確率の公理化（axiomatisation）を挙げ、1933年にアンドレイ・コルモゴロフ（Andrey Kolmogorov）がこれを解決した。確率とは結果の空間の上の測度であり、「無作為な」対象についての問いはすべて、まずどの空間とどの測度を用いるかを述べなければならない。ベルトランの逆説は、なぜそれが必要なのかを示す標準的な例である。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">確率的な試行を定義する</div>
+<p><em>確率を計算する前に、無作為な対象がどのように生成されるかを正確に述べよ。記述が異なれば答えも異なりうる。</em></p>
+<p>大学では、あらゆる確率の計算は標本空間（sample space）と確率測度（probability measure）から始まる。統計学や物理学では、しばしば対称性によって正しい無作為性のモデルを選ぶことが、仕事の大きな部分を占める。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>ベルトランの確率。</strong>上の3つの確率 <span class="math inline">\(\frac13\)</span>、<span class="math inline">\(\frac12\)</span>、<span class="math inline">\(\frac14\)</span> を確かめよ。</p></li>
+<li><p><strong>もう1つの平均。</strong>弦の中点を円板内で一様に選ぶとき（右の図）、長さの期待値が <span class="math inline">\(\frac{4a}{3}\)</span> であることを示せ。（<em>ヒント：</em>これは <span class="math inline">\(L(\frac\pi2)\)</span> である。なぜか。）</p></li>
+<li><p><strong>無作為な距離。</strong><span class="math inline">\(O\)</span> から弦までの距離が <span class="math inline">\([0, a]\)</span> 上で一様であるとき、長さの期待値が <span class="math inline">\(\frac{\pi a}{2}\)</span> であることを示せ。</p></li>
+<li><p><strong>3つの方法、3つの分布。</strong>3つの方法それぞれについて、<span class="math inline">\([0, 2a]\)</span> 上での弦の長さ <span class="math inline">\(\ell\)</span> の確率密度を求めよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Edwin Jaynes, “<a href="https://bayes.wustl.edu/etj/articles/well.pdf">The well-posed problem</a>”</strong>, <em>Foundations of Physics</em> 3 (1973). 不変性による議論。読みやすく、刺激的である。</p></li>
+<li><p><strong>Gábor Székely, <a href="https://uk.bookshop.org/search?keywords=Paradoxes+in+Probability+Theory+and+Mathematical+Statistics+Szekely"><em>Paradoxes in Probability Theory and Mathematical Statistics</em></a></strong> (Reidel). ベルトランの逆説をはじめ、多くの逆説を扱う。</p></li>
+<li><p><strong>Daniel Klain &amp; Gian-Carlo Rota, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Geometric+Probability+Klain+Rota"><em>Introduction to Geometric Probability</em></a></strong> (Cambridge University Press). 積分幾何学。いずれ読むときのために。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="base-rate.html">← 12.2 基準率の誤謬</a><a class="next" href="pairwise-independence.html">→ 12.4 二つずつなら独立、全体では独立でない</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

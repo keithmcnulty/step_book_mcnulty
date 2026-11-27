@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>決して変わらない量 (STEP III 2024 Q5) — Beyond STEP</title>
+<meta name="description" content="STEP III 2024 問題 5：解説付き解答とその背後にある大学数学。 物理学における最も深い事実のいくつかは 保存則 （conservation laws）である。運動がどれほど複雑であっても、エネルギー、運動量、角運動量は変わらない。系に十分多くの保存量があれば、その運動は厳密に解くことができる。保存量が少なすぎると、運動はカオス的になりうる。…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch07/lax-pairs.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch07/lax-pairs.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/lax-pairs.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/lax-pairs.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/lax-pairs.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch07/lax-pairs.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/lax-pairs.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="決して変わらない量 (STEP III 2024 Q5) — Beyond STEP">
+<meta property="og:description" content="STEP III 2024 問題 5：解説付き解答とその背後にある大学数学。 物理学における最も深い事実のいくつかは 保存則 （conservation laws）である。運動がどれほど複雑であっても、エネルギー、運動量、角運動量は変わらない。系に十分多くの保存量があれば、その運動は厳密に解くことができる。保存量が少なすぎると、運動はカオス的になりうる。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch07/lax-pairs.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="決して変わらない量 (STEP III 2024 Q5) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2024 問題 5：解説付き解答とその背後にある大学数学。 物理学における最も深い事実のいくつかは 保存則 （conservation laws）である。運動がどれほど複雑であっても、エネルギー、運動量、角運動量は変わらない。系に十分多くの保存量があれば、その運動は厳密に解くことができる。保存量が少なすぎると、運動はカオス的になりうる。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "決して変わらない量", "headline": "決して変わらない量", "description": "STEP III 2024 問題 5：解説付き解答とその背後にある大学数学。 物理学における最も深い事実のいくつかは 保存則 （conservation laws）である。運動がどれほど複雑であっても、エネルギー、運動量、角運動量は変わらない。系に十分多くの保存量があれば、その運動は厳密に解くことができる。保存量が少なすぎると、運動はカオス的になりうる。…", "url": "https://beyondstep.keithmcnulty.org/ja/ch07/lax-pairs.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2024 問題 5", "線形代数と幾何"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "線形代数と幾何", "url": "https://beyondstep.keithmcnulty.org/ja/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第7章：線形代数と幾何", "item": "https://beyondstep.keithmcnulty.org/ja/ch07/"}, {"@type": "ListItem", "position": 3, "name": "決して変わらない量", "item": "https://beyondstep.keithmcnulty.org/ja/ch07/lax-pairs.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch07/lax-pairs.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/lax-pairs.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch07/lax-pairs.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch07/lax-pairs.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第7章 · 線形代数と幾何</a>
+    <div class="src">STEP III · 2024 · 問題 5</div>
+    <div class="sec-head"><span class="sec-num">7.7</span><h1>決して変わらない量</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-7-lax-pairs.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第7章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2024、第5問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は、OCRが配布している2024年のSTEP問題一式（zipファイル）のSTEP IIIに収録されている： <a href="https://www.ocr.org.uk/Images/725753-2024-past-papers.zip">www.ocr.org.uk/Images/725753-2024-past-papers.zip</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>物理学における最も深い事実のいくつかは<em>保存則</em>（conservation laws）である。運動がどれほど複雑であっても、エネルギー、運動量、角運動量は変わらない。系に十分多くの保存量があれば、その運動は厳密に解くことができる。保存量が少なすぎると、運動はカオス的になりうる。</p>
+<p>この問題は、保存量を作り出す驚くべき方法を示している。行列が <span class="math inline">\(\frac{\mathrm{d}\mathbf{M}}{\mathrm{d}t} = \mathbf{MN} - \mathbf{NM}\)</span> に従って時間変化するならば、その成分がどれほど激しく変化しても、そのトレース（trace）と行列式（determinant）、したがって固有値（eigenvalues）は決して変わらない。このような組 <span class="math inline">\((\mathbf{M}, \mathbf{N})\)</span> は<em>ラックス対</em>（Lax pair）と呼ばれる。この名は、互いにすり抜けても形を変えない孤立波である<em>ソリトン</em>（solitons）の驚くべき振る舞いを説明するために、1968年にこの考え方を導入したピーター・ラックス（Peter Lax）にちなむ。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>式 <span class="math inline">\(\mathbf{MN} - \mathbf{NM}\)</span> は <span class="math inline">\(\mathbf{M}\)</span> と <span class="math inline">\(\mathbf{N}\)</span> の<em>交換子</em>（commutator）と呼ばれる。これが零になるのはどのようなときか。小問 (i) を踏まえると、そのトレースはいくらか。</p>
+</div>
+<p>交換子が零になるのは、<span class="math inline">\(\mathbf{M}\)</span> と <span class="math inline">\(\mathbf{N}\)</span> が可換であるときに限る。また小問 (i) より、そのトレースは常に <span class="math inline">\(\operatorname{tr}(\mathbf{MN}) - \operatorname{tr}(\mathbf{NM}) = 0\)</span> である。このただ一つの事実が、この問題に現れるすべての保存則の出発点である。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-トレース" class="stage"><span class="stage-n">段階 1</span> トレース</h4>
+<p><span class="math inline">\(\mathbf{M} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span>、<span class="math inline">\(\mathbf{N} = \begin{pmatrix} p &amp; q \\ r &amp; s \end{pmatrix}\)</span> とすると、<span class="math inline">\(\mathbf{MN}\)</span> の対角成分は <span class="math inline">\(ap + br\)</span> と <span class="math inline">\(cq + ds\)</span> であるから、<span class="math inline">\(\operatorname{tr}(\mathbf{MN}) = ap + br + cq + ds\)</span> である。<span class="math inline">\(\mathbf{M}\)</span> と <span class="math inline">\(\mathbf{N}\)</span> の役割を入れ替えると <span class="math inline">\(pa + qc + rb + sd\)</span> となり、これは同じものである。また明らかに <span class="math inline">\(\operatorname{tr}(\mathbf{M} + \mathbf{N}) = \operatorname{tr}\mathbf{M} + \operatorname{tr}\mathbf{N}\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-行列式の導関数" class="stage"><span class="stage-n">段階 2</span> 行列式の導関数</h4>
+<div class="askyourself">
+<p>積の微分法則を用いて <span class="math inline">\(\det\mathbf{M} = ad - bc\)</span> を微分せよ。次に <span class="math inline">\(\mathbf{M}^{-1} = \frac{1}{\det\mathbf{M}}\begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}\)</span> を用いて、<span class="math inline">\(\mathbf{M}^{-1}\frac{\mathrm{d}\mathbf{M}}{\mathrm{d}t}\)</span> とそのトレースを計算せよ。</p>
+</div>
+<p>導関数をドットで表すと、<span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\det\mathbf{M} = \dot ad + a\dot d - \dot bc - b\dot c\)</span> である。また <span class="math display">\[\mathbf{M}^{-1}\dot{\mathbf{M}} = \frac{1}{\det\mathbf{M}}\begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}\begin{pmatrix} \dot a &amp; \dot b \\ \dot c &amp; \dot d \end{pmatrix}\]</span> の対角成分は <span class="math inline">\(\frac{d\dot a - b\dot c}{\det\mathbf{M}}\)</span> と <span class="math inline">\(\frac{-c\dot b + a\dot d}{\det\mathbf{M}}\)</span> である。これらの和は <span class="math inline">\(\frac{1}{\det\mathbf{M}}\frac{\mathrm{d}}{\mathrm{d}t}\det\mathbf{M}\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-三つの保存量" class="stage"><span class="stage-n">段階 3</span> 三つの保存量</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span> のトレースをとれ。行列式については小問 (ii) を用いよ。<span class="math inline">\(\mathbf{M}^{-1}(\mathbf{MN} - \mathbf{NM})\)</span> はどうなるか。</p>
+</div>
+<p><em>トレース：</em><span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\operatorname{tr}\mathbf{M} = \operatorname{tr}\dot{\mathbf{M}} = \operatorname{tr}(\mathbf{MN}) - \operatorname{tr}(\mathbf{NM}) = 0\)</span>。</p>
+<p><em>行列式：</em>小問 (ii) より <span class="math display">\[\frac{1}{\det\mathbf{M}}\frac{\mathrm{d}}{\mathrm{d}t}\det\mathbf{M} = \operatorname{tr}\bigl(\mathbf{M}^{-1}(\mathbf{MN} - \mathbf{NM})\bigr) = \operatorname{tr}\mathbf{N} - \operatorname{tr}(\mathbf{M}^{-1}\mathbf{NM}) = \operatorname{tr}\mathbf{N} - \operatorname{tr}\mathbf{N} = 0,\]</span> である。ここで小問 (i) を <span class="math inline">\(\operatorname{tr}\bigl(\mathbf{M}^{-1}(\mathbf{NM})\bigr) = \operatorname{tr}\bigl((\mathbf{NM})\mathbf{M}^{-1}\bigr) = \operatorname{tr}\mathbf{N}\)</span> の形で用いた。</p>
+<p><em>2乗のトレース：</em><span class="math inline">\(\operatorname{tr}(\mathbf{M}^2) = (\operatorname{tr}\mathbf{M})^2 - 2\det\mathbf{M}\)</span> である（<a href="../ch07/finite-order.html">第 7.4 節</a> を参照）。右辺の二つの項はともに一定であるから、これも一定である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-陽な解" class="stage"><span class="stage-n">段階 4</span> 陽な解</h4>
+<div class="pausebox">
+<p><span class="math inline">\(\mathbf{E} = \begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}\)</span> として <span class="math inline">\(\mathbf{N} = t\mathbf{I} + t\mathbf{E}\)</span> とおき、<span class="math inline">\(\mathbf{MN} - \mathbf{NM}\)</span> を計算して、<span class="math inline">\(a\)</span>、<span class="math inline">\(b\)</span>、<span class="math inline">\(c\)</span>、<span class="math inline">\(d\)</span> についての微分方程式を書き下せ。それらを <span class="math inline">\(c\)</span>、次に <span class="math inline">\(a\)</span> と <span class="math inline">\(d\)</span>、最後に <span class="math inline">\(b\)</span> の順に解け。</p>
+</div>
+<p><span class="math inline">\(t\mathbf{I}\)</span> の部分はすべての行列と可換であるから、<span class="math inline">\(\mathbf{MN} - \mathbf{NM} = t(\mathbf{ME} - \mathbf{EM})\)</span> である。ここで <span class="math inline">\(\mathbf{ME} = \begin{pmatrix} 0 &amp; a \\ 0 &amp; c \end{pmatrix}\)</span>、<span class="math inline">\(\mathbf{EM} = \begin{pmatrix} c &amp; d \\ 0 &amp; 0 \end{pmatrix}\)</span> であるから、 <span class="math display">\[\dot a = -tc, \qquad \dot b = t(a - d), \qquad \dot c = 0, \qquad \dot d = tc.\]</span> よって <span class="math inline">\(c = C\)</span> は定数である。すると <span class="math inline">\(a = A - \frac12Ct^2\)</span>、<span class="math inline">\(d = D + \frac12Ct^2\)</span> となり、さらに <span class="math inline">\(\dot b = t(A - D - Ct^2)\)</span> より <span class="math inline">\(b = B + \frac12(A - D)t^2 - \frac14Ct^4\)</span> となる。したがって <span class="math display">\[\mathbf{M} = \begin{pmatrix} A - \frac12Ct^2 &amp; B + \frac12(A - D)t^2 - \frac14Ct^4 \\[0.5ex] C &amp; D + \frac12Ct^2 \end{pmatrix}. \qed\]</span> 検算：トレースは <span class="math inline">\(A + D\)</span> であり、行列式は <span class="math inline">\((A - \frac12Ct^2)(D + \frac12Ct^2) - C\bigl(B + \frac12(A - D)t^2 - \frac14Ct^4\bigr) = AD - BC\)</span> である。予告どおり一定である（図 7.7.1）。</p>
+<h4 id="stagemark5-別の方程式" class="stage"><span class="stage-n">段階 5</span> 別の方程式</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN}\)</span> ならば <span class="math inline">\(\mathbf{N} = \mathbf{M}^{-1}\dot{\mathbf{M}}\)</span> であり、小問 (ii) より <span class="math inline">\(\operatorname{tr}\mathbf{N}\)</span> は <span class="math inline">\(\det\mathbf{M}\)</span> の対数微分である。<span class="math inline">\(\mathbf{M}\)</span> のトレースが一定のまま、行列式が変化することはありうるか。</p>
+</div>
+<p>もちろんありうる。<span class="math inline">\(|t| &lt; 1\)</span> に対して <span class="math inline">\(\mathbf{M} = \begin{pmatrix} 1 &amp; t \\ t &amp; 1 \end{pmatrix}\)</span> とする（このとき <span class="math inline">\(\det\mathbf{M} = 1 - t^2 \neq 0\)</span>）。そのトレースは常に <span class="math inline">\(2\)</span> である。<span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN}\)</span> となるように <span class="math inline">\(\mathbf{N} = \mathbf{M}^{-1}\dot{\mathbf{M}}\)</span> と定めると、 <span class="math display">\[\mathbf{N} = \frac{1}{1 - t^2}\begin{pmatrix} 1 &amp; -t \\ -t &amp; 1 \end{pmatrix}\begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix} = \frac{1}{1 - t^2}\begin{pmatrix} -t &amp; 1 \\ 1 &amp; -t \end{pmatrix},\]</span> となる。これは正則であり、<span class="math inline">\(t \neq 0\)</span> のとき <span class="math inline">\(\operatorname{tr}\mathbf{N} = \frac{-2t}{1 - t^2} \neq 0\)</span> である。よって答えは<strong>否</strong>であり、<span class="math inline">\(\operatorname{tr}\mathbf{N}\)</span> は零である必要はない。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-7-1.svg" alt="図 7.7.1"><figcaption><span class="fig-label">図 7.7.1</span> 段階 4 で求めた <span class="math inline">\(\mathbf{M}(t)\)</span> の成分（<span class="math inline">\(A = 2\)</span>、<span class="math inline">\(B = 1\)</span>、<span class="math inline">\(C = 1\)</span>、<span class="math inline">\(D = 1\)</span>）。<span class="math inline">\(c\)</span> 以外の成分はすべて変化するが、トレースは常に <span class="math inline">\(3\)</span>、行列式は常に <span class="math inline">\(1\)</span> のままである。したがって固有値 <span class="math inline">\(\frac{3 \pm \sqrt5}{2}\)</span> は決して変わらない。この流れは<em>等スペクトル</em>（isospectral）である。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>交換子のトレースは零である。</strong><span class="math inline">\(\operatorname{tr}(\mathbf{MN}) = \operatorname{tr}(\mathbf{NM})\)</span> から、すべての保存則が導かれた。</p></li>
+<li><p><strong>対数微分。</strong>小問 (ii) により、行列式の導関数が、線形で扱いやすいトレースに置き換えられた。</p></li>
+<li><p><strong>陽な解で保存を確かめる。</strong><span class="math inline">\(\mathbf{M}(t)\)</span> の式は、そのトレースと行列式が一定であることを確認して検算した。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">ソリトンとラックス対</div>
+<p>1834年、スコットランドの技術者 John Scott Russell は、エディンバラ近郊のユニオン運河を進む孤立波を馬で追いかけ、それが1マイル以上にわたって形を崩さずに進むのを観察した。このような波は<em>コルテヴェーク–ド・フリース（KdV）方程式</em>（Korteweg–de Vries equation）で記述される。1960年代には、Norman Zabusky と Martin Kruskal による計算機実験によって、この「ソリトン」二つが衝突しても、まるで粒子のように形を変えずに抜け出てくることが示された。これを説明するには無限に多くの保存量が必要であった。1968年にピーター・ラックスは、KdV 方程式が一対の微分作用素 <span class="math inline">\(L\)</span> と <span class="math inline">\(P\)</span> を用いて <span class="math inline">\(\dot L = LP - PL\)</span> と書けることを示した。すると、まさにこの問題と同じように <span class="math inline">\(L\)</span> の固有値が保存され、それらが無限個の保存則を与える。ラックス対をもつ系は<em>可積分</em>（integrable）と呼ばれ、厳密に解くことのできる数少ない非線形系の一つである。</p>
+</div>
+<h3 id="等スペクトル流">等スペクトル流</h3>
+<p><span class="math inline">\(\mathbf{M}\)</span> のトレースと行列式は特性多項式（characteristic polynomial）<span class="math inline">\(\lambda^2 - (\operatorname{tr}\mathbf{M})\lambda + \det\mathbf{M}\)</span> を決定するから、<span class="math inline">\(\mathbf{M}\)</span> の固有値は時間とともに変化しない。流れ <span class="math inline">\(\dot{\mathbf{M}} = [\mathbf{M}, \mathbf{N}]\)</span> は、固有値を固定した行列の集合の中で <span class="math inline">\(\mathbf{M}\)</span> を動かしていく。実際、解は常にある正則行列 <span class="math inline">\(\mathbf{S}(t)\)</span> を用いて <span class="math inline">\(\mathbf{M}(t) = \mathbf{S}(t)^{-1}\mathbf{M}(0)\mathbf{S}(t)\)</span> の形に書ける。すなわち、行列は常に初期値と相似（similar）である。同じ考え方は物理学全体に通じている。量子力学では、観測量 <span class="math inline">\(\mathbf{A}\)</span> は <span class="math inline">\(\frac{\mathrm{d}\mathbf{A}}{\mathrm{d}t} = \frac{\mathrm{i}}{\hbar}[\mathbf{H}, \mathbf{A}]\)</span> に従って時間発展する。ここで <span class="math inline">\(\mathbf{H}\)</span> はエネルギーであり、したがってエネルギーと可換なものはすべて保存される。</p>
+<h3 id="ヤコビの公式">ヤコビの公式</h3>
+<p>小問 (ii) は任意のサイズの正則行列に対して成り立ち、<em>ヤコビ（Jacobi）の公式</em>と呼ばれる。<span class="math inline">\(\det\mathbf{M}\)</span> は負になりうるので、対数を使わずに <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\det\mathbf{M} = \det\mathbf{M}\,\operatorname{tr}\bigl(\mathbf{M}^{-1}\dot{\mathbf{M}}\bigr)\)</span> と書くのが最も安全である。対数を用いた形 <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\ln\det\mathbf{M} = \operatorname{tr}\bigl(\mathbf{M}^{-1}\dot{\mathbf{M}}\bigr)\)</span> には <span class="math inline">\(\det\mathbf{M} &gt; 0\)</span> が必要である（一般には <span class="math inline">\(\ln|\det\mathbf{M}|\)</span> を用いる）。この帰結として、定数行列 <span class="math inline">\(\mathbf{A}\)</span> に対して <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{AM}\)</span> ならば、<span class="math inline">\(\det\mathbf{M}(t) = e^{t\operatorname{tr}\mathbf{A}}\det\mathbf{M}(0)\)</span> となる。微分方程式の研究では、これは相空間（phase space）における体積がどのように増減するかを教えてくれる。古典力学の方程式ではトレースが零であり、体積は保存される。これは<em>リウヴィルの定理</em>（Liouville’s theorem）として知られる結果である。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">変わらないものを見つける</div>
+<p><em>何かが時間発展するときには、そこから作られる量で一定に保たれるものを探せ。それらは運動を制約し、しばしばその構造を明らかにする。</em></p>
+<p>ここでは、変化率が交換子であったために、トレースと行列式が保存された。力学では、保存量は対称性から生じ（ネーター（Noether）の定理）、それらを見つけることが問題を解く第一歩となることが多い。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>解を確かめる。</strong>段階 4 の行列 <span class="math inline">\(\mathbf{M}(t)\)</span> が <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span> を満たすことを、微分して確かめよ。</p></li>
+<li><p><strong>相似。</strong><span class="math inline">\(\mathbf{M}_0\)</span> を定数行列とし、<span class="math inline">\(\mathbf{S}(t)\)</span> が <span class="math inline">\(\dot{\mathbf{S}} = \mathbf{SN}\)</span> を満たすとき、<span class="math inline">\(\mathbf{M}(t) = \mathbf{S}^{-1}\mathbf{M}_0\mathbf{S}\)</span> ならば <span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span> であることを示せ。（<em>ヒント：</em><span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{S}^{-1} = -\mathbf{S}^{-1}\dot{\mathbf{S}}\mathbf{S}^{-1}\)</span>。）</p></li>
+<li><p><strong>体積の増大。</strong><span class="math inline">\(\mathbf{M}(t) = \begin{pmatrix} e^{2t} &amp; 0 \\ 0 &amp; e^{-t} \end{pmatrix}\)</span> とする。<span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN}\)</span> となる <span class="math inline">\(\mathbf{N}\)</span> を求め、<span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\ln\det\mathbf{M} = \operatorname{tr}\mathbf{N}\)</span> を確かめよ。</p></li>
+<li><p><strong>高次の累乗。</strong><span class="math inline">\(\dot{\mathbf{M}} = \mathbf{MN} - \mathbf{NM}\)</span> のとき、任意の正の整数 <span class="math inline">\(k\)</span> に対して <span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}\operatorname{tr}(\mathbf{M}^k) = 0\)</span> であることを直接示せ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>P. G. Drazin &amp; R. S. Johnson, <a href="https://uk.bookshop.org/search?keywords=Solitons%3A+An+Introduction+Drazin+Johnson"><em>Solitons: An Introduction</em></a></strong>（Cambridge University Press）。ラックス対も含む、学部生向けの標準的な入門書。</p></li>
+<li><p><strong>Thierry Dauxois &amp; Michel Peyrard, <a href="https://uk.bookshop.org/search?keywords=Physics+of+Solitons+Dauxois+Peyrard"><em>Physics of Solitons</em></a></strong>（Cambridge University Press）。Scott Russell の波の話も収められている。</p></li>
+<li><p><strong>Dwight Neuenschwander, <a href="https://uk.bookshop.org/search?keywords=Emmy+Noether%27s+Wonderful+Theorem+Neuenschwander"><em>Emmy Noether’s Wonderful Theorem</em></a></strong>（Johns Hopkins University Press）。対称性がどのように保存則を与えるかを解説している。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="hyperbolic-rotations.html">← 7.6 双曲的回転と相対性理論</a><a class="next" href="four-squares.html">→ 7.8 四つの平方数</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

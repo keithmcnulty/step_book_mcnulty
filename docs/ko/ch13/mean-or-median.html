@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>평균인가, 중앙값인가? (STEP II 2000 Q14) — Beyond STEP</title>
+<meta name="description" content="STEP II 2000 문제 14: 단계별 풀이와 그 바탕에 있는 대학 수학. 측정값들의 중심을 추정할 때 평균(mean)을 쓸 수도 있고 중앙값(median)을 쓸 수도 있다. 어느 쪽이 더 나을까? 답은 데이터에 따라 달라진다. 가끔 터무니없는 오차가 섞이는 측정값이라면 중앙값이 훨씬 믿을 만하다. 엉뚱한 값 하나가 평균은 어디로든 끌고 갈 수 있지만…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch13/mean-or-median.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch13/mean-or-median.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="평균인가, 중앙값인가? (STEP II 2000 Q14) — Beyond STEP">
+<meta property="og:description" content="STEP II 2000 문제 14: 단계별 풀이와 그 바탕에 있는 대학 수학. 측정값들의 중심을 추정할 때 평균(mean)을 쓸 수도 있고 중앙값(median)을 쓸 수도 있다. 어느 쪽이 더 나을까? 답은 데이터에 따라 달라진다. 가끔 터무니없는 오차가 섞이는 측정값이라면 중앙값이 훨씬 믿을 만하다. 엉뚱한 값 하나가 평균은 어디로든 끌고 갈 수 있지만…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch13/mean-or-median.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="평균인가, 중앙값인가? (STEP II 2000 Q14) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2000 문제 14: 단계별 풀이와 그 바탕에 있는 대학 수학. 측정값들의 중심을 추정할 때 평균(mean)을 쓸 수도 있고 중앙값(median)을 쓸 수도 있다. 어느 쪽이 더 나을까? 답은 데이터에 따라 달라진다. 가끔 터무니없는 오차가 섞이는 측정값이라면 중앙값이 훨씬 믿을 만하다. 엉뚱한 값 하나가 평균은 어디로든 끌고 갈 수 있지만…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "평균인가, 중앙값인가?", "headline": "평균인가, 중앙값인가?", "description": "STEP II 2000 문제 14: 단계별 풀이와 그 바탕에 있는 대학 수학. 측정값들의 중심을 추정할 때 평균(mean)을 쓸 수도 있고 중앙값(median)을 쓸 수도 있다. 어느 쪽이 더 나을까? 답은 데이터에 따라 달라진다. 가끔 터무니없는 오차가 섞이는 측정값이라면 중앙값이 훨씬 믿을 만하다. 엉뚱한 값 하나가 평균은 어디로든 끌고 갈 수 있지만…", "url": "https://beyondstep.keithmcnulty.org/ko/ch13/mean-or-median.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2000 문제 14", "세상 속의 통계와 무작위성"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "세상 속의 통계와 무작위성", "url": "https://beyondstep.keithmcnulty.org/ko/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제13장: 세상 속의 통계와 무작위성", "item": "https://beyondstep.keithmcnulty.org/ko/ch13/"}, {"@type": "ListItem", "position": 3, "name": "평균인가, 중앙값인가?", "item": "https://beyondstep.keithmcnulty.org/ko/ch13/mean-or-median.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch13/mean-or-median.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch13/mean-or-median.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch13/mean-or-median.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch13/mean-or-median.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제13장 · 세상 속의 통계와 무작위성</a>
+    <div class="src">STEP II · 2000 · 문제 14</div>
+    <div class="sec-head"><span class="sec-num">13.4</span><h1>평균인가, 중앙값인가?</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-4-mean-or-median.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제13장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 2000, 문제 14</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/00-s2-q14">step.maths.org/questions/00-s2-q14</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>측정값들의 중심을 추정할 때 평균(mean)을 쓸 수도 있고 중앙값(median)을 쓸 수도 있다. 어느 쪽이 더 나을까? 답은 데이터에 따라 달라진다. 가끔 터무니없는 오차가 섞이는 측정값이라면 중앙값이 훨씬 믿을 만하다. 엉뚱한 값 하나가 평균은 어디로든 끌고 갈 수 있지만 중앙값은 거의 움직이지 못한다. 반면 얌전한 데이터라면 대개 평균이 낫다. 이 문제는 균등분포(uniform distribution)를 따르는 데이터에서 평균이 얼마나 더 나은지를 측정한다. 중앙값의 분산(variance)은 평균의 분산의 세 배이므로, 중앙값이 평균만큼 정밀해지려면 관측값이 세 배 필요하다.</p>
+<p>이 비교를 통해 통계적 방법을 고를 때의 주요 개념 가운데 하나인 <em>효율(efficiency)</em>과, <a href="../ch04/wallis-beta.html">4.4 절</a>에서도 나왔던 베타 적분(beta integral)을 소개한다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>중앙값의 확률밀도함수(density)가 왜 <span class="math inline">\(y^n(1 - y)^n\)</span>에 비례할까? (<span class="math inline">\(Y\)</span>가 <span class="math inline">\(y\)</span> 근처에 있으려면 <span class="math inline">\(2n + 1\)</span>개의 값 가운데 몇 개가 <span class="math inline">\(y\)</span>보다 작아야 하고, 몇 개가 커야 할까?)</p>
+</div>
+<p>중앙값이 <span class="math inline">\(y\)</span>에 있으려면 값 하나는 <span class="math inline">\(y\)</span>에 있고, <span class="math inline">\(n\)</span>개는 그보다 작고(각각 확률 <span class="math inline">\(y\)</span>), <span class="math inline">\(n\)</span>개는 그보다 커야 한다(각각 확률 <span class="math inline">\(1 - y\)</span>). 이로부터 인수 <span class="math inline">\(y^n(1 - y)^n\)</span>이 나온다. 상수는 어느 값이 어디에 속하는지를 고르는 방법의 수를 센 것이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-상수" class="stage"><span class="stage-n">단계 1</span> 상수</h4>
+<p>밀도함수를 적분하면 <span class="math inline">\(1\)</span>이 되어야 한다. <span class="math display">\[k\int_0^1y^n(1 - y)^n\,\mathrm{d}y = k\cdot\frac{n!\,n!}{(2n + 1)!} = 1, \qquad k = \frac{(2n + 1)!}{(n!)^2}. \qed\]</span></p>
+<h4 id="stagemark2-평균과-분산" class="stage"><span class="stage-n">단계 2</span> 평균과 분산</h4>
+<p>밀도함수는 <span class="math inline">\(\frac12\)</span>에 대하여 대칭(symmetric)이므로(<span class="math inline">\(y\)</span>를 <span class="math inline">\(1 - y\)</span>로 바꾸어 보라) <span class="math inline">\(\mathrm{E}(Y) = \frac12\)</span>이다.</p>
+<div class="askyourself">
+<p>베타 적분을 이용하여 <span class="math inline">\(\mathrm{E}(Y^2) = k\int_0^1y^{n+2}(1 - y)^n\,\mathrm{d}y\)</span>를 계산하고 계승을 정리하라.</p>
+</div>
+<p><span class="math display">\[\mathrm{E}(Y^2) = \frac{(2n + 1)!}{(n!)^2}\cdot\frac{(n + 2)!\,n!}{(2n + 3)!} = \frac{(n + 2)(n + 1)}{(2n + 3)(2n + 2)} = \frac{n + 2}{2(2n + 3)}.\]</span> 따라서 <span class="math display">\[\mathrm{Var}(Y) = \frac{n + 2}{2(2n + 3)} - \frac14 = \frac{2(n + 2) - (2n + 3)}{4(2n + 3)} = \frac{1}{4(2n + 3)}. \qed\]</span></p>
+<h4 id="stagemark3-평균과-비교하기" class="stage"><span class="stage-n">단계 3</span> 평균과 비교하기</h4>
+<div class="askyourself">
+<p>서로 독립인 균등분포 확률변수 <span class="math inline">\(2n + 1\)</span>개의 평균 <span class="math inline">\(\bar X\)</span>의 평균과 분산은 무엇인가?</p>
+</div>
+<p>각 <span class="math inline">\(X_i\)</span>의 평균은 <span class="math inline">\(\frac12\)</span>, 분산은 <span class="math inline">\(\frac{1}{12}\)</span>이므로 <span class="math inline">\(\mathrm{E}(\bar X) = \frac12\)</span>이고 <span class="math inline">\(\mathrm{Var}(\bar X) = \frac{1}{12(2n + 1)}\)</span>이다. <span class="math inline">\(n\)</span>이 클 때 <span class="math display">\[\mathrm{Var}(Y) \approx \frac{1}{8n}, \qquad \mathrm{Var}(\bar X) \approx \frac{1}{24n}.\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(Y\)</span>와 <span class="math inline">\(\bar X\)</span>가 평균이 <span class="math inline">\(\frac12\)</span>이고 표준편차(standard deviation)가 각각 <span class="math inline">\(\sigma_Y\)</span>, <span class="math inline">\(\sigma_{\bar X}\)</span>인 정규분포를 따른다면, 두 확률을 표준정규분포함수(standard normal distribution function) <span class="math inline">\(\Phi\)</span>로 나타내라.</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}\bigl(|Y - \frac12| &lt; \frac{d}{\sqrt n}\bigr) = 2\Phi\bigl(\frac{d}{\sqrt n\,\sigma_Y}\bigr) - 1\)</span>이고 <span class="math inline">\(\sqrt n\,\sigma_Y \to \frac{1}{\sqrt8}\)</span>이다. <span class="math inline">\(\bar X\)</span>도 마찬가지로 <span class="math inline">\(\sqrt n\,\sigma_{\bar X} \to \frac{1}{\sqrt{24}}\)</span>이다. 따라서 두 확률은 각각 <span class="math inline">\(2\Phi(d\sqrt8) - 1\)</span>과 <span class="math inline">\(2\Phi(d\sqrt{24}) - 1\)</span>에 수렴한다. <span class="math inline">\(\Phi\)</span>는 증가함수이고 <span class="math inline">\(\sqrt{24} &gt; \sqrt8\)</span>이므로 두 번째 값이 더 크고, 따라서 충분히 큰 모든 <span class="math inline">\(n\)</span>에 대하여 부등식이 성립한다.<span class="qed" aria-label="end of proof">■</span> 평균이 참 중심에 가까이 있을 가능성이 더 크다.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-4-1.svg" alt="그림 13.4.1"><figcaption><span class="fig-label">그림 13.4.1</span> 서로 독립인 균등분포 관측값 <span class="math inline">\(21\)</span>개의 중앙값(자주색)과 평균(청록색)의 표본분포. 둘 다 참값 <span class="math inline">\(\frac12\)</span>를 중심으로 하지만 평균이 더 촘촘하게 모여 있다. 평균의 분산은 중앙값의 분산의 약 3분의 1이다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>베타 적분.</strong> <span class="math inline">\(\int_0^1y^r(1 - y)^s\,\mathrm{d}y\)</span> 하나의 공식으로 정규화 상수(normalising constant)와 적률(moments)을 모두 구했다.</p></li>
+<li><p><strong>대칭성으로 평균을 구했다.</strong> <span class="math inline">\(\mathrm{E}(Y)\)</span>를 구하는 데 적분이 필요 없었다.</p></li>
+<li><p><strong>퍼짐 정도는 알맞은 척도에서 비교한다.</strong> 표준편차에 <span class="math inline">\(\sqrt n\)</span>을 곱하자 비교가 <span class="math inline">\(n\)</span>에 의존하지 않게 되었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="효율">효율</h3>
+<p>두 불편추정량(unbiased estimator)의 <em>상대 효율(relative efficiency)</em>은 두 분산의 비이다. 이는 한 추정량이 다른 추정량과 같은 정밀도를 얻으려면 관측값이 몇 배 필요한지를 말해 준다. 균등분포 데이터에서 중앙값의 평균에 대한 효율은 <span class="math inline">\(\frac13\)</span>이다. 정규분포 데이터에서는 <span class="math inline">\(\frac2\pi \approx 0.64\)</span>로, 중앙값은 관측값이 약 <span class="math inline">\(57\%\)</span> 더 필요하다. 그러나 꼬리가 두꺼운(heavy-tailed) 데이터에서는 상황이 뒤바뀐다. 코시 분포(Cauchy distribution, <a href="../ch12/cauchy.html">12.22 절</a>)에서는 관측값 <span class="math inline">\(n\)</span>개의 평균이 관측값 하나보다 나을 것이 없으므로 평균은 쓸모가 없지만, 중앙값은 잘 작동한다. 라플라스 분포(Laplace distribution, <a href="../ch12/clt.html">12.24 절</a>)에서는 중앙값이 평균보다 두 배 효율적이다.</p>
+<h3 id="로버스트-통계">로버스트 통계</h3>
+<p>중앙값은 <em>로버스트(robust)</em>하다. 데이터의 거의 절반을 임의의 값으로 바꾸어도 중앙값은 크게 움직이지 않는다. 평균에는 이런 보호 장치가 없어서 잘못된 값 하나만으로도 망가질 수 있다. 1960년대와 1970년대에 존 튜키(John Tukey), Peter Huber 등은 <em>로버스트 통계(robust statistics)</em>를 발전시켰다. 이는 깨끗한 데이터에서는 평균에 거의 버금가는 효율을 보이면서도 이상값(outlier)에 잘 견디는 추정량들로, 예를 들어 <em>절사평균(trimmed mean)</em>(가장 큰 값과 가장 작은 값 <span class="math inline">\(10\%\)</span>씩을 버리고 나머지를 평균한 것)이 있다. 절사평균은 다이빙이나 체조 같은 스포츠의 채점에 쓰인다.</p>
+<div class="historybox">
+<div class="box-title">라플라스와 중앙값</div>
+<p>라플라스(Laplace)는 1774년에 오차가 이중지수분포(라플라스 분포)를 따르면 참값의 가장 좋은 추정값은 중앙값임을 보였다. 가우스(Gauss)는 1809년에 오차가 정규분포를 따르면 가장 좋은 추정값은 평균임을 보였고, 이로부터 최소제곱법(method of least squares)에 이르렀다. 어느 쪽이 옳은지는 오차가 어떻게 행동하는지에 달려 있으며, 통계학자들은 새로운 종류의 데이터가 나올 때마다 여전히 이 문제를 논쟁한다.</p>
+</div>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">방법을 변동성으로 비교하기</div>
+<p><em>두 방법이 모두 평균적으로는 옳을 수 있다. 그 답이 얼마나 흔들리는지, 그리고 데이터가 많아질수록 그 흔들림이 얼마나 빨리 줄어드는지를 비교하라.</em></p>
+<p>대학에서는 큰 표본에서 분산을 비교하는 점근적 효율(asymptotic efficiency)이, 모형이 틀렸을 수 있는 경우를 위한 로버스트성과 함께, 통계적 방법을 고르는 표준 도구로 쓰인다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>중앙값의 밀도함수.</strong> 값 하나는 <span class="math inline">\([y, y + \delta y]\)</span>에, <span class="math inline">\(n\)</span>개는 그 아래에, <span class="math inline">\(n\)</span>개는 그 위에 있는 경우를 세어 밀도함수 <span class="math inline">\(\frac{(2n + 1)!}{(n!)^2}y^n(1 - y)^n\)</span>을 유도하라.</p></li>
+<li><p><strong>관측값 세 개.</strong> <span class="math inline">\(n = 1\)</span>(균등분포 관측값 세 개)일 때 <span class="math inline">\(\mathrm{Var}(Y)\)</span>와 <span class="math inline">\(\mathrm{Var}(\bar X)\)</span>를 정확히 구하라. 어느 쪽이 더 작은가?</p></li>
+<li><p><strong>중간범위.</strong> 중심의 또 다른 추정량으로 중간범위(midrange) <span class="math inline">\(\frac12(\max + \min)\)</span>가 있다. 관측값이 <span class="math inline">\(m = 2n + 1\)</span>개인 균등분포 데이터에서 그 분산이 <span class="math inline">\(\frac{1}{2(m + 1)(m + 2)}\)</span>임을 보여라. 평균과 비교하면 어떠한가? (<a href="../ch13/german-tanks.html">13.3 절</a>와 비교해 보라.)</p></li>
+<li><p><strong>이상값.</strong> 측정값 열한 개가 <span class="math inline">\(9.8\)</span>, <span class="math inline">\(9.9\)</span>, <span class="math inline">\(10.0\)</span>, <span class="math inline">\(10.0\)</span>, <span class="math inline">\(10.1\)</span>, <span class="math inline">\(10.1\)</span>, <span class="math inline">\(10.2\)</span>, <span class="math inline">\(10.2\)</span>, <span class="math inline">\(10.3\)</span>, <span class="math inline">\(10.4\)</span>, <span class="math inline">\(104\)</span>(입력 실수)이다. 평균과 중앙값을 비교하라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>John Rice, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Statistics+and+Data+Analysis+Rice"><em>Mathematical Statistics and Data Analysis</em></a></strong> (Duxbury). 순서통계량(order statistics)과 효율을 다룬다.</p></li>
+<li><p><strong>Rand Wilcox, <a href="https://uk.bookshop.org/search?keywords=Fundamentals+of+Modern+Statistical+Methods+Wilcox"><em>Fundamentals of Modern Statistical Methods</em></a></strong> (Springer). 로버스트 방법이 왜 중요한지를 비전문가에게 설명한다.</p></li>
+<li><p><strong>Stephen Stigler, <a href="https://uk.bookshop.org/search?keywords=The+Seven+Pillars+of+Statistical+Wisdom+Stigler"><em>The Seven Pillars of Statistical Wisdom</em></a></strong> (Harvard University Press). 자료의 집계, 평균과 중앙값을 역사적 관점에서 살펴본다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="german-tanks.html">← 13.3 독일 전차 문제</a><a class="next" href="awkward-questions.html">→ 13.5 곤란한 질문 던지기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

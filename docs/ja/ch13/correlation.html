@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>相関をつくり出す (STEP III 2010 Q13) — Beyond STEP</title>
+<meta name="description" content="STEP III 2010 問題 13：解説付き解答とその背後にある大学数学。 ある銀行が、株式のポートフォリオ（portfolio）で損失を出す可能性がどの程度あるかを知りたいとする。株価は連動して動く。ある株が下がれば、ほかの株も下がる傾向がある。起こりうる将来を何千通りもシミュレーションするには、銀行はちょうど正しい形で相関した乱数を生成しなければならない。独立（independent）な確…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch13/correlation.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch13/correlation.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch13/correlation.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/correlation.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/correlation.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch13/correlation.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch13/correlation.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="相関をつくり出す (STEP III 2010 Q13) — Beyond STEP">
+<meta property="og:description" content="STEP III 2010 問題 13：解説付き解答とその背後にある大学数学。 ある銀行が、株式のポートフォリオ（portfolio）で損失を出す可能性がどの程度あるかを知りたいとする。株価は連動して動く。ある株が下がれば、ほかの株も下がる傾向がある。起こりうる将来を何千通りもシミュレーションするには、銀行はちょうど正しい形で相関した乱数を生成しなければならない。独立（independent）な確…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch13/correlation.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="相関をつくり出す (STEP III 2010 Q13) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2010 問題 13：解説付き解答とその背後にある大学数学。 ある銀行が、株式のポートフォリオ（portfolio）で損失を出す可能性がどの程度あるかを知りたいとする。株価は連動して動く。ある株が下がれば、ほかの株も下がる傾向がある。起こりうる将来を何千通りもシミュレーションするには、銀行はちょうど正しい形で相関した乱数を生成しなければならない。独立（independent）な確…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "相関をつくり出す", "headline": "相関をつくり出す", "description": "STEP III 2010 問題 13：解説付き解答とその背後にある大学数学。 ある銀行が、株式のポートフォリオ（portfolio）で損失を出す可能性がどの程度あるかを知りたいとする。株価は連動して動く。ある株が下がれば、ほかの株も下がる傾向がある。起こりうる将来を何千通りもシミュレーションするには、銀行はちょうど正しい形で相関した乱数を生成しなければならない。独立（independent）な確…", "url": "https://beyondstep.keithmcnulty.org/ja/ch13/correlation.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2010 問題 13", "世界における統計とランダムネス"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "世界における統計とランダムネス", "url": "https://beyondstep.keithmcnulty.org/ja/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第13章：世界における統計とランダムネス", "item": "https://beyondstep.keithmcnulty.org/ja/ch13/"}, {"@type": "ListItem", "position": 3, "name": "相関をつくり出す", "item": "https://beyondstep.keithmcnulty.org/ja/ch13/correlation.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch13/correlation.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch13/correlation.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch13/correlation.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch13/correlation.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第13章 · 世界における統計とランダムネス</a>
+    <div class="src">STEP III · 2010 · 問題 13</div>
+    <div class="sec-head"><span class="sec-num">13.7</span><h1>相関をつくり出す</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-7-correlation.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第13章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2010、第13問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/10-s3-q13">step.maths.org/questions/10-s3-q13</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>ある銀行が、株式のポートフォリオ（portfolio）で損失を出す可能性がどの程度あるかを知りたいとする。株価は連動して動く。ある株が下がれば、ほかの株も下がる傾向がある。起こりうる将来を何千通りもシミュレーションするには、銀行はちょうど正しい形で相関した乱数を生成しなければならない。独立（independent）な確率変数（random variable）から出発して、指定された相関（correlation）をもつ確率変数をどうやって作ればよいだろうか。</p>
+<p>この問題は、3つの変数についてその作り方を一歩ずつ示している。新しい変数はそれぞれ、それまでの独立な材料の組合せに、分散（variance）を補うための新たな独立な材料を1つ加えたものである。この構成は、姿を変えた線形代数の有名な道具である<em>コレスキー分解</em>（Cholesky decomposition）であり、また隠れた制約も明らかにする。すなわち、どんな相関の組でも実現できるわけではないのである。</p>
+<div class="skillbox">
+<div class="box-title">出題範囲についての注意</div>
+<p>共分散と相関は、2019年に STEP の出題範囲から外された。共分散（covariance）は <span class="math inline">\(\mathrm{Cov}(U, V) = \mathrm{E}(UV) - \mathrm{E}(U)\mathrm{E}(V)\)</span> であり、独立な変数に対しては <span class="math inline">\(0\)</span> となる。また各引数について線形である：<span class="math inline">\(\mathrm{Cov}(aU + bV, W) = a\,\mathrm{Cov}(U, W) + b\,\mathrm{Cov}(V, W)\)</span>。さらに <span class="math inline">\(\mathrm{Var}(U) = \mathrm{Cov}(U, U)\)</span> が成り立つ。相関は常に <span class="math inline">\(-1\)</span> 以上 <span class="math inline">\(1\)</span> 以下である。</p>
+</div>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(Z_1\)</span> と <span class="math inline">\(Z_2\)</span> は独立である。その共分散はいくらか。したがって相関はいくらか。</p>
+</div>
+<p>独立な変数は <span class="math inline">\(\mathrm{E}(Z_1Z_2) = \mathrm{E}(Z_1)\,\mathrm{E}(Z_2)\)</span> を満たす。よって共分散は <span class="math inline">\(0\)</span> であり、<span class="math inline">\(\mathrm{Corr}(Z_1, Z_2) = 0\)</span> である。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-2つの変数" class="stage"><span class="stage-n">段階 1</span> 2つの変数</h4>
+<p><span class="math inline">\(\mathrm{E}(Y_2) = 0\)</span> である。<span class="math inline">\(Z_1\)</span> と <span class="math inline">\(Z_2\)</span> は独立で分散が <span class="math inline">\(1\)</span> なので、 <span class="math display">\[\mathrm{Var}(Y_2) = \rho_{12}^2 + (1 - \rho_{12}^2) = 1, \qquad \mathrm{Cov}(Y_1, Y_2) = \mathrm{Cov}\bigl(Z_1, \rho_{12}Z_1 + \sqrt{1 - \rho_{12}^2}\,Z_2\bigr) = \rho_{12}.\]</span> 分散はどちらも <span class="math inline">\(1\)</span> なので、<span class="math inline">\(\mathrm{Corr}(Y_1, Y_2) = \rho_{12}\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(Z_1\)</span> と <span class="math inline">\(Z_2\)</span> を直交する単位ベクトルとみなそう。<span class="math inline">\(Y_2\)</span> はどこにあるか。<span class="math inline">\(Y_1\)</span> と <span class="math inline">\(Y_2\)</span> のなす角の余弦はいくらか。</p>
+</div>
+<p><span class="math inline">\(Y_2 = \rho_{12}Z_1 + \sqrt{1 - \rho_{12}^2}\,Z_2\)</span> は、<span class="math inline">\(Z_1 = Y_1\)</span> と角 <span class="math inline">\(\theta\)</span> をなす単位ベクトルである。ただし <span class="math inline">\(\cos\theta = \rho_{12}\)</span> である。相関とは、変数をベクトルとみなしたときの、それらのなす角の余弦なのである（図 13.7.1）。</p>
+<h4 id="stagemark2-3つ目の変数" class="stage"><span class="stage-n">段階 2</span> 3つ目の変数</h4>
+<div class="askyourself">
+<p>3つの条件 <span class="math inline">\(\mathrm{Var}(Y_3) = 1\)</span>, <span class="math inline">\(\mathrm{Cov}(Y_1, Y_3) = \rho_{13}\)</span>, <span class="math inline">\(\mathrm{Cov}(Y_2, Y_3) = \rho_{23}\)</span> を <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> を用いて書き表せ。</p>
+</div>
+<p>線形性と独立性を用いると、 <span class="math display">\[a^2 + b^2 + c^2 = 1, \qquad a = \rho_{13}, \qquad \rho_{12}a + \sqrt{1 - \rho_{12}^2}\,b = \rho_{23}.\]</span> よって <span class="math display">\[a = \rho_{13}, \qquad b = \frac{\rho_{23} - \rho_{12}\rho_{13}}{\sqrt{1 - \rho_{12}^2}}, \qquad c = \sqrt{1 - \rho_{13}^2 - \frac{(\rho_{23} - \rho_{12}\rho_{13})^2}{1 - \rho_{12}^2}}. \qed\]</span> （<span class="math inline">\(c \geq 0\)</span> なので、負でない平方根をとる。）</p>
+<h4 id="stagemark3-任意の平均と分散" class="stage"><span class="stage-n">段階 3</span> 任意の平均と分散</h4>
+<p>定数倍と平行移動は相関を変えないので、 <span class="math display">\[X_i = \mu_i + \sigma_iY_i \qquad (i = 1, 2, 3)\]</span> は平均 <span class="math inline">\(\mu_i\)</span>、分散 <span class="math inline">\(\sigma_i^2\)</span>、相関 <span class="math inline">\(\rho_{ij}\)</span> をもつ。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p><span class="math inline">\(c\)</span> の式では、根号の中の量が負でないことが必要である。<span class="math inline">\(\rho_{12} = \rho_{13} = \rho_{23} = -0.6\)</span> を試してみよう。何がうまくいかないだろうか。また、3つの変数が互いにどれも強い負の相関をもつことはできない、というのはなぜ納得のいくことなのだろうか。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-13-7-1.svg" alt="図 13.7.1"><figcaption><span class="fig-label">図 13.7.1</span> 独立な標準正規分布（standard normal distribution）に従う <span class="math inline">\(Z_1\)</span>, <span class="math inline">\(Z_2\)</span> から、<span class="math inline">\(Y_1 = Z_1\)</span>, <span class="math inline">\(Y_2 = \rho Z_1 + \sqrt{1 - \rho^2}\,Z_2\)</span> という作り方で得た <span class="math inline">\((Y_1, Y_2)\)</span> の標本。<span class="math inline">\(\rho = 0\)</span>, <span class="math inline">\(0.5\)</span>, <span class="math inline">\(0.9\)</span> の場合である。同じ独立な材料から、好きな相関を作り出すことができる。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>変数を1つずつ積み上げる。</strong>新しい変数はそれぞれ、それまでの材料をちょうどよい量だけ取り込み、新たな独立な材料を1つ加えたものであった。</p></li>
+<li><p><strong>共分散は線形である。</strong>すべての条件が、係数についての簡単な方程式になった。</p></li>
+<li><p><strong>相関は余弦である。</strong>標準化した変数を単位ベクトルとみなすと、相関は角度になる。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="コレスキー分解">コレスキー分解</h3>
+<p>行列の形で書くと、この構成は <span class="math inline">\(\mathbf{Y} = L\mathbf{Z}\)</span> と表される。ここで <span class="math inline">\(L\)</span> は<em>下三角</em>（lower triangular）行列 <span class="math display">\[L = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ \rho_{12} &amp; \sqrt{1 - \rho_{12}^2} &amp; 0 \\ a &amp; b &amp; c \end{pmatrix},\]</span> であり、<span class="math inline">\(\mathbf{Y}\)</span> の相関行列（correlation matrix）は <span class="math inline">\(R = LL^{\mathsf T}\)</span> となる。対称行列を <span class="math inline">\(LL^{\mathsf T}\)</span> の形に書くことを<em>コレスキー分解</em>という。これはフランスの軍の技術者アンドレ＝ルイ・コレスキー（André-Louis Cholesky）が1910年ごろ、測地測量の方程式を解くために見いだしたものである（第一次世界大戦で本人が戦死した後に発表された）。この分解は <span class="math inline">\(R\)</span> が<em>正定値</em>（positive definite）であればいつでも可能であり、その計算は私たちが手で行ったこととまったく同じである。すなわち、各行を順に解いていくのである。これは、金融、工学、気候モデリングにおいて相関のある変数をシミュレーションする標準的な方法である。</p>
+<h3 id="どのような相関が可能か">どのような相関が可能か</h3>
+<p><span class="math inline">\(c\)</span> の根号の中の数は負であってはならない。展開すると、その条件は <span class="math display">\[1 - \rho_{12}^2 - \rho_{13}^2 - \rho_{23}^2 + 2\rho_{12}\rho_{13}\rho_{23} \geq 0,\]</span> となり、これは相関行列の行列式（determinant）が負でないという条件である。幾何学的にいえば、2つずつのなす角が <span class="math inline">\(\theta_{ij}\)</span>（ただし <span class="math inline">\(\cos\theta_{ij} = \rho_{ij}\)</span>）である3つの単位ベクトルが、実際に空間の中で両立しなければならないということである。もし <span class="math inline">\(\rho_{12} = \rho_{13} = \rho_{23} = -0.6\)</span> ならば、角はすべて約 <span class="math inline">\(127^\circ\)</span> であり、互いに <span class="math inline">\(127^\circ\)</span> をなす3つのベクトルには、和が <span class="math inline">\(360^\circ\)</span> を超える角が必要になってしまう。これは不可能である。一般に、ある行列が相関行列となりうるのは、それが半正定値（positive semi-definite）、すなわちすべての固有値（eigenvalue）が負でない場合に限られる（<a href="../ch07/eigenvectors.html">第 7.2 節</a>）。相関を不完全なデータから個別に推定すると、この条件が成り立たないことがあり、そのとき統計学者は最も近い有効な相関行列を求めなければならない。この問題は2002年に Nicholas Higham によって解決された。</p>
+<div class="historybox">
+<div class="box-title">ゴルトン、ピアソンと相関</div>
+<p>フランシス・ゴルトン（Francis Galton）は1888年、親と子の身長がどのように関係しているかを研究する中で相関を導入し、1896年にはカール・ピアソン（Karl Pearson）がこの問題で用いられている積率（product moment）の公式を与えた。ゴルトンは平均への回帰（regression to the mean）にも気づいていた（<a href="../ch13/headlines.html">第 13.1 節</a>）。ピアソンは1911年、ユニバーシティ・カレッジ・ロンドン（University College London）に世界初の大学の統計学科を創設した。「相関は因果を意味しない」という警句は、相関そのものとほとんど同じくらい古い。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">新たな独立な材料を使って、一歩ずつ構成する</div>
+<p><em>指定された関係をもつ対象を作るには、それらを1つずつ加えていき、それぞれを、それまでに作ったものの組合せに新しく独立なものを加えたものとせよ。</em></p>
+<p>これは線形代数のグラム–シュミットの直交化法（Gram–Schmidt process）を逆向きにたどったものであり、またコレスキー分解でもある。大学では、最小二乗法（least squares）、多変量正規分布（multivariate normal distribution）の理論、確率過程のシミュレーションなどに現れる。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>不可能な相関。</strong>3つの確率変数が2つずつすべて相関 <span class="math inline">\(\rho\)</span> をもつことは、<span class="math inline">\(\rho \geq -\frac12\)</span> でない限り不可能であることを示せ。<span class="math inline">\(n\)</span> 個の変数の場合、対応する主張はどうなるか。</p></li>
+<li><p><strong>行列式を確かめる。</strong><span class="math inline">\(R\)</span> を <span class="math inline">\(3 \times 3\)</span> の相関行列とするとき、<span class="math inline">\(1 - \rho_{13}^2 - b^2 \geq 0\)</span> が <span class="math inline">\(\det R \geq 0\)</span> と同値であることを示せ。</p></li>
+<li><p><strong>ポートフォリオのリスク。</strong>2つの株の収益率の標準偏差（standard deviation）が <span class="math inline">\(\sigma_1 = 0.2\)</span> と <span class="math inline">\(\sigma_2 = 0.3\)</span> で、相関が <span class="math inline">\(\rho\)</span> であるとする。それぞれに半分ずつ投資したポートフォリオの標準偏差を、<span class="math inline">\(\rho = -1\)</span>, <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span> のそれぞれについて求めよ。分散投資（diversification）によって何が得られるか。</p></li>
+<li><p><strong>材料を復元する。</strong>問題文のように <span class="math inline">\(Y_1\)</span>, <span class="math inline">\(Y_2\)</span> が与えられたとき、<span class="math inline">\(Z_2\)</span> を <span class="math inline">\(Y_1\)</span> と <span class="math inline">\(Y_2\)</span> を用いて表せ。（これがグラム–シュミットの1ステップである。）</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong>（Wellesley-Cambridge）。正定値行列とコレスキー分解について。</p></li>
+<li><p><strong>Paul Glasserman, <a href="https://uk.bookshop.org/search?keywords=Monte+Carlo+Methods+in+Financial+Engineering+Glasserman"><em>Monte Carlo Methods in Financial Engineering</em></a></strong>（Springer）。相関のある変数を実際にシミュレーションする方法。高度だが、最初のほうの章は読みやすい。</p></li>
+<li><p><strong>Theodore Porter, <a href="https://uk.bookshop.org/search?keywords=Karl+Pearson%3A+The+Scientific+Life+in+a+Statistical+Age+Porter"><em>Karl Pearson: The Scientific Life in a Statistical Age</em></a></strong>（Princeton University Press）。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="errors-add-up.html">← 13.6 積み重なる誤差</a><a class="next" href="wrap-up.html">→ 振り返り</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

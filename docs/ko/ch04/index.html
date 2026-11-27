@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제4장: 제대로 하는 미적분 — Beyond STEP</title>
+<meta name="description" content="적분의 정의에서 출발하여 무언가를 증명하는 적분을 거쳐 기하학과 변분법으로 나아간다.">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch04/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch04/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch04/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="제4장: 제대로 하는 미적분 — Beyond STEP">
+<meta property="og:description" content="적분의 정의에서 출발하여 무언가를 증명하는 적분을 거쳐 기하학과 변분법으로 나아간다.">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch04/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="제4장: 제대로 하는 미적분 — Beyond STEP">
+<meta name="twitter:description" content="적분의 정의에서 출발하여 무언가를 증명하는 적분을 거쳐 기하학과 변분법으로 나아간다.">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 4, "name": "제대로 하는 미적분", "url": "https://beyondstep.keithmcnulty.org/ko/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "적분의 정의에서 출발하여 무언가를 증명하는 적분을 거쳐 기하학과 변분법으로 나아간다."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제4장: 제대로 하는 미적분", "item": "https://beyondstep.keithmcnulty.org/ko/ch04/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch04/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch04/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch04/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch04/index.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">장</div>
+    <div class="ch-num">4</div>
+    <h1>제대로 하는 미적분</h1>
+    <p class="strap">적분(integration)은 해석학(analysis), 기하학, 정수론(number theory)이 만나는 곳이며, 수학에서 가장 아름다운 공식들 가운데 몇몇이 자리한 곳이다.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">장 전체 내려받기</span><span class="dl-sub">인쇄용으로 조판한 PDF</span></span></a>
+  </div>
+  <h2 class="contents-head">이 장의 내용</h2>
+  <ol class="toc"><li><a class="toc-link" href="riemann.html"><span class="toc-num">4.1</span>
+<span class="toc-title">적분이란 무엇인가?</span>
+<span class="toc-src">STEP III 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-1-riemann.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="trig-from-integral.html"><span class="toc-num">4.2</span>
+<span class="toc-title">적분으로 삼각함수 세우기</span>
+<span class="toc-src">STEP III 2017</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-2-trig-from-integral.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="twenty-two-sevenths.html"><span class="toc-num">4.3</span>
+<span class="toc-title">\(22/7\)은 \(\pi\)보다 크다</span>
+<span class="toc-src">STEP I 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-3-twenty-two-sevenths.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="wallis-beta.html"><span class="toc-num">4.4</span>
+<span class="toc-title">월리스, 베타 함수, 그리고 1/2의 계승</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-4-wallis-beta.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="sophomores-dream.html"><span class="toc-num">4.5</span>
+<span class="toc-title">2학년생의 꿈</span>
+<span class="toc-src">STEP III 2009</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-5-sophomores-dream.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="no-formula.html"><span class="toc-num">4.6</span>
+<span class="toc-title">공식으로 나타낼 수 없는 적분</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-6-no-formula.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="variations.html"><span class="toc-num">4.7</span>
+<span class="toc-title">변분법</span>
+<span class="toc-src">STEP III 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-7-variations.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="spherical-loaf.html"><span class="toc-num">4.8</span>
+<span class="toc-title">공 모양 빵 자르기</span>
+<span class="toc-src">STEP I 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-8-spherical-loaf.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="holditch.html"><span class="toc-num">4.9</span>
+<span class="toc-title">홀디치의 정리</span>
+<span class="toc-src">STEP III 2011</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-9-holditch.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">돌아보기: 지금까지 배운 것</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“다음으로 풀어 보기” 연습문제의 답</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">제4장  \(\cdot\)  들어가며</div>
+    <h1 class="essay-title">역도함수(antiderivative) 그 이상</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>도함수를 갖지 않는 함수라는 개탄스러운 해악 앞에서 나는 공포와 전율을 느끼며 고개를 돌린다.</p>
+<p class="who">— 샤를 에르미트(Charles Hermite), 1893년의 편지에서</p>
+</div>
+<p>학생에게 적분이 무엇이냐고 물으면 아마 “미분(differentiation)의 반대”라는 답을 듣게 될 것이다. 이는 멋진 사실, 곧 <em>미적분학의 기본정리(fundamental theorem of calculus)</em>이며, 학교에서 만나는 적분 대부분을 판에 박힌 계산으로 만들어 준다. 그러나 이것은 적분에 관한 정리일 뿐 적분의 정의가 아니며, 적분을 흥미롭게 만드는 것의 대부분을 가려 버린다.</p>
+<p>적분은 미분보다 약 2천 년이나 오래되었다. 아르키메데스(Archimedes)는 도함수라는 생각을 누구도 하기 훨씬 전에, 얇은 조각들을 더하여 포물선 활꼴(parabolic segment)의 넓이와 구의 겉넓이를 구했다. 또한 적분은 미분이 닿지 못하는 곳까지 닿는다. 웬만한 함수는 모두 기계적인 규칙으로 미분할 수 있지만, 대부분의 함수는 공식으로 적분할 수 <em>없다</em>. 그러면 자연스러운 질문이 떠오른다. 언제 적분할 수 있으며, 적분할 수 없을 때는 어떻게 해야 하는가? 적분은 새로운 함수를 정의하고, 수 사이의 부등식(inequality)을 증명하며, 달리 기술할 방법이 없는 넓이와 부피를 계산하고, 무한합과 무한곱(infinite product)의 정확한 값을 알려 준다. 이 장은 이 모든 것을 다룬다.</p>
+<h3 id="적분이란-실제로-무엇인가">적분이란 실제로 무엇인가</h3>
+<p>이 장은 맨 처음, 곧 정의에서 출발한다(<a href="../ch04/riemann.html">4.1 절</a>). 적분은 얇은 직사각형들의 합의 극한(limit)이다. 역도함수 없이 이 정의만으로 <span class="math inline">\(\int_0^a x^5\,\mathrm{d}x\)</span> 하나를 계산하는 것조차 상당한 작업이며, 이를 해 보면 기본정리가 얼마나 고마운지 알게 된다. 정의가 정확해지면 질문도 정확해진다. 어떤 함수가 적분가능(integrable)한가? 이 질문의 답과 그 답이 불러일으킨 문제들은 20세기 초 르베그(Lebesgue)의 적분 이론으로 이어졌고, 이 이론은 현대 확률론(probability)의 토대가 되었다.</p>
+<h3 id="무언가를-증명하는-적분">무언가를 증명하는 적분</h3>
+<p>이 장에서 가장 놀라운 결과 가운데 몇몇은 넓이와 전혀 관계없어 보이는 사실을 적분으로 증명한다. 양의 함수의 적분 하나가 <span class="math inline">\(\frac{22}{7} - \pi\)</span>와 같다는 사실로부터 단 한 줄로 <span class="math inline">\(\pi &lt; \frac{22}{7}\)</span>가 증명된다(<a href="../ch04/twenty-two-sevenths.html">4.3 절</a>). <span class="math inline">\(\sin t\)</span>의 거듭제곱은 <span class="math inline">\(\pi\)</span>에 대한 월리스(Wallis)의 무한곱과 <span class="math inline">\(\left(\frac12\right)! = \frac{\sqrt\pi}{2}\)</span>라는 값으로 이어진다(<a href="../ch04/wallis-beta.html">4.4 절</a>). <span class="math inline">\(x^x\)</span>의 적분은 급수(series) <span class="math inline">\(\sum (-1)^{n+1}n^{-n}\)</span>으로 바뀐다(<a href="../ch04/sophomores-dream.html">4.5 절</a>). 그리고 적분 하나, <span class="math inline">\(\int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span>만으로 삼각법(trigonometry)을 처음부터 쌓아 올릴 수 있다(<a href="../ch04/trig-from-integral.html">4.2 절</a>).</p>
+<h3 id="대학에서-만나게-될-것">대학에서 만나게 될 것</h3>
+<p>1학년 <em>해석학</em> 과목에서는 적분의 정의에서 출발하여 미적분학의 기본정리를 제대로 증명한다. 그 뒤의 과목들은 여러 방향으로 뻗어 나간다. <em>측도론(measure theory)</em>과 <em>르베그 적분(Lebesgue integral)</em>은 적분이 극한과 매끄럽게 어울리도록 해 주며 확률론의 바탕이 된다. <em>벡터 미적분학(vector calculus)</em>은 곡선, 곡면, 입체 위에서 적분하며, 그린(Green) 정리와 스토크스(Stokes) 정리가 이들을 서로 이어 준다(<a href="../ch04/holditch.html">4.9 절</a>에서 그 맛을 볼 수 있다). <em>복소해석학(complex analysis)</em>은 복소평면을 돌아가는 우회로를 통해 실적분을 계산한다. <em>변분법(calculus of variations)</em>은 어떤 함수가 적분을 가장 작게 만드는지 묻고(<a href="../ch04/variations.html">4.7 절</a>), 물리학의 최소 작용의 원리(principle of least action)로 이어진다. 그리고 <em>미분대수(differential algebra)</em>는 어떤 적분이 애초에 공식을 갖는지를 설명한다(<a href="../ch04/no-formula.html">4.6 절</a>).</p>
+<h3 id="이-장을-관통하는-질문들">이 장을 관통하는 질문들</h3>
+<div class="skillbox">
+<div class="box-title">세 가지 큰 질문</div>
+<ol class="arabic">
+<li><p><strong>적분이란 무엇이며, 어떤 함수가 적분을 갖는가?</strong> 합의 극한이라는 정의는 역도함수와 어떻게 연결되는가?</p></li>
+<li><p><strong>적분으로 무엇을 증명할 수 있는가?</strong> 넓이가 어떻게 <span class="math inline">\(\pi\)</span>에 대해, 계승(factorial)에 대해, 무한합에 대해 알려 줄 수 있는가?</p></li>
+<li><p><strong>공식이 없을 때는 무엇을 할 수 있는가?</strong> 적분에 공식이 없다는 것을 어떻게 알며, 그럼에도 무엇을 계산할 수 있는가?</p></li>
+</ol>
+</div>
+<h3 id="이-장의-아이디어">이 장의 아이디어</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">주제</th>
+<th style="text-align: left;">아이디어</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">4.1</td>
+<td style="text-align: left;">적분의 정의</td>
+<td style="text-align: left;">하합과 상합(lower and upper sums); 망원합(telescoping)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.2</td>
+<td style="text-align: left;"><span class="math inline">\(\int \frac{\mathrm{d}u}{1+u^2}\)</span>에서 얻는 삼각법</td>
+<td style="text-align: left;">적분을 보존하는 치환(substitution)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.3</td>
+<td style="text-align: left;"><span class="math inline">\(\frac{22}{7} &gt; \pi\)</span></td>
+<td style="text-align: left;">양수인 함수의 적분으로 나타낸 부등식</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.4</td>
+<td style="text-align: left;">월리스와 <span class="math inline">\(\left(\frac12\right)!\)</span></td>
+<td style="text-align: left;">점화식(reduction formula), 불변량(invariant), 조이기(squeeze)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.5</td>
+<td style="text-align: left;"><span class="math inline">\(\int_0^1 x^x\,\mathrm{d}x\)</span></td>
+<td style="text-align: left;">급수 전개와 항별 적분(term-by-term integration)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.6</td>
+<td style="text-align: left;">공식이 없는 적분</td>
+<td style="text-align: left;">다항식 대수를 이용한 불가능성 증명</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.7</td>
+<td style="text-align: left;">변분법</td>
+<td style="text-align: left;">적분 속에서 완전제곱식 만들기(completing the square)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.8</td>
+<td style="text-align: left;">아르키메데스의 모자 상자 정리(hat-box theorem)</td>
+<td style="text-align: left;">피적분함수(integrand)를 간단히 하면 기하가 드러난다</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.9</td>
+<td style="text-align: left;">Holditch 정리</td>
+<td style="text-align: left;">경계 적분으로 구하는 넓이; 소거(elimination)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="이-장을-읽는-방법">이 장을 읽는 방법</h3>
+<p>여러 절에 무겁지만 판에 박힌 계산이 나온다. 다항식의 나눗셈, 부분적분(integration by parts), 곱의 전개 같은 것들이다. 본문을 읽기 전에 연필과 종이로 직접 해 보라. 그런 다음 그 계산을 가능하게 한 아이디어, 곧 불변량, 대칭, 상쇄를 찾아보라. 계산은 채점자가 확인하는 것이고, 아이디어는 여러분이 기억하여 다시 쓰게 될 것이다.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="riemann.html">→ 시작: 4.1 적분이란 무엇인가?</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第7章：線形代数と幾何 — Beyond STEP</title>
+<meta name="description" content="行列をそれ自体として独立した対象として扱う。固有ベクトル、行列式、回転、不変量を論じ、最後にオイラーの公式に至る。">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch07/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch07/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch07/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第7章：線形代数と幾何 — Beyond STEP">
+<meta property="og:description" content="行列をそれ自体として独立した対象として扱う。固有ベクトル、行列式、回転、不変量を論じ、最後にオイラーの公式に至る。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch07/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第7章：線形代数と幾何 — Beyond STEP">
+<meta name="twitter:description" content="行列をそれ自体として独立した対象として扱う。固有ベクトル、行列式、回転、不変量を論じ、最後にオイラーの公式に至る。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 7, "name": "線形代数と幾何", "url": "https://beyondstep.keithmcnulty.org/ja/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "行列をそれ自体として独立した対象として扱う。固有ベクトル、行列式、回転、不変量を論じ、最後にオイラーの公式に至る。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第7章：線形代数と幾何", "item": "https://beyondstep.keithmcnulty.org/ja/ch07/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch07/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch07/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch07/index.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">7</div>
+    <h1>線形代数と幾何</h1>
+    <p class="strap">行列（matrix）は数の表ではない。それは空間の変換であり、独自の生命をもっている。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">章全体をダウンロード</span><span class="dl-sub">PDF（印刷用組版）</span></span></a>
+  </div>
+  <h2 class="contents-head">この章の内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="matrix-rules.html"><span class="toc-num">7.1</span>
+<span class="toc-title">行列では成り立たない法則</span>
+<span class="toc-src">STEP II 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-1-matrix-rules.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="eigenvectors.html"><span class="toc-num">7.2</span>
+<span class="toc-title">向きを変えずに伸ばす</span>
+<span class="toc-src">STEP III 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-2-eigenvectors.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="determinant-axioms.html"><span class="toc-num">7.3</span>
+<span class="toc-title">行列式を行列式たらしめるもの</span>
+<span class="toc-src">STEP II 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-3-determinant-axioms.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="finite-order.html"><span class="toc-num">7.4</span>
+<span class="toc-title">もとに戻る行列</span>
+<span class="toc-src">STEP II 2020</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-4-finite-order.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="rotations-3d.html"><span class="toc-num">7.5</span>
+<span class="toc-title">三次元の回転</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-5-rotations-3d.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="hyperbolic-rotations.html"><span class="toc-num">7.6</span>
+<span class="toc-title">双曲的回転と相対性理論</span>
+<span class="toc-src">STEP III 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-6-hyperbolic-rotations.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="lax-pairs.html"><span class="toc-num">7.7</span>
+<span class="toc-title">決して変わらない量</span>
+<span class="toc-src">STEP III 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-7-lax-pairs.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="four-squares.html"><span class="toc-num">7.8</span>
+<span class="toc-title">四つの平方数</span>
+<span class="toc-src">STEP III 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-8-four-squares.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="platonic-solids.html"><span class="toc-num">7.9</span>
+<span class="toc-title">正多面体はただ五つ</span>
+<span class="toc-src">STEP III 1999</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-9-platonic-solids.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">振り返り：ここで学んだこと</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「次はこれに挑戦」の演習問題の解答</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第7章  \(\cdot\)  序論</div>
+    <h1 class="essay-title">空間の変換</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>われわれは基底を用いずに考え、基底を用いずに書く。だが、いざという段になると、研究室の扉を閉めて猛烈な勢いで行列の計算をするのだ。</p>
+<p class="who">— アーヴィング・カプランスキー（Irving Kaplansky）、自身とポール・ハルモス（Paul Halmos）の線形代数への取り組み方について</p>
+</div>
+<p>学校では、行列はふつう連立方程式（simultaneous equations）を解くための道具として、あるいは点を変換するための手順として登場する。すなわち、行列に列ベクトル（column vector）を掛け、新しい座標を読み取るというものである。どちらも役に立つが、これらの見方は、行列が数学で最も重要な考え方の一つである理由を覆い隠してしまう。行列とは<em>線形変換</em>（linear transformation）、すなわち空間を引き伸ばし、回転し、鏡映し、ずらす（剪断する）方法である。そして行列は、数と同じように足したり、掛けたり、累乗したり、微分したりすることができる。ところが、行列は数とは違う。その積は掛ける順序に依存し、零でない行列どうしを掛けて零になることもある。さらに行列には、隠れた不変量（invariant）——トレース（trace）、行列式（determinant）、固有値（eigenvalue）——があり、それらは行列がどのように書き表されるかによらず、その本質的なふるまいをとらえている。</p>
+<h3 id="線形代数はなぜ重要か">線形代数はなぜ重要か</h3>
+<p>線形代数（linear algebra）は、おそらく数学の中で最も広く使われている分野である。ビデオゲームから映画のアニメーションに至るまで、あらゆるコンピュータグラフィックスのエンジンは行列を掛け合わせる機械である。キャラクターのあらゆる回転も、あらゆるカメラアングルも、あらゆる透視投影も、一つの行列なのである。インターネットの検索エンジンや推薦システムは、固有ベクトル（eigenvector）の上に築かれている。技術者は橋や建物の振動数を固有値から求め、統計学者はデータの中の主要なパターンを固有値によって見つけ出す。量子力学は、すべて線形代数の言葉で書かれている。そして現代の機械学習は、その核心において、膨大な量の行列の掛け算にほかならない。</p>
+<p>この遍在性には理由がある。線形の問題は完全に解くことのできる問題であり、ほとんどすべての非線形の問題は、十分に拡大して見れば線形に見える。これが微積分の考え方であり、それはつまり、線形代数がほとんどあらゆるものの局所的なふるまいを記述する言語だということである。</p>
+<h3 id="大学で出会うこと">大学で出会うこと</h3>
+<p>線形代数は、解析学（analysis）と並んで大学1年目の二本柱の一つである。<em>ベクトル空間</em>（vector space）——足し算とスカラー倍ができる集合のことで、平面や3次元空間はその最初の例にすぎない——と、それらの間の<em>線形写像</em>（linear map）に出会い、行列とは座標を用いて書き表した線形写像にすぎないことを学ぶ。行列式、固有値と固有ベクトル、そして対称行列は回転によって対角化（diagonalise）できることを述べる<em>スペクトル定理</em>（spectral theorem）を学ぶ。その後の講義では、これらがいたるところで使われる。微分方程式（第 8 章）において、幾何学（回転や鏡映が群をなす）において、連続的な対称性を記述する<em>リー群</em>（Lie group）の理論において、そして無限次元の線形代数である関数解析（functional analysis）においてである。</p>
+<h3 id="この章を貫く問い">この章を貫く問い</h3>
+<div class="skillbox">
+<div class="box-title">三つの大きな問い</div>
+<ol class="arabic">
+<li><p><strong>行列はどのような点で数に似ていて、どのような点で異なるのか？</strong> 算術のどの規則が生き残り、どの規則が成り立たなくなるのか？</p></li>
+<li><p><strong>行列は実際には何をしているのか？</strong> 変換の幾何をどのようにして見ることができ、どのような数が座標によらずにそれをとらえるのか？</p></li>
+<li><p><strong>何が変わらずに保たれるのか？</strong> 変換や運動によってどのような量が保存され、それらは何を教えてくれるのか？</p></li>
+</ol>
+</div>
+<p>この章は行列の代数の規則（<a href="../ch07/matrix-rules.html">第 7.1 節</a>）から始まり、続いて変換の幾何へと進む。固有ベクトル、行列式、有限位数（finite order）の行列、3次元の回転、そして特殊相対性理論（special relativity）の双曲的回転（hyperbolic rotation）である。さらに、時間発展する行列の保存量（conserved quantity）、行列式から得られる四平方恒等式（four-square identity）を扱い、最後に、数え上げの議論であるオイラー（Euler）の公式によって正多面体（Platonic solids）を分類して締めくくる。</p>
+<h3 id="この章に登場する考え方">この章に登場する考え方</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">主題</th>
+<th style="text-align: left;">考え方</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">7.1</td>
+<td style="text-align: left;">成り立たない規則</td>
+<td style="text-align: left;">非可換性（non-commutativity）；零因子（zero divisor）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.2</td>
+<td style="text-align: left;">固有ベクトル</td>
+<td style="text-align: left;">変換によって向きが回転しない方向</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.3</td>
+<td style="text-align: left;">行列式</td>
+<td style="text-align: left;">乗法性による特徴づけ；符号付き面積</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.4</td>
+<td style="text-align: left;">有限位数の行列</td>
+<td style="text-align: left;">トレース、行列式とケイリー・ハミルトン（Cayley–Hamilton）の定理</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.5</td>
+<td style="text-align: left;">3次元の回転</td>
+<td style="text-align: left;">外積から導くロドリゲス（Rodrigues）の公式</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.6</td>
+<td style="text-align: left;">ローレンツブースト（Lorentz boost）</td>
+<td style="text-align: left;">双曲的な角は足し合わされる</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.7</td>
+<td style="text-align: left;">保存量</td>
+<td style="text-align: left;">交換子（commutator）のトレースは零である</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.8</td>
+<td style="text-align: left;">四つの平方</td>
+<td style="text-align: left;">行列式の乗法性</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.9</td>
+<td style="text-align: left;">正多面体</td>
+<td style="text-align: left;">二重数え上げ（double counting）とオイラーの公式</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="この章の読み方">この章の読み方</h3>
+<p>この章に出てくるすべての行列について、それが何をするのかを図に描いてみよう。単位正方形、単位円、あるいはいくつかのベクトルをとり、それらの像をスケッチするのである。2分ほどのスケッチで、計算を始める前に答え（固有ベクトル、反例、不変な直線）が見えてくることがよくあり、また後で計算を検算する助けにもなる。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="matrix-rules.html">→ 読み始める： 7.1 行列では成り立たない法則</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공리에서 출발하는 미분 (STEP II 1992 Q4) — Beyond STEP</title>
+<meta name="description" content="STEP II 1992 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. 미분(differentiation)이란 무엇인가? 학교에서는 미분을 극한(limit) lim_h → 0(f(x+h) - f(x))/(h) 로 정의하고, 그다음 여러 규칙을 배운다. 합의 도함수(derivative)는 도함수의 합이라는 규칙, 곱의 미분법(product rule)…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch06/derivations.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch06/derivations.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/derivations.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/derivations.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/derivations.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch06/derivations.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/derivations.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="공리에서 출발하는 미분 (STEP II 1992 Q4) — Beyond STEP">
+<meta property="og:description" content="STEP II 1992 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. 미분(differentiation)이란 무엇인가? 학교에서는 미분을 극한(limit) lim_h → 0(f(x+h) - f(x))/(h) 로 정의하고, 그다음 여러 규칙을 배운다. 합의 도함수(derivative)는 도함수의 합이라는 규칙, 곱의 미분법(product rule)…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch06/derivations.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="공리에서 출발하는 미분 (STEP II 1992 Q4) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1992 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. 미분(differentiation)이란 무엇인가? 학교에서는 미분을 극한(limit) lim_h → 0(f(x+h) - f(x))/(h) 로 정의하고, 그다음 여러 규칙을 배운다. 합의 도함수(derivative)는 도함수의 합이라는 규칙, 곱의 미분법(product rule)…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "공리에서 출발하는 미분", "headline": "공리에서 출발하는 미분", "description": "STEP II 1992 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. 미분(differentiation)이란 무엇인가? 학교에서는 미분을 극한(limit) lim_h → 0(f(x+h) - f(x))/(h) 로 정의하고, 그다음 여러 규칙을 배운다. 합의 도함수(derivative)는 도함수의 합이라는 규칙, 곱의 미분법(product rule)…", "url": "https://beyondstep.keithmcnulty.org/ko/ch06/derivations.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1992 문제 4", "대수와 구조"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 6, "name": "대수와 구조", "url": "https://beyondstep.keithmcnulty.org/ko/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제6장: 대수와 구조", "item": "https://beyondstep.keithmcnulty.org/ko/ch06/"}, {"@type": "ListItem", "position": 3, "name": "공리에서 출발하는 미분", "item": "https://beyondstep.keithmcnulty.org/ko/ch06/derivations.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch06/derivations.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/derivations.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch06/derivations.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch06/derivations.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제6장 · 대수와 구조</a>
+    <div class="src">STEP II · 1992 · 문제 4</div>
+    <div class="sec-head"><span class="sec-num">6.5</span><h1>공리에서 출발하는 미분</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-5-derivations.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제6장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 1992, 문제 4</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/92-s2-q4">step.maths.org/questions/92-s2-q4</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>미분(differentiation)이란 무엇인가? 학교에서는 미분을 극한(limit) <span class="math inline">\(\lim_{h \to 0}\frac{f(x+h) - f(x)}{h}\)</span>로 정의하고, 그다음 여러 규칙을 배운다. 합의 도함수(derivative)는 도함수의 합이라는 규칙, 곱의 미분법(product rule) 등이다. 이 문제는 이 순서를 뒤집는다. 극한은 완전히 잊어버리자. 어떤 연산에 대해 아는 것이라고는 그 연산이 합의 법칙, 곱의 법칙, 상수에 관한 법칙을 따르고 <span class="math inline">\(x\)</span>를 <span class="math inline">\(1\)</span>로 보낸다는 사실뿐이라고 하자. 그러면 이 문제가 보여 주듯이, 적어도 다항식(polynomial)에서는 그 연산이 <em>반드시</em> 미분이어야 한다.</p>
+<p>이것이 미적분을 바라보는 대수학자의 관점이다. 연산은 공식이 아니라 그 연산이 따르는 규칙으로 특징지어진다. 곱의 법칙을 따르는 연산을 <em>도분</em>(derivation)이라고 하며, 도분은 대수학, 기하학, 물리학 곳곳에 등장한다. 놀랍게도 같은 아이디어가 현대의 기계 학습 시스템을 훈련시키는 소프트웨어 안에서도 작동하고 있다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>규칙 (i)은 곱의 법칙이다. 곱의 법칙이 어떻게 상수에 대해 무언가를 알려 줄 수 있을까? (상수를 곱으로 생각해 보자.)</p>
+</div>
+<p>수 <span class="math inline">\(1\)</span>은 <span class="math inline">\(1 \times 1\)</span>과 같다. <span class="math inline">\(1 \times 1\)</span>에 곱의 법칙을 적용하면 <span class="math inline">\(\lozenge 1\)</span>을 자기 자신과 연결하는 관계식이 나오고, 이 관계식 때문에 그 값은 0일 수밖에 없다. 일반적으로 이런 공리(axiom)를 다룰 때의 요령은 영리하게 고른 간단한 입력에 공리를 적용하는 것이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-상수" class="stage"><span class="stage-n">단계 1</span> 상수</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{f} = \mathrm{g} = 1\)</span>로 놓고 규칙 (i)을 적용하라. 그다음 다른 상수에 대해서는 규칙 (iv)를 사용하라.</p>
+</div>
+<p><span class="math inline">\(\lozenge 1 = \lozenge(1 \cdot 1) = 1 \cdot \lozenge 1 + 1 \cdot \lozenge 1 = 2\lozenge 1\)</span>이므로 <span class="math inline">\(\lozenge 1 = 0\)</span>이다. 임의의 상수 <span class="math inline">\(\lambda\)</span>에 대해 규칙 (iv)에 의해 <span class="math inline">\(\lozenge\lambda = \lozenge(\lambda \cdot 1) = \lambda\lozenge 1 = 0\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-거듭제곱" class="stage"><span class="stage-n">단계 2</span> 거듭제곱</h4>
+<p>규칙 (iii)을 사용하면 <span class="math inline">\(\lozenge x^2 = \lozenge(x \cdot x) = x\lozenge x + x\lozenge x = 2x\)</span>이다. 그러면 <span class="math display">\[\lozenge x^3 = \lozenge(x^2 \cdot x) = x\lozenge x^2 + x^2\lozenge x = x \cdot 2x + x^2 = 3x^2.\]</span></p>
+<div class="pausebox">
+<p>모든 양의 정수 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(\lozenge x^n = nx^{n-1}\)</span>임을 수학적 귀납법(induction)으로 증명하라.</p>
+</div>
+<p><span class="math inline">\(n = 1\)</span>인 경우는 규칙 (iii)이다. <span class="math inline">\(\lozenge x^n = nx^{n-1}\)</span>이면 <span class="math display">\[\lozenge x^{n+1} = \lozenge(x^n \cdot x) = x\lozenge x^n + x^n\lozenge x = x \cdot nx^{n-1} + x^n = (n + 1)x^n. \qed\]</span></p>
+<h4 id="stagemark3-모든-다항식" class="stage"><span class="stage-n">단계 3</span> 모든 다항식</h4>
+<p>일반적인 다항식은 <span class="math inline">\(\mathrm{h}(x) = a_0 + a_1x + \cdots + a_mx^m\)</span>이다. 규칙 (ii)를 (반복해서) 적용하고 규칙 (iv)를 적용하면 <span class="math display">\[\begin{aligned}
+  \lozenge\mathrm{h}(x) &amp;= \lozenge a_0 + a_1\lozenge x + a_2\lozenge x^2 + \cdots + a_m\lozenge x^m \\
+  &amp;= a_1 + 2a_2x + \cdots + ma_mx^{m-1} = \mathrm{h}&#39;(x). \qed
+\end{aligned}\]</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>공리가 연산을 결정한다.</strong> 극한은 전혀 언급하지 않은 네 개의 규칙만으로 다항식 위에서 <span class="math inline">\(\lozenge\)</span>가 완전히 결정되었다.</p></li>
+<li><p><strong>생성원(generators).</strong> 모든 다항식은 상수와 <span class="math inline">\(x\)</span>로부터 덧셈과 곱셈을 써서 만들어진다. 기본 재료에 대해 <span class="math inline">\(\lozenge\)</span>가 무엇을 하는지, 그리고 만드는 연산과 어떻게 어우러지는지를 알면 모든 곳에서 그 값이 결정된다.</p></li>
+<li><p><strong>구성을 따라가는 귀납법.</strong> 증명은 다항식이 만들어지는 방식을 그대로 따라갔다. 먼저 곱셈을 반복해 거듭제곱을 다루고, 그다음 합을 다루었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">도분</div>
+<p>어떤 대수적 체계 위의 연산 <span class="math inline">\(D\)</span>가 덧셈을 보존하고 곱의 법칙 <span class="math inline">\(D(fg) = fD(g) + gD(f)\)</span>를 만족하면, 이를 <em>도분</em>이라고 한다. 이 문제는 다항식 위에서 상수를 0으로 보내는 도분이 <span class="math inline">\(D(x)\)</span>에 의해 완전히 결정된다는 것을 보여 준다. 실제로 <span class="math inline">\(D(h) = h&#39;(x)\,D(x)\)</span>이므로, 남은 자유는 다항식 <span class="math inline">\(D(x)\)</span>를 고르는 것뿐이다. 규칙 (iii)은 <span class="math inline">\(D(x) = 1\)</span>로 정한다. 도분은 수학 전반에 나타난다. 기하학에서는 곡면 위의 <em>벡터장</em>(vector field)을 그 곡면 위의 함수들에 작용하는 도분으로 정의할 수 있다(벡터장은 함수를 그 장의 방향으로 미분한다). 대수학에서는 어떤 구조의 도분이 그 구조의 “무한소 대칭”을 측정한다. 물리학에서는 양자역학의 교환자(commutator) <span class="math inline">\([A, B] = AB - BA\)</span>가 각 변수에 대해 도분이다.</p>
+</div>
+<h3 id="극한-없는-미적분">극한 없는 미적분</h3>
+<p>대수적인 도함수는 극한이 전혀 의미가 없는 상황에서도 작동한다. 소수 <span class="math inline">\(p\)</span>를 법으로 하는 산술과 같은 유한체(finite field) 위에서는 극한이 없지만, 다항식의 형식적 도함수(formal derivative)는 같은 규칙으로 정의되며 여전히 중근(repeated root)을 찾아낸다. 다항식 <span class="math inline">\(f\)</span>가 중근을 가질 필요충분조건은 <span class="math inline">\(f\)</span>와 <span class="math inline">\(f&#39;\)</span>이 공통인수를 가지는 것이다. 예를 들어 <span class="math inline">\(p \nmid n\)</span>일 때 <span class="math inline">\(x^n - 1\)</span>이 중근을 갖지 않음을 이런 방법으로 보이며, 이 사실은 <a href="../ch06/cyclotomic.html">6.1 절</a>의 원분다항식(cyclotomic polynomial)을 유한체 위에서 정의하는 데 필요하다. 같은 아이디어가 부호 이론(coding theory)과 암호학(cryptography)에서도 쓰인다.</p>
+<h3 id="자동-미분">자동 미분</h3>
+<p>현대적인 응용을 하나 살펴보자. <span class="math inline">\(\varepsilon^2 = 0\)</span>이지만 <span class="math inline">\(\varepsilon \neq 0\)</span>인 수 <span class="math inline">\(\varepsilon\)</span>을 새로 만들어 내고, <em>이원수</em>(dual numbers) <span class="math inline">\(a + b\varepsilon\)</span>으로 산술을 한다. 그러면 <span class="math inline">\((a + b\varepsilon)(c + d\varepsilon) = ac + (ad + bc)\varepsilon\)</span>이다. 즉 <span class="math inline">\(\varepsilon\)</span> 부분은 정확히 곱의 법칙을 따른다. 따라서 임의의 다항식에 대해 <span class="math display">\[f(x + \varepsilon) = f(x) + f&#39;(x)\,\varepsilon,\]</span> 이고, <span class="math inline">\(f\)</span>에 이원수 <span class="math inline">\(x + \varepsilon\)</span>을 대입하여 계산하면 함숫값과 미분계수가 동시에, 정확하게 계산된다. 극한도 필요 없고, 작은 차이에서 생기는 반올림 오차도 없다(그림 6.5.1). 이를 <em>전진 모드 자동 미분</em>(forward-mode automatic differentiation)이라고 한다. 그 사촌인 후진 모드는 수십억 개의 매개변수를 가진 신경망(neural network)을 훈련시키는 데 쓰이는 알고리즘(<em>역전파</em>(backpropagation))이다. 이런 시스템이 학습할 때마다, 시스템은 곱의 법칙과 연쇄법칙(chain rule)을 도분으로서 한 단계씩 적용하고 있는 것이다.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-6-5-1.svg" alt="그림 6.5.1"><figcaption><span class="fig-label">그림 6.5.1</span> <span class="math inline">\(f(x) = x^2(x + 1)\)</span>의 <span class="math inline">\(x = 3\)</span>에서의 이원수(<span class="math inline">\(\varepsilon^2 = 0\)</span>)를 이용한 자동 미분. 각 단계는 이 문제의 규칙을 따른다. <span class="math inline">\((3 + \varepsilon)^2 = 9 + 6\varepsilon\)</span>이고, <span class="math inline">\((9 + 6\varepsilon)(4 + \varepsilon) = 36 + (9 + 24)\varepsilon\)</span>이다. <span class="math inline">\(\varepsilon\)</span>의 계수는 <span class="math inline">\(f&#39;(3) = 3 \cdot 9 + 2 \cdot 3 = 33\)</span>이며, 정확하게 계산된다.</figcaption></figure>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">성질로 특징짓기</div>
+<p><em>연산을 그것이 따르는 규칙으로 기술한 다음, 그 규칙이 연산을 유일하게 결정함을 보여라.</em></p>
+<p>이것이 대학 대수학의 중심인 공리적 방법(axiomatic method)이다. 이 방법의 힘은 공리로부터 증명한 모든 것이 그 공리를 만족하는 모든 연산에 적용된다는 데 있다. 그것이 다항식의 미분이든, 곡면 위 함수의 미분이든, 아직 발명되지 않은 무언가이든 마찬가지이다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>다른 도분.</strong> <span class="math inline">\(\lozenge\)</span>가 규칙 (i), (ii), (iv)를 만족하되, <span class="math inline">\(1\)</span> 대신 <span class="math inline">\(\lozenge x = x\)</span>라고 하자. <span class="math inline">\(\lozenge\mathrm{h}(x) = x\,\mathrm{h}&#39;(x)\)</span>임을 보여라. <span class="math inline">\(\lozenge\)</span>는 <span class="math inline">\(x^n\)</span>을 무엇으로 보내는가?</p></li>
+<li><p><strong>몫의 미분법.</strong> 규칙 (i)이 여전히 성립한다고 가정하고 <span class="math inline">\(\lozenge\)</span>를 유리함수(rational function) <span class="math inline">\(\mathrm{f}/\mathrm{g}\)</span>로 확장하라. <span class="math inline">\(\mathrm{g} \cdot \frac{\mathrm{f}}{\mathrm{g}} = \mathrm{f}\)</span>에 규칙 (i)을 적용하여 몫의 미분법(quotient rule)을 유도하라.</p></li>
+<li><p><strong>중근.</strong> <span class="math inline">\((x - a)^2\)</span>이 다항식 <span class="math inline">\(\mathrm{f}\)</span>를 나누면 <span class="math inline">\(x - a\)</span>가 <span class="math inline">\(\mathrm{f}&#39;\)</span>을 나눔을 보여라. 이를 이용하여 <span class="math inline">\(x^n - 1\)</span>이 중근을 갖지 않음을 보여라.</p></li>
+<li><p><strong>이원수.</strong> 이원수를 이용하여 <span class="math inline">\(f(x) = (x^2 + 1)^3\)</span>에 대해 <span class="math inline">\(f(2)\)</span>와 <span class="math inline">\(f&#39;(2)\)</span>를 계산하고, 연쇄법칙으로 검산하라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Peter Cameron, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Algebra+Cameron"><em>Introduction to Algebra</em></a></strong> (Oxford University Press). 대학 1학년 수준에서 환, 다항식, 체를 다루며 형식적 도함수도 소개한다.</p></li>
+<li><p><strong>Andreas Griewank &amp; Andrea Walther, <a href="https://uk.bookshop.org/search?keywords=Evaluating+Derivatives+Griewank+Walther"><em>Evaluating Derivatives</em></a></strong> (SIAM). 자동 미분에 관한 표준 참고서이다. 고급 수준.</p></li>
+<li><p><strong>Michael Nielsen, <a href="http://neuralnetworksanddeeplearning.com/"><em>Neural Networks and Deep Learning</em></a></strong> (온라인 무료 공개). 2장에서 역전파를 명쾌하게 설명한다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="quartic.html">← 6.4 사차방정식 풀기</a><a class="next" href="subgroup-unions.html">→ 6.6 부분군의 합집합</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

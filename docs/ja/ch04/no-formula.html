@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>公式で表せない積分 (STEP III 2016 Q3) — Beyond STEP</title>
+<meta name="description" content="STEP III 2016 問題 3：解説付き解答とその背後にある大学数学。 微分（differentiation）は機械的な作業である。規則があり、通常の部品から組み立てられた関数であれば、その規則を当てはめるだけで微分できる。積分（integration）はそうはいかない。どんな技法も受けつけない積分に出会い、自分の工夫が足りないだけなのかと悩んだ経験は誰にでもあるだろう。実は、その答えが「誰…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch04/no-formula.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch04/no-formula.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/no-formula.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/no-formula.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/no-formula.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch04/no-formula.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/no-formula.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="公式で表せない積分 (STEP III 2016 Q3) — Beyond STEP">
+<meta property="og:description" content="STEP III 2016 問題 3：解説付き解答とその背後にある大学数学。 微分（differentiation）は機械的な作業である。規則があり、通常の部品から組み立てられた関数であれば、その規則を当てはめるだけで微分できる。積分（integration）はそうはいかない。どんな技法も受けつけない積分に出会い、自分の工夫が足りないだけなのかと悩んだ経験は誰にでもあるだろう。実は、その答えが「誰…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch04/no-formula.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="公式で表せない積分 (STEP III 2016 Q3) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2016 問題 3：解説付き解答とその背後にある大学数学。 微分（differentiation）は機械的な作業である。規則があり、通常の部品から組み立てられた関数であれば、その規則を当てはめるだけで微分できる。積分（integration）はそうはいかない。どんな技法も受けつけない積分に出会い、自分の工夫が足りないだけなのかと悩んだ経験は誰にでもあるだろう。実は、その答えが「誰…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "公式で表せない積分", "headline": "公式で表せない積分", "description": "STEP III 2016 問題 3：解説付き解答とその背後にある大学数学。 微分（differentiation）は機械的な作業である。規則があり、通常の部品から組み立てられた関数であれば、その規則を当てはめるだけで微分できる。積分（integration）はそうはいかない。どんな技法も受けつけない積分に出会い、自分の工夫が足りないだけなのかと悩んだ経験は誰にでもあるだろう。実は、その答えが「誰…", "url": "https://beyondstep.keithmcnulty.org/ja/ch04/no-formula.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2016 問題 3", "きちんと学ぶ微分積分学"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 4, "name": "きちんと学ぶ微分積分学", "url": "https://beyondstep.keithmcnulty.org/ja/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第4章：きちんと学ぶ微分積分学", "item": "https://beyondstep.keithmcnulty.org/ja/ch04/"}, {"@type": "ListItem", "position": 3, "name": "公式で表せない積分", "item": "https://beyondstep.keithmcnulty.org/ja/ch04/no-formula.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch04/no-formula.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch04/no-formula.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch04/no-formula.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch04/no-formula.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第4章 · きちんと学ぶ微分積分学</a>
+    <div class="src">STEP III · 2016 · 問題 3</div>
+    <div class="sec-head"><span class="sec-num">4.6</span><h1>公式で表せない積分</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-6-no-formula.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第4章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2016、第3問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/16-s3-q3">step.maths.org/questions/16-s3-q3</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>微分（differentiation）は機械的な作業である。規則があり、通常の部品から組み立てられた関数であれば、その規則を当てはめるだけで微分できる。積分（integration）はそうはいかない。どんな技法も受けつけない積分に出会い、自分の工夫が足りないだけなのかと悩んだ経験は誰にでもあるだろう。実は、その答えが「誰にも工夫のしようがない、なぜなら<em>公式が存在しない</em>からだ」ということもある。</p>
+<p>この問題は、ある特別な場合についてそのことを証明する。積分 <span class="math inline">\(\int \frac{e^x}{x+1}\,\mathrm{d}x\)</span> は面積としては確かに存在する。しかし、それを（有理関数（rational function））<span class="math inline">\(\times\, e^x\)</span> という形、すなわち部分積分（integration by parts）から予想される形に書くことはできない。何かを見つけるのではなく、何かが不可能であることを証明するというのは、それまでとは異なる、きわめて数学らしい営みである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\int \mathrm{f}(x)e^x\,\mathrm{d}x = \frac{\mathrm{P}}{\mathrm{Q}}e^x + C\)</span> であるとすると、<span class="math inline">\(\mathrm{P}\)</span> と <span class="math inline">\(\mathrm{Q}\)</span> はどのような等式を満たさなければならないか。（右辺を微分してみよ。）</p>
+</div>
+<p>微分すると <span class="math inline">\(\dfrac{\mathrm{d}}{\mathrm{d}x}\left(\dfrac{\mathrm{P}}{\mathrm{Q}}e^x\right) = \dfrac{\mathrm{P}&#39;\mathrm{Q} - \mathrm{P}\mathrm{Q}&#39; + \mathrm{P}\mathrm{Q}}{\mathrm{Q}^2}\,e^x\)</span> となり、これが <span class="math inline">\(\mathrm{f}(x)e^x\)</span> に等しくなければならない。したがって、問題全体は多項式（polynomial）の恒等式（identity） <span class="math display">\[\mathrm{P}&#39;\mathrm{Q} - \mathrm{P}\mathrm{Q}&#39; + \mathrm{P}\mathrm{Q} = \mathrm{f}\,\mathrm{Q}^2.\]</span> についての問題になる。積分についての問いが、多項式、すなわちその因数と次数についての問いに変わったのである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-因数-x-1" class="stage"><span class="stage-n">段階 1</span> 因数 <span class="math inline">\(x + 1\)</span></h4>
+<p><span class="math inline">\(\mathrm{f}(x) = \dfrac{x^3 - 2}{(x+1)^2}\)</span> のとき、恒等式の両辺に <span class="math inline">\((x+1)^2\)</span> を掛けると <span class="math display">\[(x+1)^2\bigl(\mathrm{P}&#39;\mathrm{Q} - \mathrm{P}\mathrm{Q}&#39; + \mathrm{P}\mathrm{Q}\bigr) = (x^3 - 2)\,\mathrm{Q}^2. \tag{$\dagger$}\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\((\dagger)\)</span> に <span class="math inline">\(x = -1\)</span> を代入せよ。何が起こらなければならないか。</p>
+</div>
+<p>左辺は <span class="math inline">\(x = -1\)</span> で <span class="math inline">\(0\)</span> である。右辺は <span class="math inline">\((-1 - 2)\,\mathrm{Q}(-1)^2 = -3\,\mathrm{Q}(-1)^2\)</span> である。よって <span class="math inline">\(\mathrm{Q}(-1) = 0\)</span> であり、因数定理（factor theorem）により <span class="math inline">\(x + 1\)</span> は <span class="math inline">\(\mathrm{Q}\)</span> の因数である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-次数" class="stage"><span class="stage-n">段階 2</span> 次数</h4>
+<p><span class="math inline">\(\mathrm{P}\)</span> の次数（degree）を <span class="math inline">\(p\)</span>、<span class="math inline">\(\mathrm{Q}\)</span> の次数を <span class="math inline">\(q\)</span> とする。</p>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{P}&#39;\mathrm{Q} - \mathrm{P}\mathrm{Q}&#39; + \mathrm{P}\mathrm{Q}\)</span> において、次数が最も高い項はどれか。それは他の項と打ち消し合いうるか。</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}\mathrm{Q}\)</span> の次数は <span class="math inline">\(p + q\)</span> であり、<span class="math inline">\(\mathrm{P}&#39;\mathrm{Q}\)</span> と <span class="math inline">\(\mathrm{P}\mathrm{Q}&#39;\)</span> の次数は高々 <span class="math inline">\(p + q - 1\)</span> である。よって <span class="math inline">\((\dagger)\)</span> の左辺の次数はちょうど <span class="math inline">\(2 + p + q\)</span> であり、右辺の次数は <span class="math inline">\(3 + 2q\)</span> である。両者を等しいとおいて <span class="math inline">\(p = q + 1\)</span> を得る。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-mathrmp-を求める" class="stage"><span class="stage-n">段階 3</span> <span class="math inline">\(\mathrm{P}\)</span> を求める</h4>
+<p><span class="math inline">\(\mathrm{Q} = x + 1\)</span> のとき <span class="math inline">\(\mathrm{Q}&#39; = 1\)</span> であり、<span class="math inline">\(\mathrm{P}\)</span> の次数は <span class="math inline">\(2\)</span> である。<span class="math inline">\((\dagger)\)</span> を <span class="math inline">\((x + 1)^2\)</span> で割ると <span class="math display">\[\mathrm{P}&#39;(x + 1) - \mathrm{P} + \mathrm{P}(x + 1) = x^3 - 2, \qquad\text{すなわち、}\qquad (x + 1)\mathrm{P}&#39; + x\mathrm{P} = x^3 - 2.\]</span> <span class="math inline">\(\mathrm{P} = \alpha x^2 + \beta x + \gamma\)</span> とおいてみる。左辺は <span class="math display">\[(x + 1)(2\alpha x + \beta) + \alpha x^3 + \beta x^2 + \gamma x = \alpha x^3 + (2\alpha + \beta)x^2 + (2\alpha + \beta + \gamma)x + \beta.\]</span> となる。<span class="math inline">\(x^3 - 2\)</span> と係数を比較すると、<span class="math inline">\(\alpha = 1\)</span>、<span class="math inline">\(2\alpha + \beta = 0\)</span> より <span class="math inline">\(\beta = -2\)</span>、さらに <span class="math inline">\(\gamma = 0\)</span> である。定数項 <span class="math inline">\(\beta = -2\)</span> とも矛盾しない。よって <span class="math display">\[\mathrm{P}(x) = x^2 - 2x, \qquad \int \frac{x^3 - 2}{(x+1)^2}\,e^x\,\mathrm{d}x = \frac{x^2 - 2x}{x + 1}\,e^x + C. \qed\]</span> （望むなら微分して確かめてみよ。商の微分法のよい練習になる。）</p>
+<h4 id="stagemark4-不可能性" class="stage"><span class="stage-n">段階 4</span> 不可能性</h4>
+<p>次に、<span class="math inline">\(\mathrm{P}\)</span> と <span class="math inline">\(\mathrm{Q}\)</span> が共通因数をもたないとして、<span class="math inline">\(\int \frac{e^x}{x+1}\,\mathrm{d}x = \frac{\mathrm{P}}{\mathrm{Q}}e^x + C\)</span> と仮定する。恒等式は <span class="math display">\[(x + 1)\bigl(\mathrm{P}&#39;\mathrm{Q} - \mathrm{P}\mathrm{Q}&#39; + \mathrm{P}\mathrm{Q}\bigr) = \mathrm{Q}^2.\]</span> となる。段階 1 と同様に、<span class="math inline">\(x = -1\)</span> を代入すると <span class="math inline">\(\mathrm{Q}(-1) = 0\)</span> がわかる。<span class="math inline">\(\mathrm{Q} = (x+1)^k\mathrm{R}\)</span> と書く。ただし <span class="math inline">\(k \geq 1\)</span>、<span class="math inline">\(\mathrm{R}(-1) \neq 0\)</span> である（因数 <span class="math inline">\(x + 1\)</span> をできるだけ多くくくり出す）。</p>
+<div class="pausebox">
+<p><span class="math inline">\(\mathrm{Q} = (x+1)^k\mathrm{R}\)</span> を代入し、因数 <span class="math inline">\((x + 1)\)</span> をできるだけ多く約分してから、<span class="math inline">\(x = -1\)</span> を代入せよ。<span class="math inline">\(\mathrm{P}(-1)\)</span> について何がわかるか。</p>
+</div>
+<p>このとき <span class="math inline">\(\mathrm{Q}&#39; = k(x+1)^{k-1}\mathrm{R} + (x+1)^k\mathrm{R}&#39;\)</span> であり、 <span class="math display">\[\mathrm{P}&#39;\mathrm{Q} - \mathrm{P}\mathrm{Q}&#39; + \mathrm{P}\mathrm{Q} = (x+1)^{k-1}\Bigl[(x+1)\bigl(\mathrm{P}&#39;\mathrm{R} - \mathrm{P}\mathrm{R}&#39; + \mathrm{P}\mathrm{R}\bigr) - k\mathrm{P}\mathrm{R}\Bigr].\]</span> となる。よって恒等式は <span class="math inline">\((x+1)^k\bigl[(x+1)(\mathrm{P}&#39;\mathrm{R} - \mathrm{P}\mathrm{R}&#39; + \mathrm{P}\mathrm{R}) - k\mathrm{P}\mathrm{R}\bigr] = (x+1)^{2k}\mathrm{R}^2\)</span> となる。<span class="math inline">\((x+1)^k\)</span> で割ると <span class="math display">\[(x+1)\bigl(\mathrm{P}&#39;\mathrm{R} - \mathrm{P}\mathrm{R}&#39; + \mathrm{P}\mathrm{R}\bigr) - k\mathrm{P}\mathrm{R} = (x+1)^k\mathrm{R}^2.\]</span> <span class="math inline">\(k \geq 1\)</span> であるから、<span class="math inline">\(x = -1\)</span> とすると <span class="math inline">\(-k\,\mathrm{P}(-1)\mathrm{R}(-1) = 0\)</span> を得る。<span class="math inline">\(k \neq 0\)</span> かつ <span class="math inline">\(\mathrm{R}(-1) \neq 0\)</span> であるから、<span class="math inline">\(\mathrm{P}(-1) = 0\)</span> でなければならない。しかしそうすると <span class="math inline">\(x + 1\)</span> は <span class="math inline">\(\mathrm{P}\)</span> と <span class="math inline">\(\mathrm{Q}\)</span> の両方を割り切り、両者が共通因数をもたないという仮定に矛盾する。よって、そのような <span class="math inline">\(\mathrm{P}\)</span> と <span class="math inline">\(\mathrm{Q}\)</span> は存在しない。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>代数の言葉に翻訳する。</strong>「これはこの形で積分できるか」という問いが、「この多項式の恒等式は解をもつか」という問いになった。</p></li>
+<li><p><strong>特別な点で値を求める。</strong><span class="math inline">\(x = -1\)</span> を代入することで、因数についての情報を3度にわたって引き出した。</p></li>
+<li><p><strong>既約分数を用いた背理法。</strong><a href="../ch01/well-ordering.html">第 1.3 節</a> の <span class="math inline">\(\sqrt2\)</span> の場合と同じく、分数が既約（lowest terms）であると仮定し、共通因数を見つけることで矛盾を導いた。これが背理法（proof by contradiction）である。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">極と対数</div>
+<p>小問 (ii) の背後には単純な描像がある。被積分関数 <span class="math inline">\(\frac{e^x}{x+1}\)</span> は <span class="math inline">\(x = -1\)</span> に<em>1位の極</em>（simple pole）をもつ。すなわち、その近くでは <span class="math inline">\(\frac{e^{-1}}{x+1}\)</span> のように振る舞う。<span class="math inline">\(\frac{1}{x+1}\)</span> を積分すると <span class="math inline">\(\ln|x+1|\)</span> になるから、原始関数（antiderivative）は <span class="math inline">\(-1\)</span> の近くで <span class="math inline">\(e^{-1}\ln|x+1|\)</span> のように振る舞い、対数的に <span class="math inline">\(-\infty\)</span> へ向かうはずである（図 4.6.1）。ところが、有理関数に <span class="math inline">\(e^x\)</span> を掛けたものは <span class="math inline">\((x+1)^{-k}\)</span> のようなべきの形でしか発散できず、その導関数は位数 <span class="math inline">\(k + 1 \geq 2\)</span> の極をもち、1位の極になることはない。対数的な振る舞いは有理関数からは生み出せないのである。段階 4 の代数的議論は、この観察を厳密にしたものである。これに対して小問 (i) では、被積分関数は<em>2位の極</em>（double pole）をもつ。これはまさに1位の極をもつ関数の導関数の姿であり、そのため有理的な答えが可能だったのである。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-4-6-1.svg" alt="図 4.6.1"><figcaption><span class="fig-label">図 4.6.1</span> 被積分関数 <span class="math inline">\(\frac{e^x}{x+1}\)</span>（琥珀色）は <span class="math inline">\(x = -1\)</span> に1位の極をもつ。その原始関数（青緑色、数値計算による）は問題なく存在するが、<span class="math inline">\(x \to -1^+\)</span> のとき <span class="math inline">\(e^{-1}\ln(x+1)\)</span> のように<em>対数的に</em> <span class="math inline">\(-\infty\)</span> へ向かう。有理関数に <span class="math inline">\(e^x\)</span> を掛けたものは、このような振る舞いをすることができない。</figcaption></figure>
+<h3 id="リウヴィルとリッシュのアルゴリズム">リウヴィルとリッシュのアルゴリズム</h3>
+<p>1830年代、ジョゼフ・リウヴィル（Joseph Liouville）は、どのような積分が<em>初等関数</em>（elementary functions。多項式、指数関数、対数関数、累乗根、三角関数から通常の演算によって組み立てられる関数）で表せるかについての理論を築いた。その成果の一つによれば、<span class="math inline">\(\mathrm{f}\)</span> と <span class="math inline">\(\mathrm{g}\)</span> が有理関数で <span class="math inline">\(\mathrm{g}\)</span> が定数でないとき、<span class="math inline">\(\int \mathrm{f}(x)e^{\mathrm{g}(x)}\,\mathrm{d}x\)</span> が初等関数となるのは、ある有理関数 <span class="math inline">\(\mathrm{R}\)</span> によって <span class="math inline">\(\mathrm{R}(x)e^{\mathrm{g}(x)}\)</span>（に定数を加えたもの）に等しい場合に限る。（<span class="math inline">\(\mathrm{g}\)</span> に関する条件は重要である。<span class="math inline">\(\mathrm{g} = 0\)</span>、<span class="math inline">\(\mathrm{f}(x) = \frac1x\)</span> のとき積分は <span class="math inline">\(\ln|x|\)</span> であり、これは初等関数ではあるが有理関数ではない。）したがって、有理的な形を否定したこの問題は、実は <span class="math inline">\(\int \frac{e^x}{x+1}\,\mathrm{d}x\)</span> がそもそも初等関数ではないことを証明しているのである。同じ定理の変形版により、<span class="math inline">\(\int e^{-x^2}\,\mathrm{d}x\)</span> や <span class="math inline">\(\int \frac{\sin x}{x}\,\mathrm{d}x\)</span> も初等関数でないことが示される。1969年、Robert Risch はリウヴィルの考えをアルゴリズムに仕立て上げた。これは広いクラスの関数について、初等的な積分が存在するかどうかを判定し、存在すればそれを求めるものである。その変形版は数式処理システム（computer algebra systems）の内部で動いている。</p>
+<h3 id="特殊関数">特殊関数</h3>
+<p>積分が初等的な形をもたないとき、数学者はそれに名前をつけ、新しい関数として研究する。<a href="../ch03/lambert-w.html">第 3.9 節</a> でランベルト（Lambert）の W 関数を扱ったのと同じである。ここでの積分は本質的に<em>指数積分</em>（exponential integral）<span class="math inline">\(\mathrm{Ei}(x)\)</span> である。これは熱伝導に現れるほか、<em>対数積分</em>（logarithmic integral）<span class="math inline">\(\mathrm{li}(x) = \mathrm{Ei}(\ln x)\)</span> にも現れる。対数積分は、<span class="math inline">\(x\)</span> 以下の素数の個数に対する最良の簡単な近似式である（<a href="../ch01/prime-distribution.html">第 1.2 節</a>）。<span class="math inline">\(x &lt; 0\)</span> のときは <span class="math inline">\(\int_{-\infty}^x \frac{e^t}{t}\,\mathrm{d}t\)</span> である。<span class="math inline">\(x &gt; 0\)</span> のときは、この積分は <span class="math inline">\(t = 0\)</span> の無限に高い尖りを通過してしまうので、尖りのまわりの小さな区間 <span class="math inline">\((-\varepsilon, \varepsilon)\)</span> を取り除いて <span class="math inline">\(\varepsilon \to 0\)</span> とすることで <span class="math inline">\(\mathrm{Ei}(x)\)</span> を定義する。これが<em>コーシー（Cauchy）の主値</em>（Cauchy principal value）である。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">不可能性を証明する</div>
+<p><em>何かができないことを示すには、それができると仮定し、その仮定を正確な代数の言葉に翻訳し、矛盾を導く。</em></p>
+<p>難しいのは翻訳の部分、すなわち「できる」とは正確には何を意味するのかを言い表すことである。ここでは、それは「共通因数をもたない多項式 <span class="math inline">\(\mathrm{P}\)</span>、<span class="math inline">\(\mathrm{Q}\)</span> でこの恒等式を満たすものが存在する」ことを意味した。数学における最も深い結果の多くは、この種の不可能性の証明である。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>うまくいく二つの例。</strong><span class="math inline">\(\displaystyle\int \frac{x e^x}{(x+1)^2}\,\mathrm{d}x = \frac{e^x}{x+1} + C\)</span> および <span class="math inline">\(\displaystyle\int \frac{(x^2 + 1)e^x}{(x+1)^2}\,\mathrm{d}x = \frac{x - 1}{x + 1}\,e^x + C\)</span> を示せ。</p></li>
+<li><p><strong>ガウス型関数。</strong><span class="math inline">\(\displaystyle\int e^{-x^2}\,\mathrm{d}x = \mathrm{P}(x)e^{-x^2} + C\)</span> となる多項式 <span class="math inline">\(\mathrm{P}\)</span> は存在しないことを示せ。（<em>ヒント：</em>微分して次数を比較せよ。）</p></li>
+<li><p><strong>もう一つの極。</strong>小問 (ii) の議論を応用して、<span class="math inline">\(\displaystyle\int \frac{e^x}{x}\,\mathrm{d}x\)</span> は <span class="math inline">\(\frac{\mathrm{P}(x)}{\mathrm{Q}(x)}e^x + C\)</span> の形ではないことを示せ。</p></li>
+<li><p><strong>どのようなときに可能か。</strong><span class="math inline">\(\mathrm{f}\)</span> を多項式とし、ある多項式 <span class="math inline">\(\mathrm{P}\)</span> について <span class="math inline">\(\displaystyle\int \frac{\mathrm{f}(x)}{(x+1)^2}\,e^x\,\mathrm{d}x = \frac{\mathrm{P}(x)}{x+1}\,e^x + C\)</span> が成り立つとする。<span class="math inline">\((x+1)\mathrm{P}&#39; + x\mathrm{P} = \mathrm{f}\)</span> を示し、この式とその導関数の <span class="math inline">\(x = -1\)</span> における値を考えることで、<span class="math inline">\(\mathrm{f}(-1) + \mathrm{f}&#39;(-1) = 0\)</span> を示せ。この条件が <span class="math inline">\(\mathrm{f}(x) = x^3 - 2\)</span> および練習問題 1 の例について成り立つことを確かめよ。 <span class="hard">発展</span> この条件が十分条件でもあることを示せるか。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Brian Conrad, “<a href="https://math.stanford.edu/~conrad/papers/elemint.pdf">Impossibility theorems for elementary integration</a>”</strong>（初等積分の不可能性定理）。リウヴィルの定理を例とともに解説した講義ノートで、無料で入手できる。</p></li>
+<li><p><strong>Elena Anne Marchisotto &amp; Gholam-Ali Zakeri, “<a href="https://doi.org/10.1080/07468342.1994.11973625">An invitation to integration in finite terms</a>”</strong>（有限の形での積分への招待）、<em>The College Mathematics Journal</em> 25 (1994)。リウヴィルの理論へのやさしい入門。</p></li>
+<li><p><strong>Manuel Bronstein, <a href="https://uk.bookshop.org/search?keywords=Symbolic+Integration+I+Bronstein"><em>Symbolic Integration I</em></a></strong>（Springer）（記号積分 I）。数式処理システムが実際にどのように積分を行うかを解説している。上級者向け。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="sophomores-dream.html">← 4.5 2年生の夢</a><a class="next" href="variations.html">→ 4.7 変分法</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

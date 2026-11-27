@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>쌓이는 오차 (STEP II 1993 Q15) — Beyond STEP</title>
+<meta name="description" content="STEP II 1993 문제 15: 단계별 풀이와 그 바탕에 있는 대학 수학. 1982년 밴쿠버 증권거래소는 1000 에서 출발하는 새로운 지수를 도입했다. 주가가 바뀔 때마다 지수를 다시 계산하고 소수점 아래 셋째 자리까지만 남기고 버림 (truncation)했다. 한 번 버릴 때마다 평균적으로 0.0005 를 잃었는데, 이는 무시해도 될 만큼 작아…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch13/errors-add-up.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch13/errors-add-up.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="쌓이는 오차 (STEP II 1993 Q15) — Beyond STEP">
+<meta property="og:description" content="STEP II 1993 문제 15: 단계별 풀이와 그 바탕에 있는 대학 수학. 1982년 밴쿠버 증권거래소는 1000 에서 출발하는 새로운 지수를 도입했다. 주가가 바뀔 때마다 지수를 다시 계산하고 소수점 아래 셋째 자리까지만 남기고 버림 (truncation)했다. 한 번 버릴 때마다 평균적으로 0.0005 를 잃었는데, 이는 무시해도 될 만큼 작아…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch13/errors-add-up.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="쌓이는 오차 (STEP II 1993 Q15) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1993 문제 15: 단계별 풀이와 그 바탕에 있는 대학 수학. 1982년 밴쿠버 증권거래소는 1000 에서 출발하는 새로운 지수를 도입했다. 주가가 바뀔 때마다 지수를 다시 계산하고 소수점 아래 셋째 자리까지만 남기고 버림 (truncation)했다. 한 번 버릴 때마다 평균적으로 0.0005 를 잃었는데, 이는 무시해도 될 만큼 작아…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "쌓이는 오차", "headline": "쌓이는 오차", "description": "STEP II 1993 문제 15: 단계별 풀이와 그 바탕에 있는 대학 수학. 1982년 밴쿠버 증권거래소는 1000 에서 출발하는 새로운 지수를 도입했다. 주가가 바뀔 때마다 지수를 다시 계산하고 소수점 아래 셋째 자리까지만 남기고 버림 (truncation)했다. 한 번 버릴 때마다 평균적으로 0.0005 를 잃었는데, 이는 무시해도 될 만큼 작아…", "url": "https://beyondstep.keithmcnulty.org/ko/ch13/errors-add-up.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1993 문제 15", "세상 속의 통계와 무작위성"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 13, "name": "세상 속의 통계와 무작위성", "url": "https://beyondstep.keithmcnulty.org/ko/ch13/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제13장: 세상 속의 통계와 무작위성", "item": "https://beyondstep.keithmcnulty.org/ko/ch13/"}, {"@type": "ListItem", "position": 3, "name": "쌓이는 오차", "item": "https://beyondstep.keithmcnulty.org/ko/ch13/errors-add-up.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch13/errors-add-up.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch13/errors-add-up.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch13/errors-add-up.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch13/errors-add-up.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제13장 · 세상 속의 통계와 무작위성</a>
+    <div class="src">STEP II · 1993 · 문제 15</div>
+    <div class="sec-head"><span class="sec-num">13.6</span><h1>쌓이는 오차</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-13-6-errors-add-up.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-13-statistics-and-randomness-in-the-world.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제13장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 1993, 문제 15</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/93-s2-q15">step.maths.org/questions/93-s2-q15</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>1982년 밴쿠버 증권거래소는 <span class="math inline">\(1000\)</span>에서 출발하는 새로운 지수를 도입했다. 주가가 바뀔 때마다 지수를 다시 계산하고 소수점 아래 셋째 자리까지만 남기고 <em>버림</em>(truncation)했다. 한 번 버릴 때마다 평균적으로 <span class="math inline">\(0.0005\)</span>를 잃었는데, 이는 무시해도 될 만큼 작아 보인다. 그러나 재계산은 하루에 약 <span class="math inline">\(3000\)</span>번 이루어졌고, 22개월이 지나자 시장은 올랐는데도 지수는 <span class="math inline">\(520\)</span> 근처에 머물러 있었다. 지수를 올바르게 다시 계산하자 하룻밤 사이에 약 <span class="math inline">\(1100\)</span>으로 뛰어올랐다.</p>
+<p>이 문제는 무슨 일이 일어났는지 설명해 준다. 버림 오차는 모두 같은 방향을 향하므로 연산 횟수에 비례하여 꾸준히 쌓인다. 반올림(rounding) 오차는 양쪽 방향을 모두 향하므로 대부분 서로 상쇄된다. 반올림 오차는 연산 횟수의 제곱근에 비례하여 커질 뿐인데, 이것이 바로 중심극한정리(central limit theorem, <a href="../ch12/clt.html">12.24 절</a>)가 예측하는 확률보행(random walk)의 행동이다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>어떤 수의 소수 부분 <span class="math inline">\(U\)</span>가 <span class="math inline">\([0, 1)\)</span>에서 균등분포(uniform distribution)를 따른다면, 그 수를 버림할 때 오차는 무엇인가? 반올림할 때는 어떠한가? 각각의 평균과 분산(variance)은 무엇인가?</p>
+</div>
+<p>버림은 <span class="math inline">\(a\)</span>를 <span class="math inline">\(\lfloor a\rfloor\)</span>로 바꾸며, 이때 오차(참값에서 근삿값을 뺀 값)는 <span class="math inline">\(U\)</span>로서 <span class="math inline">\([0, 1)\)</span>에서 균등분포를 따른다. 평균은 <span class="math inline">\(\frac12\)</span>, 분산은 <span class="math inline">\(\frac{1}{12}\)</span>이다. 반올림의 오차는 <span class="math inline">\((-\frac12, \frac12]\)</span>에서 균등분포를 따르며, 평균은 <span class="math inline">\(0\)</span>, 분산은 <span class="math inline">\(\frac{1}{12}\)</span>이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-전체-오차" class="stage"><span class="stage-n">단계 1</span> 전체 오차</h4>
+<p><span class="math inline">\(1500\)</span>개의 수를 더한 뒤의 전체 오차는 <span class="math inline">\(1500\)</span>개의 독립적인 오차의 합이며, 중심극한정리에 의해 근사적으로 정규분포(normal distribution)를 따른다.</p>
+<ul>
+<li><p>LEP(반올림): 평균 <span class="math inline">\(0\)</span>, 분산 <span class="math inline">\(\frac{1500}{12} = 125\)</span>, 표준편차(standard deviation) <span class="math inline">\(\sqrt{125} \approx 11.18\)</span>.</p></li>
+<li><p>VOZ(버림): 평균 <span class="math inline">\(\frac{1500}{2} = 750\)</span>, 표준편차는 똑같이 <span class="math inline">\(11.18\)</span>.</p></li>
+</ul>
+<h4 id="stagemark2-큰-오차가-생길-확률" class="stage"><span class="stage-n">단계 2</span> 큰 오차가 생길 확률</h4>
+<div class="askyourself">
+<p>LEP의 경우 <span class="math inline">\(E \sim \mathrm{N}(0, 125)\)</span>일 때 <span class="math inline">\(\mathrm{P}(|E| &gt; 15)\)</span>는 얼마인가? VOZ의 경우 오차는 거의 확실하게 어디에 있는가?</p>
+</div>
+<p>LEP의 경우 <span class="math inline">\(\frac{15}{11.18} \approx 1.342\)</span>이므로 <span class="math display">\[\mathrm{P}(|E| &gt; 15) \approx 2\bigl(1 - \Phi(1.342)\bigr) \approx 2 \times 0.090 = 0.18.\]</span> VOZ의 경우 오차는 약 <span class="math inline">\(750 \pm 11\)</span>이다. 오차의 크기가 <span class="math inline">\(15\)</span>보다 작을 확률은 사실상 영이므로 <span class="math inline">\(\mathrm{P}(|E| &gt; 15) \approx 1\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-덧셈을-몇-번-할-수-있는가" class="stage"><span class="stage-n">단계 3</span> 덧셈을 몇 번 할 수 있는가?</h4>
+<div class="askyourself">
+<p><span class="math inline">\(n\)</span>번 더한 뒤 LEP의 오차의 표준편차는 <span class="math inline">\(\sqrt{n/12}\)</span>이다. 언제 <span class="math inline">\(\mathrm{P}(|E| &lt; 10) \geq 0.9\)</span>가 성립하는가?</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(|Z| &lt; 1.645) = 0.9\)</span>이므로 <span class="math inline">\(\frac{10}{\sqrt{n/12}} \geq 1.645\)</span>이어야 한다. 즉 <span class="math inline">\(\frac{n}{12} \leq \bigl(\frac{10}{1.645}\bigr)^2 \approx 36.95\)</span>이므로 <span class="math inline">\(n \leq 443\)</span>이다. LEP는 약 <span class="math inline">\(443\)</span>번의 덧셈을 할 수 있다.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-13-6-1.svg" alt="그림 13.6.1"><figcaption><span class="fig-label">그림 13.6.1</span> 오차가 쌓이는 방식. 버림 오차(자주색)는 모두 부호가 같으며 <span class="math inline">\(n\)</span>에 비례하여 커진다. <span class="math inline">\(1500\)</span>번 더한 뒤 그 합은 약 <span class="math inline">\(750\)</span>이다. 반올림 오차(청록색 띠, 영을 중심으로 양쪽으로 표준편차의 두 배)는 평균적으로 상쇄되어 <span class="math inline">\(\sqrt n\)</span>에 비례하여 커질 뿐이다. <span class="math inline">\(1500\)</span>번 더한 뒤에도 대개 약 <span class="math inline">\(\pm22\)</span> 이내에 있다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>각 오차를 모형화한다.</strong> 소수 부분이 균등분포를 따른다는 가정 덕분에 각 오차의 분포가 간단해졌다.</p></li>
+<li><p><strong>평균과 분산을 더한다.</strong> 평균은 더해지며(그 결과 편향 <span class="math inline">\(\frac n2\)</span>가 생긴다), 독립인 오차라면 분산도 더해진다.</p></li>
+<li><p><strong>정규 근사.</strong> 중심극한정리를 이용하여 <span class="math inline">\(1500\)</span>개의 균등분포 오차의 합을 정규분포로 바꾸었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="편향과-분산">편향과 분산</h3>
+<p>버림은 <em>편향</em>(biased)되어 있다. 즉 버림 오차의 평균은 영이 아니며, 편향은 선형으로 쌓인다. 반올림은 <em>비편향</em>(unbiased)이며, 그 오차는 확률보행처럼 행동하여 <span class="math inline">\(\sqrt n\)</span>에 비례하여 커진다. 연산을 백만 번 하고 나면 그 차이는 <span class="math inline">\(500\,000\)</span> 정도의 오차와 <span class="math inline">\(300\)</span> 정도의 오차 사이의 차이가 된다. 이는 실험에서 계통 오차(systematic error, 예를 들어 잘못 보정된 측정 기구)와 무작위 측정 오차(random error)를 구별하는 것과 같다. 측정을 여러 번 하여 평균을 내면 무작위 오차는 줄어들지만 계통 오차는 전혀 줄어들지 않는다.</p>
+<h3 id="부동소수점">부동소수점</h3>
+<p>모든 컴퓨터는 실수를 제한된 정밀도로 저장하며, 모든 산술 연산은 그 결과를 반올림한다. 현대 컴퓨터는 IEEE 754 표준을 따르는데, 이 표준은 표현 가능한 가장 가까운 수로 반올림하고, 두 수의 한가운데인 경우에는 마지막 자릿수가 짝수가 되는 쪽으로 정한다. 바로 이렇게 해야 반올림이 평균적으로 비편향이 되기 때문이다. 그렇더라도 많은 수를 부주의하게 더하면 정확도를 잃을 수 있다. William Kahan의 <em>보정 합산</em>(compensated summation) 알고리즘(1965년)은 잃어버린 하위 자릿수를 추적하여 다시 더해 준다. 1991년 걸프 전쟁에서 한 패트리엇 미사일 포대는 날아오는 미사일을 요격하는 데 실패했는데, 그 포대의 시계가 시간을 10분의 1초 단위로 셌기 때문이다. 10분의 1은 이진법으로 정확하게 저장할 수 없는 수이다. <span class="math inline">\(100\)</span>시간 동안 작동한 뒤 버림 오차는 약 3분의 1초로 커져 있었고, 이는 목표물의 위치를 반 킬로미터 넘게 잘못 판단하기에 충분했다.</p>
+<div class="historybox">
+<div class="box-title">밴쿠버 지수</div>
+<p>밴쿠버 증권거래소 지수는 1982년 1월 <span class="math inline">\(1000.000\)</span>의 값으로 만들어졌다. 1983년 11월이 되자 시장이 전반적으로 상승했는데도 지수는 약 <span class="math inline">\(524\)</span>까지 떨어져 있었다. 자문가들은 지수가 하루에 수천 번 다시 계산되었고 그때마다 소수점 아래 셋째 자리까지 (반올림이 아니라) 버림되었다는 사실을 알아냈다. 주말 동안 올바르게 다시 계산한 지수는 약 <span class="math inline">\(1098\)</span>에서 다시 시작했다. 이 일화는 수치 계산 강의에서 빠지지 않는 경고 사례이다.</p>
+</div>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">계통 오차와 무작위 오차를 구별하라</div>
+<p><em>부호가 일정한 오차는 선형으로 쌓이고, 평균이 영인 독립적인 오차는 제곱근처럼 쌓인다. 지금 다루는 오차가 어느 종류인지 파악하라.</em></p>
+<p>대학에서 수치해석(numerical analysis)은 계산 과정에서 오차가 어떻게 전파되는지 연구하며, 통계학은 편향과 분산을 구별한다. “편향-분산 트레이드오프(bias–variance trade-off)”는 현대 기계학습(machine learning)의 핵심이다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>보정된 VOZ.</strong> VOZ가 마지막에 답에 <span class="math inline">\(\frac n2\)</span>를 더한다면 그 오차는 어떤 분포를 따르는가? 이제 LEP만큼 좋아졌는가?</p></li>
+<li><p><strong>소수점 아래 첫째 자리로 반올림하기.</strong> 수를 소수점 아래 첫째 자리로 반올림하고, 버려지는 자릿수가 균등분포를 따른다고 하자. <span class="math inline">\(10\,000\)</span>개의 수를 더할 때 전체 오차의 표준편차를 구하라.</p></li>
+<li><p><strong>밴쿠버 지수.</strong> 지수를 하루에 <span class="math inline">\(3000\)</span>번 다시 계산하고 한 번 버릴 때마다 평균 <span class="math inline">\(0.0005\)</span>를 잃었다면, 거래일이 <span class="math inline">\(250\)</span>일인 1년 동안 지수는 얼마나 줄어들겠는가?</p></li>
+<li><p><strong>정확한 분포.</strong> 두 반올림 오차의 합의 정확한 확률밀도함수(삼각형 모양)를 구하라. 세 개의 합에 대해서는 그 개형을 그려 보라. 얼마나 빨리 정규분포처럼 보이기 시작하는가?</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Nicholas Higham, <a href="https://uk.bookshop.org/search?keywords=Accuracy+and+Stability+of+Numerical+Algorithms+Higham"><em>Accuracy and Stability of Numerical Algorithms</em></a></strong> (SIAM). 반올림 오차에 관한 권위 있는 책으로, 첫 장은 읽기 쉽다.</p></li>
+<li><p><strong>David Goldberg, “What every computer scientist should know about floating-point arithmetic”</strong>, <em>ACM Computing Surveys</em> 23 (1991). 고전적인 글로, 온라인에서 무료로 볼 수 있다.</p></li>
+<li><p><strong>Tim Harford, <a href="https://uk.bookshop.org/search?keywords=How+to+Make+the+World+Add+Up+Harford"><em>How to Make the World Add Up</em></a></strong> (Bridge Street). 데이터 속 계통 오차를 다룬다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="awkward-questions.html">← 13.5 곤란한 질문 던지기</a><a class="next" href="correlation.html">→ 13.7 상관관계 만들어 내기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>行列式を行列式たらしめるもの (STEP II 2019 Q8) — Beyond STEP</title>
+<meta name="description" content="STEP II 2019 問題 8：解説付き解答とその背後にある大学数学。 2 × 2 行列（matrix）の行列式（determinant）は ad - bc である。この公式はどこから来たのか、そしてなぜそれほど重要なのか。一つの答えは、行列式とはその行列が面積を何倍に拡大するかを表す倍率だ、というものである。この問題で探るもう一つの答えは、行列式は行列の積を通常の数の積に変える関数として本質…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch07/determinant-axioms.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch07/determinant-axioms.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/determinant-axioms.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/determinant-axioms.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/determinant-axioms.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch07/determinant-axioms.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/determinant-axioms.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="行列式を行列式たらしめるもの (STEP II 2019 Q8) — Beyond STEP">
+<meta property="og:description" content="STEP II 2019 問題 8：解説付き解答とその背後にある大学数学。 2 × 2 行列（matrix）の行列式（determinant）は ad - bc である。この公式はどこから来たのか、そしてなぜそれほど重要なのか。一つの答えは、行列式とはその行列が面積を何倍に拡大するかを表す倍率だ、というものである。この問題で探るもう一つの答えは、行列式は行列の積を通常の数の積に変える関数として本質…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch07/determinant-axioms.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="行列式を行列式たらしめるもの (STEP II 2019 Q8) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2019 問題 8：解説付き解答とその背後にある大学数学。 2 × 2 行列（matrix）の行列式（determinant）は ad - bc である。この公式はどこから来たのか、そしてなぜそれほど重要なのか。一つの答えは、行列式とはその行列が面積を何倍に拡大するかを表す倍率だ、というものである。この問題で探るもう一つの答えは、行列式は行列の積を通常の数の積に変える関数として本質…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "行列式を行列式たらしめるもの", "headline": "行列式を行列式たらしめるもの", "description": "STEP II 2019 問題 8：解説付き解答とその背後にある大学数学。 2 × 2 行列（matrix）の行列式（determinant）は ad - bc である。この公式はどこから来たのか、そしてなぜそれほど重要なのか。一つの答えは、行列式とはその行列が面積を何倍に拡大するかを表す倍率だ、というものである。この問題で探るもう一つの答えは、行列式は行列の積を通常の数の積に変える関数として本質…", "url": "https://beyondstep.keithmcnulty.org/ja/ch07/determinant-axioms.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2019 問題 8", "線形代数と幾何"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "線形代数と幾何", "url": "https://beyondstep.keithmcnulty.org/ja/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第7章：線形代数と幾何", "item": "https://beyondstep.keithmcnulty.org/ja/ch07/"}, {"@type": "ListItem", "position": 3, "name": "行列式を行列式たらしめるもの", "item": "https://beyondstep.keithmcnulty.org/ja/ch07/determinant-axioms.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch07/determinant-axioms.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/determinant-axioms.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch07/determinant-axioms.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch07/determinant-axioms.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第7章 · 線形代数と幾何</a>
+    <div class="src">STEP II · 2019 · 問題 8</div>
+    <div class="sec-head"><span class="sec-num">7.3</span><h1>行列式を行列式たらしめるもの</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-3-determinant-axioms.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第7章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 2019、第8問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は、OCRが配布している2019年のSTEP問題一式（zipファイル）のSTEP IIに収録されている： <a href="https://www.ocr.org.uk/Images/696590-2019-past-papers.zip">www.ocr.org.uk/Images/696590-2019-past-papers.zip</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p><span class="math inline">\(2 \times 2\)</span> 行列（matrix）の行列式（determinant）は <span class="math inline">\(ad - bc\)</span> である。この公式はどこから来たのか、そしてなぜそれほど重要なのか。一つの答えは、行列式とはその行列が面積を何倍に拡大するかを表す倍率だ、というものである。この問題で探るもう一つの答えは、行列式は行列の積を通常の数の積に変える関数として本質的に<em>唯一の</em>ものだ、というものである：<span class="math inline">\(\det(\mathbf{MN}) = \det\mathbf{M}\det\mathbf{N}\)</span>。</p>
+<p>この問題では、その性質一つだけ（と、自明な場合を除くための二つの穏やかな条件）をもつ未知の関数 <span class="math inline">\(\mathrm{f}\)</span> が与えられ、それがどのように振る舞わなければならないかを一歩ずつ導くことが求められる。<a href="../ch06/derivations.html">第 6.5 節</a> の導分（derivation）と同様に、これは対象をその性質だけから特定する演習である。最後には、<span class="math inline">\(\mathrm{f}\)</span> は行を入れ替えると符号が変わり、特異行列（singular matrix）上では <span class="math inline">\(0\)</span> となり、剪断（shear）上では <span class="math inline">\(1\)</span> に等しいことが強制される。これはまさに行列式の振る舞いである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>問題中のそれぞれの特別な行列は何をするか。一般の <span class="math inline">\(\mathbf{M} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span> に対して <span class="math inline">\(\mathbf{JM}\)</span>、<span class="math inline">\(\mathbf{MJ}\)</span>、<span class="math inline">\(\mathbf{KM}\)</span>、<span class="math inline">\(\mathbf{PM}\)</span> を計算せよ。</p>
+</div>
+<p><span class="math inline">\(\mathbf{JM}\)</span> は <span class="math inline">\(\mathbf{M}\)</span> の行を入れ替え、<span class="math inline">\(\mathbf{MJ}\)</span> は列を入れ替える。<span class="math inline">\(\mathbf{KM}\)</span> は第 2 行を <span class="math inline">\(k\)</span> 倍する。<span class="math inline">\(\mathbf{PM}\)</span> は第 2 行を第 1 行に加える。これらはガウスの消去法（Gaussian elimination）における<em>基本行変形</em>（elementary row operations）である。<span class="math inline">\(\mathrm{f}\)</span> は積を積に移すので、これらの特別な行列上での <span class="math inline">\(\mathrm{f}\)</span> の値がわかれば、各行変形に対して <span class="math inline">\(\mathrm{f}\)</span> がどう変化するかがわかる。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-単位行列" class="stage"><span class="stage-n">段階 1</span> 単位行列</h4>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{M}) = \mathrm{f}(\mathbf{MI}) = \mathrm{f}(\mathbf{M})\,\mathrm{f}(\mathbf{I})\)</span>。<span class="math inline">\(\mathrm{f}(\mathbf{M}) \neq 0\)</span> であるから、両辺を割って <span class="math inline">\(\mathrm{f}(\mathbf{I}) = 1\)</span> を得る。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-入れ替え" class="stage"><span class="stage-n">段階 2</span> 入れ替え</h4>
+<p><span class="math inline">\(\mathbf{J}^2 = \mathbf{I}\)</span> であるから <span class="math inline">\(\mathrm{f}(\mathbf{J})^2 = \mathrm{f}(\mathbf{I}) = 1\)</span> となり、<span class="math inline">\(\mathrm{f}(\mathbf{J}) = \pm1\)</span> を得る。<span class="math inline">\(\mathrm{f}(\mathbf{J}) \neq 1\)</span> であるから <span class="math inline">\(\mathrm{f}(\mathbf{J}) = -1\)</span> である。</p>
+<p>さて、<span class="math inline">\(\begin{pmatrix} c &amp; d \\ a &amp; b \end{pmatrix} = \mathbf{JM}\)</span> であるから、その値は <span class="math inline">\(\mathrm{f}(\mathbf{J})\mathrm{f}(\mathbf{M}) = -\mathrm{f}(\mathbf{M})\)</span> である。また、<span class="math inline">\(\begin{pmatrix} d &amp; c \\ b &amp; a \end{pmatrix} = \mathbf{JMJ}\)</span>（行を入れ替え、次に列を入れ替える）であるから、その値は <span class="math inline">\(\mathrm{f}(\mathbf{J})^2\mathrm{f}(\mathbf{M}) = \mathrm{f}(\mathbf{M})\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-従属な行" class="stage"><span class="stage-n">段階 3</span> 従属な行</h4>
+<div class="askyourself">
+<p>まず、二つの行が<em>等しい</em>行列 <span class="math inline">\(\mathbf{B}\)</span> を考えよ。<span class="math inline">\(\mathbf{JB}\)</span> は何か。それは <span class="math inline">\(\mathrm{f}(\mathbf{B})\)</span> について何を語るか。</p>
+</div>
+<p><span class="math inline">\(\mathbf{B}\)</span> の二つの行がともに <span class="math inline">\((a, b)\)</span> ならば、それらを入れ替えても何も変わらない：<span class="math inline">\(\mathbf{JB} = \mathbf{B}\)</span>。よって <span class="math inline">\(\mathrm{f}(\mathbf{B}) = \mathrm{f}(\mathbf{J})\mathrm{f}(\mathbf{B}) = -\mathrm{f}(\mathbf{B})\)</span> となり、<span class="math inline">\(\mathrm{f}(\mathbf{B}) = 0\)</span> が強制される。</p>
+<p>次に、<span class="math inline">\(\mathbf{A}\)</span> の行が <span class="math inline">\((a, b)\)</span> と <span class="math inline">\(k(a, b)\)</span> ならば、二つの行がともに <span class="math inline">\((a, b)\)</span> である <span class="math inline">\(\mathbf{B}\)</span> を用いて <span class="math inline">\(\mathbf{A} = \mathbf{KB}\)</span> と書ける。よって <span class="math inline">\(\mathrm{f}(\mathbf{A}) = \mathrm{f}(\mathbf{K})\mathrm{f}(\mathbf{B}) = 0\)</span> である。<span class="qed" aria-label="end of proof">■</span>（これには第 2 行が零となる <span class="math inline">\(k = 0\)</span> の場合も含まれる。）</p>
+<h4 id="stagemark4-剪断" class="stage"><span class="stage-n">段階 4</span> 剪断</h4>
+<div class="pausebox">
+<p><span class="math inline">\(\mathbf{P}^2\)</span> と <span class="math inline">\(\mathbf{K}^{-1}\mathbf{PK}\)</span> を計算せよ。両者が等しくなるように <span class="math inline">\(k\)</span> を選べ。それにより <span class="math inline">\(\mathrm{f}(\mathbf{P})\)</span> について何がわかるか。</p>
+</div>
+<p><span class="math inline">\(\mathbf{P}^2 = \begin{pmatrix} 1 &amp; 2 \\ 0 &amp; 1 \end{pmatrix}\)</span> であり、<span class="math inline">\(k \neq 0\)</span> のとき <span class="math display">\[\mathbf{K}^{-1}\mathbf{PK} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; \frac1k \end{pmatrix}\begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; k \end{pmatrix} = \begin{pmatrix} 1 &amp; k \\ 0 &amp; 1 \end{pmatrix}.\]</span> である。<span class="math inline">\(k = 2\)</span> とすると <span class="math inline">\(\mathbf{K}^{-1}\mathbf{PK} = \mathbf{P}^2\)</span> となる。両辺の <span class="math inline">\(\mathrm{f}\)</span> をとり、<span class="math inline">\(\mathrm{f}(\mathbf{K}^{-1})\mathrm{f}(\mathbf{K}) = \mathrm{f}(\mathbf{I}) = 1\)</span> を用いると <span class="math display">\[\mathrm{f}(\mathbf{P}) = \mathrm{f}(\mathbf{P})^2,\]</span> となるので、<span class="math inline">\(\mathrm{f}(\mathbf{P}) = 0\)</span> または <span class="math inline">\(1\)</span> である。しかし <span class="math inline">\(\mathbf{P}\)</span> は可逆（invertible）であり、<span class="math inline">\(\mathrm{f}(\mathbf{P})\mathrm{f}(\mathbf{P}^{-1}) = \mathrm{f}(\mathbf{I}) = 1\)</span> であるから <span class="math inline">\(\mathrm{f}(\mathbf{P}) \neq 0\)</span> である。したがって <span class="math inline">\(\mathrm{f}(\mathbf{P}) = 1\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>特別な元が関数を明らかにする。</strong> 乗法的な性質を <span class="math inline">\(\mathbf{I}\)</span>、<span class="math inline">\(\mathbf{J}\)</span>、<span class="math inline">\(\mathbf{K}\)</span>、<span class="math inline">\(\mathbf{P}\)</span> に適用することで、それぞれにおける <span class="math inline">\(\mathrm{f}\)</span> の値と、各行変形の効果がわかった。</p></li>
+<li><p><strong>自分自身の変換に等しい元。</strong> 等しい行をもつ行列は行の入れ替えで変わらないが、行の入れ替えは <span class="math inline">\(\mathrm{f}\)</span> の符号を変える。よってそこでは <span class="math inline">\(\mathrm{f}\)</span> は <span class="math inline">\(0\)</span> でなければならない。</p></li>
+<li><p><strong>共役（conjugation）は <span class="math inline">\(\mathrm{f}\)</span> を保つ。</strong> <span class="math inline">\(\mathrm{f}(\mathbf{K}^{-1}\mathbf{PK}) = \mathrm{f}(\mathbf{P})\)</span>。これは代数学で何度も繰り返し用いられる事実である。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">乗法的な関数はすべて行列式の関数である</div>
+<p>問題は <span class="math inline">\(\mathrm{f}(\mathbf{P}) = 1\)</span> で終わっているが、議論は完結させることができる。すべての可逆行列は基本行列（行の入れ替え、行のスカラー倍、剪断）の積であり、この問題はそれぞれの上で <span class="math inline">\(\mathrm{f}\)</span> がどう振る舞うかを示している。このことから、ある一変数実関数 <span class="math inline">\(\phi\)</span> で <span class="math inline">\(\phi(xy) = \phi(x)\phi(y)\)</span> を満たすものを用いて <span class="math inline">\(\mathrm{f}(\mathbf{M}) = \phi(\det\mathbf{M})\)</span> と書けることが従う。行列式そのものは <span class="math inline">\(\phi(x) = x\)</span> の場合であるが、<span class="math inline">\(\phi(x) = x^3\)</span> や <span class="math inline">\(\phi(x) = |x|^{1/2}\,\mathrm{sign}(x)\)</span> でもよい。言い換えれば、<em>行列式は行列上の乗法的（multiplicative）な関数として本質的に新しい唯一のものである</em>。群論（group theory）の言葉でいえば、行列式は、可逆行列の群について可換群（commutative group）から見えるすべてを捉えている。</p>
+</div>
+<h3 id="面積としての行列式">面積としての行列式</h3>
+<p>幾何学的には、<span class="math inline">\(2 \times 2\)</span> 行列は単位正方形を平行四辺形（parallelogram）に移し、<span class="math inline">\(\det\mathbf{M}\)</span> はその<em>符号付き面積</em>（signed area）である。向き（orientation）が保たれれば正、反転すれば負となる（図 7.3.1）。すると乗法的な性質には明白な意味がある：二つの変換を続けて行うと、それぞれの面積の拡大率が掛け合わされるのである。行の入れ替えは向きを反転させるので <span class="math inline">\(\det\mathbf{J} = -1\)</span> となる。剪断は正方形をずらして同じ面積の平行四辺形にするので <span class="math inline">\(\det\mathbf{P} = 1\)</span> となる。そして従属な行をもつ行列は正方形を平たく押しつぶすので、その行列式は <span class="math inline">\(0\)</span> となる。問題のどの段階にも、対応する図がある。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-3-1.svg" alt="図 7.3.1"><figcaption><span class="fig-label">図 7.3.1</span> 符号付き面積としての行列式。二つの基底ベクトル（basis vectors）の像（琥珀色、紫色）が平行四辺形を張る。剪断は面積を保ち、基底ベクトルの入れ替えは向きを反転させ、従属な行（または列）は正方形を一本の直線上につぶす。二つの変換を続けて行うと符号付き面積が掛け合わされる。これが性質 <span class="math inline">\(\mathrm{f}(\mathbf{MN}) = \mathrm{f}(\mathbf{M})\mathrm{f}(\mathbf{N})\)</span> である。</figcaption></figure>
+<h3 id="高次元の行列式">高次元の行列式</h3>
+<p><span class="math inline">\(n \times n\)</span> 行列に対して、行列式は符号付き体積の拡大率であり、次の三つの性質によって特徴づけられる：各行について線形であること、二つの行を入れ替えると符号が変わること、単位行列上で <span class="math inline">\(1\)</span> に等しいこと。これらだけからおなじみの展開公式を導くことができ、ガウスの消去法はそれを効率よく計算する方法を与える。行列式は、重積分（multiple integrals）の変数変換（change of variables）の公式（<em>ヤコビアン</em>（Jacobian））、逆行列の公式、そして <a href="../ch05/polygon-distances.html">第 5.4 節</a> で見たように多項式の判別式（discriminant）に現れる。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">未知の関数を特別な入力で探る</div>
+<p><em>関数がある性質を通してしか知られていないときは、思いつく限り最も単純な特別な入力にその性質を適用し、何が強制されるかを見よ。</em></p>
+<p>ここでは単位行列、入れ替え、スカラー倍、剪断だけで、ほぼすべてを決定するのに十分であった。自分自身の 2 乗、逆、共役に等しくなる入力を選ぶのは特に効果的である。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>他の例。</strong> <span class="math inline">\(\mathrm{f}(\mathbf{M}) = (\det\mathbf{M})^3\)</span> が問題のすべての条件を満たすこと、および <span class="math inline">\(\mathrm{f}(\mathbf{M}) = |\det\mathbf{M}|\)</span> は乗法的な性質を満たすが <span class="math inline">\(\mathrm{f}(\mathbf{J}) \neq 1\)</span> は満たさないことを示せ。</p></li>
+<li><p><strong>列変形。</strong> 第 2 列が第 1 列の定数倍であるような任意の行列上でも <span class="math inline">\(\mathrm{f}\)</span> が <span class="math inline">\(0\)</span> となることを示せ。</p></li>
+<li><p><strong>スカラー倍。</strong> <span class="math inline">\(\mathbf{K}_k = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; k \end{pmatrix}\)</span> とする。<span class="math inline">\(\mathrm{f}\begin{pmatrix} k &amp; 0 \\ 0 &amp; 1 \end{pmatrix} = \mathrm{f}(\mathbf{K}_k)\)</span> であること、および <span class="math inline">\(\mathrm{f}(\mathbf{K}_k)\mathrm{f}(\mathbf{K}_l) = \mathrm{f}(\mathbf{K}_{kl})\)</span> であることを示せ。</p></li>
+<li><p><strong>行列式への帰着。</strong> <span class="hard">発展</span> すべての可逆な <span class="math inline">\(2 \times 2\)</span> 行列が、<span class="math inline">\(\mathbf{J}\)</span>、<span class="math inline">\(\mathbf{K}_k\)</span>、<span class="math inline">\(\begin{pmatrix} 1 &amp; t \\ 0 &amp; 1 \end{pmatrix}\)</span> の形の行列の積として書けることを示せ。これより、<span class="math inline">\(\mathrm{f}(\mathbf{M})\)</span> は <span class="math inline">\(\det\mathbf{M}\)</span> のみに依存することを導け。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Sheldon Axler, <a href="https://uk.bookshop.org/search?keywords=Linear+Algebra+Done+Right+Axler"><em>Linear Algebra Done Right</em></a></strong>（Springer、オンラインで無料公開）。この問題と同じ精神で、行列式をその性質から定義している。</p></li>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong>（Wellesley-Cambridge）。第5章で、三つの規則から行列式を展開している。</p></li>
+<li><p><strong>3Blue1Brown「The determinant」</strong>（動画、オンラインで無料公開）。面積による解釈を、美しいアニメーションで示している。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="eigenvectors.html">← 7.2 向きを変えずに伸ばす</a><a class="next" href="finite-order.html">→ 7.4 もとに戻る行列</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

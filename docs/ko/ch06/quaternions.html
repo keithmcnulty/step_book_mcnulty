@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사원수군 (STEP III 1993 Q5) — Beyond STEP</title>
+<meta name="description" content="STEP III 1993 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. 1843년 10월 16일, 윌리엄 로언 해밀턴(William Rowan Hamilton)은 아내와 함께 더블린의 로열 운하를 따라 걷다가, 여러 해 동안 좇던 영감을 번뜩 얻었다. 그는 복소수(complex numbers)가 수의 쌍을 곱하듯이 수의 세 쌍을 곱하는 방법을…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch06/quaternions.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch06/quaternions.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/quaternions.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/quaternions.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/quaternions.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch06/quaternions.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/quaternions.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="사원수군 (STEP III 1993 Q5) — Beyond STEP">
+<meta property="og:description" content="STEP III 1993 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. 1843년 10월 16일, 윌리엄 로언 해밀턴(William Rowan Hamilton)은 아내와 함께 더블린의 로열 운하를 따라 걷다가, 여러 해 동안 좇던 영감을 번뜩 얻었다. 그는 복소수(complex numbers)가 수의 쌍을 곱하듯이 수의 세 쌍을 곱하는 방법을…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch06/quaternions.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="사원수군 (STEP III 1993 Q5) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1993 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. 1843년 10월 16일, 윌리엄 로언 해밀턴(William Rowan Hamilton)은 아내와 함께 더블린의 로열 운하를 따라 걷다가, 여러 해 동안 좇던 영감을 번뜩 얻었다. 그는 복소수(complex numbers)가 수의 쌍을 곱하듯이 수의 세 쌍을 곱하는 방법을…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "사원수군", "headline": "사원수군", "description": "STEP III 1993 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. 1843년 10월 16일, 윌리엄 로언 해밀턴(William Rowan Hamilton)은 아내와 함께 더블린의 로열 운하를 따라 걷다가, 여러 해 동안 좇던 영감을 번뜩 얻었다. 그는 복소수(complex numbers)가 수의 쌍을 곱하듯이 수의 세 쌍을 곱하는 방법을…", "url": "https://beyondstep.keithmcnulty.org/ko/ch06/quaternions.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1993 문제 5", "대수와 구조"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 6, "name": "대수와 구조", "url": "https://beyondstep.keithmcnulty.org/ko/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제6장: 대수와 구조", "item": "https://beyondstep.keithmcnulty.org/ko/ch06/"}, {"@type": "ListItem", "position": 3, "name": "사원수군", "item": "https://beyondstep.keithmcnulty.org/ko/ch06/quaternions.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch06/quaternions.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/quaternions.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch06/quaternions.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch06/quaternions.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제6장 · 대수와 구조</a>
+    <div class="src">STEP III · 1993 · 문제 5</div>
+    <div class="sec-head"><span class="sec-num">6.7</span><h1>사원수군</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-7-quaternions.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제6장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 1993, 문제 5</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/93-s3-q5">step.maths.org/questions/93-s3-q5</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>1843년 10월 16일, 윌리엄 로언 해밀턴(William Rowan Hamilton)은 아내와 함께 더블린의 로열 운하를 따라 걷다가, 여러 해 동안 좇던 영감을 번뜩 얻었다. 그는 복소수(complex numbers)가 수의 쌍을 곱하듯이 수의 세 쌍을 곱하는 방법을 찾으려 했지만 번번이 실패했다. 그런데 갑자기 답이 보였다. 수가 <em>네</em> 개 필요하고, 곱하는 순서가 중요한 곱셈, 즉 <span class="math inline">\(ij \neq ji\)</span>인 곱셈이 필요하다는 것이었다. 그는 브룸 다리(Brougham Bridge)의 돌에 다음 규칙을 새겼다. <span class="math display">\[\mathrm{i}^2 = \mathrm{j}^2 = \mathrm{k}^2 = \mathrm{ijk} = -1.\]</span> 이것이 바로 <em>사원수</em>(quaternions)이다. 이 문제는 복소수의 쌍으로 사원수를 만들고, 그 안에서 뒤틀린 곱셈을 가진 원소 여덟 개짜리 작은 군을 찾아낸다. 오늘날 사원수는 모든 컴퓨터 게임, 비행 시뮬레이터, 우주선 유도 장치에서 3차원 회전을 기술하는 데 쓰인다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<p>군의 정의는 <a href="../ch06/subgroup-unions.html">6.6 절</a>를 보라. 용어 두 가지를 더 알아 두자. 군(group)의 원소 <span class="math inline">\(g\)</span>의 <em>위수</em>(order)는 <span class="math inline">\(g^n = e\)</span>를 만족하는 가장 작은 양의 정수 <span class="math inline">\(n\)</span>이다. 그리고 두 군 사이에 연산을 보존하는 일대일 대응(one-to-one correspondence)이 있으면 두 군은 <em>동형</em>(isomorphic)이라고 한다. 즉 두 군은 “이름표만 다른 같은 군”이다.</p>
+<div class="askyourself">
+<p>쌍 <span class="math inline">\((z_1, z_2)\)</span>를 “수” <span class="math inline">\(z_1 + z_2\mathrm{j}\)</span>를 나타내는 것으로 생각하자. 여기서 <span class="math inline">\(\mathrm{j}\)</span>는 <span class="math inline">\(\mathrm{j}^2 = -1\)</span>이고 복소수 <span class="math inline">\(w\)</span>에 대하여 <span class="math inline">\(\mathrm{j}w = w^*\mathrm{j}\)</span>를 만족하는 새로운 기호이다. 이 규칙을 써서 <span class="math inline">\((z_1 + z_2\mathrm{j})(w_1 + w_2\mathrm{j})\)</span>를 곱해 보라. <span class="math inline">\(\circ\)</span>의 공식이 나오는가?</p>
+</div>
+<p><span class="math inline">\((z_1 + z_2\mathrm{j})(w_1 + w_2\mathrm{j}) = z_1w_1 + z_1w_2\mathrm{j} + z_2\mathrm{j}w_1 + z_2\mathrm{j}w_2\mathrm{j} = z_1w_1 + z_1w_2\mathrm{j} + z_2w_1^*\mathrm{j} + z_2w_2^*\mathrm{j}^2\)</span>이고, 이는 <span class="math inline">\((z_1w_1 - z_2w_2^*) + (z_1w_2 + z_2w_1^*)\mathrm{j}\)</span>이다. 그렇다. 연산 <span class="math inline">\(\circ\)</span>는 변장한 사원수 곱셈이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-행렬을-이용한-결합법칙" class="stage"><span class="stage-n">단계 1</span> 행렬을 이용한 결합법칙</h4>
+<p><span class="math inline">\((a \circ b) \circ c = a \circ (b \circ c)\)</span>를 직접 확인하려면 계산이 길다. 더 깔끔한 방법이 있다.</p>
+<div class="askyourself">
+<p><span class="math inline">\((z_1, z_2)\)</span>에 복소 행렬 <span class="math inline">\(M = \begin{pmatrix} z_1 &amp; z_2 \\ -z_2^* &amp; z_1^* \end{pmatrix}\)</span>를 대응시키자. 행렬의 곱 <span class="math inline">\(M(z_1, z_2)\,M(w_1, w_2)\)</span>의 첫째 행은 무엇인가?</p>
+</div>
+<p>곱의 첫째 행은 <span class="math inline">\(\bigl(z_1w_1 - z_2w_2^*,\ z_1w_2 + z_2w_1^*\bigr)\)</span>로 정확히 <span class="math inline">\((z_1, z_2)\circ(w_1, w_2)\)</span>이고, 둘째 행은 <span class="math inline">\(\bigl(-(z_1w_2 + z_2w_1^*)^*,\ (z_1w_1 - z_2w_2^*)^*\bigr)\)</span>이므로 곱도 같은 특수한 꼴이다. 따라서 <span class="math inline">\(M(a \circ b) = M(a)M(b)\)</span>이다. 행렬의 곱셈은 결합법칙을 만족하고, <span class="math inline">\(M\)</span>은 일대일이므로(첫째 행에서 <span class="math inline">\(z_1\)</span>, <span class="math inline">\(z_2\)</span>를 읽어 낼 수 있다) <span class="math inline">\(\circ\)</span>는 결합법칙(associativity)을 만족한다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-교환법칙이-성립하지-않음" class="stage"><span class="stage-n">단계 2</span> 교환법칙이 성립하지 않음</h4>
+<p><span class="math inline">\((0, 1)\circ(\mathrm{i}, 0) = (0 \cdot \mathrm{i} - 1 \cdot 0,\ 0 \cdot 0 + 1 \cdot \mathrm{i}^*) = (0, -\mathrm{i})\)</span>이지만 <span class="math inline">\((\mathrm{i}, 0)\circ(0, 1) = (0, \mathrm{i})\)</span>이다. 따라서 <span class="math inline">\(\circ\)</span>는 교환법칙(commutative law)을 만족하지 않는다.</p>
+<p>네 가지 특수한 곱은 정의에서 바로 나온다. <span class="math display">\[\begin{aligned}
+  (z, 0)\circ(w, 0) &amp;= (zw, 0), &amp; (z, 0)\circ(0, w) &amp;= (0, zw), \\
+  (0, z)\circ(w, 0) &amp;= (0, zw^*), &amp; (0, z)\circ(0, w) &amp;= (-zw^*, 0).
+\end{aligned}\]</span></p>
+<h4 id="stagemark3-원소-여덟-개의-군" class="stage"><span class="stage-n">단계 3</span> 원소 여덟 개의 군</h4>
+<p>사원수 표기로 쓰면 <span class="math inline">\(A = 1\)</span>, <span class="math inline">\(C = \mathrm{i}\)</span>, <span class="math inline">\(B = \mathrm{j}\)</span>, <span class="math inline">\(D = \mathrm{i}\mathrm{j} = \mathrm{k}\)</span>이고, <span class="math inline">\(E, G, F, H\)</span>는 각각 이들의 음수이다. <span class="math inline">\(S_1\)</span>의 모든 원소는 <span class="math inline">\(u \in \{1, \mathrm{i}, -1, -\mathrm{i}\}\)</span>에 대하여 <span class="math inline">\((u, 0)\)</span> 또는 <span class="math inline">\((0, u)\)</span> 꼴이다.</p>
+<div class="askyourself">
+<p>네 가지 특수한 곱을 이용하여 <span class="math inline">\(S_1\)</span>이 닫혀 있음을 보여라. 항등원은 무엇인가?</p>
+</div>
+<p>네 가지 특수한 곱에 의해, <span class="math inline">\((u, 0)\)</span> 또는 <span class="math inline">\((0, u)\)</span> 꼴인 두 원소의 곱은 다시 이 두 꼴 가운데 하나이고, 그 첫째 또는 둘째 성분은 <span class="math inline">\(uv\)</span>, <span class="math inline">\(uv^*\)</span> 또는 <span class="math inline">\(-uv^*\)</span>이다. <span class="math inline">\(\{1, \mathrm{i}, -1, -\mathrm{i}\}\)</span>는 곱셈, 켤레(conjugation), 부호 바꾸기에 대하여 닫혀 있으므로(closed), 그 곱은 <span class="math inline">\(S_1\)</span>에 속한다. 항등원(identity)은 <span class="math inline">\(A = (1, 0)\)</span>이다. <span class="math inline">\((1, 0)\circ(w_1, w_2) = (w_1, w_2)\)</span>이고 <span class="math inline">\((w_1, w_2)\circ(1, 0) = (w_1, w_2)\)</span>이기 때문이다.</p>
+<div class="pausebox">
+<p>각 원소의 위수와 역원을 구하라.</p>
+</div>
+<p><span class="math inline">\(A\)</span>의 위수는 <span class="math inline">\(1\)</span>이다. <span class="math inline">\(E\circ E = (-1, 0)\circ(-1, 0) = (1, 0)\)</span>이므로 <span class="math inline">\(E\)</span>의 위수는 <span class="math inline">\(2\)</span>이다. <span class="math inline">\(C = (\mathrm{i}, 0)\)</span>에 대하여 <span class="math inline">\(C\circ C = (-1, 0) = E\)</span>이므로 <span class="math inline">\(C\)</span>의 위수는 <span class="math inline">\(4\)</span>이고 <span class="math inline">\(C^{-1} = C^3 = E\circ C = G\)</span>이다. <span class="math inline">\(B = (0, 1)\)</span>에 대하여 <span class="math inline">\(B\circ B = (-1 \cdot 1^*, 0) = (-1, 0) = E\)</span>이므로 <span class="math inline">\(B\)</span>의 위수는 <span class="math inline">\(4\)</span>이고 <span class="math inline">\(B^{-1} = F\)</span>이다. 마찬가지로 <span class="math inline">\(D\circ D = (-\mathrm{i}\cdot\mathrm{i}^*, 0) = (-\mathrm{i}\cdot(-\mathrm{i}), 0) = (-1, 0) = E\)</span>이므로 <span class="math inline">\(D\)</span>의 위수는 <span class="math inline">\(4\)</span>이고 역원은 <span class="math inline">\(H\)</span>이다. 그리고 <span class="math inline">\(G\)</span>, <span class="math inline">\(F\)</span>, <span class="math inline">\(H\)</span>는 <span class="math inline">\(C\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(D\)</span>의 역원(inverse)이며 위수는 역시 <span class="math inline">\(4\)</span>이다. 정리하면 다음과 같다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">원소</th>
+<th style="text-align: center;"><span class="math inline">\(A\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(C\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(D\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(E\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(G\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(H\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">역원</td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(G\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(H\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(E\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(D\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">위수</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>닫혀 있고, 결합법칙(1단계)을 만족하며, 항등원과 역원이 있으므로 <span class="math inline">\(S_1\)</span>은 군이다.<span class="qed" aria-label="end of proof">■</span> 이 군을 <em>사원수군</em>(quaternion group) <span class="math inline">\(Q_8\)</span>이라고 한다.</p>
+<h4 id="stagemark4-부분군" class="stage"><span class="stage-n">단계 4</span> 부분군</h4>
+<p><span class="math inline">\(\{A, B, E, F\} = \{1, \mathrm{j}, -1, -\mathrm{j}\}\)</span>는 <span class="math inline">\(B\)</span>의 거듭제곱으로 이루어져 있다. <span class="math inline">\(B^1 = B\)</span>, <span class="math inline">\(B^2 = E\)</span>, <span class="math inline">\(B^3 = F\)</span>, <span class="math inline">\(B^4 = A\)</span>이다. 따라서 이 집합은 닫혀 있고 역원을 포함하므로 부분군(subgroup)이며, 위수가 <span class="math inline">\(4\)</span>인 <em>순환군</em>(cyclic group)이다. 행렬 <span class="math inline">\(J = \begin{pmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{pmatrix}\)</span>는 <span class="math inline">\(J^2 = -I\)</span>, <span class="math inline">\(J^3 = -J\)</span>, <span class="math inline">\(J^4 = I\)</span>를 만족하므로 역시 위수가 <span class="math inline">\(4\)</span>인 순환군을 생성한다. <span class="math inline">\(B^k \leftrightarrow J^k\)</span>로 대응시키면 동형사상이 된다.<span class="qed" aria-label="end of proof">■</span> (사실 <span class="math inline">\(J\)</span>는 정확히 <span class="math inline">\(M(0, 1)\)</span>, 즉 <span class="math inline">\(B\)</span>의 행렬이다.)</p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>행렬로 표현하라.</strong> 직접 확인하기 고통스러운 결합법칙을 행렬 곱셈으로부터 물려받았다.</p></li>
+<li><p><strong>공식 뒤에 숨은 구조를 찾아라.</strong> 낯선 연산 <span class="math inline">\(\circ\)</span>는 사원수 곱셈이었고, 이를 알아차리자 모든 것이 쉬워졌다.</p></li>
+<li><p><strong>위수와 역원은 군을 묘사한다.</strong> 위수 표만 보아도 <span class="math inline">\(Q_8\)</span>이 특이하다는 것을 알 수 있다. 위수가 <span class="math inline">\(2\)</span>인 원소는 하나뿐이고 위수가 <span class="math inline">\(4\)</span>인 원소는 여섯 개이다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">복소수 너머</div>
+<p>실수는 덧셈, 곱셈, 나눗셈을 할 수 있는 1차원 수 체계를 이루고, 복소수는 2차원 수 체계를 이룬다. 해밀턴의 사원수는 4차원이며 여전히 나눗셈을 할 수 있지만, 곱셈은 더 이상 교환법칙을 만족하지 않는다(그림 6.7.1). 1878년 프로베니우스(Ferdinand Frobenius)는 <span class="math inline">\(\mathbb{R}\)</span>, <span class="math inline">\(\mathbb{C}\)</span>, <span class="math inline">\(\mathbb{H}\)</span>(해밀턴의 머리글자) 이 세 가지가 실수 위의 유한 차원 “나눗셈 대수”(division algebra) 가운데 곱셈이 결합법칙을 만족하는 유일한 것임을 증명했다. 결합법칙을 포기하되, 실수, 복소수, 사원수에서처럼 크기가 곱셈적인 성질 <span class="math inline">\(|xy| = |x|\,|y|\)</span>를 유지하면 정확히 하나가 더 있다. 1840년대에 John Graves와 케일리(Arthur Cayley)가 발견한 8차원의 <em>팔원수</em>(octonions)이다. 1898년 후르비츠(Adolf Hurwitz)는 이 네 가지가 그러한 체계의 전부임을 증명했다. (크기에 대한 조건을 빼면 이보다 더 기묘한 비결합 나눗셈 대수가 또 있지만, 보트(Raoul Bott), 밀너(John Milnor), 케르베르(Michel Kervaire)가 1958년에 증명한 깊은 정리에 따르면 모든 유한 차원 실수 나눗셈 대수의 차원은 <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(4\)</span>, <span class="math inline">\(8\)</span> 중 하나이다.)</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-7-1.svg" alt="그림 6.7.1"><figcaption><span class="fig-label">그림 6.7.1</span> 해밀턴의 곱셈 규칙. <span class="math inline">\(\mathrm{i}\)</span>, <span class="math inline">\(\mathrm{j}\)</span>, <span class="math inline">\(\mathrm{k}\)</span> 중 두 개를 화살표 방향으로 곱하면 나머지 하나가 되고, 화살표 반대 방향으로 곱하면 나머지 하나에 음의 부호를 붙인 것이 된다. 여덟 개의 원소 <span class="math inline">\(\pm1, \pm\mathrm{i}, \pm\mathrm{j}, \pm\mathrm{k}\)</span>는 이 문제의 사원수군 <span class="math inline">\(Q_8\)</span>을 이룬다.</figcaption></figure>
+<h3 id="차원의-회전">3차원의 회전</h3>
+<p>절댓값이 <span class="math inline">\(1\)</span>인 사원수는 3차원 공간의 회전을 나타낸다. 단위 축 <span class="math inline">\(\mathbf{u}\)</span>를 중심으로 각 <span class="math inline">\(\theta\)</span>만큼 회전하는 것은 <span class="math inline">\(q = \cos\frac\theta2 + \sin\frac\theta2(u_1\mathrm{i} + u_2\mathrm{j} + u_3\mathrm{k})\)</span>에 대응하고, 이는 벡터 <span class="math inline">\(\mathbf{v}\)</span>(<span class="math inline">\(v_1\mathrm{i} + v_2\mathrm{j} + v_3\mathrm{k}\)</span>로 쓴다)에 <span class="math inline">\(\mathbf{v} \mapsto q\mathbf{v}q^{-1}\)</span>로 작용한다. 회전을 합성하는 것은 사원수를 곱하는 것이다. 이 방법은 행렬이나 각을 쓰는 것보다 효율적이고 수치적으로 안정적이며, “짐벌 잠금”(gimbal lock)을 피할 수 있다. 짐벌 잠금은 자유도 하나를 잃는 현상으로, 아폴로 우주비행사들은 자이로스코프 기반 항법 장치를 쓰면서 이 문제를 피해 가야 했다. 반각 <span class="math inline">\(\frac\theta2\)</span>는 깊은 사실에 대한 단서이기도 하다. <span class="math inline">\(360^\circ\)</span>만큼 회전하면 <span class="math inline">\(1\)</span>이 아니라 <span class="math inline">\(q = -1\)</span>이 되는데, 물리학자들은 이 사실을 전자의 행동(스핀(spin))에서 관찰한다.</p>
+<h3 id="네-제곱수">네 제곱수</h3>
+<p>사원수의 절댓값은 복소수의 절댓값과 마찬가지로 곱셈적이다. 즉 <span class="math inline">\(|pq| = |p||q|\)</span>이다. 이를 풀어 쓰면 오일러(Euler)의 <em>네 제곱수 항등식</em>(four-square identity)을 얻는다. 네 제곱수의 합 두 개의 곱은 그 자체로 네 제곱수의 합이라는 것이다. 이는 모든 양의 정수가 네 제곱수의 합이라는 라그랑주(Lagrange)의 정리에서 핵심 단계이다. 이 정리는 <a href="../ch07/four-squares.html">7.8 절</a>에서 증명하며, <a href="../ch01/two-squares.html">1.6 절</a>의 두 제곱수 결과의 4차원 사촌이다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">추상적인 대상을 구체적으로 표현하라</div>
+<p><em>추상적인 연산을 다루기 어렵다면, 그 연산이 익숙한 연산이 되는 행렬 같은 구체적인 모형을 찾아라.</em></p>
+<p>그러면 결합법칙 같은 성질은 저절로 따라온다. 군을 행렬로 표현하여 연구한다는 이 아이디어는 <em>표현론</em>(representation theory)이라는 크고 아름다운 분야로 자라난다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>해밀턴의 규칙.</strong> 쌍을 이용하여 <span class="math inline">\(C\circ B = D\)</span>이고 <span class="math inline">\(B\circ C = H\)</span>임을, 즉 <span class="math inline">\(\mathrm{ij} = \mathrm{k}\)</span>이고 <span class="math inline">\(\mathrm{ji} = -\mathrm{k}\)</span>임을 확인하라.</p></li>
+<li><p><strong>위수가 <span class="math inline">\(2\)</span>인 원소는 하나뿐.</strong> <span class="math inline">\(Q_8\)</span>에서 위수가 <span class="math inline">\(2\)</span>인 원소는 <span class="math inline">\(E = -1\)</span>뿐임을 보여라. 이로부터 <span class="math inline">\(Q_8\)</span>이 정사각형의 대칭군(위수가 <span class="math inline">\(2\)</span>인 원소가 다섯 개이다)과 동형이 아님을 보여라.</p></li>
+<li><p><strong>네 제곱수.</strong> <span class="math inline">\(\det M(z_1, z_2) = |z_1|^2 + |z_2|^2\)</span>임을 보여라. <span class="math inline">\(\det(M_1M_2) = \det M_1\det M_2\)</span>를 이용하여, 네 제곱수의 합 두 개의 곱이 네 제곱수의 합임을 보여라.</p></li>
+<li><p><strong>부분군.</strong> <span class="math inline">\(Q_8\)</span>의 부분군을 모두 구하라. <span class="math inline">\(\{A\}\)</span>가 아닌 모든 부분군은 <span class="math inline">\(E\)</span>를 포함함을 보이고, <span class="math inline">\(Q_8\)</span>이 위수가 <span class="math inline">\(4\)</span>인 세 순환 부분군의 합집합임을 보여라(<a href="../ch06/subgroup-unions.html">6.6 절</a>와 비교해 보라).</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>John Conway &amp; Derek Smith, <a href="https://uk.bookshop.org/search?keywords=On+Quaternions+and+Octonions+Conway+Smith"><em>On Quaternions and Octonions</em></a></strong> (A. K. Peters). 사원수와 팔원수의 기하학과 산술을 다룬다. 수준이 높지만 매혹적이다.</p></li>
+<li><p><strong>John Baez, “The octonions”</strong>, <em>Bulletin of the American Mathematical Society</em> 39 (2002); 온라인에서 무료로 볼 수도 있다. 훌륭한 개관 논문이며, 서론은 지금 읽어도 이해할 수 있다.</p></li>
+<li><p><strong>Andrew Hanson, <a href="https://uk.bookshop.org/search?keywords=Visualizing+Quaternions+Hanson"><em>Visualizing Quaternions</em></a></strong> (Morgan Kaufmann). 회전을 위한 사원수를 그래픽스 응용과 함께 다룬다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="subgroup-unions.html">← 6.6 부분군의 합집합</a><a class="next" href="singular-group.html">→ 6.8 특이행렬로 이루어진 군</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

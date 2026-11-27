@@ -8,11 +8,21 @@
 
   var root = document.body.getAttribute("data-root") || "../";
   var engine = null, docs = {};
-  // Chinese has no spaces between words: index every Chinese character and every pair of neighbouring
-  // characters, so a search for 質數 or 數學歸納法 matches; Latin words are split on spaces as usual.
-  var zh = /^zh/i.test(document.documentElement.lang || "");
-  var CJK = /[\u3400-\u9fff\uf900-\ufaff]/;
-  var L = zh ? {
+  // Chinese and Japanese have no spaces between words, and Korean attaches particles to them: index every
+  // CJK character (Han, kana, Hangul) and every pair of neighbouring ones, so a search for 質數, 素数 or 소수
+  // matches inside longer words; Latin words are split on spaces as usual.
+  var lang = document.documentElement.lang || "";
+  var zh = /^zh/i.test(lang);
+  var CJK = /[\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff\uac00-\ud7af]/;
+  var L = /^ja/i.test(lang) ? {
+    results: function (n) { return n + " 件の結果"; }, none: "結果がありません。語を減らすか、別の語でお試しください。",
+    loading: "索引を読み込んでいます……", ready: function (n) { return n + " ページを検索：問題、解答、用語集など。"; },
+    failed: "申し訳ありません。検索索引を読み込めませんでした。"
+  } : /^ko/i.test(lang) ? {
+    results: function (n) { return "검색 결과 " + n + "건"; }, none: "결과가 없습니다. 검색어를 줄이거나 다른 낱말로 검색해 보세요.",
+    loading: "색인을 불러오는 중…", ready: function (n) { return n + "개 페이지 검색: 문제, 풀이, 용어집 등."; },
+    failed: "죄송합니다. 검색 색인을 불러오지 못했습니다."
+  } : zh ? {
     results: function (n) { return "找到 " + n + " 項結果"; }, none: "沒有結果。請嘗試較少或不同的字詞。",
     loading: "正在載入索引……", ready: function (n) { return "搜尋 " + n + " 個頁面：題目、解答、詞彙表等。"; },
     failed: "抱歉，無法載入搜尋索引。"
@@ -93,7 +103,7 @@
         storeFields: [],
         searchOptions: { boost: { title: 4, headings: 2 } }
       };
-      if (zh) { opts.tokenize = tokenize; opts.searchOptions.tokenize = tokenize; }
+      if (/^(zh|ja|ko)/i.test(lang)) { opts.tokenize = tokenize; opts.searchOptions.tokenize = tokenize; }
       engine = new MiniSearch(opts);
       data.forEach(function (d) { docs[d.id] = d; });
       engine.addAll(data);

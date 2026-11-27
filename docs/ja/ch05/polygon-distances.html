@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>正多角形の中の距離 (STEP III 2016 Q7) — Beyond STEP</title>
+<meta name="description" content="STEP III 2016 問題 7：解説付き解答とその背後にある大学数学。 半径 1 の円に内接する正七角形を描く。ひとつの頂点から他の頂点へ6本の弦（chord）を引き、その長さを測る。6本の長さをすべて掛け合わせると、答えはちょうど 7 になる。正 100 角形では、ひとつの頂点から引いた 99 本の弦の長さの積はちょうど 100 である。…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch05/polygon-distances.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch05/polygon-distances.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="正多角形の中の距離 (STEP III 2016 Q7) — Beyond STEP">
+<meta property="og:description" content="STEP III 2016 問題 7：解説付き解答とその背後にある大学数学。 半径 1 の円に内接する正七角形を描く。ひとつの頂点から他の頂点へ6本の弦（chord）を引き、その長さを測る。6本の長さをすべて掛け合わせると、答えはちょうど 7 になる。正 100 角形では、ひとつの頂点から引いた 99 本の弦の長さの積はちょうど 100 である。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch05/polygon-distances.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="正多角形の中の距離 (STEP III 2016 Q7) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2016 問題 7：解説付き解答とその背後にある大学数学。 半径 1 の円に内接する正七角形を描く。ひとつの頂点から他の頂点へ6本の弦（chord）を引き、その長さを測る。6本の長さをすべて掛け合わせると、答えはちょうど 7 になる。正 100 角形では、ひとつの頂点から引いた 99 本の弦の長さの積はちょうど 100 である。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "正多角形の中の距離", "headline": "正多角形の中の距離", "description": "STEP III 2016 問題 7：解説付き解答とその背後にある大学数学。 半径 1 の円に内接する正七角形を描く。ひとつの頂点から他の頂点へ6本の弦（chord）を引き、その長さを測る。6本の長さをすべて掛け合わせると、答えはちょうど 7 になる。正 100 角形では、ひとつの頂点から引いた 99 本の弦の長さの積はちょうど 100 である。…", "url": "https://beyondstep.keithmcnulty.org/ja/ch05/polygon-distances.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2016 問題 7", "複素数"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 5, "name": "複素数", "url": "https://beyondstep.keithmcnulty.org/ja/ch05/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第5章：複素数", "item": "https://beyondstep.keithmcnulty.org/ja/ch05/"}, {"@type": "ListItem", "position": 3, "name": "正多角形の中の距離", "item": "https://beyondstep.keithmcnulty.org/ja/ch05/polygon-distances.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch05/polygon-distances.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch05/polygon-distances.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch05/polygon-distances.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch05/polygon-distances.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第5章 · 複素数</a>
+    <div class="src">STEP III · 2016 · 問題 7</div>
+    <div class="sec-head"><span class="sec-num">5.4</span><h1>正多角形の中の距離</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-4-polygon-distances.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第5章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2016、第7問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/16-s3-q7">step.maths.org/questions/16-s3-q7</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>半径 <span class="math inline">\(1\)</span> の円に内接する正七角形を描く。ひとつの頂点から他の頂点へ6本の弦（chord）を引き、その長さを測る。6本の長さをすべて掛け合わせると、答えはちょうど <span class="math inline">\(7\)</span> になる。正 <span class="math inline">\(100\)</span> 角形では、ひとつの頂点から引いた <span class="math inline">\(99\)</span> 本の弦の長さの積はちょうど <span class="math inline">\(100\)</span> である。</p>
+<p>なぜこれほどきれいな結果が成り立つのだろうか。弦の長さそのものは複雑である（<span class="math inline">\(2\sin\frac{\pi}{7}\)</span> 、 <span class="math inline">\(2\sin\frac{2\pi}{7}\)</span> など）。この問題は、この結果がある単純な代数的恒等式、すなわち <span class="math inline">\(z^n - 1\)</span> の1の冪根（roots of unity）による因数分解（factorisation）の幾何学的な影であること、そして平面上の距離が複素数の絶対値（modulus）であることを示している。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>多角形の頂点を <span class="math inline">\(n\)</span> 乗して1になる複素数、すなわち <span class="math inline">\(X_k = \omega^k\)</span> に置く。点 <span class="math inline">\(P\)</span> が <span class="math inline">\(z\)</span> であるとき、 <span class="math inline">\(|PX_k|\)</span> を <span class="math inline">\(z\)</span> で表すとどうなるか。すると、すべての距離の積はどうなるか。</p>
+</div>
+<p><span class="math inline">\(|PX_k| = |z - \omega^k|\)</span> であり、これらすべての積は <span class="math inline">\(|(z - 1)(z - \omega)\cdots(z - \omega^{n-1})|\)</span> である。問題の最初の部分によれば、これは <span class="math inline">\(|z^n - 1|\)</span> に等しい。 <span class="math inline">\(n\)</span> 個の距離の積が、ひとつの絶対値になったのである。あとは <span class="math inline">\(z\)</span> をうまく選ぶだけである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-因数分解" class="stage"><span class="stage-n">段階 1</span> 因数分解</h4>
+<p>各 <span class="math inline">\(\omega^k\)</span> は <span class="math inline">\((\omega^k)^n = (\omega^n)^k = 1\)</span> を満たすので、 <span class="math inline">\(1, \omega, \ldots, \omega^{n-1}\)</span> は <span class="math inline">\(z^n - 1\)</span> の根である。これらは互いに異なる（偏角 <span class="math inline">\(\frac{2\pi k}{n}\)</span> が <span class="math inline">\(0\)</span> 以上 <span class="math inline">\(2\pi\)</span> 未満の範囲で互いに異なる）ので、これらは最高次の係数が <span class="math inline">\(1\)</span> であるこの <span class="math inline">\(n\)</span> 次多項式（polynomial）の <span class="math inline">\(n\)</span> 個の根のすべてであり、 <span class="math inline">\(z^n - 1 = \prod_{k=0}^{n-1}(z - \omega^k)\)</span> が成り立つ。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-垂直二等分線上の点" class="stage"><span class="stage-n">段階 2</span> 垂直二等分線上の点</h4>
+<p><span class="math inline">\(X_k = \omega^k\)</span> となるように図を回転させる。 <span class="math inline">\(X_0 = 1\)</span> と <span class="math inline">\(X_1 = \omega\)</span> から等距離にある点全体は <span class="math inline">\(X_0X_1\)</span> の垂直二等分線（perpendicular bisector）をなし、これは <span class="math inline">\(O\)</span> を通り角 <span class="math inline">\(\frac\pi n\)</span> をなす直線である。</p>
+<div class="askyourself">
+<p>したがって、ある実数 <span class="math inline">\(t\)</span> （正でも負でもよい）を用いて <span class="math inline">\(P\)</span> は <span class="math inline">\(z = te^{\mathrm{i}\pi/n}\)</span> と表され、 <span class="math inline">\(|OP| = |t|\)</span> である。 <span class="math inline">\(z^n\)</span> はどうなるか。</p>
+</div>
+<p><span class="math inline">\(z^n = t^ne^{\mathrm{i}\pi} = -t^n\)</span> である。よって <span class="math display">\[|PX_0| \times \cdots \times |PX_{n-1}| = |z^n - 1| = |{-t^n} - 1| = |t^n + 1|.\]</span> <span class="math inline">\(n\)</span> が偶数ならば <span class="math inline">\(t^n = |t|^n \geq 0\)</span> であるから、これは <span class="math inline">\(|OP|^n + 1\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p><span class="math inline">\(n\)</span> が奇数のときはどうなるか。 <span class="math inline">\(t &gt; 0\)</span> の場合と <span class="math inline">\(t &lt; 0\)</span> の場合を分けて考え、それぞれの場合が幾何学的に何を意味するかを述べよ。</p>
+</div>
+<p><span class="math inline">\(n\)</span> が奇数ならば、 <span class="math inline">\(t^n\)</span> は <span class="math inline">\(t\)</span> と同じ符号をもつ。</p>
+<ul>
+<li><p><span class="math inline">\(t \geq 0\)</span> 、すなわち <span class="math inline">\(P\)</span> が <span class="math inline">\(O\)</span> に関して <span class="math inline">\(X_0X_1\)</span> の中点と同じ側にあるとき、積は <span class="math inline">\(|OP|^n + 1\)</span> である。</p></li>
+<li><p><span class="math inline">\(t &lt; 0\)</span> 、すなわち <span class="math inline">\(P\)</span> が <span class="math inline">\(O\)</span> に関して反対側（辺 <span class="math inline">\(X_0X_1\)</span> に向かい合う頂点の側）にあるとき、 <span class="math inline">\(t^n = -|OP|^n\)</span> であり、積は <span class="math inline">\(\bigl|1 - |OP|^n\bigr|\)</span> である。</p></li>
+</ul>
+<p><span class="math inline">\(n\)</span> が奇数のとき、 <span class="math inline">\(O\)</span> を通り <span class="math inline">\(X_0X_1\)</span> に垂直な直線は、反対側にあるひとつの頂点を通る。2番目の場合、 <span class="math inline">\(P\)</span> がその頂点であるとき（ <span class="math inline">\(|OP| = 1\)</span> ）積は0になるが、これは当然である。そのとき距離のひとつが0になるからである。</p>
+<h4 id="stagemark3-頂点から引いた弦" class="stage"><span class="stage-n">段階 3</span> 頂点から引いた弦</h4>
+<div class="askyourself">
+<p>今度は <span class="math inline">\(P = X_0\)</span> であり、距離のひとつ <span class="math inline">\(|X_0X_0|\)</span> が0なので、 <span class="math inline">\(|z^n - 1| = 0\)</span> は役に立たない。 <span class="math inline">\(\omega, \omega^2, \ldots, \omega^{n-1}\)</span> を根にもち、 <span class="math inline">\(1\)</span> を根にもたない多項式は何か。</p>
+</div>
+<p><span class="math inline">\(z^n - 1\)</span> を <span class="math inline">\(z - 1\)</span> で割ると <span class="math display">\[(z - \omega)(z - \omega^2)\cdots(z - \omega^{n-1}) = \frac{z^n - 1}{z - 1} = 1 + z + z^2 + \cdots + z^{n-1}.\]</span> 右辺は多項式なので、この式はすべての <span class="math inline">\(z\)</span> について成り立ち、 <span class="math inline">\(z = 1\)</span> でも成り立つ。そのとき右辺は <span class="math inline">\(n\)</span> に等しい。 <span class="math inline">\(z = 1\)</span> で絶対値をとると <span class="math display">\[|X_0X_1| \times |X_0X_2| \times \cdots \times |X_0X_{n-1}| = |1 - \omega|\,|1 - \omega^2|\cdots|1 - \omega^{n-1}| = n. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-5-4-1.svg" alt="図 5.4.1"><figcaption><span class="fig-label">図 5.4.1</span> 半径 <span class="math inline">\(1\)</span> の円に内接する正七角形。 <span class="math inline">\(X_0\)</span> から引いた6本の弦の長さは <span class="math inline">\(2\sin\frac{k\pi}{7}\)</span> であり、約 <span class="math inline">\(0.868\)</span> （青緑）、 <span class="math inline">\(1.564\)</span> （琥珀色）、 <span class="math inline">\(1.950\)</span> （紫）がそれぞれ2回ずつ現れる。その積はちょうど <span class="math inline">\(7\)</span> である。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>距離は絶対値である。</strong> <span class="math inline">\(|PX_k| = |z - \omega^k|\)</span> であるから、距離の積は積の絶対値であり、その積は閉じた形で表せた。</p></li>
+<li><p><strong>対称性を使って座標を選ぶ。</strong> 頂点が1の冪根になるように回転させ、 <span class="math inline">\(O\)</span> を通る対称軸を使うことで、 <span class="math inline">\(z^n\)</span> が簡単に計算できた。</p></li>
+<li><p><strong>代入の前に0になる因数を約分する。</strong> <a href="../ch05/z2n-plus-one.html">第 5.3 節</a> と同様に、注目する点で0になる因数を割り去ることで、代入が可能になった。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">コーツの定理</div>
+<p>小問 (i) はロジャー・コーツ（Roger Cotes）の定理である。コーツはケンブリッジの才気あふれる若き数学者で、ニュートン（Newton）の『<em>Principia</em>』（プリンキピア）第2版を編集し、1716年に三十三歳で亡くなった（ニュートンは「彼が生きていたなら、我々は何事かを知りえたであろう」と述べた）。コーツは、 <span class="math inline">\(P\)</span> が <span class="math inline">\(O\)</span> から正 <span class="math inline">\(n\)</span> 角形の頂点を通る半直線上にあるとき、 <span class="math inline">\(P\)</span> から各頂点までの距離の積は <span class="math inline">\(\bigl||OP|^n - 1\bigr|\)</span> であり、 <span class="math inline">\(P\)</span> が辺の中点を通る半直線上にあるときは <span class="math inline">\(|OP|^n + 1\)</span> であることを発見した。彼はこれを用いて、複素数を使わずに <span class="math inline">\(x^n \pm 1\)</span> を実数係数の2次式の積に因数分解した。これは有理関数の積分に必要だったのである。この定理は彼の死後、1722年に出版された。</p>
+</div>
+<h3 id="正弦の積">正弦の積</h3>
+<p><span class="math inline">\(|1 - \omega^k| = |e^{-\mathrm{i}\pi k/n} - e^{\mathrm{i}\pi k/n}| = 2\sin\frac{k\pi}{n}\)</span> であるから、小問 (ii) は <span class="math display">\[\prod_{k=1}^{n-1}\sin\frac{k\pi}{n} = \frac{n}{2^{n-1}}\]</span> を意味する。これは <a href="../ch05/z2n-plus-one.html">第 5.3 節</a> の余弦の積と対をなすものである。関連する積から <span class="math inline">\(z^n - 1\)</span> の<em>判別式</em>（discriminant）が得られる。すなわち、相異なる <span class="math inline">\(n\)</span> 乗して1になる複素数のすべての組の間の距離の2乗の積は <span class="math inline">\(n^n\)</span> である。判別式は多項式の根がどれだけ離れているかを測るもので、多項式の代数や数体の代数において中心的な役割を果たす。これについては第6章で取り上げる。</p>
+<h3 id="静電気学と等間隔配置">静電気学と等間隔配置</h3>
+<p>物理的な解釈もある。円周上に <span class="math inline">\(n\)</span> 個の等しい電荷を置く。ポテンシャルエネルギー（2次元静電気学の対数ポテンシャルによる）を最小にする配置は正多角形であり、そのエネルギーにはまさに <span class="math inline">\(\sum\ln|X_jX_k|\)</span> 、すなわち距離の積の対数が現れる。「できるだけ散らばった」点は、数値解析（<a href="../ch03/markov-bound.html">第 3.6 節</a> 。そこでは最良の補間点が正多角形から <span class="math inline">\(x = \cos\theta\)</span> によって得られる）やランダム行列の理論において重要である。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">複素数を使って幾何を代数に変える</div>
+<p><em>平面上の点は複素数であり、距離は絶対値であり、正多角形は1の冪根である。距離の積は多項式の絶対値になる。</em></p>
+<p>この翻訳によって、 <span class="math inline">\(z^n - 1\)</span> の因数分解のような代数的恒等式で、直接見抜くのが非常に難しい幾何学的事実を証明できるようになる。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>小さな場合を確かめる。</strong> 正方形（ <span class="math inline">\(n = 4\)</span> ）と正三角形（ <span class="math inline">\(n = 3\)</span> ）について、小問 (ii) を直接確かめよ。</p></li>
+<li><p><strong>頂点を通る場合。</strong> <span class="math inline">\(P\)</span> が <span class="math inline">\(O\)</span> から <span class="math inline">\(X_0\)</span> を通る半直線上にあるとき、 <span class="math inline">\(|PX_0| \times \cdots \times |PX_{n-1}| = \bigl||OP|^n - 1\bigr|\)</span> であることを示せ。</p></li>
+<li><p><strong>平均距離。</strong> 小問 (ii) と <a href="../ch03/am-gm-backwards.html">第 3.2 節</a> の相加相乗平均の不等式（AM–GM inequality）を用いて、 <span class="math inline">\(X_0\)</span> から引いた <span class="math inline">\(n - 1\)</span> 本の弦の長さの平均が <span class="math inline">\(n^{1/(n-1)}\)</span> 以上であることを示せ。 <span class="math inline">\(n = 6\)</span> のときの実際の平均 <span class="math inline">\(\frac{1}{n-1}\sum_k 2\sin\frac{k\pi}{n}\)</span> を求め、比較せよ。</p></li>
+<li><p><strong>すべての弦。</strong> <span class="hard">発展</span> 単位円に内接する正 <span class="math inline">\(n\)</span> 角形の <span class="math inline">\(\binom n2\)</span> 本の弦すべての長さの積が <span class="math inline">\(n^{n/2}\)</span> であることを示せ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Tristan Needham, <a href="https://uk.bookshop.org/search?keywords=Visual+Complex+Analysis+Needham"><em>Visual Complex Analysis</em></a></strong> (Oxford University Press)。複素数を用いた幾何を、美しい図版とともに解説している。</p></li>
+<li><p><strong>Ross Honsberger, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Gems+Honsberger"><em>Mathematical Gems</em></a></strong> (Mathematical Association of America)。正多角形に関する優美な問題がいくつか収められている。</p></li>
+<li><p><strong>Ronald Gowing, <a href="https://uk.bookshop.org/search?keywords=Roger+Cotes%3A+Natural+Philosopher+Gowing"><em>Roger Cotes: Natural Philosopher</em></a></strong> (Cambridge University Press)。コーツとその数学についての伝記である。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="z2n-plus-one.html">← 5.3 z²ⁿ + 1 の因数分解</a><a class="next" href="rational-angles.html">→ 5.5 有理角になりそうでならない角</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

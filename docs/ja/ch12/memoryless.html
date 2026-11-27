@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>無記憶性 (STEP III 2021 Q11) — Beyond STEP</title>
+<meta name="description" content="STEP III 2021 問題 11：解説付き解答とその背後にある大学数学。 ある放射性原子が、研究室で100万年ものあいだ崩壊せずに残っているとする。この原子はそろそろ崩壊する「はず」だろうか。そうではない。次の1秒間に崩壊する確率は、つくられたばかりの原子の場合とまったく同じである。放射性原子は年をとらないのである。崩壊までの待ち時間は 指数分布 （exponential…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch12/memoryless.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/memoryless.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/memoryless.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/memoryless.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/memoryless.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/memoryless.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/memoryless.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="無記憶性 (STEP III 2021 Q11) — Beyond STEP">
+<meta property="og:description" content="STEP III 2021 問題 11：解説付き解答とその背後にある大学数学。 ある放射性原子が、研究室で100万年ものあいだ崩壊せずに残っているとする。この原子はそろそろ崩壊する「はず」だろうか。そうではない。次の1秒間に崩壊する確率は、つくられたばかりの原子の場合とまったく同じである。放射性原子は年をとらないのである。崩壊までの待ち時間は 指数分布 （exponential…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch12/memoryless.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="無記憶性 (STEP III 2021 Q11) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2021 問題 11：解説付き解答とその背後にある大学数学。 ある放射性原子が、研究室で100万年ものあいだ崩壊せずに残っているとする。この原子はそろそろ崩壊する「はず」だろうか。そうではない。次の1秒間に崩壊する確率は、つくられたばかりの原子の場合とまったく同じである。放射性原子は年をとらないのである。崩壊までの待ち時間は 指数分布 （exponential…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "無記憶性", "headline": "無記憶性", "description": "STEP III 2021 問題 11：解説付き解答とその背後にある大学数学。 ある放射性原子が、研究室で100万年ものあいだ崩壊せずに残っているとする。この原子はそろそろ崩壊する「はず」だろうか。そうではない。次の1秒間に崩壊する確率は、つくられたばかりの原子の場合とまったく同じである。放射性原子は年をとらないのである。崩壊までの待ち時間は 指数分布 （exponential…", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/memoryless.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2021 問題 11", "確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第12章：確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/"}, {"@type": "ListItem", "position": 3, "name": "無記憶性", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/memoryless.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch12/memoryless.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/memoryless.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/memoryless.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch12/memoryless.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第12章 · 確率</a>
+    <div class="src">STEP III · 2021 · 問題 11</div>
+    <div class="sec-head"><span class="sec-num">12.18</span><h1>無記憶性</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-18-memoryless.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第12章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2021、第11問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は、OCRが配布している2021年のSTEP問題一式（zipファイル）のSTEP IIIに収録されている： <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">www.ocr.org.uk/Images/696588-2021-past-papers.zip</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>ある放射性原子が、研究室で100万年ものあいだ崩壊せずに残っているとする。この原子はそろそろ崩壊する「はず」だろうか。そうではない。次の1秒間に崩壊する確率は、つくられたばかりの原子の場合とまったく同じである。放射性原子は年をとらないのである。崩壊までの待ち時間は<em>指数分布</em>（exponential distribution）に従い、その本質的な性質は記憶をもたないことである。</p>
+<p>この問題は、その無記憶性（memorylessness）を印象的な形で示している。指数分布に従う待ち時間を、整数単位の部分と小数部分に分ける。すると、この二つは<em>独立</em>（independent）であることがわかる。何時間（整数部分）待ったかを知っても、端数の分については何もわからないのである。また演習問題では、バスを待つ時間がバスの運行間隔より長く感じられることがある理由も説明する。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(x \geq 0\)</span> に対して <span class="math inline">\(\mathrm{P}(X &gt; x)\)</span> はいくらか。<span class="math inline">\(\mathrm{P}(X &gt; s + t \mid X &gt; s)\)</span> はいくらか。</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(X &gt; x) = \int_x^\infty\lambda e^{-\lambda u}\,\mathrm{d}u = e^{-\lambda x}\)</span> である。したがって <span class="math inline">\(\mathrm{P}(X &gt; s + t \mid X &gt; s) = \frac{e^{-\lambda(s + t)}}{e^{-\lambda s}} = e^{-\lambda t} = \mathrm{P}(X &gt; t)\)</span> となる。すでに <span class="math inline">\(s\)</span> だけ待ったとしても、残りの待ち時間は新たに待ち始める場合と同じ分布に従う。これが<em>無記憶性</em>である。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-整数部分" class="stage"><span class="stage-n">段階 1</span> 整数部分</h4>
+<p><span class="math inline">\(Y = n\)</span> となるのは、ちょうど <span class="math inline">\(n \leq X &lt; n + 1\)</span> のときである。 <span class="math display">\[\mathrm{P}(Y = n) = e^{-\lambda n} - e^{-\lambda(n + 1)} = (1 - e^{-\lambda})e^{-n\lambda}. \qed\]</span> よって <span class="math inline">\(Y\)</span> は幾何分布（geometric distribution）に従う。各単位時間を確率 <span class="math inline">\(e^{-\lambda}\)</span> で「生き延びる」わけである。</p>
+<h4 id="stagemark2-小数部分" class="stage"><span class="stage-n">段階 2</span> 小数部分</h4>
+<div class="askyourself">
+<p><span class="math inline">\(Z &lt; z\)</span> とは、<span class="math inline">\(X\)</span> が区間 <span class="math inline">\([n, n + z)\)</span> のいずれかに入るということである。それらの確率を足し合わせよ。</p>
+</div>
+<p><span class="math display">\[\mathrm{P}(Z &lt; z) = \sum_{n \geq 0}\bigl(e^{-\lambda n} - e^{-\lambda(n + z)}\bigr) = (1 - e^{-\lambda z})\sum_{n \geq 0}e^{-\lambda n} = \frac{1 - e^{-\lambda z}}{1 - e^{-\lambda}}. \qed\]</span></p>
+<h4 id="stagemark3-z-の平均" class="stage"><span class="stage-n">段階 3</span> <span class="math inline">\(Z\)</span> の平均</h4>
+<div class="askyourself">
+<p><span class="math inline">\([0, 1]\)</span> に値をとる確率変数（random variable）に対しては <span class="math inline">\(\mathrm{E}(Z) = \int_0^1\mathrm{P}(Z &gt; z)\,\mathrm{d}z\)</span> が成り立つ。これを用いよ。</p>
+</div>
+<p><span class="math inline">\(c = 1 - e^{-\lambda}\)</span> とおくと <span class="math inline">\(\mathrm{P}(Z &gt; z) = 1 - \frac{1 - e^{-\lambda z}}{c}\)</span> であるから、 <span class="math display">\[\mathrm{E}(Z) = 1 - \frac1c\Bigl(1 - \frac{1 - e^{-\lambda}}{\lambda}\Bigr) = 1 - \frac1c + \frac1\lambda = \frac1\lambda - \frac{e^{-\lambda}}{1 - e^{-\lambda}} = \frac1\lambda - \frac{1}{e^\lambda - 1}. \qed\]</span> （<span class="math inline">\(\lambda\)</span> が小さい、すなわち待ち時間が長いとき、これは <span class="math inline">\(\frac12\)</span> に近づく。小数部分はほぼ一様分布になるのである。<span class="math inline">\(\lambda\)</span> が大きいときは <span class="math inline">\(\frac1\lambda\)</span> に近い。<span class="math inline">\(X\)</span> がほとんど常に <span class="math inline">\(1\)</span> より小さいからである。）</p>
+<h4 id="stagemark4-独立性" class="stage"><span class="stage-n">段階 4</span> 独立性</h4>
+<p><span class="math display">\[\mathrm{P}(Y = n, z_1 &lt; Z &lt; z_2) = \mathrm{P}(n + z_1 &lt; X &lt; n + z_2) = e^{-\lambda n}\bigl(e^{-\lambda z_1} - e^{-\lambda z_2}\bigr).\]</span></p>
+<div class="askyourself">
+<p>小問 (i) と (ii) を用いて、<span class="math inline">\(\mathrm{P}(Y = n)\,\mathrm{P}(z_1 &lt; Z &lt; z_2)\)</span> と比較せよ。</p>
+</div>
+<p>(i) と (ii) より <span class="math inline">\(\mathrm{P}(Y = n)\mathrm{P}(z_1 &lt; Z &lt; z_2) = (1 - e^{-\lambda})e^{-n\lambda}\cdot\frac{e^{-\lambda z_1} - e^{-\lambda z_2}}{1 - e^{-\lambda}}\)</span> であり、これは上と一致する。よって <span class="math inline">\(Y\)</span> と <span class="math inline">\(Z\)</span> は独立である。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-18-1.svg" alt="図 12.18.1"><figcaption><span class="fig-label">図 12.18.1</span> <span class="math inline">\(\lambda = 1\)</span> の指数分布の密度関数を幅1の帯に分割したもの。<span class="math inline">\(e^{-(n + z)} = e^{-n}e^{-z}\)</span> であるから、どの帯も同じ形をしている。<span class="math inline">\(X\)</span> がどの帯に入るか（整数部分 <span class="math inline">\(Y\)</span>）と、帯の中のどこに入るか（小数部分 <span class="math inline">\(Z\)</span>）は独立である。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>区間ごとに足し合わせる。</strong> <span class="math inline">\(Z\)</span> の分布も同時確率も、区間 <span class="math inline">\([n, n + 1)\)</span> ごとの確率を足し合わせることで得られた。</p></li>
+<li><p><strong>裾の公式。</strong> <span class="math inline">\(\mathrm{E}(Z) = \int\mathrm{P}(Z &gt; z)\,\mathrm{d}z\)</span> を使うことで、密度関数を求めずに済んだ。</p></li>
+<li><p><strong>積に分解できることは独立性を意味する。</strong> 同時確率が、<span class="math inline">\(n\)</span> の関数と <span class="math inline">\(z_1\)</span>, <span class="math inline">\(z_2\)</span> の関数の積に分解された。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="指数分布はなぜ特別なのか">指数分布はなぜ特別なのか</h3>
+<p><span class="math inline">\(Y\)</span> と <span class="math inline">\(Z\)</span> の独立性は <span class="math inline">\(e^{-\lambda(n + z)} = e^{-\lambda n}e^{-\lambda z}\)</span> から直接導かれるが、これは無記憶性が姿を変えたものにほかならない。実は、記憶をもたない連続分布は指数分布<em>だけ</em>である。すべての <span class="math inline">\(s, t \geq 0\)</span> に対して <span class="math inline">\(\mathrm{P}(X &gt; s + t) = \mathrm{P}(X &gt; s)\mathrm{P}(X &gt; t)\)</span> が成り立つならば、<span class="math inline">\(g(t) = \ln\mathrm{P}(X &gt; t)\)</span> は <span class="math inline">\(g(s + t) = g(s) + g(t)\)</span> を満たし、（<span class="math inline">\(g\)</span> が単調ならば）これにより <span class="math inline">\(g(t) = -\lambda t\)</span> となる。だからこそ指数分布は、蓄積なしに「ランダムに」起こる事象の待ち時間のモデルとなるのである。放射性崩壊、客の到着、摩耗しない電子部品の故障などがその例である。</p>
+<h3 id="最小値と待ち時間のパラドックス">最小値と待ち時間のパラドックス</h3>
+<p><span class="math inline">\(X_1\)</span> と <span class="math inline">\(X_2\)</span> がそれぞれ率 <span class="math inline">\(\lambda_1\)</span>, <span class="math inline">\(\lambda_2\)</span> の独立な指数分布に従うならば <span class="math inline">\(\mathrm{P}(\min &gt; x) = e^{-\lambda_1x}e^{-\lambda_2x}\)</span> であるから、最小値は率 <span class="math inline">\(\lambda_1 + \lambda_2\)</span> の指数分布に従う。二つの独立なランダムな事象のうち最初のものを待つことは、合わせた率で起こる一つの事象を待つことと同じである（演習問題の STEP III 2002 Q13）。無記憶性は<em>待ち時間のパラドックス</em>（waiting-time paradox）も説明する。バスがランダムに到着し、平均の間隔が <span class="math inline">\(10\)</span> 分であるとき、ランダムな時刻に到着した乗客の平均待ち時間は <span class="math inline">\(5\)</span> 分ではなく <span class="math inline">\(10\)</span> 分である。残りの待ち時間は記憶をもたないからである。さらに、乗客が到着した時点を含む間隔の長さは平均 <span class="math inline">\(20\)</span> 分である。長い間隔ほど、その中に到着しやすいからである。</p>
+<div class="historybox">
+<div class="box-title">ラザフォードとポアソン過程</div>
+<p>1910年、アーネスト・ラザフォード（Ernest Rutherford）とハンス・ガイガー（Hans Geiger）は、放射線源から放出されるアルファ粒子を <span class="math inline">\(7.5\)</span> 秒ごとの区間で数え、その個数がポアソン分布（Poisson distribution）に従うことを見いだした。放出が一定の率で独立に起こるならばそうなるはずであることを、数学者 Harry Bateman が示していた。このとき放出と放出の間の時間は指数分布に従う。<em>ポアソン過程</em>（Poisson process）、すなわち間隔が指数分布に従う事象の列は、今日では時間におけるランダムさの基本モデルであり、電話の呼び出し、保険金の請求、ニューロンの発火などに用いられている。次の節 <a href="../ch12/spatial-poisson.html">第 12.19 節</a> では、これを空間へと拡張する。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">積への分解で独立性を確かめる</div>
+<p><em>二つの確率変数は、その同時確率が一方の関数と他方の関数の積に分解されるならば独立である。</em></p>
+<p>大学では、同時密度関数の積への分解（factorisation）が独立性を確かめる標準的な方法であり、多変量の問題で独立な成分を見抜く手段となる。たとえば <a href="../ch12/cauchy.html">第 12.22 節</a> における、正規分布に従う点の動径と偏角がその例である。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>二つのバス路線。</strong> <a href="https://step.maths.org/questions/02-s3-q13">STEP III 2002、第13問</a> に挑戦せよ。二つの指数分布に従う確率変数の最小値を用いて、次のバスまでの待ち時間を求める問題である。</p></li>
+<li><p><strong>離散分布の無記憶性。</strong> 幾何分布が記憶をもたないこと、すなわち <span class="math inline">\(\mathrm{P}(Y \geq m + n \mid Y \geq m) = \mathrm{P}(Y \geq n)\)</span> を示せ。</p></li>
+<li><p><strong>待ち時間のパラドックス。</strong> バスが率 <span class="math inline">\(\lambda\)</span> のポアソン過程に従って到着する。固定された時刻 <span class="math inline">\(t\)</span> を含む間隔の長さの期待値は（<span class="math inline">\(t\)</span> が大きいとき）<span class="math inline">\(\frac2\lambda\)</span> であり、平均間隔の2倍であることを示せ。</p></li>
+<li><p><strong><span class="math inline">\(Z\)</span> の密度関数。</strong> <span class="math inline">\(Z\)</span> の確率密度関数を求め、<span class="math inline">\(\lambda = 1\)</span> と <span class="math inline">\(\lambda = 5\)</span> の場合についてその概形をかけ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <a href="https://uk.bookshop.org/search?keywords=Probability%3A+An+Introduction+Grimmett+Welsh"><em>Probability: An Introduction</em></a></strong>（Oxford University Press）。指数分布とポアソン過程について。</p></li>
+<li><p><strong>Sheldon Ross, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Probability+Models+Ross"><em>Introduction to Probability Models</em></a></strong>（Academic Press）。指数分布、ポアソン過程、待ち行列。</p></li>
+<li><p><strong>David Spiegelhalter, <a href="https://uk.bookshop.org/search?keywords=The+Art+of+Uncertainty+Spiegelhalter"><em>The Art of Uncertainty</em></a></strong>（Pelican）。日常生活におけるランダムさと待ち時間。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="matchboxes.html">← 12.17 バナッハのマッチ箱</a><a class="next" href="spatial-poisson.html">→ 12.19 平面上のランダムな点</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

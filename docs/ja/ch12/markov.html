@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>マルコフ連鎖を順向きにも逆向きにも (STEP III 1996 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP III 1996 問題 12：解説付き解答とその背後にある大学数学。 エックス教授の定理には一定の規則がある。次に何を証明するかは、直前に何を証明したかだけで決まるのである。未来が現在には依存するが過去には依存しない過程を マルコフ連鎖 （Markov chain）という。マルコフ連鎖はいたるところに現れる。気象モデル、すごろく遊びの「蛇と梯子」（Snakes and…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch12/markov.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/markov.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/markov.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/markov.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/markov.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/markov.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/markov.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="マルコフ連鎖を順向きにも逆向きにも (STEP III 1996 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP III 1996 問題 12：解説付き解答とその背後にある大学数学。 エックス教授の定理には一定の規則がある。次に何を証明するかは、直前に何を証明したかだけで決まるのである。未来が現在には依存するが過去には依存しない過程を マルコフ連鎖 （Markov chain）という。マルコフ連鎖はいたるところに現れる。気象モデル、すごろく遊びの「蛇と梯子」（Snakes and…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch12/markov.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="マルコフ連鎖を順向きにも逆向きにも (STEP III 1996 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1996 問題 12：解説付き解答とその背後にある大学数学。 エックス教授の定理には一定の規則がある。次に何を証明するかは、直前に何を証明したかだけで決まるのである。未来が現在には依存するが過去には依存しない過程を マルコフ連鎖 （Markov chain）という。マルコフ連鎖はいたるところに現れる。気象モデル、すごろく遊びの「蛇と梯子」（Snakes and…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "マルコフ連鎖を順向きにも逆向きにも", "headline": "マルコフ連鎖を順向きにも逆向きにも", "description": "STEP III 1996 問題 12：解説付き解答とその背後にある大学数学。 エックス教授の定理には一定の規則がある。次に何を証明するかは、直前に何を証明したかだけで決まるのである。未来が現在には依存するが過去には依存しない過程を マルコフ連鎖 （Markov chain）という。マルコフ連鎖はいたるところに現れる。気象モデル、すごろく遊びの「蛇と梯子」（Snakes and…", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/markov.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1996 問題 12", "確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第12章：確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/"}, {"@type": "ListItem", "position": 3, "name": "マルコフ連鎖を順向きにも逆向きにも", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/markov.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch12/markov.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/markov.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/markov.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch12/markov.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第12章 · 確率</a>
+    <div class="src">STEP III · 1996 · 問題 12</div>
+    <div class="sec-head"><span class="sec-num">12.16</span><h1>マルコフ連鎖を順向きにも逆向きにも</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-16-markov.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第12章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 1996、第12問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/96-s3-q12">step.maths.org/questions/96-s3-q12</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>エックス教授の定理には一定の規則がある。次に何を証明するかは、直前に何を証明したかだけで決まるのである。未来が現在には依存するが過去には依存しない過程を<em>マルコフ連鎖</em>（Markov chain）という。マルコフ連鎖はいたるところに現れる。気象モデル、すごろく遊びの「蛇と梯子」（Snakes and Ladders）、DNA のモデル、Google の初期の PageRank アルゴリズム、そして統計学者が複雑な確率分布をシミュレーションするために用いる手法などである。</p>
+<p>この問題では、定理の種類が長期的にどのような割合で現れるか、すなわち<em>定常分布</em>（stationary distribution）を求める。長期的には、彼女の定理の <span class="math inline">\(6\)</span> つに <span class="math inline">\(1\)</span> つは新しく正しいものであり、半分は誤りである。さらに、この連鎖を時間について逆向きにたどり、「今日の定理がわかっているとき、昨日の定理は何だったか」を問う。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>「各行の和が <span class="math inline">\(1\)</span> である」という条件は何を意味するか。各列の和は <span class="math inline">\(1\)</span> になるか。</p>
+</div>
+<p>第 <span class="math inline">\(i\)</span> 行には、現在の種類が <span class="math inline">\(i\)</span> であるときの、次の種類の確率が並んでいる。三つの種類のいずれかは必ず起こるので、各行の和は <span class="math inline">\(1\)</span> である。一方、列についてはその必要はない。第 <span class="math inline">\(2\)</span> 列の和はちょうど <span class="math inline">\(1\)</span> であるが、第 <span class="math inline">\(1\)</span> 列の和は <span class="math inline">\(0.6\)</span>、第 <span class="math inline">\(3\)</span> 列の和は <span class="math inline">\(1.4\)</span> である。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-1-ステップ" class="stage"><span class="stage-n">段階 1</span> 1 ステップ</h4>
+<p>現在の定理の種類 <span class="math inline">\(i\)</span> で条件づけて、全確率の法則（law of total probability）を用いると、 <span class="math display">\[b_j = \sum_i\mathrm{P}(\text{現在が } i)\,\mathrm{P}(\text{次が } j \mid \text{現在が } i) = a_1p_{1j} + a_2p_{2j} + a_3p_{3j}. \qed\]</span> 行列で表せば、行ベクトルについて <span class="math inline">\(\mathbf b = \mathbf aP\)</span> である。</p>
+<h4 id="stagemark2-定常分布" class="stage"><span class="stage-n">段階 2</span> 定常分布</h4>
+<div class="askyourself">
+<p><span class="math inline">\(a_1 + a_2 + a_3 = 1\)</span> のもとで <span class="math inline">\(\mathbf a = \mathbf aP\)</span> となるものを求めたい。方程式を書き出してみよ。どれが最も簡単か。</p>
+</div>
+<p>方程式は <span class="math display">\[\begin{aligned}
+  a_1 &amp;= 0.3a_1 + 0.2a_2 + 0.1a_3, \\
+  a_2 &amp;= 0.3a_1 + 0.4a_2 + 0.3a_3, \\
+  a_3 &amp;= 0.4a_1 + 0.4a_2 + 0.6a_3.
+\end{aligned}\]</span> である（これらは独立ではない。三つを足し合わせると両辺とも <span class="math inline">\(a_1 + a_2 + a_3\)</span> になる）。第 <span class="math inline">\(2\)</span> 式から <span class="math inline">\(0.6a_2 = 0.3(a_1 + a_3) = 0.3(1 - a_2)\)</span> となるので、<span class="math inline">\(a_2 = \frac13\)</span> である。第 <span class="math inline">\(1\)</span> 式から <span class="math inline">\(7a_1 = 2a_2 + a_3 = \frac23 + a_3\)</span> であり、また <span class="math inline">\(a_1 + a_3 = \frac23\)</span> であるから、<span class="math inline">\(8a_1 = \frac43\)</span> となり、<span class="math inline">\(a_1 = \frac16\)</span>、<span class="math inline">\(a_3 = \frac12\)</span> を得る。すなわち <span class="math display">\[(a_1, a_2, a_3) = \bigl(\tfrac16, \tfrac13, \tfrac12\bigr). \qed\]</span></p>
+<h4 id="stagemark3-連鎖を逆向きにたどる" class="stage"><span class="stage-n">段階 3</span> 連鎖を逆向きにたどる</h4>
+<div class="askyourself">
+<p><span class="math inline">\(q_{ij} = \mathrm{P}(\text{直前が } i \mid \text{現在が } j)\)</span> である。直前の定理と現在の定理の両方について定常分布を用いて、ベイズの定理（Bayes’ theorem）を適用せよ。</p>
+</div>
+<p>ベイズの定理により、 <span class="math display">\[q_{ij} = \frac{\mathrm{P}(\text{直前が } i)\,\mathrm{P}(\text{現在が } j \mid \text{直前が } i)}{\mathrm{P}(\text{現在が } j)} = \frac{a_ip_{ij}}{a_j}.\]</span> たとえば <span class="math inline">\(q_{11} = \frac{\frac16 \times 0.3}{\frac16} = 0.3\)</span>、<span class="math inline">\(q_{21} = \frac{\frac13 \times 0.2}{\frac16} = 0.4\)</span> である。すべてまとめると（<span class="math inline">\(i\)</span> が行、<span class="math inline">\(j\)</span> が列を表す）、 <span class="math display">\[(q_{ij}) = \begin{pmatrix} 0.3 &amp; 0.15 &amp; \frac{2}{15} \\ 0.4 &amp; 0.4 &amp; \frac{4}{15} \\ 0.3 &amp; 0.45 &amp; 0.6 \end{pmatrix}. \qed\]</span> 今度は各<em>列</em>の和が <span class="math inline">\(1\)</span> になる。第 <span class="math inline">\(j\)</span> 列には直前の定理としてありうる種類が並んでいるからである。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-16-1.svg" alt="図 12.16.1"><figcaption><span class="fig-label">図 12.16.1</span> マルコフ連鎖として見たエックス教授の定理。矢印は、次の定理がそれぞれの種類になる確率を表す。円の中の分数は定常分布であり、長期的には定理の <span class="math inline">\(6\)</span> つに <span class="math inline">\(1\)</span> つは新しく正しいもの、<span class="math inline">\(3\)</span> つに <span class="math inline">\(1\)</span> つは既知のもの、半分は誤りである。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>行列としての全確率の法則。</strong>連鎖の 1 ステップは、行ベクトルに行列 <span class="math inline">\(P\)</span> を掛けることである。</p></li>
+<li><p><strong>定常性とは固有ベクトルである。</strong><span class="math inline">\(\mathbf a = \mathbf aP\)</span> は、<span class="math inline">\(\mathbf a\)</span> が <span class="math inline">\(P\)</span> の固有値（eigenvalue）<span class="math inline">\(1\)</span> に対する左固有ベクトル（left eigenvector）であることを意味する。</p></li>
+<li><p><strong>ベイズの定理で逆向きにする。</strong>逆向きの確率もまた確率行列（stochastic matrix）をなし、それは順向きの行列と定常分布から作られる。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="平衡への収束">平衡への収束</h3>
+<p>エックス教授が任意の定理から始めたとしよう。そこから <span class="math inline">\(n\)</span> 個の定理の後、種類の分布は <span class="math inline">\(\mathbf a_0P^n\)</span> である。この連鎖のように、どの種類の後にもどの種類も続きうる連鎖では、出発点によらず、<span class="math inline">\(P^n\)</span> はすべての行が定常分布 <span class="math inline">\((\frac16, \frac13, \frac12)\)</span> に等しい行列に収束（convergence）する。収束の速さは <span class="math inline">\(P\)</span> の残りの固有値（ここでは <span class="math inline">\(0.2\)</span> と <span class="math inline">\(0.1\)</span>）によって決まり、それらの寄与は等比数列的に小さくなる。わずか数個の定理の後には、彼女の過去は忘れ去られてしまうのである。マルコフ連鎖に関するこの<em>エルゴード定理</em>（ergodic theorem）は、大学 2 年次の確率論の講義の中心的な結果であり、マルコフ連鎖モンテカルロ法（Markov chain Monte Carlo）が機能する根拠でもある。複雑な分布からサンプルを得るには、その分布を定常分布にもつマルコフ連鎖を設計し、長時間走らせればよい。</p>
+<h3 id="可逆性">可逆性</h3>
+<p>逆向きの連鎖 <span class="math inline">\((q_{ij})\)</span> は順向きの連鎖 <span class="math inline">\((p_{ij})\)</span> とは異なる。つまり、彼女の定理の長い記録を見れば、時間の向きを見分けることができる。逆向きと順向きが一致する連鎖、すなわちすべての <span class="math inline">\(i\)</span>、<span class="math inline">\(j\)</span> について <span class="math inline">\(a_ip_{ij} = a_jp_{ji}\)</span> が成り立つ連鎖を<em>可逆</em>（reversible）であるという。ネットワーク上のランダムウォーク（random walk）や、熱平衡（thermal equilibrium）にある物理系のモデルがその例である。可逆性は強力な性質である。定常分布を容易に求められるようになるからである。</p>
+<div class="historybox">
+<div class="box-title">マルコフとプーシキン</div>
+<p>アンドレイ・マルコフ（Andrey Markov）は 1906 年に自らの連鎖を導入した。その動機の一つは、大数の法則（law of large numbers）が成り立つには独立性（independence）が必要だと主張していた数学者パーヴェル・ネクラーソフ（Pavel Nekrasov）との論争において、独立性は必要ないことを示すことであった。1913 年、マルコフはこの考えをプーシキン（Pushkin）の韻文小説<em>エヴゲーニイ・オネーギン</em>の最初の <span class="math inline">\(20\,000\)</span> 文字に適用した。各文字を母音か子音かに分類し、各文字の種類が直前の文字の種類に依存し、その依存の仕方が 2 状態の連鎖でよく記述できることを示したのである。これは文章に対する最初の統計的分析であり、あらゆる予測変換システムの祖先である。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">確率をベクトルとして、推移を行列として捉える</div>
+<p><em>系が一定の確率で状態の間を移り変わるときは、分布をベクトルとして、推移を行列として書け。すると、長期的な振る舞いは固有ベクトルについての問題になる。</em></p>
+<p>大学では、これによって第 7 章の線形代数が確率論に持ち込まれる。ペロン–フロベニウスの定理（Perron–Frobenius theorem）が定常分布の存在を保証し、残りの固有値がそこへ到達する速さを測るのである。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>ウサギの巣穴。</strong><a href="https://step.maths.org/questions/03-s3-q13">STEP III 2003、第13問</a> に挑戦せよ。各頂点に出口のある正方形の頂点上のランダムウォークを、最初の 1 ステップに関する方程式によって解く問題である。</p></li>
+<li><p><strong>2 ステップ。</strong>エックス教授の直前の定理が新しく正しいものであったとき、その次の次の定理が三つの種類それぞれである確率を求めよ。</p></li>
+<li><p><strong>固有値。</strong><span class="math inline">\(P\)</span> の固有値が <span class="math inline">\(1\)</span>、<span class="math inline">\(0.2\)</span>、<span class="math inline">\(0.1\)</span> であることを示せ。</p></li>
+<li><p><strong>可逆か？</strong>エックス教授の連鎖について <span class="math inline">\(a_ip_{ij} = a_jp_{ji}\)</span> が成り立つかどうか確かめよ。その答えから何がわかるか。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>James Norris, <a href="https://uk.bookshop.org/search?keywords=Markov+Chains+Norris"><em>Markov Chains</em></a></strong>（Cambridge University Press）。学部生向けの標準的な教科書である。</p></li>
+<li><p><strong>Olle Häggström, <a href="https://uk.bookshop.org/search?keywords=Finite+Markov+Chains+and+Algorithmic+Applications+Haggstrom"><em>Finite Markov Chains and Algorithmic Applications</em></a></strong>（Cambridge University Press）。簡潔で、マルコフ連鎖モンテカルロ法の解説に優れる。</p></li>
+<li><p><strong>Brian Hayes, “<a href="https://doi.org/10.1511/2013.101.92">First links in the Markov chain</a>”</strong>, <em>American Scientist</em> 101 (2013)。マルコフによるプーシキンの分析を改めて紹介する記事である。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="branching.html">← 12.15 絶滅か爆発か</a><a class="next" href="matchboxes.html">→ 12.17 バナッハのマッチ箱</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

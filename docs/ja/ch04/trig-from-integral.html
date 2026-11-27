@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>積分から三角関数を構成する (STEP III 2017 Q6) — Beyond STEP</title>
+<meta name="description" content="STEP III 2017 問題 6：解説付き解答とその背後にある大学数学。 π とは何だろうか。学校では、円周の長さと直径の比が π であり、 sin と cos は三角形によって定義される。幾何学としてはそれで十分であるが、厄介な疑問が残る。曲線に沿った「長さ」とは正確には何なのか。なぜ sin x はあのようなマクローリン級数（Maclaurin…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch04/trig-from-integral.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/trig-from-integral.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="積分から三角関数を構成する (STEP III 2017 Q6) — Beyond STEP">
+<meta property="og:description" content="STEP III 2017 問題 6：解説付き解答とその背後にある大学数学。 π とは何だろうか。学校では、円周の長さと直径の比が π であり、 sin と cos は三角形によって定義される。幾何学としてはそれで十分であるが、厄介な疑問が残る。曲線に沿った「長さ」とは正確には何なのか。なぜ sin x はあのようなマクローリン級数（Maclaurin…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch04/trig-from-integral.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="積分から三角関数を構成する (STEP III 2017 Q6) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2017 問題 6：解説付き解答とその背後にある大学数学。 π とは何だろうか。学校では、円周の長さと直径の比が π であり、 sin と cos は三角形によって定義される。幾何学としてはそれで十分であるが、厄介な疑問が残る。曲線に沿った「長さ」とは正確には何なのか。なぜ sin x はあのようなマクローリン級数（Maclaurin…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "積分から三角関数を構成する", "headline": "積分から三角関数を構成する", "description": "STEP III 2017 問題 6：解説付き解答とその背後にある大学数学。 π とは何だろうか。学校では、円周の長さと直径の比が π であり、 sin と cos は三角形によって定義される。幾何学としてはそれで十分であるが、厄介な疑問が残る。曲線に沿った「長さ」とは正確には何なのか。なぜ sin x はあのようなマクローリン級数（Maclaurin…", "url": "https://beyondstep.keithmcnulty.org/ja/ch04/trig-from-integral.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2017 問題 6", "きちんと学ぶ微分積分学"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 4, "name": "きちんと学ぶ微分積分学", "url": "https://beyondstep.keithmcnulty.org/ja/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第4章：きちんと学ぶ微分積分学", "item": "https://beyondstep.keithmcnulty.org/ja/ch04/"}, {"@type": "ListItem", "position": 3, "name": "積分から三角関数を構成する", "item": "https://beyondstep.keithmcnulty.org/ja/ch04/trig-from-integral.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch04/trig-from-integral.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch04/trig-from-integral.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch04/trig-from-integral.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch04/trig-from-integral.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第4章 · きちんと学ぶ微分積分学</a>
+    <div class="src">STEP III · 2017 · 問題 6</div>
+    <div class="sec-head"><span class="sec-num">4.2</span><h1>積分から三角関数を構成する</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-2-trig-from-integral.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第4章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2017、第6問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/17-s3-q6">step.maths.org/questions/17-s3-q6</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p><span class="math inline">\(\pi\)</span> とは何だろうか。学校では、円周の長さと直径の比が <span class="math inline">\(\pi\)</span> であり、<span class="math inline">\(\sin\)</span> と <span class="math inline">\(\cos\)</span> は三角形によって定義される。幾何学としてはそれで十分であるが、厄介な疑問が残る。曲線に沿った「長さ」とは正確には何なのか。なぜ <span class="math inline">\(\sin x\)</span> はあのようなマクローリン級数（Maclaurin series）をもつのか。加法定理（addition formula）が、図に描ける角だけでなくすべての角で成り立つことを、どうやって知るのか。</p>
+<p>この問題は、まったく異なる入り口を示してくれる。三角形も円も忘れてしまおう。出発点はただ一つの積分 <span class="math inline">\(\mathrm{T}(x) = \int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span> であり、これに必要なのは <a href="../ch04/riemann.html">第 4.1 節</a> で扱った積分の定義だけである。<span class="math inline">\(\pi\)</span> を <span class="math inline">\(2\mathrm{T}_\infty\)</span> と定義する。そして置換（substitution）だけを用いて、<span class="math inline">\(\mathrm{T}(\sqrt3) = \frac{\pi}{3}\)</span> と <span class="math inline">\(\mathrm{T}(\sqrt2 - 1) = \frac{\pi}{8}\)</span> を証明する。これらは、<span class="math inline">\(\arctan\sqrt3 = 60^\circ\)</span> および <span class="math inline">\(\tan 22\tfrac12^\circ = \sqrt2 - 1\)</span> として知られている事実である。三角法を無から作り直すのである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<p>実は <span class="math inline">\(\mathrm{T}(x) = \arctan x\)</span> であり、<span class="math inline">\(\mathrm{T}_\infty = \frac\pi2\)</span> であることを、読者はひそかに知っている。問題はこの知識を使うことを禁じており、そこにこそ意味がある。すべてを積分から導かなければならないのである。とはいえ、ひそかな知識は有用な道しるべになる。</p>
+<div class="askyourself">
+<p>小問 (i) と (ii) は、それぞれどの三角関数の恒等式（identity）に対応しているだろうか。（<span class="math inline">\(\arctan x + \arctan\frac1x\)</span> と、<span class="math inline">\(\tan(A + B)\)</span> の公式を考えてみよ。）</p>
+</div>
+<p>小問 (i) は <span class="math inline">\(\arctan x + \arctan\frac1x = \frac\pi2\)</span> である。小問 (ii) は加法定理 <span class="math inline">\(\tan(A + B) = \frac{\tan A + \tan B}{1 - \tan A\tan B}\)</span> が姿を変えたものである。すなわち、<span class="math inline">\(u = \tan A\)</span>、<span class="math inline">\(a = \tan B\)</span> とおけば <span class="math inline">\(v = \tan(A + B)\)</span> となる。この問題では、これらの恒等式を幾何学を一切使わずに積分から証明する。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-反転-u-mapsto-1u" class="stage"><span class="stage-n">段階 1</span> 反転 <span class="math inline">\(u \mapsto 1/u\)</span></h4>
+<p><span class="math inline">\(\mathrm{T}(x)\)</span> において <span class="math inline">\(u = 1/w\)</span> と置換する。すると <span class="math inline">\(\mathrm{d}u = -\mathrm{d}w/w^2\)</span> であり、<span class="math inline">\(\dfrac{1}{1 + u^2} = \dfrac{w^2}{w^2 + 1}\)</span> であるから、 <span class="math display">\[\mathrm{T}(x) = \int_{\infty}^{1/x} \frac{w^2}{w^2 + 1}\cdot\left(-\frac{1}{w^2}\right)\mathrm{d}w = \int_{1/x}^{\infty} \frac{\mathrm{d}w}{1 + w^2} = \mathrm{T}_\infty - \mathrm{T}(x^{-1}). \qed\]</span> 言い換えれば、<span class="math inline">\(\frac{1}{1+u^2}\)</span> のグラフの下の <span class="math inline">\(0\)</span> から <span class="math inline">\(x\)</span> までの面積は、<span class="math inline">\(\frac1x\)</span> から <span class="math inline">\(\infty\)</span> までの面積に等しい（図 4.2.1）。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-2-1.svg" alt="図 4.2.1"><figcaption><span class="fig-label">図 4.2.1</span> 置換 <span class="math inline">\(u = 1/w\)</span> により、<span class="math inline">\(\frac{1}{1+u^2}\)</span> のグラフの下にある二つの影をつけた部分の面積が等しいことがわかる。すなわち、<span class="math inline">\(0\)</span> から <span class="math inline">\(x\)</span> までの部分（青緑）と、<span class="math inline">\(\frac1x\)</span> から先へ無限に延びる部分（琥珀色）である。ここでは <span class="math inline">\(x = \frac12\)</span> としている。</figcaption></figure>
+<h4 id="stagemark2-加法の置換" class="stage"><span class="stage-n">段階 2</span> 加法の置換</h4>
+<div class="askyourself">
+<p><span class="math inline">\(v = \dfrac{u + a}{1 - au}\)</span> を商の微分法（quotient rule）で微分せよ。次に <span class="math inline">\(1 + v^2\)</span> を一つの分数として計算し、両者を比べよ。</p>
+</div>
+<p><span class="math display">\[\begin{aligned}
+  \frac{\mathrm{d}v}{\mathrm{d}u} &amp;= \frac{(1 - au) + a(u + a)}{(1 - au)^2} = \frac{1 + a^2}{(1 - au)^2},
+ \\
+  1 + v^2 &amp;= \frac{(1 - au)^2 + (u + a)^2}{(1 - au)^2} = \frac{(1 + a^2)(1 + u^2)}{(1 - au)^2}.
+\end{aligned}\]</span> 割り算をすると、<span class="math inline">\(\dfrac{1 + v^2}{1 + u^2} = \dfrac{1 + a^2}{(1 - au)^2} = \dfrac{\mathrm{d}v}{\mathrm{d}u}\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>これは <span class="math inline">\(\dfrac{\mathrm{d}u}{1 + u^2} = \dfrac{\mathrm{d}v}{1 + v^2}\)</span> ということである。つまり、置換 <span class="math inline">\(u \mapsto v\)</span> は被積分関数（integrand）をまったく変えない。では、<span class="math inline">\(\mathrm{T}(x)\)</span> の積分区間の端はどうなるだろうか。</p>
+</div>
+<p><span class="math inline">\(u\)</span> が <span class="math inline">\(0\)</span> から <span class="math inline">\(x\)</span> まで動くとき（<span class="math inline">\(x &lt; \frac1a\)</span> とする。このとき区間全体で <span class="math inline">\(1 - au &gt; 0\)</span> であり、<span class="math inline">\(v\)</span> は連続かつ増加する）、<span class="math inline">\(v\)</span> は <span class="math inline">\(a\)</span> から <span class="math inline">\(\frac{x + a}{1 - ax}\)</span> まで動く。したがって <span class="math display">\[\mathrm{T}(x) = \int_0^x \frac{\mathrm{d}u}{1 + u^2} = \int_a^{(x+a)/(1-ax)} \frac{\mathrm{d}v}{1 + v^2} = \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) - \mathrm{T}(a). \qed\]</span></p>
+<h4 id="stagemark3-さらに二つの恒等式" class="stage"><span class="stage-n">段階 3</span> さらに二つの恒等式</h4>
+<p>小問 (i) と二回組み合わせると、 <span class="math display">\[\mathrm{T}(x^{-1}) = \mathrm{T}_\infty - \mathrm{T}(x) = \mathrm{T}_\infty - \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) + \mathrm{T}(a) = 2\mathrm{T}_\infty - \mathrm{T}\!\left(\frac{x + a}{1 - ax}\right) - \mathrm{T}(a^{-1}). \qed\]</span> ここで文字を置き換える。<span class="math inline">\(y = 1/x\)</span>、<span class="math inline">\(b = 1/a\)</span> とおく。条件 <span class="math inline">\(x &lt; 1/a\)</span> は <span class="math inline">\(1/y &lt; b\)</span>、すなわち <span class="math inline">\(y &gt; 1/b\)</span> となり、 <span class="math display">\[\frac{x + a}{1 - ax} = \frac{1/y + 1/b}{1 - 1/(by)} = \frac{b + y}{by - 1}.\]</span> よって <span class="math inline">\(\mathrm{T}(y) = 2\mathrm{T}_\infty - \mathrm{T}\!\left(\dfrac{y + b}{by - 1}\right) - \mathrm{T}(b)\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-特殊値" class="stage"><span class="stage-n">段階 4</span> 特殊値</h4>
+<div class="pausebox">
+<p>最後の恒等式において、引数 <span class="math inline">\(\frac{y + b}{by - 1}\)</span> が <span class="math inline">\(y\)</span> 自身に等しくなるように <span class="math inline">\(y\)</span> と <span class="math inline">\(b\)</span> を選べ。何が得られるだろうか。</p>
+</div>
+<p><span class="math inline">\(y = b = \sqrt3\)</span> とする。このとき <span class="math inline">\(y &gt; \frac1b\)</span> であり、<span class="math inline">\(\dfrac{\sqrt3 + \sqrt3}{3 - 1} = \sqrt3\)</span> である。恒等式は <span class="math inline">\(\mathrm{T}(\sqrt3) = 2\mathrm{T}_\infty - 2\mathrm{T}(\sqrt3)\)</span> となるので、 <span class="math display">\[\mathrm{T}(\sqrt3) = \tfrac23\mathrm{T}_\infty. \qed\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(\sqrt2 - 1\)</span> については、加法の恒等式で <span class="math inline">\(x = a = \sqrt2 - 1\)</span> としてみよ。<span class="math inline">\(\frac{2x}{1 - x^2}\)</span> はいくつになるか。また、<span class="math inline">\(\mathrm{T}(1)\)</span> はいくつか。</p>
+</div>
+<p><span class="math inline">\(x = a = \sqrt2 - 1\)</span> とすると（<span class="math inline">\(x^2 = 3 - 2\sqrt2 &lt; 1\)</span> であるから <span class="math inline">\(x &lt; \frac1a\)</span> が成り立つ）、加法の恒等式により <span class="math inline">\(2\mathrm{T}(x) = \mathrm{T}\!\left(\frac{2x}{1 - x^2}\right)\)</span> となる。ここで <span class="math inline">\(1 - x^2 = 2\sqrt2 - 2 = 2(\sqrt2 - 1) = 2x\)</span> であるから <span class="math inline">\(\frac{2x}{1 - x^2} = 1\)</span> であり、<span class="math inline">\(2\mathrm{T}(\sqrt2 - 1) = \mathrm{T}(1)\)</span> を得る。最後に、小問 (i) で <span class="math inline">\(x = 1\)</span> とすると <span class="math inline">\(\mathrm{T}(1) = \mathrm{T}_\infty - \mathrm{T}(1)\)</span> となるから、<span class="math inline">\(\mathrm{T}(1) = \frac12\mathrm{T}_\infty\)</span> である。したがって <span class="math display">\[\mathrm{T}(\sqrt2 - 1) = \tfrac14\mathrm{T}_\infty. \qed\]</span></p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>被積分関数を保つ置換。</strong>鍵となる二つのステップでは、どちらも <span class="math inline">\(\frac{\mathrm{d}u}{1+u^2}\)</span> を変えない置換を用いた。動いたのは積分区間の端だけである。積分のこのような「対称性」は強力な道具である。</p></li>
+<li><p><strong>不動点。</strong><span class="math inline">\(\mathrm{T}(\sqrt3)\)</span> の値は、ある式がそれ自身に等しくなるような数を選ぶことで得られた。こうして恒等式が方程式に変わったのである。</p></li>
+<li><p><strong>定義は解析学から得られる。</strong>三角形は一度も使わなかったが、それでも <span class="math inline">\(\frac\pi3\)</span> と <span class="math inline">\(\frac\pi8\)</span> を導き出せた（<span class="math inline">\(\pi\)</span> は <span class="math inline">\(2\mathrm{T}_\infty\)</span> として定義した）。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">初等関数を構成する</div>
+<p>厳密な解析学の講義では、関数 <span class="math inline">\(\exp\)</span>、<span class="math inline">\(\sin\)</span>、<span class="math inline">\(\cos\)</span>、<span class="math inline">\(\ln\)</span> の存在を単に仮定することはできない。それらは<em>構成</em>されなければならず、その性質も証明されなければならない。標準的な方法は三つある。冪級数（power series）によって定義する方法（<span class="math inline">\(\sin x = x - \frac{x^3}{3!} + \cdots\)</span>）。演習問題にある1986年の見本問題のように、微分方程式（differential equation）の解として定義する方法（<span class="math inline">\(\mathrm{f}&#39; = \mathrm{f}\)</span>、<span class="math inline">\(\mathrm{f}(0) = 1\)</span> によって <span class="math inline">\(\exp\)</span> が定まる）。あるいは、ここで行ったように、逆関数（inverse function）を積分で定義する方法である。すなわち <span class="math inline">\(\ln x = \int_1^x \frac{\mathrm{d}u}{u}\)</span>、<span class="math inline">\(\arctan x = \int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span> とし、そのうえで <span class="math inline">\(\pi = 2\int_0^\infty \frac{\mathrm{d}u}{1+u^2}\)</span> と定義する。どの方法にもそれぞれの長所があり、これらがすべて同じ関数を与えることを証明するのは、やりがいのある演習である。<a href="../ch03/addition-laws.html">第 3.8 節</a> の関数方程式（functional equation）による方法と比べてみよ。</p>
+</div>
+<h3 id="円を越えて楕円積分">円を越えて：楕円積分</h3>
+<p>積分による方法は、三角形による方法では不可能な形で一般化できる。1718年、ジュリオ・ファニャーノ（Giulio Fagnano）は8の字形の曲線である<em>レムニスケート</em>（lemniscate）の弧長（arc length）を研究した。これは <span class="math inline">\(\int_0^x \frac{\mathrm{d}u}{\sqrt{1 - u^4}}\)</span> に帰着する。ファニャーノは、ちょうど我々の置換が <span class="math inline">\(\mathrm{T}\)</span> を2倍にしたように、弧を2倍にする置換を発見した。1751年にファニャーノの研究を読んだオイラー（Euler）は完全な加法定理を見いだし、これがやがてアーベル（Abel）とヤコビ（Jacobi）を経て、<em>楕円関数</em>（elliptic function）の理論へとつながった。楕円関数とはこのような積分の逆関数であり、<span class="math inline">\(\sin\)</span> と <span class="math inline">\(\cos\)</span> が円に対してもつ役割を、レムニスケートに対して果たすものである。同じ積分には、ガウス（Gauss）の算術幾何平均（AGM）に関する研究（<a href="../ch02/agm.html">第 2.6 節</a>）でも出会った。楕円関数は今日、数論（number theory）の中心にある。<a href="../ch01/tangents-cubic.html">第 1.9 節</a> の楕円曲線（elliptic curve）は、その幾何学的な影である。</p>
+<h3 id="pi-を計算する"><span class="math inline">\(\pi\)</span> を計算する</h3>
+<p>加法の恒等式は、<span class="math inline">\(\pi\)</span> を計算するための最も有名な公式群の基礎でもある。これを繰り返し適用すると、たとえば <span class="math inline">\(\mathrm{T}(1) = 4\mathrm{T}(\frac15) - \mathrm{T}(\frac{1}{239})\)</span> が示される。これが1706年のマチン（Machin）の公式である。級数 <span class="math inline">\(\mathrm{T}(x) = x - \frac{x^3}{3} + \frac{x^5}{5} - \cdots\)</span> と組み合わせることで、この公式は <span class="math inline">\(\pi\)</span> の <span class="math inline">\(100\)</span> 桁を与え、その後2世紀半にわたって最良の方法であり続けた。これが <a href="../ch05/machin.html">第 5.1 節</a> の主題である。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">積分の対称性</div>
+<p><em>被積分関数を変えない置換を探せ。それらは、その積分が定める関数についての恒等式に変わる。</em></p>
+<p>ここでは <span class="math inline">\(u \mapsto 1/u\)</span> と <span class="math inline">\(u \mapsto \frac{u+a}{1-au}\)</span> が <span class="math inline">\(\frac{\mathrm{d}u}{1+u^2}\)</span> を保ち、それぞれ反転の公式と加法定理を与える。同じ考え方をほかの積分に適用したものが、特殊関数（special functions）の理論の根底にある。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>指数関数と余弦関数。</strong><a href="https://step.maths.org/questions/spec-s2-q6">STEP II Specimen paper、第6問</a> に挑戦せよ。この問題は、指数関数と余弦関数の加法定理を、それらの微分方程式だけから導く。（<em>ヒント：</em>余弦関数については、0 になるはずの二つの組合せを見つけ、それらの平方の和が一定であることを示せ。）</p></li>
+<li><p><strong>逆正弦関数。</strong><a href="https://step.maths.org/questions/07-s3-q7">STEP III 2007、第7問</a> に挑戦せよ。この問題は、逆正弦関数（inverse sine）をこの節の積分と同じように扱い、置換によって両者を結びつける。</p></li>
+<li><p><strong>初期のマチン型公式。</strong>加法の恒等式を用いて、<span class="math inline">\(\mathrm{T}(\frac12) + \mathrm{T}(\frac13) = \mathrm{T}(1) = \frac12\mathrm{T}_\infty\)</span> を示せ。</p></li>
+<li><p><strong><span class="math inline">\(\mathrm{T}_\infty\)</span> は有限である。</strong>すべての <span class="math inline">\(x \geq 1\)</span> に対して <span class="math inline">\(\mathrm{T}(x) \leq 1 + \int_1^x \frac{\mathrm{d}u}{u^2} &lt; 2\)</span> であることを示し、<span class="math inline">\(0 &lt; x &lt; 1\)</span> に対しても <span class="math inline">\(\mathrm{T}(x) &lt; 2\)</span> となる理由を説明せよ。さらに、単調収束定理（monotone convergence theorem）（<a href="../ch02/golden-limit.html">第 2.2 節</a>）から <span class="math inline">\(\mathrm{T}_\infty\)</span> が存在することを導け。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Tom Körner, <a href="https://uk.bookshop.org/search?keywords=Calculus+for+the+Ambitious+Korner"><em>Calculus for the Ambitious</em></a></strong>（Cambridge University Press）。初等関数を厳密に構成し、さまざまな方法について論じている。</p></li>
+<li><p><strong>Walter Rudin, <a href="https://uk.bookshop.org/search?keywords=Principles+of+Mathematical+Analysis+Rudin"><em>Principles of Mathematical Analysis</em></a></strong>（McGraw-Hill）。邦訳『現代解析学』。有名な「baby Rudin」である。第8章の序論では、冪級数から <span class="math inline">\(\exp\)</span>、<span class="math inline">\(\sin\)</span>、<span class="math inline">\(\cos\)</span> をわずか数ページで見事に構成している。上級向け。</p></li>
+<li><p><strong>Victor Prasolov &amp; Yuri Solovyev, <a href="https://uk.bookshop.org/search?keywords=Elliptic+Functions+and+Elliptic+Integrals+Prasolov+Solovyev"><em>Elliptic Functions and Elliptic Integrals</em></a></strong>（American Mathematical Society）。レムニスケートがどこへつながっていくのかを知りたい人に。上級向け。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="riemann.html">← 4.1 積分とは何か？</a><a class="next" href="twenty-two-sevenths.html">→ 4.3 22/7 は π より大きい</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

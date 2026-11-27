@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>원판에 숨은 거리 (STEP III 2013 Q6) — Beyond STEP</title>
+<meta name="description" content="STEP III 2013 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 얼핏 보면 이 문제는 절댓값(modulus)과 켤레복소수(conjugate)를 다루는 연습 문제이고, 끝에는 묘하게 생긴 부등식이 나온다. 도대체 누가 (|z - w|)/(|1 - zw^*|) 같은 것에 관심을 가질까? 그것이 거리이기 때문이다. z 와 w 사이의 보통 거리가…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch05/poincare-disc.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch05/poincare-disc.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch05/poincare-disc.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/poincare-disc.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/poincare-disc.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch05/poincare-disc.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch05/poincare-disc.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="원판에 숨은 거리 (STEP III 2013 Q6) — Beyond STEP">
+<meta property="og:description" content="STEP III 2013 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 얼핏 보면 이 문제는 절댓값(modulus)과 켤레복소수(conjugate)를 다루는 연습 문제이고, 끝에는 묘하게 생긴 부등식이 나온다. 도대체 누가 (|z - w|)/(|1 - zw^*|) 같은 것에 관심을 가질까? 그것이 거리이기 때문이다. z 와 w 사이의 보통 거리가…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch05/poincare-disc.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="원판에 숨은 거리 (STEP III 2013 Q6) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2013 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 얼핏 보면 이 문제는 절댓값(modulus)과 켤레복소수(conjugate)를 다루는 연습 문제이고, 끝에는 묘하게 생긴 부등식이 나온다. 도대체 누가 (|z - w|)/(|1 - zw^*|) 같은 것에 관심을 가질까? 그것이 거리이기 때문이다. z 와 w 사이의 보통 거리가…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "원판에 숨은 거리", "headline": "원판에 숨은 거리", "description": "STEP III 2013 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 얼핏 보면 이 문제는 절댓값(modulus)과 켤레복소수(conjugate)를 다루는 연습 문제이고, 끝에는 묘하게 생긴 부등식이 나온다. 도대체 누가 (|z - w|)/(|1 - zw^*|) 같은 것에 관심을 가질까? 그것이 거리이기 때문이다. z 와 w 사이의 보통 거리가…", "url": "https://beyondstep.keithmcnulty.org/ko/ch05/poincare-disc.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2013 문제 6", "복소수"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 5, "name": "복소수", "url": "https://beyondstep.keithmcnulty.org/ko/ch05/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제5장: 복소수", "item": "https://beyondstep.keithmcnulty.org/ko/ch05/"}, {"@type": "ListItem", "position": 3, "name": "원판에 숨은 거리", "item": "https://beyondstep.keithmcnulty.org/ko/ch05/poincare-disc.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch05/poincare-disc.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch05/poincare-disc.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch05/poincare-disc.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch05/poincare-disc.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제5장 · 복소수</a>
+    <div class="src">STEP III · 2013 · 문제 6</div>
+    <div class="sec-head"><span class="sec-num">5.8</span><h1>원판에 숨은 거리</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-8-poincare-disc.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제5장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 2013, 문제 6</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/13-s3-q6">step.maths.org/questions/13-s3-q6</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>얼핏 보면 이 문제는 절댓값(modulus)과 켤레복소수(conjugate)를 다루는 연습 문제이고, 끝에는 묘하게 생긴 부등식이 나온다. 도대체 누가 <span class="math inline">\(\frac{|z - w|}{|1 - zw^*|}\)</span> 같은 것에 관심을 가질까?</p>
+<p>그것이 거리이기 때문이다. <span class="math inline">\(z\)</span>와 <span class="math inline">\(w\)</span> 사이의 보통 거리가 아니라 전혀 다른 기하학에서의 거리이다. 그 기하학에서는 단위원판(unit disc)이 무한히 펼쳐진 하나의 우주 전체이고, 직선은 원호이며, 삼각형의 세 각의 합은 <span class="math inline">\(180^\circ\)</span>보다 작다. 이것이 바로 <em>쌍곡기하학(hyperbolic geometry)</em>이다. 쌍곡기하학은 유클리드(Euclid)의 평행선 공준(parallel postulate)을 증명하려던 이천 년에 걸친 시도 끝에 19세기에 발견되었고, 이 문제의 부등식은 알고 보면 모습을 감춘 쌍곡기하학의 삼각부등식(triangle inequality)이다. 더욱 놀랍게도 우변은 <a href="../ch03/addition-laws.html">3.8 절</a>에서 만났던 특수상대성이론(special relativity)의 속도 합성 공식이다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p><span class="math inline">\(|z - w| \leq |z| + |w|\)</span>가 그림으로부터 어떻게 나오는가? (<span class="math inline">\(z\)</span>와 <span class="math inline">\(-w\)</span>를 벡터로 생각해 보라.)</p>
+</div>
+<p><span class="math inline">\(z - w = z + (-w)\)</span>이다. 원점에서 출발하는 화살표로 <span class="math inline">\(z\)</span>를 그리고, <span class="math inline">\(z\)</span>의 끝점에서 출발하는 화살표로 <span class="math inline">\(-w\)</span>를 그린다. 원점에서 마지막 점까지의 화살표가 <span class="math inline">\(z - w\)</span>이고, 세 화살표는 세 변의 길이가 <span class="math inline">\(|z|\)</span>, <span class="math inline">\(|w|\)</span>, <span class="math inline">\(|z - w|\)</span>인 삼각형을 이룬다. 삼각형의 한 변의 길이는 나머지 두 변의 길이의 합보다 클 수 없다.</p>
+<p>또한 임의의 복소수 <span class="math inline">\(a\)</span>에 대하여 <span class="math inline">\(|a|^2 = aa^*\)</span>임을 떠올리자. 이를 이용하면 문제에 나오는 모든 절댓값을 대수식으로 바꿀 수 있다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-절댓값-전개하기" class="stage"><span class="stage-n">단계 1</span> 절댓값 전개하기</h4>
+<div class="askyourself">
+<p><span class="math inline">\(|z - w|^2 = (z - w)(z^* - w^*)\)</span>를 전개하라. 이것을 <span class="math inline">\((|z| + |w|)^2\)</span>와 비교하라.</p>
+</div>
+<p><span class="math inline">\(|z - w|^2 = zz^* - zw^* - z^*w + ww^* = |z|^2 + |w|^2 - zw^* - z^*w\)</span>이다. 한편 <span class="math inline">\((|z| + |w|)^2 - E = |z|^2 + 2|z||w| + |w|^2 - zw^* - z^*w - 2|zw|\)</span>이고, <span class="math inline">\(|z||w| = |zw|\)</span>이므로 이것은 앞의 식과 같다.<span class="qed" aria-label="end of proof">■</span></p>
+<p><span class="math inline">\(E = (zw^*) + (zw^*)^* + 2|zw| = 2\,\mathrm{Re}(zw^*) + 2|zw|\)</span>이므로 이것은 실수이다. 그리고 삼각부등식에 의하여 <span class="math inline">\(E = (|z| + |w|)^2 - |z - w|^2 \geq 0\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-두-번째-항등식" class="stage"><span class="stage-n">단계 2</span> 두 번째 항등식</h4>
+<p><span class="math inline">\(|1 - zw^*|^2 = (1 - zw^*)(1 - z^*w) = 1 - zw^* - z^*w + |z|^2|w|^2\)</span>이고, <span class="math inline">\((1 + |zw|)^2 - E = 1 + 2|zw| + |zw|^2 - zw^* - z^*w - 2|zw|\)</span>이므로 둘은 같다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-부등식" class="stage"><span class="stage-n">단계 3</span> 부등식</h4>
+<div class="askyourself">
+<p><span class="math inline">\(A = (|z| + |w|)^2\)</span>, <span class="math inline">\(B = (1 + |zw|)^2\)</span>이라 하자. 부등식을 제곱하면 <span class="math inline">\(\frac{A - E}{B - E} \leq \frac AB\)</span>가 된다. 이것은 언제 성립하는가?</p>
+</div>
+<p>증명해야 할 부등식의 양변은 모두 음이 아니므로, 이 부등식은 양변을 제곱한 <span class="math inline">\(\frac{A - E}{B - E} \leq \frac{A}{B}\)</span>와 동치이다. <span class="math inline">\(B - E = |1 - zw^*|^2 &gt; 0\)</span>이라 가정하고 분모를 없애면 다음과 같다. <span class="math display">\[(A - E)B \leq A(B - E) \iff -EB \leq -EA \iff E(B - A) \geq 0.\]</span> <span class="math inline">\(E \geq 0\)</span>이므로 이 부등식은 <span class="math inline">\(B \geq A\)</span>, 즉 <span class="math inline">\(1 + |zw| \geq |z| + |w|\)</span>일 때 항상 성립한다.</p>
+<div class="pausebox">
+<p><span class="math inline">\(1 + |z||w| - |z| - |w|\)</span>가 인수분해(factorise)됨을 보여라. 이 식은 언제 음이 아닌가?</p>
+</div>
+<p><span class="math inline">\(1 + |z||w| - |z| - |w| = (1 - |z|)(1 - |w|)\)</span>이다. <span class="math inline">\(|z| &gt; 1\)</span>이고 <span class="math inline">\(|w| &gt; 1\)</span>이면 두 인수가 모두 음수이므로 곱은 양수이다. 따라서 <span class="math inline">\(B \geq A\)</span>이고 부등식이 성립한다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>반대로 <span class="math inline">\(|z| &lt; 1\)</span>이고 <span class="math inline">\(|w| &lt; 1\)</span>이면 두 인수가 모두 양수이므로 곱은 이번에도 양수이고, 같은 논증이 그대로 통한다. 즉 <strong>그렇다</strong>, 이 경우에도 부등식은 성립한다. (두 경우 모두 <span class="math inline">\(|zw^*| \neq 1\)</span>이므로 <span class="math inline">\(1 - zw^* \neq 0\)</span>이고, 따라서 좌변이 정의된다.) 부등식이 성립하지 않을 수 있는 것은 하나는 단위원 안에, 다른 하나는 단위원 밖에 있는 섞인 경우이다.</p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong><span class="math inline">\(|a|^2 = aa^*\)</span>.</strong> 모든 항등식은 켤레복소수의 곱을 전개하여 얻었다. 이것은 절댓값을 대수적으로 다루는 표준적인 방법이다.</p></li>
+<li><p><strong>한 양의 부호 문제로 줄이기.</strong> 제곱하고 분모를 없앤 뒤에는 부등식 전체가 <span class="math inline">\((1 - |z|)(1 - |w|)\)</span>의 부호에 달려 있었다.</p></li>
+<li><p><strong>다른 경우도 확인하기.</strong> 마지막 질문은 <span class="math inline">\(|z|, |w| &lt; 1\)</span>인 경우를 물었는데, 같은 인수분해로 곧바로 답할 수 있었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">비유클리드 기하학(non-Euclidean geometry)</div>
+<p>이천 년 동안 수학자들은 유클리드의 다섯 번째 공준(직선 위에 있지 않은 한 점을 지나 그 직선에 평행한 직선은 정확히 하나 있다)을 그의 다른 공리들로부터 증명하려고 애썼다. 1820년대와 1830년대에 로바쳅스키(Nikolai Lobachevsky), 보여이 야노시(János Bolyai), 그리고 (공개하지는 않았지만) 가우스(Gauss)는 그것이 불가능하다는 것을 깨달았다. 평행선이 무한히 많은, 완벽하게 모순 없는 기하학이 존재하는 것이다. 1882년 푸앵카레(Henri Poincaré)는 단위원판 안에서 이 기하학의 아름다운 모형을 찾아냈다. 점은 열린 원판의 점이고, “직선”은 지름, 그리고 경계원과 직각으로 만나는 원호이며, <span class="math inline">\(z\)</span>와 <span class="math inline">\(w\)</span> 사이의 거리는 다음과 같다. <span class="math display">\[d(z, w) = 2\tanh^{-1}\rho(z, w), \qquad\text{여기서}\qquad \rho(z, w) = \frac{|z - w|}{|1 - zw^*|}.\]</span> 점이 경계원에 가까워질수록 중심으로부터의 거리는 무한대로 커진다. 즉 이 원판은 왜곡 렌즈를 통해 바라본, 무한히 펼쳐진 평면 전체이다.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-5-8-1.svg" alt="그림 5.8.1"><figcaption><span class="fig-label">그림 5.8.1</span> 푸앵카레 원판(Poincaré disc). 쌍곡기하학의 “직선”은 지름이거나 경계와 직각으로 만나는 원의 호이다(회색). 꼭짓점이 <span class="math inline">\(0\)</span>, <span class="math inline">\(z\)</span>, <span class="math inline">\(w\)</span>인 쌍곡삼각형은 두 변이 지름 위에 있고(호박색) 한 변이 원호 위에 있다(자주색). 문제의 부등식은 쌍곡 거리로 잴 때 자주색 변의 길이가 나머지 두 변의 길이의 합보다 길지 않다는 뜻이다.</figcaption></figure>
+<h3 id="모습을-감춘-삼각부등식">모습을 감춘 삼각부등식</h3>
+<p><span class="math inline">\(|z|, |w| &lt; 1\)</span>일 때 이 문제가 증명한 것은 다음과 같다. <span class="math inline">\(|z| = \tanh a\)</span>, <span class="math inline">\(|w| = \tanh b\)</span>라 하면, <span class="math inline">\(0\)</span>에서 <span class="math inline">\(z\)</span>와 <span class="math inline">\(w\)</span>까지의 쌍곡 거리는 각각 <span class="math inline">\(2a\)</span>와 <span class="math inline">\(2b\)</span>이다. 그러면 <a href="../ch03/addition-laws.html">3.8 절</a>에서 본 <span class="math inline">\(\tanh\)</span>의 덧셈정리에 의하여 <span class="math display">\[\frac{|z| + |w|}{1 + |zw|} = \frac{\tanh a + \tanh b}{1 + \tanh a\tanh b} = \tanh(a + b).\]</span> 따라서 부등식은 <span class="math inline">\(\tanh\bigl(\frac12 d(z, w)\bigr) \leq \tanh(a + b)\)</span>, 즉 <span class="math display">\[d(z, w) \leq 2a + 2b = d(z, 0) + d(0, w).\]</span> 라는 뜻이다. 이것이 쌍곡 거리에 대한 삼각부등식이다(그림 5.8.1). 상대론적 속도 합성 공식과 쌍곡기하학은 사실 같은 것이다. 특수상대성이론에서 가능한 속도 전체의 집합은 알맞은 거리 개념을 주면 그 자체로 쌍곡공간<em>이다</em>. 이 이야기는 <a href="../ch07/hyperbolic-rotations.html">7.6 절</a>에서 다시 다룬다.</p>
+<h3 id="원판의-대칭">원판의 대칭</h3>
+<p>왜 <span class="math inline">\(\rho\)</span>가 올바른 양일까? <span class="math inline">\(|a| &lt; 1\)</span>일 때 사상 <span class="math inline">\(z \mapsto \dfrac{z - a}{1 - a^*z}\)</span>는 단위원판을 자기 자신으로 보내고, 쌍곡 거리를 보존하며, <span class="math inline">\(a\)</span>를 중심으로 옮긴다. 이 사상들은 평행이동의 쌍곡기하학 버전이고, <span class="math inline">\(\rho(z, w)\)</span>는 <span class="math inline">\(w\)</span>를 중심으로 옮겼을 때의 <span class="math inline">\(|{\text{옮겨진 } z}|\)</span>와 정확히 같다. 이러한 <em>뫼비우스 변환(Möbius transformations)</em>은 복소해석학(complex analysis)의 핵심 주제이다. 에셔(M. C. Escher)의 <em>Circle Limit</em>(원의 극한) 목판화 연작은 수학자 콕서터(H. S. M. Coxeter)의 그림에서 영감을 받은 작품으로, 합동인 물고기와 천사로 푸앵카레 원판을 쪽매맞춤한 모습을 보여 준다. 가장자리로 갈수록 무늬가 작아지는 것은 그곳에서 쌍곡 거리가 한없이 커지기 때문이다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">식이 무엇을 뜻하는지 물어라</div>
+<p><em>어떤 대수식이 자꾸 나타나면, 그것에 거리, 각, 확률, 대칭 같은 의미가 있는지 물어보라.</em></p>
+<p>여기서는 절댓값으로 이루어진 이상한 비가 다른 기하학에서의 거리였고, 이상한 부등식이 그 기하학의 삼각부등식이었다. 의미를 알아보면 결과가 왜 참인지, 그리고 그것이 어디로 이어지는지가 설명된다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>수치로 확인하기.</strong> <span class="math inline">\(z = \frac12\)</span>, <span class="math inline">\(w = -\frac12\)</span>로 두고 부등식의 양변을 계산하라. 다음으로 쌍곡 거리 <span class="math inline">\(d(z, 0)\)</span>, <span class="math inline">\(d(0, w)\)</span>, <span class="math inline">\(d(z, w)\)</span>를 계산하고, 이 경우 삼각부등식에서 등호가 성립함을 확인하라. 왜 그런가?</p></li>
+<li><p><strong>섞인 경우.</strong> 부등식이 성립하지 않는, <span class="math inline">\(|z| &lt; 1 &lt; |w|\)</span>인 <span class="math inline">\(z\)</span>, <span class="math inline">\(w\)</span>를 찾아라.</p></li>
+<li><p><strong>등거리변환(isometry).</strong> <span class="math inline">\(|a| &lt; 1\)</span>일 때 <span class="math inline">\(f(z) = \dfrac{z - a}{1 - a^*z}\)</span>라 하자. <span class="math inline">\(|z| = 1\)</span>이면 <span class="math inline">\(|f(z)| = 1\)</span>이고, <span class="math inline">\(f(a) = 0\)</span>임을 보여라. 또한 <span class="math inline">\(\rho(f(z), f(w)) = \rho(z, w)\)</span>임을 보여라.</p></li>
+<li><p><strong>무한은 가깝다.</strong> <span class="math inline">\(0\)</span>에서 <span class="math inline">\(r\)</span>까지(<span class="math inline">\(0 &lt; r &lt; 1\)</span>)의 쌍곡 거리가 <span class="math inline">\(\ln\frac{1+r}{1-r}\)</span>이고, <span class="math inline">\(r \to 1\)</span>일 때 이 값이 무한대로 발산함을 보여라. 중심으로부터의 쌍곡 거리가 <span class="math inline">\(10\)</span>이 되려면 점이 경계에 얼마나 가까워야 하는가?</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Caroline Series, “Hyperbolic geometry” 강의 노트</strong> (University of Warwick, 무료 공개). 푸앵카레 원판에서 출발하는 명쾌한 입문 강의이다.</p></li>
+<li><p><strong>Jeremy Gray, <a href="https://uk.bookshop.org/search?keywords=Ideas+of+Space+Gray"><em>Ideas of Space</em></a></strong> (Oxford University Press). 유클리드에서 아인슈타인(Einstein)에 이르는 비유클리드 기하학의 역사를 다룬다.</p></li>
+<li><p><strong>Tristan Needham, <a href="https://uk.bookshop.org/search?keywords=Visual+Complex+Analysis+Needham"><em>Visual Complex Analysis</em></a></strong> (Oxford University Press). 6장 에서 비유클리드 기하학과 뫼비우스 변환을 아름다운 그림과 함께 다룬다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="complex-exponential.html">← 5.7 사상으로서의 복소 지수함수</a><a class="next" href="wrap-up.html">→ 돌아보기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

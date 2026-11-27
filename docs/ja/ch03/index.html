@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第3章：関数・不等式・厳密さ — Beyond STEP</title>
+<meta name="description" content="誤りの発見から始め、次に古典的な不等式を扱い、最後にその性質によって定義される関数を考察する。">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch03/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch03/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch03/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch03/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch03/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch03/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第3章：関数・不等式・厳密さ — Beyond STEP">
+<meta property="og:description" content="誤りの発見から始め、次に古典的な不等式を扱い、最後にその性質によって定義される関数を考察する。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch03/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第3章：関数・不等式・厳密さ — Beyond STEP">
+<meta name="twitter:description" content="誤りの発見から始め、次に古典的な不等式を扱い、最後にその性質によって定義される関数を考察する。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 3, "name": "関数・不等式・厳密さ", "url": "https://beyondstep.keithmcnulty.org/ja/ch03/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "誤りの発見から始め、次に古典的な不等式を扱い、最後にその性質によって定義される関数を考察する。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第3章：関数・不等式・厳密さ", "item": "https://beyondstep.keithmcnulty.org/ja/ch03/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch03/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch03/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch03/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch03/index.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">3</div>
+    <h1>関数・不等式・厳密さ</h1>
+    <p class="strap">何かが正しいと知っていることと、なぜ正しいのかを知っていることは同じではない。その違いにこそ数学は宿っている。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">章全体をダウンロード</span><span class="dl-sub">PDF（印刷用組版）</span></span></a>
+  </div>
+  <h2 class="contents-head">この章の内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="spot-the-flaw.html"><span class="toc-num">3.1</span>
+<span class="toc-title">誤りを見抜け</span>
+<span class="toc-src">STEP I 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-1-spot-the-flaw.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="am-gm-backwards.html"><span class="toc-num">3.2</span>
+<span class="toc-title">相加・相乗平均を逆向きに</span>
+<span class="toc-src">STEP II 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-2-am-gm-backwards.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="convexity.html"><span class="toc-num">3.3</span>
+<span class="toc-title">凸性の威力</span>
+<span class="toc-src">STEP II 2007</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-3-convexity.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="areas-inequalities.html"><span class="toc-num">3.4</span>
+<span class="toc-title">不等式を証明する面積</span>
+<span class="toc-src">STEP III 2011</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-4-areas-inequalities.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="pi-e-or-e-pi.html"><span class="toc-num">3.5</span>
+<span class="toc-title">\(\pi^e\) か \(e^\pi\) か？</span>
+<span class="toc-src">STEP II 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-5-pi-e-or-e-pi.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="markov-bound.html"><span class="toc-num">3.6</span>
+<span class="toc-title">傾きの上界</span>
+<span class="toc-src">STEP I 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-6-markov-bound.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wirtinger.html"><span class="toc-num">3.7</span>
+<span class="toc-title">\(\pi^2 \leq 10\)</span>
+<span class="toc-src">STEP II 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-7-wirtinger.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="addition-laws.html"><span class="toc-num">3.8</span>
+<span class="toc-title">加法定理から関数を決める</span>
+<span class="toc-src">STEP III 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-8-addition-laws.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="lambert-w.html"><span class="toc-num">3.9</span>
+<span class="toc-title">新しい関数を発明する</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-3-9-lambert-w.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">振り返り：ここで学んだこと</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「次はこれに挑戦」の演習問題の解答</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第3章  \(\cdot\)  序論</div>
+    <h1 class="essay-title">正しさを確かめる</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>数学は理解するものではない。ただ慣れるものである。</p>
+<p class="who">— ジョン・フォン・ノイマン（John von Neumann）</p>
+</div>
+<p><span class="math inline">\(1 = 2\)</span> の「証明」を一つ示そう。<span class="math inline">\(a = b\)</span> とする。このとき <span class="math inline">\(a^2 = ab\)</span> であるから <span class="math inline">\(a^2 - b^2 = ab - b^2\)</span> となり、これを因数分解すると <span class="math inline">\((a + b)(a - b) = b(a - b)\)</span> である。両辺の <span class="math inline">\(a - b\)</span> を約分すると <span class="math inline">\(a + b = b\)</span> となり、<span class="math inline">\(a = b\)</span> であるからこれは <span class="math inline">\(2b = b\)</span> を意味し、したがって <span class="math inline">\(2 = 1\)</span> である。</p>
+<p>おそらく問題点には気づいたであろう。<span class="math inline">\(a = b\)</span> であるから、「<span class="math inline">\(a - b\)</span> を約分する」ことは <span class="math inline">\(0\)</span> で割ることにほかならない。しかし、どの段階もいかにもっともらしく見えたか、そして誤りがいかにたやすくありふれた操作の中に隠れていたかに注意してほしい。実際の数学における実際の誤りがこれほど明白であることはまれであり、史上最も偉大な数学者たちでさえそうした誤りに欺かれてきた。本章のテーマは、そうした誤りを見抜くための思考の習慣である。すなわち、正確な定義、定理の慎重な使用、そしてあまりに簡単すぎるように見える論証に対する健全な疑いである。</p>
+<h3 id="なぜ厳密さが重要なのか">なぜ厳密さが重要なのか</h3>
+<p>学校での数学は、主として答えを求めることである。大学での数学は、主として<em>自分の答えが正しいと知ること</em>、そしてそれを他人に納得させられることである。この転換は学校の数学と大学の数学のあいだにある最大の変化であり、戸惑いを覚えることもあるだろう。「明らかに」成り立つことを証明するのに、なぜ1ページも費やすのか、と。</p>
+<p>その答えは、「明らか」というものが当てにならないからである。解析学（analysis）の歴史は、明らかに見えたのに誤っていた結果であふれている。たとえば、連続関数（continuous function）は、孤立した数点を除けば微分可能（differentiable）でなければならないという主張（アンペール（André-Marie Ampère）は1806年にその「証明」を発表したが、1872年にワイエルシュトラス（Weierstrass）は<em>いたるところで</em>微分可能でない連続関数を発見した）、連続関数の収束する和は連続であるという主張（コーシー（Cauchy）はこれを信じていたが、アーベル（Abel）が反例（counterexample）を見つけた）、収束する級数（convergent series）の項は和を変えずに並べ替えることができるという主張（一般にはできない）などである。厳密さ（rigour）は杓子定規な細かさではない。正しいものと、もっともらしいだけのものとを見分ける唯一の確かな方法なのである。</p>
+<h3 id="不等式解析学の道具">不等式：解析学の道具</h3>
+<p>本章の第二のテーマは<em>不等式</em>（inequality）である。学校の数学では、ほとんどの結果は等式、すなわち「これはあれに等しい」という形をしている。解析学では、ほとんどの結果は不等式、すなわち「これは高々あれである」という形をしている。数列が収束することを証明するには、誤差がどんな許容値よりも<em>小さい</em>ことを示す。積分が存在することを証明するには、ある和が<em>有界</em>であることを示す。近似がどれほど良いかを評価するには、誤差を上から押さえる。プロの解析学者は等式よりもはるかに多くの時間を不等式の証明に費やしており、本章で出会う古典的な不等式（AM–GM、イェンセン（Jensen）、ヤング（Young）、ヘルダー（Hölder）、コーシー–シュワルツ（Cauchy–Schwarz））は、まさに商売道具なのである。</p>
+<p>これらの不等式は、それ自体としても目を見張るものである。関数に関するたった一つの不等式が、うまく選んだ例と組み合わせることで <span class="math inline">\(\pi^2 \leq 10\)</span> を証明する（<a href="../ch03/wirtinger.html">第 3.7 節</a>）。対数関数のグラフの形に関する事実から、<span class="math inline">\(\pi^e\)</span> と <span class="math inline">\(e^\pi\)</span> のどちらが大きいかが決着する（<a href="../ch03/pi-e-or-e-pi.html">第 3.5 節</a>）。ある化学者が抱いた測定誤差に関する疑問が、数学で最も重要な多項式のいくつかへとつながっていく（<a href="../ch03/markov-bound.html">第 3.6 節</a>）。</p>
+<h3 id="大学で出会うもの">大学で出会うもの</h3>
+<p>厳密さは、大学1年次の<em>解析学</em>のテーマであり、また<em>数と集合</em>（Numbers and Sets）や<em>基礎</em>（Foundations）などと呼ばれることの多い、証明を正確に書く方法を学ぶ講義のテーマでもある。そこでは連続性と微分可能性の形式的な定義に出会い、また正確な仮定をもつ定理（中間値の定理（intermediate value theorem）、平均値の定理（mean value theorem）、最大値・最小値の定理（extreme value theorem））に出会う。これらの定理では仮定が本当に重要である。さらに進んだ講義では、本章の不等式がそれぞれ一つの分野へと発展していく。<em>関数解析</em>（functional analysis）は、<a href="../ch03/areas-inequalities.html">第 3.4 節</a> や <a href="../ch03/wirtinger.html">第 3.7 節</a> に出てくるような積分によって測られる関数の空間を研究する。<em>凸解析</em>（convex analysis）や<em>最適化</em>（optimisation）は <a href="../ch03/convexity.html">第 3.3 節</a> から生まれる。<em>近似理論</em>（approximation theory）は <a href="../ch03/markov-bound.html">第 3.6 節</a> から生まれる。そして <a href="../ch03/lambert-w.html">第 3.9 節</a> に出てくるような<em>特殊関数</em>（special functions）は、応用数学や物理学のいたるところに現れる。</p>
+<h3 id="本章を貫く問い">本章を貫く問い</h3>
+<div class="skillbox">
+<div class="box-title">三つの大きな問い</div>
+<ol class="arabic">
+<li><p><strong>論証が正しいことをどうやって知るのか？</strong>もっともらしい論証が破綻するよくあるパターンにはどのようなものがあり、それをどう確かめればよいのか。</p></li>
+<li><p><strong>不等式はどうやって証明するのか？</strong>古典的な不等式はどこから来るのか、そしてどれを使うべきかをどう選ぶのか。</p></li>
+<li><p><strong>関数とは、本当のところ何なのか？</strong>関数を、式によってではなく、その関数がもつ性質によって定義することはできるのか。また、既存の関数では足りないとき、新しい関数を作り出すことはできるのか。</p></li>
+</ol>
+</div>
+<p>本章はまず誤りを見つけることから始まり（<a href="../ch03/spot-the-flaw.html">第 3.1 節</a>）、続いて古典的な不等式を、それぞれ異なる角度から扱っていく。風変わりな帰納法（induction）、凸性（convexity）、面積、グラフの形、多項式補間（polynomial interpolation）、そしてテスト関数（test function）である。最後に、性質によって定義される関数を扱う二つの節で締めくくる。加法定理（addition law）から定まる <span class="math inline">\(e^x\)</span> と <span class="math inline">\(\tanh x\)</span>、そして逆関数として定義されるまったく新しい関数である。</p>
+<h3 id="本章に登場する考え方">本章に登場する考え方</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">主題</th>
+<th style="text-align: left;">考え方</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">3.1</td>
+<td style="text-align: left;">もっともらしい誤った論証</td>
+<td style="text-align: left;">計算・論理・隠れた仮定の点検</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.2</td>
+<td style="text-align: left;">AM–GM</td>
+<td style="text-align: left;">前進後退帰納法</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.3</td>
+<td style="text-align: left;">イェンセンの不等式</td>
+<td style="text-align: left;">凹（concave）な曲線は弦より上にある</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.4</td>
+<td style="text-align: left;">ヤングの不等式</td>
+<td style="text-align: left;">図の中で面積を比べる</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.5</td>
+<td style="text-align: left;"><span class="math inline">\(\pi^e\)</span> か <span class="math inline">\(e^\pi\)</span> か？</td>
+<td style="text-align: left;">一つの関数に帰着させ、そのグラフを調べる</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.6</td>
+<td style="text-align: left;">2次関数の傾き</td>
+<td style="text-align: left;">未知のものを既知のもので表す</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.7</td>
+<td style="text-align: left;"><span class="math inline">\(\pi^2 \leq 10\)</span></td>
+<td style="text-align: left;">一般的な不等式にテスト関数を代入する</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3.8</td>
+<td style="text-align: left;"><span class="math inline">\(e^x\)</span> と <span class="math inline">\(\tanh x\)</span></td>
+<td style="text-align: left;">関数方程式（functional equation）によって定義される関数</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3.9</td>
+<td style="text-align: left;">W 関数</td>
+<td style="text-align: left;">逆関数として関数を作り出す</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="本章の読み方">本章の読み方</h3>
+<p>これまでと同様、解答を読む前にまず各問題に挑戦してほしい。本章ではさらにもう一つのことを試してほしい。各解答を読んだあと、振り返って、不注意な学生が間違えそうな一つか二つの段階を探すのである。隠れた仮定はどこに紛れ込みうるか。どの定理のどの仮定を確認する必要があるか。このように批判的かつ能動的に読むことこそ、大学に入る前に身につけられる最も有益な習慣である。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="spot-the-flaw.html">→ 読み始める： 3.1 誤りを見抜け</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

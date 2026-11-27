@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第11章：振動・回転・運動する座標系 — Beyond STEP</title>
+<meta name="description" content="振動と、回転座標系や加速度座標系を扱い、最後に意外な軌道についての節で締めくくる。">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch11/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch11/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch11/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch11/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch11/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch11/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch11/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第11章：振動・回転・運動する座標系 — Beyond STEP">
+<meta property="og:description" content="振動と、回転座標系や加速度座標系を扱い、最後に意外な軌道についての節で締めくくる。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch11/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第11章：振動・回転・運動する座標系 — Beyond STEP">
+<meta name="twitter:description" content="振動と、回転座標系や加速度座標系を扱い、最後に意外な軌道についての節で締めくくる。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 11, "name": "振動・回転・運動する座標系", "url": "https://beyondstep.keithmcnulty.org/ja/ch11/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "振動と、回転座標系や加速度座標系を扱い、最後に意外な軌道についての節で締めくくる。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第11章：振動・回転・運動する座標系", "item": "https://beyondstep.keithmcnulty.org/ja/ch11/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch11/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch11/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch11/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch11/index.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">11</div>
+    <h1>振動・回転・運動する座標系</h1>
+    <p class="strap">揺れるもの、回るもの、そして動いている場所から眺めたもの。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-11-oscillations-rotation-and-moving-frames.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">章全体をダウンロード</span><span class="dl-sub">PDF（印刷用組版）</span></span></a>
+  </div>
+  <h2 class="contents-head">この章の内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="resonance.html"><span class="toc-num">11.1</span>
+<span class="toc-title">共鳴</span>
+<span class="toc-src">STEP II 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-1-resonance.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="normal-modes.html"><span class="toc-num">11.2</span>
+<span class="toc-title">基準振動</span>
+<span class="toc-src">STEP III 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-2-normal-modes.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="real-pendulum.html"><span class="toc-num">11.3</span>
+<span class="toc-title">本当の振り子</span>
+<span class="toc-src">STEP III 1998</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-3-real-pendulum.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="tautochrone.html"><span class="toc-num">11.4</span>
+<span class="toc-title">等時曲線</span>
+<span class="toc-src">STEP III 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-4-tautochrone.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="accelerating-frame.html"><span class="toc-num">11.5</span>
+<span class="toc-title">加速する列車の中の重力</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-5-accelerating-frame.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="backspin.html"><span class="toc-num">11.6</span>
+<span class="toc-title">バックスピン</span>
+<span class="toc-src">STEP III 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-6-backspin.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="simpsons-rod.html"><span class="toc-num">11.7</span>
+<span class="toc-title">棒の中のシンプソンの公式</span>
+<span class="toc-src">STEP II 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-7-simpsons-rod.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="tilted-equilibria.html"><span class="toc-num">11.8</span>
+<span class="toc-title">傾いたつり合い</span>
+<span class="toc-src">STEP III 2025</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-8-tilted-equilibria.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="safety-parabola.html"><span class="toc-num">11.9</span>
+<span class="toc-title">安全放物線</span>
+<span class="toc-src">STEP II 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-9-safety-parabola.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="coming-back.html"><span class="toc-num">11.10</span>
+<span class="toc-title">こちらへ戻ってくるボール</span>
+<span class="toc-src">STEP II 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-10-coming-back.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="fielders.html"><span class="toc-num">11.11</span>
+<span class="toc-title">野手はどのように捕球するか</span>
+<span class="toc-src">STEP II 1998</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-11-fielders.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="rubber-rope.html"><span class="toc-num">11.12</span>
+<span class="toc-title">ゴムひもの上のアリ</span>
+<span class="toc-src">STEP II 2018</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-12-rubber-rope.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="snowplough.html"><span class="toc-num">11.13</span>
+<span class="toc-title">除雪車問題</span>
+<span class="toc-src">STEP III Specimen paper</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-13-snowplough.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="bridge-parabola.html"><span class="toc-num">11.14</span>
+<span class="toc-title">懸垂線ではなく放物線</span>
+<span class="toc-src">STEP I 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-14-bridge-parabola.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">振り返り：ここで学んだこと</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「次はこれに挑戦」の演習問題の解答</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第11章  \(\cdot\)  序論</div>
+    <h1 class="essay-title">運動を明快に見る</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>若い理論物理学者の経歴とは、調和振動子をますます高い抽象度で扱い続けることにほかならない。</p>
+<p class="who">— シドニー・コールマン（Sidney Coleman）の言葉とされる</p>
+</div>
+<p>前章では、保存則（conservation laws）を用いて衝突と重力を理解した。本章では、力学（dynamics）の最初の講義で扱われるほかの大きなテーマに目を向ける。すなわち、振動（oscillation）するもの、回転（rotation）するもの、そして最も有用な視点から運動を記述する技術である。</p>
+<p>振動はいたるところにある。振り子とばねは教科書の定番の例であるが、同じ数学が分子の振動、建物の揺れ、ラジオの回路、さらには量子力学（quantum mechanics）における光そのもののふるまいをも記述する。その理由は、安定平衡（stable equilibrium）の近くにあるほとんどすべてのものが、ばねのようにふるまうからである。少しだけ引っ張ると、復元力（restoring force）は変位に比例する。したがって単振動子（simple harmonic oscillator）は、ほとんどあらゆる物理系の第一近似であり、物理学の大部分は、この近似が完全には正しくないときに何が起こるかを理解することから成り立っている。</p>
+<h3 id="なぜこれが重要なのか">なぜこれが重要なのか</h3>
+<p>技術者は、自分が建てるあらゆる構造物の固有振動数（natural frequencies）を知っていなければならない。それを風や交通や地震の振動数から遠ざけておくためである。化学者は分子をその振動によって識別する。ホイヘンス（Huygens）の振り子時計から水晶時計、原子時計に至るまで、時間の計測とは完璧な振動子をつくる技術である。回転は、スヌーカーの球の回転から人工衛星の安定性に至るまで、あらゆるものを支配している。そして、どの基準系（frame of reference）が「自然な」ものかという問いは、重力と加速度の等価性を経て、アインシュタイン（Einstein）の一般相対性理論（general relativity）へとつながった。</p>
+<p>本章の最後には、<em>意外な軌道</em>としてまとめた6つの問題がある。放物体、アリ、野手、除雪車など、そのふるまいが直観の予想とは異なるものを扱う。いずれも短く洗練された問題であり、それぞれの中心にはれっきとした数学的アイデアがある。包絡線（envelope）、単調性（monotonicity）、フィードバック（feedback）、発散（divergence）、線形微分方程式（linear differential equation）、そして放物線（parabola）と懸垂線（catenary）の違いである。</p>
+<h3 id="大学で出会うもの">大学で出会うもの</h3>
+<p>大学1年の力学の講義では、単振動、減衰振動（damped oscillation）、強制振動（forced oscillation）、共鳴（resonance）、そして連成振動子（coupled oscillators）とその基準振動（normal modes）を扱う（ここで線形代数（linear algebra）と力学が出会う）。また、剛体（rigid body）、慣性モーメント（moment of inertia）、転がり運動（rolling）、さらに加速度運動や回転をする座標系における運動を、遠心力（centrifugal force）やコリオリ力（Coriolis force）とともに扱う。その後の講義では、これらすべてがラグランジュ力学（Lagrangian mechanics）とハミルトン力学（Hamiltonian mechanics）へと発展し、そこでは座標の選び方が中心的なテーマとなる。また、空間に広がった振動である波動（waves）の理論へも発展する。振幅の大きい振り子のような非線形振動（nonlinear oscillations）は、楕円関数（elliptic functions）や第 8章の力学系（dynamical systems）へとつながる。</p>
+<h3 id="本章を貫く問い">本章を貫く問い</h3>
+<div class="skillbox">
+<div class="box-title">3つの大きな問い</div>
+<ol class="arabic">
+<li><p><strong>運動が単純になるのはいつか。</strong>系がただ1つの決まった振動数で振動するのはどのようなときか。そうならないときには何が起こるのか。</p></li>
+<li><p><strong>正しい視点とは何か。</strong>どの座標、どの変数、どの基準系を選べば問題がやさしくなるのか。</p></li>
+<li><p><strong>直観は信頼できるか。</strong>運動についての日常的な直観はどこで誤るのか。そして数学はそれをどのように正すのか。</p></li>
+</ol>
+</div>
+<p>本章は振動から始まる。共鳴（<a href="../ch11/resonance.html">第 11.1 節</a>）、基準振動、現実の振り子、そして等時曲線（tautochrone）である。続いて座標系と剛体に移る。加速する列車、回転するビー玉、3つの質点のようにふるまう棒、そして3つの異なる傾きで静止できる立体である。最後の6つの節が意外な軌道である。</p>
+<h3 id="本章に登場するアイデア">本章に登場するアイデア</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">主題</th>
+<th style="text-align: left;">アイデア</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">11.1</td>
+<td style="text-align: left;">強制振動</td>
+<td style="text-align: left;">共鳴とうなり（beats）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.2</td>
+<td style="text-align: left;">連成振動子</td>
+<td style="text-align: left;">基準振動は固有ベクトル（eigenvectors）である</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.3</td>
+<td style="text-align: left;">現実の振り子</td>
+<td style="text-align: left;">楕円積分（elliptic integrals）、算術幾何平均（AGM）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.4</td>
+<td style="text-align: left;">等時曲線</td>
+<td style="text-align: left;">弧長（arc length）についての単振動</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.5</td>
+<td style="text-align: left;">運動する座標系</td>
+<td style="text-align: left;">見かけの力（fictitious forces）、等価原理（equivalence principle）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.6</td>
+<td style="text-align: left;">転がりと滑り</td>
+<td style="text-align: left;">保存される角運動量（angular momentum）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.7</td>
+<td style="text-align: left;">慣性モーメント</td>
+<td style="text-align: left;">力学的等価性（dynamical equivalence）、シンプソンの公式（Simpson’s rule）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.8</td>
+<td style="text-align: left;">安定性</td>
+<td style="text-align: left;">重心（centre of mass）を通る法線</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.9</td>
+<td style="text-align: left;">放物運動</td>
+<td style="text-align: left;">軌道の包絡線</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.10</td>
+<td style="text-align: left;">放物運動</td>
+<td style="text-align: left;">距離は増加するとは限らない</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.11</td>
+<td style="text-align: left;">捕球</td>
+<td style="text-align: left;">フィードバックの規則</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.12</td>
+<td style="text-align: left;">伸びるロープ</td>
+<td style="text-align: left;">割合と調和級数（harmonic series）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.13</td>
+<td style="text-align: left;">除雪車</td>
+<td style="text-align: left;">距離の関数としての時間</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.14</td>
+<td style="text-align: left;">吊り橋</td>
+<td style="text-align: left;">懸垂線ではなく放物線</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="../ch11/backspin.html">第 11.6 節</a> と <a href="../ch11/simpsons-rod.html">第 11.7 節</a> の2つの節では回転の力学と慣性モーメントを用いるが、これらは2019年に STEP の出題範囲から外された。それでも収録したのは、いずれも優れた問題だからである。どちらの節でも、必要な事実はその場で与えてある。</p>
+<h3 id="本章の読み方">本章の読み方</h3>
+<p>計算を始める前に、その問題がどの変数を求めているのかを考えよう。等時曲線では弧長、連成ばねでは <span class="math inline">\(x \pm y\)</span>、アリではロープ全体に対する割合、除雪車では距離の関数としての時間である。いずれの場合も、正しい選択をすれば、難しい問題が見慣れた問題に変わる。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="resonance.html">→ 読み始める： 11.1 共鳴</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ウォリス、ベータ、そして二分の一の階乗 (STEP II 1995 Q4) — Beyond STEP</title>
+<meta name="description" content="STEP II 1995 問題 4：解説付き解答とその背後にある大学数学。 left(frac12right)! とは何だろうか。これは無意味な問いに聞こえる。 n! は 1 × 2 × cdots × n を意味するのであって、「半分の個数」の項を掛け合わせることなどできないからである。ところが、自然な答えが存在し、それは left(tfrac12right)! = (sqrtπ)/(2).…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/wallis-beta.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="ウォリス、ベータ、そして二分の一の階乗 (STEP II 1995 Q4) — Beyond STEP">
+<meta property="og:description" content="STEP II 1995 問題 4：解説付き解答とその背後にある大学数学。 left(frac12right)! とは何だろうか。これは無意味な問いに聞こえる。 n! は 1 × 2 × cdots × n を意味するのであって、「半分の個数」の項を掛け合わせることなどできないからである。ところが、自然な答えが存在し、それは left(tfrac12right)! = (sqrtπ)/(2).…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch04/wallis-beta.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ウォリス、ベータ、そして二分の一の階乗 (STEP II 1995 Q4) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1995 問題 4：解説付き解答とその背後にある大学数学。 left(frac12right)! とは何だろうか。これは無意味な問いに聞こえる。 n! は 1 × 2 × cdots × n を意味するのであって、「半分の個数」の項を掛け合わせることなどできないからである。ところが、自然な答えが存在し、それは left(tfrac12right)! = (sqrtπ)/(2).…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "ウォリス、ベータ、そして二分の一の階乗", "headline": "ウォリス、ベータ、そして二分の一の階乗", "description": "STEP II 1995 問題 4：解説付き解答とその背後にある大学数学。 left(frac12right)! とは何だろうか。これは無意味な問いに聞こえる。 n! は 1 × 2 × cdots × n を意味するのであって、「半分の個数」の項を掛け合わせることなどできないからである。ところが、自然な答えが存在し、それは left(tfrac12right)! = (sqrtπ)/(2).…", "url": "https://beyondstep.keithmcnulty.org/ja/ch04/wallis-beta.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1995 問題 4", "きちんと学ぶ微分積分学"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 4, "name": "きちんと学ぶ微分積分学", "url": "https://beyondstep.keithmcnulty.org/ja/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第4章：きちんと学ぶ微分積分学", "item": "https://beyondstep.keithmcnulty.org/ja/ch04/"}, {"@type": "ListItem", "position": 3, "name": "ウォリス、ベータ、そして二分の一の階乗", "item": "https://beyondstep.keithmcnulty.org/ja/ch04/wallis-beta.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch04/wallis-beta.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch04/wallis-beta.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch04/wallis-beta.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch04/wallis-beta.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第4章 · きちんと学ぶ微分積分学</a>
+    <div class="src">STEP II · 1995 · 問題 4</div>
+    <div class="sec-head"><span class="sec-num">4.4</span><h1>ウォリス、ベータ、そして二分の一の階乗</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-4-wallis-beta.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第4章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 1995、第4問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/95-s2-q4">step.maths.org/questions/95-s2-q4</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p><span class="math inline">\(\left(\frac12\right)!\)</span> とは何だろうか。これは無意味な問いに聞こえる。<span class="math inline">\(n!\)</span> は <span class="math inline">\(1 \times 2 \times \cdots \times n\)</span> を意味するのであって、「半分の個数」の項を掛け合わせることなどできないからである。ところが、自然な答えが存在し、それは <span class="math display">\[\left(\tfrac12\right)! = \frac{\sqrt\pi}{2}.\]</span> である。<span class="math inline">\(\pi\)</span> はどこから現れるのか。この問題で扱う <span class="math inline">\(\sin t\)</span> の累乗の積分からである。その過程で、この問題は <span class="math inline">\(\pi\)</span> に関する最も古く、最も不思議な公式の一つ、すなわち1655年のジョン・ウォリス（John Wallis）による無限積（infinite product） <span class="math display">\[\frac\pi2 = \frac21 \cdot \frac23 \cdot \frac43 \cdot \frac45 \cdot \frac65 \cdot \frac67 \cdots,\]</span> を証明する。さらに、確率論や統計学に携わる者なら誰もが使う <span class="math inline">\(n!\)</span> に関するスターリング（Stirling）の公式に隠れた定数も求める。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(u_0\)</span> と <span class="math inline">\(u_1\)</span> はいくらか。また、<span class="math inline">\(n\)</span> が大きいとき、<span class="math inline">\([0, \frac\pi2]\)</span> 上の <span class="math inline">\(\sin^n t\)</span> のグラフはおおよそどのような形をしているか。</p>
+</div>
+<p><span class="math inline">\(u_0 = \int_0^{\pi/2} 1\,\mathrm{d}t = \frac\pi2\)</span> であり、<span class="math inline">\(u_1 = \int_0^{\pi/2}\sin t\,\mathrm{d}t = 1\)</span> である。<span class="math inline">\(n\)</span> が大きいとき、<span class="math inline">\(\sin^n t\)</span> は、<span class="math inline">\(\sin t\)</span> が <span class="math inline">\(1\)</span> に近い <span class="math inline">\(t = \frac\pi2\)</span> の付近を除いてきわめて小さい。グラフは右端に張りついた細い尖りになるのである（図 4.4.1）。したがって、<span class="math inline">\(n\)</span> が大きくなるにつれて <span class="math inline">\(u_n\)</span> は小さくなる。この問題では、その減り方が正確に <span class="math inline">\(\sqrt{\pi/(2n)}\)</span> のようになることを示す。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-漸化式を導く" class="stage"><span class="stage-n">段階 1</span> 漸化式を導く</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\int \sin t \cdot \sin^{n-1}t\,\mathrm{d}t\)</span> を、<span class="math inline">\(\sin t\)</span> を積分し <span class="math inline">\(\sin^{n-1}t\)</span> を微分する形で部分積分（integration by parts）せよ。新しい被積分関数には <span class="math inline">\(\cos^2 t\)</span> が含まれる。どうすれば <span class="math inline">\(\sin t\)</span> の累乗に戻せるだろうか。</p>
+</div>
+<p><span class="math inline">\(\mathrm{d}v = \sin t\,\mathrm{d}t\)</span>（よって <span class="math inline">\(v = -\cos t\)</span>）、<span class="math inline">\(w = \sin^{n-1}t\)</span>（よって <span class="math inline">\(w&#39; = (n-1)\sin^{n-2}t\cos t\)</span>）とおくと、 <span class="math display">\[u_n = \Bigl[-\cos t\sin^{n-1}t\Bigr]_0^{\pi/2} + (n-1)\int_0^{\pi/2}\sin^{n-2}t\cos^2 t\,\mathrm{d}t.\]</span> を得る。<span class="math inline">\(n \geq 2\)</span> のとき境界項は <span class="math inline">\(0\)</span> である。<span class="math inline">\(\cos^2 t = 1 - \sin^2 t\)</span> と書けば、積分は <span class="math inline">\(u_{n-2} - u_n\)</span> となるので、<span class="math inline">\(u_n = (n-1)(u_{n-2} - u_n)\)</span>、すなわち <span class="math display">\[nu_n = (n-1)u_{n-2}. \qed\]</span> である。両辺に <span class="math inline">\(u_{n-1}\)</span> を掛けると <span class="math inline">\(nu_nu_{n-1} = (n-1)u_{n-1}u_{n-2}\)</span> を得る。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-不変量" class="stage"><span class="stage-n">段階 2</span> 不変量</h4>
+<div class="askyourself">
+<p>この関係式は、量 <span class="math inline">\(nu_nu_{n-1}\)</span> が <span class="math inline">\(n\)</span> を一つ減らしても変わらないことを述べている。<span class="math inline">\(n = 1\)</span> のとき、この量はいくらか。</p>
+</div>
+<p>これを繰り返し用いると、<span class="math inline">\(nu_nu_{n-1} = (n-1)u_{n-1}u_{n-2} = \cdots = 1 \cdot u_1u_0 = 1 \cdot 1 \cdot \frac\pi2\)</span> となる。よって、すべての <span class="math inline">\(n \geq 1\)</span> に対して <span class="math inline">\(nu_nu_{n-1} = \frac12\pi\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-はさみうち" class="stage"><span class="stage-n">段階 3</span> はさみうち</h4>
+<p><span class="math inline">\(0 &lt; t &lt; \frac\pi2\)</span> のとき <span class="math inline">\(0 &lt; \sin t &lt; 1\)</span> であるから、<span class="math inline">\(\sin^n t &lt; \sin^{n-1}t\)</span> が成り立つ。つまり、<span class="math inline">\(\sin^n t\)</span> のグラフは端点を除いて <span class="math inline">\(\sin^{n-1}t\)</span> のグラフの下側にある。積分すると <span class="math inline">\(0 &lt; u_n &lt; u_{n-1}\)</span> を得る。</p>
+<div class="pausebox">
+<p><span class="math inline">\(u_n &lt; u_{n-1}\)</span> と <span class="math inline">\(nu_nu_{n-1} = \frac12\pi\)</span> を用いて、<span class="math inline">\(nu_n^2\)</span> をはさみ込め。</p>
+</div>
+<p><span class="math inline">\(u_{n-1}\)</span> をより小さい <span class="math inline">\(u_n\)</span> で置き換えると <span class="math inline">\(nu_n^2 &lt; nu_nu_{n-1} = \frac12\pi\)</span> を得る。<span class="math inline">\(u_n\)</span> をより大きい <span class="math inline">\(u_{n-1}\)</span> で置き換えると <span class="math inline">\(\frac12\pi = nu_nu_{n-1} &lt; nu_{n-1}^2\)</span> を得る。よって <span class="math inline">\(nu_n^2 &lt; \frac12\pi &lt; nu_{n-1}^2\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<p>右側の不等式を <span class="math inline">\(n\)</span> の代わりに <span class="math inline">\(n + 1\)</span> として適用すると <span class="math inline">\(\frac12\pi &lt; (n+1)u_n^2\)</span> となり、<span class="math inline">\(nu_n^2 &gt; \frac{n}{n+1}\cdot\frac12\pi\)</span> を得る。両者を合わせて <span class="math display">\[\left(\frac{n}{n+1}\right)\tfrac12\pi &lt; nu_n^2 &lt; \tfrac12\pi. \qed\]</span> である。<span class="math inline">\(\frac{n}{n+1} \to 1\)</span> であるから、はさみうちの原理（squeeze theorem）により <span class="math inline">\(nu_n^2 \to \frac12\pi\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-4-1.svg" alt="図 4.4.1"><figcaption><span class="fig-label">図 4.4.1</span> <span class="math inline">\(n = 1, 2, 4, 16, 64\)</span> に対する <span class="math inline">\(\sin^n t\)</span> のグラフ。<span class="math inline">\(n\)</span> が大きくなるにつれて、曲線の下の面積 <span class="math inline">\(u_n\)</span> は小さくなり、<span class="math inline">\(t = \frac\pi2\)</span> の付近に集中する。この問題は <span class="math inline">\(u_n \approx \sqrt{\pi/(2n)}\)</span> であることを示す。<span class="math inline">\(n = 64\)</span> のとき、これは約 <span class="math inline">\(0.157\)</span> である。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>漸化式（reduction formula）。</strong>部分積分によって <span class="math inline">\(u_n\)</span> が <span class="math inline">\(u_{n-2}\)</span> に帰着されたので、すべての <span class="math inline">\(u_n\)</span> は <span class="math inline">\(u_0\)</span> と <span class="math inline">\(u_1\)</span> から定まる。</p></li>
+<li><p><strong>不変量（invariant）を探せ。</strong>積 <span class="math inline">\(nu_nu_{n-1}\)</span> は変わらなかった。<a href="../ch02/agm.html">第 2.6 節</a> の算術幾何平均（AGM）の操作で積分が変わらなかったのと同じである。</p></li>
+<li><p><strong>単調性（monotonicity）と不変量を組み合わせると、はさみうちができる。</strong><span class="math inline">\(u_n &lt; u_{n-1}\)</span> であることと <span class="math inline">\(nu_nu_{n-1}\)</span> の正確な値がわかっていたので、<span class="math inline">\(nu_n^2\)</span> を同じ極限をもつ二つの量の間にはさみ込むことができた。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">ウォリスの積</div>
+<p>漸化式を <span class="math inline">\(u_0\)</span> または <span class="math inline">\(u_1\)</span> までたどると、具体的な値が得られる： <span class="math display">\[u_{2m} = \frac{1 \cdot 3 \cdot 5 \cdots (2m-1)}{2 \cdot 4 \cdot 6 \cdots 2m}\cdot\frac\pi2, \qquad u_{2m+1} = \frac{2 \cdot 4 \cdot 6 \cdots 2m}{3 \cdot 5 \cdot 7 \cdots (2m+1)}.\]</span> はさみうちにより <span class="math inline">\(u_{2m}/u_{2m+1} \to 1\)</span> がわかる。この比を書き下して整理すると、ウォリスの積 <span class="math display">\[\frac\pi2 = \lim_{m \to \infty} \frac{2 \cdot 2}{1 \cdot 3}\cdot\frac{4 \cdot 4}{3 \cdot 5}\cdots\frac{2m \cdot 2m}{(2m-1)(2m+1)}.\]</span> を得る。ジョン・ウォリスは1655年、大胆な補間（interpolation）の手法によってこれを見いだした。指数が整数である積分の表に当てはめることで、<span class="math inline">\(\int_0^1 (1 - x^2)^{1/2}\,\mathrm{d}x\)</span> が「どうあるべきか」を推測したのである。これは、ヴィエト（Viète）の無限積（<a href="../ch02/viete.html">第 2.5 節</a>）に次ぐ、数学における最初期の無限積の一つであり、有理数のみを用いたものとしては最初のものであった。</p>
+</div>
+<h3 id="半分の階乗">半分の階乗</h3>
+<p>ウォリスの補間の考え方は、1729年にオイラー（Euler）によって厳密なものとなった。彼は、現在<em>ガンマ関数（Gamma function）</em>と呼ばれる関数 <span class="math display">\[\Gamma(s) = \int_0^\infty t^{s-1}e^{-t}\,\mathrm{d}t,\]</span> を見いだした。この関数は <span class="math inline">\(\Gamma(s + 1) = s\,\Gamma(s)\)</span>（部分積分による）を満たし、整数 <span class="math inline">\(n\)</span> に対しては <span class="math inline">\(\Gamma(n + 1) = n!\)</span> となる。これは階乗（factorial）をすべての正の実数へなめらかに拡張するものである。これと密接に関係する<em>ベータ関数（Beta function）</em> <span class="math display">\[\mathrm{B}(p, q) = \int_0^1 x^{p-1}(1-x)^{q-1}\,\mathrm{d}x = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}\]</span> は、<a href="../ch04/twenty-two-sevenths.html">第 4.3 節</a> や <a href="../ch02/e-approximations.html">第 2.9 節</a> の積分を含み、さらに置換 <span class="math inline">\(x = \sin^2 t\)</span> を行えば、ここでの <span class="math inline">\(u_n\)</span> も含む。特に <span class="math inline">\(\int_0^1 x^{1/2}(1-x)^{1/2}\,\mathrm{d}x = \frac\pi8\)</span>（演習 2）であり、これから <span class="math inline">\(\Gamma(\frac32)^2/\Gamma(3) = \frac\pi8\)</span>、すなわち <span class="math inline">\(\left(\frac12\right)! = \Gamma(\frac32) = \frac{\sqrt\pi}{2}\)</span> が得られる。同じことであるが、<span class="math inline">\(\Gamma(\frac12) = \sqrt\pi\)</span> である。これは有名なガウス積分（Gaussian integral）<span class="math inline">\(\int_{-\infty}^\infty e^{-x^2}\,\mathrm{d}x = \sqrt\pi\)</span> と同じ事実であり、正規分布（normal distribution）の式に <span class="math inline">\(\pi\)</span> が現れる理由でもある。</p>
+<h3 id="スターリングの公式">スターリングの公式</h3>
+<p>スターリングの公式（Stirling’s formula）は <span class="math inline">\(n! \approx \sqrt{2\pi n}\,(n/e)^n\)</span> であることを述べている。<span class="math inline">\((n/e)^n\)</span> の部分は比較的容易に得られるが、定数 <span class="math inline">\(\sqrt{2\pi}\)</span> を求めるのはより難しい。その標準的な求め方がまさにこの問題である。<span class="math inline">\(u_{2m}\)</span> の具体的な値には <span class="math inline">\((2m)!/(m!)^2\)</span> が含まれ、極限 <span class="math inline">\(nu_n^2 \to \frac\pi2\)</span> によってこの定数が確定するのである。確率論を経由して同じ定数に至るまったく別の道筋は、<a href="../ch12/stirling-probability.html">第 12.23 節</a> にある。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">積分から得られる漸化式</div>
+<p><em>部分積分を用いると、パラメータ <span class="math inline">\(n\)</span> をもつ積分を、より小さいパラメータをもつ同じ積分と関係づけられることが多い。そうして得られた漸化式（recurrence）は、解くこともできるし、<span class="math inline">\(n \to \infty\)</span> のときの振る舞いを調べることもできる。</em></p>
+<p>漸化式によって変わらない量と、<span class="math inline">\(n\)</span> に関する単調性に注目せよ。この二つを組み合わせると、具体的な式がなくても極限が得られることが多い。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>ウォリスの積。</strong><span class="math inline">\(u_{2m}\)</span> と <span class="math inline">\(u_{2m+1}\)</span> の具体的な値、および <span class="math inline">\(u_{2m+1} &lt; u_{2m} &lt; u_{2m-1}\)</span> を用いて、ウォリスの積を証明せよ。</p></li>
+<li><p><strong>ベータ積分。</strong><a href="https://step.maths.org/questions/13-s2-q2">STEP II 2013、第2問</a> に挑戦せよ。この問題では漸化式を用いて <span class="math inline">\(\int_0^1 x^n(1-x)^n\,\mathrm{d}x\)</span> を求め、そのうえで <span class="math inline">\(n = \frac12\)</span> のときにその答えから何が示唆されるかを問う。半分の階乗を初めて垣間見ることになる。</p></li>
+<li><p><strong>ベータ関数。</strong><a href="https://www.ocr.org.uk/Images/750486-2025-past-papers.zip">STEP III 2025、第1問</a> （OCRが配布している2025年の問題一式、zipファイル） に挑戦せよ。この問題では一般のベータ積分 <span class="math inline">\(\int_0^1 x^{p-1}(1-x)^{q-1}\,\mathrm{d}x\)</span> について、その対称性と漸化式を導き、それらを用いて <span class="math inline">\([0, \infty)\)</span> 上の積分を求める。</p></li>
+<li><p><strong>中心二項係数（central binomial coefficients）。</strong> <span class="hard">発展</span> <span class="math inline">\(u_{2m} = \binom{2m}{m}\dfrac{\pi}{2^{2m+1}}\)</span> を示し、<span class="math inline">\(nu_n^2 \to \frac\pi2\)</span> を用いて、<span class="math inline">\(m\)</span> が大きいとき <span class="math inline">\(\binom{2m}{m} \approx \dfrac{4^m}{\sqrt{\pi m}}\)</span> となることを導け。<span class="math inline">\(m = 10\)</span> の場合にこれを確かめよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Julian Havil, <a href="https://uk.bookshop.org/search?keywords=Gamma+Havil"><em>Gamma</em></a></strong>（Princeton University Press）。ガンマ関数とその歴史を扱っている。</p></li>
+<li><p><strong>Philip J. Davis, 「Leonhard Euler’s integral: a historical profile of the Gamma function」</strong>（オイラーの積分：ガンマ関数の歴史的概観）, <em>American Mathematical Monthly</em> 66 (1959)。受賞歴のある古典的な論文で、この節を学んだ後なら読みこなせる。</p></li>
+<li><p><strong>Emil Artin, <a href="https://uk.bookshop.org/search?keywords=The+Gamma+Function+Artin"><em>The Gamma Function</em></a></strong>（Dover）。解析学をある程度学んだ後に読むとよい、短く美しいモノグラフである。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="twenty-two-sevenths.html">← 4.3 22/7 は π より大きい</a><a class="next" href="sophomores-dream.html">→ 4.5 2年生の夢</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

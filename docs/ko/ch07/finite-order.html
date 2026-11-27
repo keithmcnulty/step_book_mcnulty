@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제자리로 돌아오는 행렬 (STEP II 2020 Q6) — Beyond STEP</title>
+<meta name="description" content="STEP II 2020 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 어떤 변환은 충분히 여러 번 반복하면 모든 것을 처음 자리로 되돌려 놓는다. 90^circ 회전은 네 번 만에, 반사는 두 번 만에 그렇게 한다. 어떤 n 에 대하여 M^n = I 라는 성질을 가지는 2 × 2 행렬은 어떤 것들이며, 그것을 어떻게 알아볼 수 있을까? 이 문제의…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch07/finite-order.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch07/finite-order.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/finite-order.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/finite-order.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/finite-order.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch07/finite-order.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/finite-order.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="제자리로 돌아오는 행렬 (STEP II 2020 Q6) — Beyond STEP">
+<meta property="og:description" content="STEP II 2020 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 어떤 변환은 충분히 여러 번 반복하면 모든 것을 처음 자리로 되돌려 놓는다. 90^circ 회전은 네 번 만에, 반사는 두 번 만에 그렇게 한다. 어떤 n 에 대하여 M^n = I 라는 성질을 가지는 2 × 2 행렬은 어떤 것들이며, 그것을 어떻게 알아볼 수 있을까? 이 문제의…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch07/finite-order.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="제자리로 돌아오는 행렬 (STEP II 2020 Q6) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2020 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 어떤 변환은 충분히 여러 번 반복하면 모든 것을 처음 자리로 되돌려 놓는다. 90^circ 회전은 네 번 만에, 반사는 두 번 만에 그렇게 한다. 어떤 n 에 대하여 M^n = I 라는 성질을 가지는 2 × 2 행렬은 어떤 것들이며, 그것을 어떻게 알아볼 수 있을까? 이 문제의…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "제자리로 돌아오는 행렬", "headline": "제자리로 돌아오는 행렬", "description": "STEP II 2020 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 어떤 변환은 충분히 여러 번 반복하면 모든 것을 처음 자리로 되돌려 놓는다. 90^circ 회전은 네 번 만에, 반사는 두 번 만에 그렇게 한다. 어떤 n 에 대하여 M^n = I 라는 성질을 가지는 2 × 2 행렬은 어떤 것들이며, 그것을 어떻게 알아볼 수 있을까? 이 문제의…", "url": "https://beyondstep.keithmcnulty.org/ko/ch07/finite-order.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2020 문제 6", "선형대수학과 기하학"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "선형대수학과 기하학", "url": "https://beyondstep.keithmcnulty.org/ko/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제7장: 선형대수학과 기하학", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/"}, {"@type": "ListItem", "position": 3, "name": "제자리로 돌아오는 행렬", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/finite-order.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch07/finite-order.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/finite-order.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch07/finite-order.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch07/finite-order.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제7장 · 선형대수학과 기하학</a>
+    <div class="src">STEP II · 2020 · 문제 6</div>
+    <div class="sec-head"><span class="sec-num">7.4</span><h1>제자리로 돌아오는 행렬</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-4-finite-order.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제7장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 2020, 문제 6</strong></p>
+<p>다음으로 넘어가기 전에 문제를 먼저 읽어 보자. 이 문제는 OCR에서 내려받을 수 있는 2020년 STEP 문제지 모음(zip 파일)의 STEP II 문제지에 있다: <a href="https://www.ocr.org.uk/Images/696589-2020-past-papers.zip">www.ocr.org.uk/Images/696589-2020-past-papers.zip</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>어떤 변환은 충분히 여러 번 반복하면 모든 것을 처음 자리로 되돌려 놓는다. <span class="math inline">\(90^\circ\)</span> 회전은 네 번 만에, 반사는 두 번 만에 그렇게 한다. 어떤 <span class="math inline">\(n\)</span>에 대하여 <span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span>라는 성질을 가지는 <span class="math inline">\(2 \times 2\)</span> 행렬은 어떤 것들이며, 그것을 어떻게 알아볼 수 있을까?</p>
+<p>이 문제의 놀라운 점은 두 수, 곧 <em>대각합(trace)</em>과 <em>행렬식(determinant)</em>만으로 판정이 된다는 것이다. 네 성분을 알 필요 없이 <span class="math inline">\(a + d\)</span>와 <span class="math inline">\(ad - bc\)</span>만 알면 된다. 그리고 그 답은 물리적 세계에 대해 놀라운 결과를 낳는다. 결정이 <span class="math inline">\(2\)</span>-, <span class="math inline">\(3\)</span>-, <span class="math inline">\(4\)</span>-, <span class="math inline">\(6\)</span>-회 대칭은 가질 수 있지만 <span class="math inline">\(5\)</span>-회 대칭은 결코 가질 수 없는 이유를 설명해 주는 것이다. 이는 두 세기 동안 성립해 온 결정학의 “법칙”이었는데, 1982년의 한 발견이 이를 뒤집고 노벨상을 받았다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>모든 <span class="math inline">\(2 \times 2\)</span> 행렬은 <span class="math inline">\(\mathbf{M}^2 - (\operatorname{tr}\mathbf{M})\mathbf{M} + (\det\mathbf{M})\mathbf{I} = \mathbf{0}\)</span>을 만족한다(케일리–해밀턴 정리(Cayley–Hamilton theorem). 직접 곱해서 확인해 보라). 이것이 <span class="math inline">\(\mathbf{M}^2\)</span>에 관한 질문에 어떻게 도움이 될 수 있을까?</p>
+</div>
+<p>이 식은 <span class="math inline">\(\mathbf{M}^2\)</span>을 <span class="math inline">\(\mathbf{M}\)</span>과 <span class="math inline">\(\mathbf{I}\)</span>로 나타내 준다. 즉 <span class="math inline">\(t = \operatorname{tr}\mathbf{M}\)</span>, <span class="math inline">\(d = \det\mathbf{M}\)</span>이라 하면 <span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I}\)</span>이다. 따라서 <span class="math inline">\(\mathbf{M}^2\)</span>에 대한 조건은 <span class="math inline">\(\mathbf{M}\)</span>, <span class="math inline">\(t\)</span>, <span class="math inline">\(d\)</span>를 잇는 조건이 된다. 이것이 문제 전체의 열쇠이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-제곱의-대각합" class="stage"><span class="stage-n">단계 1</span> 제곱의 대각합</h4>
+<p><span class="math inline">\(\mathbf{M}^2 = \begin{pmatrix} a^2 + bc &amp; ab + bd \\ ac + cd &amp; bc + d^2 \end{pmatrix}\)</span>이므로 <span class="math inline">\(\operatorname{tr}(\mathbf{M}^2) = a^2 + 2bc + d^2 = (a + d)^2 - 2(ad - bc)\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-pmmathbfi의-제곱근" class="stage"><span class="stage-n">단계 2</span> <span class="math inline">\(\pm\mathbf{I}\)</span>의 제곱근</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\mathbf{M}^2 = \mathbf{I}\)</span>라고 하자. 이를 <span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I}\)</span>에 대입하라. <span class="math inline">\(t \neq 0\)</span>이면 이것은 <span class="math inline">\(\mathbf{M}\)</span>에 대해 무엇을 말해 주는가?</p>
+</div>
+<p><span class="math inline">\(\mathbf{M}^2 = \mathbf{I}\)</span>이면 <span class="math inline">\(\mathbf{I} = t\mathbf{M} - d\mathbf{I}\)</span>이므로 <span class="math inline">\(t\mathbf{M} = (1 + d)\mathbf{I}\)</span>이다. <span class="math inline">\(t \neq 0\)</span>이면 <span class="math inline">\(\mathbf{M}\)</span>은 <span class="math inline">\(\mathbf{I}\)</span>의 상수배, 예컨대 <span class="math inline">\(c\mathbf{I}\)</span>이고 <span class="math inline">\(c^2 = 1\)</span>이므로 <span class="math inline">\(\mathbf{M} = \pm\mathbf{I}\)</span>인데, 이는 제외된 경우이다. 따라서 <span class="math inline">\(t = 0\)</span>이고, 그러면 <span class="math inline">\((1 + d)\mathbf{I} = \mathbf{0}\)</span>이므로 <span class="math inline">\(d = -1\)</span>이다.</p>
+<p>역으로 <span class="math inline">\(t = 0\)</span>이고 <span class="math inline">\(d = -1\)</span>이면 <span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I} = \mathbf{I}\)</span>이고, <span class="math inline">\(\operatorname{tr}(\pm\mathbf{I}) = \pm2 \neq 0\)</span>이므로 <span class="math inline">\(\mathbf{M} \neq \pm\mathbf{I}\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<p><span class="math inline">\(\mathbf{M}^2 = -\mathbf{I}\)</span>인 경우: 대입하면 <span class="math inline">\(t\mathbf{M} = (d - 1)\mathbf{I}\)</span>를 얻는다. <span class="math inline">\(t \neq 0\)</span>이면 <span class="math inline">\(\mathbf{M} = c\mathbf{I}\)</span>이고 <span class="math inline">\(c^2 = -1\)</span>인데, 이는 실수 <span class="math inline">\(c\)</span>에 대해 불가능하다. 따라서 <span class="math inline">\(t = 0\)</span>이고 <span class="math inline">\(d = 1\)</span>이다. 역으로 <span class="math inline">\(t = 0\)</span>이고 <span class="math inline">\(d = 1\)</span>이면 <span class="math inline">\(\mathbf{M}^2 = -\mathbf{I}\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-네제곱근" class="stage"><span class="stage-n">단계 3</span> 네제곱근</h4>
+<div class="pausebox">
+<p><span class="math inline">\(\mathbf{N} = \mathbf{M}^2\)</span>이라 하면, <span class="math inline">\(\mathbf{M}^4 = \mathbf{I}\)</span>는 <span class="math inline">\(\mathbf{N}^2 = \mathbf{I}\)</span>를 뜻한다. (ii)에 의해 <span class="math inline">\(\mathbf{N} = \pm\mathbf{I}\)</span>이거나, <span class="math inline">\(\operatorname{tr}\mathbf{N} = 0\)</span>이고 <span class="math inline">\(\det\mathbf{N} = -1\)</span>이다. 두 번째 경우는 왜 불가능한가?</p>
+</div>
+<p><span class="math inline">\(\det\mathbf{N} = \det(\mathbf{M}^2) = (\det\mathbf{M})^2 \geq 0\)</span>이므로 <span class="math inline">\(\det\mathbf{N} \neq -1\)</span>이다. 따라서 <span class="math inline">\(\mathbf{N} = \mathbf{M}^2 = \pm\mathbf{I}\)</span>이다. 역은 분명하다.<span class="qed" aria-label="end of proof">■</span></p>
+<p><span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span>인 경우: <span class="math inline">\(\mathbf{N} = \mathbf{M}^2\)</span>에 (ii)를 적용하면, 이 식은 <span class="math inline">\(\operatorname{tr}(\mathbf{M}^2) = 0\)</span>이고 <span class="math inline">\(\det(\mathbf{M}^2) = 1\)</span>일 때, 곧 <span class="math inline">\(t^2 - 2d = 0\)</span>이고 <span class="math inline">\(d^2 = 1\)</span>일 때에만 성립한다. <span class="math inline">\(t^2 = 2d \geq 0\)</span>이므로 <span class="math inline">\(d = 1\)</span>이어야 하고, 그러면 <span class="math inline">\(t^2 = 2\)</span>이다. 따라서 <span class="math display">\[\mathbf{M}^4 = -\mathbf{I} \iff \det\mathbf{M} = 1 \text{ 이고 } \operatorname{tr}\mathbf{M} = \pm\sqrt2. \qed\]</span></p>
+<h4 id="stagemark4-회전이-아닌-mathbfi의-여덟제곱근" class="stage"><span class="stage-n">단계 4</span> 회전이 아닌 <span class="math inline">\(\mathbf{I}\)</span>의 여덟제곱근</h4>
+<p><span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span>인 행렬은 모두 <span class="math inline">\(\mathbf{M}^8 = \mathbf{I}\)</span>를 만족한다. <span class="math inline">\(45^\circ\)</span> 회전은 대각합이 <span class="math inline">\(\sqrt2\)</span>이고 행렬식이 <span class="math inline">\(1\)</span>이다. 우리는 대각합과 행렬식이 같으면서 회전이 아닌 다른 행렬을 원한다. 다음을 잡자. <span class="math display">\[\mathbf{M} = \begin{pmatrix} \sqrt2 &amp; -1 \\ 1 &amp; 0 \end{pmatrix}, \qquad \operatorname{tr}\mathbf{M} = \sqrt2, \quad \det\mathbf{M} = 1.\]</span> 3단계에 의해 <span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span>이므로 <span class="math inline">\(\mathbf{M}^8 = \mathbf{I}\)</span>이다. 그러나 <span class="math inline">\(\mathbf{M}\)</span>은 회전도 반사도 아니다. 회전과 반사는 길이를 보존하는데, <span class="math inline">\(\mathbf{M}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} \sqrt2 \\ 1 \end{pmatrix}\)</span>의 길이는 <span class="math inline">\(\sqrt3 \neq 1\)</span>이기 때문이다.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-4-1.svg" alt="그림 7.4.1"><figcaption><span class="fig-label">그림 7.4.1</span> <span class="math inline">\(\mathbf{M} = \begin{pmatrix} \sqrt2 &amp; -1 \\ 1 &amp; 0 \end{pmatrix}\)</span>에 의한 <span class="math inline">\(\mathbf{v} = (1, 0)\)</span>의 궤도(orbit). 여덟 단계 뒤에 출발점으로 돌아온다. 점들이 원(점선) 위에 있지 않으므로 <span class="math inline">\(\mathbf{M}\)</span>은 회전이 아니지만, 점들은 타원 위에 놓인다. 즉 <span class="math inline">\(\mathbf{M}\)</span>은 비스듬한 좌표에서 본 <span class="math inline">\(45^\circ\)</span> 회전이다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>케일리–해밀턴 정리는 거듭제곱을 일차결합으로 바꾼다.</strong> <span class="math inline">\(2 \times 2\)</span> 행렬의 모든 거듭제곱은 <span class="math inline">\(\mathbf{M}\)</span>과 <span class="math inline">\(\mathbf{I}\)</span>의 일차결합(linear combination)이며, 그 계수는 대각합과 행렬식에만 의존한다.</p></li>
+<li><p><strong>제곱의 행렬식은 음이 아니다.</strong> 이 단순한 사실 하나로 (iii)에서 한 경우 전체를 배제할 수 있었다.</p></li>
+<li><p><strong>대각합과 행렬식은 불변량이다.</strong> 대각합과 행렬식이 같은 두 행렬은(<span class="math inline">\(\mathbf{I}\)</span>의 상수배가 아니라면) 겉모습이 닮았든 아니든 거듭제곱에 대해 같은 방식으로 행동한다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">닮은 행렬</div>
+<p>4단계의 <span class="math inline">\(\mathbf{M}\)</span>은 왜 “변장한 회전”일까? 어떤 가역행렬 <span class="math inline">\(\mathbf{S}\)</span>에 대하여 <span class="math inline">\(\mathbf{M} = \mathbf{SRS}^{-1}\)</span>이면 두 행렬 <span class="math inline">\(\mathbf{M}\)</span>과 <span class="math inline">\(\mathbf{R}\)</span>은 <em>닮았다(similar)</em>고 한다. 이들은 서로 다른 좌표에서 같은 변환을 나타낸다. 닮은 행렬은 대각합과 행렬식이 같으며, (<span class="math inline">\(\mathbf{I}\)</span>의 상수배가 아닌 <span class="math inline">\(2 \times 2\)</span> 행렬에 대해서는) 그 역도 성립한다. 따라서 대각합이 <span class="math inline">\(\sqrt2\)</span>이고 행렬식이 <span class="math inline">\(1\)</span>인 실행렬은 모두 <span class="math inline">\(45^\circ\)</span> 회전과 닮았고, <span class="math inline">\(\mathbf{S}\)</span>가 주는 비스듬한 좌표에서는 그저 회전할 뿐이다(그림 7.4.1). 일반적으로 <span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span>인 실수 <span class="math inline">\(2 \times 2\)</span> 행렬은 언제나 회전이나 반사와 닮았다.</p>
+</div>
+<h3 id="결정에-5회-대칭이-없는-이유">결정에 5회 대칭이 없는 이유</h3>
+<p>결정은 원자가 규칙적으로 반복되어 배열된 것이다. 결정의 회전 대칭은 원자의 격자(lattice)를 자기 자신으로 보내므로, 격자를 기준으로 한 좌표에서는 <em>정수</em> 성분을 가지는 행렬로 주어진다. 따라서 그 대각합은 정수이다. 그런데 각 <span class="math inline">\(\theta\)</span>만큼의 회전은 어떤 좌표에서든 대각합이 <span class="math inline">\(2\cos\theta\)</span>이고, <span class="math inline">\(2\cos\theta\)</span>가 정수인 것은 그 값이 <span class="math inline">\(-2, -1, 0, 1\)</span> 또는 <span class="math inline">\(2\)</span>일 때뿐이다. 곧 위수(order)가 <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(4\)</span>, <span class="math inline">\(6\)</span>인(그리고 <span class="math inline">\(1\)</span>인) 회전뿐이다. 5회 대칭이 되려면 <span class="math inline">\(2\cos72^\circ = \frac{\sqrt5 - 1}{2}\)</span>이어야 하는데, 이는 정수가 아니다. 이것이 <em>결정학적 제한 정리(crystallographic restriction theorem)</em>이다. 1982년 단 셰흐트만(Dan Shechtman)은 겉보기에 5회 대칭을 가진 합금을 관찰했고 처음에는 조롱을 받았다. 그것은 펜로즈(Penrose) 타일링처럼 질서는 있지만 주기적이지 않은 <em>준결정(quasicrystal)</em>으로 밝혀졌고, 따라서 이 정리의 적용 대상이 아니었다. 그는 2011년에 노벨 화학상을 받았다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">본질적인 행동을 담아내는 불변량을 찾아라</div>
+<p><em>매개변수가 많은 대상에 관한 문제라면, 관점을 바꾸어도 변하지 않는 몇 가지 조합만으로 충분한지 물어보라.</em></p>
+<p>여기서는 네 성분이 두 불변량(invariant), 곧 대각합과 행렬식으로 줄어들었다. 질문(“<span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span>인가?”)이 좌표에 의존하지 않기 때문이다. 알맞은 불변량을 찾는 것이 분류 문제의 열쇠인 경우가 많다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>위수가 3인 회전.</strong> <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">STEP II 2021, 문제 7</a> (OCR에서 내려받는 2021년 시험지 묶음, zip 파일)에 도전해 보라. 이 문제는 특이한 성질을 가진 회전행렬에서 출발하여, 세제곱이 단위행렬인 모든 실수 <span class="math inline">\(2 \times 2\)</span> 행렬에 관한 사실로 끝난다.</p></li>
+<li><p><strong>위수가 6인 경우.</strong> <span class="math inline">\(\mathbf{M}^6 = \mathbf{I}\)</span>이지만 <span class="math inline">\(\mathbf{M}^2 \neq \mathbf{I}\)</span>이고 <span class="math inline">\(\mathbf{M}^3 \neq \mathbf{I}\)</span>이기 위한 대각합과 행렬식의 조건을 구하라.</p></li>
+<li><p><strong>결정학적 제한.</strong> <span class="math inline">\(\mathbf{M}\)</span>의 성분이 정수이고 <span class="math inline">\(\det\mathbf{M} = 1\)</span>이며 어떤 <span class="math inline">\(n\)</span>에 대하여 <span class="math inline">\(\mathbf{M}^n = \mathbf{I}\)</span>이면 <span class="math inline">\(\operatorname{tr}\mathbf{M} \in \{-2, -1, 0, 1, 2\}\)</span>임을 보여라. 위수가 <span class="math inline">\(6\)</span>인 정수 행렬을 하나 구하라.</p></li>
+<li><p><strong>거듭제곱에 대한 케일리–해밀턴 정리.</strong> <span class="math inline">\(\mathbf{M}^2 = t\mathbf{M} - d\mathbf{I}\)</span>를 이용하여 <span class="math inline">\(\mathbf{M}^3\)</span>과 <span class="math inline">\(\mathbf{M}^4\)</span>를 <span class="math inline">\(p\mathbf{M} + q\mathbf{I}\)</span> 꼴로 나타내고, 이를 이용하여 <span class="math inline">\(\mathbf{M}^4 = -\mathbf{I}\)</span>가 되는 조건을 다시 유도하라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>M. A. Armstrong, <a href="https://uk.bookshop.org/search?keywords=Groups+and+Symmetry+Armstrong"><em>Groups and Symmetry</em></a></strong> (Springer). 『군과 대칭』. 결정학적 제한과 벽지 무늬의 분류를 다룬다.</p></li>
+<li><p><strong>Marjorie Senechal, <a href="https://uk.bookshop.org/search?keywords=Quasicrystals+and+Geometry+Senechal"><em>Quasicrystals and Geometry</em></a></strong> (Cambridge University Press). 『준결정과 기하학』. 준결정과 비주기적 질서의 수학을 다룬다.</p></li>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong> (Wellesley-Cambridge). 『선형대수학 입문』. 닮은 행렬과 케일리–해밀턴 정리를 다룬다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="determinant-axioms.html">← 7.3 행렬식을 행렬식이게 하는 것</a><a class="next" href="rotations-3d.html">→ 7.5 3차원에서의 회전</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

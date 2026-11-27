@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>周期3ならばカオス (STEP III 2025 Q2) — Beyond STEP</title>
+<meta name="description" content="STEP III 2025 問題 2：解説付き解答とその背後にある大学数学。 1975年、リー（Tien-Yien Li）とヨーク（James Yorke）は『 American Mathematical Monthly 』に、数学史上もっとも有名な題名の一つをもつ論文を発表した。その題名は「Period three implies chaos」（周期 3…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch08/period-three.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch08/period-three.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/period-three.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/period-three.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch08/period-three.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch08/period-three.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/period-three.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="周期3ならばカオス (STEP III 2025 Q2) — Beyond STEP">
+<meta property="og:description" content="STEP III 2025 問題 2：解説付き解答とその背後にある大学数学。 1975年、リー（Tien-Yien Li）とヨーク（James Yorke）は『 American Mathematical Monthly 』に、数学史上もっとも有名な題名の一つをもつ論文を発表した。その題名は「Period three implies chaos」（周期 3…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch08/period-three.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="周期3ならばカオス (STEP III 2025 Q2) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2025 問題 2：解説付き解答とその背後にある大学数学。 1975年、リー（Tien-Yien Li）とヨーク（James Yorke）は『 American Mathematical Monthly 』に、数学史上もっとも有名な題名の一つをもつ論文を発表した。その題名は「Period three implies chaos」（周期 3…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "周期3ならばカオス", "headline": "周期3ならばカオス", "description": "STEP III 2025 問題 2：解説付き解答とその背後にある大学数学。 1975年、リー（Tien-Yien Li）とヨーク（James Yorke）は『 American Mathematical Monthly 』に、数学史上もっとも有名な題名の一つをもつ論文を発表した。その題名は「Period three implies chaos」（周期 3…", "url": "https://beyondstep.keithmcnulty.org/ja/ch08/period-three.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2025 問題 2", "微分方程式と力学系"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 8, "name": "微分方程式と力学系", "url": "https://beyondstep.keithmcnulty.org/ja/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第8章：微分方程式と力学系", "item": "https://beyondstep.keithmcnulty.org/ja/ch08/"}, {"@type": "ListItem", "position": 3, "name": "周期3ならばカオス", "item": "https://beyondstep.keithmcnulty.org/ja/ch08/period-three.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch08/period-three.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch08/period-three.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch08/period-three.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch08/period-three.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第8章 · 微分方程式と力学系</a>
+    <div class="src">STEP III · 2025 · 問題 2</div>
+    <div class="sec-head"><span class="sec-num">8.8</span><h1>周期3ならばカオス</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-8-period-three.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第8章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2025、第2問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は、OCRが配布している2025年のSTEP問題一式（zipファイル）のSTEP IIIに収録されている： <a href="https://www.ocr.org.uk/Images/750486-2025-past-papers.zip">www.ocr.org.uk/Images/750486-2025-past-papers.zip</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>1975年、リー（Tien-Yien Li）とヨーク（James Yorke）は『<em>American Mathematical Monthly</em>』に、数学史上もっとも有名な題名の一つをもつ論文を発表した。その題名は「Period three implies chaos」（周期 3 はカオスを導く）である。彼らは、区間からそれ自身への連続関数（continuous function）が周期（period）<span class="math inline">\(3\)</span> の点（ちょうど 3 ステップ後に初めて元に戻る初期値）をもつならば、その関数は<em>あらゆる</em>周期の点をもつことを証明した。<span class="math inline">\(1\)</span>、<span class="math inline">\(2\)</span>、<span class="math inline">\(4\)</span>、<span class="math inline">\(5\)</span>、<span class="math inline">\(17\)</span>、<span class="math inline">\(1000\)</span>、そのすべてである。この論文はまた、「カオス（chaos）」という言葉を数学に持ち込んだ。</p>
+<p>2025年に出題されたこの問題は、この定理を実際に手を動かしてたどる旅である。関数 <span class="math inline">\(\mathrm{f}(x) = 7 - 2|x|\)</span> は 2 本の直線からできているので、すべてを正確に計算できる。その <span class="math inline">\(2\)</span>-サイクル（2-cycle）と <span class="math inline">\(3\)</span>-サイクルを求め、その過程で、一つのサイクルの存在がなぜ残りのサイクルの存在を強制するのかが見えてくる。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(y = 7 - 2|x|\)</span> のグラフはどのような形か。直線 <span class="math inline">\(y = x\)</span> とどこで交わるか。区間（interval）<span class="math inline">\([-7, 7]\)</span> をどこへ写すか。</p>
+</div>
+<p>グラフは頂点が <span class="math inline">\((0, 7)\)</span> にある逆 V 字形で、傾きは <span class="math inline">\(\pm2\)</span> である。<span class="math inline">\(y = x\)</span> とは、<span class="math inline">\(x = 7 - 2x\)</span>（ただし <span class="math inline">\(x \geq 0\)</span>）のとき、すなわち <span class="math inline">\(x = \frac73\)</span> で交わり、また <span class="math inline">\(x = 7 + 2x\)</span>（ただし <span class="math inline">\(x &lt; 0\)</span>）のとき、すなわち <span class="math inline">\(x = -7\)</span> で交わる。これらが<em>不動点</em>（fixed point）である。そこから始めると、数列はまったく動かない。また <span class="math inline">\(\mathrm{f}(-7) = \mathrm{f}(7) = -7\)</span>、<span class="math inline">\(\mathrm{f}(0) = 7\)</span> であるから、<span class="math inline">\(\mathrm{f}\)</span> は <span class="math inline">\([-7, 7]\)</span> をそれ自身の上へ写す。区間を 2 倍の長さに引き伸ばし、半分に折りたたむのである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-mathrmfcircmathrmf-のグラフ" class="stage"><span class="stage-n">段階 1</span> <span class="math inline">\(\mathrm{f}\circ\mathrm{f}\)</span> のグラフ</h4>
+<div class="askyourself">
+<p><span class="math inline">\(x\)</span> が <span class="math inline">\(-7\)</span> から <span class="math inline">\(7\)</span> まで動くとき、<span class="math inline">\(\mathrm{f}(x)\)</span> は <span class="math inline">\(-7\)</span> から <span class="math inline">\(7\)</span> まで増加し、再び <span class="math inline">\(-7\)</span> まで減少する。では <span class="math inline">\(\mathrm{f}(\mathrm{f}(x))\)</span> はどうなるか。</p>
+</div>
+<p><span class="math inline">\(x\)</span> が <span class="math inline">\(-7\)</span> から <span class="math inline">\(0\)</span> まで動くとき、<span class="math inline">\(\mathrm{f}(x)\)</span> は <span class="math inline">\([-7, 7]\)</span> 全体を動くので、<span class="math inline">\(\mathrm{f}(\mathrm{f}(x))\)</span> は V 字をまるごと 1 つ描く。すなわち <span class="math inline">\(-7\)</span> から <span class="math inline">\(7\)</span> まで上がり、再び下がる。<span class="math inline">\(x\)</span> が <span class="math inline">\(0\)</span> から <span class="math inline">\(7\)</span> まで動くときも同じことが起こる。したがって <span class="math inline">\([-7, 7]\)</span> 上で <span class="math inline">\(\mathrm{f}\circ\mathrm{f}\)</span> のグラフは上下逆の W 字形になる。傾き <span class="math inline">\(\pm4\)</span> の 4 本の線分からなり、どれも高さ <span class="math inline">\(-7\)</span> と <span class="math inline">\(7\)</span> の間を結び、<span class="math inline">\(x = \pm\frac72\)</span>（<span class="math inline">\(\mathrm{f}(x) = 0\)</span> となる点）で山、<span class="math inline">\(x = 0\)</span> で <span class="math inline">\(-7\)</span> までの谷をもつ（図 8.8.1）。<span class="math inline">\([-7, 7]\)</span> の外では、どちらのグラフも急激に下がっていく。</p>
+<h4 id="stagemark2-mathrmfmathrmfx-x-を解く" class="stage"><span class="stage-n">段階 2</span> <span class="math inline">\(\mathrm{f}(\mathrm{f}(x)) = x\)</span> を解く</h4>
+<div class="askyourself">
+<p>4 本の線分はそれぞれ対角線 <span class="math inline">\(y = x\)</span> とちょうど 1 回ずつ交わる。そのうち 2 つの交点はすでにわかっている。なぜか。入れ子になった絶対値を展開せずに、残りの 2 つを求めるにはどうすればよいか。</p>
+</div>
+<p>不動点 <span class="math inline">\(\frac73\)</span> と <span class="math inline">\(-7\)</span> は当然 <span class="math inline">\(\mathrm{f}(\mathrm{f}(x)) = x\)</span> を満たす。それ以外の解 <span class="math inline">\(p\)</span> は、<span class="math inline">\(q = \mathrm{f}(p) \neq p\)</span> として <span class="math inline">\(2\)</span>-サイクル <span class="math inline">\(p \to q \to p\)</span> に属する。符号で場合分けしてみよう。<span class="math inline">\(p\)</span> と <span class="math inline">\(q\)</span> がともに正ならば <span class="math inline">\(q = 7 - 2p\)</span>、<span class="math inline">\(p = 7 - 2q\)</span> であり、これから <span class="math inline">\(p = q = \frac73\)</span> となってしまう。ともに負ならば、同じ議論で <span class="math inline">\(-7\)</span> となる。したがって一方は正、他方は負であり、<span class="math inline">\(p &gt; 0 &gt; q\)</span> としてよい。このとき <span class="math display">\[q = 7 - 2p, \qquad p = 7 + 2q.\]</span> よって <span class="math inline">\(p = 7 + 14 - 4p\)</span> より <span class="math inline">\(p = \frac{21}{5}\)</span>、<span class="math inline">\(q = -\frac75\)</span> であり、確かに <span class="math inline">\(q &lt; 0\)</span> を満たす。</p>
+<p><span class="math inline">\([-7, 7]\)</span> の外には解はない。実際、<span class="math inline">\(x &gt; 7\)</span> のとき <span class="math inline">\(\mathrm{f}(\mathrm{f}(x)) = 21 - 4x &lt; x\)</span> であり、<span class="math inline">\(x &lt; -7\)</span> のとき <span class="math inline">\(\mathrm{f}(\mathrm{f}(x)) = 21 + 4x &lt; x\)</span> である。したがって 4 つの解は <span class="math display">\[x = -7, \quad -\tfrac75, \quad \tfrac73, \quad \tfrac{21}{5}. \qed\]</span> である。数列がちょうど周期 <span class="math inline">\(2\)</span> をもつのは、<span class="math inline">\(a = \frac{21}{5}\)</span> または <span class="math inline">\(a = -\frac75\)</span> のときである。（不動点では数列は定数であり、周期は <span class="math inline">\(1\)</span> である。）</p>
+<h4 id="stagemark3-遅れてサイクルに到着する" class="stage"><span class="stage-n">段階 3</span> 遅れてサイクルに到着する</h4>
+<p><span class="math inline">\(a = \frac{28}{5}\)</span> とすると、<span class="math inline">\(u_1 = 7 - \frac{56}{5} = -\frac{21}{5}\)</span>、<span class="math inline">\(u_2 = 7 - \frac{42}{5} = -\frac75\)</span>、<span class="math inline">\(u_3 = 7 - \frac{14}{5} = \frac{21}{5}\)</span>、<span class="math inline">\(u_4 = -\frac75\)</span>、以下同様である。<span class="math inline">\(u_2\)</span> 以降の数列は <span class="math inline">\(2\)</span>-サイクルであるが、<span class="math inline">\(u_0 = \frac{28}{5}\)</span> と <span class="math inline">\(u_1 = -\frac{21}{5}\)</span> はサイクルに含まれない。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(\frac{28}{5}\)</span> を自分で見つけるにはどうすればよかったか。逆向きに考えてみよう。<span class="math inline">\(\mathrm{f}\)</span> によって <span class="math inline">\(-\frac75\)</span> に写される数はどれか。</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(x) = -\frac75\)</span> は <span class="math inline">\(|x| = \frac{21}{5}\)</span> を意味するので、<span class="math inline">\(x = \pm\frac{21}{5}\)</span> である。一方はサイクルに含まれ、もう一方の <span class="math inline">\(-\frac{21}{5}\)</span> がサイクルへの入口となる。次に <span class="math inline">\(\mathrm{f}(x) = -\frac{21}{5}\)</span> は <span class="math inline">\(|x| = \frac{28}{5}\)</span> を意味する。<span class="math inline">\(\mathrm{f}\)</span> は 2 対 1 の写像なので、<span class="math inline">\((-7, 7)\)</span> のすべての点は 2 つの逆像（preimage）をもち、したがってどのサイクルにも、そこへ流れ込む初期値の木が付随している。</p>
+<h4 id="stagemark4-3-サイクル" class="stage"><span class="stage-n">段階 4</span> <span class="math inline">\(3\)</span>-サイクル</h4>
+<div class="pausebox">
+<p><span class="math inline">\(a = 1\)</span> と <span class="math inline">\(a = -\frac79\)</span> から始まる数列を計算せよ。</p>
+</div>
+<p><span class="math inline">\(a = 1\)</span> からは <span class="math inline">\(1 \to 5 \to -3 \to 1\)</span> となる。<span class="math inline">\(a = -\frac79\)</span> からは <span class="math inline">\(-\frac79 \to \frac{49}{9} \to -\frac{35}{9} \to -\frac79\)</span> となる。どちらも <span class="math inline">\(3\)</span>-サイクルである。</p>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathrm{f}(x))) = x\)</span> は解をいくつもちうるか。段階 1 と同様に、そのグラフの形を考えよ。</p>
+</div>
+<p>段階 1 の議論を繰り返すと、<span class="math inline">\(\mathrm{f}\)</span> をもう一度適用するたびに線分の本数は 2 倍になる。したがって <span class="math inline">\([-7, 7]\)</span> 上で <span class="math inline">\(\mathrm{f}\circ\mathrm{f}\circ\mathrm{f}\)</span> のグラフは、傾き <span class="math inline">\(\pm8\)</span> の 8 本の線分からなるジグザグであり、どの線分も <span class="math inline">\(-7\)</span> から <span class="math inline">\(7\)</span> までの高さ全体にわたる（図 8.8.2）。各線分は対角線とちょうど 1 回交わるので、<span class="math inline">\([-7, 7]\)</span> にはちょうど 8 個の解があり、（前と同様に）その外には解はない。すでに 8 個、すなわち 2 つの不動点と 2 つの <span class="math inline">\(3\)</span>-サイクルの 6 点が見つかっている。よって解は <span class="math display">\[x = -7,\ \tfrac73,\ 1,\ 5,\ -3,\ -\tfrac79,\ \tfrac{49}{9},\ -\tfrac{35}{9}. \qed\]</span> である。</p>
+<h4 id="stagemark5-3-サイクルへの遅れた到着" class="stage"><span class="stage-n">段階 5</span> <span class="math inline">\(3\)</span>-サイクルへの遅れた到着</h4>
+<p>サイクル <span class="math inline">\(1 \to 5 \to -3\)</span> から逆向きにたどる。<span class="math inline">\(u_3\)</span> はサイクルに含まれるが <span class="math inline">\(u_2\)</span> は含まれないようにしたい。<span class="math inline">\(1\)</span> の逆像は <span class="math inline">\(|x| = 3\)</span> を満たすので <span class="math inline">\(x = \pm3\)</span> であり、<span class="math inline">\(-3\)</span> はサイクルに含まれるから <span class="math inline">\(u_2 = 3\)</span> とする。<span class="math inline">\(3\)</span> の逆像は <span class="math inline">\(|x| = 2\)</span> を満たすので、<span class="math inline">\(u_1 = 2\)</span> とする。<span class="math inline">\(2\)</span> の逆像は <span class="math inline">\(|x| = \frac52\)</span> を満たすので、<span class="math inline">\(u_0 = \frac52\)</span> とする。すると <span class="math display">\[\tfrac52 \to 2 \to 3 \to 1 \to 5 \to -3 \to 1 \to \cdots,\]</span> となり、<span class="math inline">\(\frac52\)</span>、<span class="math inline">\(2\)</span>、<span class="math inline">\(3\)</span> のいずれもサイクルに含まれない。よって <span class="math inline">\(a = \frac52\)</span> が条件を満たす。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-8-1.svg" alt="図 8.8.1"><figcaption><span class="fig-label">図 8.8.1</span> <span class="math inline">\(y = \mathrm{f}(x)\)</span>（青緑）、<span class="math inline">\(y = \mathrm{f}(\mathrm{f}(x))\)</span>（紫）、<span class="math inline">\(y = x\)</span>（灰色）のグラフ。紫のグラフは対角線と 4 回交わる。不動点 <span class="math inline">\(-7\)</span> と <span class="math inline">\(\frac73\)</span>（黒）、および <span class="math inline">\(2\)</span>-サイクル <span class="math inline">\(\frac{21}{5} \leftrightarrow -\frac75\)</span>（琥珀色）である。琥珀色の正方形は <span class="math inline">\(2\)</span>-サイクルの<em>クモの巣図</em>（cobweb）である。<span class="math inline">\(\mathrm{f}\)</span> のグラフまで縦に進み、対角線まで横に進み、これを繰り返す。</figcaption></figure>
+<figure class="stepfig"><img src="../assets/fig/fig-8-8-2.svg" alt="図 8.8.2"><figcaption><span class="fig-label">図 8.8.2</span> <span class="math inline">\([-7, 7]\)</span> 上の <span class="math inline">\(y = \mathrm{f}(\mathrm{f}(\mathrm{f}(x)))\)</span> のグラフ（紫）は、傾き <span class="math inline">\(\pm8\)</span> の 8 本の線分からなるジグザグであり、各線分は対角線と 1 回ずつ交わる。8 つの交点は、2 つの不動点（黒）、<span class="math inline">\(3\)</span>-サイクル <span class="math inline">\(1 \to 5 \to -3\)</span>（琥珀色）、<span class="math inline">\(3\)</span>-サイクル <span class="math inline">\(-\frac79 \to \frac{49}{9} \to -\frac{35}{9}\)</span>（青緑）である。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>形で数える。</strong> 入れ子になった絶対値を展開する代わりに、グラフの線分の本数を数えた。これによって探すべき解の個数がわかり、したがってすべて見つけ終えたときにそれがわかった。</p></li>
+<li><p><strong>サイクルの構造を利用する。</strong> <span class="math inline">\(\mathrm{f}(\mathrm{f}(x)) = x\)</span> の解は不動点か、2 つ組で現れる。<span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathrm{f}(x))) = x\)</span> の解は不動点か、3 つ組で現れる。</p></li>
+<li><p><strong>逆向きに考える。</strong> (i)(d) と (ii)(c) の「遅れた到着」は逆像によって構成した。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="あらゆる長さのサイクル">あらゆる長さのサイクル</h3>
+<p>段階 4 の数え方は、何ステップの場合にも通用する。<span class="math inline">\(\mathrm{f}\)</span> を <span class="math inline">\(n\)</span> 回適用したものを <span class="math inline">\(\mathrm{f}^n\)</span> と書く。<span class="math inline">\([-7, 7]\)</span> 上で <span class="math inline">\(\mathrm{f}^n\)</span> のグラフは、高さ全体にわたる <span class="math inline">\(2^n\)</span> 本の線分からなるので、<span class="math inline">\(\mathrm{f}^n(x) = x\)</span> はちょうど <span class="math inline">\(2^n\)</span> 個の解をもつ。そのうちいくつかは <span class="math inline">\(n\)</span> を割り切るより短い周期 <span class="math inline">\(d\)</span> をもつが、各 <span class="math inline">\(d\)</span> についてそれらは高々 <span class="math inline">\(2^d\)</span> 個であり、 <span class="math display">\[2^n &gt; 2^{n/2} + 2^{n/3} + \cdots + 2^1 \quad\text{（$n$ の約数 $d &lt; n$ についての和）}\]</span> が成り立つ。なぜなら、<span class="math inline">\(n\)</span> より小さい約数はすべて <span class="math inline">\(n/2\)</span> 以下であり、<span class="math inline">\(2^1 + 2^2 + \cdots + 2^{\lfloor n/2\rfloor} &lt; 2^{\lfloor n/2\rfloor + 1} \leq 2^n\)</span> だからである。したがって、すべての <span class="math inline">\(n\)</span> について周期がちょうど <span class="math inline">\(n\)</span> である点が存在する。この関数はあらゆる長さのサイクルをもつ。</p>
+<h3 id="なぜ周期-3-がすべてを強制するのか">なぜ周期 3 がすべてを強制するのか</h3>
+<p>リーとヨークの定理によれば、これは私たちの関数に特有のことではない。区間からそれ自身への連続関数 <span class="math inline">\(\mathrm{g}\)</span> が <span class="math inline">\(3\)</span>-サイクルをもてば、<em>どのような</em>ものであっても、あらゆる長さのサイクルをもつ。証明には中間値の定理（intermediate value theorem）しか使わない。そして私たちの <span class="math inline">\(3\)</span>-サイクルが、その筋道を示してくれる。</p>
+<div class="askyourself">
+<p>サイクル <span class="math inline">\(1 \to 5 \to -3\)</span> の点の間にある 2 つの区間を <span class="math inline">\(I_1 = [-3, 1]\)</span>、<span class="math inline">\(I_2 = [1, 5]\)</span> とする。<span class="math inline">\(\mathrm{f}\)</span> はそれぞれをどこへ写すか。</p>
+</div>
+<p><span class="math inline">\(I_2\)</span> 上で <span class="math inline">\(\mathrm{f}\)</span> は <span class="math inline">\(\mathrm{f}(1) = 5\)</span> から <span class="math inline">\(\mathrm{f}(5) = -3\)</span> まで減少するので、<span class="math inline">\(\mathrm{f}(I_2) = [-3, 5] = I_1 \cup I_2\)</span> である。<span class="math inline">\(I_1\)</span> 上で <span class="math inline">\(\mathrm{f}\)</span> は <span class="math inline">\(\mathrm{f}(-3) = 1\)</span> から <span class="math inline">\(\mathrm{f}(0) = 7\)</span> まで増加し、<span class="math inline">\(\mathrm{f}(1) = 5\)</span> まで減少するので、<span class="math inline">\(\mathrm{f}(I_1) = [1, 7]\)</span> であり、これは <span class="math inline">\(I_2\)</span> を含む。使ったのはサイクルの 3 点だけであることに注意しよう。<span class="math inline">\(a &lt; b &lt; c\)</span> である <span class="math inline">\(3\)</span>-サイクル <span class="math inline">\(a \to b \to c\)</span> をもつ連続関数はどれも、同じように区間を覆う。どの区間がどの区間を覆うかを図にまとめることができる（図 8.8.3）： <span class="math display">\[I_1 \to I_2, \qquad I_2 \to I_1, \qquad I_2 \to I_2.\]</span> 定理は次の 2 つの事実から従う。どちらも中間値の定理の帰結である。</p>
+<ul>
+<li><p><span class="math inline">\(\mathrm{g}(I) \supseteq I\)</span> ならば、<span class="math inline">\(\mathrm{g}\)</span> は <span class="math inline">\(I\)</span> 内に不動点をもつ。（<span class="math inline">\(\mathrm{g}(x) - x\)</span> に中間値の定理を適用すればよい。）</p></li>
+<li><p><span class="math inline">\(\mathrm{g}(I) \supseteq J\)</span> ならば、<span class="math inline">\(\mathrm{g}(I&#39;) = J\)</span> をちょうど満たす、より小さい閉区間 <span class="math inline">\(I&#39; \subseteq I\)</span> が存在する。</p></li>
+</ul>
+<p>周期 <span class="math inline">\(n\)</span> の点を見つけるには、図の中でループ <span class="math inline">\(I_2 \to I_2 \to \cdots \to I_2 \to I_1 \to I_2\)</span> をたどる。<span class="math inline">\(I_2\)</span> の中で <span class="math inline">\(n - 1\)</span> ステップ進み、1 ステップだけ <span class="math inline">\(I_1\)</span> に出て戻ってくるのである。2 つ目の事実を繰り返し使うと、<span class="math inline">\(I_2\)</span> を縮めて、軌道がこの遍歴（itinerary）に従う初期値の区間を得ることができ、<span class="math inline">\(\mathrm{g}^n\)</span> はその区間を <span class="math inline">\(I_2\)</span> 全体の上へ写す。1 つ目の事実から、<span class="math inline">\(\mathrm{g}^n(x) = x\)</span> を満たし、ステップ <span class="math inline">\(n - 1\)</span> でのみ <span class="math inline">\(I_1\)</span> を訪れる点 <span class="math inline">\(x\)</span> が得られる。その周期は <span class="math inline">\(n\)</span> より小さくはなりえない。もしそうなら、<span class="math inline">\(I_1\)</span> への訪問がもっと早く繰り返されるはずだからである。（<span class="math inline">\(I_1\)</span> と <span class="math inline">\(I_2\)</span> は点 <span class="math inline">\(1\)</span> を共有しているので、一つだけ微妙な点がある。それが問題を起こさないことの確認は演習とする。）</p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-8-3.svg" alt="図 8.8.3"><figcaption><span class="fig-label">図 8.8.3</span> <span class="math inline">\(3\)</span>-サイクルの被覆図（covering diagram）。ある区間から別の区間への矢印は、1 つ目の区間の像が 2 つ目の区間を含むことを意味する。図の中のどのループも関数のサイクルを与える。ループ <span class="math inline">\(I_2 \to I_2\)</span> は不動点を、<span class="math inline">\(I_1 \to I_2 \to I_1\)</span> は <span class="math inline">\(2\)</span>-サイクルを与え、<span class="math inline">\(I_2\)</span> のループを <span class="math inline">\(n - 1\)</span> 回まわってから <span class="math inline">\(I_1\)</span> を訪れると、長さ <span class="math inline">\(n\)</span> のサイクルが得られる。</figcaption></figure>
+<div class="historybox">
+<div class="box-title">シャルコフスキーの定理</div>
+<p>リーとヨークが最初だったわけではない。1964年、ウクライナの数学者シャルコフスキー（Oleksandr Sharkovskii）は、はるかに完全な結果をすでに証明していた。それはロシア語で『<em>Ukrainian Mathematical Journal</em>』に発表され、西側では 10 年間知られていなかった。正の整数を次のように並べる。 <span class="math display">\[3,\ 5,\ 7,\ 9,\ \ldots,\ \ 2\cdot3,\ 2\cdot5,\ \ldots,\ \ 2^2\cdot3,\ 2^2\cdot5,\ \ldots,\ \ \ldots,\ \ 2^3,\ 2^2,\ 2,\ 1:\]</span> まず <span class="math inline">\(3\)</span> 以上の奇数、次に奇数の 2 倍、次に奇数の 4 倍、以下同様に続き、最後に <span class="math inline">\(2\)</span> の累乗を減少する順に並べる。シャルコフスキーの定理によれば、区間上の連続関数が長さ <span class="math inline">\(m\)</span> のサイクルをもてば、この並びで <span class="math inline">\(m\)</span> より後にくるすべての長さのサイクルをもつ。<span class="math inline">\(3\)</span> が先頭にあるので、周期 <span class="math inline">\(3\)</span> はあらゆる周期を導く。しかもこの定理は最良である。すなわち、どの <span class="math inline">\(m\)</span> についても、長さ <span class="math inline">\(m\)</span> のサイクルをもち、並びでそれより前にくる長さのサイクルをもたない関数が存在する。末尾の <span class="math inline">\(2\)</span> の累乗は、<a href="../ch08/solvable-chaos.html">第 8.7 節</a> のロジスティック写像における周期倍分岐のカスケード（period-doubling cascade）そのものであり、<span class="math inline">\(3\)</span>-サイクルはそこで <span class="math inline">\(k = 1 + \sqrt8\)</span> において現れる。</p>
+</div>
+<h3 id="テント写像とロジスティック写像">テント写像とロジスティック写像</h3>
+<p><span class="math inline">\([0, 1]\)</span> を <span class="math inline">\([-7, 7]\)</span> の上へ写す置換 <span class="math inline">\(x = 14y - 7\)</span> を行う。簡単な計算により、<span class="math inline">\(\mathrm{f}\)</span> は<em>テント写像</em>（tent map） <span class="math display">\[T(y) = \begin{cases} 2y &amp; 0 \leq y \leq \tfrac12, \\ 2 - 2y &amp; \tfrac12 \leq y \leq 1, \end{cases}\]</span> になることがわかる。さらに置換 <span class="math inline">\(u = \sin^2(\pi y / 2)\)</span> を行うと、テント写像はロジスティック写像（logistic map）<span class="math inline">\(u \mapsto 4u(1 - u)\)</span> に変わる。つまりこの問題の関数は、<a href="../ch08/solvable-chaos.html">第 8.7 節</a> のカオス的なロジスティック写像をまっすぐに伸ばしたものである。<span class="math inline">\(\mathrm{f}^3(x) = x\)</span> の 8 個の解は、<span class="math inline">\([0, \frac{\pi}{2}]\)</span> における <span class="math inline">\(\sin^2(8\theta) = \sin^2\theta\)</span> の 8 個の解に対応する。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">中間値の定理による存在証明</div>
+<p><em>解が存在することを示すのに、いつもそれを見つける必要があるわけではない。連続関数の符号が変わること、あるいはある区間がそれ自身を覆うように写されることを示せばよい。</em></p>
+<p>この問題では、すべての解を計算することができた。しかしリーとヨークの定理は、まったく計算できない関数にも適用でき、中間値の定理と、どの区間がどの区間を覆うかを表す図だけを使って、無限個のサイクルの存在を証明する。大学では、このような構成を伴わない存在証明という議論のスタイルが、解析学（中間値の定理そのもの）、位相幾何学（不動点定理）、そして力学系の至るところに現れる。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong><span class="math inline">\(4\)</span>-サイクル。</strong> 被覆図を使って、<span class="math inline">\(\mathrm{f}\)</span> の <span class="math inline">\(4\)</span>-サイクルがどこにあるはずかを予想せよ（<span class="math inline">\(I_2\)</span> で 3 ステップ、<span class="math inline">\(I_1\)</span> で 1 ステップ）。次にそれを正確に求めよ。（<em>ヒント：</em>このサイクルは 3 つの正の点と 1 つの負の点をもつ。4 つの一次方程式を書き下せ。）</p></li>
+<li><p><strong>微妙な点。</strong> 周期 <span class="math inline">\(3\)</span> が周期 <span class="math inline">\(n\)</span> を導くことの証明において、<span class="math inline">\(n \geq 4\)</span> のとき、得られた点 <span class="math inline">\(x\)</span> が点 <span class="math inline">\(1\)</span>（あるいは元の <span class="math inline">\(3\)</span>-サイクルのどの点）にもなりえない理由を説明せよ。</p></li>
+<li><p><strong>周期 <span class="math inline">\(3\)</span> なしの周期 <span class="math inline">\(5\)</span>。</strong> <span class="math inline">\(\mathrm{g}(1) = 3\)</span>、<span class="math inline">\(\mathrm{g}(3) = 4\)</span>、<span class="math inline">\(\mathrm{g}(4) = 2\)</span>、<span class="math inline">\(\mathrm{g}(2) = 5\)</span>、<span class="math inline">\(\mathrm{g}(5) = 1\)</span> を満たし、これらの点を直線で結んだ <span class="math inline">\([1, 5]\)</span> 上の連続関数のグラフをかけ。区間 <span class="math inline">\([1, 2]\)</span>、<span class="math inline">\([2, 3]\)</span>、<span class="math inline">\([3, 4]\)</span>、<span class="math inline">\([4, 5]\)</span> についてその被覆図をかけ。長さ <span class="math inline">\(3\)</span> のループは見つかるか。（シャルコフスキーの定理によれば、<span class="math inline">\(3\)</span>-サイクルは存在しない。）</p></li>
+<li><p><strong>テント写像。</strong> <span class="math inline">\(x = 14y - 7\)</span> によって <span class="math inline">\(\mathrm{f}\)</span> がテント写像になることを確かめよ。次に、テント写像は <span class="math inline">\(y\)</span> を 2 進法で書いたものを 2 倍し、先頭の桁が <span class="math inline">\(1\)</span> のときはすべての桁を反転させることを示し、これを用いてその <span class="math inline">\(3\)</span>-サイクルを求めよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Tien-Yien Li &amp; James Yorke, “<a href="https://doi.org/10.1080/00029890.1975.11994008">Period three implies chaos</a>”</strong>, <em>American Mathematical Monthly</em> 82 (1975). 短く、中間値の定理を知っていれば読める。</p></li>
+<li><p><strong>Robert Devaney, <a href="https://uk.bookshop.org/search?keywords=A+First+Course+in+Chaotic+Dynamical+Systems+Devaney"><em>A First Course in Chaotic Dynamical Systems</em></a></strong> (CRC Press). 学部生向けに書かれており、テント写像、ロジスティック写像、シャルコフスキーの定理を完全な証明つきで扱っている。</p></li>
+<li><p><strong>Keith Burns &amp; Boris Hasselblatt, “<a href="https://doi.org/10.4169/amer.math.monthly.118.03.229">The Sharkovsky theorem: a natural direct proof</a>”</strong>, <em>American Mathematical Monthly</em> 118 (2011). 被覆図を用いた現代的な証明。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="solvable-chaos.html">← 8.7 解けるカオス</a><a class="next" href="wrap-up.html">→ 振り返り</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第4章：きちんと学ぶ微分積分学 — Beyond STEP</title>
+<meta name="description" content="積分の定義から出発し、何かを証明するための積分を経て、幾何学と変分法へと至る。">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch04/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch04/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch04/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第4章：きちんと学ぶ微分積分学 — Beyond STEP">
+<meta property="og:description" content="積分の定義から出発し、何かを証明するための積分を経て、幾何学と変分法へと至る。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch04/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第4章：きちんと学ぶ微分積分学 — Beyond STEP">
+<meta name="twitter:description" content="積分の定義から出発し、何かを証明するための積分を経て、幾何学と変分法へと至る。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 4, "name": "きちんと学ぶ微分積分学", "url": "https://beyondstep.keithmcnulty.org/ja/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "積分の定義から出発し、何かを証明するための積分を経て、幾何学と変分法へと至る。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第4章：きちんと学ぶ微分積分学", "item": "https://beyondstep.keithmcnulty.org/ja/ch04/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch04/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch04/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch04/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch04/index.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">4</div>
+    <h1>きちんと学ぶ微分積分学</h1>
+    <p class="strap">積分は解析学・幾何学・数論が出会う場所であり、数学で最も美しい公式のいくつかが住む場所である。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">章全体をダウンロード</span><span class="dl-sub">PDF（印刷用組版）</span></span></a>
+  </div>
+  <h2 class="contents-head">この章の内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="riemann.html"><span class="toc-num">4.1</span>
+<span class="toc-title">積分とは何か？</span>
+<span class="toc-src">STEP III 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-1-riemann.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="trig-from-integral.html"><span class="toc-num">4.2</span>
+<span class="toc-title">積分から三角関数を構成する</span>
+<span class="toc-src">STEP III 2017</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-2-trig-from-integral.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="twenty-two-sevenths.html"><span class="toc-num">4.3</span>
+<span class="toc-title">\(22/7\) は \(\pi\) より大きい</span>
+<span class="toc-src">STEP I 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-3-twenty-two-sevenths.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wallis-beta.html"><span class="toc-num">4.4</span>
+<span class="toc-title">ウォリス、ベータ、そして二分の一の階乗</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-4-wallis-beta.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="sophomores-dream.html"><span class="toc-num">4.5</span>
+<span class="toc-title">2年生の夢</span>
+<span class="toc-src">STEP III 2009</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-5-sophomores-dream.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="no-formula.html"><span class="toc-num">4.6</span>
+<span class="toc-title">公式で表せない積分</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-6-no-formula.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="variations.html"><span class="toc-num">4.7</span>
+<span class="toc-title">変分法</span>
+<span class="toc-src">STEP III 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-7-variations.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="spherical-loaf.html"><span class="toc-num">4.8</span>
+<span class="toc-title">球形のパンを切る</span>
+<span class="toc-src">STEP I 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-8-spherical-loaf.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="holditch.html"><span class="toc-num">4.9</span>
+<span class="toc-title">ホールディッチの定理</span>
+<span class="toc-src">STEP III 2011</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-4-9-holditch.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">振り返り：ここで学んだこと</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「次はこれに挑戦」の演習問題の解答</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第4章  \(\cdot\)  序論</div>
+    <h1 class="essay-title">原始関数にとどまらない積分</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>導関数をもたない関数という嘆かわしい災いから、私は恐怖と戦慄をもって目を背ける。</p>
+<p class="who">— シャルル・エルミート（Charles Hermite）、1893年の書簡より</p>
+</div>
+<p>高校生に積分（integration）とは何かと尋ねれば、おそらく「微分（differentiation）の逆」という答えが返ってくるだろう。これは<em>微分積分学の基本定理</em>（fundamental theorem of calculus）と呼ばれるすばらしい事実であり、学校で出会う積分の大半を型どおりの計算にしてくれる。しかしこれは積分についての定理であって、積分の定義ではない。そして、積分を面白くしているものの大部分を覆い隠してしまっている。</p>
+<p>積分は微分よりもおよそ二千年古い。アルキメデス（Archimedes）は、導関数を考えた者がまだ誰もいなかったはるか昔に、薄い切片を足し合わせることで放物線の弓形の面積や球の表面積を求めた。また、積分は微分には届かない場所にまで及ぶ。まともな関数であれば機械的な規則で微分できるが、ほとんどの関数は式の形で積分することが<em>できない</em>。すると自然な疑問が生じる。どのようなときに積分でき、できないときにはどうすればよいのか。積分は新しい関数を定義し、数どうしの不等式を証明し、ほかに記述のしようがない面積や体積を計算し、無限和や無限積（infinite product）の正確な値を与える。本章はこれらすべてを扱う。</p>
+<h3 id="積分とは本当は何か">積分とは本当は何か</h3>
+<p>本章は出発点、すなわち定義から始める（<a href="../ch04/riemann.html">第 4.1 節</a>）。積分とは薄い長方形の和の極限である。原始関数（antiderivative）を使わずにこの定義から <span class="math inline">\(\int_0^a x^5\,\mathrm{d}x\)</span> を計算するだけでもかなりの仕事であり、それによって基本定理のありがたみがわかる。精密な定義が得られると、精密な問いが生まれる。どのような関数が可積分（integrable）なのか。その答えと、そこから生じた問題が、20世紀初頭にルベーグ（Lebesgue）の積分論を生み、これが現代の確率論の基礎となった。</p>
+<h3 id="ものを証明する積分">ものを証明する積分</h3>
+<p>本章で最も驚くべき結果のいくつかは、面積とは何の関係もなさそうな事実を積分を使って証明するものである。正の関数のある一つの積分が <span class="math inline">\(\frac{22}{7} - \pi\)</span> に等しく、これにより <span class="math inline">\(\pi &lt; \frac{22}{7}\)</span> が一行で証明される（<a href="../ch04/twenty-two-sevenths.html">第 4.3 節</a>）。<span class="math inline">\(\sin t\)</span> のべきからは、<span class="math inline">\(\pi\)</span> についてのウォリス（Wallis）の無限積と、<span class="math inline">\(\left(\frac12\right)! = \frac{\sqrt\pi}{2}\)</span> という値が導かれる（<a href="../ch04/wallis-beta.html">第 4.4 節</a>）。<span class="math inline">\(x^x\)</span> の積分は和 <span class="math inline">\(\sum (-1)^{n+1}n^{-n}\)</span> に姿を変える（<a href="../ch04/sophomores-dream.html">第 4.5 節</a>）。そしてただ一つの積分 <span class="math inline">\(\int_0^x \frac{\mathrm{d}u}{1+u^2}\)</span> を用いて、三角法を一から組み立てることができる（<a href="../ch04/trig-from-integral.html">第 4.2 節</a>）。</p>
+<h3 id="大学で出会うもの">大学で出会うもの</h3>
+<p>大学1年の<em>解析学</em>（Analysis）の講義では、積分の定義から出発して微分積分学の基本定理をきちんと証明する。その後の講義はいくつかの方向へ発展していく。<em>測度論</em>（measure theory）と<em>ルベーグ積分</em>（Lebesgue integral）は、積分と極限の相性をよくし、確率論の土台となる。<em>ベクトル解析</em>（vector calculus）では曲線・曲面・立体上で積分を行い、グリーン（Green）の定理やストークス（Stokes）の定理がそれらを結びつける（<a href="../ch04/holditch.html">第 4.9 節</a> でその一端を味わえる）。<em>複素解析</em>（complex analysis）は、複素平面を経由する回り道によって実積分を計算する。<em>変分法</em>（calculus of variations）は、どの関数が積分の値を最小にするかを問い（<a href="../ch04/variations.html">第 4.7 節</a>）、物理学における最小作用の原理（principle of least action）へとつながる。そして<em>微分代数</em>（differential algebra）は、そもそもどの積分が式で表せるのかを説明する（<a href="../ch04/no-formula.html">第 4.6 節</a>）。</p>
+<h3 id="本章を貫く問い">本章を貫く問い</h3>
+<div class="skillbox">
+<div class="box-title">三つの大きな問い</div>
+<ol class="arabic">
+<li><p><strong>積分とは何か。また、どのような関数が積分をもつのか。</strong>和の極限としての定義は、原始関数とどのように結びつくのか。</p></li>
+<li><p><strong>積分によって何が証明できるのか。</strong>面積から、<span class="math inline">\(\pi\)</span> について、階乗について、無限和について、どのようにして何かがわかるのか。</p></li>
+<li><p><strong>式が存在しないとき、何ができるのか。</strong>積分が式で表せないことをどのようにして知り、それでも何を計算できるのか。</p></li>
+</ol>
+</div>
+<h3 id="本章で扱う考え方">本章で扱う考え方</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">主題</th>
+<th style="text-align: left;">考え方</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">4.1</td>
+<td style="text-align: left;">積分の定義</td>
+<td style="text-align: left;">下和と上和（lower and upper sums）、望遠鏡和（telescoping）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.2</td>
+<td style="text-align: left;"><span class="math inline">\(\int \frac{\mathrm{d}u}{1+u^2}\)</span> から作る三角法</td>
+<td style="text-align: left;">積分を保つ置換</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.3</td>
+<td style="text-align: left;"><span class="math inline">\(\frac{22}{7} &gt; \pi\)</span></td>
+<td style="text-align: left;">正の量の積分として表した不等式</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.4</td>
+<td style="text-align: left;">ウォリスと <span class="math inline">\(\left(\frac12\right)!\)</span></td>
+<td style="text-align: left;">漸化式（reduction formula）、不変量（invariant）、はさみうち（squeeze）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.5</td>
+<td style="text-align: left;"><span class="math inline">\(\int_0^1 x^x\,\mathrm{d}x\)</span></td>
+<td style="text-align: left;">級数展開（series expansion）と項別積分（term-by-term integration）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.6</td>
+<td style="text-align: left;">式で表せない積分</td>
+<td style="text-align: left;">多項式の代数による不可能性の証明</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.7</td>
+<td style="text-align: left;">変分法</td>
+<td style="text-align: left;">積分の中での平方完成（completing the square）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4.8</td>
+<td style="text-align: left;">アルキメデスの帽子箱定理（hat-box theorem）</td>
+<td style="text-align: left;">被積分関数（integrand）を簡単にすると幾何が見えてくる</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4.9</td>
+<td style="text-align: left;">Holditch の定理</td>
+<td style="text-align: left;">境界上の積分による面積、消去</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="本章の読み方">本章の読み方</h3>
+<p>いくつかの節には、重いが型どおりの計算が含まれている。多項式の割り算、部分積分（integration by parts）、積の展開などである。本文を読む前に、これらを紙と鉛筆で自分の手で実行してみること。そのうえで、計算をうまくいかせた考え方、つまり不変量、対称性、打ち消し合いを探してほしい。計算は試験官が確かめるものであり、考え方はあなたが覚えていて再び使うものである。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="riemann.html">→ 読み始める： 4.1 積分とは何か？</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

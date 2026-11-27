@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>平面を分割する直線 (STEP II 1990 Q4) — Beyond STEP</title>
+<meta name="description" content="STEP II 1990 問題 4：解説付き解答とその背後にある大学数学。 ピースの大きさがそろっていなくてよいなら、 n 回のまっすぐな切れ目でピザを何切れに分けられるだろうか。1 回切れば 2 切れ、2 回で 4 切れ、3 回で 7 切れ（ 8 ではない。実際に試してみよ）、4 回で 11 切れである。数列 1, 2, 4, 7, 11, 16, ldots は 怠惰な仕出し屋の数列…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/lazy-caterer.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="平面を分割する直線 (STEP II 1990 Q4) — Beyond STEP">
+<meta property="og:description" content="STEP II 1990 問題 4：解説付き解答とその背後にある大学数学。 ピースの大きさがそろっていなくてよいなら、 n 回のまっすぐな切れ目でピザを何切れに分けられるだろうか。1 回切れば 2 切れ、2 回で 4 切れ、3 回で 7 切れ（ 8 ではない。実際に試してみよ）、4 回で 11 切れである。数列 1, 2, 4, 7, 11, 16, ldots は 怠惰な仕出し屋の数列…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch09/lazy-caterer.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="平面を分割する直線 (STEP II 1990 Q4) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1990 問題 4：解説付き解答とその背後にある大学数学。 ピースの大きさがそろっていなくてよいなら、 n 回のまっすぐな切れ目でピザを何切れに分けられるだろうか。1 回切れば 2 切れ、2 回で 4 切れ、3 回で 7 切れ（ 8 ではない。実際に試してみよ）、4 回で 11 切れである。数列 1, 2, 4, 7, 11, 16, ldots は 怠惰な仕出し屋の数列…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "平面を分割する直線", "headline": "平面を分割する直線", "description": "STEP II 1990 問題 4：解説付き解答とその背後にある大学数学。 ピースの大きさがそろっていなくてよいなら、 n 回のまっすぐな切れ目でピザを何切れに分けられるだろうか。1 回切れば 2 切れ、2 回で 4 切れ、3 回で 7 切れ（ 8 ではない。実際に試してみよ）、4 回で 11 切れである。数列 1, 2, 4, 7, 11, 16, ldots は 怠惰な仕出し屋の数列…", "url": "https://beyondstep.keithmcnulty.org/ja/ch09/lazy-caterer.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1990 問題 4", "数え上げと確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "数え上げと確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第9章：数え上げと確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch09/"}, {"@type": "ListItem", "position": 3, "name": "平面を分割する直線", "item": "https://beyondstep.keithmcnulty.org/ja/ch09/lazy-caterer.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch09/lazy-caterer.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch09/lazy-caterer.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch09/lazy-caterer.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch09/lazy-caterer.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第9章 · 数え上げと確率</a>
+    <div class="src">STEP II · 1990 · 問題 4</div>
+    <div class="sec-head"><span class="sec-num">9.1</span><h1>平面を分割する直線</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-1-lazy-caterer.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第9章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 1990、第4問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/90-s2-q4">step.maths.org/questions/90-s2-q4</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>ピースの大きさがそろっていなくてよいなら、<span class="math inline">\(n\)</span> 回のまっすぐな切れ目でピザを何切れに分けられるだろうか。1 回切れば <span class="math inline">\(2\)</span> 切れ、2 回で <span class="math inline">\(4\)</span> 切れ、3 回で <span class="math inline">\(7\)</span> 切れ（<span class="math inline">\(8\)</span> ではない。実際に試してみよ）、4 回で <span class="math inline">\(11\)</span> 切れである。数列 <span class="math inline">\(1, 2, 4, 7, 11, 16, \ldots\)</span> は<em>怠惰な仕出し屋の数列</em>（lazy caterer’s sequence）として知られており、この問題はその一般項を求めるものである。</p>
+<p>この問題は、組合せ論（combinatorics）全体を貫く手法への最初の入門となる。すべてを一度に数えようとしてはならない。その代わりに、対象を一つ増やしたときに何が変わるかを問うのである。そして答えは、<a href="../ch07/platonic-solids.html">第 7.9 節</a> でプラトンの立体とともに出会ったオイラー（Euler）の公式 <span class="math inline">\(V - E + F = 2\)</span> の特別な場合であることがわかる。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="pausebox">
+<p>直線を一般の位置（general position）に保ちながら（どの 2 本も平行でなく、どの 3 本も 1 点を通らない）、<span class="math inline">\(n = 1, 2, 3, 4\)</span> の場合を丁寧に描け。それぞれの場合について、線分（segment）と領域（region）の個数を数えよ。規則性を推測できるだろうか。</p>
+</div>
+<p>次のようになるはずである。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(3\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(4\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">線分</td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(9\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(16\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">領域</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(7\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(11\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>線分の個数は <span class="math inline">\(n^2\)</span> のように見える。領域の個数は <span class="math inline">\(1, 2, 3, 4\)</span> ずつ増えている。つまり、階差が自然数になっている。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-線分を数える" class="stage"><span class="stage-n">段階 1</span> 線分を数える</h4>
+<div class="askyourself">
+<p>1 本の直線に注目せよ。他の直線のうち何本がそれと交わり、それを何個の部分に分けるか。</p>
+</div>
+<p>各直線は他の <span class="math inline">\(n - 1\)</span> 本の直線のそれぞれと交わり（どれもその直線と平行ではない）、しかも交点は <span class="math inline">\(n - 1\)</span> 個の相異なる点である（どの 3 本も 1 点で交わらない）。これら <span class="math inline">\(n - 1\)</span> 個の点は、その直線を <span class="math inline">\(n\)</span> 個の線分に分ける。両端にある 2 つの無限に伸びる部分と、その間にある <span class="math inline">\(n - 2\)</span> 個の有限の線分である。直線が <span class="math inline">\(n\)</span> 本あるので、全体では <span class="math display">\[n \times n = n^2 \text{ 個の線分}. \qed\]</span> となる。これは直接的な数え上げであり、帰納法（induction）は必要ない。線分を直線ごとに数えたのである。</p>
+<h4 id="stagemark2-直線を-1-本加えると何が起こるか" class="stage"><span class="stage-n">段階 2</span> 直線を 1 本加えると何が起こるか</h4>
+<div class="askyourself">
+<p><span class="math inline">\(n - 1\)</span> 本の直線が引かれているとし、そこに <span class="math inline">\(n\)</span> 本目を加える。新しい直線は他の直線によって <span class="math inline">\(n\)</span> 個の線分に分けられる。各線分は、それが通過する領域に対して何をするか。</p>
+</div>
+<p>新しい直線を引くと、その <span class="math inline">\(n\)</span> 個の線分はそれぞれ既存の領域の一つを通り抜け、それを 2 つに分ける（図 9.1.1）。異なる線分は異なる領域にある。なぜなら、ある領域から別の領域へ移るには、新しい直線は既存の直線と交わらなければならないからである。したがって、<span class="math inline">\(n\)</span> 本目の直線を加えると、領域の個数はちょうど <span class="math inline">\(n\)</span> だけ増える。 <span class="math display">\[R(n) = R(n - 1) + n.\]</span></p>
+<h4 id="stagemark3-漸化式を解く" class="stage"><span class="stage-n">段階 3</span> 漸化式を解く</h4>
+<p><span class="math inline">\(R(0) = 1\)</span>（直線がなければ領域は 1 つ）から出発すると、 <span class="math display">\[R(n) = 1 + (1 + 2 + \cdots + n) = 1 + \frac{n(n + 1)}{2} = \frac{n^2 + n + 2}{2}.\]</span> これを帰納法の形で述べると次のようになる。<span class="math inline">\(\frac12(1 + 1 + 2) = 2\)</span> であるから、<span class="math inline">\(n = 1\)</span> のとき公式は成り立つ。また、<span class="math inline">\(R(n - 1) = \frac12\bigl((n - 1)^2 + (n - 1) + 2\bigr) = \frac12(n^2 - n + 2)\)</span> ならば、<span class="math inline">\(R(n) = \frac12(n^2 - n + 2) + n = \frac12(n^2 + n + 2)\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-1-1.svg" alt="図 9.1.1"><figcaption><span class="fig-label">図 9.1.1</span> 3 本の直線（ティール）は平面を <span class="math inline">\(7\)</span> 個の領域に分ける。4 本目の直線（プラム）は琥珀色の点で他の 3 本と交わり、それらの点によって <span class="math inline">\(1\)</span> から <span class="math inline">\(4\)</span> の番号をつけた 4 個の線分に分けられる。各線分は 1 つの領域を 2 つに分けるので、4 本目の直線によって領域は <span class="math inline">\(4\)</span> 個増え、<span class="math inline">\(11\)</span> 個となる。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>一度に一つずつ数える。</strong>線分は直線ごとに数え、領域は新しい直線 1 本が付け加えるものによって数えた。</p></li>
+<li><p><strong>幾何的な一歩を漸化式に変える。</strong>「新しい線分はそれぞれ 1 つの領域を分ける」という観察が、<span class="math inline">\(R(n) = R(n - 1) + n\)</span> になった。</p></li>
+<li><p><strong>一般の位置は重要である。</strong>平行な直線や、1 点を通る 3 本の直線があると、領域の数は少なくなる。それぞれの仮定がどこで使われたかを確かめよ。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="姿を変えたオイラーの公式">姿を変えたオイラーの公式</h3>
+<p>ここでは第二の証明を示す。これは答えを単に導くだけでなく、その理由を説明するものである。直線の配置を地図とみなそう。交点を<em>頂点</em>（vertex）、線分を<em>辺</em>（edge）、領域を<em>面</em>（face）とする。頂点は <span class="math inline">\(V = \binom{n}{2}\)</span> 個（直線の各組に 1 つ）、辺は <span class="math inline">\(E = n^2\)</span> 本ある。無限に伸びる線分には端が 1 つしかないので、それらがすべて集まる「無限遠」の頂点を 1 つ追加する。すると、図は球面上に描かれた地図になる（平面を球に巻きつけ、無限遠が頂上にくる様子を想像せよ）。<a href="../ch07/platonic-solids.html">第 7.9 節</a> のオイラーの公式 <span class="math inline">\(V - E + F = 2\)</span> から <span class="math display">\[\Bigl(\binom{n}{2} + 1\Bigr) - n^2 + F = 2, \qquad\text{よって}\qquad F = n^2 - \frac{n(n - 1)}{2} + 1 = \frac{n^2 + n + 2}{2}.\]</span> まったく異なる方向から、同じ数が得られた。領域はまた、種類によってきれいに分けられる。そのうち <span class="math inline">\(2n\)</span> 個は非有界であり（隣り合う無限半直線の各組の間に 1 つずつ）、残りの <span class="math inline">\(\frac12(n^2 + n + 2) - 2n = \binom{n - 1}{2}\)</span> 個は有界である。</p>
+<h3 id="二項係数と高次元">二項係数と高次元</h3>
+<p>この公式は <span class="math display">\[R(n) = \binom{n}{0} + \binom{n}{1} + \binom{n}{2},\]</span> と書くことができ、これは偶然ではない。どの直線も水平にならないように図を回転させる。下に有界な領域には最低点があり、それは交点でなければならない。また、各交点はちょうど 1 つの領域（そのすぐ上にある領域）の最低点である。これにより、直線の各組に 1 つずつ、<span class="math inline">\(\binom{n}{2}\)</span> 個の領域が得られる。それ以外の領域はどこまでも下に伸びているので、すべての交点よりはるか下に引いた水平線と交わる。<span class="math inline">\(n\)</span> 本の直線はその水平線を <span class="math inline">\(n + 1\)</span> 個の区間に分け、そのような領域のそれぞれに 1 つずつ区間がある。合計で <span class="math inline">\(\binom{n}{2} + n + 1\)</span> となる。3 次元では、一般の位置にある <span class="math inline">\(n\)</span> 枚の平面は空間を <span class="math display">\[\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \binom{n}{3} = \frac{n^3 + 5n + 6}{6}\]</span> 個の部分に分け（<em>ケーキ数</em>（cake numbers）<span class="math inline">\(1, 2, 4, 8, 15, 26, \ldots\)</span>）、この規則性はあらゆる次元で続く。証明は同じ帰納法である。新しい平面は他の平面によって、平面上の直線と同じ配置の領域に分けられ、それらの領域のそれぞれが空間の一部分を 2 つに分ける。</p>
+<div class="historybox">
+<div class="box-title">シュタイナーと超平面配置</div>
+<p>直線や平面によって分けられる領域の個数の公式は、1826 年にヤコブ・シュタイナー（Jakob Steiner）によって発見された。今日、これは<em>超平面配置</em>（hyperplane arrangements）の理論の出発点となっている。この理論は、一般の位置にないものも含め、直線、平面、およびそれらの高次元版の任意の集まりが作る領域を数えるものである。1975 年の Thomas Zaslavsky による注目すべき定理は、どの超平面どうしが交わるかを記述する多項式を用いて、任意の配置の領域の個数を数える。同じ考え方は機械学習にも現れる。「ReLU」ユニットで構成されたニューラルネットワークは、超平面によって入力空間を領域に分け、その領域の個数は、ネットワークがどれほど複雑な関数を表現できるかの尺度となる。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">一つ増やしたときに何が変わるかを問う</div>
+<p><em><span class="math inline">\(n\)</span> 個の対象からなる配置を数えるには、それを <span class="math inline">\(n - 1\)</span> 個の配置と比べよ。全体よりも変化のほうがはるかに数えやすいことが多い。</em></p>
+<p>これは、証明のためだけでなく発見のための道具として帰納法を使うことである。組合せ論で最もよく使われる手の一つであり、幾何的な問題を解くことのできる漸化式に変えてくれる。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>円。</strong>どの 2 つも 2 点で交わり、どの 3 つも 1 点を通らない <span class="math inline">\(n\)</span> 個の円は、平面を <span class="math inline">\(n^2 - n + 2\)</span> 個の領域に分けることを示せ。</p></li>
+<li><p><strong>平行な直線。</strong><span class="math inline">\(n\)</span> 本の直線のうち <span class="math inline">\(k\)</span> 本が互いにすべて平行である（それ以外は一般の位置にある）とき、領域はいくつあるか。</p></li>
+<li><p><strong>ケーキ数。</strong>一般の位置にある <span class="math inline">\(n\)</span> 枚の平面が空間を <span class="math inline">\(\frac16(n^3 + 5n + 6)\)</span> 個の領域に分けることを、帰納法によって証明せよ。</p></li>
+<li><p><strong>崩れる規則性。</strong>円周上に <span class="math inline">\(n\)</span> 個の点をとり、すべての 2 点の組を弦で結ぶ。ただし、円の内部でどの 3 本の弦も 1 点を通らないものとする。<span class="math inline">\(n = 1, 2, 3, 4, 5\)</span> のとき、領域は <span class="math inline">\(1, 2, 4, 8, 16\)</span> 個になる。<span class="math inline">\(n = 6\)</span> のときの領域の個数を数えよ。（<em>ヒント：</em>オイラーの公式を用いよ。4 点の組それぞれから交点が 1 つできる。）その個数が <span class="math inline">\(1 + \binom{n}{2} + \binom{n}{4}\)</span> であることを示せ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Ronald Graham, Donald Knuth &amp; Oren Patashnik, <a href="https://uk.bookshop.org/search?keywords=Concrete+Mathematics+Graham+Knuth"><em>Concrete Mathematics</em></a></strong>（Addison-Wesley）、第 1 章。まさにこの問題と、その「ピザ」版および「ジグ」版から始まる。</p></li>
+<li><p><strong>Miklós Bóna, <a href="https://uk.bookshop.org/search?keywords=A+Walk+Through+Combinatorics+Bona"><em>A Walk Through Combinatorics</em></a></strong>（World Scientific）。親しみやすい入門書で、帰納法、グラフ、オイラーの公式の章がある。</p></li>
+<li><p><strong>Richard Guy, “<a href="https://doi.org/10.1080/00029890.1988.11972074">The strong law of small numbers</a>”</strong>、<em>American Mathematical Monthly</em> 95 (1988)。一見明らかに見えて実は誤りである規則性が数多く紹介されており、演習問題の円の問題も含まれている。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 章の導入</a><a class="next" href="ramsey.html">→ 9.2 ミニチュア版ラムゼーの定理</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

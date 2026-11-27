@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>e에 다가가는 분수들 (STEP II 2021 Q8) — Beyond STEP</title>
+<meta name="description" content="STEP II 2021 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. e 를 잘 근사하는 분수는 어떻게 찾을 수 있을까? 급수(series) 1 + 1 + frac12 + frac16 + cdots 를 중간에서 끊을 수도 있지만, 그렇게 얻은 분수는 분모(denominator)의 크기에 비해 그리 좋은 근사가 아니다. 이 문제는 훨씬 더 영리한…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch02/e-approximations.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch02/e-approximations.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/e-approximations.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/e-approximations.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch02/e-approximations.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch02/e-approximations.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/e-approximations.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="e에 다가가는 분수들 (STEP II 2021 Q8) — Beyond STEP">
+<meta property="og:description" content="STEP II 2021 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. e 를 잘 근사하는 분수는 어떻게 찾을 수 있을까? 급수(series) 1 + 1 + frac12 + frac16 + cdots 를 중간에서 끊을 수도 있지만, 그렇게 얻은 분수는 분모(denominator)의 크기에 비해 그리 좋은 근사가 아니다. 이 문제는 훨씬 더 영리한…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch02/e-approximations.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="e에 다가가는 분수들 (STEP II 2021 Q8) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2021 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. e 를 잘 근사하는 분수는 어떻게 찾을 수 있을까? 급수(series) 1 + 1 + frac12 + frac16 + cdots 를 중간에서 끊을 수도 있지만, 그렇게 얻은 분수는 분모(denominator)의 크기에 비해 그리 좋은 근사가 아니다. 이 문제는 훨씬 더 영리한…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "e에 다가가는 분수들", "headline": "e에 다가가는 분수들", "description": "STEP II 2021 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. e 를 잘 근사하는 분수는 어떻게 찾을 수 있을까? 급수(series) 1 + 1 + frac12 + frac16 + cdots 를 중간에서 끊을 수도 있지만, 그렇게 얻은 분수는 분모(denominator)의 크기에 비해 그리 좋은 근사가 아니다. 이 문제는 훨씬 더 영리한…", "url": "https://beyondstep.keithmcnulty.org/ko/ch02/e-approximations.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2021 문제 8", "수열, 급수, 수렴"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 2, "name": "수열, 급수, 수렴", "url": "https://beyondstep.keithmcnulty.org/ko/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제2장: 수열, 급수, 수렴", "item": "https://beyondstep.keithmcnulty.org/ko/ch02/"}, {"@type": "ListItem", "position": 3, "name": "e에 다가가는 분수들", "item": "https://beyondstep.keithmcnulty.org/ko/ch02/e-approximations.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch02/e-approximations.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch02/e-approximations.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch02/e-approximations.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch02/e-approximations.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제2장 · 수열, 급수, 수렴</a>
+    <div class="src">STEP II · 2021 · 문제 8</div>
+    <div class="sec-head"><span class="sec-num">2.9</span><h1>e에 다가가는 분수들</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-9-e-approximations.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제2장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 2021, 문제 8</strong></p>
+<p>다음으로 넘어가기 전에 문제를 먼저 읽어 보자. 이 문제는 OCR에서 내려받을 수 있는 2021년 STEP 문제지 모음(zip 파일)의 STEP II 문제지에 있다: <a href="https://www.ocr.org.uk/Images/696588-2021-past-papers.zip">www.ocr.org.uk/Images/696588-2021-past-papers.zip</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p><span class="math inline">\(e\)</span>를 잘 근사하는 분수는 어떻게 찾을 수 있을까? 급수(series) <span class="math inline">\(1 + 1 + \frac12 + \frac16 + \cdots\)</span>를 중간에서 끊을 수도 있지만, 그렇게 얻은 분수는 분모(denominator)의 크기에 비해 그리 좋은 근사가 아니다. 이 문제는 훨씬 더 영리한 방법을 쓴다. 적분(integral)들의 모임을 만드는데, 각 적분은 “정수 <span class="math inline">\(+\)</span> 정수 <span class="math inline">\(\times\, e\)</span>” 꼴의 작은 수이다. <span class="math inline">\(a + be\)</span>가 아주 작으면 <span class="math inline">\(e\)</span>는 <span class="math inline">\(-a/b\)</span>에 매우 가깝고, 따라서 이 적분들은 <span class="math inline">\(\frac{19}{7}\)</span>, <span class="math inline">\(\frac{193}{71}\)</span>, <span class="math inline">\(\frac{2721}{1001}\)</span>, …와 같은 훌륭한 분수들의 수열을 건네준다.</p>
+<p>동시에 작으면서 “관심 있는 수의 정수 결합” 꼴인 적분이라는 이 같은 기법은 수학에서 가장 깊은 무리성 증명(irrationality proof)들의 바탕에 있다. 여기에는 <span class="math inline">\(e\)</span>가 초월수임을 보인 에르미트(Hermite)의 증명과 <span class="math inline">\(\zeta(3)\)</span>이 무리수임을 보인 아페리(Apéry)의 증명이 포함된다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<p><span class="math inline">\([0, 1]\)</span>에서 피적분함수(integrand) <span class="math inline">\(\frac{t^n(1-t)^n}{n!}e^t\)</span>를 살펴보자.</p>
+<div class="askyourself">
+<p><span class="math inline">\([0, 1]\)</span>에서 <span class="math inline">\(t(1-t)\)</span>의 최댓값은 얼마인가? 이것은 <span class="math inline">\(n\)</span>이 커질 때 <span class="math inline">\(T_n\)</span>의 크기에 대해 무엇을 알려 주는가?</p>
+</div>
+<p><span class="math inline">\(t(1-t)\)</span>의 최댓값은 <span class="math inline">\(t = \frac12\)</span>에서 <span class="math inline">\(\frac14\)</span>이다. 따라서 피적분함수는 많아야 <span class="math inline">\(\frac{e}{4^n n!}\)</span>이고, 이 값은 놀라울 만큼 빠르게 줄어든다(그림 2.9.1). 이 작음이 이야기의 절반이다. 나머지 절반, 곧 <span class="math inline">\(T_n\)</span>이 <span class="math inline">\(a_n + b_n e\)</span>라는 특별한 꼴을 갖는다는 사실은 부분적분(integration by parts)에서 나온다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-두-번-미분하기" class="stage"><span class="stage-n">단계 1</span> 두 번 미분하기</h4>
+<p><span class="math inline">\(p(t) = t^n(1-t)^n\)</span>이라 하자. 곱의 미분법(product rule)에 의해 <span class="math display">\[p&#39;(t) = n t^{n-1}(1-t)^n - n t^n(1-t)^{n-1} = n t^{n-1}(1-t)^{n-1}(1 - 2t).\]</span></p>
+<div class="askyourself">
+<p>한 번 더 미분해 보자. 두 항이 나오는데, 공통인수 <span class="math inline">\(n t^{n-2}(1-t)^{n-2}\)</span>를 묶어 낸다. 요구된 꼴에 맞추려면 <span class="math inline">\((1 - 2t)^2\)</span>을 <span class="math inline">\(t(1-t)\)</span>로 나타내야 한다. 어떻게 하면 될까?</p>
+</div>
+<p><span class="math inline">\(n\,[t(1-t)]^{n-1}(1 - 2t)\)</span>를 곱의 미분법으로 미분하면(<span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}t}[t(1-t)] = 1 - 2t\)</span>임에 주의한다) <span class="math display">\[\begin{aligned}
+  p&#39;&#39;(t) &amp;= n(n-1)[t(1-t)]^{n-2}(1-2t)^2 - 2n[t(1-t)]^{n-1} \\
+  &amp;= n t^{n-2}(1-t)^{n-2}\Bigl[(n-1)(1-2t)^2 - 2t(1-t)\Bigr].
+\end{aligned}\]</span> 이제 <span class="math inline">\((1 - 2t)^2 = 1 - 4t + 4t^2 = 1 - 4t(1-t)\)</span>이므로 괄호 안은 <span class="math inline">\((n-1) - 4(n-1)t(1-t) - 2t(1-t) = (n-1) - 2(2n-1)t(1-t)\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-두-번-부분적분하기" class="stage"><span class="stage-n">단계 2</span> 두 번 부분적분하기</h4>
+<div class="askyourself">
+<p><span class="math inline">\(p(t)\)</span>는 <span class="math inline">\(t = 0\)</span>과 <span class="math inline">\(t = 1\)</span>에서 모두 <span class="math inline">\(0\)</span>이다. <span class="math inline">\(n \geq 2\)</span>일 때 <span class="math inline">\(p&#39;(t)\)</span>는 어떠한가? <span class="math inline">\(p(t)e^t\)</span>를 부분적분할 때 이것이 왜 중요한가?</p>
+</div>
+<p><span class="math inline">\(n \geq 2\)</span>이면 <span class="math inline">\(p&#39;(t)\)</span>는 인수 <span class="math inline">\(t^{n-1}(1-t)^{n-1}\)</span>을 가지므로 역시 양 끝에서 <span class="math inline">\(0\)</span>이 된다. 두 번 부분적분하면 모든 경계항이 <span class="math inline">\(0\)</span>이다. <span class="math display">\[\int_0^1 p\, e^t\,\mathrm{d}t = \Bigl[p\,e^t\Bigr]_0^1 - \int_0^1 p&#39;\, e^t\,\mathrm{d}t = -\Bigl[p&#39;\,e^t\Bigr]_0^1 + \int_0^1 p&#39;&#39;\, e^t\,\mathrm{d}t = \int_0^1 p&#39;&#39;\, e^t\,\mathrm{d}t.\]</span> 1단계에서 <span class="math inline">\(p&#39;&#39;(t) = n(n-1)\,t^{n-2}(1-t)^{n-2} - 2n(2n-1)\,t^{n-1}(1-t)^{n-1}\)</span>이다. <span class="math inline">\(n!\)</span>으로 나누면 <span class="math display">\[\frac{p&#39;&#39;(t)}{n!} = \frac{t^{n-2}(1-t)^{n-2}}{(n-2)!} - 2(2n-1)\frac{t^{n-1}(1-t)^{n-1}}{(n-1)!}.\]</span> <span class="math inline">\(e^t\)</span>를 곱하고 적분하면 <span class="math inline">\(T_n = T_{n-2} - 2(2n-1)T_{n-1}\)</span>을 얻는다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-정수-구조" class="stage"><span class="stage-n">단계 3</span> 정수 구조</h4>
+<p><span class="math inline">\(T_0 = \int_0^1 e^t\,\mathrm{d}t = e - 1\)</span>이다. <span class="math inline">\(T_1 = \int_0^1 (t - t^2)e^t\,\mathrm{d}t\)</span>에 대해서는 부분적분으로 <span class="math inline">\(\int_0^1 t e^t\,\mathrm{d}t = 1\)</span>과 <span class="math inline">\(\int_0^1 t^2 e^t\,\mathrm{d}t = e - 2\)</span>를 얻으므로 <span class="math inline">\(T_1 = 1 - (e - 2) = 3 - e\)</span>이다.</p>
+<div class="askyourself">
+<p><span class="math inline">\(T_0 = -1 + 1 \cdot e\)</span>이고 <span class="math inline">\(T_1 = 3 + (-1)\cdot e\)</span>이다. 왜 모든 <span class="math inline">\(T_n\)</span>이 정수 <span class="math inline">\(a_n\)</span>, <span class="math inline">\(b_n\)</span>에 대해 <span class="math inline">\(a_n + b_n e\)</span> 꼴이어야 하는가?</p>
+</div>
+<p>강한 귀납법(strong induction)을 쓴다. 정수 계수로 <span class="math inline">\(T_{n-2} = a_{n-2} + b_{n-2}e\)</span>이고 <span class="math inline">\(T_{n-1} = a_{n-1} + b_{n-1}e\)</span>이면 <span class="math display">\[T_n = \bigl(a_{n-2} - 2(2n-1)a_{n-1}\bigr) + \bigl(b_{n-2} - 2(2n-1)b_{n-1}\bigr)e,\]</span> 이고 새 계수들도 정수이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-작으므로-정보를-준다" class="stage"><span class="stage-n">단계 4</span> 작으므로 정보를 준다</h4>
+<p><span class="math inline">\(0 &lt; t &lt; 1\)</span>에서 피적분함수는 양수이고, <span class="math inline">\(t^n(1-t)^n \leq 1\)</span>이며 <span class="math inline">\(e^t &lt; e\)</span>이다. 따라서 <span class="math display">\[0 &lt; T_n &lt; \int_0^1 \frac{e}{n!}\,\mathrm{d}t = \frac{e}{n!}.\]</span></p>
+<div class="pausebox">
+<p><span class="math inline">\(0 &lt; a_n + b_n e &lt; \dfrac{e}{n!}\)</span>를 <span class="math inline">\(|b_n|\)</span>으로 나누어 보자. 이것은 <span class="math inline">\(e\)</span>와 <span class="math inline">\(-a_n/b_n\)</span> 사이의 거리에 대해 무엇을 말해 주는가?</p>
+</div>
+<p><span class="math inline">\(|b_n|\)</span>은 양의 정수이므로 <span class="math inline">\(1\)</span> 이상이고, 이것으로 나누면 <span class="math display">\[\left| e - \left(\frac{-a_n}{b_n}\right) \right| = \frac{|a_n + b_n e|}{|b_n|} &lt; \frac{e}{n!\,|b_n|} \leq \frac{e}{n!}.\]</span> 우변은 <span class="math inline">\(0\)</span>으로 수렴(converge)하므로 <span class="math inline">\(-a_n/b_n \to e\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>점화식(recurrence)으로 계산한 처음 몇 개는 다음과 같다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5</th>
+<th style="text-align: right;">6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(-a_n/b_n\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{19}{7}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{193}{71}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{2721}{1001}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{49171}{18089}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\dfrac{1084483}{398959}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">오차</td>
+<td style="text-align: right;"><span class="math inline">\(4 \times 10^{-3}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3 \times 10^{-5}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1 \times 10^{-7}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3 \times 10^{-10}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(5 \times 10^{-13}\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>분수 <span class="math inline">\(\frac{2721}{1001}\)</span>은 분모가 네 자리에 불과한데도 소수점 아래 <span class="math inline">\(6\)</span>자리까지 정확하다.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-2-9-1.svg" alt="그림 2.9.1"><figcaption><span class="fig-label">그림 2.9.1</span> <span class="math inline">\(n = 1, 2, 3\)</span>일 때의 피적분함수 <span class="math inline">\(\frac{t^n(1-t)^n}{n!}e^t\)</span>. 각각은 <span class="math inline">\((0, 1)\)</span>에서 양수이므로 각 <span class="math inline">\(T_n\)</span>은 양수이다. 또한 매우 빠르게 줄어들어 <span class="math inline">\(n = 3\)</span>에서는 곡선이 거의 보이지 않는다. 양수이지만 아주 작다는 것, 이것이 바로 논증에 필요한 것이다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>점화식을 만들어 내는 부분적분.</strong> 다항식과 그 도함수가 양 끝에서 <span class="math inline">\(0\)</span>이 되었기 때문에, 부분적분으로 경계항 없는 깔끔한 점화식을 얻었다.</p></li>
+<li><p><strong>구조와 크기를 함께.</strong> 점화식은 <span class="math inline">\(T_n\)</span>이 <span class="math inline">\(a_n + b_n e\)</span> 꼴임을 보여 주었고, 부등식은 그것이 작다는 것을 보여 주었다. 어느 하나만으로는 <span class="math inline">\(e\)</span>의 근사에 대해 아무것도 말할 수 없다.</p></li>
+<li><p><strong>필요 없는 것은 계산하지 마라.</strong> 문제는 <span class="math inline">\(a_n\)</span>과 <span class="math inline">\(b_n\)</span>을 구하지 말라고 했고, 논증에서도 그 값은 전혀 필요하지 않았다. 필요한 것은 그것들이 정수라는 사실뿐이었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title"><span class="math inline">\(e\)</span>가 무리수라는 또 하나의 증명</div>
+<p>이 문제는 유명한 정리의 바로 앞에서 멈춘다. 양의 정수 <span class="math inline">\(p, q\)</span>에 대해 <span class="math inline">\(e = p/q\)</span>라고 가정하자. 그러면 <span class="math display">\[q\,T_n = q a_n + b_n p\]</span> 는 <em>정수</em>이다. 그런데 <span class="math inline">\(0 &lt; q\,T_n &lt; \dfrac{qe}{n!}\)</span>이고, <span class="math inline">\(n\)</span>이 충분히 크면 우변은 <span class="math inline">\(1\)</span>보다 작다. 따라서 <span class="math inline">\(q T_n\)</span>은 <span class="math inline">\(0\)</span>과 <span class="math inline">\(1\)</span> 사이에 엄격히 놓인 정수가 되어야 하는데, 이는 불가능하다. 그러므로 <span class="math inline">\(e\)</span>는 무리수(irrational number)이다. 이것은 <a href="../ch01/e-irrational.html">1.4 절</a>의 “<span class="math inline">\(0\)</span>과 <span class="math inline">\(1\)</span> 사이에 정수를 가두기” 아이디어를 급수 대신 적분으로 구현한 것이다. 바로 이런 종류의 적분, 곧 <span class="math inline">\(t^n(1-t)^n\)</span> 같은 다항식을 포함한 적분을 샤를 에르미트(Charles Hermite)는 1873년에 사용하여 <span class="math inline">\(e\)</span>가 <em>초월수(transcendental number)</em>임을, 즉 정수 계수 다항식의 근이 될 수 없음을 증명했다.</p>
+</div>
+<h3 id="연분수">연분수</h3>
+<p>표에 나온 분수들은 단지 좋은 정도가 아니라 <em>가장 좋은 것</em>에 속한다. 오일러(Euler)가 찾은 <span class="math inline">\(e\)</span>의 연분수(continued fraction)는 아름다운 규칙을 가진다. <span class="math display">\[e = [2; 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, \ldots],\]</span> 그리고 그 수렴분수(convergent)는 <span class="math inline">\(2, 3, \frac83, \frac{11}{4}, \frac{19}{7}, \frac{87}{32}, \frac{106}{39}, \frac{193}{71}, \ldots, \frac{2721}{1001}, \ldots\)</span>이다. 우리가 얻은 <span class="math inline">\(-a_n/b_n\)</span>은 정확히 세 번째마다의 수렴분수이다. 이보다 작은 분모를 가진 어떤 분수도 <span class="math inline">\(e\)</span>에 더 가까이 가지 못한다. 유리수만이 유한 연분수를 가지므로, 오일러가 찾은 이 규칙 자체가 <span class="math inline">\(e\)</span>가 무리수라는 최초의 증명이었다.</p>
+<h3 id="아페리의-기적">아페리의 기적</h3>
+<p>1978년 로제 아페리(Roger Apéry)는 <span class="math inline">\(\zeta(3) = 1 + \frac18 + \frac1{27} + \cdots\)</span>이 무리수라는 증명을 발표했다. 이는 오일러 이래로 풀리지 않았던 문제였다(<a href="../ch02/kempner.html">2.3 절</a> 참고). 그의 증명은 너무나 뜻밖이어서 청중은 처음에 그것을 믿지 않았다. 1년 뒤 Frits Beukers는 다음 꼴의 적분을 이용한 짧은 증명을 찾았다. <span class="math display">\[\int_0^1\!\!\int_0^1 \frac{-\ln(xy)}{1 - xy}\, P_n(x) P_n(y)\,\mathrm{d}x\,\mathrm{d}y,\]</span> 여기서 <span class="math inline">\(P_n\)</span>은 <span class="math inline">\(\frac{\mathrm{d}^n}{\mathrm{d}x^n}\bigl(x^n(1-x)^n\bigr)\)</span>로부터 만들어진다. 이 적분들은 작고, 양수이며, 통제된 분모로 나눈 “정수 <span class="math inline">\(+\)</span> 정수 <span class="math inline">\(\times\, \zeta(3)\)</span>” 꼴이다. 바로 이 문제의 전략 그대로이다. <span class="math inline">\(\zeta(5)\)</span>나 <span class="math inline">\(e + \pi\)</span>가 무리수인지는 아직도 알려져 있지 않다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">작지만 0은 아닌</div>
+<p><em>어떤 양이 몇몇 수의 정수 결합이라는 것이 알려져 있고, 동시에 작지만 0은 아니라는 것도 알려져 있다면, 그 양은 정보를 담고 있다. 근사에 관한 정보, 그리고 때로는 무리성에 관한 정보이다.</em></p>
+<p>이 패턴은 “구조는 대수에서, 크기는 해석학(analysis)에서”이다. 이것은 정수론(number theory) 전반에 걸쳐 되풀이되며, 해석학과 대수가 가장 생산적으로 만나는 지점 가운데 하나이다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>점화식 돌려 보기.</strong> 점화식으로 <span class="math inline">\(n = 2, 3, 4\)</span>일 때의 <span class="math inline">\(a_n\)</span>과 <span class="math inline">\(b_n\)</span>을 계산하고 표의 분수를 확인하라. <span class="math inline">\(b_n\)</span>의 부호가 번갈아 바뀜을 보여라.</p></li>
+<li><p><strong>더 날카로운 부등식.</strong> <span class="math inline">\(0 &lt; T_n &lt; \dfrac{e}{4^n\, n!}\)</span>임을 보여라. 이것은 <span class="math inline">\(-a_n/b_n\)</span>의 오차 추정을 얼마나 개선하는가?</p></li>
+<li><p><strong>무리성 증명.</strong> 위 상자에 있는 논증을 꼼꼼히 써 보라. <span class="math inline">\(T_n &gt; 0\)</span>이라는 사실은 정확히 어디에서 쓰이는가?</p></li>
+<li><p><strong>다른 가중치.</strong> <span class="hard">심화</span> <span class="math inline">\(e^t\)</span>를 <span class="math inline">\(e^{2t}\)</span>로 바꾸어 문제를 다시 풀어라(즉 <span class="math inline">\(U_n = \int_0^1 \frac{t^n(1-t)^n}{n!}e^{2t}\,\mathrm{d}t\)</span>). <span class="math inline">\(U_n\)</span>에 대한 점화식을 구하고, <span class="math inline">\(U_n\)</span>이 유리수 계수를 갖는 <span class="math inline">\(1\)</span>과 <span class="math inline">\(e^2\)</span>의 결합임을 보인 다음, 이 논증으로 여전히 <span class="math inline">\(e^2\)</span>이 무리수임을 증명할 수 있는지 탐구하라. (<a href="../ch01/e-irrational.html">1.4 절</a>과 비교하라.)</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Ivan Niven, <a href="https://uk.bookshop.org/search?keywords=Irrational+Numbers+Niven"><em>Irrational Numbers</em></a></strong> (Mathematical Association of America). 에르미트의 방법을 포함하여 무리성 증명을 다룬 고전적인 짧은 책이다.</p></li>
+<li><p><strong>Alfred van der Poorten, “A proof that Euler missed”</strong>, <em>The Mathematical Intelligencer</em> 1 (1979). 아페리의 증명과 그것이 받아들여진 과정을 생생하게 전하는 글이다.</p></li>
+<li><p><strong>Julian Havil, <a href="https://uk.bookshop.org/search?keywords=The+Irrationals+Havil"><em>The Irrationals</em></a></strong> (Princeton University Press). 일반적인 수학 독자를 위해 쓴 무리수의 역사이다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="squaring-minus-two.html">← 2.8 제곱하고 2 빼기</a><a class="next" href="wrap-up.html">→ 돌아보기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

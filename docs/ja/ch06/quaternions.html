@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>四元数群 (STEP III 1993 Q5) — Beyond STEP</title>
+<meta name="description" content="STEP III 1993 問題 5：解説付き解答とその背後にある大学数学。 1843年10月16日、ダブリンのロイヤル運河沿いを妻と散歩していたハミルトン（William Rowan Hamilton）は、何年も追い求めていたひらめきを得た。彼は、複素数が数の組（対）を掛け合わせるのと同じように、三つ組の数を掛け合わせようとしては失敗していた。そのとき突然、答えには 4つ…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch06/quaternions.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch06/quaternions.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/quaternions.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/quaternions.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/quaternions.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch06/quaternions.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/quaternions.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="四元数群 (STEP III 1993 Q5) — Beyond STEP">
+<meta property="og:description" content="STEP III 1993 問題 5：解説付き解答とその背後にある大学数学。 1843年10月16日、ダブリンのロイヤル運河沿いを妻と散歩していたハミルトン（William Rowan Hamilton）は、何年も追い求めていたひらめきを得た。彼は、複素数が数の組（対）を掛け合わせるのと同じように、三つ組の数を掛け合わせようとしては失敗していた。そのとき突然、答えには 4つ…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch06/quaternions.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="四元数群 (STEP III 1993 Q5) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1993 問題 5：解説付き解答とその背後にある大学数学。 1843年10月16日、ダブリンのロイヤル運河沿いを妻と散歩していたハミルトン（William Rowan Hamilton）は、何年も追い求めていたひらめきを得た。彼は、複素数が数の組（対）を掛け合わせるのと同じように、三つ組の数を掛け合わせようとしては失敗していた。そのとき突然、答えには 4つ…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "四元数群", "headline": "四元数群", "description": "STEP III 1993 問題 5：解説付き解答とその背後にある大学数学。 1843年10月16日、ダブリンのロイヤル運河沿いを妻と散歩していたハミルトン（William Rowan Hamilton）は、何年も追い求めていたひらめきを得た。彼は、複素数が数の組（対）を掛け合わせるのと同じように、三つ組の数を掛け合わせようとしては失敗していた。そのとき突然、答えには 4つ…", "url": "https://beyondstep.keithmcnulty.org/ja/ch06/quaternions.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1993 問題 5", "代数と構造"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 6, "name": "代数と構造", "url": "https://beyondstep.keithmcnulty.org/ja/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第6章：代数と構造", "item": "https://beyondstep.keithmcnulty.org/ja/ch06/"}, {"@type": "ListItem", "position": 3, "name": "四元数群", "item": "https://beyondstep.keithmcnulty.org/ja/ch06/quaternions.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch06/quaternions.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/quaternions.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch06/quaternions.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch06/quaternions.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第6章 · 代数と構造</a>
+    <div class="src">STEP III · 1993 · 問題 5</div>
+    <div class="sec-head"><span class="sec-num">6.7</span><h1>四元数群</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-7-quaternions.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第6章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 1993、第5問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/93-s3-q5">step.maths.org/questions/93-s3-q5</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>1843年10月16日、ダブリンのロイヤル運河沿いを妻と散歩していたハミルトン（William Rowan Hamilton）は、何年も追い求めていたひらめきを得た。彼は、複素数が数の組（対）を掛け合わせるのと同じように、三つ組の数を掛け合わせようとしては失敗していた。そのとき突然、答えには<em>4つ</em>の数と、順序が意味をもつ乗法、すなわち <span class="math inline">\(ij \neq ji\)</span> となる乗法が必要だと気づいたのである。彼はその規則をブルーム橋の石に刻みつけた。 <span class="math display">\[\mathrm{i}^2 = \mathrm{j}^2 = \mathrm{k}^2 = \mathrm{ijk} = -1.\]</span> これが<em>四元数</em>（quaternions）である。この問題では、四元数を複素数の組から構成し、その中にねじれた乗法をもつ8個の元からなる小さな群（group）を見いだす。今日、四元数はあらゆるコンピュータゲーム、フライトシミュレータ、宇宙船の誘導システムにおいて、3次元の回転を記述するのに用いられている。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<p>群の定義については <a href="../ch06/subgroup-unions.html">第 6.6 節</a> を参照せよ。さらに2つの用語を導入する。群の元 <span class="math inline">\(g\)</span> の<em>位数</em>（order）とは、<span class="math inline">\(g^n = e\)</span> となる最小の正の整数 <span class="math inline">\(n\)</span> のことである。また、2つの群が<em>同型</em>（isomorphic）であるとは、演算を保つ1対1の対応がそれらの間に存在することであり、つまり両者は「ラベルが違うだけの同じ群」である。</p>
+<div class="askyourself">
+<p>組 <span class="math inline">\((z_1, z_2)\)</span> を「数」<span class="math inline">\(z_1 + z_2\mathrm{j}\)</span> を表すものと考えよ。ここで <span class="math inline">\(\mathrm{j}\)</span> は新しい記号で、<span class="math inline">\(\mathrm{j}^2 = -1\)</span> を満たし、複素数 <span class="math inline">\(w\)</span> に対して <span class="math inline">\(\mathrm{j}w = w^*\mathrm{j}\)</span> を満たすとする。これらの規則を用いて <span class="math inline">\((z_1 + z_2\mathrm{j})(w_1 + w_2\mathrm{j})\)</span> を計算せよ。<span class="math inline">\(\circ\)</span> の式が得られるだろうか。</p>
+</div>
+<p><span class="math inline">\((z_1 + z_2\mathrm{j})(w_1 + w_2\mathrm{j}) = z_1w_1 + z_1w_2\mathrm{j} + z_2\mathrm{j}w_1 + z_2\mathrm{j}w_2\mathrm{j} = z_1w_1 + z_1w_2\mathrm{j} + z_2w_1^*\mathrm{j} + z_2w_2^*\mathrm{j}^2\)</span> であり、これは <span class="math inline">\((z_1w_1 - z_2w_2^*) + (z_1w_2 + z_2w_1^*)\mathrm{j}\)</span> に等しい。その通りである。演算 <span class="math inline">\(\circ\)</span> は、姿を変えた四元数の乗法なのである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-行列による結合法則の証明" class="stage"><span class="stage-n">段階 1</span> 行列による結合法則の証明</h4>
+<p><span class="math inline">\((a \circ b) \circ c = a \circ (b \circ c)\)</span> を直接確かめるのは長い計算になる。もっと鮮やかな方法がある。</p>
+<div class="askyourself">
+<p><span class="math inline">\((z_1, z_2)\)</span> に複素行列 <span class="math inline">\(M = \begin{pmatrix} z_1 &amp; z_2 \\ -z_2^* &amp; z_1^* \end{pmatrix}\)</span> を対応させる。行列の積 <span class="math inline">\(M(z_1, z_2)\,M(w_1, w_2)\)</span> の第1行は何か。</p>
+</div>
+<p>積の第1行は <span class="math inline">\(\bigl(z_1w_1 - z_2w_2^*,\ z_1w_2 + z_2w_1^*\bigr)\)</span> であり、これはちょうど <span class="math inline">\((z_1, z_2)\circ(w_1, w_2)\)</span> である。第2行は <span class="math inline">\(\bigl(-(z_1w_2 + z_2w_1^*)^*,\ (z_1w_1 - z_2w_2^*)^*\bigr)\)</span> であるから、積も同じ特別な形をしている。したがって <span class="math inline">\(M(a \circ b) = M(a)M(b)\)</span> である。行列の乗法は結合法則（associativity）を満たし、<span class="math inline">\(M\)</span> は1対1である（第1行から <span class="math inline">\(z_1\)</span>、<span class="math inline">\(z_2\)</span> を読み取れる）から、<span class="math inline">\(\circ\)</span> は結合法則を満たす。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-可換ではない" class="stage"><span class="stage-n">段階 2</span> 可換ではない</h4>
+<p><span class="math inline">\((0, 1)\circ(\mathrm{i}, 0) = (0 \cdot \mathrm{i} - 1 \cdot 0,\ 0 \cdot 0 + 1 \cdot \mathrm{i}^*) = (0, -\mathrm{i})\)</span> であるが、<span class="math inline">\((\mathrm{i}, 0)\circ(0, 1) = (0, \mathrm{i})\)</span> である。よって <span class="math inline">\(\circ\)</span> は可換（commutative）ではない。</p>
+<p>次の4つの特別な積は定義から直ちに従う。 <span class="math display">\[\begin{aligned}
+  (z, 0)\circ(w, 0) &amp;= (zw, 0), &amp; (z, 0)\circ(0, w) &amp;= (0, zw), \\
+  (0, z)\circ(w, 0) &amp;= (0, zw^*), &amp; (0, z)\circ(0, w) &amp;= (-zw^*, 0).
+\end{aligned}\]</span></p>
+<h4 id="stagemark3-8個の元からなる群" class="stage"><span class="stage-n">段階 3</span> 8個の元からなる群</h4>
+<p>四元数の記法では <span class="math inline">\(A = 1\)</span>、<span class="math inline">\(C = \mathrm{i}\)</span>、<span class="math inline">\(B = \mathrm{j}\)</span>、<span class="math inline">\(D = \mathrm{i}\mathrm{j} = \mathrm{k}\)</span> であり、<span class="math inline">\(E, G, F, H\)</span> はそれぞれの符号を変えたものである。<span class="math inline">\(S_1\)</span> のすべての元は、<span class="math inline">\(u \in \{1, \mathrm{i}, -1, -\mathrm{i}\}\)</span> として <span class="math inline">\((u, 0)\)</span> または <span class="math inline">\((0, u)\)</span> の形をしている。</p>
+<div class="askyourself">
+<p>4つの特別な積を用いて、<span class="math inline">\(S_1\)</span> が閉じていることを示せ。単位元は何か。</p>
+</div>
+<p>4つの特別な積により、<span class="math inline">\((u, 0)\)</span> または <span class="math inline">\((0, u)\)</span> の形の2つの元の積は再びこれらのいずれかの形になり、その第1成分または第2成分は <span class="math inline">\(uv\)</span>、<span class="math inline">\(uv^*\)</span> または <span class="math inline">\(-uv^*\)</span> である。<span class="math inline">\(\{1, \mathrm{i}, -1, -\mathrm{i}\}\)</span> は乗法、共役（conjugation）、符号の反転について閉じている（closed）から、積は <span class="math inline">\(S_1\)</span> に属する。単位元（identity）は <span class="math inline">\(A = (1, 0)\)</span> である。実際、<span class="math inline">\((1, 0)\circ(w_1, w_2) = (w_1, w_2)\)</span> かつ <span class="math inline">\((w_1, w_2)\circ(1, 0) = (w_1, w_2)\)</span> である。</p>
+<div class="pausebox">
+<p>各元の位数と逆元を求めよ。</p>
+</div>
+<p><span class="math inline">\(A\)</span> の位数は <span class="math inline">\(1\)</span> である。<span class="math inline">\(E\circ E = (-1, 0)\circ(-1, 0) = (1, 0)\)</span> であるから、<span class="math inline">\(E\)</span> の位数は <span class="math inline">\(2\)</span> である。<span class="math inline">\(C = (\mathrm{i}, 0)\)</span> については <span class="math inline">\(C\circ C = (-1, 0) = E\)</span> であるから、<span class="math inline">\(C\)</span> の位数は <span class="math inline">\(4\)</span> であり、<span class="math inline">\(C^{-1} = C^3 = E\circ C = G\)</span> である。<span class="math inline">\(B = (0, 1)\)</span> については <span class="math inline">\(B\circ B = (-1 \cdot 1^*, 0) = (-1, 0) = E\)</span> であるから、<span class="math inline">\(B\)</span> の位数は <span class="math inline">\(4\)</span> であり、<span class="math inline">\(B^{-1} = F\)</span> である。同様に <span class="math inline">\(D\circ D = (-\mathrm{i}\cdot\mathrm{i}^*, 0) = (-\mathrm{i}\cdot(-\mathrm{i}), 0) = (-1, 0) = E\)</span> であるから、<span class="math inline">\(D\)</span> の位数は <span class="math inline">\(4\)</span> で、逆元は <span class="math inline">\(H\)</span> である。そして <span class="math inline">\(G\)</span>、<span class="math inline">\(F\)</span>、<span class="math inline">\(H\)</span> はそれぞれ <span class="math inline">\(C\)</span>、<span class="math inline">\(B\)</span>、<span class="math inline">\(D\)</span> の逆元（inverse）であり、これらの位数も <span class="math inline">\(4\)</span> である。まとめると次のようになる。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">元</th>
+<th style="text-align: center;"><span class="math inline">\(A\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(C\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(D\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(E\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(G\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(H\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">逆元</td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(G\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(H\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(E\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(D\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">位数</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>閉じていること、結合法則（第1段階）、単位元、逆元がそろったので、<span class="math inline">\(S_1\)</span> は群である。<span class="qed" aria-label="end of proof">■</span> これを<em>四元数群</em>（quaternion group）<span class="math inline">\(Q_8\)</span> という。</p>
+<h4 id="stagemark4-部分群" class="stage"><span class="stage-n">段階 4</span> 部分群</h4>
+<p><span class="math inline">\(\{A, B, E, F\} = \{1, \mathrm{j}, -1, -\mathrm{j}\}\)</span> は <span class="math inline">\(B\)</span> のべきからなる。すなわち <span class="math inline">\(B^1 = B\)</span>、<span class="math inline">\(B^2 = E\)</span>、<span class="math inline">\(B^3 = F\)</span>、<span class="math inline">\(B^4 = A\)</span> である。よってこれは閉じていて逆元を含むから、部分群（subgroup）であり、位数 <span class="math inline">\(4\)</span> の<em>巡回群</em>（cyclic group）である。行列 <span class="math inline">\(J = \begin{pmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{pmatrix}\)</span> は <span class="math inline">\(J^2 = -I\)</span>、<span class="math inline">\(J^3 = -J\)</span>、<span class="math inline">\(J^4 = I\)</span> を満たすから、これも位数 <span class="math inline">\(4\)</span> の巡回群を生成する。<span class="math inline">\(B^k \leftrightarrow J^k\)</span> という対応は同型写像（isomorphism）である。<span class="qed" aria-label="end of proof">■</span>（実際、<span class="math inline">\(J\)</span> はちょうど <span class="math inline">\(M(0, 1)\)</span>、つまり <span class="math inline">\(B\)</span> に対応する行列である。）</p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>行列で表現する。</strong>直接確かめるのは骨の折れる結合法則が、行列の乗法から受け継がれた。</p></li>
+<li><p><strong>式の背後にある構造を見つける。</strong>奇妙な演算 <span class="math inline">\(\circ\)</span> は四元数の乗法であり、そのことに気づくとすべてが易しくなった。</p></li>
+<li><p><strong>位数と逆元が群を特徴づける。</strong>位数の表を見るだけで、<span class="math inline">\(Q_8\)</span> が普通でない群であることがわかる。位数 <span class="math inline">\(2\)</span> の元が1個、位数 <span class="math inline">\(4\)</span> の元が6個あるのである。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">複素数の先へ</div>
+<p>実数は、加法・乗法・除法ができる1次元の数の体系であり、複素数は2次元の体系である。ハミルトンの四元数は4次元であり、やはり除法はできるが、乗法はもはや可換ではない（図 6.7.1）。1878年、フロベニウス（Ferdinand Frobenius）は、<span class="math inline">\(\mathbb{R}\)</span>、<span class="math inline">\(\mathbb{C}\)</span>、<span class="math inline">\(\mathbb{H}\)</span>（ハミルトンにちなむ）の3つが、結合的な乗法をもつ実数上の有限次元「多元体」（division algebras）のすべてであることを証明した。結合法則を諦める代わりに、実数・複素数・四元数と同様に大きさが乗法的である、すなわち <span class="math inline">\(|xy| = |x|\,|y|\)</span> という性質を保つことにすると、もうちょうど1つだけ存在する。1840年代に John Graves とケイリー（Arthur Cayley）が発見した8次元の<em>八元数</em>（octonions）である。1898年、フルヴィッツ（Adolf Hurwitz）は、このような体系がこの4つに限ることを証明した。（大きさに関する条件を外すと、ほかにもっと奇妙な非結合的多元体が存在するが、ボット（Raoul Bott）、ミルナー（John Milnor）、ケルヴェア（Michel Kervaire）による1958年の深い定理によれば、有限次元の実多元体の次元は必ず <span class="math inline">\(1\)</span>、<span class="math inline">\(2\)</span>、<span class="math inline">\(4\)</span>、<span class="math inline">\(8\)</span> のいずれかである。）</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-7-1.svg" alt="図 6.7.1"><figcaption><span class="fig-label">図 6.7.1</span> ハミルトンの乗法規則。<span class="math inline">\(\mathrm{i}\)</span>、<span class="math inline">\(\mathrm{j}\)</span>、<span class="math inline">\(\mathrm{k}\)</span> のうち2つを矢印の向きに掛けると残りの1つが得られ、矢印と逆向きに掛けると残りの1つの符号を変えたものが得られる。8個の元 <span class="math inline">\(\pm1, \pm\mathrm{i}, \pm\mathrm{j}, \pm\mathrm{k}\)</span> が、この問題の四元数群 <span class="math inline">\(Q_8\)</span> をなす。</figcaption></figure>
+<h3 id="次元の回転">3次元の回転</h3>
+<p>絶対値が <span class="math inline">\(1\)</span> の四元数は3次元空間の回転を記述する。単位ベクトルの軸 <span class="math inline">\(\mathbf{u}\)</span> のまわりの角 <span class="math inline">\(\theta\)</span> の回転は <span class="math inline">\(q = \cos\frac\theta2 + \sin\frac\theta2(u_1\mathrm{i} + u_2\mathrm{j} + u_3\mathrm{k})\)</span> に対応し、ベクトル <span class="math inline">\(\mathbf{v}\)</span>（<span class="math inline">\(v_1\mathrm{i} + v_2\mathrm{j} + v_3\mathrm{k}\)</span> と表す）に <span class="math inline">\(\mathbf{v} \mapsto q\mathbf{v}q^{-1}\)</span> によって作用する。回転の合成は四元数の乗法にほかならない。この方法は行列や角度を用いるよりも効率的で数値的に安定しており、さらに「ジンバルロック」（gimbal lock）を回避できる。ジンバルロックとは自由度が1つ失われる現象で、アポロ計画の宇宙飛行士たちは、ジャイロスコープに基づく航法装置でこれに対処しなければならなかった。半角 <span class="math inline">\(\frac\theta2\)</span> は、深い事実への手がかりでもある。<span class="math inline">\(360^\circ\)</span> 回転すると <span class="math inline">\(q = -1\)</span> となり、<span class="math inline">\(1\)</span> にはならないのである。これは物理学者が電子のふるまい（スピン（spin））の中に見ている事実である。</p>
+<h3 id="つの平方数">4つの平方数</h3>
+<p>四元数の絶対値は、複素数の場合と同様に乗法的であり、<span class="math inline">\(|pq| = |p||q|\)</span> が成り立つ。これを成分で書き下すと、オイラー（Euler）の<em>四平方恒等式</em>（four-square identity）が得られる。すなわち、4つの平方数の和どうしの積は、それ自身4つの平方数の和である。これは、すべての正の整数が4つの平方数の和であるというラグランジュ（Lagrange）の定理の鍵となるステップである。この定理は <a href="../ch07/four-squares.html">第 7.8 節</a> で証明する。これは <a href="../ch01/two-squares.html">第 1.6 節</a> の二平方の結果の4次元版にあたる。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">抽象的な対象を具体的に表現する</div>
+<p><em>抽象的な演算について考えにくいときは、それがなじみのある演算になるような具体的なモデル、たとえば行列を見つけよ。</em></p>
+<p>そうすれば結合法則のような性質は労せずして得られる。群を行列で表現して研究するというこの考え方は、<em>表現論</em>（representation theory）という大きく美しい分野へと発展していく。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>ハミルトンの規則。</strong>組を用いて、<span class="math inline">\(C\circ B = D\)</span> および <span class="math inline">\(B\circ C = H\)</span>、すなわち <span class="math inline">\(\mathrm{ij} = \mathrm{k}\)</span> および <span class="math inline">\(\mathrm{ji} = -\mathrm{k}\)</span> を確かめよ。</p></li>
+<li><p><strong>位数 <span class="math inline">\(2\)</span> の元はただ1つ。</strong><span class="math inline">\(E = -1\)</span> が <span class="math inline">\(Q_8\)</span> における唯一の位数 <span class="math inline">\(2\)</span> の元であることを示せ。このことから、<span class="math inline">\(Q_8\)</span> は正方形の対称性の群（位数 <span class="math inline">\(2\)</span> の元を5個もつ）と同型でないことを導け。</p></li>
+<li><p><strong>4つの平方数。</strong><span class="math inline">\(\det M(z_1, z_2) = |z_1|^2 + |z_2|^2\)</span> を示せ。<span class="math inline">\(\det(M_1M_2) = \det M_1\det M_2\)</span> を用いて、4つの平方数の和どうしの積は4つの平方数の和であることを導け。</p></li>
+<li><p><strong>部分群。</strong><span class="math inline">\(Q_8\)</span> の部分群をすべて求めよ。<span class="math inline">\(\{A\}\)</span> 以外のすべての部分群は <span class="math inline">\(E\)</span> を含むこと、および <span class="math inline">\(Q_8\)</span> が位数 <span class="math inline">\(4\)</span> の3つの巡回部分群の和集合であることを示せ（<a href="../ch06/subgroup-unions.html">第 6.6 節</a> と比較せよ）。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>John Conway &amp; Derek Smith, <a href="https://uk.bookshop.org/search?keywords=On+Quaternions+and+Octonions+Conway+Smith"><em>On Quaternions and Octonions</em></a></strong>（A. K. Peters）。四元数と八元数の幾何と算術。高度だが非常に興味深い。</p></li>
+<li><p><strong>John Baez, 「The octonions」</strong>, <em>Bulletin of the American Mathematical Society</em> 39 (2002)。オンラインでも無料で読める。すばらしい概説であり、序論は今すぐにでも読める。</p></li>
+<li><p><strong>Andrew Hanson, <a href="https://uk.bookshop.org/search?keywords=Visualizing+Quaternions+Hanson"><em>Visualizing Quaternions</em></a></strong>（Morgan Kaufmann）。回転のための四元数と、そのグラフィックスへの応用。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="subgroup-unions.html">← 6.6 部分群の和集合</a><a class="next" href="singular-group.html">→ 6.8 特異行列からなる群</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

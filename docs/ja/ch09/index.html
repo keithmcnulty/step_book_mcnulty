@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第9章：数え上げと確率 — Beyond STEP</title>
+<meta name="description" content="純粋な組合せ論と母関数を扱い、続いて確率の試験問題から古典的な数え上げの問題を取り上げる。">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch09/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch09/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch09/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第9章：数え上げと確率 — Beyond STEP">
+<meta property="og:description" content="純粋な組合せ論と母関数を扱い、続いて確率の試験問題から古典的な数え上げの問題を取り上げる。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch09/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第9章：数え上げと確率 — Beyond STEP">
+<meta name="twitter:description" content="純粋な組合せ論と母関数を扱い、続いて確率の試験問題から古典的な数え上げの問題を取り上げる。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 9, "name": "数え上げと確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "純粋な組合せ論と母関数を扱い、続いて確率の試験問題から古典的な数え上げの問題を取り上げる。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第9章：数え上げと確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch09/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch09/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch09/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch09/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch09/index.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">9</div>
+    <h1>数え上げと確率</h1>
+    <p class="strap">数え上げは最も古い数学である。それを巧みに行うことは、今なお最も難しいことの一つである。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">章全体をダウンロード</span><span class="dl-sub">PDF（印刷用組版）</span></span></a>
+  </div>
+  <h2 class="contents-head">この章の内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="lazy-caterer.html"><span class="toc-num">9.1</span>
+<span class="toc-title">平面を分割する直線</span>
+<span class="toc-src">STEP II 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-1-lazy-caterer.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="ramsey.html"><span class="toc-num">9.2</span>
+<span class="toc-title">ミニチュア版ラムゼーの定理</span>
+<span class="toc-src">STEP I 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-2-ramsey.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="fence-posts.html"><span class="toc-num">9.3</span>
+<span class="toc-title">柵の杭を塗り分ける</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-3-fence-posts.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="generating-functions.html"><span class="toc-num">9.4</span>
+<span class="toc-title">関数としての数列</span>
+<span class="toc-src">STEP I 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-4-generating-functions.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="making-change.html"><span class="toc-num">9.5</span>
+<span class="toc-title">両替の仕方</span>
+<span class="toc-src">STEP I 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-5-making-change.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="strange-dice.html"><span class="toc-num">9.6</span>
+<span class="toc-title">奇妙なサイコロ</span>
+<span class="toc-src">STEP I 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-6-strange-dice.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="equal-power-sums.html"><span class="toc-num">9.7</span>
+<span class="toc-title">等しい累乗和</span>
+<span class="toc-src">STEP I 1992</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-7-equal-power-sums.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="derangements.html"><span class="toc-num">9.8</span>
+<span class="toc-title">誰も自分のシャツを受け取らない</span>
+<span class="toc-src">STEP II 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-8-derangements.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="birthday.html"><span class="toc-num">9.9</span>
+<span class="toc-title">誕生日問題</span>
+<span class="toc-src">STEP II 2007</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-9-birthday.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="ballot.html"><span class="toc-num">9.10</span>
+<span class="toc-title">いつでもおつりを渡せる</span>
+<span class="toc-src">STEP I 2011</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-10-ballot.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="coupon-collector.html"><span class="toc-num">9.11</span>
+<span class="toc-title">全種類を集める</span>
+<span class="toc-src">STEP II 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-11-coupon-collector.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="random-subsets.html"><span class="toc-num">9.12</span>
+<span class="toc-title">ランダムな部分集合</span>
+<span class="toc-src">STEP III 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-12-random-subsets.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="loaded-dice.html"><span class="toc-num">9.13</span>
+<span class="toc-title">いかさまサイコロ</span>
+<span class="toc-src">STEP I 1999</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-9-13-loaded-dice.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">振り返り：ここで学んだこと</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「次はこれに挑戦」の演習問題の解答</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第9章  \(\cdot\)  序論</div>
+    <h1 class="essay-title">数え上げの技法</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>組合せ論は位相幾何学のスラム街である。</p>
+<p class="who">— J. H. C. ホワイトヘッド（Whitehead）、1950年代の言葉。今日この見方をとる者はいない。</p>
+</div>
+<p>誰でも数を数えることはできる。しかし、硬貨で £1 を作る方法は何通りあるか、10人を誰も自分の席に座らないように座らせる方法は何通りあるか、地図を4色で塗り分ける方法は何通りあるか、と問われると、単純な数え上げはたちまち行き詰まる。場合が多すぎて書き出せないうえに、場合どうしが重なり合うからである。数え上げと配置の数学である<em>組合せ論</em>（combinatorics）とは、こうした問題を、書き出さずに解けるように整理する技法なのである。</p>
+<p>ホワイトヘッドの言葉が示すように、組合せ論は長いあいだ、本格的な学問というより巧妙な小技の寄せ集めとみなされていた。それが変わったのは20世紀後半のことである。その原動力の一つは計算機科学であった。アルゴリズムが要する手順の数を数えることは、組合せ論の問題だからである。もう一つは、代数学、幾何学、確率論との深いつながりが発見されたことであった。今日、組合せ論は数学で最も活発な分野の一つである。2022年、ジューン・フー（June Huh）は数学における最高の栄誉であるフィールズ賞（Fields Medal）を受賞したが、その受賞理由の一部は、<a href="../ch09/fence-posts.html">第 9.3 節</a> に登場する彩色多項式（chromatic polynomial）に関する1968年の予想を、代数幾何学の考え方を用いて証明したことであった。</p>
+<h3 id="なぜ数え上げが重要なのか">なぜ数え上げが重要なのか</h3>
+<p>最も素朴な形の確率は、数え上げにほかならない。すべての結果が同様に確からしいとき、事象の確率は、その事象が起こる場合の数を全体の場合の数で割ったものである。したがって、トランプ、さいころ、くじに関する問題はすべて数え上げの問題であり、まさにこの理由から、本章の後半は確率分野の問題から採られている。しかし、数え上げが重要なのはゲームにとどまらない。計算機科学者は、アルゴリズムに必要な演算の回数や、アルゴリズムが失敗しうる仕方の数を数える。化学者は分子のとりうる構造を数える。生物学者は DNA 鎖の折りたたまれ方を数える。暗号学者は、攻撃者が試さなければならない鍵の数を数え、さらに <a href="../ch09/birthday.html">第 9.9 節</a> で見るように、何かが二つ一致するまでにいくつ必要かを数える。</p>
+<h3 id="大学で出会うこと">大学で出会うこと</h3>
+<p>多くの大学では、1年次または2年次に組合せ論あるいは離散数学の講義が開かれており、その主題は本章の主題と同じである。数え上げの基本原理（積の法則、全単射（bijection）、包除原理（inclusion–exclusion）、鳩の巣原理（pigeonhole principle））や、漸化式（recurrence relation）の立て方と解き方を学ぶ。数列を関数に、数え上げを代数に変える<em>母関数</em>（generating function）にも出会う。彩色からラムゼー理論（Ramsey theory）に至るまでのグラフ（graph）を学び、部分集合の束のような半順序集合（partially ordered set）を学ぶ。確率論の講義でも同じ道具が、期待値の線形性（linearity of expectation）とともに、ランダムな構造の解析に用いられる。さらに先へ進むと、組合せ論は代数学（対称関数、表現論）、整数論（分割、加法的組合せ論）、計算機科学（アルゴリズムの解析、計算量理論）とつながっていく。</p>
+<h3 id="本章を貫く問い">本章を貫く問い</h3>
+<div class="skillbox">
+<div class="box-title">三つの大きな問い</div>
+<ol class="arabic">
+<li><p><strong>書き出さずにどう数えるか？</strong> どのような構造（漸化式、全単射、母関数）を使えば、膨大な集まりを正確に数えられるか。</p></li>
+<li><p><strong>何かが必ず起こるのはいつか？</strong> 大きさだけで、ある模様や一致や組み合わせが必然的に生じるのはどのようなときか。</p></li>
+<li><p><strong>数え上げと確率は互いにどう助け合うのか？</strong> 確率を求めるのに数え上げが最適なのはどのようなときか。また、個数を求めるのに確率が最適なのはどのようなときか。</p></li>
+</ol>
+</div>
+<p>本章は前半と後半の二つに分かれる。最初の7つの節は純粋数学分野の問題から採られている。まず漸化式（平面を分割する直線、柵の支柱の塗り分け）と鳩の巣原理（ラムゼーの定理）から始め、次に母関数を展開して、それを用いて硬貨の組み合わせを数え、風変わりなさいころを設計し、べき乗和が等しくなるように数をチームに分ける。後半の6つの節は、確率分野の問題から採った古典的な数え上げの問題である。完全順列（derangement）と <span class="math inline">\(1/e\)</span> の出現、誕生日問題、投票問題（ballot problem）とその鏡像原理（reflection principle）、クーポン収集問題（coupon collector problem）、ランダムな部分集合、そして、どの合計も同様に確からしくなるようにさいころに細工することの不可能性を扱う。</p>
+<h3 id="本章に登場する考え方">本章に登場する考え方</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">話題</th>
+<th style="text-align: left;">考え方</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">9.1</td>
+<td style="text-align: left;">平面の領域</td>
+<td style="text-align: left;">もう一つ加えると何が変わるか</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.2</td>
+<td style="text-align: left;">ラムゼー理論</td>
+<td style="text-align: left;">鳩の巣原理</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.3</td>
+<td style="text-align: left;">グラフの彩色</td>
+<td style="text-align: left;">連立漸化式、彩色多項式</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.4</td>
+<td style="text-align: left;">母関数</td>
+<td style="text-align: left;">数列が関数になる</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.5</td>
+<td style="text-align: left;">分割</td>
+<td style="text-align: left;">係数による数え上げ</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.6</td>
+<td style="text-align: left;">シッヘルマンのさいころ（Sicherman dice）</td>
+<td style="text-align: left;">多項式の因数分解</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.7</td>
+<td style="text-align: left;">トゥエ–モース列（Thue–Morse sequence）</td>
+<td style="text-align: left;">重根が釣り合った和を生む</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.8</td>
+<td style="text-align: left;">完全順列</td>
+<td style="text-align: left;">包除原理、<span class="math inline">\(1/e\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.9</td>
+<td style="text-align: left;">偶然の一致</td>
+<td style="text-align: left;">余事象、平方根の法則</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.10</td>
+<td style="text-align: left;">投票問題</td>
+<td style="text-align: left;">鏡像原理</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.11</td>
+<td style="text-align: left;">クーポン収集問題</td>
+<td style="text-align: left;">期待値の線形性、<span class="math inline">\(n\ln n\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9.12</td>
+<td style="text-align: left;">ランダムな部分集合</td>
+<td style="text-align: left;">要素を一つずつ考える</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9.13</td>
+<td style="text-align: left;">細工したさいころ</td>
+<td style="text-align: left;">相加・相乗平均の不等式（AM–GM）による不可能性の証明</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="本章の読み方">本章の読み方</h3>
+<p>必ず小さな場合から始めること。直線を3本引いてみる、3枚のカードの6通りの並べ方を書き出してみる、<span class="math inline">\(5\)</span>p を作る方法を数えてみる。小さな場合は推測の手がかりとなるデータを与えてくれるし、最後には公式の検算にも役立つ。しかし、理由がわかるまでは規則性を信用してはならない。<a href="../ch09/lazy-caterer.html">第 9.1 節</a> には、<span class="math inline">\(1, 2, 4, 8, 16, \ldots\)</span> と続きながら次の項が <span class="math inline">\(31\)</span> となる有名な数列が登場する。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="lazy-caterer.html">→ 読み始める： 9.1 平面を分割する直線</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

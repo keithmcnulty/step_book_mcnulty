@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>解が一意でないとき (STEP III 1994 Q4) — Beyond STEP</title>
+<meta name="description" content="STEP III 1994 問題 4：解説付き解答とその背後にある大学数学。 微分方程式（differential equation）とは、ある量がどのように変化するかを定める規則である。たとえばニュートン（Newton）の法則は、惑星が今どこにあるかが与えられれば、それがどう動くかを教えてくれる。古典物理学の描く世界像では、これで十分である。つまり、現在の世界の状態がわかれば、法則によってその未…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch08/non-uniqueness.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch08/non-uniqueness.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/non-uniqueness.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/non-uniqueness.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch08/non-uniqueness.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch08/non-uniqueness.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/non-uniqueness.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="解が一意でないとき (STEP III 1994 Q4) — Beyond STEP">
+<meta property="og:description" content="STEP III 1994 問題 4：解説付き解答とその背後にある大学数学。 微分方程式（differential equation）とは、ある量がどのように変化するかを定める規則である。たとえばニュートン（Newton）の法則は、惑星が今どこにあるかが与えられれば、それがどう動くかを教えてくれる。古典物理学の描く世界像では、これで十分である。つまり、現在の世界の状態がわかれば、法則によってその未…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch08/non-uniqueness.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="解が一意でないとき (STEP III 1994 Q4) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1994 問題 4：解説付き解答とその背後にある大学数学。 微分方程式（differential equation）とは、ある量がどのように変化するかを定める規則である。たとえばニュートン（Newton）の法則は、惑星が今どこにあるかが与えられれば、それがどう動くかを教えてくれる。古典物理学の描く世界像では、これで十分である。つまり、現在の世界の状態がわかれば、法則によってその未…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "解が一意でないとき", "headline": "解が一意でないとき", "description": "STEP III 1994 問題 4：解説付き解答とその背後にある大学数学。 微分方程式（differential equation）とは、ある量がどのように変化するかを定める規則である。たとえばニュートン（Newton）の法則は、惑星が今どこにあるかが与えられれば、それがどう動くかを教えてくれる。古典物理学の描く世界像では、これで十分である。つまり、現在の世界の状態がわかれば、法則によってその未…", "url": "https://beyondstep.keithmcnulty.org/ja/ch08/non-uniqueness.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1994 問題 4", "微分方程式と力学系"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 8, "name": "微分方程式と力学系", "url": "https://beyondstep.keithmcnulty.org/ja/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第8章：微分方程式と力学系", "item": "https://beyondstep.keithmcnulty.org/ja/ch08/"}, {"@type": "ListItem", "position": 3, "name": "解が一意でないとき", "item": "https://beyondstep.keithmcnulty.org/ja/ch08/non-uniqueness.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch08/non-uniqueness.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch08/non-uniqueness.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch08/non-uniqueness.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch08/non-uniqueness.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第8章 · 微分方程式と力学系</a>
+    <div class="src">STEP III · 1994 · 問題 4</div>
+    <div class="sec-head"><span class="sec-num">8.1</span><h1>解が一意でないとき</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-1-non-uniqueness.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第8章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 1994、第4問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/94-s3-q4">step.maths.org/questions/94-s3-q4</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>微分方程式（differential equation）とは、ある量がどのように変化するかを定める規則である。たとえばニュートン（Newton）の法則は、惑星が今どこにあるかが与えられれば、それがどう動くかを教えてくれる。古典物理学の描く世界像では、これで十分である。つまり、現在の世界の状態がわかれば、法則によってその未来はすべて決まる。ラプラス（Pierre-Simon Laplace）は、あらゆる位置と速度を知っていれば何もかも予言できる知性を思い描いた。この世界像は、ある数学的な仮定の上に成り立っている。それは、微分方程式に初期条件を与えれば、解が<em>ただ一つ</em>存在するという仮定である。</p>
+<p>この問題は、その仮定が成り立たないことがあると示している。一見何の変哲もない方程式 <span class="math inline">\((y&#39;)^2 = 4y\)</span> には、<span class="math inline">\(x\)</span> 軸に沿って進み、自ら選んだ瞬間にそこから離れていく解がある。点によっては、そこを通る解が無数に存在する。現在を知っても未来は決まらないのである。一意性（uniqueness）がちょうどどのようなときに成り立つかを明らかにすることは、大学の微分方程式の講義で最初に学ぶ定理の一つである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>両辺の平方根をとると <span class="math inline">\(y&#39; = \pm2\sqrt{y}\)</span> となる。<span class="math inline">\(y = (x - c)^2\)</span> を試してみよう。これは方程式を満たすか。もっと簡単な解はないだろうか。</p>
+</div>
+<p><span class="math inline">\(y = (x - c)^2\)</span> ならば <span class="math inline">\(y&#39; = 2(x - c)\)</span> であり、<span class="math inline">\((y&#39;)^2 = 4(x - c)^2 = 4y\)</span> となる。よって、放物線 <span class="math inline">\(y = (x - c)^2\)</span> はどれも、すべての <span class="math inline">\(x\)</span> に対して解である。さらに <span class="math inline">\(y = 0\)</span> も解である。実際 <span class="math inline">\((0)^2 = 4 \times 0\)</span> である。この最後の解を覚えておいてほしい。これが問題全体の鍵となる。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-一点を通る解" class="stage"><span class="stage-n">段階 1</span> 一点を通る解</h4>
+<div class="askyourself">
+<p>放物線 <span class="math inline">\(y = (x - c)^2\)</span> のうち、<span class="math inline">\((a, b^2)\)</span> を通るのはどれか。</p>
+</div>
+<p><span class="math inline">\((a - c)^2 = b^2\)</span> が必要であるから <span class="math inline">\(a - c = \pm b\)</span>、すなわち <span class="math inline">\(c = a - b\)</span> または <span class="math inline">\(c = a + b\)</span> である。<span class="math inline">\(b \neq 0\)</span> よりこの二つは異なり、次の二つの解が得られる。 <span class="math display">\[y = (x - a + b)^2 \qquad\text{および}\qquad y = (x - a - b)^2. \qed\]</span> （見落とした解がないことも確かめておくべきである。<span class="math inline">\(y &gt; 0\)</span> となる範囲では、<span class="math inline">\(y&#39; = \pm2\sqrt{y}\)</span> の符号は一定であり、<span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}x}\sqrt y = \frac{y&#39;}{2\sqrt y} = \pm1\)</span> となるので <span class="math inline">\(\sqrt y = \pm(x - c)\)</span> であり、これらの放物線が得られる。したがって、与えられた点の近くで、<span class="math inline">\(y\)</span> が正である限り、解はこの二つしかない。しかし、解が <span class="math inline">\(x\)</span> 軸に達すると、第3段階で見るように零解とつなぎ合わせることができ、すべての <span class="math inline">\(x\)</span> で定義された解がさらに無数に得られる。問題の「二つの解」とは、この二つの放物線のことである。）</p>
+<h4 id="stagemark2-二つの点と共通の解" class="stage"><span class="stage-n">段階 2</span> 二つの点と共通の解</h4>
+<p>原点を通る解は <span class="math inline">\(y = x^2\)</span>（<span class="math inline">\(c = 0\)</span> の放物線）でなければならない。これは <span class="math inline">\(x = 1\)</span> と <span class="math inline">\(x = -1\)</span> で高さ <span class="math inline">\(1\)</span> を通る。そこで <span class="math inline">\((a_1, 1) = (1, 1)\)</span>、<span class="math inline">\((a_2, 1) = (-1, 1)\)</span> とおく。</p>
+<p><span class="math inline">\((1, 1)\)</span> を通る解は（<span class="math inline">\(a = 1\)</span>、<span class="math inline">\(b = \pm1\)</span> として）<span class="math inline">\(y = x^2\)</span> と <span class="math inline">\(y = (x - 2)^2\)</span> である。<span class="math inline">\((-1, 1)\)</span> を通る解は <span class="math inline">\(y = (x + 2)^2\)</span> と <span class="math inline">\(y = x^2\)</span> である。原点を通る解は、どちらの場合も同じ曲線 <span class="math inline">\(y = x^2\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-解の族全体と共通接線" class="stage"><span class="stage-n">段階 3</span> 解の族全体と共通接線</h4>
+<div class="pausebox">
+<p>さまざまな <span class="math inline">\(c\)</span> について、放物線 <span class="math inline">\(y = (x - c)^2\)</span> をいくつか描いてみよう。それらすべてに接する直線はどれか。その直線自身は解だろうか。</p>
+</div>
+<p>放物線 <span class="math inline">\(y = (x - c)^2\)</span> はどれも頂点 <span class="math inline">\((c, 0)\)</span> で <span class="math inline">\(x\)</span> 軸に接するので、<span class="math inline">\(x\)</span> 軸は族全体の共通接線、すなわち族の<em>包絡線</em>（envelope）である（図 8.1.1）。そして <span class="math inline">\(x\)</span> 軸 <span class="math inline">\(y = 0\)</span> はそれ自身が微分方程式の解である。これは放物線のどれでもなく、別個の<em>特異解</em>（singular solution）である。</p>
+<h4 id="stagemark4-なぜ重要なのか" class="stage"><span class="stage-n">段階 4</span> なぜ重要なのか</h4>
+<div class="askyourself">
+<p>原点から出発しよう。原点を通る解はどれか。しばらく <span class="math inline">\(x\)</span> 軸に沿って進み、その後そこから離れる解を作れるだろうか。</p>
+</div>
+<p>原点を通る解として <span class="math inline">\(y = x^2\)</span> と <span class="math inline">\(y = 0\)</span> がある。しかし、実際にはもっと多くのことが言える。各放物線は <span class="math inline">\(x\)</span> 軸と接する（そこではどちらも傾きが <span class="math inline">\(0\)</span> である）ので、解の断片を滑らかにつなぎ合わせることができる。任意の <span class="math inline">\(c_1 \leq 0 \leq c_2\)</span> に対して、 <span class="math display">\[y = \begin{cases} (x - c_1)^2 &amp; x &lt; c_1, \\ 0 &amp; c_1 \leq x \leq c_2, \\ (x - c_2)^2 &amp; x &gt; c_2 \end{cases}\]</span> は至るところで <span class="math inline">\((y&#39;)^2 = 4y\)</span> を満たす微分可能な関数であり、原点を通る。<span class="math inline">\(x\)</span> 軸上のどの点を通る解も無数に存在する。解は好きなだけ <span class="math inline">\(y = 0\)</span> にとどまり、それから離れていくことができるのである。共通接線こそが、一意性が崩れる場所である。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-1-1.svg" alt="図 8.1.1"><figcaption><span class="fig-label">図 8.1.1</span> <span class="math inline">\((y&#39;)^2 = 4y\)</span> の解 <span class="math inline">\(y = (x - c)^2\)</span>（ティール）はどれも <span class="math inline">\(x\)</span> 軸に接する。<span class="math inline">\(x\)</span> 軸はそれらの包絡線であり、それ自身も解である（アンバー）。断片をつなぎ合わせると、さらに別の解が得られる。たとえばプラム色の解は、放物線に沿って軸まで下り、軸に沿って進み、自ら選んだ時刻に再び軸を離れる。<span class="math inline">\(x\)</span> 軸上のどの点を通る解も無数に存在する。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>まず簡単な解を探す。</strong><span class="math inline">\(y = (x - c)^2\)</span> と <span class="math inline">\(y = 0\)</span> を試すことで、全体像が見えた。</p></li>
+<li><p><strong>包絡線は特異解を与える。</strong>解の族の共通接線は、それ自身が族に属さない解になることがある。</p></li>
+<li><p><strong>つなぎ合わせ。</strong>二つの解が接するところでは、それらをつないで新しい微分可能な解を作ることができる。こうして一意性の破れが広がっていく。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">解はいつ一意か</div>
+<p><em>ピカール–リンデレーフの定理</em>（1890–1894年ごろにピカール（Émile Picard）とリンデレーフ（Ernst Lindelöf）が証明した）によれば、<span class="math inline">\(F\)</span> が <span class="math inline">\(y\)</span> について<em>リプシッツ連続</em>（Lipschitz）であるとき、すなわち <span class="math inline">\(|F(x, y_1) - F(x, y_2)| \leq L|y_1 - y_2|\)</span> を満たす定数 <span class="math inline">\(L\)</span> が存在するとき、方程式 <span class="math inline">\(y&#39; = F(x, y)\)</span> は <span class="math inline">\(y(x_0) = y_0\)</span> のもとで <span class="math inline">\(x_0\)</span> の近くにただ一つの解をもつ。おおまかに言えば、<span class="math inline">\(y\)</span> が変化するとき <span class="math inline">\(F\)</span> が無限に速く変化してはならないということである。我々の方程式は <span class="math inline">\(y&#39; = \pm2\sqrt y\)</span> であり、<span class="math inline">\(\sqrt y\)</span> は <span class="math inline">\(y = 0\)</span> で傾きが無限大になる。そこではリプシッツ連続ではなく、まさにそこで一意性が破れるのである。（ペアノ（Giuseppe Peano）は1886年に、<span class="math inline">\(F\)</span> が連続であるだけで解の<em>存在</em>（existence）は保証されるが、一意性は保証されないことを示した。）ピカール–リンデレーフの定理の証明では、<a href="../ch02/golden-limit.html">第 2.2 節</a> の縮小写像の原理（contraction mapping principle）によって収束する反復法を用いる。</p>
+</div>
+<h3 id="水漏れするバケツ">水漏れするバケツ</h3>
+<p>物理的な例を挙げよう。底に穴のあいたバケツは、トリチェリ（Torricelli）の法則に従って空になる。水の高さ <span class="math inline">\(h\)</span> は <span class="math inline">\(h&#39; = -k\sqrt h\)</span> を満たす。時間を順方向に進める限り、何も問題はない。バケツは空になり、空のままである。しかし時間を逆向きにたどってみよう。空のバケツを見つけても、方程式からはそれがいつ空になったのかがわからない。常に <span class="math inline">\(h = 0\)</span> である解も、ある時刻まで満杯で、その後水が抜けた解も、すべて「今は空である」ことと矛盾しない。一意性の破れは、過去についての情報が失われたという事実の数学的な影なのである。</p>
+<h3 id="ノートンのドーム">ノートンのドーム</h3>
+<p>2003年、哲学者 John Norton は、摩擦のないドームで、その頂上にぴったり置かれた球がニュートンの法則に従って <span class="math inline">\(r&#39;&#39; = \sqrt r\)</span> という形の方程式を満たすような形状のものを考えた。一つの解は、球が永遠に頂上にとどまるというものである。しかし別の解もあり、それらでは球が任意の時間だけ頂上にとどまった後、何の原因もなく自発的に任意の方向へ転がり落ちる。この例は今も議論が続いている。古典力学は本当に決定論的（deterministic）なのだろうか。数学的には、これはまさにこの問題と同じ種類の一意性の破れである。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">一意性を仮定しない</div>
+<p><em>解を一つ見つけても、それが唯一の解であることにはならない。特に方程式に滑らかでない関数が含まれる場合には、ほかに解がないかを問うこと。</em></p>
+<p>大学では、存在と一意性の定理が、どのような条件が必要かを正確に教えてくれる。ここでは、零で傾きが無限大になる平方根があるだけで、一意性を壊すのに十分であった。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>二つの増加率。</strong><a href="https://step.maths.org/questions/18-s2-q8">STEP II 2018、第8問</a> に取り組んでみよう。この問題では、二つの成長方程式を置換によって解く。そのうえで、なぜ <span class="math inline">\(y = 0\)</span> も同じ初期値をもつ解なのか、そしてそれが一意性について何を意味するのかを考えてみよう。</p></li>
+<li><p><strong>水漏れするバケツ。</strong><span class="math inline">\(h(0) = h_0 &gt; 0\)</span> のもとで <span class="math inline">\(h&#39; = -k\sqrt h\)</span> を解け。バケツが空になるのはいつか。ある <span class="math inline">\(T\)</span> について <span class="math inline">\(h(T) = 0\)</span> であり、すべての <span class="math inline">\(t \geq T\)</span> について <span class="math inline">\(h(t) = 0\)</span> となる、異なる二つの解を書け。</p></li>
+<li><p><strong>一意性の回復。</strong><span class="math inline">\(y(0) = 0\)</span> のもとで <span class="math inline">\(y&#39; = 2y\)</span> の解は <span class="math inline">\(y = 0\)</span> のみであることを示せ。（<em>ヒント：</em><span class="math inline">\(\frac{\mathrm{d}}{\mathrm{d}x}(ye^{-2x})\)</span> を考えよ。）<span class="math inline">\(2\sqrt y\)</span> にはなくて <span class="math inline">\(2y\)</span> にはある性質は何か。</p></li>
+<li><p><strong>3乗。</strong>原点を通る <span class="math inline">\(y&#39; = 3y^{2/3}\)</span> の解をすべて求めよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Morris Hirsch, Stephen Smale &amp; Robert Devaney, <a href="https://uk.bookshop.org/search?keywords=Differential+Equations%2C+Dynamical+Systems%2C+and+an+Introduction+to+Chaos+Hirsch+Smale"><em>Differential Equations, Dynamical Systems, and an Introduction to Chaos</em></a></strong>（Academic Press）。存在と一意性、そしてこの章の内容の多くを扱っている。</p></li>
+<li><p><strong>George Simmons, <a href="https://uk.bookshop.org/search?keywords=Differential+Equations+with+Applications+and+Historical+Notes+Simmons"><em>Differential Equations with Applications and Historical Notes</em></a></strong>（CRC Press）。歴史的な話題に富んだ古典的名著。特異解と包絡線を論じている。</p></li>
+<li><p><strong>John Norton, 「The dome: an unexpectedly simple failure of determinism」</strong>, <em>Philosophy of Science</em> 75 (2008)。短く読みやすい。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 章の導入</a><a class="next" href="bounding-without-solving.html">→ 8.2 解かずに評価する</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>소수 공장 (STEP II 2002 Q3) — Beyond STEP</title>
+<meta name="description" content="STEP II 2002 문제 3: 단계별 풀이와 그 바탕에 있는 대학 수학. 소수(prime)가 무한히 많다는 사실은 아마 이미 알고 있을 것이다. 유클리드(Euclid)가 기원전 300년 무렵에 이를 증명했고, 이것은 누구나 가장 먼저 접하는 증명 가운데 하나이다. 그렇다면 STEP 문제는 왜 이것을 다시 증명하라고 하는 것일까? 이 증명은 완전히 다른…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/fermat-numbers.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="소수 공장 (STEP II 2002 Q3) — Beyond STEP">
+<meta property="og:description" content="STEP II 2002 문제 3: 단계별 풀이와 그 바탕에 있는 대학 수학. 소수(prime)가 무한히 많다는 사실은 아마 이미 알고 있을 것이다. 유클리드(Euclid)가 기원전 300년 무렵에 이를 증명했고, 이것은 누구나 가장 먼저 접하는 증명 가운데 하나이다. 그렇다면 STEP 문제는 왜 이것을 다시 증명하라고 하는 것일까? 이 증명은 완전히 다른…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch01/fermat-numbers.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="소수 공장 (STEP II 2002 Q3) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2002 문제 3: 단계별 풀이와 그 바탕에 있는 대학 수학. 소수(prime)가 무한히 많다는 사실은 아마 이미 알고 있을 것이다. 유클리드(Euclid)가 기원전 300년 무렵에 이를 증명했고, 이것은 누구나 가장 먼저 접하는 증명 가운데 하나이다. 그렇다면 STEP 문제는 왜 이것을 다시 증명하라고 하는 것일까? 이 증명은 완전히 다른…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "소수 공장", "headline": "소수 공장", "description": "STEP II 2002 문제 3: 단계별 풀이와 그 바탕에 있는 대학 수학. 소수(prime)가 무한히 많다는 사실은 아마 이미 알고 있을 것이다. 유클리드(Euclid)가 기원전 300년 무렵에 이를 증명했고, 이것은 누구나 가장 먼저 접하는 증명 가운데 하나이다. 그렇다면 STEP 문제는 왜 이것을 다시 증명하라고 하는 것일까? 이 증명은 완전히 다른…", "url": "https://beyondstep.keithmcnulty.org/ko/ch01/fermat-numbers.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2002 문제 3", "정수론과 증명"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "정수론과 증명", "url": "https://beyondstep.keithmcnulty.org/ko/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제1장: 정수론과 증명", "item": "https://beyondstep.keithmcnulty.org/ko/ch01/"}, {"@type": "ListItem", "position": 3, "name": "소수 공장", "item": "https://beyondstep.keithmcnulty.org/ko/ch01/fermat-numbers.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch01/fermat-numbers.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/fermat-numbers.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/fermat-numbers.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch01/fermat-numbers.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제1장 · 정수론과 증명</a>
+    <div class="src">STEP II · 2002 · 문제 3</div>
+    <div class="sec-head"><span class="sec-num">1.1</span><h1>소수 공장</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-1-fermat-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제1장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 2002, 문제 3</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/02-s2-q3">step.maths.org/questions/02-s2-q3</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>소수(prime)가 무한히 많다는 사실은 아마 이미 알고 있을 것이다. 유클리드(Euclid)가 기원전 300년 무렵에 이를 증명했고, 이것은 누구나 가장 먼저 접하는 증명 가운데 하나이다. 그렇다면 STEP 문제는 왜 이것을 <em>다시</em> 증명하라고 하는 것일까?</p>
+<p>이 증명은 완전히 다른 방식으로 작동하기 때문이다. 유클리드의 논증은 이렇게 말한다. <em>소수를 유한 개 나열한 목록을 아무것이나 주면, 그 목록이 불완전하다는 것을 보여 주겠다.</em> 반면 이 증명은 이렇게 말한다. <em>여기 미리 구체적으로 적어 둔 하나의 수열이 있는데, 그 각 항은 다른 어떤 항에도 들어 있지 않은 소수를 하나씩 품고 있다.</em> 이것은 새로운 소수를 만들어 내는 기계이며, 이 기계가 작동하는 이유는 문제가 차근차근 이끌어 주는 아름답고 단순한 항등식 하나에 있다.</p>
+<p>그 과정에서 페르마 자신마저 속아 넘어간 수들을 만나게 될 것이다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<p>문제를 한 번 끝까지 읽고 그 구조를 살펴보자. 문제는 네 단계로 이루어져 있다.</p>
+<ol class="arabic">
+<li><p>몇 가지 예를 계산한다.</p></li>
+<li><p>규칙을 찾아내고(사실은 문제가 알려 준다), 그것을 앞의 예로 확인한다.</p></li>
+<li><p>그 규칙을 일반적으로 증명한다.</p></li>
+<li><p>그 규칙을 두 번 활용한다. 먼저 공약수(common factor)에 관한 사실을, 다음으로 소수에 관한 사실을 이끌어 낸다.</p></li>
+</ol>
+<p>이러한 “예시 <span class="math inline">\(\to\)</span> 추측 <span class="math inline">\(\to\)</span> 증명 <span class="math inline">\(\to\)</span> 결론”의 구조는 실제로 수많은 수학이 이루어지는 방식이며, STEP 문제도 이를 따르는 경우가 많다. 이런 구조를 보면, 앞부분은 대개 단순한 준비 운동이 아니다. 나중에 필요할 직관을 쌓는 곳이다.</p>
+<div class="askyourself">
+<p>마지막 줄은 <em>무한히 많은 소수</em>에 대해 묻는다. 가운데 부분은 <em>공약수</em>에 대해 묻는다. “두 페르마 수(Fermat number)는 공약수를 갖지 않는다”는 사실과 “소수는 무한히 많다”는 사실은 도대체 어떻게 연결될 수 있을까?</p>
+</div>
+<p>이 질문을 기억해 두자. 나중에 다시 돌아올 것이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-수에-대한-감-잡기" class="stage"><span class="stage-n">단계 1</span> 수에 대한 감 잡기</h4>
+<p>표기에 주의하자. <span class="math inline">\(2^{2^n}\)</span>은 <span class="math inline">\((2^2)^n\)</span>이 아니라 <span class="math inline">\(2^{(2^n)}\)</span>을 뜻한다. 지수 자체가 2의 거듭제곱이므로 이 수들은 <em>매우</em> 빠르게 커진다. <span class="math display">\[\begin{aligned}
+  F_0 &amp;= 2^{1} + 1 = 3, &amp;\qquad F_2 &amp;= 2^{4} + 1 = 17,\\
+  F_1 &amp;= 2^{2} + 1 = 5, &amp;\qquad F_3 &amp;= 2^{8} + 1 = 257.
+\end{aligned}\]</span></p>
+<div class="askyourself">
+<p>이 네 수에서 무엇을 알아챌 수 있는가?</p>
+</div>
+<p>모두 소수이다. (<span class="math inline">\(257\)</span>을 확인해 보자. 이 수는 <span class="math inline">\(2, 3, 5, 7, 11\)</span>이나 <span class="math inline">\(13\)</span>으로 나누어떨어지지 않고, <span class="math inline">\(17^2 = 289 &gt; 257\)</span>이므로 여기서 멈춰도 된다.) 그다음 수인 <span class="math inline">\(F_4 = 2^{16} + 1 = 65537\)</span>도 소수이다. 피에르 드 페르마(Pierre de Fermat)는 1640년에 바로 이 점을 알아채고, 이런 꼴의 수는 <em>모두</em> 소수라고 추측(conjecture)했다. 이 점을 기억해 두자. 그가 옳았는지는 나중에 살펴볼 것이다.</p>
+<h4 id="stagemark2-항등식-확인하기" class="stage"><span class="stage-n">단계 2</span> 항등식 확인하기</h4>
+<p>이제 작은 <span class="math inline">\(k\)</span>에 대해 <span class="math inline">\((*)\)</span>를 확인해 보자.</p>
+<ul>
+<li><p><span class="math inline">\(k = 1\)</span>: 좌변은 그냥 <span class="math inline">\(F_0 = 3\)</span>이고, <span class="math inline">\(F_1 - 2 = 3\)</span>이다.</p></li>
+<li><p><span class="math inline">\(k = 2\)</span>: <span class="math inline">\(F_0 F_1 = 3 \times 5 = 15\)</span>이고, <span class="math inline">\(F_2 - 2 = 15\)</span>이다.</p></li>
+<li><p><span class="math inline">\(k = 3\)</span>: <span class="math inline">\(F_0 F_1 F_2 = 15 \times 17 = 255\)</span>이고, <span class="math inline">\(F_3 - 2 = 255\)</span>이다.</p></li>
+</ul>
+<div class="askyourself">
+<p><span class="math inline">\(k = 2\)</span>에서 <span class="math inline">\(k = 3\)</span>으로 넘어가는 단계를 보자. <span class="math inline">\(15\)</span>에 <span class="math inline">\(17\)</span>을 곱해서 <span class="math inline">\(255\)</span>를 얻었다. 페르마 수로 말하면 <span class="math inline">\((F_2 - 2) \times F_2\)</span>를 계산해서 <span class="math inline">\(F_3 - 2\)</span>를 얻은 것이다. 이것은 우연일까?</p>
+</div>
+<p>이 관찰이 바로 증명 전체의 축소판이다. 왜 이것이 성립해야 하는지 살펴보자.</p>
+<h4 id="stagemark3-항등식-증명하기" class="stage"><span class="stage-n">단계 3</span> 항등식 증명하기</h4>
+<div class="pausebox">
+<p>계속 읽기 전에 다음을 직접 보여 보자. <span class="math display">\[(F_k - 2)\, F_k = F_{k+1} - 2.\]</span> <em>힌트:</em> 모든 것을 2의 거듭제곱으로 나타내 보자. <span class="math inline">\(F_k - 2\)</span>는 어떤 모양인가?</p>
+</div>
+<p><span class="math inline">\(F_k - 2 = 2^{2^k} - 1\)</span>이고 <span class="math inline">\(F_k = 2^{2^k} + 1\)</span>이므로 <span class="math display">\[(F_k - 2)\, F_k = \bigl(2^{2^k} - 1\bigr)\bigl(2^{2^k} + 1\bigr).\]</span></p>
+<div class="askyourself">
+<p>이것은 <span class="math inline">\((a - 1)(a + 1)\)</span> 꼴의 곱이다. 이것은 무엇과 같은가?</p>
+</div>
+<p>이것은 제곱의 차(difference of two squares) <span class="math inline">\(a^2 - 1\)</span>이다. <span class="math inline">\(a = 2^{2^k}\)</span>로 두면 <span class="math display">\[a^2 = \bigl(2^{2^k}\bigr)^2 = 2^{2 \cdot 2^k} = 2^{2^{k+1}},\]</span> 이므로 <span class="math display">\[(F_k - 2)\, F_k = 2^{2^{k+1}} - 1 = F_{k+1} - 2. \tag{$\dagger$}\]</span> 이것이 원동력이다. 제곱이 하는 일에 주목하자. 제곱하면 지수가 두 배가 되고, <span class="math inline">\(2^k\)</span>를 두 배 하면 <span class="math inline">\(2^{k+1}\)</span>이 된다. 페르마 수의 정의는 제곱의 차 인수분해에 꼭 맞게 맞춰져 있다.</p>
+<p>이제 귀납법은 거의 자동으로 따라온다.</p>
+<div class="askyourself">
+<p>귀납 단계에서 정확히 무엇을 보여야 하는가?</p>
+</div>
+<p>어떤 <span class="math inline">\(k \geq 1\)</span>에 대해 <span class="math inline">\((*)\)</span>가 성립한다고 가정하자. <span class="math display">\[F_0 F_1 \cdots F_{k-1} = F_k - 2,\]</span> 그리고 이것이 <span class="math inline">\(k + 1\)</span>에 대해서도 성립함을 보이고자 한다. <span class="math display">\[F_0 F_1 \cdots F_{k-1} F_k = F_{k+1} - 2.\]</span> 가정의 양변에 <span class="math inline">\(F_k\)</span>를 곱하고 <span class="math inline">\((\dagger)\)</span>를 이용하면 <span class="math display">\[F_0 F_1 \cdots F_{k-1} F_k = (F_k - 2)\, F_k = F_{k+1} - 2.\]</span> <span class="math inline">\(k = 1\)</span>인 경우는 이미 확인했으므로, 수학적 귀납법(induction)에 의해 <span class="math inline">\((*)\)</span>는 모든 <span class="math inline">\(k \geq 1\)</span>에 대해 성립한다.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>귀납법을 아예 쓰지 않을 수도 있었을까?</p>
+</div>
+<p>그렇다. 그 방법도 살펴볼 만하다. <span class="math inline">\(F_0 - 2 = 1\)</span>에서 시작하여 <span class="math inline">\((\dagger)\)</span>를 거듭 적용하면 <span class="math display">\[F_k - 2 = (F_{k-1} - 2) F_{k-1} = (F_{k-2} - 2) F_{k-2} F_{k-1} = \cdots = (F_0 - 2)\, F_0 F_1 \cdots F_{k-1}.\]</span> <span class="math inline">\(F_0 - 2 = 1\)</span>이므로 증명이 끝난다. 이렇게 “풀어 쓰는” 것은 사실 같은 귀납법을 전부 펼쳐 적은 것에 지나지 않지만, 어떤 사람들에게는 이쪽이 더 잘 보인다.</p>
+<h4 id="stagemark4-공약수가-없다" class="stage"><span class="stage-n">단계 4</span> 공약수가 없다</h4>
+<p><span class="math inline">\(m \neq n\)</span>이면 <span class="math inline">\(F_m\)</span>과 <span class="math inline">\(F_n\)</span>이 <span class="math inline">\(1\)</span>보다 큰 공약수를 갖지 않음을 보이고자 한다.</p>
+<div class="askyourself">
+<p><span class="math inline">\(m &lt; n\)</span>이고 어떤 수 <span class="math inline">\(d\)</span>가 <span class="math inline">\(F_m\)</span>과 <span class="math inline">\(F_n\)</span>을 모두 나눈다고 하자. <span class="math inline">\((*)\)</span>에서 <span class="math inline">\(F_m\)</span>은 어디에 나타나는가?</p>
+</div>
+<p><span class="math inline">\((*)\)</span>에서 <span class="math inline">\(k = n\)</span>으로 두면 <span class="math display">\[F_0 F_1 \cdots F_m \cdots F_{n-1} = F_n - 2.\]</span> <span class="math inline">\(m &lt; n\)</span>이므로 <span class="math inline">\(F_m\)</span>은 좌변의 인수 가운데 하나이다. 따라서 <span class="math inline">\(d\)</span>가 <span class="math inline">\(F_m\)</span>을 나누면 <span class="math inline">\(d\)</span>는 좌변 전체를 나눈다. 즉 <span class="math inline">\(d\)</span>는 <span class="math inline">\(F_n - 2\)</span>를 나눈다.</p>
+<div class="askyourself">
+<p>이제 <span class="math inline">\(d\)</span>는 <span class="math inline">\(F_n\)</span> <em>과</em> <span class="math inline">\(F_n - 2\)</span>를 모두 나눈다. 그렇다면 <span class="math inline">\(d\)</span>는 또 무엇을 나누어야 하는가?</p>
+</div>
+<p>두 수의 차를 나눈다. 즉 <span class="math inline">\(d\)</span>는 <span class="math inline">\(F_n - (F_n - 2) = 2\)</span>를 나눈다. 따라서 <span class="math inline">\(d = 1\)</span> 또는 <span class="math inline">\(d = 2\)</span>이다.</p>
+<div class="askyourself">
+<p><span class="math inline">\(d\)</span>가 <span class="math inline">\(2\)</span>일 수 있는가?</p>
+</div>
+<p>그럴 수 없다. 모든 페르마 수는 2의 거듭제곱에 1을 더한 수이므로 홀수이다. 따라서 <span class="math inline">\(d = 1\)</span>이고, 서로 다른 두 페르마 수는 <span class="math inline">\(1\)</span>보다 큰 공약수를 갖지 않는다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>수학자들은 이를 페르마 수들이 <em>쌍마다 서로소(pairwise coprime)</em>라고 말한다.</p>
+<h4 id="stagemark5-무한히-많은-소수" class="stage"><span class="stage-n">단계 5</span> 무한히 많은 소수</h4>
+<p>이제 처음에 던졌던 질문으로 돌아가 보자.</p>
+<div class="askyourself">
+<p><span class="math inline">\(1\)</span>보다 큰 모든 자연수는 적어도 하나의 소인수(prime factor)를 갖는다. 각 페르마 수에서 소인수를 하나씩 고르자. 고른 소수들에 대해 무엇을 말할 수 있는가?</p>
+</div>
+<p><span class="math inline">\(p_n\)</span>을 <span class="math inline">\(F_n\)</span>을 나누는 임의의 소수라 하자. 만약 이 가운데 두 개가 같다면, 즉 <span class="math inline">\(m \neq n\)</span>인데 <span class="math inline">\(p_m = p_n\)</span>이라면, 그 소수는 <span class="math inline">\(F_m\)</span>과 <span class="math inline">\(F_n\)</span>의 <span class="math inline">\(1\)</span>보다 큰 공약수가 된다. 이는 방금 불가능하다고 보인 일이다. 따라서 소수들 <span class="math display">\[p_0,\; p_1,\; p_2,\; p_3,\; \ldots\]</span> 은 모두 <em>서로 다르다</em>. 페르마 수는 무한히 많으므로, 서로 다른 소수도 무한히 많다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>각 페르마 수를 <em>어떤</em> 소수가 나누는지, 심지어 페르마 수 자체가 소수인지조차 알 필요가 전혀 없었다는 점에 주목하자. 필요한 것은 페르마 수들이 결코 공약수를 갖지 않는다는 사실뿐이었다. 각 페르마 수는 다른 어떤 페르마 수도 쓸 수 없는 소수를 적어도 하나씩 “차지할” 수밖에 없다.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-1-1.svg" alt="그림 1.1.1"><figcaption><span class="fig-label">그림 1.1.1</span> 처음 몇 개의 페르마 수. 페르마는 이 수들이 모두 소수라고 추측했지만, 1732년에 오일러가 <span class="math inline">\(F_5\)</span>의 인수 <span class="math inline">\(641\)</span>을 찾아냈으며, <span class="math inline">\(F_4\)</span>보다 뒤의 페르마 수 가운데 소수로 알려진 것은 하나도 없다. 그렇더라도 항등식 <span class="math inline">\((*)\)</span>는 서로 다른 페르마 수의 인수가 결코 겹치지 않음을 보여 준다. 각 행은 새로운 소수를 가져온다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<p>무엇이 이 풀이를 가능하게 했는지 잠시 멈춰서 살펴볼 만하다. 같은 아이디어가 이 책에서 여러 번 다시 등장하기 때문이다.</p>
+<ul>
+<li><p><strong>예시는 장식이 아니었다.</strong> <span class="math inline">\(15 \times 17 = 255\)</span>가 “<span class="math inline">\((F_2 - 2) \times F_2 = F_3 - 2\)</span>”임을 알아챈 것이 <em>바로</em> 핵심 아이디어였다. 문제가 작은 경우들을 제시하면, 수가 맞는지만 보지 말고 각 단계가 무엇을 하고 있는지 물어보자.</p></li>
+<li><p><strong>항등식 하나가 모든 일을 해냈다.</strong> 모든 것이 <span class="math inline">\((a-1)(a+1) = a^2 - 1\)</span>에서 흘러나왔다. 어려워 보이는 STEP 문제도 단순한 대수 하나로 움직이는 경우가 많다.</p></li>
+<li><p><strong>마지막 논증은 크기가 아니라 구조에 관한 것이다.</strong> 새로운 소수를 하나도 찾지 않고 소수가 무한히 많음을 증명했다. 그 대신 무한히 많은 수의 모임을 만들어 내려면 무한히 많은 소수가 <em>필요하다</em>는 것을 보였다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">페르마는 옳았을까?</div>
+<p>아니다. 1732년에 레온하르트 오일러(Leonhard Euler)는 다음을 보였다. <span class="math display">\[F_5 = 2^{32} + 1 = 4\,294\,967\,297 = 641 \times 6\,700\,417.\]</span> 오일러가 <span class="math inline">\(641\)</span>을 운 좋게 찾아낸 것은 아니다. 그는 <span class="math inline">\(F_n\)</span>의 소인수가 반드시 매우 특별한 꼴이어야 함을 증명했고(<span class="math inline">\(n = 5\)</span>인 경우에는 <span class="math inline">\(64\)</span>의 배수보다 1만큼 커야 한다), 이로써 후보를 크게 줄였다. 이 사실은 연습문제 4에서 직접 증명해 볼 수 있다.</p>
+<p>그 뒤로 지금까지 누군가 판정에 성공한 페르마 수는 <span class="math inline">\(F_5\)</span>부터 <span class="math inline">\(F_{32}\)</span>까지 모두 합성수(composite)로 밝혀졌다. 알려진 바로는 <span class="math inline">\(F_0\)</span>부터 <span class="math inline">\(F_4\)</span>까지가 <em>유일한</em> 페르마 소수일지도 모르지만, 아무도 이를 증명하지 못했다. 이것은 진정한 미해결 문제이다.</p>
+<p>유쾌한 반전은 우리의 증명이 이런 것에 전혀 개의치 않는다는 점이다. 소수이든 합성수이든, 페르마 수들은 여전히 무한히 많은 소수를 만들어 낸다.</p>
+</div>
+<h3 id="페르마-소수와-다각형의-작도">페르마 소수와 다각형의 작도</h3>
+<p>페르마 소수는 꽤 뜻밖의 곳에서 등장한다. 고대 그리스인들은 자와 컴퍼스로 정삼각형과 정오각형을 작도하는 방법을 알고 있었는데, <span class="math inline">\(3 = F_0\)</span>이고 <span class="math inline">\(5 = F_1\)</span>임에 주목하자. 이천 년 동안 아무도 변의 개수가 소수인 다른 정다각형을 작도하지 못했다. 그러다 1796년, 열아홉 살이던 카를 프리드리히 가우스(Carl Friedrich Gauss)가 <em>정십칠각형</em>을 작도하는 방법을 보였는데, <span class="math inline">\(17 = F_2\)</span>이다.</p>
+<p>가우스는 더 나아갔다. 정<span class="math inline">\(N\)</span>각형을 자와 컴퍼스로 작도할 수 있는 것은 정확히 <span class="math inline">\(N\)</span>이 2의 거듭제곱에 <em>서로 다른 페르마 소수</em>들을 곱한 수일 때이다. (Pierre Wantzel이 1837년에 이 증명을 완성했다.) 따라서 어떤 다각형을 작도할 수 있는지는 페르마 소수가 몇 개인지에 달려 있다. 가우스의 정십칠각형 뒤에 숨은 핵심 계산은 <a href="../ch06/gauss-17gon.html">6.2 절</a>(STEP II 1991, 문제 4)에서 만나게 되며, 전체 이야기는 학부 과정의 백미 가운데 하나인 <em>갈루아 이론(Galois theory)</em>에 속한다.</p>
+<h3 id="하나의-정리-여러-가지-증명">하나의 정리, 여러 가지 증명</h3>
+<p>수학자들은 왜 같은 정리를 굳이 여러 번 증명할까? 증명이 다르면 드러나는 것도 다르기 때문이다. 흔히 크리스티안 골드바흐(Christian Goldbach)가 1730년에 오일러에게 보낸 편지에서 나온 것으로 알려진 이 증명은, 1보다 큰 자연수들로 이루어진 쌍마다 서로소인 수열이라면 <em>어떤</em> 것이든 무한히 많은 소수를 강제한다는 것을 보여 준다. 페르마 수는 편리한 예 가운데 하나일 뿐이다. (연습문제 3에서 또 다른 예를 볼 수 있다.)</p>
+<p>이 증명은 유클리드의 증명보다 더 많은 것을 알려 주기도 한다. 소수 <span class="math inline">\(p_0, p_1, \ldots, p_{n-1}\)</span>은 <span class="math inline">\(n\)</span>개의 <em>서로 다른</em> 소수이고, 각각은 <span class="math inline">\(F_{n-1}\)</span> 이하이다. 따라서 <span class="math inline">\(2^{2^{n-1}} + 1\)</span>보다 크지 않은 소수가 적어도 <span class="math inline">\(n\)</span>개 있다. 이것은 소수가 어떻게 분포하는지에 대한 <em>정량적(quantitative)</em> 명제이다. 매우 약한 결과이지만(실제로는 훨씬 더 좋다), 소수가 얼마나 드물어지는지를 정확히 기술하는 19세기 수학의 위대한 결과 가운데 하나인 <em>소수 정리(Prime Number Theorem)</em>를 향한 첫걸음이다. <a href="../ch01/prime-distribution.html">1.2 절</a>에서 그다음 걸음을 내디딘다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">구조적 성질로부터 논증 세우기</div>
+<p><em>A 유형의 대상이 무한히 많이 존재함을 보이려면, 각각이 자기만의 A 유형 대상을 필요로 하는 B 유형의 대상을 무한히 많이 찾으면 된다.</em></p>
+<p>여기서 A는 소수, B는 페르마 수이고, “자기만의 것을 필요로 한다”는 것은 “다른 어떤 것과도 공유하지 않는 소인수를 갖는다”는 뜻이다. 같은 패턴이 세기 논증, 선형대수학(linear algebra)(일차독립인 벡터가 무한히 많으면 차원이 무한이 된다), 해석학(analysis)에서도 나타난다.</p>
+</div>
+<p>또한 <em>귀납법</em>을 연습했고, 특히 <em>“<span class="math inline">\(k\)</span>에서 <span class="math inline">\(k+1\)</span>로 넘어가는 단계는 실제로 무슨 일을 하는가?”</em>라고 묻는 습관을 길렀다. 이 질문은 형식적인 틀보다 더 유용할 때가 많다.</p>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>유클리드의 증명.</strong> 소수가 무한히 많다는 유클리드의 증명을 적어 보자. 그 증명은 어떤 의미에서 “귀류법(by contradiction)”이고, 페르마 수를 이용한 증명은 어떤 의미에서 “구성적(constructive)”인가?</p></li>
+<li><p><strong>일의 자리 숫자.</strong> <span class="math inline">\(n \geq 2\)</span>일 때 페르마 수 <span class="math inline">\(F_n\)</span>의 일의 자리 숫자가 <span class="math inline">\(7\)</span>임을 보여라.</p></li>
+<li><p><strong>실베스터 수열(Sylvester’s sequence).</strong> <span class="math inline">\(a_1 = 2\)</span>, <span class="math inline">\(a_{n+1} = a_n^2 - a_n + 1\)</span>로 정의하면, 수열은 <span class="math inline">\(2, 3, 7, 43, 1807, \ldots\)</span>로 시작한다.</p>
+<div class="exercises">
+<ol class="exercises">
+<li><p><span class="math inline">\(a_{n+1} - 1 = a_1 a_2 \cdots a_n\)</span>임을 보여라.</p></li>
+<li><p>이 수열의 항들이 쌍마다 서로소임을 이끌어 내고, 이를 이용하여 소수가 무한히 많다는 또 다른 증명을 제시하여라.</p></li>
+<li><p><span class="hard">심화</span> <span class="math inline">\(\dfrac{1}{a_1} + \dfrac{1}{a_2} + \cdots + \dfrac{1}{a_n} = 1 - \dfrac{1}{a_{n+1} - 1}\)</span>임을 보여라.</p></li>
+</ol>
+</div></li>
+<li><p><strong>오일러의 기법.</strong> <em>이 문제에는 페르마의 소정리(Fermat’s Little Theorem)가 필요하다: <span class="math inline">\(p\)</span>가 소수이고 <span class="math inline">\(p \nmid a\)</span>이면 <span class="math inline">\(a^{p-1} \equiv 1 \pmod{p}\)</span>이다.</em> 소수 <span class="math inline">\(p\)</span>가 <span class="math inline">\(F_n\)</span>을 나눈다고 하자.</p>
+<div class="exercises">
+<ol class="exercises">
+<li><p><span class="math inline">\(2^{2^n} \equiv -1 \pmod p\)</span>임을 보이고, 이로부터 <span class="math inline">\(2^{2^{n+1}} \equiv 1 \pmod p\)</span>임을 보여라.</p></li>
+<li><p><span class="math inline">\(d\)</span>를 <span class="math inline">\(2^d \equiv 1 \pmod p\)</span>를 만족하는 가장 작은 양의 정수라 하자. <span class="math inline">\(d\)</span>가 <span class="math inline">\(2^{n+1}\)</span>은 나누지만 <span class="math inline">\(2^n\)</span>은 나누지 않음을 보이고, <span class="math inline">\(d = 2^{n+1}\)</span>이라고 결론지어라.</p></li>
+<li><p>페르마의 소정리를 이용하여 <span class="math inline">\(d\)</span>가 <span class="math inline">\(p - 1\)</span>을 나눔을 보여라. 이로부터 <span class="math inline">\(p \equiv 1 \pmod{2^{n+1}}\)</span>임을 이끌어 내어라.</p></li>
+<li><p><span class="math inline">\(n = 5\)</span>일 때, 이 결과는 <span class="math inline">\(F_5\)</span>의 모든 소인수가 <span class="math inline">\(64k + 1\)</span> 꼴임을 말해 준다. <span class="math inline">\(641\)</span>이 이 꼴임을 확인하여라. <span class="math inline">\(641\)</span>보다 작은 이 꼴의 소수는 몇 개인가?</p></li>
+</ol>
+</div></li>
+<li><p><strong>소수의 상계.</strong> <em>하나의 정리, 여러 가지 증명</em>의 논증을 이용하여 <span class="math inline">\(n\)</span>번째 소수가 <span class="math inline">\(2^{2^{n-1}} + 1\)</span> 이하임을 보여라. <span class="math inline">\(n = 5\)</span>일 때 이 상계는 얼마나 좋은가?</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Martin Aigner &amp; Günter M. Ziegler, <a href="https://uk.bookshop.org/search?keywords=Proofs+from+THE+BOOK+Aigner+Ziegler"><em>Proofs from THE BOOK</em></a></strong> (Springer), 제1장 “Six proofs of the infinity of primes”(소수가 무한함에 대한 여섯 가지 증명). 이 증명을 유클리드의 증명 및 다른 네 가지 증명과 함께 싣고 있으며, 그 가운데 하나는 위상수학(topology)을 이용한다. 대학 입학 전에 읽을 수 있는 최고의 책 가운데 하나이다.</p></li>
+<li><p><strong>Harold Davenport, <a href="https://uk.bookshop.org/search?keywords=The+Higher+Arithmetic+Davenport"><em>The Higher Arithmetic</em></a></strong> (Cambridge University Press), 제1–2장. 소수와 소인수분해에 대한 아름답게 쓰인 입문서로, 대학 입학 전 여름에 읽기에 이상적이다.</p></li>
+<li><p><strong>Michal Křížek, Florian Luca &amp; Lawrence Somer, <a href="https://uk.bookshop.org/search?keywords=17+Lectures+on+Fermat+Numbers+K%C5%99%C3%AD%C5%BEek+Luca"><em>17 Lectures on Fermat Numbers</em></a></strong> (Springer, 2001). 오일러의 인수분해부터 가우스의 다각형까지, 페르마 수에 관한 모든 것을 담고 있다. 앞쪽 장들을 골라 읽어 보자.</p></li>
+<li><p><strong>Ian Stewart, <a href="https://uk.bookshop.org/search?keywords=Why+Beauty+Is+Truth+Stewart"><em>Why Beauty Is Truth</em></a></strong> (Basic Books), 가우스에 관한 장. 일반 독자를 위해 풀어 쓴 정십칠각형 이야기이다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 장 도입</a><a class="next" href="prime-distribution.html">→ 1.2 소수는 얼마나 드문드문 흩어져 있는가?</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

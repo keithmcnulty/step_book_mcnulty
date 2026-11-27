@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>因数分解が破綻するとき (STEP I 2016 Q7) — Beyond STEP</title>
+<meta name="description" content="STEP I 2016 問題 7：解説付き解答とその背後にある大学数学。 1 より大きいすべての整数は、ちょうど1通りに素数（prime）の積として書ける。 60 = 2 × 2 × 3 × 5 であり、これ以外の書き方はない。この事実はあまりに何度も使ってきたので、証明が必要とは思えないほど自明に感じられるだろう。 この問題では、一見まったく自然に見えるのに、その「自明な」事実が成り立たない小さ…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/factorisation-fails.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/factorisation-fails.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="因数分解が破綻するとき (STEP I 2016 Q7) — Beyond STEP">
+<meta property="og:description" content="STEP I 2016 問題 7：解説付き解答とその背後にある大学数学。 1 より大きいすべての整数は、ちょうど1通りに素数（prime）の積として書ける。 60 = 2 × 2 × 3 × 5 であり、これ以外の書き方はない。この事実はあまりに何度も使ってきたので、証明が必要とは思えないほど自明に感じられるだろう。 この問題では、一見まったく自然に見えるのに、その「自明な」事実が成り立たない小さ…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch01/factorisation-fails.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="因数分解が破綻するとき (STEP I 2016 Q7) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2016 問題 7：解説付き解答とその背後にある大学数学。 1 より大きいすべての整数は、ちょうど1通りに素数（prime）の積として書ける。 60 = 2 × 2 × 3 × 5 であり、これ以外の書き方はない。この事実はあまりに何度も使ってきたので、証明が必要とは思えないほど自明に感じられるだろう。 この問題では、一見まったく自然に見えるのに、その「自明な」事実が成り立たない小さ…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "因数分解が破綻するとき", "headline": "因数分解が破綻するとき", "description": "STEP I 2016 問題 7：解説付き解答とその背後にある大学数学。 1 より大きいすべての整数は、ちょうど1通りに素数（prime）の積として書ける。 60 = 2 × 2 × 3 × 5 であり、これ以外の書き方はない。この事実はあまりに何度も使ってきたので、証明が必要とは思えないほど自明に感じられるだろう。 この問題では、一見まったく自然に見えるのに、その「自明な」事実が成り立たない小さ…", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/factorisation-fails.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2016 問題 7", "数論と証明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "数論と証明", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第1章：数論と証明", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/"}, {"@type": "ListItem", "position": 3, "name": "因数分解が破綻するとき", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/factorisation-fails.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch01/factorisation-fails.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/factorisation-fails.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/factorisation-fails.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch01/factorisation-fails.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第1章 · 数論と証明</a>
+    <div class="src">STEP I · 2016 · 問題 7</div>
+    <div class="sec-head"><span class="sec-num">1.7</span><h1>因数分解が破綻するとき</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-7-factorisation-fails.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第1章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP I 2016、第7問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/16-s1-q7">step.maths.org/questions/16-s1-q7</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p><span class="math inline">\(1\)</span> より大きいすべての整数は、ちょうど1通りに素数（prime）の積として書ける。<span class="math inline">\(60 = 2 \times 2 \times 3 \times 5\)</span> であり、これ以外の書き方はない。この事実はあまりに何度も使ってきたので、証明が必要とは思えないほど自明に感じられるだろう。</p>
+<p>この問題では、一見まったく自然に見えるのに、その「自明な」事実が成り立たない小さな数の世界を作る。STEP I の問題なので数学的には易しいが、得られる教訓は深い。それはまさに、1847年にフェルマーの最終定理（Fermat’s Last Theorem）の有名な証明の試みを打ち破り、代数学のまったく新しい分野の誕生につながった教訓なのである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(S\)</span> と <span class="math inline">\(T\)</span> の最初のいくつかの要素を書き出せ。小問 (iv) の定義によれば、<span class="math inline">\(S\)</span> のどの要素が<em><span class="math inline">\(S\)</span>-素数</em>（<span class="math inline">\(S\)</span>-prime）か。</p>
+</div>
+<p><span class="math inline">\(S = \{1, 5, 9, 13, 17, 21, 25, 29, 33, \ldots\}\)</span> であり、<span class="math inline">\(T = \{3, 7, 11, 15, 19, 23, \ldots\}\)</span> である。<span class="math inline">\(S\)</span> の数は、（<span class="math inline">\(1\)</span> 以外の）より小さい <span class="math inline">\(S\)</span> の要素の積として書けないとき、<span class="math inline">\(S\)</span>-素数であるという。<span class="math inline">\(3\)</span> は <span class="math inline">\(S\)</span> に属さないので、通常の整数では <span class="math inline">\(9 = 3 \times 3\)</span> であるにもかかわらず、<span class="math inline">\(9\)</span> は <span class="math inline">\(S\)</span>-素数であることに注意せよ。「素数」であるかどうかは、どの数を使ってよいかによって決まるのである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-和集合共通部分積" class="stage"><span class="stage-n">段階 1</span> 和集合、共通部分、積</h4>
+<p><span class="math inline">\(S \cup T\)</span> は正の奇数全体の集合である。すべての奇数は <span class="math inline">\(4\)</span> で割った余りが <span class="math inline">\(1\)</span> または <span class="math inline">\(3\)</span> だからである。<span class="math inline">\(S \cap T\)</span> は空集合である。2つの異なる余りをもつ数は存在しないからである。</p>
+<div class="askyourself">
+<p><span class="math inline">\(S\)</span> の一般の要素はどのように書けるか。そのような要素2つの積は何か。</p>
+</div>
+<p><span class="math inline">\(S\)</span> の要素は <span class="math inline">\(a \geq 0\)</span> として <span class="math inline">\(4a + 1\)</span> の形であり、 <span class="math display">\[(4a+1)(4b+1) = 16ab + 4a + 4b + 1 = 4(4ab + a + b) + 1 \in S.\]</span> よって <span class="math inline">\(S\)</span> は乗法について閉じている（closed under multiplication）。<span class="math inline">\(T\)</span> については <span class="math display">\[(4a+3)(4b+3) = 16ab + 12a + 12b + 9 = 4(4ab + 3a + 3b + 2) + 1,\]</span> となり、これは<em><span class="math inline">\(T\)</span> ではなく</em> <span class="math inline">\(S\)</span> に属する。例えば <span class="math inline">\(3 \times 7 = 21 \in S\)</span> である。よって <span class="math inline">\(T\)</span> は乗法について閉じていない。</p>
+<h4 id="stagemark2-t-に属する素因数" class="stage"><span class="stage-n">段階 2</span> <span class="math inline">\(T\)</span> に属する素因数</h4>
+<div class="askyourself">
+<p><span class="math inline">\(T\)</span> に属する素数でない数をとる。その素因数はすべて奇数である。もしそれらがすべて <span class="math inline">\(S\)</span> に属していたら、どうなるか。</p>
+</div>
+<p>この数は奇数なので、その素因数はすべて奇数であり、<span class="math inline">\(S\)</span> か <span class="math inline">\(T\)</span> に属する。もしそれらが<em>すべて</em> <span class="math inline">\(S\)</span> に属するならば、<span class="math inline">\(S\)</span> は乗法について閉じているので、それらの積は <span class="math inline">\(S\)</span> に属する。しかしその積は考えている数そのものであり、<span class="math inline">\(T\)</span> に属する。よって、少なくとも1つの素因数は <span class="math inline">\(T\)</span> に属する。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-奇数個の因数" class="stage"><span class="stage-n">段階 3</span> 奇数個の因数</h4>
+<div class="askyourself">
+<p><span class="math inline">\(T\)</span> の要素を偶数個掛け合わせると、積はどこに属するか。奇数個ならばどうか。</p>
+</div>
+<p><span class="math inline">\(T\)</span> の数2つの積は <span class="math inline">\(S\)</span> の数になり、<span class="math inline">\(S\)</span> の数どうしの積は <span class="math inline">\(S\)</span> の数になるので、偶数個の <span class="math inline">\(T\)</span> の因数の積は <span class="math inline">\(S\)</span> に属する。奇数個の場合は（<span class="math inline">\(S\)</span> の要素）<span class="math inline">\(\times\)</span>（<span class="math inline">\(T\)</span> の要素1つ）となり、同様の計算によりこれは <span class="math inline">\(T\)</span> に属する。</p>
+<p>次に <span class="math inline">\(t \in T\)</span> をとる。<span class="math inline">\(t\)</span> が <span class="math inline">\(T\)</span>-素数ならば、証明は終わりである。そうでなければ、<span class="math inline">\(t\)</span> を <span class="math inline">\(T\)</span> の要素の積として書く。各因数は <span class="math inline">\(1\)</span> より大きいので、<span class="math inline">\(t\)</span> より小さい。それらのうち <span class="math inline">\(T\)</span>-素数でないものはさらに分解でき、以下同様である。因数は毎回小さくなるので、この操作は終わり（ここでも整列性（well-ordering）による）、<span class="math inline">\(t\)</span> は <span class="math inline">\(T\)</span>-素数の積として表される。積は <span class="math inline">\(T\)</span> に属するので、因数の個数は奇数でなければならない。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-2通りの因数分解" class="stage"><span class="stage-n">段階 4</span> 2通りの因数分解</h4>
+<div class="pausebox">
+<p><span class="math inline">\(S\)</span>-素数への本質的に異なる2通りの因数分解をもつ <span class="math inline">\(S\)</span> の数を見つけよ。<em>ヒント：</em><span class="math inline">\(9\)</span> のように、通常の素因数が <span class="math inline">\(S\)</span> に含まれないというだけの理由で <span class="math inline">\(S\)</span>-素数となっている数を使え。</p>
+</div>
+<p><span class="math inline">\(S\)</span>-素数は <span class="math inline">\(5, 9, 13, 17, 21, 29, 33, 37, 41, 49, \ldots\)</span> と続く。ここで <span class="math inline">\(21 = 3 \times 7\)</span>、<span class="math inline">\(9 = 3 \times 3\)</span>、<span class="math inline">\(49 = 7 \times 7\)</span> はいずれも <span class="math inline">\(S\)</span>-素数である。<span class="math inline">\(3\)</span> と <span class="math inline">\(7\)</span> は <span class="math inline">\(S\)</span> に属さないからである。そして <span class="math display">\[441 = 21 \times 21 = 9 \times 49.\]</span> これは <span class="math inline">\(441\)</span> の <span class="math inline">\(S\)</span>-素数への2通りの異なる因数分解である（図 1.7.1）。<span class="math inline">\(S\)</span> では素因数分解の一意性（unique factorisation）が成り立たない。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-7-1.svg" alt="図 1.7.1"><figcaption><span class="fig-label">図 1.7.1</span> <span class="math inline">\(441\)</span> の <span class="math inline">\(S\)</span>-素数への2通りの因数分解。通常の整数ではどちらの木も <span class="math inline">\(3 \times 3 \times 7 \times 7\)</span> まで続くが、<span class="math inline">\(3\)</span> と <span class="math inline">\(7\)</span> は <span class="math inline">\(S\)</span> に属さないので、<span class="math inline">\(S\)</span> の中では因数分解は2段目で止まり、しかも両者は異なる。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>「素数」であるかどうかは体系による。</strong><span class="math inline">\(9\)</span> と <span class="math inline">\(21\)</span> は整数の中では合成数だが、<span class="math inline">\(S\)</span> の中では素数である。それらを因数分解するのに必要な数が欠けているからである。</p></li>
+<li><p><strong>閉じているかどうかが重要である。</strong><span class="math inline">\(S\)</span> は乗法について閉じているが、<span class="math inline">\(T\)</span> はそうではない。このただ1つの違いが、小問 (iii) と (iv) の鍵となった。</p></li>
+<li><p><strong>自明な事実が定理であることもある。</strong>整数における素因数分解の一意性には証明が必要である。この問題はその理由を示している。よく似た体系において、それは偽なのである。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="整数を特別なものにしているもの">整数を特別なものにしているもの</h3>
+<p>通常の整数では、<em>なぜ</em>因数分解がうまくいくのか。鍵となる事実は<em>ユークリッドの補題</em>（Euclid’s lemma）である。すなわち、素数 <span class="math inline">\(p\)</span> が積 <span class="math inline">\(ab\)</span> を割り切るならば、<span class="math inline">\(p\)</span> は <span class="math inline">\(a\)</span> を割り切るか、または <span class="math inline">\(p\)</span> は <span class="math inline">\(b\)</span> を割り切る。これはユークリッドの互除法（Euclidean algorithm）を用いて証明され、まさに <span class="math inline">\(S\)</span> で成り立たない性質である。そこでは、<span class="math inline">\(S\)</span>-素数 <span class="math inline">\(9\)</span> は <span class="math inline">\(21 \times 21 = 441\)</span> を割り切る（<span class="math inline">\(441 = 9 \times 49\)</span> だから）が、<span class="math inline">\(9\)</span> は <span class="math inline">\(S\)</span> において <span class="math inline">\(21\)</span> を割り切らない。大学1年で、ユークリッドの補題を注意深く証明し、そこから素因数分解の一意性が導かれることを学ぶだろう。</p>
+<div class="historybox">
+<div class="box-title">フェルマーの最終定理の誤った証明</div>
+<p>1847年3月1日、ガブリエル・ラメ（Gabriel Lamé）はパリ科学アカデミーで、フェルマーの最終定理を証明したと発表した。彼のアイデアは、1の複素冪根（complex roots of unity）を用いて <span class="math inline">\(x^n + y^n\)</span> を <span class="math display">\[x^n + y^n = (x + y)(x + \zeta y)(x + \zeta^2 y) \cdots (x + \zeta^{n-1} y), \qquad \zeta = e^{2\pi \mathrm{i}/n}\]</span> （<span class="math inline">\(n\)</span> が奇数のとき）と因数分解し、各括弧の素因数について議論するというものであった。ジョゼフ・リウヴィル（Joseph Liouville）はすぐに異議を唱えた。<span class="math inline">\(\zeta\)</span> から作られる数が一意に因数分解されると言えるのはなぜか、と。数週間後、エルンスト・クンマー（Ernst Kummer）が、それらがしばしば一意に因数分解されないことをすでに示していたことが明らかになった。最初に破綻するのは <span class="math inline">\(n = 23\)</span> のときである。</p>
+<p>クンマーは、素因数分解の一意性を回復させる追加の対象である「理想数」（ideal numbers）を考案して救えるものを救い、広い範囲の指数に対してフェルマーの最終定理を証明した。リヒャルト・デデキント（Richard Dedekind）はクンマーの理想数を<em>イデアル</em>（ideals）へと発展させた。これは現代代数学の中心的な概念の1つである。</p>
+</div>
+<h3 id="覚えておきたい小さな例">覚えておきたい小さな例</h3>
+<p>数の体系 <span class="math inline">\(\mathbb{Z}[\sqrt{-5}] = \{a + b\sqrt{-5} : a, b \in \mathbb{Z}\}\)</span> において <span class="math display">\[6 = 2 \times 3 = (1 + \sqrt{-5})(1 - \sqrt{-5}),\]</span> であり、4つの因数はいずれもこの体系で「素数」である（演習 3）。これを、因数分解が一意<em>である</em><a href="../ch01/two-squares.html">第 1.6 節</a>のガウス整数（Gaussian integers）と比べてみよ。この種の体系のうちどれが素因数分解の一意性をもつかは、深い問題である。ガウス（Gauss）は、<span class="math inline">\(\mathbb{Z}[\sqrt{-d}]\)</span> の形の体系とその近い仲間のうち、それをもつのは9つだけであると予想した。これは最終的に、1952年から1967年にかけて Heegner、Baker、Stark によって証明された。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">当然と思っていることを疑う</div>
+<p><em>ある事実が証明するまでもなく自明に感じられるときは、それが何に依存しているかを問い、それが成り立たない状況を探せ。</em></p>
+<p>反例、すなわち「自明な」事実が偽となる世界を作ることは、証明に本当に必要なものを見つけ出す最良の方法の1つである。大学の代数学の多くは、整数のよく知られた性質のうちどれがより一般の体系でも生き残るかを問うことから成っている。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>別の例。</strong><span class="math inline">\(693\)</span> が <span class="math inline">\(S\)</span>-素数への2通りの異なる因数分解をもつことを示せ。このような例を作る一般的な方法を見つけられるか。</p></li>
+<li><p><strong>偶数。</strong><span class="math inline">\(E = \{2, 4, 6, 8, \ldots\}\)</span> とする。どの数が <span class="math inline">\(E\)</span>-素数か。<span class="math inline">\(60\)</span> が <span class="math inline">\(E\)</span>-素数への因数分解を2通り以上もつことを示せ。</p></li>
+<li><p><strong><span class="math inline">\(\mathbb{Z}[\sqrt{-5}]\)</span>。</strong><em>ノルム</em>（norm）<span class="math inline">\(N(a + b\sqrt{-5}) = a^2 + 5b^2\)</span> を定義する。<span class="math inline">\(N(zw) = N(z)N(w)\)</span> を示せ。ノルムが <span class="math inline">\(2\)</span> または <span class="math inline">\(3\)</span> となる元が存在しないことを示すことにより、<span class="math inline">\(2\)</span>、<span class="math inline">\(3\)</span>、<span class="math inline">\(1 \pm \sqrt{-5}\)</span> は <span class="math inline">\(\mathbb{Z}[\sqrt{-5}]\)</span> においてこれ以上因数分解できないことを導け。</p></li>
+<li><p><strong>ユークリッドの補題の応用。</strong> <span class="hard">発展</span> ユークリッドの補題（素数が <span class="math inline">\(ab\)</span> を割り切るならば、それは <span class="math inline">\(a\)</span> または <span class="math inline">\(b\)</span> を割り切る）を仮定して、<span class="math inline">\(1\)</span> より大きいすべての整数は、因数の順序を除いて、ただ1通りの素因数分解しかもたないことを証明せよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Ian Stewart &amp; David Tall, <a href="https://uk.bookshop.org/search?keywords=Algebraic+Number+Theory+and+Fermat%27s+Last+Theorem+Stewart+Tall"><em>Algebraic Number Theory and Fermat’s Last Theorem</em></a></strong>（CRC Press）。『代数的整数論とフェルマーの最終定理』。冒頭の数章では、ラメ、クンマー、イデアルの物語が、意欲的な大学1年生がついていける水準で語られている。</p></li>
+<li><p><strong>John Stillwell, <a href="https://uk.bookshop.org/search?keywords=Elements+of+Number+Theory+Stillwell"><em>Elements of Number Theory</em></a></strong>。『数論の基礎』。整数とガウス整数における素因数分解の一意性を、並べて比較している。</p></li>
+<li><p><strong>Harold Edwards, <a href="https://uk.bookshop.org/search?keywords=Fermat%27s+Last+Theorem%3A+A+Genetic+Introduction+Edwards"><em>Fermat’s Last Theorem: A Genetic Introduction</em></a></strong>（Springer）。『フェルマーの最終定理：発生的入門』。意欲的な読者向けで、クンマーの仕事をその歴史を通して解説している。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="two-squares.html">← 1.6 二つの平方数の和</a><a class="next" href="counting-rationals.html">→ 1.8 有理数を数える</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

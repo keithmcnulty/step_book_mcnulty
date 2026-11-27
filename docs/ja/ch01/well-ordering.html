@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>最小の反例 (STEP III 2015 Q5) — Beyond STEP</title>
+<meta name="description" content="STEP III 2015 問題 5：解説付き解答とその背後にある大学数学。 sqrt2 が無理数（irrational）であることの証明は、おそらく見たことがあるだろう。 sqrt2 = a/b を既約分数と仮定し、両辺を2乗して、 a が偶数であること、続いて b も偶数であることを導き、矛盾を得るというものである。これは立派な証明である。しかし、この証明は 偶数…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch01/well-ordering.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/well-ordering.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/well-ordering.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/well-ordering.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/well-ordering.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/well-ordering.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/well-ordering.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="最小の反例 (STEP III 2015 Q5) — Beyond STEP">
+<meta property="og:description" content="STEP III 2015 問題 5：解説付き解答とその背後にある大学数学。 sqrt2 が無理数（irrational）であることの証明は、おそらく見たことがあるだろう。 sqrt2 = a/b を既約分数と仮定し、両辺を2乗して、 a が偶数であること、続いて b も偶数であることを導き、矛盾を得るというものである。これは立派な証明である。しかし、この証明は 偶数…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch01/well-ordering.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="最小の反例 (STEP III 2015 Q5) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2015 問題 5：解説付き解答とその背後にある大学数学。 sqrt2 が無理数（irrational）であることの証明は、おそらく見たことがあるだろう。 sqrt2 = a/b を既約分数と仮定し、両辺を2乗して、 a が偶数であること、続いて b も偶数であることを導き、矛盾を得るというものである。これは立派な証明である。しかし、この証明は 偶数…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "最小の反例", "headline": "最小の反例", "description": "STEP III 2015 問題 5：解説付き解答とその背後にある大学数学。 sqrt2 が無理数（irrational）であることの証明は、おそらく見たことがあるだろう。 sqrt2 = a/b を既約分数と仮定し、両辺を2乗して、 a が偶数であること、続いて b も偶数であることを導き、矛盾を得るというものである。これは立派な証明である。しかし、この証明は 偶数…", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/well-ordering.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2015 問題 5", "数論と証明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "数論と証明", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第1章：数論と証明", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/"}, {"@type": "ListItem", "position": 3, "name": "最小の反例", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/well-ordering.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch01/well-ordering.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/well-ordering.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/well-ordering.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch01/well-ordering.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第1章 · 数論と証明</a>
+    <div class="src">STEP III · 2015 · 問題 5</div>
+    <div class="sec-head"><span class="sec-num">1.3</span><h1>最小の反例</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-3-well-ordering.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第1章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2015、第5問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/15-s3-q5">step.maths.org/questions/15-s3-q5</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p><span class="math inline">\(\sqrt2\)</span> が無理数（irrational）であることの証明は、おそらく見たことがあるだろう。<span class="math inline">\(\sqrt2 = a/b\)</span> を既約分数と仮定し、両辺を2乗して、<span class="math inline">\(a\)</span> が偶数であること、続いて <span class="math inline">\(b\)</span> も偶数であることを導き、矛盾を得るというものである。これは立派な証明である。しかし、この証明は<em>偶数</em>に関する技巧に頼っており、それがそのまま一般化できるかどうかは明らかでない。<span class="math inline">\(\sqrt[3]{2}\)</span> ならどうだろうか。<span class="math inline">\(\sqrt{7}\)</span> ならどうだろうか。</p>
+<p>この問題は別の証明を与えるものであり、その中心にある考え方はほとんど拍子抜けするほど単純である。それは<em>最小のものに注目せよ</em>ということである。同じ考え方は、姿を変えて、この章で何度も再登場する。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<p>これは STEP の問題としては珍しいものである。証明の骨組みが与えられ、欠けている根拠を埋めることが求められている。これはまさに、大学生が数学の読み方を身につけるやり方そのものである。教科書の証明にはしばしば「明らかに」や「このことから〜が従う」と書かれており、それが本当にそうなっているかを確かめるのも読み手の仕事の一部である。</p>
+<div class="askyourself">
+<p>ステップ4では「<span class="math inline">\(k\)</span> を <span class="math inline">\(S\)</span> に属する最小の正の整数と定める」とある。なぜそうしてよいのだろうか。<span class="math inline">\(S\)</span> が正の<em>実数</em>の集合であったとしても、それは許されるだろうか。</p>
+</div>
+<p>正の整数からなる空でない集合には、必ず最小元が存在する。これを<em>整列性原理</em>（well-ordering principle）といい、数学的帰納法（mathematical induction）の原理と同値である。正の実数の集合に対しては、これは<em>成り立たない</em>。実際、集合 <span class="math inline">\(\{x : x &gt; 0\}\)</span> には最小元がない。したがって、ステップ4はステップ3（集合が空でないこと）と、<span class="math inline">\(S\)</span> が整数からなることに依存している。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-ステップ3s-は空でない" class="stage"><span class="stage-n">段階 1</span> ステップ3：<span class="math inline">\(S\)</span> は空でない</h4>
+<div class="askyourself">
+<p>正の整数 <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> によって <span class="math inline">\(\sqrt2 = a/b\)</span> と書けるとき、<span class="math inline">\(S\)</span> の元を一つ具体的に書き出せるだろうか。</p>
+</div>
+<p><span class="math inline">\(\sqrt2 = a/b\)</span> ならば <span class="math inline">\(b\sqrt2 = a\)</span> であり、これは整数である。よって <span class="math inline">\(b\)</span> は <span class="math inline">\(S\)</span> に属し、<span class="math inline">\(S\)</span> は空でない。</p>
+<h4 id="stagemark2-ステップ5より小さい元" class="stage"><span class="stage-n">段階 2</span> ステップ5：より小さい元</h4>
+<p>さて、<span class="math inline">\(k\)</span> は <span class="math inline">\(S\)</span> の最小元であるから、<span class="math inline">\(k\sqrt2\)</span> は整数である。これを <span class="math inline">\(j\)</span> とおく。</p>
+<div class="pausebox">
+<p><span class="math inline">\((\sqrt2 - 1)k\)</span> が <span class="math inline">\(S\)</span> に属することを示すには、三つのことを確かめなければならない。それは何だろうか。</p>
+</div>
+<p><span class="math inline">\((\sqrt2-1)k\)</span> が (a) 整数であり、(b) 正であり、(c) <span class="math inline">\(\sqrt2\)</span> を掛けると整数になる、ということを示す必要がある。</p>
+<ul>
+<li><p>(a) <span class="math inline">\((\sqrt2 - 1)k = k\sqrt2 - k = j - k\)</span> であり、これは整数どうしの差である。</p></li>
+<li><p>(b) <span class="math inline">\(\sqrt2 &gt; 1\)</span> より <span class="math inline">\(\sqrt2 - 1 &gt; 0\)</span> であるから、<span class="math inline">\((\sqrt2-1)k &gt; 0\)</span> である。</p></li>
+<li><p>(c) <span class="math inline">\((\sqrt2-1)k \cdot \sqrt2 = 2k - k\sqrt2 = 2k - j\)</span> であり、これは整数である。</p></li>
+</ul>
+<p>よって <span class="math inline">\((\sqrt2 - 1)k \in S\)</span> である。</p>
+<h4 id="stagemark3-ステップ6矛盾" class="stage"><span class="stage-n">段階 3</span> ステップ6：矛盾</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\sqrt2 - 1\)</span> はどのくらいの大きさだろうか。</p>
+</div>
+<p><span class="math inline">\(1 &lt; \sqrt2 &lt; 2\)</span> であるから <span class="math inline">\(0 &lt; \sqrt2 - 1 &lt; 1\)</span> であり、したがって <span class="math inline">\((\sqrt2 - 1)k &lt; k\)</span> である。こうして、<span class="math inline">\(S\)</span> の最小元である <span class="math inline">\(k\)</span> よりも小さい <span class="math inline">\(S\)</span> の元が見つかった。これは不可能であるから、ステップ 1 の仮定は誤りであった。すなわち <span class="math inline">\(\sqrt2\)</span> は無理数である。<span class="qed" aria-label="end of proof">■</span></p>
+<p>「既約分数」も、偶数・奇数に関する性質も一切使わなかったことに注意しよう。証明全体は三つの事実の上に成り立っている。<span class="math inline">\(\sqrt2 \cdot \sqrt2\)</span> が整数であること、<span class="math inline">\(\sqrt2\)</span> が連続する二つの整数の真に間にあること、そして整数が整列性をもつことである。</p>
+<h4 id="stagemark4-立方根二つの数を結びつける" class="stage"><span class="stage-n">段階 4</span> 立方根：二つの数を結びつける</h4>
+<p><span class="math inline">\(c = 2^{1/3}\)</span> とおくと、<span class="math inline">\(c^2 = 2^{2/3}\)</span> かつ <span class="math inline">\(c^3 = 2\)</span> である。</p>
+<div class="askyourself">
+<p><span class="math inline">\(c\)</span> が有理数（rational）ならば、<span class="math inline">\(c^2\)</span> も有理数だろうか。また、<span class="math inline">\(c^2\)</span> が有理数ならば、掛け算と割り算だけを使って <span class="math inline">\(c\)</span> に戻れるだろうか。</p>
+</div>
+<p><span class="math inline">\(c\)</span> が有理数ならば、<span class="math inline">\(c^2 = c \times c\)</span> も有理数である。逆に、<span class="math inline">\(c^2\)</span> が有理数ならば、<span class="math inline">\(2 / c^2 = c^3 / c^2 = c\)</span> も有理数である。よって、<span class="math inline">\(2^{1/3}\)</span> が有理数であることと <span class="math inline">\(2^{2/3}\)</span> が有理数であることは同値である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark5-議論を応用する" class="stage"><span class="stage-n">段階 5</span> 議論を応用する</h4>
+<div class="askyourself">
+<p>小問 (i) での鍵は <span class="math inline">\((\sqrt2)^2 = 2\)</span> が整数であることであった。そのため、<span class="math inline">\(S\)</span> の元に <span class="math inline">\(\sqrt2\)</span> を2回掛けると整数に戻る。<span class="math inline">\(c = 2^{1/3}\)</span> の場合は<em>3回</em>掛ける必要がある。集合 <span class="math inline">\(S\)</span> をどのように変えればよいだろうか。</p>
+</div>
+<p><span class="math inline">\(c\)</span> が有理数であると仮定する。このとき <span class="math inline">\(c^2\)</span> も有理数である。 <span class="math display">\[S = \{ n \text{ は正の整数} : nc \text{ と } nc^2 \text{ はともに整数} \}.\]</span> と定める。</p>
+<ul>
+<li><p><strong><span class="math inline">\(S\)</span> は空でない。</strong> <span class="math inline">\(c = a/b\)</span>, <span class="math inline">\(c^2 = a&#39;/b&#39;\)</span> とすると、<span class="math inline">\(bb&#39;\)</span> は <span class="math inline">\(S\)</span> に属する。</p></li>
+<li><p><strong><span class="math inline">\(k\)</span> をその最小元とし</strong>、<span class="math inline">\((c - 1)k\)</span> を考える。<span class="math inline">\(1 &lt; c &lt; 2\)</span>（<span class="math inline">\(1^3 &lt; 2 &lt; 2^3\)</span> による）であるから、<span class="math inline">\(0 &lt; (c-1)k &lt; k\)</span> である。</p></li>
+<li><p><strong>これは整数である：</strong> <span class="math inline">\((c-1)k = kc - k\)</span>。</p></li>
+<li><p><strong><span class="math inline">\(c\)</span> を掛けると：</strong> <span class="math inline">\((c-1)k \cdot c = kc^2 - kc\)</span> であり、これは整数である。</p></li>
+<li><p><strong><span class="math inline">\(c^2\)</span> を掛けると：</strong> <span class="math inline">\((c-1)k \cdot c^2 = kc^3 - kc^2 = 2k - kc^2\)</span> であり、これは整数である。</p></li>
+</ul>
+<p>よって <span class="math inline">\((c-1)k \in S\)</span> であり、しかも <span class="math inline">\(k\)</span> より小さい。これは矛盾である。したがって <span class="math inline">\(2^{1/3}\)</span> は無理数であり、段階 4 により <span class="math inline">\(2^{2/3}\)</span> も無理数である。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>「最小のものをとる」は証明の技法である。</strong> 反例が存在すると仮定し、その最小のものをとって、さらに小さい反例を作り出す。これを<em>極端原理</em>（extremal principle）、あるいは<em>最小反例</em>（minimal counterexample）による議論という。</p></li>
+<li><p><strong>集合 <span class="math inline">\(S\)</span> が帳簿係を務めた。</strong> 分子と分母をあれこれ操作する代わりに、「よい」乗数をすべて一つの集合にまとめたのである。</p></li>
+<li><p><strong>一般化とは、何が本当に証明を成り立たせていたのかを問うことであった。</strong> <span class="math inline">\(\sqrt2\)</span> の場合は <span class="math inline">\(\sqrt2\)</span> を1回掛ければよく、<span class="math inline">\(\sqrt[3]{2}\)</span> の場合は2回必要であった。このことに気づいたおかげで、<span class="math inline">\(S\)</span> をどう定義し直せばよいかが正確にわかった。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">図に描ける証明</div>
+<p>小問 (i) の背後には、Stanley Tennenbaum による美しい図がある。<span class="math inline">\(\sqrt2 = a/b\)</span> ならば <span class="math inline">\(a^2 = 2b^2\)</span> である。つまり、一辺 <span class="math inline">\(a\)</span> の正方形は、一辺 <span class="math inline">\(b\)</span> の正方形2個と同じ面積をもつ。図 1.3.1 のように、二つの <span class="math inline">\(b\)</span> の正方形を <span class="math inline">\(a\)</span> の正方形の向かい合う隅に置く。すると、それらは小さな正方形の部分で重なり、また覆われない小さな正方形が二つ残る。面積が等しいことから、重なった部分は覆われない二つの正方形を合わせたものに等しくなければならず、同じ性質をもつ<em>より小さい</em>整数の組が得られる。より小さい組がいつまでも続くことはありえないので、そのような正方形は存在しない。より小さい組はちょうど <span class="math inline">\((2b - a,\; a - b)\)</span> であり、これは私たちの <span class="math inline">\((\sqrt2 - 1)k\)</span> のステップが姿を変えたものにほかならない。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-1-3-1.svg" alt="図 1.3.1"><figcaption><span class="fig-label">図 1.3.1</span> Tennenbaum の証明。一辺 <span class="math inline">\(b\)</span> の二つの正方形（ティール色）が、一辺 <span class="math inline">\(a\)</span> の正方形の向かい合う隅に置かれている。<span class="math inline">\(a^2 = 2b^2\)</span> ならば、2回数えられた面積（プラム色の重なり）は数えられなかった面積（二つのアンバー色の隅）に等しくなければならないので、<span class="math inline">\((2b-a)^2 = 2(a-b)^2\)</span> となる。これはより小さい解である。</figcaption></figure>
+<h3 id="整列性帰納法降下法">整列性、帰納法、降下法</h3>
+<p>整列性原理と帰納法の原理は論理的に同値である。すなわち、それぞれが他方から証明できる。大学では、どちらも自然数の基礎として用いられるのを目にするだろう。<a href="../ch01/infinite-descent.html">第 1.5 節</a> では、同じ原理を別の形、すなわちフェルマー（Fermat）の<em>無限降下法</em>（method of infinite descent）として用いる。それは、正の整数からなる狭義単調減少の無限数列は存在しない、という形である。</p>
+<h3 id="どこまで通用するか">どこまで通用するか</h3>
+<p>この議論によって、<span class="math inline">\(N\)</span> が平方数（perfect square）でないときには必ず <span class="math inline">\(\sqrt N\)</span> が無理数であること（演習を参照）、さらに一般に、整数の <span class="math inline">\(n\)</span> 乗根は整数であるか無理数であるかのいずれかであることが証明できる。大学では、これは<em>代数的整数</em>（algebraic integers）に関する主張となる。すなわち、<span class="math inline">\(x^3 - 2 = 0\)</span> のような、整数係数のモニック多項式（monic polynomial）の方程式を満たす有理数は、整数でなければならない。この考え方には <a href="../ch06/field-extensions.html">第 6.3 節</a> で再び出会うことになる。</p>
+<p>ピタゴラス学派（Pythagoreans）が <span class="math inline">\(\sqrt2\)</span> の無理性を明かしたヒッパソス（Hippasus）を溺死させたという伝説は、おそらく事実ではない。確かなのは、この発見によってギリシャの数学者たちが数の研究と長さの研究を切り離さざるをえなくなったということである。この分裂が癒やされるには、19世紀、そしてデデキント（Dedekind）による実数の構成を待たなければならなかった。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">極端原理</div>
+<p><em>あることが決して起こらないことを示したいときは、それが起こると仮定し、その最小の（あるいは最大の、あるいは最も単純な）例を選び、それを用いてさらに小さい例を作れ。</em></p>
+<p>「最小」が何を意味するかの選び方こそが、創造的なステップである。ここでは、それは <span class="math inline">\(n\sqrt2\)</span> を整数にする最小の <span class="math inline">\(n\)</span> であった。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>ほかの平方根。</strong> この議論を応用して、<span class="math inline">\(\sqrt3\)</span> が無理数であることを示せ。<span class="math inline">\(\sqrt2 - 1\)</span> の役割を果たすのはどの数か。</p></li>
+<li><p><strong>平方数でないものすべて。</strong> <span class="math inline">\(N\)</span> を平方数でない正の整数とし、<span class="math inline">\(m\)</span> を <span class="math inline">\(m &lt; \sqrt N &lt; m+1\)</span> を満たす整数とする。<span class="math inline">\((\sqrt N - m)k\)</span> を考えることにより、<span class="math inline">\(\sqrt N\)</span> が無理数であることを証明せよ。</p></li>
+<li><p><strong>誤りを見つけよ。</strong> この議論を <span class="math inline">\(\sqrt 4\)</span> に対して実行してみよ。正確にはどのステップで破綻するか。</p></li>
+<li><p><strong>Tennenbaum の図。</strong> 図 1.3.1 を用いて、<span class="math inline">\(a^2 = 2b^2\)</span> ならば <span class="math inline">\((2b-a)^2 = 2(a-b)^2\)</span> であることを示せ。また、この恒等式を代数的にも確かめよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Daniel Velleman, <a href="https://uk.bookshop.org/search?keywords=How+to+Prove+It+Velleman"><em>How to Prove It</em></a></strong>（Cambridge University Press）。帰納法や整列性を含む、証明への徹底した入門書。</p></li>
+<li><p><strong>R. P. Burn, <a href="https://uk.bookshop.org/search?keywords=A+Pathway+into+Number+Theory+Burn"><em>A Pathway into Number Theory</em></a></strong>（Cambridge University Press）。注意深く順序立てられた問題だけで構成された本。大学1年次の講義への準備として理想的である。</p></li>
+<li><p><strong>John Conway &amp; Joseph Shipman, 「Extreme proofs I: the irrationality of <span class="math inline">\(\sqrt2\)</span>」</strong>（<em>Mathematical Intelligencer</em>, 2013）。一つの事実に対する多くの証明を、機知に富んだ筆致で比較している。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="prime-distribution.html">← 1.2 素数はどれほどまばらか？</a><a class="next" href="e-irrational.html">→ 1.4 e は無理数であり、e² もまた無理数である</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

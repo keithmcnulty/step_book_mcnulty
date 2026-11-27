@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>월리스, 베타 함수, 그리고 1/2의 계승 (STEP II 1995 Q4) — Beyond STEP</title>
+<meta name="description" content="STEP II 1995 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. left(frac12right)! 은 무엇일까? 터무니없는 질문처럼 들린다. n! 은 1 × 2 × cdots × n 을 뜻하는데, 항을 “반 개”만 곱할 수는 없기 때문이다. 그런데도 자연스러운 답이 있으며, 그 답은 다음과 같다. left(tfrac12right)! =…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch04/wallis-beta.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch04/wallis-beta.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="월리스, 베타 함수, 그리고 1/2의 계승 (STEP II 1995 Q4) — Beyond STEP">
+<meta property="og:description" content="STEP II 1995 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. left(frac12right)! 은 무엇일까? 터무니없는 질문처럼 들린다. n! 은 1 × 2 × cdots × n 을 뜻하는데, 항을 “반 개”만 곱할 수는 없기 때문이다. 그런데도 자연스러운 답이 있으며, 그 답은 다음과 같다. left(tfrac12right)! =…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch04/wallis-beta.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="월리스, 베타 함수, 그리고 1/2의 계승 (STEP II 1995 Q4) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1995 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. left(frac12right)! 은 무엇일까? 터무니없는 질문처럼 들린다. n! 은 1 × 2 × cdots × n 을 뜻하는데, 항을 “반 개”만 곱할 수는 없기 때문이다. 그런데도 자연스러운 답이 있으며, 그 답은 다음과 같다. left(tfrac12right)! =…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "월리스, 베타 함수, 그리고 1/2의 계승", "headline": "월리스, 베타 함수, 그리고 1/2의 계승", "description": "STEP II 1995 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. left(frac12right)! 은 무엇일까? 터무니없는 질문처럼 들린다. n! 은 1 × 2 × cdots × n 을 뜻하는데, 항을 “반 개”만 곱할 수는 없기 때문이다. 그런데도 자연스러운 답이 있으며, 그 답은 다음과 같다. left(tfrac12right)! =…", "url": "https://beyondstep.keithmcnulty.org/ko/ch04/wallis-beta.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1995 문제 4", "제대로 하는 미적분"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 4, "name": "제대로 하는 미적분", "url": "https://beyondstep.keithmcnulty.org/ko/ch04/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제4장: 제대로 하는 미적분", "item": "https://beyondstep.keithmcnulty.org/ko/ch04/"}, {"@type": "ListItem", "position": 3, "name": "월리스, 베타 함수, 그리고 1/2의 계승", "item": "https://beyondstep.keithmcnulty.org/ko/ch04/wallis-beta.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch04/wallis-beta.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch04/wallis-beta.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch04/wallis-beta.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch04/wallis-beta.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제4장 · 제대로 하는 미적분</a>
+    <div class="src">STEP II · 1995 · 문제 4</div>
+    <div class="sec-head"><span class="sec-num">4.4</span><h1>월리스, 베타 함수, 그리고 1/2의 계승</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-4-4-wallis-beta.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-04-calculus-done-properly.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제4장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 1995, 문제 4</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/95-s2-q4">step.maths.org/questions/95-s2-q4</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p><span class="math inline">\(\left(\frac12\right)!\)</span>은 무엇일까? 터무니없는 질문처럼 들린다. <span class="math inline">\(n!\)</span>은 <span class="math inline">\(1 \times 2 \times \cdots \times n\)</span>을 뜻하는데, 항을 “반 개”만 곱할 수는 없기 때문이다. 그런데도 자연스러운 답이 있으며, 그 답은 다음과 같다. <span class="math display">\[\left(\tfrac12\right)! = \frac{\sqrt\pi}{2}.\]</span> <span class="math inline">\(\pi\)</span>는 어디에서 나올까? 바로 이 문제가 다루는 <span class="math inline">\(\sin t\)</span>의 거듭제곱의 적분에서 나온다. 이 문제는 그 과정에서 <span class="math inline">\(\pi\)</span>에 관한 가장 오래되고 가장 기이한 공식 가운데 하나인, 1655년 존 월리스(John Wallis)의 무한곱(infinite product) <span class="math display">\[\frac\pi2 = \frac21 \cdot \frac23 \cdot \frac43 \cdot \frac45 \cdot \frac65 \cdot \frac67 \cdots,\]</span> 을 증명하고, 모든 확률론 연구자와 통계학자가 사용하는 <span class="math inline">\(n!\)</span>에 대한 스털링 공식(Stirling’s formula)에 숨어 있는 상수를 찾아낸다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p><span class="math inline">\(u_0\)</span>과 <span class="math inline">\(u_1\)</span>은 얼마인가? 그리고 <span class="math inline">\(n\)</span>이 클 때 <span class="math inline">\([0, \frac\pi2]\)</span>에서 <span class="math inline">\(\sin^n t\)</span>의 그래프는 대략 어떤 모양인가?</p>
+</div>
+<p><span class="math inline">\(u_0 = \int_0^{\pi/2} 1\,\mathrm{d}t = \frac\pi2\)</span>이고 <span class="math inline">\(u_1 = \int_0^{\pi/2}\sin t\,\mathrm{d}t = 1\)</span>이다. <span class="math inline">\(n\)</span>이 크면 <span class="math inline">\(\sin^n t\)</span>는 <span class="math inline">\(\sin t\)</span>가 1에 가까운 <span class="math inline">\(t = \frac\pi2\)</span> 근처를 제외하면 매우 작다. 즉 그래프는 오른쪽 끝에 붙은 좁은 뾰족한 봉우리가 된다(그림 4.4.1). 따라서 <span class="math inline">\(n\)</span>이 커지면 <span class="math inline">\(u_n\)</span>은 줄어든다. 이 문제는 그 속도가 정확히 얼마인지, 곧 <span class="math inline">\(\sqrt{\pi/(2n)}\)</span>과 같은 빠르기임을 밝혀낸다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-축소-공식" class="stage"><span class="stage-n">단계 1</span> 축소 공식</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\sin t\)</span>를 적분하고 <span class="math inline">\(\sin^{n-1}t\)</span>를 미분하여 <span class="math inline">\(\int \sin t \cdot \sin^{n-1}t\,\mathrm{d}t\)</span>를 부분적분(integration by parts)하라. 새 피적분함수에는 <span class="math inline">\(\cos^2 t\)</span>가 들어 있다. 어떻게 하면 다시 <span class="math inline">\(\sin t\)</span>의 거듭제곱으로 돌아갈 수 있을까?</p>
+</div>
+<p><span class="math inline">\(\mathrm{d}v = \sin t\,\mathrm{d}t\)</span>(따라서 <span class="math inline">\(v = -\cos t\)</span>), <span class="math inline">\(w = \sin^{n-1}t\)</span>(따라서 <span class="math inline">\(w&#39; = (n-1)\sin^{n-2}t\cos t\)</span>)로 두면 <span class="math display">\[u_n = \Bigl[-\cos t\sin^{n-1}t\Bigr]_0^{\pi/2} + (n-1)\int_0^{\pi/2}\sin^{n-2}t\cos^2 t\,\mathrm{d}t.\]</span> <span class="math inline">\(n \geq 2\)</span>이면 경계항은 0이다. <span class="math inline">\(\cos^2 t = 1 - \sin^2 t\)</span>로 쓰면 적분은 <span class="math inline">\(u_{n-2} - u_n\)</span>이 되므로 <span class="math inline">\(u_n = (n-1)(u_{n-2} - u_n)\)</span>, 즉 <span class="math display">\[nu_n = (n-1)u_{n-2}. \qed\]</span> 이것이 축소 공식(reduction formula)이다. 양변에 <span class="math inline">\(u_{n-1}\)</span>을 곱하면 <span class="math inline">\(nu_nu_{n-1} = (n-1)u_{n-1}u_{n-2}\)</span>를 얻는다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-불변량" class="stage"><span class="stage-n">단계 2</span> 불변량</h4>
+<div class="askyourself">
+<p>이 관계식은 <span class="math inline">\(n\)</span>이 하나 줄어들어도 양 <span class="math inline">\(nu_nu_{n-1}\)</span>이 변하지 않는다는 뜻이다. <span class="math inline">\(n = 1\)</span>일 때 이 값은 얼마인가?</p>
+</div>
+<p>이를 반복해서 적용하면 <span class="math inline">\(nu_nu_{n-1} = (n-1)u_{n-1}u_{n-2} = \cdots = 1 \cdot u_1u_0 = 1 \cdot 1 \cdot \frac\pi2\)</span>이다. 따라서 모든 <span class="math inline">\(n \geq 1\)</span>에 대하여 <span class="math inline">\(nu_nu_{n-1} = \frac12\pi\)</span>이다. 이처럼 변하지 않는 양을 불변량(invariant)이라 한다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-조임" class="stage"><span class="stage-n">단계 3</span> 조임</h4>
+<p><span class="math inline">\(0 &lt; t &lt; \frac\pi2\)</span>이면 <span class="math inline">\(0 &lt; \sin t &lt; 1\)</span>이므로 <span class="math inline">\(\sin^n t &lt; \sin^{n-1}t\)</span>이다. 즉 끝점을 제외하면 <span class="math inline">\(\sin^n t\)</span>의 그래프는 <span class="math inline">\(\sin^{n-1}t\)</span>의 그래프 아래에 있다. 적분하면 <span class="math inline">\(0 &lt; u_n &lt; u_{n-1}\)</span>이다.</p>
+<div class="pausebox">
+<p><span class="math inline">\(u_n &lt; u_{n-1}\)</span>과 <span class="math inline">\(nu_nu_{n-1} = \frac12\pi\)</span>를 이용하여 <span class="math inline">\(nu_n^2\)</span>을 양쪽에서 가두어라.</p>
+</div>
+<p><span class="math inline">\(u_{n-1}\)</span>을 더 작은 <span class="math inline">\(u_n\)</span>으로 바꾸면 <span class="math inline">\(nu_n^2 &lt; nu_nu_{n-1} = \frac12\pi\)</span>이다. <span class="math inline">\(u_n\)</span>을 더 큰 <span class="math inline">\(u_{n-1}\)</span>로 바꾸면 <span class="math inline">\(\frac12\pi = nu_nu_{n-1} &lt; nu_{n-1}^2\)</span>이다. 따라서 <span class="math inline">\(nu_n^2 &lt; \frac12\pi &lt; nu_{n-1}^2\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>오른쪽 부등식에서 <span class="math inline">\(n\)</span> 대신 <span class="math inline">\(n + 1\)</span>을 넣으면 <span class="math inline">\(\frac12\pi &lt; (n+1)u_n^2\)</span>이므로 <span class="math inline">\(nu_n^2 &gt; \frac{n}{n+1}\cdot\frac12\pi\)</span>이다. 둘을 합치면 <span class="math display">\[\left(\frac{n}{n+1}\right)\tfrac12\pi &lt; nu_n^2 &lt; \tfrac12\pi. \qed\]</span> <span class="math inline">\(\frac{n}{n+1} \to 1\)</span>이므로 조임 정리(squeeze theorem)에 의해 <span class="math inline">\(nu_n^2 \to \frac12\pi\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-4-4-1.svg" alt="그림 4.4.1"><figcaption><span class="fig-label">그림 4.4.1</span> <span class="math inline">\(n = 1, 2, 4, 16, 64\)</span>일 때 <span class="math inline">\(\sin^n t\)</span>의 그래프. <span class="math inline">\(n\)</span>이 커질수록 곡선 아래의 넓이 <span class="math inline">\(u_n\)</span>은 줄어들며 <span class="math inline">\(t = \frac\pi2\)</span> 근처에 몰린다. 이 문제는 <span class="math inline">\(u_n \approx \sqrt{\pi/(2n)}\)</span>임을 보인다. <span class="math inline">\(n = 64\)</span>이면 이 값은 약 0.157이다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>축소 공식.</strong> 부분적분으로 <span class="math inline">\(u_n\)</span>을 <span class="math inline">\(u_{n-2}\)</span>로 바꾸었으므로, 모든 <span class="math inline">\(u_n\)</span>은 <span class="math inline">\(u_0\)</span>과 <span class="math inline">\(u_1\)</span>에 의해 결정된다.</p></li>
+<li><p><strong>불변량을 찾아라.</strong> 곱 <span class="math inline">\(nu_nu_{n-1}\)</span>은 고정되어 있었다. 이는 <a href="../ch02/agm.html">2.6 절</a>에서 산술기하평균(AGM) 단계를 거쳐도 적분이 변하지 않았던 것과 같다.</p></li>
+<li><p><strong>단조성과 불변량이 합쳐지면 조임이 된다.</strong> <span class="math inline">\(u_n &lt; u_{n-1}\)</span>이라는 사실과 <span class="math inline">\(nu_nu_{n-1}\)</span>의 정확한 값을 알면, <span class="math inline">\(nu_n^2\)</span>을 극한이 같은 두 양 사이에 가둘 수 있었다. 이런 성질을 단조성(monotonicity)이라 한다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">월리스의 곱</div>
+<p>축소 공식을 <span class="math inline">\(u_0\)</span> 또는 <span class="math inline">\(u_1\)</span>까지 내려가며 적용하면 명시적인 값을 얻는다. <span class="math display">\[u_{2m} = \frac{1 \cdot 3 \cdot 5 \cdots (2m-1)}{2 \cdot 4 \cdot 6 \cdots 2m}\cdot\frac\pi2, \qquad u_{2m+1} = \frac{2 \cdot 4 \cdot 6 \cdots 2m}{3 \cdot 5 \cdot 7 \cdots (2m+1)}.\]</span> 조임을 이용하면 <span class="math inline">\(u_{2m}/u_{2m+1} \to 1\)</span>임을 보일 수 있다. 이 비를 풀어 쓰고 정리하면 월리스의 곱 <span class="math display">\[\frac\pi2 = \lim_{m \to \infty} \frac{2 \cdot 2}{1 \cdot 3}\cdot\frac{4 \cdot 4}{3 \cdot 5}\cdots\frac{2m \cdot 2m}{(2m-1)(2m+1)}.\]</span> 을 얻는다. 존 월리스는 1655년에 대담한 보간(interpolation) 과정을 통해 이 공식을 찾아냈다. 지수가 자연수인 적분들의 표에 <span class="math inline">\(\int_0^1 (1 - x^2)^{1/2}\,\mathrm{d}x\)</span>를 끼워 넣어, 그 값이 “마땅히” 무엇이어야 하는지 추측한 것이다. 이것은 비에트(Viète)의 곱(<a href="../ch02/viete.html">2.5 절</a>)에 이어 수학에 등장한 최초의 무한곱 가운데 하나였고, 유리수만을 사용한 것으로는 최초였다.</p>
+</div>
+<h3 id="반의-계승">반의 계승</h3>
+<p>월리스의 보간 아이디어는 1729년 오일러(Euler)에 의해 엄밀해졌다. 오일러는 오늘날 <em>감마 함수(Gamma function)</em>라고 부르는 함수 <span class="math display">\[\Gamma(s) = \int_0^\infty t^{s-1}e^{-t}\,\mathrm{d}t,\]</span> 를 찾아냈는데, 이 함수는 <span class="math inline">\(\Gamma(s + 1) = s\,\Gamma(s)\)</span>(부분적분하면 된다)를 만족하고 자연수 <span class="math inline">\(n\)</span>에 대하여 <span class="math inline">\(\Gamma(n + 1) = n!\)</span>이다. 감마 함수는 계승(factorial)을 모든 양의 실수로 매끄럽게 확장한다. 이와 밀접하게 관련된 <em>베타 함수(Beta function)</em> <span class="math display">\[\mathrm{B}(p, q) = \int_0^1 x^{p-1}(1-x)^{q-1}\,\mathrm{d}x = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}\]</span> 는 <a href="../ch04/twenty-two-sevenths.html">4.3 절</a>와 <a href="../ch02/e-approximations.html">2.9 절</a>의 적분들을 포함하며, <span class="math inline">\(x = \sin^2 t\)</span>로 치환하면 우리의 <span class="math inline">\(u_n\)</span>도 포함한다. 특히 <span class="math inline">\(\int_0^1 x^{1/2}(1-x)^{1/2}\,\mathrm{d}x = \frac\pi8\)</span>(연습문제 2)이므로 <span class="math inline">\(\Gamma(\frac32)^2/\Gamma(3) = \frac\pi8\)</span>, 즉 <span class="math inline">\(\left(\frac12\right)! = \Gamma(\frac32) = \frac{\sqrt\pi}{2}\)</span>이다. 이는 <span class="math inline">\(\Gamma(\frac12) = \sqrt\pi\)</span>와 같은 말이며, 유명한 가우스 적분(Gaussian integral) <span class="math inline">\(\int_{-\infty}^\infty e^{-x^2}\,\mathrm{d}x = \sqrt\pi\)</span>와 같은 사실이다. 정규분포(normal distribution)의 공식에 <span class="math inline">\(\pi\)</span>가 나타나는 이유가 바로 이것이다.</p>
+<h3 id="스털링-공식">스털링 공식</h3>
+<p>스털링 공식에 따르면 <span class="math inline">\(n! \approx \sqrt{2\pi n}\,(n/e)^n\)</span>이다. <span class="math inline">\((n/e)^n\)</span> 부분은 비교적 쉽게 얻을 수 있지만 상수 <span class="math inline">\(\sqrt{2\pi}\)</span>는 더 어렵다. 이 상수를 구하는 표준적인 방법이 바로 이 문제이다. <span class="math inline">\(u_{2m}\)</span>의 명시적인 값에는 <span class="math inline">\((2m)!/(m!)^2\)</span>이 들어 있고, 극한 <span class="math inline">\(nu_n^2 \to \frac\pi2\)</span>가 상수를 정확히 결정한다. 확률을 통해 같은 상수에 이르는 전혀 다른 길은 <a href="../ch12/stirling-probability.html">12.23 절</a>에 있다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">적분에서 얻는 점화식</div>
+<p><em>부분적분을 하면 매개변수가 <span class="math inline">\(n\)</span>인 적분을 매개변수가 더 작은 같은 적분과 연결할 수 있는 경우가 많다. 그렇게 얻은 점화식(recurrence)은 풀 수도 있고, <span class="math inline">\(n \to \infty\)</span>일 때의 거동을 분석할 수도 있다.</em></p>
+<p>점화식이 바꾸지 않는 양과 <span class="math inline">\(n\)</span>에 대한 단조성에 주목하라. 이 둘을 함께 쓰면 명시적인 공식 없이도 극한을 구할 수 있는 경우가 많다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>월리스의 곱.</strong> <span class="math inline">\(u_{2m}\)</span>과 <span class="math inline">\(u_{2m+1}\)</span>의 명시적인 값과 <span class="math inline">\(u_{2m+1} &lt; u_{2m} &lt; u_{2m-1}\)</span>을 이용하여 월리스의 곱을 증명하라.</p></li>
+<li><p><strong>베타 적분.</strong> <a href="https://step.maths.org/questions/13-s2-q2">STEP II 2013, 문제 2</a>에 도전해 보라. 이 문제는 축소 공식으로 <span class="math inline">\(\int_0^1 x^n(1-x)^n\,\mathrm{d}x\)</span>를 계산한 뒤, <span class="math inline">\(n = \frac12\)</span>일 때 그 답이 무엇을 시사하는지 묻는다. 반의 계승을 처음 엿보는 셈이다.</p></li>
+<li><p><strong>베타 함수.</strong> <a href="https://www.ocr.org.uk/Images/750486-2025-past-papers.zip">STEP III 2025, 문제 1</a> (OCR에서 내려받는 2025년 시험지 묶음, zip 파일)에 도전해 보라. 이 문제는 일반적인 베타 적분 <span class="math inline">\(\int_0^1 x^{p-1}(1-x)^{q-1}\,\mathrm{d}x\)</span>와 그 대칭성 및 점화식을 전개하고, 이를 이용하여 <span class="math inline">\([0, \infty)\)</span>에서의 적분을 계산한다.</p></li>
+<li><p><strong>중심 이항계수(central binomial coefficients).</strong> <span class="hard">심화</span> <span class="math inline">\(u_{2m} = \binom{2m}{m}\dfrac{\pi}{2^{2m+1}}\)</span>임을 보이고, <span class="math inline">\(nu_n^2 \to \frac\pi2\)</span>를 이용하여 <span class="math inline">\(m\)</span>이 클 때 <span class="math inline">\(\binom{2m}{m} \approx \dfrac{4^m}{\sqrt{\pi m}}\)</span>임을 유도하라. <span class="math inline">\(m = 10\)</span>일 때 이를 확인하라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Julian Havil, <a href="https://uk.bookshop.org/search?keywords=Gamma+Havil"><em>Gamma</em></a></strong> (Princeton University Press). 감마 함수와 그 역사를 다룬다.</p></li>
+<li><p><strong>Philip J. Davis, “Leonhard Euler’s integral: a historical profile of the Gamma function”</strong>, <em>American Mathematical Monthly</em> 66 (1959). 상을 받은 고전적인 논문으로, 이 절을 공부했다면 읽을 수 있다.</p></li>
+<li><p><strong>Emil Artin, <a href="https://uk.bookshop.org/search?keywords=The+Gamma+Function+Artin"><em>The Gamma Function</em></a></strong> (Dover). 해석학을 어느 정도 공부한 뒤에 읽기 좋은, 짧고 아름다운 단행본이다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="twenty-two-sevenths.html">← 4.3 22/7은 π보다 크다</a><a class="next" href="sophomores-dream.html">→ 4.5 2학년생의 꿈</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第1章：数論と証明 — Beyond STEP</title>
+<meta name="description" content="素数、無理性、ディオファントス方程式：本書で最も証明を重視する章であり、素数の無限性から無理性を経て、数の体系の構造へと進む。">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch01/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第1章：数論と証明 — Beyond STEP">
+<meta property="og:description" content="素数、無理性、ディオファントス方程式：本書で最も証明を重視する章であり、素数の無限性から無理性を経て、数の体系の構造へと進む。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch01/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第1章：数論と証明 — Beyond STEP">
+<meta name="twitter:description" content="素数、無理性、ディオファントス方程式：本書で最も証明を重視する章であり、素数の無限性から無理性を経て、数の体系の構造へと進む。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 1, "name": "数論と証明", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "素数、無理性、ディオファントス方程式：本書で最も証明を重視する章であり、素数の無限性から無理性を経て、数の体系の構造へと進む。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第1章：数論と証明", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch01/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch01/index.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">1</div>
+    <h1>数論と証明</h1>
+    <p class="strap">整数は数学で最も古い対象であり、今なお数学の最も深い秘密のいくつかを抱えている。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">章全体をダウンロード</span><span class="dl-sub">PDF（印刷用組版）</span></span></a>
+  </div>
+  <h2 class="contents-head">この章の内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="fermat-numbers.html"><span class="toc-num">1.1</span>
+<span class="toc-title">素数を生み出す工場</span>
+<span class="toc-src">STEP II 2002</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-1-fermat-numbers.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="prime-distribution.html"><span class="toc-num">1.2</span>
+<span class="toc-title">素数はどれほどまばらか？</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-2-prime-distribution.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="well-ordering.html"><span class="toc-num">1.3</span>
+<span class="toc-title">最小の反例</span>
+<span class="toc-src">STEP III 2015</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-3-well-ordering.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="e-irrational.html"><span class="toc-num">1.4</span>
+<span class="toc-title">\(e\) は無理数であり、\(e^2\) もまた無理数である</span>
+<span class="toc-src">STEP III 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-4-e-irrational.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="infinite-descent.html"><span class="toc-num">1.5</span>
+<span class="toc-title">無限降下法</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-5-infinite-descent.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="two-squares.html"><span class="toc-num">1.6</span>
+<span class="toc-title">二つの平方数の和</span>
+<span class="toc-src">STEP II 2023</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-6-two-squares.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="factorisation-fails.html"><span class="toc-num">1.7</span>
+<span class="toc-title">因数分解が破綻するとき</span>
+<span class="toc-src">STEP I 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-7-factorisation-fails.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="counting-rationals.html"><span class="toc-num">1.8</span>
+<span class="toc-title">有理数を数える</span>
+<span class="toc-src">STEP III 2020</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-8-counting-rationals.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="tangents-cubic.html"><span class="toc-num">1.9</span>
+<span class="toc-title">三次曲線の接線</span>
+<span class="toc-src">STEP I 2009</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-1-9-tangents-cubic.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">振り返り：ここで学んだこと</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「次はこれに挑戦」の演習問題の解答</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第1章  \(\cdot\)  序論</div>
+    <h1 class="essay-title">なぜ整数なのか</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>数学は科学の女王であり、数論は数学の女王である。</p>
+<p class="who">— カール・フリードリヒ・ガウス（Carl Friedrich Gauss）</p>
+</div>
+<p>整数（whole numbers）は、誰もが最初に出会う数学的対象である。字が読めるようになる前から、私たちは数を数えることを覚えた。それにもかかわらず、整数についてのごく単純な問いが、恐ろしく難しいことがある。2 より大きいすべての偶数は、2つの素数（prime）の和で表せるだろうか。答えは誰にもわからない。クリスティアン・ゴールドバッハ（Christian Goldbach）が1742年にこの問いを立て、コンピュータは <span class="math inline">\(4 \times 10^{18}\)</span> を超えるところまで確かめたが、いまだに証明されていない。<span class="math inline">\(11\)</span> と <span class="math inline">\(13\)</span>、<span class="math inline">\(101\)</span> と <span class="math inline">\(103\)</span> のように、差が 2 である素数の組は無限に存在するだろうか。これも誰にもわからない。もっとも2013年には、ほとんど無名の数学者であった張益唐（Yitang Zhang）が、差が高々 <span class="math inline">\(70\)</span> 百万である素数の組が無限に存在することを証明して世界を驚かせた。この値はその後 <span class="math inline">\(246\)</span> まで引き下げられている。ピエール・ド・フェルマー（Pierre de Fermat）は1637年、<span class="math inline">\(n \geq 3\)</span> のとき <span class="math inline">\(x^n + y^n = z^n\)</span> は正の整数解をもたない、と本の余白に書き付けた。アンドリュー・ワイルズ（Andrew Wiles）が1994年にフェルマーの正しさを証明するまでには、350年以上の歳月と、これまでに生み出された中でも最も高度な数学のいくつかが必要であった。</p>
+<p>子どもにも理解できる問いと、何世紀もかかりうる答え。この組み合わせこそが、数論（number theory）を病みつきにさせるものである。そしてこれは、数論がつねに<em>証明</em>（proof）の訓練の場であり続けてきた理由でもある。整数は無限に存在するので、すべての場合を確かめることはできない。そのようなときは、すべての場合を一度に扱える論証を見つけなければならない。これから先の数学人生で使うことになる証明の技法の多くは、もともと整数についての問いを通して磨かれたものである。</p>
+<h3 id="純粋で役に立たずそしてインターネットを支えるもの">純粋で、役に立たず、そしてインターネットを支えるもの</h3>
+<p>1940年、ケンブリッジの数学者ハーディ（G. H. Hardy）は、数論はあらゆる数学の中で最も純粋なものであり、日常生活からあまりにかけ離れているので実用には使えず、したがって<em>有害な</em>用途にも使えない、といくらか誇らしげに書いた。これほど見当違いの予言もなかなかない。オンラインで買い物をするとき、安全なメッセージを送るとき、スマートフォンのロックを解除するとき、私たちは数論に頼っている。RSA 暗号（1977年）は、2つの大きな素数を掛け合わせるのは簡単だが、その積からもとの素数を復元するのは絶望的に難しいと考えられている、という事実に基づいている。現代の暗号方式は、この章の最後に登場する曲線そのものの算術を利用している。18世紀と19世紀の「役に立たない」数学は、21世紀の安全を支えるものとなったのである。</p>
+<h3 id="大学で出会うもの">大学で出会うもの</h3>
+<p>大学で数学を学ぶなら、数論は最初に訪れる場所のひとつであり、最後に行き着く場所のひとつでもある。</p>
+<ul>
+<li><p><strong>最初の学期には</strong>、ほぼ間違いなく「数と集合（<em>Numbers and Sets</em>）」や「数学の基礎（<em>Foundations</em>）」といった名前の講義を受けることになる。そこでは証明をきちんと書く方法を学ぶが、その素材の多くは数論である。帰納法（induction）、ユークリッドの互除法（Euclidean algorithm）、合同算術（modular arithmetic）、フェルマーの小定理（Fermat’s Little Theorem）、中国剰余定理（Chinese Remainder Theorem）、そして無限集合の中には他より大きいものがあるという驚くべき事実などである。</p></li>
+<li><p><strong>群論</strong>（group theory）では（通常は1年目に学ぶ）、数論の多くの事実が、対称性についてのただひとつの定理、すなわちラグランジュの定理（Lagrange’s Theorem）の影であることを知るだろう。</p></li>
+<li><p><strong>2年目には</strong>、<em>数論</em>の講義で、平方剰余の相互法則（quadratic reciprocity、ガウスの「黄金定理」）、連分数（continued fractions）、ペル方程式（Pell’s equation）を扱うのが普通である。</p></li>
+<li><p><strong>その先には</strong>さらに進むことができる。ガウス整数（Gaussian integers）のような新しい数の体系によって素因数分解の一意性（unique factorisation）を救い出す<em>代数的整数論</em>（algebraic number theory）、微積分と複素解析（complex analysis）を用いて素数を数える<em>解析的整数論</em>（analytic number theory）、そしてフェルマーの最終定理（Fermat’s Last Theorem）の証明や、賞金100万ドルの7つのミレニアム懸賞問題（Millennium Prize Problems）のひとつの背後にある<em>楕円曲線</em>（elliptic curves）の理論である。</p></li>
+</ul>
+<h3 id="この章を貫く問い">この章を貫く問い</h3>
+<p>この章の9つの STEP の問題は、3つの大きな問いのまわりを巡っている。問題に取り組む間、これらを頭の片隅に置いておいてほしい。章の最後で再びこれらに立ち返る。</p>
+<div class="skillbox">
+<ol class="arabic">
+<li><p><strong>素数はいくつあり、どのように分布しているのか。</strong> 素数が無限に存在することは誰もが知っている。しかし、素数はどれほどまばらになっていくのか。そして、どのような論証がそれを教えてくれるのか。</p></li>
+<li><p><strong>ある数が分数<em>ではない</em>ことは、どうすれば証明できるのか。</strong> ある数が有理数（rational）であることを示すには、例をひとつ挙げればよい。しかし無理数（irrational）であることを示すには、無限に多くの可能性を排除しなければならない。そんなことがいったいどうすればできるのか。</p></li>
+<li><p><strong>どの方程式が整数解をもつのか。そして、数の体系を変えると何が起こるのか。</strong> 方程式が解をまったくもたないことを示せる場合もある。また、整数を理解する最善の方法が、整数の外に出て、複素数の世界や曲線の上に踏み出すことである場合もある。</p></li>
+</ol>
+</div>
+<h3 id="証明についての章">証明についての章</h3>
+<p>これら3つの問いの底には、第4のテーマが流れている。それは<em>どのように証明するか</em>である。各節は、異なる証明の方法が実際に働くところを示すという理由もあって選ばれており、全体として大学1年生にとって十分な道具箱になっている。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">テーマ</th>
+<th style="text-align: left;">考え方</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1.1</td>
+<td style="text-align: left;">フェルマー数（Fermat numbers）</td>
+<td style="text-align: left;">無限に多くの素数を<em>必要とする</em>無限の数の族</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.2</td>
+<td style="text-align: left;">素数の積</td>
+<td style="text-align: left;">強帰納法（strong induction）、二項係数（binomial coefficients）に隠された情報</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.3</td>
+<td style="text-align: left;">再び <span class="math inline">\(\sqrt2\)</span></td>
+<td style="text-align: left;">「最小のものをとれ」：整列原理（well-ordering principle）</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.4</td>
+<td style="text-align: left;"><span class="math inline">\(e\)</span> と <span class="math inline">\(e^2\)</span></td>
+<td style="text-align: left;">整数を 0 と 1 の間に厳密に閉じ込める</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.5</td>
+<td style="text-align: left;">解をもたない方程式</td>
+<td style="text-align: left;">無限降下法（infinite descent）、法 <span class="math inline">\(n\)</span>（modulo <span class="math inline">\(n\)</span>）で考える</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.6</td>
+<td style="text-align: left;">2つの平方数の和</td>
+<td style="text-align: left;">舞台を変える：複素数</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.7</td>
+<td style="text-align: left;">奇妙な数の体系</td>
+<td style="text-align: left;">当然と思っていることを疑う</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.8</td>
+<td style="text-align: left;">分数を並べ上げる</td>
+<td style="text-align: left;">全単射（bijection）を構成する、逆向きの降下法</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.9</td>
+<td style="text-align: left;">立方数と曲線</td>
+<td style="text-align: left;">幾何で算術を解く</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="この章の読み方">この章の読み方</h3>
+<p>各節は、出題されたままの STEP の問題へのリンクから始まる。読み進める前に、まず少なくとも30分は自分で取り組んでみてほしい。読んだだけの問題よりも、苦労して格闘した問題からのほうが、はるかに多くを学べる。読み進めるときには、<em>自問してみよう</em>の枠は答えが示される前に立ち止まって考えるよう促すものであり、<em>手を止めて考えよう</em>の枠は鍵となる考え方に手が届く瞬間を示している。そして各節の<em>背後にある数学</em>の部分では、試験の先にある、大学で出会う数学を見渡す。</p>
+<p>各節はおおむね後になるほど高度になるが、互いにほぼ独立している。ある節に興味を引かれなければ、先に進み、後で戻ってくればよい。</p>
+
+  </article>
+  <nav class="pager"><a class="prev" href="../symbols/index.html">← 数学記号</a><a class="next" href="fermat-numbers.html">→ 読み始める： 1.1 素数を生み出す工場</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

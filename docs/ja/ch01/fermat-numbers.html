@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>素数を生み出す工場 (STEP II 2002 Q3) — Beyond STEP</title>
+<meta name="description" content="STEP II 2002 問題 3：解説付き解答とその背後にある大学数学。 素数（prime）が無限に存在することは、ほぼ間違いなくすでに知っているだろう。ユークリッド（Euclid）が紀元前300年頃に証明したもので、誰もが最初に出会う証明の一つである。では、なぜ STEP の問題がそれを もう一度 証明させるのだろうか。…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/fermat-numbers.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/fermat-numbers.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="素数を生み出す工場 (STEP II 2002 Q3) — Beyond STEP">
+<meta property="og:description" content="STEP II 2002 問題 3：解説付き解答とその背後にある大学数学。 素数（prime）が無限に存在することは、ほぼ間違いなくすでに知っているだろう。ユークリッド（Euclid）が紀元前300年頃に証明したもので、誰もが最初に出会う証明の一つである。では、なぜ STEP の問題がそれを もう一度 証明させるのだろうか。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch01/fermat-numbers.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="素数を生み出す工場 (STEP II 2002 Q3) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2002 問題 3：解説付き解答とその背後にある大学数学。 素数（prime）が無限に存在することは、ほぼ間違いなくすでに知っているだろう。ユークリッド（Euclid）が紀元前300年頃に証明したもので、誰もが最初に出会う証明の一つである。では、なぜ STEP の問題がそれを もう一度 証明させるのだろうか。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "素数を生み出す工場", "headline": "素数を生み出す工場", "description": "STEP II 2002 問題 3：解説付き解答とその背後にある大学数学。 素数（prime）が無限に存在することは、ほぼ間違いなくすでに知っているだろう。ユークリッド（Euclid）が紀元前300年頃に証明したもので、誰もが最初に出会う証明の一つである。では、なぜ STEP の問題がそれを もう一度 証明させるのだろうか。…", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/fermat-numbers.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2002 問題 3", "数論と証明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "数論と証明", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第1章：数論と証明", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/"}, {"@type": "ListItem", "position": 3, "name": "素数を生み出す工場", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/fermat-numbers.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch01/fermat-numbers.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/fermat-numbers.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/fermat-numbers.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch01/fermat-numbers.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第1章 · 数論と証明</a>
+    <div class="src">STEP II · 2002 · 問題 3</div>
+    <div class="sec-head"><span class="sec-num">1.1</span><h1>素数を生み出す工場</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-1-fermat-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第1章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 2002、第3問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/02-s2-q3">step.maths.org/questions/02-s2-q3</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>素数（prime）が無限に存在することは、ほぼ間違いなくすでに知っているだろう。ユークリッド（Euclid）が紀元前300年頃に証明したもので、誰もが最初に出会う証明の一つである。では、なぜ STEP の問題がそれを<em>もう一度</em>証明させるのだろうか。</p>
+<p>それは、この証明がまったく異なる仕組みで働くからである。ユークリッドの議論は「<em>素数の有限なリストを一つ与えよ。それが不完全であることを示してみせよう</em>」というものである。一方この証明は「<em>ここに、あらかじめ書き下された一つの具体的な数列がある。そのどの項も、他のどの項にも含まれない素数を含んでいる</em>」と主張する。これは新しい素数を次々と生み出す機械であり、それが機能する理由は、問題が導いてくれる美しく単純な恒等式にある。</p>
+<p>その途中で、フェルマー本人さえも欺いた数に出会うことになる。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<p>まず問題を一通り読み、その構成に注目しよう。四つの段階からなっている。</p>
+<ol class="arabic">
+<li><p>いくつかの例を計算する。</p></li>
+<li><p>パターンを見つけ（というより、教えてもらい）、それらの例で確かめる。</p></li>
+<li><p>そのパターンを一般に証明する。</p></li>
+<li><p>そのパターンを二度使う。まず公約数（common factor）についての結論を導き、次に素数についての結論を導く。</p></li>
+</ol>
+<p>この「例 <span class="math inline">\(\to\)</span> 予想（conjecture） <span class="math inline">\(\to\)</span> 証明 <span class="math inline">\(\to\)</span> 帰結」という構造は、実際に多くの数学が行われる方法そのものであり、STEP の問題もしばしばこの流れに従う。これに気づいたら、前半の小問は単なる準備運動ではないことが多い。後で必要になる直観を養う場所なのである。</p>
+<div class="askyourself">
+<p>最後の行は<em>無限に多くの素数</em>について問うている。中ほどでは<em>公約数</em>について問うている。「どの二つのフェルマー数も共通の約数をもたない」ことと「素数は無限に存在する」こととは、いったいどうつながりうるのだろうか。</p>
+</div>
+<p>この問いを心に留めておこう。後で戻ってくる。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-数の感触をつかむ" class="stage"><span class="stage-n">段階 1</span> 数の感触をつかむ</h4>
+<p>記法に注意しよう。<span class="math inline">\(2^{2^n}\)</span> は <span class="math inline">\(2^{(2^n)}\)</span> を意味し、<span class="math inline">\((2^2)^n\)</span> ではない。指数そのものが2の累乗なので、これらの数は<em>非常に</em>速く大きくなる。 <span class="math display">\[\begin{aligned}
+  F_0 &amp;= 2^{1} + 1 = 3, &amp;\qquad F_2 &amp;= 2^{4} + 1 = 17,\\
+  F_1 &amp;= 2^{2} + 1 = 5, &amp;\qquad F_3 &amp;= 2^{8} + 1 = 257.
+\end{aligned}\]</span></p>
+<div class="askyourself">
+<p>これら四つの数について、何に気づくだろうか。</p>
+</div>
+<p>すべて素数である。（<span class="math inline">\(257\)</span> を確かめよう。これは <span class="math inline">\(2, 3, 5, 7, 11\)</span> のいずれでも、また <span class="math inline">\(13\)</span> でも割り切れず、<span class="math inline">\(17^2 = 289 &gt; 257\)</span> なので、ここで調べるのをやめてよい。）次の <span class="math inline">\(F_4 = 2^{16} + 1 = 65537\)</span> も素数である。ピエール・ド・フェルマー（Pierre de Fermat）は1640年にまさにこのことに気づき、この形の数は<em>すべて</em>素数であると予想した。このことを覚えておこう。彼が正しかったかどうかは後で見る。</p>
+<h4 id="stagemark2-恒等式を確かめる" class="stage"><span class="stage-n">段階 2</span> 恒等式を確かめる</h4>
+<p>次に、小さな <span class="math inline">\(k\)</span> について <span class="math inline">\((*)\)</span> を確かめよう。</p>
+<ul>
+<li><p><span class="math inline">\(k = 1\)</span>：左辺は単に <span class="math inline">\(F_0 = 3\)</span> であり、<span class="math inline">\(F_1 - 2 = 3\)</span> である。</p></li>
+<li><p><span class="math inline">\(k = 2\)</span>：<span class="math inline">\(F_0 F_1 = 3 \times 5 = 15\)</span> であり、<span class="math inline">\(F_2 - 2 = 15\)</span> である。</p></li>
+<li><p><span class="math inline">\(k = 3\)</span>：<span class="math inline">\(F_0 F_1 F_2 = 15 \times 17 = 255\)</span> であり、<span class="math inline">\(F_3 - 2 = 255\)</span> である。</p></li>
+</ul>
+<div class="askyourself">
+<p><span class="math inline">\(k = 2\)</span> から <span class="math inline">\(k = 3\)</span> への移り変わりを見てみよう。<span class="math inline">\(15\)</span> に <span class="math inline">\(17\)</span> を掛けて <span class="math inline">\(255\)</span> を得た。フェルマー数（Fermat number）の言葉で言えば、<span class="math inline">\((F_2 - 2) \times F_2\)</span> を計算して <span class="math inline">\(F_3 - 2\)</span> を得たことになる。これは偶然だろうか。</p>
+</div>
+<p>この観察こそが、証明全体の縮図である。なぜそれが成り立つはずなのかを見ていこう。</p>
+<h4 id="stagemark3-恒等式を証明する" class="stage"><span class="stage-n">段階 3</span> 恒等式を証明する</h4>
+<div class="pausebox">
+<p>先を読む前に、 <span class="math display">\[(F_k - 2)\, F_k = F_{k+1} - 2.\]</span> を直接示してみよう。 <em>ヒント：</em>すべてを2の累乗で表してみよ。<span class="math inline">\(F_k - 2\)</span> はどのような形をしているか。</p>
+</div>
+<p><span class="math inline">\(F_k - 2 = 2^{2^k} - 1\)</span> かつ <span class="math inline">\(F_k = 2^{2^k} + 1\)</span> であるから、 <span class="math display">\[(F_k - 2)\, F_k = \bigl(2^{2^k} - 1\bigr)\bigl(2^{2^k} + 1\bigr).\]</span></p>
+<div class="askyourself">
+<p>これは <span class="math inline">\((a - 1)(a + 1)\)</span> の形の積である。これは何に等しいか。</p>
+</div>
+<p>これは平方の差（difference of two squares）<span class="math inline">\(a^2 - 1\)</span> である。<span class="math inline">\(a = 2^{2^k}\)</span> とすると、 <span class="math display">\[a^2 = \bigl(2^{2^k}\bigr)^2 = 2^{2 \cdot 2^k} = 2^{2^{k+1}},\]</span> したがって <span class="math display">\[(F_k - 2)\, F_k = 2^{2^{k+1}} - 1 = F_{k+1} - 2. \tag{$\dagger$}\]</span> これが原動力である。2乗することが何をしているかに注目しよう。2乗は指数を2倍にし、<span class="math inline">\(2^k\)</span> を2倍すると <span class="math inline">\(2^{k+1}\)</span> になる。フェルマー数の定義は、平方の差による因数分解にぴったり合うように作られているのである。</p>
+<p>ここまで来れば、帰納法（induction）はほとんど自動的である。</p>
+<div class="askyourself">
+<p>帰納法のステップでは、正確には何を示す必要があるか。</p>
+</div>
+<p>ある <span class="math inline">\(k \geq 1\)</span> について <span class="math inline">\((*)\)</span>、すなわち <span class="math display">\[F_0 F_1 \cdots F_{k-1} = F_k - 2,\]</span> が成り立つと仮定し、<span class="math inline">\(k + 1\)</span> についても成り立つこと、すなわち <span class="math display">\[F_0 F_1 \cdots F_{k-1} F_k = F_{k+1} - 2.\]</span> を示したい。仮定の両辺に <span class="math inline">\(F_k\)</span> を掛け、<span class="math inline">\((\dagger)\)</span> を用いると <span class="math display">\[F_0 F_1 \cdots F_{k-1} F_k = (F_k - 2)\, F_k = F_{k+1} - 2.\]</span> となる。<span class="math inline">\(k = 1\)</span> はすでに確かめたので、数学的帰納法により <span class="math inline">\((*)\)</span> はすべての <span class="math inline">\(k \geq 1\)</span> について成り立つ。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>帰納法をまったく使わずに済ませることはできただろうか。</p>
+</div>
+<p>できる。その方法を見ておく価値がある。<span class="math inline">\(F_0 - 2 = 1\)</span> から出発して、<span class="math inline">\((\dagger)\)</span> を繰り返し適用すると <span class="math display">\[F_k - 2 = (F_{k-1} - 2) F_{k-1} = (F_{k-2} - 2) F_{k-2} F_{k-1} = \cdots = (F_0 - 2)\, F_0 F_1 \cdots F_{k-1}.\]</span> となる。<span class="math inline">\(F_0 - 2 = 1\)</span> であるから、これで示された。この「展開」は実は同じ帰納法をすべて書き下したものにすぎないが、こちらのほうが見通しやすいと感じる人もいる。</p>
+<h4 id="stagemark4-共通の約数はない" class="stage"><span class="stage-n">段階 4</span> 共通の約数はない</h4>
+<p><span class="math inline">\(m \neq n\)</span> ならば <span class="math inline">\(F_m\)</span> と <span class="math inline">\(F_n\)</span> が <span class="math inline">\(1\)</span> より大きい公約数をもたないことを示したい。</p>
+<div class="askyourself">
+<p>ある数 <span class="math inline">\(d\)</span> が <span class="math inline">\(F_m\)</span> と <span class="math inline">\(F_n\)</span> の両方を割り切るとし、<span class="math inline">\(m &lt; n\)</span> とする。<span class="math inline">\(F_m\)</span> は <span class="math inline">\((*)\)</span> のどこに現れるか。</p>
+</div>
+<p><span class="math inline">\((*)\)</span> で <span class="math inline">\(k = n\)</span> とすると <span class="math display">\[F_0 F_1 \cdots F_m \cdots F_{n-1} = F_n - 2.\]</span> <span class="math inline">\(m &lt; n\)</span> であるから、<span class="math inline">\(F_m\)</span> は左辺の因数の一つである。よって <span class="math inline">\(d\)</span> が <span class="math inline">\(F_m\)</span> を割り切るならば、<span class="math inline">\(d\)</span> は左辺全体を割り切る。すなわち、<span class="math inline">\(d\)</span> は <span class="math inline">\(F_n - 2\)</span> を割り切る。</p>
+<div class="askyourself">
+<p>さて、<span class="math inline">\(d\)</span> は <span class="math inline">\(F_n\)</span> <em>と</em> <span class="math inline">\(F_n - 2\)</span> の両方を割り切る。ほかに何を割り切らなければならないか。</p>
+</div>
+<p>それらの差である。<span class="math inline">\(d\)</span> は <span class="math inline">\(F_n - (F_n - 2) = 2\)</span> を割り切る。よって <span class="math inline">\(d = 1\)</span> または <span class="math inline">\(d = 2\)</span> である。</p>
+<div class="askyourself">
+<p><span class="math inline">\(d\)</span> は <span class="math inline">\(2\)</span> でありうるか。</p>
+</div>
+<p>ありえない。どのフェルマー数も2の累乗に1を加えたものなので奇数である。したがって <span class="math inline">\(d = 1\)</span> であり、相異なる二つのフェルマー数が <span class="math inline">\(1\)</span> より大きい共通の約数をもつことはない。<span class="qed" aria-label="end of proof">■</span></p>
+<p>数学者はこれを、フェルマー数は<em>どの二つも互いに素</em>（pairwise coprime）であるという。</p>
+<h4 id="stagemark5-素数は無限に存在する" class="stage"><span class="stage-n">段階 5</span> 素数は無限に存在する</h4>
+<p>ここで、最初に立てた問いに戻ろう。</p>
+<div class="askyourself">
+<p><span class="math inline">\(1\)</span> より大きいすべての整数は、少なくとも一つの素因数（prime factor）をもつ。各フェルマー数から素因数を一つずつ選ぶ。選んだ素数について何が言えるか。</p>
+</div>
+<p><span class="math inline">\(p_n\)</span> を <span class="math inline">\(F_n\)</span> を割り切る任意の素数とする。もしこれらのうち二つが等しい、たとえば <span class="math inline">\(m \neq n\)</span> で <span class="math inline">\(p_m = p_n\)</span> であるとすると、その素数は <span class="math inline">\(F_m\)</span> と <span class="math inline">\(F_n\)</span> の <span class="math inline">\(1\)</span> より大きい公約数となるが、これは先ほど不可能であると示した。したがって素数 <span class="math display">\[p_0,\; p_1,\; p_2,\; p_3,\; \ldots\]</span> はすべて<em>相異なる</em>。フェルマー数は無限に存在するので、相異なる素数も無限に存在する。<span class="qed" aria-label="end of proof">■</span></p>
+<p>各フェルマー数を<em>どの</em>素数が割り切るのかを知る必要はまったくなかったし、フェルマー数自身が素数かどうかさえ知る必要がなかったことに注目しよう。必要だったのは、それらが決して共通の約数をもたないということだけである。各フェルマー数は、他のどれも使えない素数を少なくとも一つ「使い切る」ことを強いられているのである。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-1-1.svg" alt="図 1.1.1"><figcaption><span class="fig-label">図 1.1.1</span> 最初のいくつかのフェルマー数。フェルマーはこれらがすべて素数であると推測したが、オイラー（Euler）が1732年に <span class="math inline">\(F_5\)</span> の約数 <span class="math inline">\(641\)</span> を見つけた。<span class="math inline">\(F_4\)</span> より先のフェルマー数で素数であると知られているものは一つもない。それでも恒等式 <span class="math inline">\((*)\)</span> は、異なるフェルマー数の素因数が決して重ならないことを示している。各行が新しい素数をもたらすのである。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<p>何がこの議論をうまく機能させたのかを立ち止まって確かめておく価値がある。同じ考え方は本書で何度も現れるからである。</p>
+<ul>
+<li><p><strong>例は飾りではなかった。</strong><span class="math inline">\(15 \times 17 = 255\)</span> が「<span class="math inline">\((F_2 - 2) \times F_2 = F_3 - 2\)</span>」であると見抜くことこそが、鍵となる考え方<em>だった</em>のである。問題が小さな場合を与えてくれたら、数値が一致するかどうかだけでなく、各ステップが何をしているのかを問おう。</p></li>
+<li><p><strong>一つの恒等式がすべての仕事をした。</strong>すべては <span class="math inline">\((a-1)(a+1) = a^2 - 1\)</span> から流れ出た。難しそうに見える STEP の問題は、しばしば一つの単純な代数計算によって動いている。</p></li>
+<li><p><strong>最後の議論は大きさではなく構造についてのものである。</strong>新しい素数を一つも見つけることなく、素数が無限に存在することを証明した。その代わりに、無限個の数の族を作り上げるには無限に多くの素数が<em>必要である</em>ことを示したのである。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">フェルマーは正しかったか</div>
+<p>正しくなかった。1732年、レオンハルト・オイラー（Leonhard Euler）は <span class="math display">\[F_5 = 2^{32} + 1 = 4\,294\,967\,297 = 641 \times 6\,700\,417.\]</span> であることを示した。オイラーは偶然 <span class="math inline">\(641\)</span> を見つけたのではない。彼は <span class="math inline">\(F_n\)</span> の素因数はきわめて特殊な形をしていなければならないこと（<span class="math inline">\(n = 5\)</span> のときは、<span class="math inline">\(64\)</span> の倍数に1を加えた数でなければならないこと）を証明し、それによって候補を大幅に絞り込んだのである。このことは演習 4で自分で証明できる。</p>
+<p>それ以来、これまでに調べることができた <span class="math inline">\(F_5\)</span> から <span class="math inline">\(F_{32}\)</span> までのすべてのフェルマー数は、合成数（composite）であることが判明している。知られている限りでは、<span class="math inline">\(F_0\)</span> から <span class="math inline">\(F_4\)</span> までが<em>唯一の</em>フェルマー素数かもしれないが、それを証明できた者はいない。これは正真正銘の未解決問題である。</p>
+<p>愉快なひねりは、私たちの証明はそのことをまったく気にしないという点である。素数であれ合成数であれ、フェルマー数はやはり無限に多くの素数を生み出すのである。</p>
+</div>
+<h3 id="フェルマー素数と多角形の作図">フェルマー素数と多角形の作図</h3>
+<p>フェルマー素数は、まったく思いがけない場所に現れる。古代ギリシャ人は定規とコンパスで正三角形と正五角形を作図する方法を知っていたが、<span class="math inline">\(3 = F_0\)</span> かつ <span class="math inline">\(5 = F_1\)</span> であることに注目しよう。二千年もの間、辺の数が素数であるそれ以外の正多角形を作図できた者はいなかった。そして1796年、19歳のカール・フリードリヒ・ガウス（Carl Friedrich Gauss）が正<em>17角形</em>の作図法を示した。そして <span class="math inline">\(17 = F_2\)</span> である。</p>
+<p>ガウスはさらに進んだ。正 <span class="math inline">\(N\)</span> 角形が定規とコンパスで作図できるのは、<span class="math inline">\(N\)</span> が2の累乗と<em>相異なるフェルマー素数</em>の積であるときであり、かつそのときに限る。（Pierre Wantzel が1837年に証明を完成させた。）つまり、どの多角形が作図できるかは、フェルマー素数がいくつあるかに依存するのである。ガウスの17角形の背後にある鍵となる計算には <a href="../ch06/gauss-17gon.html">第 6.2 節</a>（STEP II 1991, Question 4）で出会うことになる。そして物語の全貌は、大学の学部課程の白眉の一つである<em>ガロア理論</em>（Galois theory）に属している。</p>
+<h3 id="一つの定理多くの証明">一つの定理、多くの証明</h3>
+<p>数学者はなぜ同じ定理を何度も証明しようとするのだろうか。それは、異なる証明が異なることを明らかにするからである。この証明は通常、クリスティアン・ゴールドバッハ（Christian Goldbach）が1730年にオイラーに宛てた手紙によるものとされるが、これは、1より大きい整数からなり、どの二つも互いに素であるような<em>任意の</em>無限数列が、無限に多くの素数の存在を導くことを示している。フェルマー数はその便利な一例にすぎない。（演習 3で別の例を扱う。）</p>
+<p>この証明はまた、ユークリッドの証明よりも多くのことを教えてくれる。素数 <span class="math inline">\(p_0, p_1, \ldots, p_{n-1}\)</span> は <span class="math inline">\(n\)</span> 個の<em>相異なる</em>素数であり、それぞれ <span class="math inline">\(F_{n-1}\)</span> 以下である。したがって、<span class="math inline">\(2^{2^{n-1}} + 1\)</span> 以下の素数は少なくとも <span class="math inline">\(n\)</span> 個ある。これは素数がどのように分布しているかについての<em>定量的</em>（quantitative）な主張である。非常に弱い主張ではある（実際にはずっと良いことが成り立つ）が、素数がどのようにまばらになっていくかを正確に記述する、19世紀数学の偉大な成果の一つである<em>素数定理</em>（Prime Number Theorem）への第一歩なのである。<a href="../ch01/prime-distribution.html">第 1.2 節</a> でその次の一歩を踏み出す。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">構造的な性質から議論を組み立てる</div>
+<p><em>種類Aの対象が無限に存在することを示すには、種類Bの対象を無限に見つけ、そのそれぞれが自分専用の種類Aの対象を必要とするようにせよ。</em></p>
+<p>ここではA = 素数、B = フェルマー数であり、「自分専用のものを必要とする」とは「他のどれとも共有しない素因数をもつ」ことを意味する。同じパターンは、数え上げの議論や、線形代数（無限に多くの一次独立なベクトルがあれば次元は無限になる）、そして解析学にも現れる。</p>
+</div>
+<p>また、<em>帰納法</em>、とりわけ<em>「<span class="math inline">\(k\)</span> から <span class="math inline">\(k+1\)</span> へのステップは実際に何をしているのか」</em>と問う習慣も練習した。この問いは、形式的なひな形よりも役に立つことが多い。</p>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>ユークリッドの証明。</strong>素数が無限に存在することのユークリッドによる証明を書き出せ。それはどのような意味で「背理法（contradiction）による」証明であり、フェルマー数による証明はどのような意味で「構成的（constructive）」な証明であるか。</p></li>
+<li><p><strong>一の位の数字。</strong><span class="math inline">\(n \geq 2\)</span> のとき、フェルマー数 <span class="math inline">\(F_n\)</span> の一の位は <span class="math inline">\(7\)</span> であることを示せ。</p></li>
+<li><p><strong>シルベスター（Sylvester）の数列。</strong><span class="math inline">\(a_1 = 2\)</span>、<span class="math inline">\(a_{n+1} = a_n^2 - a_n + 1\)</span> と定める。この数列は <span class="math inline">\(2, 3, 7, 43, 1807, \ldots\)</span> と始まる。</p>
+<div class="exercises">
+<ol class="exercises">
+<li><p><span class="math inline">\(a_{n+1} - 1 = a_1 a_2 \cdots a_n\)</span> を示せ。</p></li>
+<li><p>各項はどの二つも互いに素であることを導き、それにより素数が無限に存在することの別証明を与えよ。</p></li>
+<li><p><span class="hard">発展</span> <span class="math inline">\(\dfrac{1}{a_1} + \dfrac{1}{a_2} + \cdots + \dfrac{1}{a_n} = 1 - \dfrac{1}{a_{n+1} - 1}\)</span> を示せ。</p></li>
+</ol>
+</div></li>
+<li><p><strong>オイラーの技法。</strong><em>この問題ではフェルマーの小定理（Fermat’s Little Theorem）を用いる。すなわち、<span class="math inline">\(p\)</span> が素数で <span class="math inline">\(p \nmid a\)</span> ならば <span class="math inline">\(a^{p-1} \equiv 1 \pmod{p}\)</span> である。</em>素数 <span class="math inline">\(p\)</span> が <span class="math inline">\(F_n\)</span> を割り切るとする。</p>
+<div class="exercises">
+<ol class="exercises">
+<li><p><span class="math inline">\(2^{2^n} \equiv -1 \pmod p\)</span> を示し、それにより <span class="math inline">\(2^{2^{n+1}} \equiv 1 \pmod p\)</span> を示せ。</p></li>
+<li><p><span class="math inline">\(d\)</span> を <span class="math inline">\(2^d \equiv 1 \pmod p\)</span> を満たす最小の正の整数とする。<span class="math inline">\(d\)</span> は <span class="math inline">\(2^{n+1}\)</span> を割り切るが <span class="math inline">\(2^n\)</span> は割り切らないことを示し、<span class="math inline">\(d = 2^{n+1}\)</span> であると結論せよ。</p></li>
+<li><p>フェルマーの小定理を用いて、<span class="math inline">\(d\)</span> が <span class="math inline">\(p - 1\)</span> を割り切ることを示せ。それにより <span class="math inline">\(p \equiv 1 \pmod{2^{n+1}}\)</span> を導け。</p></li>
+<li><p><span class="math inline">\(n = 5\)</span> のとき、これは <span class="math inline">\(F_5\)</span> の任意の素因数が <span class="math inline">\(64k + 1\)</span> の形をしていることを意味する。<span class="math inline">\(641\)</span> がこの形であることを確かめよ。<span class="math inline">\(641\)</span> より小さいこの形の素数はいくつあるか。</p></li>
+</ol>
+</div></li>
+<li><p><strong>素数の上界。</strong><em>一つの定理、多くの証明</em>の議論を用いて、<span class="math inline">\(n\)</span> 番目の素数は <span class="math inline">\(2^{2^{n-1}} + 1\)</span> 以下であることを示せ。<span class="math inline">\(n = 5\)</span> のとき、この上界はどの程度良いか。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Martin Aigner &amp; Günter M. Ziegler, <a href="https://uk.bookshop.org/search?keywords=Proofs+from+THE+BOOK+Aigner+Ziegler"><em>Proofs from THE BOOK</em></a></strong>（Springer）、第 1 章「Six proofs of the infinity of primes」（素数が無限に存在することの六つの証明）。この証明が、ユークリッドの証明や、位相空間論を用いるものを含む他の四つの証明とともに収められている。大学入学前に読める最良の本の一つである。</p></li>
+<li><p><strong>Harold Davenport, <a href="https://uk.bookshop.org/search?keywords=The+Higher+Arithmetic+Davenport"><em>The Higher Arithmetic</em></a></strong>（Cambridge University Press）、第 1–2 章。素数と素因数分解への見事な筆致の入門書であり、大学入学前の夏に読むのに理想的である。</p></li>
+<li><p><strong>Michal Křížek, Florian Luca &amp; Lawrence Somer, <a href="https://uk.bookshop.org/search?keywords=17+Lectures+on+Fermat+Numbers+K%C5%99%C3%AD%C5%BEek+Luca"><em>17 Lectures on Fermat Numbers</em></a></strong>（Springer, 2001）。オイラーによる因数分解からガウスの多角形まで、フェルマー数のすべてが書かれている。最初のほうの章を拾い読みするとよい。</p></li>
+<li><p><strong>Ian Stewart, <a href="https://uk.bookshop.org/search?keywords=Why+Beauty+Is+Truth+Stewart"><em>Why Beauty Is Truth</em></a></strong>（Basic Books）、ガウスについての章。17角形の物語が一般読者向けに語られている。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 章の導入</a><a class="next" href="prime-distribution.html">→ 1.2 素数はどれほどまばらか？</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

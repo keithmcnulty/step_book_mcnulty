@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>원으로 감겨드는 나선 (STEP III 2015 Q8) — Beyond STEP</title>
+<meta name="description" content="STEP III 2015 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 자연의 많은 계는 처음 상태와 상관없이 일정한 리듬에 자리 잡는다. 뛰는 심장, 우는 귀뚜라미, 고르게 활을 긋는 바이올린 현, 포식자와 피식자의 개체 수 순환이 그렇다. 이들을 조금 흔들어도 다시 같은 리듬으로 돌아온다. 미분방정식(differential equation)의…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch08/limit-cycle.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch08/limit-cycle.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/limit-cycle.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/limit-cycle.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch08/limit-cycle.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch08/limit-cycle.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/limit-cycle.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="원으로 감겨드는 나선 (STEP III 2015 Q8) — Beyond STEP">
+<meta property="og:description" content="STEP III 2015 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 자연의 많은 계는 처음 상태와 상관없이 일정한 리듬에 자리 잡는다. 뛰는 심장, 우는 귀뚜라미, 고르게 활을 긋는 바이올린 현, 포식자와 피식자의 개체 수 순환이 그렇다. 이들을 조금 흔들어도 다시 같은 리듬으로 돌아온다. 미분방정식(differential equation)의…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch08/limit-cycle.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="원으로 감겨드는 나선 (STEP III 2015 Q8) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2015 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 자연의 많은 계는 처음 상태와 상관없이 일정한 리듬에 자리 잡는다. 뛰는 심장, 우는 귀뚜라미, 고르게 활을 긋는 바이올린 현, 포식자와 피식자의 개체 수 순환이 그렇다. 이들을 조금 흔들어도 다시 같은 리듬으로 돌아온다. 미분방정식(differential equation)의…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "원으로 감겨드는 나선", "headline": "원으로 감겨드는 나선", "description": "STEP III 2015 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 자연의 많은 계는 처음 상태와 상관없이 일정한 리듬에 자리 잡는다. 뛰는 심장, 우는 귀뚜라미, 고르게 활을 긋는 바이올린 현, 포식자와 피식자의 개체 수 순환이 그렇다. 이들을 조금 흔들어도 다시 같은 리듬으로 돌아온다. 미분방정식(differential equation)의…", "url": "https://beyondstep.keithmcnulty.org/ko/ch08/limit-cycle.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2015 문제 8", "미분방정식과 동역학계"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 8, "name": "미분방정식과 동역학계", "url": "https://beyondstep.keithmcnulty.org/ko/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제8장: 미분방정식과 동역학계", "item": "https://beyondstep.keithmcnulty.org/ko/ch08/"}, {"@type": "ListItem", "position": 3, "name": "원으로 감겨드는 나선", "item": "https://beyondstep.keithmcnulty.org/ko/ch08/limit-cycle.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch08/limit-cycle.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch08/limit-cycle.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch08/limit-cycle.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch08/limit-cycle.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제8장 · 미분방정식과 동역학계</a>
+    <div class="src">STEP III · 2015 · 문제 8</div>
+    <div class="sec-head"><span class="sec-num">8.4</span><h1>원으로 감겨드는 나선</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-4-limit-cycle.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제8장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 2015, 문제 8</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/15-s3-q8">step.maths.org/questions/15-s3-q8</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>자연의 많은 계는 처음 상태와 상관없이 일정한 리듬에 자리 잡는다. 뛰는 심장, 우는 귀뚜라미, 고르게 활을 긋는 바이올린 현, 포식자와 피식자의 개체 수 순환이 그렇다. 이들을 조금 흔들어도 다시 같은 리듬으로 돌아온다. 미분방정식(differential equation)의 언어로 말하면, 이런 계의 해는 하나의 닫힌 고리에 다가가는데, 이 고리를 <em>극한 순환(limit cycle)</em>이라고 한다.</p>
+<p>이 문제는 극한 순환을 하나 직접 만든다. 방정식은 <span class="math inline">\(x\)</span>와 <span class="math inline">\(y\)</span>로는 손댈 수 없어 보이지만, 극좌표(polar coordinates)로 바꾸면 풀 수 있는 꼴로 단순해지고, 해는 안쪽과 바깥쪽 모두에서 단위원으로 감겨 들어가는 나선임이 드러난다. 핵심이 되는 수, 즉 문제의 대칭성에 맞는 좌표를 고르는 일은 이 책 전체에서 거듭 써 온 방법이다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>두 방정식에는 <span class="math inline">\(x\,\mathrm{d}x + y\,\mathrm{d}y\)</span>와 <span class="math inline">\(x\,\mathrm{d}y - y\,\mathrm{d}x\)</span>라는 조합이 숨어 있다. 이들을 극좌표로 나타내면 무엇인가?</p>
+</div>
+<p><span class="math inline">\(r^2 = x^2 + y^2\)</span>이므로 미분하면 <span class="math inline">\(x\,\mathrm{d}x + y\,\mathrm{d}y = r\,\mathrm{d}r\)</span>이다. 또 <span class="math inline">\(x\,\mathrm{d}y - y\,\mathrm{d}x = r^2\,\mathrm{d}\theta\)</span>이다(이것은 <a href="../ch04/holditch.html">4.9 절</a>의 넓이 공식이다). 이 두 항등식 덕분에 변수 변환이 거의 수월해진다. 방정식을 이 조합들만 나타나도록 다시 쓰면 된다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-극좌표로-본-소문항-i" class="stage"><span class="stage-n">단계 1</span> 극좌표로 본 소문항 (i)</h4>
+<p>방정식을 <span class="math inline">\((y + x)\,\mathrm{d}y - (y - x)\,\mathrm{d}x = 0\)</span>으로 쓰고 정리하면 다음과 같다. <span class="math display">\[(x\,\mathrm{d}x + y\,\mathrm{d}y) + (x\,\mathrm{d}y - y\,\mathrm{d}x) = 0.\]</span></p>
+<div class="askyourself">
+<p>전개하여 이 정리가 맞는지 확인하라. 그다음 위의 두 항등식을 써라.</p>
+</div>
+<p><span class="math inline">\((y + x)\,\mathrm{d}y - (y - x)\,\mathrm{d}x = y\,\mathrm{d}y + x\,\mathrm{d}y - y\,\mathrm{d}x + x\,\mathrm{d}x\)</span>이고, 이는 위의 식과 같다. 극좌표로 쓰면 <span class="math inline">\(r\,\mathrm{d}r + r^2\,\mathrm{d}\theta = 0\)</span>이며, (<span class="math inline">\(r &gt; 0\)</span>에서) <span class="math inline">\(r^2\,\mathrm{d}\theta\)</span>로 나누면 다음을 얻는다. <span class="math display">\[\frac{\mathrm{d}r}{\mathrm{d}\theta} + r = 0. \qed\]</span> 해는 <span class="math inline">\(r = Ce^{-\theta}\)</span>이다. 이는 <em>로그 나선(logarithmic spiral)</em>으로, <span class="math inline">\(\theta\)</span>가 증가하면 원점을 향해 감겨 들어가고 <span class="math inline">\(\theta\)</span>가 감소하면 무한히 멀어진다.</p>
+<h4 id="stagemark2-소문항-ii" class="stage"><span class="stage-n">단계 2</span> 소문항 (ii)</h4>
+<div class="pausebox">
+<p>새 방정식은 옛 방정식에 <span class="math inline">\(x^2 + y^2 = r^2\)</span>이 들어간 항을 더한 것이다. 같은 방법으로 다시 쓰고 <span class="math inline">\(\frac{\mathrm{d}r}{\mathrm{d}\theta}\)</span>를 구하라.</p>
+</div>
+<p>방정식은 <span class="math inline">\(\bigl(y + x - xr^2\bigr)\,\mathrm{d}y - \bigl(y - x - yr^2\bigr)\,\mathrm{d}x = 0\)</span>, 즉 <span class="math display">\[\bigl[(y + x)\,\mathrm{d}y - (y - x)\,\mathrm{d}x\bigr] - r^2\bigl(x\,\mathrm{d}y - y\,\mathrm{d}x\bigr) = 0.\]</span> 첫째 괄호는 앞에서처럼 <span class="math inline">\(r\,\mathrm{d}r + r^2\,\mathrm{d}\theta\)</span>이고, 둘째 괄호는 <span class="math inline">\(r^2\,\mathrm{d}\theta\)</span>이다. 따라서 <span class="math inline">\(r\,\mathrm{d}r + r^2(1 - r^2)\,\mathrm{d}\theta = 0\)</span>이고, 다음을 얻는다. <span class="math display">\[\frac{\mathrm{d}r}{\mathrm{d}\theta} = r^3 - r.\]</span></p>
+<div class="askyourself">
+<p>이 식은 <span class="math inline">\(r\)</span>에 대해 선형(linear)이 아니지만, <span class="math inline">\(u = r^{-2}\)</span>에 대해서는 선형이 된다. <span class="math inline">\(u\)</span>는 어떤 방정식을 만족하는가?</p>
+</div>
+<p><span class="math inline">\(u = r^{-2}\)</span>로 두면 <span class="math inline">\(\frac{\mathrm{d}u}{\mathrm{d}\theta} = -2r^{-3}\frac{\mathrm{d}r}{\mathrm{d}\theta} = -2r^{-3}(r^3 - r) = -2 + 2u\)</span>이다. 따라서 <span class="math inline">\(\frac{\mathrm{d}u}{\mathrm{d}\theta} - 2u = -2\)</span>이고, 그 해는 <span class="math inline">\(u = 1 + Ae^{2\theta}\)</span>이다. 그러므로 <span class="math display">\[r^2 = \frac{1}{1 + Ae^{2\theta}}. \qed\]</span></p>
+<h4 id="stagemark3-세-종류의-해" class="stage"><span class="stage-n">단계 3</span> 세 종류의 해</h4>
+<ul>
+<li><p><strong><span class="math inline">\(A = 0\)</span>:</strong> <span class="math inline">\(r = 1\)</span>. 단위원이 해이다.</p></li>
+<li><p><strong><span class="math inline">\(A &gt; 0\)</span>:</strong> 항상 <span class="math inline">\(r &lt; 1\)</span>이다. <span class="math inline">\(\theta \to -\infty\)</span>일 때 <span class="math inline">\(r \to 1\)</span>이고, <span class="math inline">\(\theta \to +\infty\)</span>일 때 <span class="math inline">\(r \to 0\)</span>이다. 곡선은 원과 원점 사이를 나선을 그리며 돈다.</p></li>
+<li><p><strong><span class="math inline">\(A &lt; 0\)</span>:</strong> <span class="math inline">\(r &gt; 1\)</span>이고, 이 공식은 <span class="math inline">\(1 + Ae^{2\theta} &gt; 0\)</span>, 즉 <span class="math inline">\(\theta &lt; \frac12\ln\left(-\frac1A\right)\)</span>인 동안에만 뜻이 있다. <span class="math inline">\(\theta \to -\infty\)</span>일 때 <span class="math inline">\(r \to 1\)</span>이고, <span class="math inline">\(\theta\)</span>가 그 경계에 다가가면 <span class="math inline">\(r \to \infty\)</span>이다. 곡선은 원과 무한 사이를 나선을 그리며 돈다.</p></li>
+</ul>
+<p>따라서 모든 해곡선은 <span class="math inline">\(\theta \to -\infty\)</span>일 때 안쪽 또는 바깥쪽에서 단위원에 다가간다(그림 8.4.1).</p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-4-1.svg" alt="그림 8.4.1"><figcaption><span class="fig-label">그림 8.4.1</span> 소문항 (ii)의 해. 단위원(청록색)은 해이다. <span class="math inline">\(A = 1\)</span>인 해(호박색)는 원의 안쪽에 있으며, (<span class="math inline">\(\theta \to -\infty\)</span>일 때의) 원에서 출발해 원점을 향해 나선을 그린다. <span class="math inline">\(A = -1\)</span>인 해(자두색)는 원의 바깥쪽에 있으며, 원에서 출발해 무한히 멀어지는 나선을 그린다. 반대 방향(<span class="math inline">\(\theta\)</span>가 감소하는 방향)으로 보면 모든 해가 원으로 감겨 들어간다. 이것이 극한 순환이다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>대칭성을 이용하라.</strong> 방정식은 모든 방향을 똑같이 다루었고, 극좌표는 그 사실을 눈에 보이게 해 주었다.</p></li>
+<li><p><strong>표준적인 조합을 알아보라.</strong> <span class="math inline">\(x\,\mathrm{d}x + y\,\mathrm{d}y = r\,\mathrm{d}r\)</span>와 <span class="math inline">\(x\,\mathrm{d}y - y\,\mathrm{d}x = r^2\,\mathrm{d}\theta\)</span>가 일의 대부분을 해냈다.</p></li>
+<li><p><strong>치환으로 선형화한다.</strong> 비선형 방정식 <span class="math inline">\(r&#39; = r^3 - r\)</span>은 <span class="math inline">\(u = r^{-2}\)</span>에 대해 선형이 되었다(<em>베르누이 방정식(Bernoulli equation)</em>).</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">극한 순환</div>
+<p>앙리 푸앵카레(Henri Poincaré)는 1880년대에 평면 위 미분방정식의 정성적 거동을 연구하면서 극한 순환을 도입했다. 문제의 방정식을 평면 위를 움직이는 점의 경로를 나타내는 것으로 해석해 보자. 단위원은 고립된 닫힌 궤도(orbit)이고, 그 근처의 모든 궤도는 (시간의 방향에 따라) 단위원을 향해 감겨 들어가거나 단위원에서 멀어진다. 1926년 네덜란드의 공학자 발타사르 판데르폴(Balthasar van der Pol)은 진공관이 들어간 전기 회로에서 극한 순환을 발견했고, 비슷한 방정식이 심장 박동을 묘사한다고 제안했다. 극한 순환은 스스로 유지되는 안정된 리듬을 가진 모든 계의 모형이 된다. 일주기 생체 시계, 신경 자극, 포식자와 피식자 개체 수의 순환이 그 예이다.</p>
+</div>
+<h3 id="평면에는-혼돈이-없다">평면에는 혼돈이 없다</h3>
+<p><em>푸앵카레–벤딕손 정리(Poincaré–Bendixson theorem)</em>에 따르면, 평면 위의 매끄러운 계에서 유계인 영역에 머무르면서 평형점(equilibrium)에 다가가지 않는 궤도는 반드시 닫힌 궤도에 다가간다. 따라서 2차원에서 장기적인 거동은 평형점과 순환에 한정된다. 궤도끼리 교차할 수 없으므로 혼돈(chaos)이 생길 여지가 없다. 혼돈에는 적어도 3차원이 필요한데, 이는 1963년 에드워드 로렌즈(Edward Lorenz)가 대류를 나타내는 유명한 세 변수 모형(“나비”)으로 발견한 사실이다. 이산 시간에서는 <a href="../ch08/solvable-chaos.html">8.7 절</a>에서 보듯이 1차원에서도 혼돈이 가능하다.</p>
+<h3 id="풀리지-않은-문제">풀리지 않은 문제</h3>
+<p>1900년 다비트 힐베르트(David Hilbert)는 그의 열여섯 번째 문제의 일부로 다음을 물었다. <span class="math inline">\(P\)</span>와 <span class="math inline">\(Q\)</span>가 <span class="math inline">\(n\)</span>차 다항식일 때, 계 <span class="math inline">\(x&#39; = P(x, y)\)</span>, <span class="math inline">\(y&#39; = Q(x, y)\)</span>가 가질 수 있는 극한 순환의 최대 개수는 얼마인가? 이는 <span class="math inline">\(n = 2\)</span>일 때조차 아직 알려져 있지 않다. 이 경우 극한 순환이 네 개인 계는 알려져 있지만, 그보다 많을 수 있는지는 모른다. 이것은 힐베르트의 문제 가운데 완전히 미해결로 남아 있는 아주 드문 문제 중 하나이다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">대칭성에 맞게 좌표를 바꾸어라</div>
+<p><em>문제가 회전 대칭을 가지면 극좌표를 쓰고, 다른 대칭을 가지면 그 대칭을 존중하는 좌표를 찾아라.</em></p>
+<p>알맞은 좌표는 손댈 수 없던 방정식을 변수분리형(separable) 방정식으로 바꾸었고, 해의 기하(원과 나선)를 뚜렷하게 보여 주었다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>나선.</strong> 소문항 (i)의 해 <span class="math inline">\(r = e^{-\theta}\)</span>에 대하여, 이 곡선이 원점에서 나가는 모든 반직선과 같은 각 <span class="math inline">\(45^\circ\)</span>로 만남을 보여라. (로그 나선을 <em>등각</em> 나선(equiangular spiral)이라고 부르는 이유가 이것이다.)</p></li>
+<li><p><strong>극좌표 항등식.</strong> <span class="math inline">\(x\,\mathrm{d}x + y\,\mathrm{d}y = r\,\mathrm{d}r\)</span>와 <span class="math inline">\(x\,\mathrm{d}y - y\,\mathrm{d}x = r^2\,\mathrm{d}\theta\)</span>를 증명하라.</p></li>
+<li><p><strong>시간에 따른 계.</strong> 계 <span class="math inline">\(\dot r = r(1 - r^2)\)</span>, <span class="math inline">\(\dot\theta = 1\)</span>을 생각하자. <span class="math inline">\(r(0) &gt; 0\)</span>인 모든 해가 <span class="math inline">\(t \to \infty\)</span>일 때 단위원에 다가감을 보여라. 이 계를 <span class="math inline">\(x\)</span>와 <span class="math inline">\(y\)</span>로 나타내라.</p></li>
+<li><p><strong>두 개의 순환.</strong> <span class="math inline">\(r = 1\)</span>과 <span class="math inline">\(r = 2\)</span>에 극한 순환을 두 개 가지며, 하나는 끌어당기고 하나는 밀어내는, <span class="math inline">\(\dot r = f(r)\)</span>, <span class="math inline">\(\dot\theta = 1\)</span> 꼴의 계를 찾아라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Steven Strogatz, <a href="https://uk.bookshop.org/search?keywords=Nonlinear+Dynamics+and+Chaos+Strogatz"><em>Nonlinear Dynamics and Chaos</em></a></strong> (CRC Press). 7장에서 극한 순환과 푸앵카레–벤딕손 정리를 다룬다.</p></li>
+<li><p><strong>Steven Strogatz, <a href="https://uk.bookshop.org/search?keywords=Sync+Strogatz"><em>Sync</em></a></strong> (Hyperion). 자연의 리듬과 동기화를 다룬 교양서이다.</p></li>
+<li><p><strong>James Gleick, <a href="https://uk.bookshop.org/search?keywords=Chaos%3A+Making+a+New+Science+Gleick"><em>Chaos: Making a New Science</em></a></strong> (Penguin). 로렌즈와 혼돈의 발견 이야기이다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="harvesting.html">← 8.3 개체군 수확하기</a><a class="next" href="pursuit.html">→ 8.5 그레이하운드를 쫓는 그레이하운드</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

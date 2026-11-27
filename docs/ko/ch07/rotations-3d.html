@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3차원에서의 회전 (STEP III 2022 Q7) — Beyond STEP</title>
+<meta name="description" content="STEP III 2022 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 2차원에서 점을 회전시키는 것은 쉽다. e^iθ 를 곱하면 된다. 3차원에서는 훨씬 어렵다. 곱할 복소수 하나가 따로 있는 것도 아니고, 서로 다른 축에 대한 회전은 교환법칙이 성립하지 않으며(do not commute), “ (1, 2, 2) 를 지나는 축을 중심으로…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/rotations-3d.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="3차원에서의 회전 (STEP III 2022 Q7) — Beyond STEP">
+<meta property="og:description" content="STEP III 2022 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 2차원에서 점을 회전시키는 것은 쉽다. e^iθ 를 곱하면 된다. 3차원에서는 훨씬 어렵다. 곱할 복소수 하나가 따로 있는 것도 아니고, 서로 다른 축에 대한 회전은 교환법칙이 성립하지 않으며(do not commute), “ (1, 2, 2) 를 지나는 축을 중심으로…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch07/rotations-3d.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3차원에서의 회전 (STEP III 2022 Q7) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2022 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 2차원에서 점을 회전시키는 것은 쉽다. e^iθ 를 곱하면 된다. 3차원에서는 훨씬 어렵다. 곱할 복소수 하나가 따로 있는 것도 아니고, 서로 다른 축에 대한 회전은 교환법칙이 성립하지 않으며(do not commute), “ (1, 2, 2) 를 지나는 축을 중심으로…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "3차원에서의 회전", "headline": "3차원에서의 회전", "description": "STEP III 2022 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 2차원에서 점을 회전시키는 것은 쉽다. e^iθ 를 곱하면 된다. 3차원에서는 훨씬 어렵다. 곱할 복소수 하나가 따로 있는 것도 아니고, 서로 다른 축에 대한 회전은 교환법칙이 성립하지 않으며(do not commute), “ (1, 2, 2) 를 지나는 축을 중심으로…", "url": "https://beyondstep.keithmcnulty.org/ko/ch07/rotations-3d.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2022 문제 7", "선형대수학과 기하학"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "선형대수학과 기하학", "url": "https://beyondstep.keithmcnulty.org/ko/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제7장: 선형대수학과 기하학", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/"}, {"@type": "ListItem", "position": 3, "name": "3차원에서의 회전", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/rotations-3d.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch07/rotations-3d.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/rotations-3d.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch07/rotations-3d.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch07/rotations-3d.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제7장 · 선형대수학과 기하학</a>
+    <div class="src">STEP III · 2022 · 문제 7</div>
+    <div class="sec-head"><span class="sec-num">7.5</span><h1>3차원에서의 회전</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-5-rotations-3d.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제7장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 2022, 문제 7</strong></p>
+<p>다음으로 넘어가기 전에 문제를 먼저 읽어 보자. 이 문제는 OCR에서 내려받을 수 있는 2022년 STEP 문제지 모음(zip 파일)의 STEP III 문제지에 있다: <a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">www.ocr.org.uk/Images/696587-2022-past-papers.zip</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>2차원에서 점을 회전시키는 것은 쉽다. <span class="math inline">\(e^{\mathrm{i}\theta}\)</span>를 곱하면 된다. 3차원에서는 훨씬 어렵다. 곱할 복소수 하나가 따로 있는 것도 아니고, 서로 다른 축에 대한 회전은 교환법칙이 성립하지 않으며(do not commute), “<span class="math inline">\((1, 2, 2)\)</span>를 지나는 축을 중심으로 <span class="math inline">\(37^\circ\)</span> 회전”의 행렬을 적는 일은 막막해 보인다.</p>
+<p>이 문제는 임의의 축과 임의의 각에 대해 그 행렬을 외적(cross product)으로부터 만들어 낸다. 그 결과가 1840년에 Olinde Rodrigues가 발표한 <em>로드리게스 회전 공식(Rodrigues’ rotation formula)</em>이다. 이 공식은 로봇 공학, 컴퓨터 그래픽스, 우주선 항법에서 매일 쓰이며, 아름다운 사실 하나를 드러낸다. <span class="math inline">\(\mathbf{n}\)</span>과 외적하는 것은 “<span class="math inline">\(\mathbf{n}\)</span>을 축으로 하는 <span class="math inline">\(90^\circ\)</span> 회전”이고, <span class="math inline">\(\mathbf{n}\)</span>을 축으로 하는 모든 회전은 이것으로 만들어진다. 이는 <span class="math inline">\(e^{\mathrm{i}\theta} = \cos\theta + \mathrm{i}\sin\theta\)</span>가 <span class="math inline">\(\mathrm{i}\)</span>를 곱하는 것으로부터 만들어지는 것과 꼭 같다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\mathbf{r}\)</span>이 <span class="math inline">\(\mathbf{n}\)</span>에 수직일 때 <span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span>는 기하적으로 어떤 모습인가? 또 <span class="math inline">\(\mathbf{r}\)</span>이 <span class="math inline">\(\mathbf{n}\)</span>에 평행할 때는 어떤가?</p>
+</div>
+<p><span class="math inline">\(\mathbf{r} \parallel \mathbf{n}\)</span>이면 <span class="math inline">\(\mathbf{n} \times \mathbf{r} = \mathbf{0}\)</span>이다. <span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span>이면 <span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span>는 <span class="math inline">\(\mathbf{r}\)</span>과 길이가 같고(<span class="math inline">\(|\mathbf{n}| = 1\)</span>이고 사잇각이 <span class="math inline">\(90^\circ\)</span>이므로), 두 벡터 모두에 수직이며, 오른손 법칙(right-hand rule)에 따라 <span class="math inline">\(\mathbf{r}\)</span>을 <span class="math inline">\(\mathbf{n}\)</span>을 축으로 시계 반대 방향으로 <span class="math inline">\(90^\circ\)</span> 회전한 것이다(<span class="math inline">\(\mathbf{n}\)</span>의 끝에서 내려다볼 때). 따라서 <span class="math inline">\(\mathrm{f}\)</span>는 <span class="math inline">\(\mathbf{r}\)</span>의 <span class="math inline">\(\mathbf{n}\)</span> 방향 성분(component)을 없애고, 수직 성분을 <span class="math inline">\(90^\circ\)</span> 회전시킨다. 이 그림이 문제 전체를 설명해 준다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-두-번-외적하기" class="stage"><span class="stage-n">단계 1</span> 두 번 외적하기</h4>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{r}) = \mathbf{n} \times \mathbf{r} = (bz - cy,\ cx - az,\ ay - bx)\)</span>이다. 이것을 다시 <span class="math inline">\(\mathbf{n} = (a, b, c)\)</span>와 외적하면 <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r}))\)</span>의 <span class="math inline">\(x\)</span>성분은 <span class="math display">\[b(ay - bx) - c(cx - az) = -x(b^2 + c^2) + aby + acz. \qed\]</span> <span class="math inline">\(a^2 + b^2 + c^2 = 1\)</span>이므로 이는 <span class="math inline">\(-x(1 - a^2) + aby + acz = a(ax + by + cz) - x\)</span>이고, 이것은 <span class="math inline">\((\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span>의 <span class="math inline">\(x\)</span>성분이다. 나머지 성분도 대칭성에 의해 마찬가지이므로 <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = (\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(\mathbf{r} = \mathbf{r}_\parallel + \mathbf{r}_\perp\)</span>로 쓰자. 여기서 <span class="math inline">\(\mathbf{r}_\parallel = (\mathbf{n}.\mathbf{r})\mathbf{n}\)</span>은 <span class="math inline">\(\mathbf{n}\)</span> 방향의 성분이다. <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r}))\)</span>를 이들로 나타내면 무엇인가?</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = \mathbf{r}_\parallel - \mathbf{r} = -\mathbf{r}_\perp\)</span>이다. <span class="math inline">\(\mathrm{f}\)</span>를 두 번 적용하면 평행 성분은 사라지고 수직 성분은 <span class="math inline">\(\mathbf{n}\)</span>을 축으로 <span class="math inline">\(180^\circ\)</span> 회전하는데, 이는 그 방향을 그저 뒤집는 것이다(그림 7.5.1). 이것이 <span class="math inline">\(\mathrm{i}^2 = -1\)</span>에 해당하는 사실이다.</p>
+<h4 id="stagemark2-회전" class="stage"><span class="stage-n">단계 2</span> 회전</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{g}(\mathbf{n})\)</span>을 계산하라. 그다음 <span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span>인 경우, 이러한 <span class="math inline">\(\mathbf{r}\)</span>에 대해 <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = -\mathbf{r}\)</span>임을 이용하여 <span class="math inline">\(\mathrm{g}(\mathbf{r})\)</span>를 계산하라.</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{n}) = \mathbf{n} \times \mathbf{n} = \mathbf{0}\)</span>이므로 <span class="math inline">\(\mathrm{g}(\mathbf{n}) = \mathbf{n}\)</span>이다. 즉 축은 고정된다. <span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span>이면 <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = -\mathbf{r}\)</span>이고 <span class="math display">\[\mathrm{g}(\mathbf{r}) = \mathbf{r} + \sin\theta\,(\mathbf{n} \times \mathbf{r}) - (1 - \cos\theta)\mathbf{r} = \cos\theta\,\mathbf{r} + \sin\theta\,(\mathbf{n} \times \mathbf{r}).\]</span> <span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span>는 <span class="math inline">\(\mathbf{r}\)</span>을 <span class="math inline">\(\mathbf{n}\)</span>을 축으로 <span class="math inline">\(90^\circ\)</span> 돌린 것이고 길이도 같으므로, 이것은 <span class="math inline">\(\mathbf{r}\)</span>을 <span class="math inline">\(\mathbf{n}\)</span>을 축으로 <span class="math inline">\(\theta\)</span>만큼 회전한 것이다. 평면에서의 <span class="math inline">\((\cos\theta + \mathrm{i}\sin\theta)z\)</span>와 똑같다. <span class="math inline">\(\mathrm{g}\)</span>는 선형(linear)이고 모든 벡터는 <span class="math inline">\(\mathbf{n}\)</span>의 상수배와 <span class="math inline">\(\mathbf{n}\)</span>에 수직인 벡터의 합으로 나타낼 수 있으므로, <span class="math inline">\(\mathrm{g}\)</span>는 <strong>원점을 지나고 방향이 <span class="math inline">\(\mathbf{n}\)</span>인 축을 중심으로 각 <span class="math inline">\(\theta\)</span>만큼 회전하는 변환</strong>이다(<span class="math inline">\(\mathbf{n}\)</span>의 끝에서 볼 때 시계 반대 방향).<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-5-1.svg" alt="그림 7.5.1"><figcaption><span class="fig-label">그림 7.5.1</span> 로드리게스 공식. 벡터 <span class="math inline">\(\mathbf{r}\)</span>은 축 <span class="math inline">\(\mathbf{n}\)</span> 방향의 성분과, 이에 수직이면서 원을 그리는 성분 <span class="math inline">\(\mathbf{r}_\perp\)</span>로 나뉜다. <span class="math inline">\(\mathbf{n}\)</span>과 외적하면 <span class="math inline">\(\mathbf{r}_\perp\)</span>가 <span class="math inline">\(90^\circ\)</span> 회전하고(호박색), 두 번 외적하면 <span class="math inline">\(-\mathbf{r}_\perp\)</span>가 된다(자주색). 회전된 벡터 <span class="math inline">\(\mathrm{g}(\mathbf{r})\)</span>는 <span class="math inline">\(\mathbf{r}_\parallel + \cos\theta\,\mathbf{r}_\perp + \sin\theta\,(\mathbf{n} \times \mathbf{r})\)</span>이다.</figcaption></figure>
+<h4 id="stagemark3-반사" class="stage"><span class="stage-n">단계 3</span> 반사</h4>
+<div class="pausebox">
+<p>소문항 (i)의 결과를 이용하여 <span class="math inline">\(\mathrm{h}(\mathbf{s}) = -\mathbf{s} - 2\mathrm{f}(\mathrm{f}(\mathbf{s}))\)</span>를 간단히 하라. 이 변환은 <span class="math inline">\(\mathbf{n}\)</span> 방향의 벡터와 <span class="math inline">\(\mathbf{n}\)</span>에 수직인 벡터를 각각 어떻게 바꾸는가?</p>
+</div>
+<p><span class="math inline">\(\mathrm{h}(\mathbf{s}) = -\mathbf{s} - 2\bigl((\mathbf{n}.\mathbf{s})\mathbf{n} - \mathbf{s}\bigr) = \mathbf{s} - 2(\mathbf{n}.\mathbf{s})\mathbf{n}\)</span>이다. <span class="math inline">\(\mathbf{n}\)</span>에 수직인 벡터는 변하지 않고, <span class="math inline">\(\mathrm{h}(\mathbf{n}) = -\mathbf{n}\)</span>이다. 따라서 <span class="math inline">\(\mathrm{h}\)</span>는 <strong>원점을 지나고 <span class="math inline">\(\mathbf{n}\)</span>에 수직인 평면에 대한 반사(reflection)</strong>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>평행 성분과 수직 성분으로 분해하라.</strong> <span class="math inline">\(\mathbf{r}\)</span>을 <span class="math inline">\(\mathbf{n}\)</span> 방향의 성분과 이에 수직인 성분으로 나누자 모든 단계가 명확해졌다.</p></li>
+<li><p><strong>선형성이 일을 줄여 준다.</strong> 선형사상(linear map)이 무엇인지 알아내려면, 잘 고른 몇 개의 벡터에 그것이 어떻게 작용하는지만 알면 충분하다.</p></li>
+<li><p><strong>복소수와의 유사성.</strong> <span class="math inline">\(\mathbf{n}\)</span>에 수직인 벡터에 대해 <span class="math inline">\(\mathrm{f}\)</span>는 <span class="math inline">\(\mathrm{i}\)</span>를 곱하는 것처럼 작용한다. 즉 <span class="math inline">\(\mathrm{f}^2 = -1\)</span>이고 <span class="math inline">\(\mathrm{g} = \cos\theta + \sin\theta\,\mathrm{f}\)</span>이다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">오일러의 회전 정리</div>
+<p>원점을 고정하는 3차원 공간의 모든 회전은 원점을 지나는 어떤 축을 중심으로 한 회전이다. 오일러(Euler)는 1775년에 이를 증명하였다. 행렬의 언어로 말하면, 모든 <span class="math inline">\(3 \times 3\)</span> 회전행렬은 고윳값(eigenvalue)이 <span class="math inline">\(1\)</span>인 고유벡터(eigenvector)를 가지며, 그것이 바로 축이다. 로드리게스 공식은 그 역(converse)을 준다. 모든 축 <span class="math inline">\(\mathbf{n}\)</span>과 각 <span class="math inline">\(\theta\)</span>에 대해 회전행렬은 <span class="math display">\[\mathbf{R} = \mathbf{I} + \sin\theta\,\mathbf{K} + (1 - \cos\theta)\,\mathbf{K}^2, \qquad \mathbf{K} = \begin{pmatrix} 0 &amp; -c &amp; b \\ c &amp; 0 &amp; -a \\ -b &amp; a &amp; 0 \end{pmatrix},\]</span> 이다. 여기서 <span class="math inline">\(\mathbf{K}\)</span>는 <span class="math inline">\(\mathbf{r} \mapsto \mathbf{n} \times \mathbf{r}\)</span>의 행렬이다. <span class="math inline">\(\mathbf{K}^3 = -\mathbf{K}\)</span>이므로 지수 급수(exponential series) <span class="math inline">\(e^{\theta\mathbf{K}} = \mathbf{I} + \theta\mathbf{K} + \frac{\theta^2}{2!}\mathbf{K}^2 + \cdots\)</span>는 정확히 이 공식으로 정리되며, 이것은 <span class="math inline">\(e^{\mathrm{i}\theta} = \cos\theta + \mathrm{i}\sin\theta\)</span>의 3차원 버전이다. 회전과 “무한소 회전” <span class="math inline">\(\mathbf{K}\)</span>의 지수 사이의 이러한 연결은 <em>리 군(Lie groups)</em> 이론의 출발점이다.</p>
+</div>
+<h3 id="회전은-교환법칙을-만족하지-않는다">회전은 교환법칙을 만족하지 않는다</h3>
+<p>책을 평평하게 들고, 수직축을 중심으로 <span class="math inline">\(90^\circ\)</span> 돌린 다음 수평축을 중심으로 <span class="math inline">\(90^\circ\)</span> 돌려 보자. 그다음 처음부터 다시 시작하여 두 회전을 반대 순서로 해 보자. 책은 서로 다른 위치에 놓이게 된다. 2차원과 달리 3차원에서는 회전의 합성에 대해 교환법칙이 성립하지 않는다. 이것이 <a href="../ch06/quaternions.html">6.7 절</a>의 사원수(quaternion)가 유용한 이유 중 하나이다. <span class="math inline">\(\mathbf{n}\)</span>을 축으로 하는 <span class="math inline">\(\theta\)</span>만큼의 회전은 사원수 <span class="math inline">\(\cos\frac\theta2 + \sin\frac\theta2(a\mathrm{i} + b\mathrm{j} + c\mathrm{k})\)</span>에 대응하고, 회전의 합성은 사원수의 곱셈이 되며, 비가환성도 그 안에 자연스럽게 담겨 있다. 로드리게스 자신도 1840년 논문에서, 해밀턴(Hamilton)이 사원수를 발명하기 3년 전에 이미 회전의 합성 공식을 찾아냈다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">불변(invariant)인 부분으로 나누기</div>
+<p><em>변환을 이해하려면, 공간을 그 변환이 단순하게 다루는 조각들로 나누라. 여기서는 축(그대로 둔다)과 그에 수직인 평면(회전시킨다)이다.</em></p>
+<p>이는 <a href="../ch07/eigenvectors.html">7.2 절</a>의 고유벡터와 같은 아이디어이다. 변환이 보존하는 부분공간(subspace)을 찾고, 각 조각 위에서 변환을 살펴보는 것이다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>평면에서의 회전.</strong> <a href="https://step.maths.org/questions/17-s3-q2">STEP III 2017, 문제 2</a>를 풀어 보라. 이 문제는 복소수를 이용하여, 평면의 두 회전을 합성하면 한 가지 예외를 제외하고 회전이 됨을 보인다. 그 예외를 찾고, 그때 합성이 무엇이 되는지 구하라.</p></li>
+<li><p><strong>특정한 회전.</strong> <span class="math inline">\((1, 1, 1)\)</span> 방향의 축을 중심으로 <span class="math inline">\(120^\circ\)</span>만큼 회전하는 변환의 행렬을 구하라. 이 변환이 좌표축들을 순환적으로 치환함을 보여라.</p></li>
+<li><p><strong><span class="math inline">\(\mathbf{K}\)</span>의 거듭제곱.</strong> <span class="math inline">\(\mathbf{K}^2\mathbf{r} = (\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span>이고 <span class="math inline">\(\mathbf{K}^3 = -\mathbf{K}\)</span>임을 보이고, 지수 급수로부터 로드리게스 공식을 유도하라.</p></li>
+<li><p><strong>두 반사가 회전을 만든다.</strong> 서로 각 <span class="math inline">\(\alpha\)</span>를 이루며 원점을 지나는 두 평면에 대해 차례로 반사하는 것은, 두 평면의 교선을 축으로 하는 <span class="math inline">\(2\alpha\)</span>만큼의 회전임을 보여라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Simon Altmann, <a href="https://uk.bookshop.org/search?keywords=Rotations%2C+Quaternions%2C+and+Double+Groups+Altmann"><em>Rotations, Quaternions, and Double Groups</em></a></strong> (Dover). 3차원 회전에 관한 결정판 저서로, 로드리게스의 기여도 다룬다.</p></li>
+<li><p><strong>Simon Altmann, “Hamilton, Rodrigues, and the quaternion scandal”</strong>, <em>Mathematics Magazine</em> 62 (1989). 짧고 생생한 역사 이야기이다.</p></li>
+<li><p><strong>John Stillwell, <a href="https://uk.bookshop.org/search?keywords=Naive+Lie+Theory+Stillwell"><em>Naive Lie Theory</em></a></strong> (Springer). 학부생을 위한 회전, 사원수, 리 군 입문서이다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="finite-order.html">← 7.4 제자리로 돌아오는 행렬</a><a class="next" href="hyperbolic-rotations.html">→ 7.6 쌍곡 회전과 상대성 이론</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

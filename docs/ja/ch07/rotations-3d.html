@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三次元の回転 (STEP III 2022 Q7) — Beyond STEP</title>
+<meta name="description" content="STEP III 2022 問題 7：解説付き解答とその背後にある大学数学。 2次元では、点の回転（rotation）は簡単である。 e^iθ を掛ければよい。3次元ではずっと難しくなる。掛けるべき1つの複素数は存在せず、異なる軸のまわりの回転は可換（commute）ではない。しかも「点 (1, 2, 2) を通る軸のまわりに 37^circ…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch07/rotations-3d.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/rotations-3d.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="三次元の回転 (STEP III 2022 Q7) — Beyond STEP">
+<meta property="og:description" content="STEP III 2022 問題 7：解説付き解答とその背後にある大学数学。 2次元では、点の回転（rotation）は簡単である。 e^iθ を掛ければよい。3次元ではずっと難しくなる。掛けるべき1つの複素数は存在せず、異なる軸のまわりの回転は可換（commute）ではない。しかも「点 (1, 2, 2) を通る軸のまわりに 37^circ…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch07/rotations-3d.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="三次元の回転 (STEP III 2022 Q7) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2022 問題 7：解説付き解答とその背後にある大学数学。 2次元では、点の回転（rotation）は簡単である。 e^iθ を掛ければよい。3次元ではずっと難しくなる。掛けるべき1つの複素数は存在せず、異なる軸のまわりの回転は可換（commute）ではない。しかも「点 (1, 2, 2) を通る軸のまわりに 37^circ…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "三次元の回転", "headline": "三次元の回転", "description": "STEP III 2022 問題 7：解説付き解答とその背後にある大学数学。 2次元では、点の回転（rotation）は簡単である。 e^iθ を掛ければよい。3次元ではずっと難しくなる。掛けるべき1つの複素数は存在せず、異なる軸のまわりの回転は可換（commute）ではない。しかも「点 (1, 2, 2) を通る軸のまわりに 37^circ…", "url": "https://beyondstep.keithmcnulty.org/ja/ch07/rotations-3d.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2022 問題 7", "線形代数と幾何"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 7, "name": "線形代数と幾何", "url": "https://beyondstep.keithmcnulty.org/ja/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第7章：線形代数と幾何", "item": "https://beyondstep.keithmcnulty.org/ja/ch07/"}, {"@type": "ListItem", "position": 3, "name": "三次元の回転", "item": "https://beyondstep.keithmcnulty.org/ja/ch07/rotations-3d.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch07/rotations-3d.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/rotations-3d.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch07/rotations-3d.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch07/rotations-3d.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第7章 · 線形代数と幾何</a>
+    <div class="src">STEP III · 2022 · 問題 7</div>
+    <div class="sec-head"><span class="sec-num">7.5</span><h1>三次元の回転</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-7-5-rotations-3d.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第7章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2022、第7問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は、OCRが配布している2022年のSTEP問題一式（zipファイル）のSTEP IIIに収録されている： <a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">www.ocr.org.uk/Images/696587-2022-past-papers.zip</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>2次元では、点の回転（rotation）は簡単である。<span class="math inline">\(e^{\mathrm{i}\theta}\)</span> を掛ければよい。3次元ではずっと難しくなる。掛けるべき1つの複素数は存在せず、異なる軸のまわりの回転は可換（commute）ではない。しかも「点 <span class="math inline">\((1, 2, 2)\)</span> を通る軸のまわりに <span class="math inline">\(37^\circ\)</span> 回転する」という行列を書き下すのは、いかにも骨が折れそうに見える。</p>
+<p>この問題では、任意の軸と任意の角に対するその行列を、外積（cross product）から組み立てる。得られる結果は<em>ロドリゲスの回転公式</em>（Rodrigues’ rotation formula）であり、1840年にオランド・ロドリゲス（Olinde Rodrigues）が発表したものである。この公式はロボット工学、コンピュータグラフィックス、宇宙機の航法で日常的に使われており、美しい事実を明らかにしてくれる。すなわち、<span class="math inline">\(\mathbf{n}\)</span> との外積をとることは「<span class="math inline">\(\mathbf{n}\)</span> のまわりの <span class="math inline">\(90^\circ\)</span> 回転」であり、<span class="math inline">\(\mathbf{n}\)</span> のまわりのあらゆる回転はそこから組み立てられる。ちょうど <span class="math inline">\(e^{\mathrm{i}\theta} = \cos\theta + \mathrm{i}\sin\theta\)</span> が <span class="math inline">\(\mathrm{i}\)</span> を掛ける操作から組み立てられているのと同じである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\mathbf{r}\)</span> が <span class="math inline">\(\mathbf{n}\)</span> に垂直なとき、<span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span> は幾何学的にどのように見えるか。<span class="math inline">\(\mathbf{r}\)</span> が <span class="math inline">\(\mathbf{n}\)</span> に平行なときはどうか。</p>
+</div>
+<p><span class="math inline">\(\mathbf{r} \parallel \mathbf{n}\)</span> ならば <span class="math inline">\(\mathbf{n} \times \mathbf{r} = \mathbf{0}\)</span> である。<span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span> ならば、<span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span> は <span class="math inline">\(\mathbf{r}\)</span> と同じ長さをもち（<span class="math inline">\(|\mathbf{n}| = 1\)</span> でなす角が <span class="math inline">\(90^\circ\)</span> だから）、両者に垂直であり、右手の法則（right-hand rule）により、<span class="math inline">\(\mathbf{r}\)</span> を <span class="math inline">\(\mathbf{n}\)</span> のまわりに（<span class="math inline">\(\mathbf{n}\)</span> の先から見て）反時計回りに <span class="math inline">\(90^\circ\)</span> 回転したものである。したがって <span class="math inline">\(\mathrm{f}\)</span> は <span class="math inline">\(\mathbf{r}\)</span> の <span class="math inline">\(\mathbf{n}\)</span> 方向の成分（component）を消し、垂直な成分を <span class="math inline">\(90^\circ\)</span> 回転させる。この描像で問題全体が説明できる。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-2回外積をとる" class="stage"><span class="stage-n">段階 1</span> 2回外積をとる</h4>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{r}) = \mathbf{n} \times \mathbf{r} = (bz - cy,\ cx - az,\ ay - bx)\)</span> である。これにもう一度 <span class="math inline">\(\mathbf{n} = (a, b, c)\)</span> との外積をとると、<span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r}))\)</span> の <span class="math inline">\(x\)</span> 成分は <span class="math display">\[b(ay - bx) - c(cx - az) = -x(b^2 + c^2) + aby + acz. \qed\]</span> <span class="math inline">\(a^2 + b^2 + c^2 = 1\)</span> より、これは <span class="math inline">\(-x(1 - a^2) + aby + acz = a(ax + by + cz) - x\)</span> となり、<span class="math inline">\((\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span> の <span class="math inline">\(x\)</span> 成分に等しい。ほかの成分も対称性から同様に得られるので、<span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = (\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(\mathbf{r} = \mathbf{r}_\parallel + \mathbf{r}_\perp\)</span> と書く。ここで <span class="math inline">\(\mathbf{r}_\parallel = (\mathbf{n}.\mathbf{r})\mathbf{n}\)</span> は <span class="math inline">\(\mathbf{n}\)</span> 方向の成分である。<span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r}))\)</span> をこれらを用いて表すとどうなるか。</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = \mathbf{r}_\parallel - \mathbf{r} = -\mathbf{r}_\perp\)</span> である。<span class="math inline">\(\mathrm{f}\)</span> を2回施すと、平行な部分は消え、垂直な部分は <span class="math inline">\(\mathbf{n}\)</span> のまわりに <span class="math inline">\(180^\circ\)</span> 回転する。これは単に向きを反転させることにほかならない（図 7.5.1）。これは <span class="math inline">\(\mathrm{i}^2 = -1\)</span> の類似である。</p>
+<h4 id="stagemark2-回転" class="stage"><span class="stage-n">段階 2</span> 回転</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{g}(\mathbf{n})\)</span> を計算せよ。次に、<span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span> のとき、そのような <span class="math inline">\(\mathbf{r}\)</span> に対して <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = -\mathbf{r}\)</span> となることを用いて <span class="math inline">\(\mathrm{g}(\mathbf{r})\)</span> を計算せよ。</p>
+</div>
+<p><span class="math inline">\(\mathrm{f}(\mathbf{n}) = \mathbf{n} \times \mathbf{n} = \mathbf{0}\)</span> より <span class="math inline">\(\mathrm{g}(\mathbf{n}) = \mathbf{n}\)</span> である。つまり軸は動かない。<span class="math inline">\(\mathbf{r} \perp \mathbf{n}\)</span> ならば <span class="math inline">\(\mathrm{f}(\mathrm{f}(\mathbf{r})) = -\mathbf{r}\)</span> であり、 <span class="math display">\[\mathrm{g}(\mathbf{r}) = \mathbf{r} + \sin\theta\,(\mathbf{n} \times \mathbf{r}) - (1 - \cos\theta)\mathbf{r} = \cos\theta\,\mathbf{r} + \sin\theta\,(\mathbf{n} \times \mathbf{r}).\]</span> <span class="math inline">\(\mathbf{n} \times \mathbf{r}\)</span> は <span class="math inline">\(\mathbf{r}\)</span> を <span class="math inline">\(\mathbf{n}\)</span> のまわりに <span class="math inline">\(90^\circ\)</span> 回したもので長さも等しいから、これは <span class="math inline">\(\mathbf{r}\)</span> を <span class="math inline">\(\mathbf{n}\)</span> のまわりに角 <span class="math inline">\(\theta\)</span> だけ回転したものであり、平面における <span class="math inline">\((\cos\theta + \mathrm{i}\sin\theta)z\)</span> とまったく同じである。<span class="math inline">\(\mathrm{g}\)</span> は線形（linear）であり、どのベクトルも <span class="math inline">\(\mathbf{n}\)</span> の実数倍と <span class="math inline">\(\mathbf{n}\)</span> に垂直なベクトルの和として表せるので、<span class="math inline">\(\mathrm{g}\)</span> は<strong>原点を通り <span class="math inline">\(\mathbf{n}\)</span> 方向を向く軸のまわりの角 <span class="math inline">\(\theta\)</span> の回転</strong>である（<span class="math inline">\(\mathbf{n}\)</span> の先端から見て反時計回り）。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-7-5-1.svg" alt="図 7.5.1"><figcaption><span class="fig-label">図 7.5.1</span> ロドリゲスの公式。ベクトル <span class="math inline">\(\mathbf{r}\)</span> は、軸 <span class="math inline">\(\mathbf{n}\)</span> 方向の部分と、それに垂直な部分 <span class="math inline">\(\mathbf{r}_\perp\)</span> に分かれる。後者は円を描く。<span class="math inline">\(\mathbf{n}\)</span> との外積をとると <span class="math inline">\(\mathbf{r}_\perp\)</span> は <span class="math inline">\(90^\circ\)</span> 回転し（琥珀色）、2回とると <span class="math inline">\(-\mathbf{r}_\perp\)</span> になる（紫）。回転後のベクトル <span class="math inline">\(\mathrm{g}(\mathbf{r})\)</span> は <span class="math inline">\(\mathbf{r}_\parallel + \cos\theta\,\mathbf{r}_\perp + \sin\theta\,(\mathbf{n} \times \mathbf{r})\)</span> である。</figcaption></figure>
+<h4 id="stagemark3-鏡映" class="stage"><span class="stage-n">段階 3</span> 鏡映</h4>
+<div class="pausebox">
+<p>小問 (i) を用いて <span class="math inline">\(\mathrm{h}(\mathbf{s}) = -\mathbf{s} - 2\mathrm{f}(\mathrm{f}(\mathbf{s}))\)</span> を簡単にせよ。<span class="math inline">\(\mathbf{n}\)</span> 方向のベクトルと、<span class="math inline">\(\mathbf{n}\)</span> に垂直なベクトルは、それぞれどう変換されるか。</p>
+</div>
+<p><span class="math inline">\(\mathrm{h}(\mathbf{s}) = -\mathbf{s} - 2\bigl((\mathbf{n}.\mathbf{s})\mathbf{n} - \mathbf{s}\bigr) = \mathbf{s} - 2(\mathbf{n}.\mathbf{s})\mathbf{n}\)</span> である。<span class="math inline">\(\mathbf{n}\)</span> に垂直なベクトルは変わらず、<span class="math inline">\(\mathrm{h}(\mathbf{n}) = -\mathbf{n}\)</span> となる。よって <span class="math inline">\(\mathrm{h}\)</span> は<strong>原点を通り <span class="math inline">\(\mathbf{n}\)</span> に垂直な平面に関する鏡映</strong>（reflection）である。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>平行な部分と垂直な部分に分解する。</strong> <span class="math inline">\(\mathbf{r}\)</span> を <span class="math inline">\(\mathbf{n}\)</span> に沿う成分とそれを横切る成分に分けた途端、どの段階も明快になった。</p></li>
+<li><p><strong>線形性が作業を減らす。</strong> 線形写像（linear map）を特定するには、うまく選んだいくつかのベクトルをどう写すかがわかれば十分である。</p></li>
+<li><p><strong>複素数の類似。</strong> <span class="math inline">\(\mathbf{n}\)</span> に垂直なベクトルの上では、<span class="math inline">\(\mathrm{f}\)</span> は <span class="math inline">\(\mathrm{i}\)</span> を掛ける操作のようにふるまう。すなわち <span class="math inline">\(\mathrm{f}^2 = -1\)</span> であり、<span class="math inline">\(\mathrm{g} = \cos\theta + \sin\theta\,\mathrm{f}\)</span> である。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">オイラーの回転定理</div>
+<p>原点を固定する3次元空間の回転はすべて、原点を通るある軸のまわりの回転である。これはオイラー（Euler）が1775年に証明した。行列の言葉でいえば、<span class="math inline">\(3 \times 3\)</span> の回転行列はすべて固有値（eigenvalue）<span class="math inline">\(1\)</span> の固有ベクトル（eigenvector）をもち、それが軸である。ロドリゲスの公式はその逆を与える。すなわち、任意の軸 <span class="math inline">\(\mathbf{n}\)</span> と角 <span class="math inline">\(\theta\)</span> に対して、回転行列は <span class="math display">\[\mathbf{R} = \mathbf{I} + \sin\theta\,\mathbf{K} + (1 - \cos\theta)\,\mathbf{K}^2, \qquad \mathbf{K} = \begin{pmatrix} 0 &amp; -c &amp; b \\ c &amp; 0 &amp; -a \\ -b &amp; a &amp; 0 \end{pmatrix},\]</span> で与えられる。ここで <span class="math inline">\(\mathbf{K}\)</span> は <span class="math inline">\(\mathbf{r} \mapsto \mathbf{n} \times \mathbf{r}\)</span> の行列である。<span class="math inline">\(\mathbf{K}^3 = -\mathbf{K}\)</span> であるから、指数級数（exponential series）<span class="math inline">\(e^{\theta\mathbf{K}} = \mathbf{I} + \theta\mathbf{K} + \frac{\theta^2}{2!}\mathbf{K}^2 + \cdots\)</span> はちょうどこの公式にまとまる。これは <span class="math inline">\(e^{\mathrm{i}\theta} = \cos\theta + \mathrm{i}\sin\theta\)</span> の3次元版である。回転と「無限小回転」<span class="math inline">\(\mathbf{K}\)</span> の指数関数とのこの結びつきが、<em>リー群</em>（Lie groups）の理論の出発点である。</p>
+</div>
+<h3 id="回転は可換ではない">回転は可換ではない</h3>
+<p>本を水平に持ち、鉛直な軸のまわりに <span class="math inline">\(90^\circ\)</span> 回転させてから、水平な軸のまわりに <span class="math inline">\(90^\circ\)</span> 回転させてみよう。次に最初からやり直し、2つの回転を逆の順序で行う。本は異なる位置に落ち着く。2次元とは異なり、3次元における回転の合成（composition）は可換ではない。これが <a href="../ch06/quaternions.html">第 6.7 節</a> の四元数（quaternions）が役に立つ理由の1つである。<span class="math inline">\(\mathbf{n}\)</span> のまわりの角 <span class="math inline">\(\theta\)</span> の回転は四元数 <span class="math inline">\(\cos\frac\theta2 + \sin\frac\theta2(a\mathrm{i} + b\mathrm{j} + c\mathrm{k})\)</span> に対応し、回転の合成は四元数の積になり、非可換性がはじめから組み込まれている。ロドリゲス自身は1840年の論文で、ハミルトン（Hamilton）が四元数を考案する3年前に、回転の合成公式を見いだしていた。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">不変な部分に分ける</div>
+<p><em>変換を理解するには、その変換が単純に扱う部分に空間を分けよ。ここでは、軸（そのまま残る）と、それに垂直な平面（回転する）である。</em></p>
+<p>これは <a href="../ch07/eigenvectors.html">第 7.2 節</a> の固有ベクトルと同じ考え方である。変換が保つ部分空間を見つけ、それぞれの部分の上で変換を調べるのである。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>平面の回転。</strong> <a href="https://step.maths.org/questions/17-s3-q2">STEP III 2017、第2問</a> に挑戦せよ。複素数を用いて、平面の2つの回転を合成すると、1つの例外を除いて回転になることを示す問題である。その例外を見つけ、そのとき合成が何になるかを求めよ。</p></li>
+<li><p><strong>具体的な回転。</strong> 方向 <span class="math inline">\((1, 1, 1)\)</span> の軸のまわりの <span class="math inline">\(120^\circ\)</span> 回転の行列を求めよ。それが座標軸を巡回的に入れ替えることを示せ。</p></li>
+<li><p><strong><span class="math inline">\(\mathbf{K}\)</span> のべき。</strong> <span class="math inline">\(\mathbf{K}^2\mathbf{r} = (\mathbf{n}.\mathbf{r})\mathbf{n} - \mathbf{r}\)</span> および <span class="math inline">\(\mathbf{K}^3 = -\mathbf{K}\)</span> を示し、指数級数からロドリゲスの公式を導け。</p></li>
+<li><p><strong>2回の鏡映で回転になる。</strong> 原点を通り、互いに角 <span class="math inline">\(\alpha\)</span> をなす2つの平面に関して順に鏡映を行うと、それらの交線のまわりの角 <span class="math inline">\(2\alpha\)</span> の回転になることを示せ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Simon Altmann, <a href="https://uk.bookshop.org/search?keywords=Rotations%2C+Quaternions%2C+and+Double+Groups+Altmann"><em>Rotations, Quaternions, and Double Groups</em></a></strong>（Dover）。3次元の回転についての決定版で、ロドリゲスの貢献も扱っている。</p></li>
+<li><p><strong>Simon Altmann, 「Hamilton, Rodrigues, and the quaternion scandal」</strong>, <em>Mathematics Magazine</em> 62 (1989)。短く生き生きとした歴史の読み物。</p></li>
+<li><p><strong>John Stillwell, <a href="https://uk.bookshop.org/search?keywords=Naive+Lie+Theory+Stillwell"><em>Naive Lie Theory</em></a></strong>（Springer）。学部生向けに回転、四元数、リー群を解説している。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="finite-order.html">← 7.4 もとに戻る行列</a><a class="next" href="hyperbolic-rotations.html">→ 7.6 双曲的回転と相対性理論</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

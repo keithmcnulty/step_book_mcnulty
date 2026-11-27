@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>평면을 자르는 직선 (STEP II 1990 Q4) — Beyond STEP</title>
+<meta name="description" content="STEP II 1990 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. 조각의 크기가 같지 않아도 된다면, 피자를 n 번 곧게 잘라 최대 몇 조각으로 나눌 수 있을까? 한 번 자르면 2 조각, 두 번이면 4 조각, 세 번이면 7 조각( 8 조각이 아니다. 직접 해 보라), 네 번이면 11 조각이다. 수열 1, 2, 4, 7, 11, 16, ldots…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch09/lazy-caterer.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/lazy-caterer.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="평면을 자르는 직선 (STEP II 1990 Q4) — Beyond STEP">
+<meta property="og:description" content="STEP II 1990 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. 조각의 크기가 같지 않아도 된다면, 피자를 n 번 곧게 잘라 최대 몇 조각으로 나눌 수 있을까? 한 번 자르면 2 조각, 두 번이면 4 조각, 세 번이면 7 조각( 8 조각이 아니다. 직접 해 보라), 네 번이면 11 조각이다. 수열 1, 2, 4, 7, 11, 16, ldots…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch09/lazy-caterer.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="평면을 자르는 직선 (STEP II 1990 Q4) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1990 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. 조각의 크기가 같지 않아도 된다면, 피자를 n 번 곧게 잘라 최대 몇 조각으로 나눌 수 있을까? 한 번 자르면 2 조각, 두 번이면 4 조각, 세 번이면 7 조각( 8 조각이 아니다. 직접 해 보라), 네 번이면 11 조각이다. 수열 1, 2, 4, 7, 11, 16, ldots…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "평면을 자르는 직선", "headline": "평면을 자르는 직선", "description": "STEP II 1990 문제 4: 단계별 풀이와 그 바탕에 있는 대학 수학. 조각의 크기가 같지 않아도 된다면, 피자를 n 번 곧게 잘라 최대 몇 조각으로 나눌 수 있을까? 한 번 자르면 2 조각, 두 번이면 4 조각, 세 번이면 7 조각( 8 조각이 아니다. 직접 해 보라), 네 번이면 11 조각이다. 수열 1, 2, 4, 7, 11, 16, ldots…", "url": "https://beyondstep.keithmcnulty.org/ko/ch09/lazy-caterer.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1990 문제 4", "세기와 확률"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "세기와 확률", "url": "https://beyondstep.keithmcnulty.org/ko/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제9장: 세기와 확률", "item": "https://beyondstep.keithmcnulty.org/ko/ch09/"}, {"@type": "ListItem", "position": 3, "name": "평면을 자르는 직선", "item": "https://beyondstep.keithmcnulty.org/ko/ch09/lazy-caterer.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch09/lazy-caterer.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch09/lazy-caterer.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch09/lazy-caterer.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch09/lazy-caterer.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제9장 · 세기와 확률</a>
+    <div class="src">STEP II · 1990 · 문제 4</div>
+    <div class="sec-head"><span class="sec-num">9.1</span><h1>평면을 자르는 직선</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-1-lazy-caterer.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제9장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 1990, 문제 4</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/90-s2-q4">step.maths.org/questions/90-s2-q4</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>조각의 크기가 같지 않아도 된다면, 피자를 <span class="math inline">\(n\)</span>번 곧게 잘라 최대 몇 조각으로 나눌 수 있을까? 한 번 자르면 <span class="math inline">\(2\)</span>조각, 두 번이면 <span class="math inline">\(4\)</span>조각, 세 번이면 <span class="math inline">\(7\)</span>조각(<span class="math inline">\(8\)</span>조각이 아니다. 직접 해 보라), 네 번이면 <span class="math inline">\(11\)</span>조각이다. 수열 <span class="math inline">\(1, 2, 4, 7, 11, 16, \ldots\)</span>은 <em>게으른 요리사 수열(lazy caterer’s sequence)</em>이라고 불리며, 이 문제는 그 일반항을 구하라고 한다.</p>
+<p>이 문제는 조합론(combinatorics) 전체에 걸쳐 쓰이는 기법의 첫 수업이다. 모든 것을 한꺼번에 세려고 하지 말라. 대신 대상을 하나 더 추가할 때 무엇이 바뀌는지 물어라. 그리고 그 답은 <a href="../ch07/platonic-solids.html">7.9 절</a>에서 정다면체(Platonic solids)와 함께 만났던 오일러(Euler) 공식 <span class="math inline">\(V - E + F = 2\)</span>의 특수한 경우임이 밝혀진다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="pausebox">
+<p>직선들이 일반적 위치(general position)에 있도록(어느 두 직선도 평행하지 않고, 어느 세 직선도 한 점을 지나지 않도록) 하여 <span class="math inline">\(n = 1, 2, 3, 4\)</span>인 경우를 조심스럽게 그려 보라. 각 경우에 선분과 영역의 개수를 세어 보라. 규칙을 추측할 수 있는가?</p>
+</div>
+<p>다음과 같은 결과를 얻을 것이다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(3\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(4\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">선분</td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(9\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(16\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">영역</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(7\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(11\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>선분의 개수는 <span class="math inline">\(n^2\)</span>인 것처럼 보인다. 영역의 개수는 <span class="math inline">\(1, 2, 3, 4\)</span>씩 늘어난다. 즉 계차가 자연수이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-선분-세기" class="stage"><span class="stage-n">단계 1</span> 선분 세기</h4>
+<div class="askyourself">
+<p>직선 하나에만 집중하라. 다른 직선 중 몇 개가 이 직선과 만나고, 그 직선들은 이 직선을 몇 조각으로 자르는가?</p>
+</div>
+<p>각 직선은 나머지 <span class="math inline">\(n - 1\)</span>개의 직선 각각과 만나고(어느 것도 이 직선과 평행하지 않으므로), 그 교점은 서로 다른 <span class="math inline">\(n - 1\)</span>개의 점이다(어느 세 직선도 한 점에서 만나지 않으므로). 이 <span class="math inline">\(n - 1\)</span>개의 점은 직선을 <span class="math inline">\(n\)</span>개의 선분으로 자른다. 양 끝의 무한한 선분 두 개와 그 사이의 유한한 선분 <span class="math inline">\(n - 2\)</span>개이다. 직선이 <span class="math inline">\(n\)</span>개이므로, 모두 <span class="math display">\[n \times n = n^2 \text{개의 선분}. \qed\]</span> 이 있다. 이것은 직접 센 것이며 수학적 귀납법(induction)이 필요하지 않다. 직선 하나씩 선분을 세었을 뿐이다.</p>
+<h4 id="stagemark2-직선을-하나-더하면-어떻게-되는가" class="stage"><span class="stage-n">단계 2</span> 직선을 하나 더하면 어떻게 되는가?</h4>
+<div class="askyourself">
+<p><span class="math inline">\(n - 1\)</span>개의 직선이 그려져 있고, 여기에 <span class="math inline">\(n\)</span>번째 직선을 더한다고 하자. 이 직선은 다른 직선들에 의해 <span class="math inline">\(n\)</span>개의 선분으로 잘린다. 각 선분은 자신이 지나가는 영역에 어떤 일을 하는가?</p>
+</div>
+<p>새 직선을 그으면, 그 <span class="math inline">\(n\)</span>개의 선분은 각각 기존 영역 중 하나를 지나가면서 그 영역을 둘로 나눈다(그림 9.1.1). 한 영역에서 다른 영역으로 넘어가려면 기존 직선을 지나야 하므로, 서로 다른 선분은 서로 다른 영역에 놓인다. 따라서 <span class="math inline">\(n\)</span>번째 직선을 더하면 영역의 개수는 정확히 <span class="math inline">\(n\)</span>만큼 늘어난다. <span class="math display">\[R(n) = R(n - 1) + n.\]</span></p>
+<h4 id="stagemark3-점화식recurrence-relation-풀기" class="stage"><span class="stage-n">단계 3</span> 점화식(recurrence relation) 풀기</h4>
+<p><span class="math inline">\(R(0) = 1\)</span>(직선이 없으면 영역은 하나)에서 시작하면 <span class="math display">\[R(n) = 1 + (1 + 2 + \cdots + n) = 1 + \frac{n(n + 1)}{2} = \frac{n^2 + n + 2}{2}.\]</span> 이를 귀납법으로 제시하면 다음과 같다. <span class="math inline">\(\frac12(1 + 1 + 2) = 2\)</span>이므로 <span class="math inline">\(n = 1\)</span>일 때 공식이 성립한다. 그리고 <span class="math inline">\(R(n - 1) = \frac12\bigl((n - 1)^2 + (n - 1) + 2\bigr) = \frac12(n^2 - n + 2)\)</span>이면 <span class="math inline">\(R(n) = \frac12(n^2 - n + 2) + n = \frac12(n^2 + n + 2)\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-1-1.svg" alt="그림 9.1.1"><figcaption><span class="fig-label">그림 9.1.1</span> 세 직선(청록색)은 평면을 <span class="math inline">\(7\)</span>개의 영역으로 나눈다. 네 번째 직선(자주색)은 호박색 점들에서 다른 세 직선과 만나며, 이 점들이 직선을 <span class="math inline">\(1\)</span>부터 <span class="math inline">\(4\)</span>까지 번호가 붙은 네 개의 선분으로 자른다. 각 선분은 영역 하나를 둘로 나누므로, 네 번째 직선은 영역을 <span class="math inline">\(4\)</span>개 늘려 모두 <span class="math inline">\(11\)</span>개가 된다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>한 번에 한 조각씩 세라.</strong> 선분은 직선 하나씩 세었고, 영역은 새 직선 하나가 더하는 개수로 세었다.</p></li>
+<li><p><strong>기하학적 단계를 점화식으로 바꾸라.</strong> “새 선분 하나가 영역 하나를 나눈다”는 관찰이 <span class="math inline">\(R(n) = R(n - 1) + n\)</span>이 되었다.</p></li>
+<li><p><strong>일반적 위치가 중요하다.</strong> 평행한 직선이 있거나 세 직선이 한 점을 지나면 영역이 더 적어진다. 각 가정이 어디에서 쓰였는지 찾아보라.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="변장한-오일러-공식">변장한 오일러 공식</h3>
+<p>여기 두 번째 증명이 있다. 이 증명은 답을 단지 유도하는 데 그치지 않고 설명해 준다. 직선들의 배치를 하나의 지도로 생각하자. 교점은 <em>꼭짓점(vertex)</em>, 선분은 <em>변(edge)</em>, 영역은 <em>면(face)</em>이다. 꼭짓점은 <span class="math inline">\(V = \binom{n}{2}\)</span>개(직선 두 개의 쌍마다 하나), 변은 <span class="math inline">\(E = n^2\)</span>개이다. 무한한 선분은 끝점이 하나뿐이므로, 이들이 모두 만나는 “무한대” 꼭짓점 하나를 추가한다. 그러면 이 그림은 구 위에 그려진 지도가 된다(평면으로 공을 감싸고 무한대가 꼭대기에 있다고 상상하라). <a href="../ch07/platonic-solids.html">7.9 절</a>의 오일러 공식 <span class="math inline">\(V - E + F = 2\)</span>에 의해 <span class="math display">\[\Bigl(\binom{n}{2} + 1\Bigr) - n^2 + F = 2, \qquad\text{따라서}\qquad F = n^2 - \frac{n(n - 1)}{2} + 1 = \frac{n^2 + n + 2}{2}.\]</span> 완전히 다른 방향에서 같은 수가 나온다. 영역들은 종류별로도 깔끔하게 나뉜다. 그중 <span class="math inline">\(2n\)</span>개는 유계가 아니고(이웃한 무한 반직선 쌍마다 하나), 나머지 <span class="math inline">\(\frac12(n^2 + n + 2) - 2n = \binom{n - 1}{2}\)</span>개는 유계이다.</p>
+<h3 id="이항계수와-고차원">이항계수와 고차원</h3>
+<p>공식은 다음과 같이 쓸 수 있다. <span class="math display">\[R(n) = \binom{n}{0} + \binom{n}{1} + \binom{n}{2},\]</span> 그리고 이것은 우연이 아니다. 어떤 직선도 수평이 되지 않도록 그림을 돌리자. 아래로 유계인 영역에는 가장 낮은 점이 있는데, 이 점은 교점이어야 하고, 각 교점은 정확히 한 영역(그 바로 위의 영역)의 가장 낮은 점이다. 이로써 직선 쌍마다 하나씩 <span class="math inline">\(\binom{n}{2}\)</span>개의 영역을 얻는다. 나머지 영역은 모두 아래로 끝없이 뻗어 있으므로, 모든 교점보다 훨씬 아래에 그은 수평선과 만난다. <span class="math inline">\(n\)</span>개의 직선은 그 수평선을 <span class="math inline">\(n + 1\)</span>개의 구간으로 자르고, 그러한 영역마다 구간이 하나씩 있다. 모두 합하면 <span class="math inline">\(\binom{n}{2} + n + 1\)</span>이다. 3차원에서는 일반적 위치에 있는 <span class="math inline">\(n\)</span>개의 평면이 공간을 <span class="math display">\[\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \binom{n}{3} = \frac{n^3 + 5n + 6}{6}\]</span> 개의 조각(<em>케이크 수(cake numbers)</em> <span class="math inline">\(1, 2, 4, 8, 15, 26, \ldots\)</span>)으로 자르며, 이 규칙은 모든 차원에서 계속된다. 증명은 같은 귀납법이다. 새 평면은 다른 평면들에 의해 평면 위의 직선들처럼 배열된 영역들로 잘리고, 그 영역 각각이 공간의 한 조각을 둘로 나눈다.</p>
+<div class="historybox">
+<div class="box-title">슈타이너와 초평면 배열</div>
+<p>직선과 평면으로 잘린 영역의 개수에 대한 공식은 1826년 슈타이너(Jakob Steiner)가 발견했다. 오늘날 이 공식은 <em>초평면 배열(hyperplane arrangements)</em> 이론의 출발점이다. 이 이론은 일반적 위치가 아닌 경우를 포함하여, 직선, 평면, 그리고 이들의 고차원 유사물을 임의로 모아 놓았을 때 생기는 영역의 개수를 센다. 1975년 Thomas Zaslavsky의 놀라운 정리는 어떤 초평면들이 만나는지를 담고 있는 다항식을 이용하여 임의의 배열의 영역 개수를 센다. 같은 아이디어가 기계 학습에도 나타난다. “ReLU” 단위로 만든 신경망은 입력 공간을 초평면으로 잘라 영역들로 나누며, 그 영역의 개수는 신경망이 나타낼 수 있는 함수가 얼마나 복잡한지를 가늠하는 척도가 된다.</p>
+</div>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">하나를 더 추가하면 무엇이 바뀌는지 물어라</div>
+<p><em><span class="math inline">\(n\)</span>개의 대상으로 이루어진 배치를 세려면, <span class="math inline">\(n - 1\)</span>개로 이루어진 배치와 비교하라. 변화량은 전체보다 훨씬 세기 쉬운 경우가 많다.</em></p>
+<p>이것은 증명만을 위해서가 아니라 발견의 도구로 쓰이는 귀납법이다. 조합론에서 가장 흔한 수법 중 하나이며, 기하학적 질문을 풀 수 있는 점화식으로 바꾸어 준다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>원.</strong> 어느 두 원도 두 점에서 만나고 어느 세 원도 한 점을 지나지 않는 <span class="math inline">\(n\)</span>개의 원이 평면을 <span class="math inline">\(n^2 - n + 2\)</span>개의 영역으로 나눔을 보여라.</p></li>
+<li><p><strong>평행선.</strong> <span class="math inline">\(n\)</span>개의 직선 중 <span class="math inline">\(k\)</span>개가 모두 서로 평행하다면(그 밖에는 일반적 위치), 영역은 몇 개인가?</p></li>
+<li><p><strong>케이크 수.</strong> 일반적 위치에 있는 <span class="math inline">\(n\)</span>개의 평면이 공간을 <span class="math inline">\(\frac16(n^3 + 5n + 6)\)</span>개의 영역으로 나눔을 귀납법으로 증명하라.</p></li>
+<li><p><strong>깨지는 규칙.</strong> 원 위에 <span class="math inline">\(n\)</span>개의 점을 놓고 모든 쌍을 현으로 잇되, 원 내부의 한 점을 세 현이 지나지 않도록 하라. <span class="math inline">\(n = 1, 2, 3, 4, 5\)</span>일 때 영역은 <span class="math inline">\(1, 2, 4, 8, 16\)</span>개이다. <span class="math inline">\(n = 6\)</span>일 때 영역의 개수를 세어 보라. (<em>힌트:</em> 오일러 공식을 이용하라. 네 점의 집합마다 교점이 하나씩 생긴다.) 그 개수가 <span class="math inline">\(1 + \binom{n}{2} + \binom{n}{4}\)</span>임을 보여라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Ronald Graham, Donald Knuth &amp; Oren Patashnik, <a href="https://uk.bookshop.org/search?keywords=Concrete+Mathematics+Graham+Knuth"><em>Concrete Mathematics</em></a></strong> (Addison-Wesley), 1장. 바로 이 문제와 그 변형인 “피자” 문제, “지그(zig)” 문제로 시작한다.</p></li>
+<li><p><strong>Miklós Bóna, <a href="https://uk.bookshop.org/search?keywords=A+Walk+Through+Combinatorics+Bona"><em>A Walk Through Combinatorics</em></a></strong> (World Scientific). 친절한 입문 교재로, 귀납법, 그래프, 오일러 공식을 다루는 장이 있다.</p></li>
+<li><p><strong>Richard Guy, “The strong law of small numbers”</strong>, <em>American Mathematical Monthly</em> 95 (1988). 당연해 보이지만 거짓으로 밝혀지는 여러 규칙을 소개하며, 연습 문제의 원 문제도 포함되어 있다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 장 도입</a><a class="next" href="ramsey.html">→ 9.2 축소판 램지 정리</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

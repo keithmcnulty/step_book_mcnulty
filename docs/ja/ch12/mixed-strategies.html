@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>混合戦略 (STEP I 1989 Q16) — Beyond STEP</title>
+<meta name="description" content="STEP I 1989 問題 16：解説付き解答とその背後にある大学数学。 じゃんけん（rock–paper–scissors）では、決まった手を出し続けると必ずつけ込まれる。毎回グーを出していれば、相手はやがてパーを出すことを覚えるだろう。安全な戦略はただ一つ、手をランダムに選ぶことである。この問題はその込み入った版であり、利得が均等ではなく、どのようにランダムに選べばよいかは自明ではない。実は…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch12/mixed-strategies.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/mixed-strategies.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/mixed-strategies.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/mixed-strategies.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/mixed-strategies.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/mixed-strategies.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/mixed-strategies.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="混合戦略 (STEP I 1989 Q16) — Beyond STEP">
+<meta property="og:description" content="STEP I 1989 問題 16：解説付き解答とその背後にある大学数学。 じゃんけん（rock–paper–scissors）では、決まった手を出し続けると必ずつけ込まれる。毎回グーを出していれば、相手はやがてパーを出すことを覚えるだろう。安全な戦略はただ一つ、手をランダムに選ぶことである。この問題はその込み入った版であり、利得が均等ではなく、どのようにランダムに選べばよいかは自明ではない。実は…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch12/mixed-strategies.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="混合戦略 (STEP I 1989 Q16) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 1989 問題 16：解説付き解答とその背後にある大学数学。 じゃんけん（rock–paper–scissors）では、決まった手を出し続けると必ずつけ込まれる。毎回グーを出していれば、相手はやがてパーを出すことを覚えるだろう。安全な戦略はただ一つ、手をランダムに選ぶことである。この問題はその込み入った版であり、利得が均等ではなく、どのようにランダムに選べばよいかは自明ではない。実は…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "混合戦略", "headline": "混合戦略", "description": "STEP I 1989 問題 16：解説付き解答とその背後にある大学数学。 じゃんけん（rock–paper–scissors）では、決まった手を出し続けると必ずつけ込まれる。毎回グーを出していれば、相手はやがてパーを出すことを覚えるだろう。安全な戦略はただ一つ、手をランダムに選ぶことである。この問題はその込み入った版であり、利得が均等ではなく、どのようにランダムに選べばよいかは自明ではない。実は…", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/mixed-strategies.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 1989 問題 16", "確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第12章：確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/"}, {"@type": "ListItem", "position": 3, "name": "混合戦略", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/mixed-strategies.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch12/mixed-strategies.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/mixed-strategies.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/mixed-strategies.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch12/mixed-strategies.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第12章 · 確率</a>
+    <div class="src">STEP I · 1989 · 問題 16</div>
+    <div class="sec-head"><span class="sec-num">12.14</span><h1>混合戦略</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-14-mixed-strategies.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第12章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP I 1989、第16問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/89-s1-q16">step.maths.org/questions/89-s1-q16</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>じゃんけん（rock–paper–scissors）では、決まった手を出し続けると必ずつけ込まれる。毎回グーを出していれば、相手はやがてパーを出すことを覚えるだろう。安全な戦略はただ一つ、手をランダムに選ぶことである。この問題はその込み入った版であり、利得が均等ではなく、どのようにランダムに選べばよいかは自明ではない。実は、<span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> をそれぞれ確率 <span class="math inline">\(\frac14\)</span>, <span class="math inline">\(\frac12\)</span>, <span class="math inline">\(\frac14\)</span> で言うことにすれば、相手がどうしようとも、長い目で見て負けないことを保証できるのである。</p>
+<p>これは、1928年のジョン・フォン・ノイマン（John von Neumann）による<em>ミニマックス定理</em>（minimax theorem）を初めて垣間見る例である。この定理はゲーム理論（game theory）の礎となった結果であり、一方の利得が他方の損失となるあらゆる二人ゲームにおいて、各プレイヤーには、完璧にプレイする相手に対して可能な限り最良の結果を保証するランダム化された戦略が存在する、と主張する。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>二人の言う数の各組について、B の獲得額の表を書いてみよ（B の数を縦に、A の数を横に並べる）。</p>
+</div>
+<p>規則を一つずつ当てはめていくと（たとえば B が <span class="math inline">\(1\)</span>、A が <span class="math inline">\(3\)</span> と言えば、差は <span class="math inline">\(2\)</span> であり、小さい方の B が £2 を支払う）、次の表が得られる。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">B <span class="math inline">\(\backslash\)</span> A</th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>この表は<em>交代的</em>（antisymmetric）である（プレイヤーを入れ替えると符号が変わる）。したがって、どちらのプレイヤーにも生まれつきの有利さはないという意味で、このゲームは公平である。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-決まった数に対して" class="stage"><span class="stage-n">段階 1</span> 決まった数に対して</h4>
+<p>A がいつも <span class="math inline">\(1\)</span> と言うなら、B は <span class="math inline">\(3\)</span> と言えば毎回 £2 を得る。A がいつも <span class="math inline">\(2\)</span> と言うなら、B は <span class="math inline">\(1\)</span> と言って £1 を得る。A がいつも <span class="math inline">\(3\)</span> と言うなら、B は <span class="math inline">\(2\)</span> と言って £1 を得る。どんな決まった数もつけ込まれてしまう。</p>
+<h4 id="stagemark2-一様にランダムな選択に対して" class="stage"><span class="stage-n">段階 2</span> 一様にランダムな選択に対して</h4>
+<div class="askyourself">
+<p>A が一様にランダムに数を選ぶとき、B が <span class="math inline">\(j\)</span> と言った場合の B の期待利得（expected winnings）はいくらか。（表の第 <span class="math inline">\(j\)</span> 行の平均をとればよい。）</p>
+</div>
+<p>各行の平均は、<span class="math inline">\(j = 1\)</span> のとき <span class="math inline">\(\frac13(0 + 1 - 2) = -\frac13\)</span>、<span class="math inline">\(j = 2\)</span> のとき <span class="math inline">\(0\)</span>、<span class="math inline">\(j = 3\)</span> のとき <span class="math inline">\(\frac13(2 - 1 + 0) = \frac13\)</span> である。よって、1回あたりの B の期待利得は <span class="math display">\[-\tfrac13b_1 + 0\cdot b_2 + \tfrac13b_3,\]</span> であり、これは <span class="math inline">\(b_3 = 1\)</span> のとき最大となる。すなわち、いつも <span class="math inline">\(3\)</span> と言えば、1回あたり平均で <span class="math inline">\(\frac13\)</span> ポンドを得る。一様なランダム化では A は身を守れない。</p>
+<h4 id="stagemark3-一般の場合" class="stage"><span class="stage-n">段階 3</span> 一般の場合</h4>
+<div class="askyourself">
+<p>今度は A が確率 <span class="math inline">\(a_j\)</span> で <span class="math inline">\(j\)</span> を言うとする。B の期待利得を A の数ごとにまとめよ。<span class="math inline">\(a_1\)</span> の係数（第 <span class="math inline">\(1\)</span> 列の重み <span class="math inline">\(b_j\)</span> による平均）は何か。</p>
+</div>
+<p>表を列に沿って読むと、 <span class="math display">\[\text{B の期待利得} = (-b_2 + 2b_3)a_1 + (b_1 - b_3)a_2 + (-2b_1 + b_2)a_3,\]</span> となるので、<span class="math inline">\(X = -b_2 + 2b_3\)</span>, <span class="math inline">\(Y = b_1 - b_3\)</span>, <span class="math inline">\(Z = -2b_1 + b_2\)</span> である。</p>
+<div class="askyourself">
+<p>三つすべてを <span class="math inline">\(0\)</span> にできるか。（方程式は三つあるが、独立ではない。なぜか。）</p>
+</div>
+<p>これらは独立ではない。恒等的に <span class="math inline">\(X + 2Y + Z = 0\)</span> が成り立つからである（確かめてみよ）。したがって、<span class="math inline">\(Y = 0\)</span> から <span class="math inline">\(b_1 = b_3\)</span>、<span class="math inline">\(X = 0\)</span> から <span class="math inline">\(b_2 = 2b_3\)</span> が得られれば、自動的に <span class="math inline">\(Z = 0\)</span> も成り立つ。<span class="math inline">\(b_1 + b_2 + b_3 = 1\)</span> と合わせて <span class="math display">\[b_1 = \tfrac14, \qquad b_2 = \tfrac12, \qquad b_3 = \tfrac14,\]</span> を得て、<span class="math inline">\(X = Y = Z = 0\)</span> となる。このとき、<span class="math inline">\(a_j\)</span> が何であっても B の期待利得は <span class="math inline">\(0\)</span> であり、B は長い目で見て何も失わない。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-14-1.svg" alt="図 12.14.1"><figcaption><span class="fig-label">図 12.14.1</span> B の三つの戦略それぞれについて、A の各選択に対する B の期待利得。いつも <span class="math inline">\(3\)</span> と言う戦略は A の <span class="math inline">\(1\)</span> には勝つが、A の <span class="math inline">\(2\)</span> には負ける。一様な選択は A の <span class="math inline">\(3\)</span> に負ける。戦略 <span class="math inline">\((\frac14, \frac12, \frac14)\)</span> は A が何をしても期待利得がちょうど <span class="math inline">\(0\)</span>（細い棒で表示）となるので、決してつけ込まれることがない。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>利得表（payoff table）を書く。</strong> 推論はすべて <span class="math inline">\(3 \times 3\)</span> 行列の行と列についてのものであった。</p></li>
+<li><p><strong>純粋戦略（pure strategy）はつけ込まれる。</strong> どんな決まった数に対しても、さらには一様な選択に対してさえ、相手には得をする応じ方がある。</p></li>
+<li><p><strong>均等にする。</strong> 安全な戦略とは、相手にとってどの選択も無差別になるようにするものである。すなわち、A のどの選択も同じ期待値を与える。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="ミニマックス定理">ミニマックス定理</h3>
+<p>利得行列（payoff matrix）<span class="math inline">\(M\)</span> で与えられる二人<em>ゼロ和</em>（zero-sum）ゲームにおいて、B が確率 <span class="math inline">\(\mathbf{b}\)</span> を、A が確率 <span class="math inline">\(\mathbf{a}\)</span> を選ぶとき、B の期待利得は <span class="math inline">\(\mathbf{b}^{\mathsf T}M\mathbf{a}\)</span> である。フォン・ノイマンのミニマックス定理は <span class="math display">\[\max_{\mathbf b}\min_{\mathbf a}\mathbf{b}^{\mathsf T}M\mathbf{a} = \min_{\mathbf a}\max_{\mathbf b}\mathbf{b}^{\mathsf T}M\mathbf{a}.\]</span> が成り立つことを主張する。言葉で言えば、B がランダム化された戦略を前もって宣言することで保証できる額は、A が自分の戦略を宣言することで B を抑え込める額に等しい。この共通の値をゲームの<em>値</em>（value）という。ここでは交代性から値は <span class="math inline">\(0\)</span> であり、戦略 <span class="math inline">\((\frac14, \frac12, \frac14)\)</span> は両プレイヤーにとって最適である。この定理は線形代数と凸性（convexity）を用いて証明される（線形計画法（linear programming）の双対定理（duality theorem）と同値である）。また、その多人数への一般化である<em>ナッシュ均衡</em>（Nash equilibrium）により、ジョン・ナッシュ（John Nash）はノーベル経済学賞を受賞した。</p>
+<h3 id="なぜランダムにするのか">なぜランダムにするのか</h3>
+<p>ここでのランダム性は運の問題ではなく、情報の問題である。B の選択が予測できれば、A はそれにつけ込める。適切な確率でランダムに選ぶことで、B は自分の選択を予測不能にする<em>とともに</em>、どんな予測も役に立たないようにするのである。実例としては、サッカーのペナルティーキックがある。プロ選手の研究では、キッカーもゴールキーパーも左右をランダムに選んでおり、その比率はゲーム理論上の最適値に近いことがわかっている。テニスのサーブも同様の例である。</p>
+<div class="historybox">
+<div class="box-title">フォン・ノイマンの1928年の論文</div>
+<p>ジョン・フォン・ノイマンは1928年、論文「On the theory of games of strategy」（戦略ゲームの理論について）においてミニマックス定理を証明した。動機となったのはポーカーであり、そこではブラフがランダム化の一形態となっている。1944年、彼は経済学者オスカー・モルゲンシュテルン（Oskar Morgenstern）とともに <em>Theory of Games and Economic Behavior</em>（『ゲームの理論と経済行動』）を出版し、ゲーム理論を一つの学問分野として確立した。フォン・ノイマンは後年、ミニマックス定理こそが鍵となる結果であり、それなしには出版に値するゲーム理論は存在しえなかったと考えていた、と回想している。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">ランダムに選んで相手の有利さを消す</div>
+<p><em>どんな決まった選択もつけ込まれるときは、相手にとってどの選択肢も無差別になるような確率で、ランダムに選べ。</em></p>
+<p>大学では、ゲーム理論、線形計画法、アルゴリズムの理論のいずれもがこの考え方を用いる。たとえば乱択アルゴリズム（randomised algorithm）は、どんな敵対者も予測できないランダムな選択を行うことで、最悪の入力から身を守っている。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>A の最適な応じ方。</strong> B が <span class="math inline">\((\frac14, \frac12, \frac14)\)</span> を用いるとき、A のどの戦略も期待利得 <span class="math inline">\(0\)</span> を与えることを示せ。また、B が代わりに <span class="math inline">\((\frac13, \frac13, \frac13)\)</span> を用いるとき、A の最適な応じ方を求めよ。</p></li>
+<li><p><strong>じゃんけん。</strong> じゃんけんの利得行列を書き、最適戦略を求めよ。ここでは一様になるのに、問題ではそうならないのはなぜか。</p></li>
+<li><p><strong>一意性。</strong> 負けないことを保証する B の戦略は <span class="math inline">\((\frac14, \frac12, \frac14)\)</span> <em>ただ一つ</em>であることを示せ。（<em>ヒント：</em>その戦略は <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, <span class="math inline">\(Z\)</span> をすべて非負にしなければならない。<span class="math inline">\(X + 2Y + Z = 0\)</span> を用いよ。）</p></li>
+<li><p><strong>修正されたゲーム。</strong> 差が <span class="math inline">\(2\)</span> のときの支払いが £2 ではなく £3 であるとき、最適戦略を求めよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Ken Binmore, <a href="https://uk.bookshop.org/search?keywords=Playing+for+Real+Binmore"><em>Playing for Real</em></a></strong> (Oxford University Press)。ゲーム理論への、本格的でありながら親しみやすい入門書。</p></li>
+<li><p><strong>Avinash Dixit &amp; Barry Nalebuff, <a href="https://uk.bookshop.org/search?keywords=The+Art+of+Strategy+Dixit+Nalebuff"><em>The Art of Strategy</em></a></strong> (Norton)。スポーツやビジネスの例を用いたゲーム理論の本。</p></li>
+<li><p><strong>William Poundstone, <a href="https://uk.bookshop.org/search?keywords=Prisoner%27s+Dilemma+Poundstone"><em>Prisoner’s Dilemma</em></a></strong> (Anchor)。フォン・ノイマン、ゲーム理論、そして冷戦。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="truel.html">← 12.13 三つ巴の決闘</a><a class="next" href="branching.html">→ 12.15 絶滅か爆発か</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

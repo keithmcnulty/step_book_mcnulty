@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ペニーのゲーム (STEP III 2001 Q13) — Beyond STEP</title>
+<meta name="description" content="STEP III 2001 問題 13：解説付き解答とその背後にある大学数学。 あなたと友人がそれぞれ硬貨投げ 3 回分の列を1つずつ選び、どちらかの列が現れるまで硬貨を投げ続ける。 3 回分の列はどれも、どの時点においても等しい確率（probability）で現れるのだから、どれを選んでも同じくらい有利なはずではないか。まったくそうではない。友人がどの列を選んでも、あなたはそれに勝つ列を選ぶこと…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch12/penney.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/penney.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/penney.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/penney.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/penney.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/penney.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/penney.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="ペニーのゲーム (STEP III 2001 Q13) — Beyond STEP">
+<meta property="og:description" content="STEP III 2001 問題 13：解説付き解答とその背後にある大学数学。 あなたと友人がそれぞれ硬貨投げ 3 回分の列を1つずつ選び、どちらかの列が現れるまで硬貨を投げ続ける。 3 回分の列はどれも、どの時点においても等しい確率（probability）で現れるのだから、どれを選んでも同じくらい有利なはずではないか。まったくそうではない。友人がどの列を選んでも、あなたはそれに勝つ列を選ぶこと…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch12/penney.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ペニーのゲーム (STEP III 2001 Q13) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2001 問題 13：解説付き解答とその背後にある大学数学。 あなたと友人がそれぞれ硬貨投げ 3 回分の列を1つずつ選び、どちらかの列が現れるまで硬貨を投げ続ける。 3 回分の列はどれも、どの時点においても等しい確率（probability）で現れるのだから、どれを選んでも同じくらい有利なはずではないか。まったくそうではない。友人がどの列を選んでも、あなたはそれに勝つ列を選ぶこと…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "ペニーのゲーム", "headline": "ペニーのゲーム", "description": "STEP III 2001 問題 13：解説付き解答とその背後にある大学数学。 あなたと友人がそれぞれ硬貨投げ 3 回分の列を1つずつ選び、どちらかの列が現れるまで硬貨を投げ続ける。 3 回分の列はどれも、どの時点においても等しい確率（probability）で現れるのだから、どれを選んでも同じくらい有利なはずではないか。まったくそうではない。友人がどの列を選んでも、あなたはそれに勝つ列を選ぶこと…", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/penney.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2001 問題 13", "確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第12章：確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/"}, {"@type": "ListItem", "position": 3, "name": "ペニーのゲーム", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/penney.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch12/penney.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/penney.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/penney.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch12/penney.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第12章 · 確率</a>
+    <div class="src">STEP III · 2001 · 問題 13</div>
+    <div class="sec-head"><span class="sec-num">12.8</span><h1>ペニーのゲーム</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-8-penney.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第12章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2001、第13問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/01-s3-q13">step.maths.org/questions/01-s3-q13</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>あなたと友人がそれぞれ硬貨投げ <span class="math inline">\(3\)</span> 回分の列を1つずつ選び、どちらかの列が現れるまで硬貨を投げ続ける。<span class="math inline">\(3\)</span> 回分の列はどれも、どの時点においても等しい確率（probability）で現れるのだから、どれを選んでも同じくらい有利なはずではないか。まったくそうではない。友人がどの列を選んでも、あなたはそれに勝つ列を選ぶことができ、ときには <span class="math inline">\(7\)</span> 対 <span class="math inline">\(1\)</span> という差をつけることさえできる。</p>
+<p>これは <em>Penney のゲーム</em>（Penney’s game）であり、1969年に Walter Penney が考案したものである。この問題では、<span class="math inline">\(A\)</span> が <span class="math inline">\(B\)</span> に勝ち、<span class="math inline">\(B\)</span> が <span class="math inline">\(C\)</span> に勝ち、<span class="math inline">\(C\)</span> が <span class="math inline">\(D\)</span> に勝ち、<span class="math inline">\(D\)</span> が <span class="math inline">\(A\)</span> に勝つことを示す。じゃんけんのような循環である。「勝つ」という関係は推移的（transitive）ではない。後から選ぶ者は、長い目で見れば常に勝つことができるのである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>ここまでの投げの結果が TT で終わっていて、まだどちらも勝っていないとする。TTH より先に THH が現れることはありうるか。</p>
+</div>
+<p>TT の状態から T が続く限り、最後の <span class="math inline">\(2\)</span> 回は TT のままであり、最初の H が出た時点で TTH が完成する。THH が現れるには TH が必要だが、TH は T の後に H が出ることでしか生じず、その H によってすでに TTH が完成してしまう。したがって、いったん TT が現れれば <span class="math inline">\(A\)</span> の勝ちである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-状態" class="stage"><span class="stage-n">段階 1</span> 状態</h4>
+<div class="askyourself">
+<p>どちらの列も <span class="math inline">\(2\)</span> 回の投げでは完成しない。<span class="math inline">\(2\)</span> 回投げた後、それぞれの状態から次の <span class="math inline">\(1\)</span> 回はどのような効果をもつか。</p>
+</div>
+<p>ゲームの行方は最後の <span class="math inline">\(2\)</span> 回の結果だけで決まるので、状態（state）（最後の <span class="math inline">\(2\)</span> 回の結果）を追跡すればよい。</p>
+<ul>
+<li><p>TT から：<span class="math inline">\(A\)</span> が勝つ（上で示した）。よって <span class="math inline">\(p_{\mathrm{TT}} = 1\)</span> である。</p></li>
+<li><p>HT から：次の <span class="math inline">\(1\)</span> 回で TH か TT になる。よって <span class="math inline">\(p_{\mathrm{HT}} = \frac12p_{\mathrm{TH}} + \frac12p_{\mathrm{TT}}\)</span> である。</p></li>
+<li><p>TH から：H が出れば THH が完成し（<span class="math inline">\(B\)</span> の勝ち）、T が出れば HT になる。よって <span class="math inline">\(p_{\mathrm{TH}} = \frac12 \cdot 0 + \frac12p_{\mathrm{HT}}\)</span> である。</p></li>
+<li><p>HH から：H が出れば再び HH、T が出れば HT になる。よって <span class="math inline">\(p_{\mathrm{HH}} = \frac12p_{\mathrm{HH}} + \frac12p_{\mathrm{HT}}\)</span> であり、<span class="math inline">\(p_{\mathrm{HH}} = p_{\mathrm{HT}}\)</span> を得る。</p></li>
+</ul>
+<h4 id="stagemark2-解く" class="stage"><span class="stage-n">段階 2</span> 解く</h4>
+<p><span class="math inline">\(p_{\mathrm{TH}} = \frac12p_{\mathrm{HT}}\)</span> を HT の式に代入すると <span class="math inline">\(p_{\mathrm{HT}} = \frac14p_{\mathrm{HT}} + \frac12\)</span> となるので、<span class="math inline">\(p_{\mathrm{HT}} = \frac23\)</span>、<span class="math inline">\(p_{\mathrm{HH}} = \frac23\)</span>、<span class="math inline">\(p_{\mathrm{TH}} = \frac13\)</span> である。<span class="math inline">\(4\)</span> つの初期状態はそれぞれ確率 <span class="math inline">\(\frac14\)</span> で生じるから、 <span class="math display">\[\mathrm{P}(A \text{ が勝つ}) = \tfrac14\bigl(\tfrac23 + \tfrac23 + \tfrac13 + 1\bigr) = \tfrac23. \qed\]</span></p>
+<h4 id="stagemark3-b-対-c" class="stage"><span class="stage-n">段階 3</span> <span class="math inline">\(B\)</span> 対 <span class="math inline">\(C\)</span></h4>
+<div class="askyourself">
+<p><span class="math inline">\(C\)</span> は HHT を、<span class="math inline">\(B\)</span> は THH を望んでいる。<span class="math inline">\(C\)</span> が勝つのはどのようなときか。（最初の HH の直前に何がなければならないかを見よ。）</p>
+</div>
+<p>最初の <span class="math inline">\(2\)</span> 回が HH であれば、その後に出る最初の T によって、THH が現れる前に HHT が完成する。<span class="math inline">\(C\)</span> の勝ちである。そうでなければ、HH が初めて現れるより前のどこかに T があるので、最初の HH の直前は必ず T である。その瞬間に THH が現れ、これは（HH の後に T を必要とする）HHT より先である。したがって <span class="math inline">\(C\)</span> が勝つのはゲームが HH で始まるときに限られ、 <span class="math display">\[\mathrm{P}(B \text{ が勝つ}) = \tfrac34. \qed\]</span></p>
+<h4 id="stagemark4-循環" class="stage"><span class="stage-n">段階 4</span> 循環</h4>
+<p>同じ方法（あるいは「背後にある数学」の節で述べる近道）により、<span class="math inline">\(C\)</span>（HHT）は確率 <span class="math inline">\(\frac23\)</span> で <span class="math inline">\(D\)</span>（HTT）に勝ち、<span class="math inline">\(D\)</span>（HTT）は確率 <span class="math inline">\(\frac34\)</span> で <span class="math inline">\(A\)</span>（TTH）に勝つことがわかる。後者は、ステージ 3 で表と裏を入れ替えた鏡像である。よって <span class="math display">\[A \text{ が勝つ相手は } B, \qquad B \text{ が勝つ相手は } C, \qquad C \text{ が勝つ相手は } D, \qquad D \text{ が勝つ相手は } A. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-8-1.svg" alt="図 12.8.1"><figcaption><span class="fig-label">図 12.8.1</span> Penney の循環。<span class="math inline">\(X\)</span> から <span class="math inline">\(Y\)</span> への矢印は、<span class="math inline">\(X\)</span> の列が <span class="math inline">\(Y\)</span> の列に、示された確率で勝つことを表す。どの列にもそれに勝つ列があるので、後から選ぶ者は常に勝つ列を選ぶことができる。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>適切な状態を選ぶ。</strong>重要なのは最後の <span class="math inline">\(2\)</span> 回だけだったので、<span class="math inline">\(4\)</span> つの状態と <span class="math inline">\(4\)</span> つの方程式でゲーム全体を捉えることができた。</p></li>
+<li><p><strong>第一ステップ解析。</strong>各方程式は次の <span class="math inline">\(1\)</span> 回の結果で条件づけたものである。ある状態からの確率は、次の <span class="math inline">\(1\)</span> 回で移る先についての平均である。</p></li>
+<li><p><strong>決定的な事象を探す。</strong>ステージ 3 では、「最初の HH の直前は T である」という事実によって、方程式を使わずに勝敗が決まった。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="なぜ有利な列があるのか">なぜ有利な列があるのか</h3>
+<p><span class="math inline">\(3\)</span> 回分の列はどれも、どの位置においても等しい確率で現れ、それぞれの期待（expected）待ち時間（waiting time）は容易に計算できる。しかし待ち時間は列によって異なる。TTH は平均 <span class="math inline">\(8\)</span> 回で現れるが、TTT は平均 <span class="math inline">\(14\)</span> 回かかる。自分自身と重なりをもつ列（TTT のように、惜しくも TTH となると <span class="math inline">\(2\)</span> 回分の進捗が無駄になるもの）は現れるのが遅いのである。そして <span class="math inline">\(2\)</span> つの列の競争で重要なのは、それぞれが<em>相手の列</em>とどう重なるかである。THH が HHT に勝つのは、HHT のどの出現も（一番最初を除けば）直前に T があり、つまりその時点で THH がちょうど現れているからである。後から選ぶ者の秘訣は常に同じである。相手の列の最初の <span class="math inline">\(2\)</span> つの記号をとり、その前に相手の列の真ん中の記号の反対を置けばよい。</p>
+<h3 id="コンウェイの公式">コンウェイの公式</h3>
+<p>ジョン・コンウェイ（John Conway）は、この勝率について驚くべき公式を発見した。長さ <span class="math inline">\(n\)</span> の <span class="math inline">\(2\)</span> つの列 <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> に対して、<em>相関</em>（correlation）<span class="math inline">\(XY\)</span> を <span class="math inline">\(n\)</span> 桁の <span class="math inline">\(2\)</span> 進数として次のように定める。左から読んで第 <span class="math inline">\(i\)</span> 桁は、<span class="math inline">\(X\)</span> の第 <span class="math inline">\(i\)</span> 記号から始まる部分が、それと同じ長さの <span class="math inline">\(Y\)</span> の先頭部分に一致すれば <span class="math inline">\(1\)</span> とする。このとき、<span class="math inline">\(X\)</span> より先に <span class="math inline">\(Y\)</span> が現れる勝率の比は <span class="math display">\[(XX - XY) : (YY - YX).\]</span> である。<span class="math inline">\(X =\)</span> HHT, <span class="math inline">\(Y =\)</span> THH の場合、<span class="math inline">\(XX = 100_2 = 4\)</span>（HHT 全体だけが自分自身と一致する）、<span class="math inline">\(XY = 001_2 = 1\)</span>（HHT の最後の T だけが THH の先頭と一致する）、<span class="math inline">\(YY = 100_2 = 4\)</span>、<span class="math inline">\(YX = 011_2 = 3\)</span>（THH の末尾の HH と H がともに HHT の先頭と一致する）である。よって THH が先に現れる勝率の比は <span class="math inline">\((4 - 1) : (4 - 3) = 3 : 1\)</span> であり、これはステージ 3 の <span class="math inline">\(\frac34\)</span> である。コンウェイの公式は任意の長さ、任意の文字集合の列に対して成り立ち、その証明には<em>マルチンゲール</em>（martingale）の理論が用いられる。列が現れることに賭けるギャンブラーたちがいるカジノを想像し、公平なゲームの期待利益は <span class="math inline">\(0\)</span> であるという事実を使うのである。</p>
+<div class="historybox">
+<div class="box-title">Penney とガードナー</div>
+<p>Walter Penney は1969年、<em>Journal of Recreational Mathematics</em> 誌の短い記事でこのゲームを紹介した。マーティン・ガードナー（Martin Gardner）は1974年、<em>Scientific American</em> 誌の連載コラムでこれを有名にし、そこにはコンウェイが発見したものの発表していなかったコンウェイの公式も含まれていた。この種の非推移的な関係（エフロン（Efron）のサイコロもその一例で、サイコロ <span class="math inline">\(A\)</span> が <span class="math inline">\(B\)</span> に勝ち、<span class="math inline">\(B\)</span> が <span class="math inline">\(C\)</span> に勝ち、<span class="math inline">\(C\)</span> が <span class="math inline">\(D\)</span> に勝ち、<span class="math inline">\(D\)</span> が <span class="math inline">\(A\)</span> に勝つ）は繰り返し驚きを生む源であり、多数派の選好が循環しうる投票理論においても重要である。これがコンドルセ（Condorcet）のパラドックス（Condorcet’s paradox）である。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">第一ステップ解析</div>
+<p><em>状態の間を移り変わる過程について確率や期待値（expectation）を求めるには、最初の <span class="math inline">\(1\)</span> ステップで条件づけよ。そうすれば、状態ごとに <span class="math inline">\(1\)</span> つの一次方程式が得られる。</em></p>
+<p>これはマルコフ連鎖（Markov chain）の基本的な手法であり、<a href="../ch12/markov.html">第 12.16 節</a> や、大学の確率論の講義全体を通じて出会うことになる。同じ方法で、ある状態に別の状態より先に到達する確率、吸収（absorption）までの期待時間、賭けの問題における破産（ruin）の確率を求めることができる。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>4 人同時に。</strong><a href="https://step.maths.org/questions/15-s2-q12">STEP II 2015、第12問</a> に挑戦せよ。<span class="math inline">\(4\)</span> 人が同時に行う Penney のゲームである。</p></li>
+<li><p><strong>待ち時間。</strong>HH が初めて現れるまでの投げの回数の期待値は <span class="math inline">\(6\)</span>、HT の場合は <span class="math inline">\(4\)</span> であることを示せ。（第一ステップ解析を用いよ。）</p></li>
+<li><p><strong>最善の応手。</strong>長さ <span class="math inline">\(3\)</span> の <span class="math inline">\(8\)</span> つの列それぞれについて、それに最大の確率で勝つ列を求めよ。最も簡単に負かされる列はどれか。</p></li>
+<li><p><strong>コンウェイの公式。</strong>コンウェイの公式を用いて、HHT が確率 <span class="math inline">\(\frac23\)</span> で HTT に勝つことを確かめよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Martin Gardner, <a href="https://uk.bookshop.org/search?keywords=Time+Travel+and+Other+Mathematical+Bewilderments+Gardner"><em>Time Travel and Other Mathematical Bewilderments</em></a></strong>（W. H. Freeman）。Penney のゲームとコンウェイの公式を収録している。</p></li>
+<li><p><strong>Ronald Graham, Donald Knuth &amp; Oren Patashnik, <a href="https://uk.bookshop.org/search?keywords=Concrete+Mathematics+Graham+Knuth"><em>Concrete Mathematics</em></a></strong>（Addison-Wesley）、8.4 節。母関数（generating function）を用いた Penney のゲームの扱い。</p></li>
+<li><p><strong>David Williams, <a href="https://uk.bookshop.org/search?keywords=Probability+with+Martingales+Williams"><em>Probability with Martingales</em></a></strong>（Cambridge University Press）。マルチンゲールによる証明。将来のために。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="knockout.html">← 12.7 勝ち抜き戦で誰と誰が当たるか</a><a class="next" href="von-neumann.html">→ 12.9 偏った硬貨から公平な判定を</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

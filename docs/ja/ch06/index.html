@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第6章：代数と構造 — Beyond STEP</title>
+<meta name="description" content="1の冪根と多項式からガロア理論へと向かう。本章は群論に関する3つの問題で締めくくられる。">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch06/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch06/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch06/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="第6章：代数と構造 — Beyond STEP">
+<meta property="og:description" content="1の冪根と多項式からガロア理論へと向かう。本章は群論に関する3つの問題で締めくくられる。">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch06/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第6章：代数と構造 — Beyond STEP">
+<meta name="twitter:description" content="1の冪根と多項式からガロア理論へと向かう。本章は群論に関する3つの問題で締めくくられる。">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 6, "name": "代数と構造", "url": "https://beyondstep.keithmcnulty.org/ja/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "1の冪根と多項式からガロア理論へと向かう。本章は群論に関する3つの問題で締めくくられる。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第6章：代数と構造", "item": "https://beyondstep.keithmcnulty.org/ja/ch06/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch06/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch06/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch06/index.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">章</div>
+    <div class="ch-num">6</div>
+    <h1>代数と構造</h1>
+    <p class="strap">代数のあらゆる巧妙な技巧の背後には構造がある。そして構造を理解することは、どれほど多くの技巧を知ることよりも価値がある。</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">章全体をダウンロード</span><span class="dl-sub">PDF（印刷用組版）</span></span></a>
+  </div>
+  <h2 class="contents-head">この章の内容</h2>
+  <ol class="toc"><li><a class="toc-link" href="cyclotomic.html"><span class="toc-num">6.1</span>
+<span class="toc-title">1の累乗根を根にもつ多項式</span>
+<span class="toc-src">STEP III 2010</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-1-cyclotomic.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="gauss-17gon.html"><span class="toc-num">6.2</span>
+<span class="toc-title">ガウスの正17角形</span>
+<span class="toc-src">STEP II 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-2-gauss-17gon.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="field-extensions.html"><span class="toc-num">6.3</span>
+<span class="toc-title">\(\sqrt2 + \sqrt3 + \sqrt5\) を根にもつ多項式</span>
+<span class="toc-src">STEP II 2023</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-3-field-extensions.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="quartic.html"><span class="toc-num">6.4</span>
+<span class="toc-title">四次方程式を解く</span>
+<span class="toc-src">STEP III 2017</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-4-quartic.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="derivations.html"><span class="toc-num">6.5</span>
+<span class="toc-title">公理から考える微分</span>
+<span class="toc-src">STEP II 1992</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-5-derivations.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="subgroup-unions.html"><span class="toc-num">6.6</span>
+<span class="toc-title">部分群の和集合</span>
+<span class="toc-src">STEP II 1988</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-6-subgroup-unions.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="quaternions.html"><span class="toc-num">6.7</span>
+<span class="toc-title">四元数群</span>
+<span class="toc-src">STEP III 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-7-quaternions.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="singular-group.html"><span class="toc-num">6.8</span>
+<span class="toc-title">特異行列からなる群</span>
+<span class="toc-src">STEP III 1996</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-6-8-singular-group.pdf" download title="ワークシートPDF">ワークシート</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">振り返り：ここで学んだこと</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">「次はこれに挑戦」の演習問題の解答</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">第6章  \(\cdot\)  序論</div>
+    <h1 class="essay-title">方程式から構造へ</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>数学とは、異なるものに同じ名前を与える技術である。</p>
+<p class="who">— アンリ・ポアンカレ（Henri Poincaré）</p>
+</div>
+<p>その歴史の大部分において、代数とは方程式を解くことであった。バビロニア人は4000年前に2次方程式（quadratic）を解き、16世紀のイタリアの数学者たちは3次方程式（cubic）と4次方程式（quartic）を解いた。そしてその後300年近くにわたり、5次方程式（quintic）はあらゆる試みを退け続けた。1820年代から1830年代にかけてついに得られた解決は、代数を根本から変えた。アーベル（Niels Henrik Abel）は5次方程式に対する一般的な解の公式が存在しないことを証明し、ガロア（Évariste Galois）はどの方程式が解けるのかを正確に説明した。彼が調べたのは方程式そのものではなく、<em>その根の対称性</em>であった。そのために彼は新しい種類の数学的対象を発明しなければならなかった。それが群（group）である。</p>
+<p>答えを計算することから構造を研究することへ、という転換こそが本章の主題である。現代の代数は「解は何か？」と問う代わりに、「これはどのような種類の対象であり、どのような演算が許されるのか？」と問う。その答えは、昔の技巧がなぜうまくいったのかを説明し、さらに技巧だけでは決して決着のつかなかった問題をも解決するのである。</p>
+<h3 id="なぜ構造が重要なのか">なぜ構造が重要なのか</h3>
+<p>2000年もの間あらゆる試みを退けてきた、古代からの三つの問題がある。定規とコンパス（ruler and compasses）を用いて、立方体の体積を2倍にすること、任意の角を三等分すること、正 <span class="math inline">\(7\)</span> 角形を作図すること、である。いずれも不可能であり、19世紀に見出されたその証明は、巧妙な作図ではなく構造についての議論である。すなわち、定規とコンパスで到達できる数の体（field）の<em>次数</em>（degree）についての議論である（<a href="../ch06/field-extensions.html">第 6.3 節</a>）。同じ理論によって、正 <span class="math inline">\(17\)</span> 角形がなぜ作図<em>できる</em>のか（<a href="../ch06/gauss-17gon.html">第 6.2 節</a>）、そして4次方程式は解けるのに5次方程式はなぜ解けないのか（<a href="../ch06/quartic.html">第 6.4 節</a>）も説明される。</p>
+<p>構造はまた、分野を越えて通用する。群の公理（axiom）を満たすものには、結晶の対称性、多項式の根の置換（permutation）、3次元空間の回転、ルービックキューブの操作、楕円曲線（elliptic curve）上の点などがある。公理から一度証明された定理は、そのすべてにおいて成り立つ。ポアンカレの言う「異なるものに同じ名前を与える」というこの経済性こそが、抽象代数学（abstract algebra）をこれほど強力なものにしているのである。</p>
+<h3 id="大学で出会うこと">大学で出会うこと</h3>
+<p>1年次には<em>群</em>（三つの公理を満たす演算をもつ集合）に出会い、たいていは<em>環</em>（ring）と<em>体</em>（加法と乗法をもつ集合）にも出会う。部分群（subgroup）の大きさは群の大きさを割り切るというラグランジュ（Lagrange）の定理を証明し、置換、対称群、行列群に出会うことになる。2年次と3年次には、これらが次のものへとつながっていく。体と群を結びつけ、方程式と作図に関する古典的な問題に答える<em>ガロア理論</em>（Galois theory）、行列を通して群を研究する<em>表現論</em>（representation theory）、そして<a href="../ch01/factorisation-fails.html">第 1.7 節</a> の考え方が確かな基礎の上に置かれる<em>代数的整数論</em>（algebraic number theory）である。本章の最後の三つの節は群を扱う。群はもはや STEP の出題範囲には含まれていない（2019年に削除された）が、問題はそれだけで完結しており、各節では必要な定義を与えている。</p>
+<h3 id="本章を貫く問い">本章を貫く問い</h3>
+<div class="skillbox">
+<div class="box-title">三つの大きな問い</div>
+<ol class="arabic">
+<li><p><strong>何から何を作ることができるか？</strong> 有理数から平方根をとることで、あるいは方程式を解くことで、どのような数に到達できるのか。そして、ある数に到達<em>できない</em>ことはどのように証明するのか。</p></li>
+<li><p><strong>方程式の解の公式はなぜうまくいくのか？</strong> 2次方程式、3次方程式、4次方程式に解の公式があることの隠れた理由は何か。そして次数が5になると何が変わるのか。</p></li>
+<li><p><strong>抽象化によって何が得られるのか？</strong> 対象を、それが従う規則だけによって記述すると何が起こるのか。</p></li>
+</ol>
+</div>
+<h3 id="本章で扱う考え方">本章で扱う考え方</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">主題</th>
+<th style="text-align: left;">考え方</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">6.1</td>
+<td style="text-align: left;">円分多項式（cyclotomic polynomial）</td>
+<td style="text-align: left;">1の冪根（root of unity）を位数で分類する</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6.2</td>
+<td style="text-align: left;">正 <span class="math inline">\(17\)</span> 角形</td>
+<td style="text-align: left;">ガウス（Gauss）周期：和と積から2次方程式が得られる</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6.3</td>
+<td style="text-align: left;">最小多項式（minimal polynomial）</td>
+<td style="text-align: left;">根号（radical）を消去する；次数は掛け合わされる</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6.4</td>
+<td style="text-align: left;">4次方程式を解く</td>
+<td style="text-align: left;">対称関数（symmetric function）；分解3次式（resolvent cubic）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6.5</td>
+<td style="text-align: left;">公理からの微分</td>
+<td style="text-align: left;">規則によって決定される演算</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6.6</td>
+<td style="text-align: left;">部分群の和集合</td>
+<td style="text-align: left;">群の公理から論じる</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6.7</td>
+<td style="text-align: left;">四元数群（quaternion group）</td>
+<td style="text-align: left;">演算を行列で表現する</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6.8</td>
+<td style="text-align: left;">特異行列（singular matrix）からなる群</td>
+<td style="text-align: left;">定義を文字どおりに読む</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="本章の読み方">本章の読み方</h3>
+<p>これらの問題の多くは力ずくで解くことができる。すべてを展開し、係数を比較し、すべての場合を確かめればよい。必要ならまずそうしてみるとよい。そのうえで振り返り、何が力ずくの方法を成功させたのか、その背後に構造的な理由があるのかを問うてみてほしい。構造的な理由はたいていより短く、常により多くのことを明らかにしてくれる。そして力ずくの方法が通用しなくなったときに必要となるのは、まさにそれなのである。</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="cyclotomic.html">→ 読み始める： 6.1 1の累乗根を根にもつ多項式</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

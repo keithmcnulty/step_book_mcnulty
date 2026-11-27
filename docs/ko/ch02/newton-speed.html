@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>여섯 자리인가, 육백 자리인가 (STEP II 2023 Q5) — Beyond STEP</title>
+<meta name="description" content="STEP II 2023 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. sqrt2 를 근사하는 간단한 방법이 두 가지 있다. 둘 다 1 에서 시작하고, 덧셈, 곱셈, 나눗셈만 사용한다. 열 단계를 거친 뒤 첫 번째 방법은 소수점 아래 약 8 자리까지 정확하다. 두 번째 방법은 700 자리 넘게 정확하다. 두 번째 방법이 sqrt2 에 대해 더…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch02/newton-speed.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch02/newton-speed.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/newton-speed.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/newton-speed.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch02/newton-speed.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch02/newton-speed.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/newton-speed.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="여섯 자리인가, 육백 자리인가 (STEP II 2023 Q5) — Beyond STEP">
+<meta property="og:description" content="STEP II 2023 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. sqrt2 를 근사하는 간단한 방법이 두 가지 있다. 둘 다 1 에서 시작하고, 덧셈, 곱셈, 나눗셈만 사용한다. 열 단계를 거친 뒤 첫 번째 방법은 소수점 아래 약 8 자리까지 정확하다. 두 번째 방법은 700 자리 넘게 정확하다. 두 번째 방법이 sqrt2 에 대해 더…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch02/newton-speed.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="여섯 자리인가, 육백 자리인가 (STEP II 2023 Q5) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2023 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. sqrt2 를 근사하는 간단한 방법이 두 가지 있다. 둘 다 1 에서 시작하고, 덧셈, 곱셈, 나눗셈만 사용한다. 열 단계를 거친 뒤 첫 번째 방법은 소수점 아래 약 8 자리까지 정확하다. 두 번째 방법은 700 자리 넘게 정확하다. 두 번째 방법이 sqrt2 에 대해 더…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "여섯 자리인가, 육백 자리인가", "headline": "여섯 자리인가, 육백 자리인가", "description": "STEP II 2023 문제 5: 단계별 풀이와 그 바탕에 있는 대학 수학. sqrt2 를 근사하는 간단한 방법이 두 가지 있다. 둘 다 1 에서 시작하고, 덧셈, 곱셈, 나눗셈만 사용한다. 열 단계를 거친 뒤 첫 번째 방법은 소수점 아래 약 8 자리까지 정확하다. 두 번째 방법은 700 자리 넘게 정확하다. 두 번째 방법이 sqrt2 에 대해 더…", "url": "https://beyondstep.keithmcnulty.org/ko/ch02/newton-speed.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2023 문제 5", "수열, 급수, 수렴"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 2, "name": "수열, 급수, 수렴", "url": "https://beyondstep.keithmcnulty.org/ko/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제2장: 수열, 급수, 수렴", "item": "https://beyondstep.keithmcnulty.org/ko/ch02/"}, {"@type": "ListItem", "position": 3, "name": "여섯 자리인가, 육백 자리인가", "item": "https://beyondstep.keithmcnulty.org/ko/ch02/newton-speed.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch02/newton-speed.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch02/newton-speed.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch02/newton-speed.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch02/newton-speed.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제2장 · 수열, 급수, 수렴</a>
+    <div class="src">STEP II · 2023 · 문제 5</div>
+    <div class="sec-head"><span class="sec-num">2.7</span><h1>여섯 자리인가, 육백 자리인가</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-7-newton-speed.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제2장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 2023, 문제 5</strong></p>
+<p>다음으로 넘어가기 전에 문제를 먼저 읽어 보자. 이 문제는 OCR에서 내려받을 수 있는 2023년 STEP 문제지 모음(zip 파일)의 STEP II 문제지에 있다: <a href="https://www.ocr.org.uk/Images/707102-2023-past-papers.zip">www.ocr.org.uk/Images/707102-2023-past-papers.zip</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p><span class="math inline">\(\sqrt2\)</span>를 근사하는 간단한 방법이 두 가지 있다. 둘 다 <span class="math inline">\(1\)</span>에서 시작하고, 덧셈, 곱셈, 나눗셈만 사용한다. 열 단계를 거친 뒤 첫 번째 방법은 소수점 아래 약 <span class="math inline">\(8\)</span>자리까지 정확하다. 두 번째 방법은 <span class="math inline">\(700\)</span>자리 넘게 정확하다.</p>
+<p>두 번째 방법이 <span class="math inline">\(\sqrt2\)</span>에 대해 더 영리해서 이런 차이가 생기는 것은 아니다. 차이는 오차의 <em>모양</em>에 있다. 첫 번째 방법에서는 각 단계가 오차에 일정한 비율을 곱하고, 두 번째 방법에서는 각 단계가 오차를 <em>제곱</em>한다. 이 문제는 이 사실을 엄밀하게 다루며, 그 과정에서 수치해석(numerical analysis)의 핵심 아이디어 하나를 소개한다. 수치해석은 모든 계산기, 모든 일기예보, 모든 공학 시뮬레이션의 바탕이 되는 분야이다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<p>각 수열의 처음 몇 항을 분수로 계산해 보자. <span class="math display">\[x_n: \quad 1,\; \frac32,\; \frac75,\; \frac{17}{12},\; \frac{41}{29},\; \frac{99}{70},\; \ldots \qquad
+  y_n: \quad 1,\; \frac32,\; \frac{17}{12},\; \frac{577}{408},\; \frac{665857}{470832},\; \ldots\]</span></p>
+<div class="askyourself">
+<p>두 목록에서 눈에 띄는 점이 있는가? (두 목록에 모두 나타나는 분수를 살펴보라.)</p>
+</div>
+<p>모든 <span class="math inline">\(y_n\)</span>은 <span class="math inline">\(x\)</span> 목록에 나타나지만, 점점 더 뒤쪽에 나타난다. <span class="math inline">\(y_2 = x_3\)</span>, <span class="math inline">\(y_3 = x_7\)</span>이고, 일반적으로 <span class="math inline">\(y_n = x_{2^n - 1}\)</span>이다. 두 번째 방법은 같은 근삿값의 수열을 지수적으로 빠르게 건너뛰며 나아가는 것이다. 이 점을 기억해 두자. 그 이유는 끝에서 설명한다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-첫-번째-방법은-항상-1-이상이다" class="stage"><span class="stage-n">단계 1</span> 첫 번째 방법은 항상 1 이상이다</h4>
+<p><span class="math inline">\(x_{n+1} = 1 + \dfrac{1}{x_n + 1}\)</span>로 쓸 수 있다. <span class="math inline">\(x_n \geq 1\)</span>이면 <span class="math inline">\(x_n + 1 &gt; 0\)</span>이므로 <span class="math inline">\(x_{n+1} &gt; 1\)</span>이다. <span class="math inline">\(x_0 = 1\)</span>이므로, 수학적 귀납법(induction)에 의해 모든 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(x_n \geq 1\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-첫-번째-방법의-오차" class="stage"><span class="stage-n">단계 2</span> 첫 번째 방법의 오차</h4>
+<div class="askyourself">
+<p>문제는 오차를 <span class="math inline">\(x_n - \sqrt2\)</span>가 아니라 <span class="math inline">\(x_n^2 - 2\)</span>로 측정한다. <span class="math inline">\(x_{n+1}^2 - 2\)</span>를 <span class="math inline">\(x_n\)</span>에 관한 하나의 분수로 나타내어라. 분자에서 무엇을 알 수 있는가?</p>
+</div>
+<p><span class="math display">\[x_{n+1}^2 - 2 = \frac{(x_n + 2)^2 - 2(x_n + 1)^2}{(x_n + 1)^2} = \frac{x_n^2 + 4x_n + 4 - 2x_n^2 - 4x_n - 2}{(x_n + 1)^2} = \frac{2 - x_n^2}{(x_n + 1)^2}.\]</span> 분자는 정확히 <span class="math inline">\(-(x_n^2 - 2)\)</span>이다. 따라서 <span class="math inline">\(x_{n+1}^2 - 2\)</span>와 <span class="math inline">\(x_n^2 - 2\)</span>는 부호가 반대이고(근삿값이 <span class="math inline">\(\sqrt2\)</span>의 양쪽을 번갈아 오간다), <span class="math inline">\(x_n \geq 1\)</span>이면 <span class="math inline">\((x_n + 1)^2 \geq 4\)</span>이므로 <span class="math display">\[\bigl|x_{n+1}^2 - 2\bigr| = \frac{|x_n^2 - 2|}{(x_n + 1)^2} \leq \frac14\bigl|x_n^2 - 2\bigr|. \qed\]</span></p>
+<h4 id="stagemark3-열-단계" class="stage"><span class="stage-n">단계 3</span> 열 단계</h4>
+<p>이를 열 번 적용하면 <span class="math inline">\(|x_{10}^2 - 2| \leq 4^{-10}|x_0^2 - 2| = 4^{-10} = \frac{1}{1048576} &lt; 10^{-6}\)</span>이다. 부호를 보면, <span class="math inline">\(x_0^2 - 2 = -1 &lt; 0\)</span>이고 부호가 번갈아 바뀌므로 모든 짝수 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(x_n^2 - 2 &lt; 0\)</span>이다. 따라서 <span class="math inline">\(x_{10}^2 &lt; 2\)</span>이고, 이 둘을 합치면 <span class="math inline">\(2 - 10^{-6} \leq x_{10}^2 \leq 2\)</span>를 얻는다.<span class="qed" aria-label="end of proof">■</span></p>
+<p><span class="math inline">\(x_n^2\)</span>의 오차는 각 단계에서 많아야 <span class="math inline">\(\frac14\)</span>배가 된다. 이를 <em>선형 수렴(linear convergence)</em>이라 한다. 단계마다 정확한 자릿수가 일정한 개수만큼 늘어난다(여기서는 적어도 <span class="math inline">\(\log_{10} 4 \approx 0.6\)</span>자리이고, 실제로는 <span class="math inline">\(0.77\)</span>에 더 가깝다).</p>
+<h4 id="stagemark4-두-번째-방법의-오차" class="stage"><span class="stage-n">단계 4</span> 두 번째 방법의 오차</h4>
+<div class="askyourself">
+<p><span class="math inline">\(y_{n+1} - \sqrt2\)</span>를 하나의 분수로 나타내어라. 분자를 보면 완전제곱식이 떠오를 것이다.</p>
+</div>
+<p><span class="math display">\[y_{n+1} - \sqrt2 = \frac{y_n^2 + 2 - 2\sqrt2\, y_n}{2y_n} = \frac{\bigl(y_n - \sqrt2\bigr)^2}{2y_n}. \qed\]</span> <span class="math inline">\(y_n &gt; 0\)</span>이면 우변은 음이 아니므로 <span class="math inline">\(y_{n+1} \geq \sqrt2 &gt; 1\)</span>이다. <span class="math inline">\(y_0 = 1\)</span>이므로, 귀납법에 의해 모든 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(y_n \geq 1\)</span>이다.<span class="qed" aria-label="end of proof">■</span> (실제로 모든 <span class="math inline">\(n \geq 1\)</span>에 대해 <span class="math inline">\(y_n \geq \sqrt2\)</span>이다. 즉 첫 단계 이후 두 번째 방법은 항상 위쪽에서 <span class="math inline">\(\sqrt2\)</span>에 다가간다.)</p>
+<h4 id="stagemark5-오차의-제곱" class="stage"><span class="stage-n">단계 5</span> 오차의 제곱</h4>
+<p><span class="math inline">\(e_n = y_n - \sqrt2\)</span>라 하자. 그러면 <span class="math inline">\(n \geq 1\)</span>일 때 <span class="math inline">\(e_n \geq 0\)</span>이고, <span class="math inline">\(y_n \geq 1\)</span>이므로 <span class="math inline">\(e_{n+1} = \dfrac{e_n^2}{2y_n} \leq \dfrac{e_n^2}{2}\)</span>이다.</p>
+<div class="pausebox">
+<p><span class="math inline">\(r = \frac{\sqrt2 - 1}{2}\)</span>일 때, <span class="math inline">\(n \geq 1\)</span>에 대해 <span class="math inline">\(e_n \leq 2r^{2^n}\)</span>임을 귀납법으로 증명하여라. 기저 단계를 주의 깊게 확인하라.</p>
+</div>
+<p><em>기저 단계(base case):</em> <span class="math inline">\(e_1 = \dfrac{(1 - \sqrt2)^2}{2 \cdot 1} = \dfrac{(\sqrt2 - 1)^2}{2}\)</span>이고, <span class="math inline">\(2r^2 = 2 \cdot \dfrac{(\sqrt2 - 1)^2}{4} = \dfrac{(\sqrt2 - 1)^2}{2}\)</span>이다. 두 값이 같으므로 기저 단계가 (등호로 정확히) 성립한다.</p>
+<p><em>귀납 단계(inductive step):</em> <span class="math inline">\(e_n \leq 2r^{2^n}\)</span>이면 <span class="math display">\[e_{n+1} \leq \frac{e_n^2}{2} \leq \frac{4r^{2^{n+1}}}{2} = 2r^{2^{n+1}}. \qed\]</span></p>
+<h4 id="stagemark6-600자리" class="stage"><span class="stage-n">단계 6</span> 600자리</h4>
+<p><span class="math inline">\(\sqrt2 - 1 &lt; \frac12\)</span>이므로 <span class="math inline">\(r &lt; \frac14\)</span>이고, 따라서 <span class="math display">\[0 \leq y_{10} - \sqrt2 \leq 2 \left(\frac14\right)^{2^{10}} = 2 \cdot 2^{-2048} = 2^{-2047}.\]</span> 그런데 <span class="math inline">\(2^{10} = 1024 &gt; 10^3\)</span>이므로 <span class="math inline">\(2^{-2047} &lt; 2^{-2040} = (2^{10})^{-204} &lt; 10^{-612}\)</span>이고, 이는 분명히 <span class="math inline">\(10^{-600}\)</span>보다 작다.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>오차 점화식을 찾아라.</strong> 두 부분 모두 새 오차를 이전 오차의 정확한 함수로 나타내어 풀었다. 나머지는 모두 여기서 따라 나왔다. 이러한 식을 오차 점화식(error recurrence)이라 한다.</p></li>
+<li><p><strong>선형 대 이차.</strong> “새 오차 <span class="math inline">\(\leq\)</span> 상수 <span class="math inline">\(\times\)</span> 이전 오차”이면 단계마다 자릿수가 일정한 개수만큼 늘어난다. “새 오차 <span class="math inline">\(\leq\)</span> 상수 <span class="math inline">\(\times\)</span> (이전 오차)<span class="math inline">\(^2\)</span>”이면 단계마다 정확한 자릿수의 개수가 두 배가 된다(그림 2.7.1).</p></li>
+<li><p><strong>제곱된 양이 부호를 결정한다.</strong> (ii)에서 한 단계 후의 오차는 제곱을 양수로 나눈 것이므로 결코 음수가 될 수 없다. 즉 반복은 위쪽에서 다가간다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">뉴턴 방법</div>
+<p>두 번째 방법은 <span class="math inline">\(f(y) = y^2 - 2\)</span>에 <em>뉴턴 방법</em>(Newton’s method)을 적용한 것이다. 뉴턴 방법은 추측값 <span class="math inline">\(y\)</span>를 <span class="math inline">\(y\)</span>에서의 접선(tangent)이 축과 만나는 점으로 바꾸는 과정을 반복하여 <span class="math inline">\(f\)</span>의 근을 찾는다. <span class="math display">\[y_{\text{새}} = y - \frac{f(y)}{f&#39;(y)} = y - \frac{y^2 - 2}{2y} = \frac{y^2 + 2}{2y}.\]</span> 단순근(simple root) <span class="math inline">\(\alpha\)</span> 근처에서 테일러 전개(Taylor expansion)를 하면 새 오차가 대략 <span class="math inline">\(\frac{f&#39;&#39;(\alpha)}{2f&#39;(\alpha)} \times (\text{이전 오차})^2\)</span>임을 알 수 있다. 이것이 뉴턴 방법이 이차 수렴(quadratic convergence)하는 이유이다. “<span class="math inline">\(y\)</span>와 <span class="math inline">\(2/y\)</span>의 평균을 취한다”는 이 특별한 경우는 바빌로니아인들도 알고 있었다. 오늘날 YBC 7289라고 불리는 기원전 1700년경의 점토판에는 <span class="math inline">\(\sqrt2\)</span>가 <span class="math inline">\(60\)</span>진법으로, 백만분의 일보다 작은 오차로 적혀 있다.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-2-7-1.svg" alt="그림 2.7.1"><figcaption><span class="fig-label">그림 2.7.1</span> 각 방법을 <span class="math inline">\(n\)</span>단계 적용한 뒤 얻은 <span class="math inline">\(\sqrt2\)</span>의 정확한 소수 자릿수. 선형 방법은 단계마다 약 <span class="math inline">\(0.77\)</span>자리씩 늘어나고, 뉴턴 방법은 단계마다 정확한 자릿수가 대략 두 배가 되어 <span class="math inline">\(n = 10\)</span>에서는 약 <span class="math inline">\(780\)</span>자리에 이른다.</figcaption></figure>
+<h3 id="고정점과-수렴-속도">고정점과 수렴 속도</h3>
+<p>두 방법 모두 <span class="math inline">\(g(\sqrt2) = \sqrt2\)</span>인 <span class="math inline">\(u_{n+1} = g(u_n)\)</span> 꼴이므로, <a href="../ch02/golden-limit.html">2.2 절</a>의 거미줄 그림(cobweb diagram)에서처럼 <span class="math inline">\(\sqrt2\)</span>는 <em>고정점</em>(fixed point)이다. 고정점 <span class="math inline">\(\alpha\)</span> 근처에서 오차는 각 단계마다 약 <span class="math inline">\(g&#39;(\alpha)\)</span>배가 된다. 첫 번째 방법에서는 <span class="math inline">\(g(x) = \frac{x+2}{x+1}\)</span>이고 <span class="math inline">\(g&#39;(\sqrt2) = -\frac{1}{(\sqrt2+1)^2} = -(3 - 2\sqrt2) \approx -0.17\)</span>이다. 음의 부호는 부호가 번갈아 바뀌는 현상을 설명하고, <span class="math inline">\(0.17\)</span>은 단계마다 <span class="math inline">\(0.77\)</span>자리씩 늘어나는 것을 설명한다(<span class="math inline">\(\log_{10}(1/0.17) \approx 0.77\)</span>). 뉴턴 방법에서는 <span class="math inline">\(g&#39;(\alpha) = 0\)</span>이므로 일차항이 사라지고, 오차는 그다음 항, 곧 제곱항이 결정한다. <span class="math inline">\(g&#39;(\alpha) = 0\)</span>인 반복을 설계하는 것이 빠른 수치 계산법의 기술이다.</p>
+<h3 id="같은-분수가-나타나는-이유">같은 분수가 나타나는 이유</h3>
+<p>분수 <span class="math inline">\(x_n = p_n/q_n\)</span>은 <span class="math inline">\(p_{n+1} = p_n + 2q_n\)</span>과 <span class="math inline">\(q_{n+1} = p_n + q_n\)</span>을 만족하고, <span class="math inline">\(p_n^2 - 2q_n^2 = \pm 1\)</span>이며 부호가 번갈아 나타난다. 이들은 <em>펠 방정식</em>(Pell’s equation) <span class="math inline">\(p^2 - 2q^2 = \pm1\)</span>의 해이며, 연분수(continued fraction) <span class="math inline">\(\sqrt2 = [1; 2, 2, 2, \ldots]\)</span>의 근사분수(convergent)이다. 이들은 <span class="math inline">\(1 + \sqrt2\)</span>의 거듭제곱에서 나온다. 즉 <span class="math inline">\(p_n + q_n\sqrt2 = (1 + \sqrt2)^{n+1}\)</span>이다. 뉴턴 방법의 한 단계는 <span class="math inline">\(p + q\sqrt2\)</span>를 <em>제곱</em>한다(직접 확인해 보라. <span class="math inline">\((p + q\sqrt2)^2 = p^2 + 2q^2 + 2pq\sqrt2\)</span>이고, <span class="math inline">\(\frac{p^2 + 2q^2}{2pq}\)</span>는 정확히 <span class="math inline">\(p/q\)</span>에 뉴턴 공식을 적용한 것이다). 제곱하면 지수가 두 배가 되므로 <span class="math inline">\(y_n = x_{2^n - 1}\)</span>이다. 같은 “제곱” 패턴이 <a href="../ch02/squaring-minus-two.html">2.8 절</a>의 반복을 이끈다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">답이 아니라 오차를 분석하라</div>
+<p><em>근삿값이 어떻게 움직이는지 이해하려면, 한 단계의 오차가 바로 앞 단계의 오차에 어떻게 의존하는지 적어 보라.</em></p>
+<p>이것이 수치해석의 출발점이다. 답 자체(<span class="math inline">\(\sqrt2\)</span>)는 두 방법에서 같다. 다른 것, 그리고 실제로 중요한 것은 오차가 어떻게 변해 가는가이다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>펠 방정식.</strong> <span class="math inline">\(y_n = p/q\)</span>가 기약분수이고 <span class="math inline">\(p^2 - 2q^2 = 1\)</span>이면, <span class="math inline">\(y_{n+1} = \dfrac{p^2 + 2q^2}{2pq}\)</span>도 이 방정식을 만족함을 보여라. <span class="math inline">\(577^2 - 2 \times 408^2 = 1\)</span>임을 확인하라.</p></li>
+<li><p><strong>세제곱근.</strong> <span class="math inline">\(f(y) = y^3 - 2\)</span>에 대한 뉴턴 방법을 적고, <span class="math inline">\(\alpha = \sqrt[3]2\)</span>일 때 새 오차가 <span class="math inline">\(\dfrac{(y_n - \alpha)^2 (2y_n + \alpha)}{3y_n^2}\)</span>임을 보여라. 이로부터 <span class="math inline">\(y_n &gt; \alpha\)</span>이면 새 오차가 이전 오차의 제곱의 많아야 <span class="math inline">\(\frac{1}{\alpha}\)</span>배임을 이끌어 내라. (<em>힌트:</em> <span class="math inline">\(\alpha^3 = 2\)</span>를 이용하라.)</p></li>
+<li><p><strong>나누지 않고 나누기.</strong> <span class="math inline">\(f(y) = \frac1y - a\)</span>에 대한 뉴턴 방법이 나눗셈이 필요 없는 <span class="math inline">\(y_{n+1} = y_n(2 - a y_n)\)</span>을 줌을 보여라. <span class="math inline">\(e_n = 1 - a y_n\)</span>이라 하면 <span class="math inline">\(e_{n+1} = e_n^2\)</span>임을 보여라. (컴퓨터 프로세서는 이와 같은 반복을 이용해 나눗셈을 한다.)</p></li>
+<li><p><strong>뉴턴 방법이 실패할 때.</strong> 유일한 근이 <span class="math inline">\(0\)</span>인 <span class="math inline">\(f(y) = y^{1/3}\)</span>에 뉴턴 방법을 적용하라. 어떤 값에서 시작하든 각 단계가 근으로부터의 거리를 두 배로 만듦을 보여라. 오차 공식의 어떤 가정이 성립하지 않는가?</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Endre Süli &amp; David Mayers, <a href="https://uk.bookshop.org/search?keywords=An+Introduction+to+Numerical+Analysis+Suli+Mayers"><em>An Introduction to Numerical Analysis</em></a></strong> (Cambridge University Press). 수치해석 입문. 학부의 표준 교재로, 제1장에서 고정점 반복과 뉴턴 방법을 다룬다.</p></li>
+<li><p><strong>Nick Higham (ed.), <a href="https://uk.bookshop.org/search?keywords=The+Princeton+Companion+to+Applied+Mathematics+"><em>The Princeton Companion to Applied Mathematics</em></a></strong> (Princeton University Press). 프린스턴 응용수학 안내서. 뉴턴 방법과 수치해석에 관한 짧은 글들이 실려 있으며, 전문가들이 폭넓은 독자를 위해 썼다.</p></li>
+<li><p><strong>David Fowler &amp; Eleanor Robson, “<a href="https://doi.org/10.1006/hmat.1998.2209">Square root approximations in Old Babylonian mathematics: YBC 7289 in context</a>”</strong>, <em>Historia Mathematica</em> 25 (1998). 고대 바빌로니아 수학의 제곱근 근삿값을 YBC 7289를 중심으로 살펴본 논문.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="agm.html">← 2.6 산술–기하 평균</a><a class="next" href="squaring-minus-two.html">→ 2.8 제곱하고 2 빼기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

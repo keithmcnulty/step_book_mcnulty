@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제11장: 진동, 회전, 움직이는 기준틀 — Beyond STEP</title>
+<meta name="description" content="진동과 회전 또는 가속 좌표계를 다루며, 뜻밖의 궤적을 모은 절로 마무리한다.">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch11/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch11/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch11/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch11/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch11/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch11/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch11/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="제11장: 진동, 회전, 움직이는 기준틀 — Beyond STEP">
+<meta property="og:description" content="진동과 회전 또는 가속 좌표계를 다루며, 뜻밖의 궤적을 모은 절로 마무리한다.">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch11/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="제11장: 진동, 회전, 움직이는 기준틀 — Beyond STEP">
+<meta name="twitter:description" content="진동과 회전 또는 가속 좌표계를 다루며, 뜻밖의 궤적을 모은 절로 마무리한다.">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 11, "name": "진동, 회전, 움직이는 기준틀", "url": "https://beyondstep.keithmcnulty.org/ko/ch11/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "진동과 회전 또는 가속 좌표계를 다루며, 뜻밖의 궤적을 모은 절로 마무리한다."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제11장: 진동, 회전, 움직이는 기준틀", "item": "https://beyondstep.keithmcnulty.org/ko/ch11/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch11/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch11/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch11/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch11/index.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">장</div>
+    <div class="ch-num">11</div>
+    <h1>진동, 회전, 움직이는 기준틀</h1>
+    <p class="strap">흔들리는 것, 도는 것, 그리고 움직이는 곳에서 바라본 것.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-11-oscillations-rotation-and-moving-frames.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">장 전체 내려받기</span><span class="dl-sub">인쇄용으로 조판한 PDF</span></span></a>
+  </div>
+  <h2 class="contents-head">이 장의 내용</h2>
+  <ol class="toc"><li><a class="toc-link" href="resonance.html"><span class="toc-num">11.1</span>
+<span class="toc-title">공명</span>
+<span class="toc-src">STEP II 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-1-resonance.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="normal-modes.html"><span class="toc-num">11.2</span>
+<span class="toc-title">기준 진동</span>
+<span class="toc-src">STEP III 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-2-normal-modes.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="real-pendulum.html"><span class="toc-num">11.3</span>
+<span class="toc-title">실제 진자</span>
+<span class="toc-src">STEP III 1998</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-3-real-pendulum.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="tautochrone.html"><span class="toc-num">11.4</span>
+<span class="toc-title">등시 곡선</span>
+<span class="toc-src">STEP III 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-4-tautochrone.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="accelerating-frame.html"><span class="toc-num">11.5</span>
+<span class="toc-title">가속하는 기차 안의 중력</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-5-accelerating-frame.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="backspin.html"><span class="toc-num">11.6</span>
+<span class="toc-title">백스핀</span>
+<span class="toc-src">STEP III 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-6-backspin.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="simpsons-rod.html"><span class="toc-num">11.7</span>
+<span class="toc-title">막대 속의 심프슨 공식</span>
+<span class="toc-src">STEP II 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-7-simpsons-rod.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="tilted-equilibria.html"><span class="toc-num">11.8</span>
+<span class="toc-title">기울어진 평형</span>
+<span class="toc-src">STEP III 2025</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-8-tilted-equilibria.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="safety-parabola.html"><span class="toc-num">11.9</span>
+<span class="toc-title">안전 포물선</span>
+<span class="toc-src">STEP II 2014</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-9-safety-parabola.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="coming-back.html"><span class="toc-num">11.10</span>
+<span class="toc-title">나에게로 되돌아오는 공</span>
+<span class="toc-src">STEP II 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-10-coming-back.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="fielders.html"><span class="toc-num">11.11</span>
+<span class="toc-title">야수는 어떻게 공을 잡는가</span>
+<span class="toc-src">STEP II 1998</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-11-fielders.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="rubber-rope.html"><span class="toc-num">11.12</span>
+<span class="toc-title">고무줄 위의 개미</span>
+<span class="toc-src">STEP II 2018</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-12-rubber-rope.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="snowplough.html"><span class="toc-num">11.13</span>
+<span class="toc-title">제설차 문제</span>
+<span class="toc-src">STEP III Specimen paper</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-13-snowplough.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="bridge-parabola.html"><span class="toc-num">11.14</span>
+<span class="toc-title">현수선이 아니라 포물선</span>
+<span class="toc-src">STEP I 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-11-14-bridge-parabola.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">돌아보기: 지금까지 배운 것</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“다음으로 풀어 보기” 연습문제의 답</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">11장  \(\cdot\)  들어가며</div>
+    <h1 class="essay-title">운동을 또렷하게 보기</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>젊은 이론물리학자의 경력이란 조화 진동자를 점점 더 높은 수준의 추상화로 다루어 가는 과정이다.</p>
+<p class="who">— Sidney Coleman의 말로 전해짐</p>
+</div>
+<p>앞 장에서는 보존 법칙(conservation law)을 이용해 충돌과 중력을 이해했다. 이 장에서는 역학 입문 과정의 또 다른 큰 주제들로 넘어간다. 진동(oscillation)하는 것, 회전(rotation)하는 것, 그리고 가장 쓸모 있는 관점에서 운동을 기술하는 기술이 그것이다.</p>
+<p>진동은 어디에나 있다. 진자와 용수철이 교과서의 대표적인 예이지만, 똑같은 수학이 분자의 진동, 건물의 흔들림, 라디오 속 회로, 그리고 양자역학(quantum mechanics)에서는 빛 자체의 거동까지 기술한다. 그 까닭은 안정한 평형(equilibrium) 근처에 있는 거의 모든 것이 용수철처럼 행동하기 때문이다. 조금만 잡아당기면 복원력(restoring force)이 변위(displacement)에 비례한다. 그래서 단순 조화 진동자(simple harmonic oscillator)는 거의 모든 물리계의 첫 번째 근사이며, 물리학의 상당 부분은 이 근사가 딱 들어맞지 않을 때 어떤 일이 일어나는지를 이해하는 일이다.</p>
+<h3 id="왜-중요한가">왜 중요한가</h3>
+<p>공학자는 자신이 짓는 모든 구조물의 고유 진동수(natural frequency)를 알아야 하며, 그래야 그것을 바람, 교통, 지진의 진동수로부터 멀리 떨어뜨려 놓을 수 있다. 화학자는 분자를 그 진동으로 식별한다. 하위헌스(Huygens)의 진자시계에서 쿼츠 시계와 원자시계에 이르기까지, 시간 측정이란 완벽한 진동자를 만드는 기술이다. 회전은 당구공의 회전에서 인공위성의 안정성까지 모든 것을 지배한다. 그리고 어떤 기준틀(frame of reference)이 “자연스러운가”라는 질문은 중력과 가속도의 동등성을 거쳐 아인슈타인(Einstein)의 일반 상대성 이론(general relativity)으로 이어졌다.</p>
+<p>이 장은 <em>뜻밖의 궤적</em>으로 묶은 여섯 문제로 끝난다. 직관이 예측하는 것과 다르게 움직이는 포물체, 개미, 야수, 제설차에 관한 문제들이다. 모두 짧고 우아한 문제이며, 각각의 중심에는 제대로 된 수학적 아이디어가 있다. 포락선(envelope), 단조성(monotonicity), 되먹임(feedback), 발산(divergence), 선형 미분방정식(linear differential equation), 그리고 포물선(parabola)과 현수선(catenary)의 차이가 그것이다.</p>
+<h3 id="대학에서-만나게-될-것">대학에서 만나게 될 것</h3>
+<p>대학 1학년 역학 과정에서는 단순 조화 운동, 감쇠(damped) 조화 운동, 강제(forced) 조화 운동, 공명(resonance), 그리고 연성 진동자(coupled oscillators)와 그 기준 진동 모드(normal modes)를 다룬다(선형대수와 역학이 만나는 지점이다). 또한 강체(rigid body), 관성 모멘트(moment of inertia), 굴림 운동(rolling), 그리고 원심력(centrifugal force)과 코리올리 힘(Coriolis force)이 등장하는 가속 기준틀과 회전 기준틀에서의 운동을 다룬다. 이후의 과정에서는 이 모든 것이 라그랑주 역학(Lagrangian mechanics)과 해밀턴 역학(Hamiltonian mechanics)으로 발전하는데, 여기서는 좌표의 선택이 핵심 주제가 된다. 또 공간으로 퍼져 나간 진동인 파동(wave)의 이론으로도 발전한다. 진폭이 큰 진자와 같은 비선형 진동(nonlinear oscillation)은 타원 함수(elliptic function)와 8장의 동역학계(dynamical system)로 이어진다.</p>
+<h3 id="이-장을-관통하는-질문">이 장을 관통하는 질문</h3>
+<div class="skillbox">
+<div class="box-title">세 가지 큰 질문</div>
+<ol class="arabic">
+<li><p><strong>운동은 언제 단순한가?</strong> 계는 언제 하나의 고정된 진동수로 진동하며, 그렇지 않을 때는 어떤 일이 일어나는가?</p></li>
+<li><p><strong>올바른 관점은 무엇인가?</strong> 어떤 좌표, 어떤 변수, 어떤 기준틀을 택해야 문제가 쉬워지는가?</p></li>
+<li><p><strong>직관을 믿을 수 있는가?</strong> 운동에 관한 일상의 직관은 어디에서 틀리며, 수학은 그것을 어떻게 바로잡는가?</p></li>
+</ol>
+</div>
+<p>이 장은 진동에서 시작한다. 공명(<a href="../ch11/resonance.html">11.1 절</a>), 기준 진동 모드, 실제 진자, 그리고 등시곡선(tautochrone)이다. 그다음 기준틀과 강체로 넘어간다. 가속하는 기차, 회전하는 구슬, 세 개의 입자처럼 행동하는 막대, 그리고 세 가지 서로 다른 기울기로 놓일 수 있는 입체가 등장한다. 마지막 여섯 절은 뜻밖의 궤적이다.</p>
+<h3 id="이-장의-아이디어">이 장의 아이디어</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">주제</th>
+<th style="text-align: left;">아이디어</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">11.1</td>
+<td style="text-align: left;">강제 진동</td>
+<td style="text-align: left;">공명과 맥놀이(beats)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.2</td>
+<td style="text-align: left;">연성 진동자</td>
+<td style="text-align: left;">기준 진동 모드는 고유벡터(eigenvector)이다</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.3</td>
+<td style="text-align: left;">실제 진자</td>
+<td style="text-align: left;">타원 적분(elliptic integral); 산술기하평균(AGM)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.4</td>
+<td style="text-align: left;">등시곡선</td>
+<td style="text-align: left;">호의 길이(arc length)에 대한 단순 조화 운동</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.5</td>
+<td style="text-align: left;">움직이는 기준틀</td>
+<td style="text-align: left;">가상력(fictitious force); 등가 원리(equivalence principle)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.6</td>
+<td style="text-align: left;">굴림과 미끄러짐</td>
+<td style="text-align: left;">보존되는 각운동량(angular momentum)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.7</td>
+<td style="text-align: left;">관성 모멘트</td>
+<td style="text-align: left;">동역학적 동등성; 심프슨 공식(Simpson’s rule)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.8</td>
+<td style="text-align: left;">안정성</td>
+<td style="text-align: left;">질량중심(centre of mass)을 지나는 법선</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.9</td>
+<td style="text-align: left;">포물체 운동</td>
+<td style="text-align: left;">궤적들의 포락선</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.10</td>
+<td style="text-align: left;">포물체 운동</td>
+<td style="text-align: left;">거리가 꼭 증가하는 것은 아니다</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.11</td>
+<td style="text-align: left;">공 잡기</td>
+<td style="text-align: left;">되먹임 규칙</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.12</td>
+<td style="text-align: left;">늘어나는 밧줄</td>
+<td style="text-align: left;">비율과 조화급수(harmonic series)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11.13</td>
+<td style="text-align: left;">제설차</td>
+<td style="text-align: left;">거리의 함수로서의 시간</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11.14</td>
+<td style="text-align: left;">현수교</td>
+<td style="text-align: left;">현수선이 아니라 포물선</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="../ch11/backspin.html">11.6 절</a>과 <a href="../ch11/simpsons-rod.html">11.7 절</a>의 두 절은 회전 동역학과 관성 모멘트를 사용하는데, 이 내용은 2019년에 STEP 출제 범위(specification)에서 빠졌다. 그래도 훌륭한 문제이기에 실었으며, 각 절에서 필요한 사실은 모두 제시한다.</p>
+<h3 id="이-장을-읽는-법">이 장을 읽는 법</h3>
+<p>계산을 시작하기 전에 먼저 문제가 어떤 변수를 원하는지 물어보라. 등시곡선에서는 호의 길이, 연결된 용수철에서는 <span class="math inline">\(x \pm y\)</span>, 개미 문제에서는 밧줄에 대한 비율, 제설차 문제에서는 거리의 함수로서의 시간이다. 어느 경우에나 올바른 선택이 어려운 문제를 익숙한 문제로 바꾸어 준다.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="resonance.html">→ 시작: 11.1 공명</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

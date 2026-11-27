@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>特異行列からなる群 (STEP III 1996 Q6) — Beyond STEP</title>
+<meta name="description" content="STEP III 1996 問題 6：解説付き解答とその背後にある大学数学。 行列式（determinant）が 0 である行列は逆行列（inverse）をもたない、ということは誰もが学ぶ。それならば、すべての元が逆元をもつ行列の群（group）には、正則でない行列、すなわち特異行列（singular matrix）は含まれえないはずではないか。…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch06/singular-group.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch06/singular-group.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/singular-group.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/singular-group.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/singular-group.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch06/singular-group.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/singular-group.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="特異行列からなる群 (STEP III 1996 Q6) — Beyond STEP">
+<meta property="og:description" content="STEP III 1996 問題 6：解説付き解答とその背後にある大学数学。 行列式（determinant）が 0 である行列は逆行列（inverse）をもたない、ということは誰もが学ぶ。それならば、すべての元が逆元をもつ行列の群（group）には、正則でない行列、すなわち特異行列（singular matrix）は含まれえないはずではないか。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch06/singular-group.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="特異行列からなる群 (STEP III 1996 Q6) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1996 問題 6：解説付き解答とその背後にある大学数学。 行列式（determinant）が 0 である行列は逆行列（inverse）をもたない、ということは誰もが学ぶ。それならば、すべての元が逆元をもつ行列の群（group）には、正則でない行列、すなわち特異行列（singular matrix）は含まれえないはずではないか。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "特異行列からなる群", "headline": "特異行列からなる群", "description": "STEP III 1996 問題 6：解説付き解答とその背後にある大学数学。 行列式（determinant）が 0 である行列は逆行列（inverse）をもたない、ということは誰もが学ぶ。それならば、すべての元が逆元をもつ行列の群（group）には、正則でない行列、すなわち特異行列（singular matrix）は含まれえないはずではないか。…", "url": "https://beyondstep.keithmcnulty.org/ja/ch06/singular-group.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1996 問題 6", "代数と構造"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 6, "name": "代数と構造", "url": "https://beyondstep.keithmcnulty.org/ja/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第6章：代数と構造", "item": "https://beyondstep.keithmcnulty.org/ja/ch06/"}, {"@type": "ListItem", "position": 3, "name": "特異行列からなる群", "item": "https://beyondstep.keithmcnulty.org/ja/ch06/singular-group.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch06/singular-group.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/singular-group.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch06/singular-group.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch06/singular-group.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第6章 · 代数と構造</a>
+    <div class="src">STEP III · 1996 · 問題 6</div>
+    <div class="sec-head"><span class="sec-num">6.8</span><h1>特異行列からなる群</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-8-singular-group.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第6章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 1996、第6問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/96-s3-q6">step.maths.org/questions/96-s3-q6</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>行列式（determinant）が <span class="math inline">\(0\)</span> である行列は逆行列（inverse）をもたない、ということは誰もが学ぶ。それならば、すべての元が逆元をもつ行列の群（group）には、正則でない行列、すなわち特異行列（singular matrix）は含まれえないはずではないか。</p>
+<p>実は含まれうるのである。からくりは「逆」という言葉にある。群において <span class="math inline">\(\mathbf{A}\)</span> の逆元とは、<span class="math inline">\(\mathbf{A}\)</span> と演算して<em>その群の</em>単位元（identity）を与える元のことであり、群の単位元が単位行列 <span class="math inline">\(\mathbf{I}\)</span> でなければならないとはどこにも書かれていない。この問題では、すべての行列が特異であり、単位元そのものも行列式 <span class="math inline">\(0\)</span> の行列であるような群を構成する。これは定義を文字どおりに読むことの教訓であり、抽象的な構造と、それに初めて出会ったときのなじみ深い例との違いについての教訓でもある。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<p>群の定義については <a href="../ch06/subgroup-unions.html">第 6.6 節</a> を参照せよ。</p>
+<div class="askyourself">
+<p>小問 (i) において、単位行列 <span class="math inline">\(\mathbf{I}\)</span> は <span class="math inline">\(\begin{pmatrix} a &amp; a \\ a &amp; a \end{pmatrix}\)</span> の形をしていない。では、<span class="math inline">\(S\)</span> の単位元は何でありうるだろうか。</p>
+</div>
+<p>それは <span class="math inline">\(S\)</span> のある行列 <span class="math inline">\(\mathbf{E}\)</span> であって、<span class="math inline">\(S\)</span> のすべての <span class="math inline">\(\mathbf{X}\)</span> に対して <span class="math inline">\(\mathbf{E}\mathbf{X} = \mathbf{X}\mathbf{E} = \mathbf{X}\)</span> を満たすものでなければならない。これは <span class="math inline">\(\mathbf{E}\)</span> がこの特別な形の行列にどう作用するかだけに関する条件であり、すべての行列に関する条件ではない。方程式を解いて求めればよい。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-演算について閉じていること" class="stage"><span class="stage-n">段階 1</span> 演算について閉じていること</h4>
+<p>4つの成分がすべて <span class="math inline">\(a\)</span> である行列を <span class="math inline">\(\mathbf{M}_a\)</span> と書く。すると <span class="math display">\[\mathbf{M}_a\mathbf{M}_b = \begin{pmatrix} a &amp; a \\ a &amp; a \end{pmatrix}\begin{pmatrix} b &amp; b \\ b &amp; b \end{pmatrix} = \begin{pmatrix} 2ab &amp; 2ab \\ 2ab &amp; 2ab \end{pmatrix} = \mathbf{M}_{2ab},\]</span> であり、<span class="math inline">\(a, b \neq 0\)</span> のとき <span class="math inline">\(2ab \neq 0\)</span> である。よって <span class="math inline">\(S\)</span> は演算について閉じている（closed）。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-群の公理" class="stage"><span class="stage-n">段階 2</span> 群の公理</h4>
+<div class="askyourself">
+<p>行列の積は結合的である。単位元については <span class="math inline">\(\mathbf{M}_e\mathbf{M}_a = \mathbf{M}_a\)</span> を解け。逆元については <span class="math inline">\(\mathbf{M}_a\mathbf{M}_b = \mathbf{M}_e\)</span> を解け。</p>
+</div>
+<p><em>結合法則</em>（associativity）は行列の積から受け継がれる。<em>単位元：</em>すべての <span class="math inline">\(a\)</span> に対して <span class="math inline">\(\mathbf{M}_e\mathbf{M}_a = \mathbf{M}_{2ea} = \mathbf{M}_a\)</span> となるのは、ちょうど <span class="math inline">\(e = \frac12\)</span> のときである。公式の対称性から <span class="math inline">\(\mathbf{M}_a\mathbf{M}_{1/2} = \mathbf{M}_a\)</span> も成り立つ。よって <span class="math display">\[\mathbf{E} = \begin{pmatrix} \frac12 &amp; \frac12 \\ \frac12 &amp; \frac12 \end{pmatrix}\]</span> が <span class="math inline">\(S\)</span> の単位元である。<em>逆元：</em><span class="math inline">\(b = \frac{1}{4a}\)</span> のとき <span class="math inline">\(\mathbf{M}_a\mathbf{M}_b = \mathbf{M}_{2ab} = \mathbf{M}_{1/2}\)</span> であり、この <span class="math inline">\(b\)</span> は <span class="math inline">\(0\)</span> でないから、<span class="math inline">\(\mathbf{M}_{1/(4a)}\)</span> が <span class="math inline">\(S\)</span> における <span class="math inline">\(\mathbf{M}_a\)</span> の逆元である。よって <span class="math inline">\(S\)</span> は群である。<span class="qed" aria-label="end of proof">■</span> どの元も行列式は <span class="math inline">\(a^2 - a^2 = 0\)</span> である。</p>
+<h4 id="stagemark3-特異性は広がる" class="stage"><span class="stage-n">段階 3</span> 特異性は広がる</h4>
+<div class="pausebox">
+<p><span class="math inline">\(\mathbf{A} \in G\)</span> が特異であるとし、<span class="math inline">\(\mathbf{B}\)</span> を <span class="math inline">\(G\)</span> の任意の元とする。<span class="math inline">\(\mathbf{B}\)</span> を <span class="math inline">\(\mathbf{A}\)</span> を含む積として表し、行列式をとってみよ。</p>
+</div>
+<p><span class="math inline">\(\mathbf{A}^{-1}\)</span> で、<em>群</em> <span class="math inline">\(G\)</span> <em>における</em> <span class="math inline">\(\mathbf{A}\)</span> の逆元を表す（行列としての逆行列とは限らない）。すると <span class="math inline">\(\mathbf{C} = \mathbf{A}^{-1}\mathbf{B}\)</span> は <span class="math inline">\(G\)</span> の元であり、 <span class="math display">\[\mathbf{A}\mathbf{C} = \mathbf{A}\mathbf{A}^{-1}\mathbf{B} = \mathbf{E}\mathbf{B} = \mathbf{B}.\]</span> 行列式をとると <span class="math inline">\(\det\mathbf{B} = \det\mathbf{A}\,\det\mathbf{C} = 0\)</span> である。よって <span class="math inline">\(G\)</span> のすべての元は特異である。<span class="qed" aria-label="end of proof">■</span> 特に、行列の群のある1つの元が行列として正則（invertible）であれば、すべての元が正則である。行列の群は、すべてが正則であるか、すべてが特異であるかのどちらかである。</p>
+<h4 id="stagemark4-3-times-3-の例" class="stage"><span class="stage-n">段階 4</span> <span class="math inline">\(3 \times 3\)</span> の例</h4>
+<div class="askyourself">
+<p>小問 (i) を <span class="math inline">\(3 \times 3\)</span> 行列に一般化できるだろうか。あるいは、3つの座標のうち2つを「無視する」行列を使って、もっと簡単なものを見つけられるだろうか。</p>
+</div>
+<p>次をとる。 <span class="math display">\[G = \left\{\begin{pmatrix} a &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix} : a \neq 0\right\}.\]</span> 左上隅の成分が <span class="math inline">\(a\)</span> と <span class="math inline">\(b\)</span> である行列の積は、左上隅の成分が <span class="math inline">\(ab\)</span> である行列なので、<span class="math inline">\(G\)</span> は演算について閉じている。積は結合的である。単位元は左上隅の成分が <span class="math inline">\(1\)</span> の行列であり、左上隅が <span class="math inline">\(a\)</span> の行列の逆元は左上隅が <span class="math inline">\(\frac1a\)</span> の行列である。よって <span class="math inline">\(G\)</span> は群であり、どの元も行列式は <span class="math inline">\(0\)</span> である。<span class="qed" aria-label="end of proof">■</span> （別の例：9つの成分がすべて <span class="math inline">\(a \neq 0\)</span> に等しい <span class="math inline">\(3 \times 3\)</span> 行列の全体。その単位元はすべての成分が <span class="math inline">\(\frac13\)</span> の行列である。）</p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>定義を文字どおりに読む。</strong>群の単位元とは、<em>その群の中で</em>単位元としてはたらく元のことであり、なじみ深い単位行列である必要はない。</p></li>
+<li><p><strong>構造を方程式から求める。</strong><span class="math inline">\(S\)</span> の単位元と逆元は、推測ではなく方程式を解くことで求めた。</p></li>
+<li><p><strong>行列式は乗法的である。</strong>この1つの性質だけで、特異性が1つの元からすべての元へ広がることが示された。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">冪等元と隠れた可逆性</div>
+<p>任意の行列の群の単位元 <span class="math inline">\(\mathbf{E}\)</span> は <span class="math inline">\(\mathbf{E}^2 = \mathbf{E}\)</span> を満たす。すなわち<em>冪等</em>（idempotent）である。幾何学的には、冪等行列は<em>射影</em>（projection）である。つまり、すべてのベクトルをある部分空間（subspace）の上に写し、その部分空間内のベクトルは動かさない。小問 (i) では、<span class="math inline">\(\mathbf{E}\)</span> は平面を直線 <span class="math inline">\(y = x\)</span> の上に射影し、各行列 <span class="math inline">\(\mathbf{M}_a\)</span> はまずその直線上に射影してから、直線に沿って <span class="math inline">\(2a\)</span> 倍に伸縮する（図 6.8.1）。直線上では、群は可逆な伸縮として作用し、直線に垂直な方向は単に無視している。したがって <span class="math inline">\(S\)</span> の正体は、平面内の直線上に住む、乗法に関する <span class="math inline">\(0\)</span> でない実数全体の群（対応 <span class="math inline">\(\mathbf{M}_a \mapsto 2a\)</span> による）である。これは一般に成り立つ。すなわち、どんな行列の群も、基底を取り替えれば、その単位元の像の上に作用する正則行列の群に、<span class="math inline">\(0\)</span> を詰めて埋め込んだものになっている。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-8-1.svg" alt="図 6.8.1"><figcaption><span class="fig-label">図 6.8.1</span> 小問 (i) の行列のはたらき。単位元 <span class="math inline">\(\mathbf{E}\)</span> はすべてのベクトル <span class="math inline">\(\mathbf{v}\)</span> を直線 <span class="math inline">\(y = x\)</span> の上に射影する（琥珀色の破線）。各 <span class="math inline">\(\mathbf{M}_a\)</span> は同じ射影を行ったのち、直線に沿って <span class="math inline">\(2a\)</span> 倍に伸縮する（紫色。ここでは <span class="math inline">\(2a = \frac{16}{9}\)</span>）。直線そのものの上では、群は通常の可逆な拡大・縮小として作用する。</figcaption></figure>
+<h3 id="抽象と具体">抽象と具体</h3>
+<p>人々が最初に研究した群は具体的なものであった。置換、対称性、正則行列などである。抽象的な定義（3つの公理を満たす演算をもつ集合）は、それらから抽出されたものである。この問題は抽象的な見方の価値を示している。<span class="math inline">\(S\)</span> と乗法に関する <span class="math inline">\(0\)</span> でない実数全体の群とは<em>同型</em>（isomorphic）であり、一方は特異行列からなり他方は数からなるにもかかわらず、装いが違うだけの同じ群なのである。見かけの異なる2つの構造がいつ「同じ」であるかを見抜くことは代数学の中心的なスキルの1つであり、同型という概念は、数学者がそれを厳密にするための手段である。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">なじみ深い対象についての暗黙の仮定を疑う</div>
+<p><em>なじみ深い対象が抽象的な定義の中に現れたら、そのなじみ深い性質のうちどれが定義で実際に要求されているかを確かめよ。</em></p>
+<p>「行列の群の単位元は <span class="math inline">\(\mathbf{I}\)</span> である」というのは当然のように聞こえるが、定義の一部ではない。そしてこの仮定を捨てることで、真に新しい例が得られた。このような仮定を疑うことこそ、多くの新しい数学的構造が発見されてきた方法である。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>同型写像。</strong>写像 <span class="math inline">\(\mathbf{M}_a \mapsto 2a\)</span> が、<span class="math inline">\(S\)</span> から <span class="math inline">\(0\)</span> でない実数全体への一対一対応（one-to-one correspondence）であって、行列の積を数の積に移すことを示せ。</p></li>
+<li><p><strong>群にならない例。</strong><span class="math inline">\(a \neq 0\)</span> である行列 <span class="math inline">\(\begin{pmatrix} a &amp; b \\ 0 &amp; 0 \end{pmatrix}\)</span> 全体の集合は積について閉じているが、群ではないことを示せ。（<em>ヒント：</em>単位元を探してみよ。左単位元はあるか。右単位元はあるか。）</p></li>
+<li><p><strong>冪等行列。</strong><span class="math inline">\(\mathbf{E}^2 = \mathbf{E}\)</span> を満たす <span class="math inline">\(2 \times 2\)</span> 実行列 <span class="math inline">\(\mathbf{E}\)</span> をすべて求めよ。また、それらを幾何学的に説明せよ。</p></li>
+<li><p><strong>すべての成分が等しい行列。</strong>すべての成分が <span class="math inline">\(a \neq 0\)</span> に等しい <span class="math inline">\(n \times n\)</span> 行列全体は積について群をなすことを示し、その単位元を求めよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>M. A. Armstrong, <a href="https://uk.bookshop.org/search?keywords=Groups+and+Symmetry+Armstrong"><em>Groups and Symmetry</em></a></strong> (Springer)。行列の群と同型を、多くの幾何学的な例とともに扱う。</p></li>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong> (Wellesley-Cambridge)。射影と冪等行列がわかりやすく説明されている。</p></li>
+<li><p><strong>Joseph Gallian, <a href="https://uk.bookshop.org/search?keywords=Contemporary+Abstract+Algebra+Gallian"><em>Contemporary Abstract Algebra</em></a></strong> (CRC Press)。風変わりな群の例を多く含む、親しみやすい入門書。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="quaternions.html">← 6.7 四元数群</a><a class="next" href="wrap-up.html">→ 振り返り</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

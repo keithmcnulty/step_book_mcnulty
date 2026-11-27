@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>페르마 점 (STEP III 2000 Q3) — Beyond STEP</title>
+<meta name="description" content="STEP III 2000 문제 3: 단계별 풀이와 그 바탕에 있는 대학 수학. 세 마을이 서로를 모두 잇는 도로망을 가능한 한 짧게 건설하려 한다. 교차점은 어디에 두어야 할까? 1640년경 페르마(Pierre de Fermat)는 삼각형 내부에서 PA + PB + PC 를 최소로 하는 점 P 를 찾는 문제를 제기했고, 토리첼리(Evangelista…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch05/fermat-point.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch05/fermat-point.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch05/fermat-point.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/fermat-point.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/fermat-point.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch05/fermat-point.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch05/fermat-point.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="페르마 점 (STEP III 2000 Q3) — Beyond STEP">
+<meta property="og:description" content="STEP III 2000 문제 3: 단계별 풀이와 그 바탕에 있는 대학 수학. 세 마을이 서로를 모두 잇는 도로망을 가능한 한 짧게 건설하려 한다. 교차점은 어디에 두어야 할까? 1640년경 페르마(Pierre de Fermat)는 삼각형 내부에서 PA + PB + PC 를 최소로 하는 점 P 를 찾는 문제를 제기했고, 토리첼리(Evangelista…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch05/fermat-point.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="페르마 점 (STEP III 2000 Q3) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2000 문제 3: 단계별 풀이와 그 바탕에 있는 대학 수학. 세 마을이 서로를 모두 잇는 도로망을 가능한 한 짧게 건설하려 한다. 교차점은 어디에 두어야 할까? 1640년경 페르마(Pierre de Fermat)는 삼각형 내부에서 PA + PB + PC 를 최소로 하는 점 P 를 찾는 문제를 제기했고, 토리첼리(Evangelista…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "페르마 점", "headline": "페르마 점", "description": "STEP III 2000 문제 3: 단계별 풀이와 그 바탕에 있는 대학 수학. 세 마을이 서로를 모두 잇는 도로망을 가능한 한 짧게 건설하려 한다. 교차점은 어디에 두어야 할까? 1640년경 페르마(Pierre de Fermat)는 삼각형 내부에서 PA + PB + PC 를 최소로 하는 점 P 를 찾는 문제를 제기했고, 토리첼리(Evangelista…", "url": "https://beyondstep.keithmcnulty.org/ko/ch05/fermat-point.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2000 문제 3", "복소수"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 5, "name": "복소수", "url": "https://beyondstep.keithmcnulty.org/ko/ch05/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제5장: 복소수", "item": "https://beyondstep.keithmcnulty.org/ko/ch05/"}, {"@type": "ListItem", "position": 3, "name": "페르마 점", "item": "https://beyondstep.keithmcnulty.org/ko/ch05/fermat-point.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch05/fermat-point.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch05/fermat-point.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch05/fermat-point.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch05/fermat-point.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제5장 · 복소수</a>
+    <div class="src">STEP III · 2000 · 문제 3</div>
+    <div class="sec-head"><span class="sec-num">5.6</span><h1>페르마 점</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-5-6-fermat-point.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제5장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 2000, 문제 3</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/00-s3-q3">step.maths.org/questions/00-s3-q3</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>세 마을이 서로를 모두 잇는 도로망을 가능한 한 짧게 건설하려 한다. 교차점은 어디에 두어야 할까? 1640년경 페르마(Pierre de Fermat)는 삼각형 내부에서 <span class="math inline">\(PA + PB + PC\)</span>를 최소로 하는 점 <span class="math inline">\(P\)</span>를 찾는 문제를 제기했고, 토리첼리(Evangelista Torricelli)가 이를 풀었다. 그 점은 세 변이 모두 <span class="math inline">\(120^\circ\)</span>의 각으로 보이는 점이다.</p>
+<p>이 문제는 복소수(complex numbers)를 이용하여 그 점을 작도하는 아름다운 방법을 증명한다. 삼각형의 각 변 위에 바깥쪽으로 정삼각형(equilateral triangle)을 세우고, 새로 생긴 각 꼭짓점을 원래 삼각형의 마주 보는 꼭짓점과 잇는다. 세 직선은 한 점, 곧 <em>페르마 점</em>(Fermat point)에서 만나며, 세 선분의 길이는 모두 같고 그 길이가 바로 도로 총길이의 최솟값이다. 복소수와 <span class="math inline">\(e^{\mathrm{i}\pi/3}\)</span>에 관한 항등식 하나만 있으면 전체 논증은 몇 줄의 대수 계산으로 끝난다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p><span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>는 어디에 있는가? 각각의 편각(argument)은 무엇인가? <span class="math inline">\(OA\)</span>, <span class="math inline">\(OB\)</span>, <span class="math inline">\(OC\)</span>가 서로 이루는 각은 얼마인가?</p>
+</div>
+<p><span class="math inline">\(A = p\)</span>는 양의 실수축(real axis) 위에 있다(편각 <span class="math inline">\(0^\circ\)</span>). <span class="math inline">\(B = q\alpha^2 = qe^{2\pi\mathrm{i}/3}\)</span>의 편각은 <span class="math inline">\(120^\circ\)</span>이다. <span class="math inline">\(C = -r\alpha = re^{\mathrm{i}\pi}e^{\mathrm{i}\pi/3}\)</span>의 편각은 <span class="math inline">\(240^\circ\)</span>이다. 따라서 원점은 삼각형 내부의 점으로, 이 점에서 세 꼭짓점은 서로 <span class="math inline">\(120^\circ\)</span>의 각을 이루며 보이고, 각 꼭짓점까지의 거리는 <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span>, <span class="math inline">\(r\)</span>이다. 원점은 구성상 <em>바로</em> 페르마 점이다. 이 문제는 정삼각형 작도가 이 점을 찾아낸다는 것을 보이는 것이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-핵심-항등식" class="stage"><span class="stage-n">단계 1</span> 핵심 항등식</h4>
+<p><span class="math inline">\(\alpha^3 = e^{\mathrm{i}\pi} = -1\)</span>이므로 <span class="math inline">\(\alpha\)</span>는 <span class="math inline">\(z^3 + 1 = (z + 1)(z^2 - z + 1)\)</span>의 근이다. <span class="math inline">\(\alpha \neq -1\)</span>이므로 <span class="math inline">\(\alpha^2 - \alpha + 1 = 0\)</span>, 즉 <span class="math inline">\(1 + \alpha^2 = \alpha\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>여기서 유용한 두 결과가 나온다. <span class="math inline">\(1 - \alpha = -\alpha^2\)</span>이고, <span class="math inline">\(\alpha - \alpha^2 = 1\)</span>이다. 또한 <span class="math inline">\(1 - \alpha = \frac12 - \frac{\sqrt3}{2}\mathrm{i} = e^{-\mathrm{i}\pi/3}\)</span>은 <span class="math inline">\(\alpha\)</span>의 켤레복소수(complex conjugate)이다.</p>
+<h4 id="stagemark2-회전으로-본-정삼각형" class="stage"><span class="stage-n">단계 2</span> 회전으로 본 정삼각형</h4>
+<div class="askyourself">
+<p>삼각형 <span class="math inline">\(CAN\)</span>은 꼭짓점을 시계 방향으로 이름 붙인 정삼각형이다. <span class="math inline">\(C\)</span>에 서 있다면 <span class="math inline">\(A\)</span>에서 <span class="math inline">\(N\)</span>으로 어떻게 갈 수 있는가? <span class="math inline">\(N - C\)</span>를 <span class="math inline">\(A - C\)</span>로 나타내어라.</p>
+</div>
+<p><span class="math inline">\(C\)</span>, <span class="math inline">\(A\)</span>, <span class="math inline">\(N\)</span> 순으로 시계 방향으로 돌면, 점 <span class="math inline">\(N\)</span>은 <span class="math inline">\(A\)</span>를 <span class="math inline">\(C\)</span>를 중심으로 시계 방향으로 <span class="math inline">\(60^\circ\)</span> 회전(rotation)시켜 얻는다. <span class="math inline">\(e^{-\mathrm{i}\pi/3} = 1 - \alpha\)</span>를 곱하면 시계 방향으로 <span class="math inline">\(60^\circ\)</span> 회전하므로 <span class="math display">\[\begin{aligned}
+  N = C + (1 - \alpha)(A - C) &amp;= -r\alpha + (1 - \alpha)(p + r\alpha) \\
+  &amp;= (1 - \alpha)p + r(\alpha - \alpha^2 - \alpha) = (1 - \alpha)p - \alpha^2r. \qed
+\end{aligned}\]</span> (반시계 방향이 아니라 시계 방향으로 회전시키므로 <span class="math inline">\(N\)</span>은 <span class="math inline">\(CA\)</span>에 대해 원점의 반대편, 즉 삼각형 바깥에 놓인다.)</p>
+<div class="pausebox">
+<p>같은 방법으로 <span class="math inline">\(L\)</span>과 <span class="math inline">\(M\)</span>을 구하고, 1단계의 항등식을 이용하여 간단히 하여라.</p>
+</div>
+<p>마찬가지로 <span class="math inline">\(L = A + (1 - \alpha)(B - A)\)</span>이고 <span class="math inline">\(M = B + (1 - \alpha)(C - B)\)</span>이다. <span class="math display">\[\begin{aligned}
+  L &amp;= p + (1 - \alpha)(q\alpha^2 - p) = \alpha p + (\alpha^2 - \alpha^3)q = \alpha p + (\alpha^2 + 1)q = \alpha(p + q), \\
+  M &amp;= q\alpha^2 + (1 - \alpha)(-r\alpha - q\alpha^2) = q\alpha^3 + r(\alpha^2 - \alpha) = -q - r.
+\end{aligned}\]</span> 그리고 <span class="math inline">\(1 - \alpha = -\alpha^2\)</span>을 이용하면 <span class="math inline">\(N = -\alpha^2p - \alpha^2r = -\alpha^2(p + r)\)</span>이다.</p>
+<h4 id="stagemark3-원점을-지나는-세-직선" class="stage"><span class="stage-n">단계 3</span> 원점을 지나는 세 직선</h4>
+<div class="askyourself">
+<p><span class="math inline">\(L = \alpha(p + q)\)</span>와 <span class="math inline">\(C = -r\alpha\)</span>를 비교해 보라. 무엇을 알 수 있는가? <span class="math inline">\(M\)</span>과 <span class="math inline">\(A\)</span>, <span class="math inline">\(N\)</span>과 <span class="math inline">\(B\)</span>에 대해서도 같은 방법으로 해 보라.</p>
+</div>
+<p><span class="math inline">\(L\)</span>은 <span class="math inline">\(\alpha\)</span>의 양의 실수배이고 <span class="math inline">\(C\)</span>는 <span class="math inline">\(\alpha\)</span>의 음의 실수배이다. 따라서 <span class="math inline">\(L\)</span>과 <span class="math inline">\(C\)</span>는 <span class="math inline">\(O\)</span>를 지나는 같은 직선 위에서 <span class="math inline">\(O\)</span>의 양쪽에 놓이고, 선분 <span class="math inline">\(LC\)</span>는 원점을 지나며 그 길이는 <span class="math inline">\(|L - C| = |\alpha|(p + q + r) = p + q + r\)</span>이다.</p>
+<p>마찬가지로 <span class="math inline">\(M = -(q + r)\)</span>과 <span class="math inline">\(A = p\)</span>는 실수축 위에서 <span class="math inline">\(O\)</span>의 양쪽에 놓이므로, <span class="math inline">\(MA\)</span>는 <span class="math inline">\(O\)</span>를 지나고 길이는 <span class="math inline">\(p + q + r\)</span>이다. 또 <span class="math inline">\(N = -\alpha^2(p + r)\)</span>과 <span class="math inline">\(B = q\alpha^2\)</span>은 <span class="math inline">\(O\)</span>를 지나고 방향이 <span class="math inline">\(\alpha^2\)</span>인 직선 위에서 서로 반대편에 놓이므로, <span class="math inline">\(NB\)</span>는 <span class="math inline">\(O\)</span>를 지나고 길이는 <span class="math inline">\(p + q + r\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-5-6-1.svg" alt="그림 5.6.1"><figcaption><span class="fig-label">그림 5.6.1</span> <span class="math inline">\(p = 2\)</span>, <span class="math inline">\(q = 1.4\)</span>, <span class="math inline">\(r = 1.1\)</span>일 때의 페르마 점. <span class="math inline">\(ABC\)</span>의 각 변 위에 바깥쪽으로 정삼각형(호박색)을 세운다. 직선 <span class="math inline">\(LC\)</span>, <span class="math inline">\(MA\)</span>, <span class="math inline">\(NB\)</span>(자주색)는 모두 원점 <span class="math inline">\(O\)</span>를 지나는데, <span class="math inline">\(O\)</span>는 <span class="math inline">\(ABC\)</span>의 각 변이 <span class="math inline">\(120^\circ\)</span>의 각으로 보이는 점이다. 세 선분의 길이는 모두 <span class="math inline">\(p + q + r = 4.5\)</span>이다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>회전은 곱셈이다.</strong> 정삼각형을 세운다는 것은 한 꼭짓점을 다른 꼭짓점을 중심으로 <span class="math inline">\(60^\circ\)</span> 회전시킨다는 뜻이고, 이는 <span class="math inline">\(e^{\pm\mathrm{i}\pi/3}\)</span>을 곱하는 것이다.</p></li>
+<li><p><strong>영리한 좌표 선택.</strong> 페르마 점을 원점에 두고 꼭짓점들을 <span class="math inline">\(1\)</span>, <span class="math inline">\(\alpha^2\)</span>, <span class="math inline">\(-\alpha\)</span> 방향에 놓았더니 모든 식이 간단히 정리되었다.</p></li>
+<li><p><strong>하나의 항등식을 거듭 사용하기.</strong> 모든 식의 간단히 하기는 <span class="math inline">\(\alpha^2 - \alpha + 1 = 0\)</span>과 <span class="math inline">\(\alpha^3 = -1\)</span>에서 나왔다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">페르마 점이 거리의 합을 최소로 하는 이유</div>
+<p>왜 <span class="math inline">\(PA + PB + PC\)</span>는 각 변이 <span class="math inline">\(120^\circ\)</span>의 각으로 보이는 점에서 가장 작아야 할까? 멋진 논증이 하나 있다. 전체 그림을 <span class="math inline">\(B\)</span>를 중심으로 <span class="math inline">\(60^\circ\)</span> 회전시켜 <span class="math inline">\(A\)</span>를 <span class="math inline">\(L&#39;\)</span>(<span class="math inline">\(AB\)</span> 위에 세운 정삼각형의 꼭짓점)으로, <span class="math inline">\(P\)</span>를 <span class="math inline">\(P&#39;\)</span>으로 보낸다. 삼각형 <span class="math inline">\(BPP&#39;\)</span>은 정삼각형이므로 <span class="math inline">\(PB = PP&#39;\)</span>이고, <span class="math inline">\(PA = P&#39;L&#39;\)</span>이다. 그러면 <span class="math inline">\(PA + PB + PC = L&#39;P&#39; + P&#39;P + PC\)</span>이고, 이는 <span class="math inline">\(L&#39;\)</span>에서 <span class="math inline">\(C\)</span>로 가는 경로의 길이이다. 이 값은 <span class="math inline">\(|L&#39;C|\)</span> 이상이며, 등호는 경로가 직선일 때, 즉 <span class="math inline">\(P\)</span>에서의 각이 <span class="math inline">\(120^\circ\)</span>일 때 정확히 성립한다. 따라서 총길이의 최솟값은 문제에서 구한 대로 <span class="math inline">\(|LC| = p + q + r\)</span>이다. (이 논증은 삼각형의 모든 각이 <span class="math inline">\(120^\circ\)</span>보다 작을 때 성립한다. 그렇지 않으면 최솟값은 둔각인 꼭짓점에서 나온다.)</p>
+</div>
+<h3 id="비누막과-슈타이너-트리">비누막과 슈타이너 트리</h3>
+<p>세 개의 말뚝(<span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>를 나타낸다)이 달린 틀을 비눗물에 담갔다 꺼내면, 비누막은 표면장력(surface tension) 에너지를 최소로 하면서 페르마 점에서 <span class="math inline">\(120^\circ\)</span>로 만나는 세 개의 벽을 이룬다. 점이 더 많을 때 이들을 잇는 가장 짧은 연결망은 <em>슈타이너 트리</em>(Steiner tree)로, 세 변이 <span class="math inline">\(120^\circ\)</span>로 만나는 교차점이 추가로 생긴다. 슈타이너 트리를 찾는 일은 일반적으로 계산상 어렵지만(NP-난해(NP-hard) 문제이다), 도로망, 송유관, 컴퓨터 칩의 배선을 설계할 때 실제로 중요하다.</p>
+<h3 id="나폴레옹-정리napoleons-theorem">나폴레옹 정리(Napoleon’s theorem)</h3>
+<p>같은 그림 속에는 또 하나의 보석이 숨어 있다. 임의의 삼각형의 세 변 위에 세운 세 정삼각형의 <em>중심</em>은 정삼각형을 이룬다. 이 정리는 전통적으로 나폴레옹 보나파르트(Napoleon Bonaparte, 열성적인 아마추어 수학자였다)의 업적으로 알려져 있지만, 그가 이것을 발견했다는 증거는 없다. 이 정리 역시 <span class="math inline">\(1 + \alpha^2 = \alpha\)</span>를 이용하면 복소수로 짧게 증명할 수 있다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">문제에 맞는 좌표를 고르라</div>
+<p><em>가장 중요한 점을 원점에 두고, 문제의 대칭성에 맞추어 배치하라. 좋은 선택을 하면 대수 계산이 거의 자명해질 수 있다.</em></p>
+<p>여기서 원점은 페르마 점이었고, 세 꼭짓점은 (부호를 제외하면) <span class="math inline">\(-1\)</span>의 세제곱근(cube roots) 방향에 놓였다. 다른 좌표를 썼다면 같은 계산이 훨씬 복잡해졌을 것이다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>이름 붙인 순서 확인하기.</strong> 정삼각형의 꼭짓점을 반시계 방향으로 이름 붙이면(즉 안쪽으로 세우면) 세 직선이 일반적으로 <span class="math inline">\(O\)</span>를 지나지 않음을 보여라.</p></li>
+<li><p><strong>나폴레옹 정리.</strong> 정삼각형 <span class="math inline">\(ABL\)</span>의 중심이 <span class="math inline">\(\frac13(A + B + L)\)</span>임을 보여라. 위에서 구한 식들을 이용하여 세 중심이 정삼각형을 이룸을 보여라.</p></li>
+<li><p><strong>최솟값.</strong> <span class="math inline">\(p = 2\)</span>, <span class="math inline">\(q = 1.4\)</span>, <span class="math inline">\(r = 1.1\)</span>일 때, <span class="math inline">\(P\)</span>가 각 꼭짓점에 있을 때와 무게중심(centroid) <span class="math inline">\(\frac13(A + B + C)\)</span>에 있을 때 <span class="math inline">\(PA + PB + PC\)</span>를 계산하고, 모두 <span class="math inline">\(4.5\)</span>보다 큼을 확인하여라.</p></li>
+<li><p><strong>정삼각형 판정법.</strong> <span class="math inline">\(z_1\)</span>, <span class="math inline">\(z_2\)</span>, <span class="math inline">\(z_3\)</span>이 (어느 방향으로든) 정삼각형을 이루기 위한 필요충분조건(if and only if)이 <span class="math inline">\(z_1^2 + z_2^2 + z_3^2 = z_1z_2 + z_2z_3 + z_3z_1\)</span>임을 보여라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Richard Courant &amp; Herbert Robbins, <a href="https://uk.bookshop.org/search?keywords=What+Is+Mathematics%3F+Courant+Robbins"><em>What Is Mathematics?</em></a></strong>(수학이란 무엇인가) (Oxford University Press). 7장에서 페르마 점, 슈타이너 트리, 비누막을 다룬다.</p></li>
+<li><p><strong>Liang-shin Hahn, <a href="https://uk.bookshop.org/search?keywords=Complex+Numbers+and+Geometry+Hahn"><em>Complex Numbers and Geometry</em></a></strong>(복소수와 기하학) (Mathematical Association of America). 복소수로 증명한 여러 기하학 정리를 정확히 이 수준에서 다룬다.</p></li>
+<li><p><strong>Tristan Needham, <a href="https://uk.bookshop.org/search?keywords=Visual+Complex+Analysis+Needham"><em>Visual Complex Analysis</em></a></strong>(시각적 복소해석학) (Oxford University Press). 1장에 나폴레옹 정리와 그 밖의 기하학적 결과가 실려 있다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="rational-angles.html">← 5.5 유리수처럼 보이지만 아닌 각</a><a class="next" href="complex-exponential.html">→ 5.7 사상으로서의 복소 지수함수</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

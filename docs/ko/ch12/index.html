@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제12장: 확률 — Beyond STEP</title>
+<meta name="description" content="다섯 가지 주제를 다룬다: 명료한 사고, 대칭, 기댓값과 게임, 확률 과정, 극한.">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch12/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="제12장: 확률 — Beyond STEP">
+<meta property="og:description" content="다섯 가지 주제를 다룬다: 명료한 사고, 대칭, 기댓값과 게임, 확률 과정, 극한.">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch12/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="제12장: 확률 — Beyond STEP">
+<meta name="twitter:description" content="다섯 가지 주제를 다룬다: 명료한 사고, 대칭, 기댓값과 게임, 확률 과정, 극한.">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 12, "name": "확률", "url": "https://beyondstep.keithmcnulty.org/ko/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "다섯 가지 주제를 다룬다: 명료한 사고, 대칭, 기댓값과 게임, 확률 과정, 극한."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제12장: 확률", "item": "https://beyondstep.keithmcnulty.org/ko/ch12/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch12/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch12/index.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">장</div>
+    <div class="ch-num">12</div>
+    <h1>확률</h1>
+    <p class="strap">불확실성도 정확하게 추론할 수 있다. 그러나 직관은 그렇지 못하다는 것이 드러난다.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">장 전체 내려받기</span><span class="dl-sub">인쇄용으로 조판한 PDF</span></span></a>
+  </div>
+  <h2 class="contents-head">이 장의 내용</h2>
+  <ol class="toc"><li><a class="toc-link" href="conditioning.html"><span class="toc-num">12.1</span>
+<span class="toc-title">조건을 정확하게 걸기</span>
+<span class="toc-src">STEP I 2007</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-1-conditioning.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="base-rate.html"><span class="toc-num">12.2</span>
+<span class="toc-title">기저율 오류</span>
+<span class="toc-src">STEP II 1998</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-2-base-rate.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="bertrand.html"><span class="toc-num">12.3</span>
+<span class="toc-title">“무작위”란 무슨 뜻인가?</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-3-bertrand.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="pairwise-independence.html"><span class="toc-num">12.4</span>
+<span class="toc-title">둘씩은 독립이지만 한꺼번에는 독립이 아닌</span>
+<span class="toc-src">STEP III 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-4-pairwise-independence.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="airline-seat.html"><span class="toc-num">12.5</span>
+<span class="toc-title">마지막 승객의 좌석</span>
+<span class="toc-src">STEP II 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-5-airline-seat.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="one-more-coin.html"><span class="toc-num">12.6</span>
+<span class="toc-title">동전 하나 더</span>
+<span class="toc-src">STEP I 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-6-one-more-coin.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="knockout.html"><span class="toc-num">12.7</span>
+<span class="toc-title">토너먼트에서 누가 누구와 만나는가</span>
+<span class="toc-src">STEP II Specimen paper</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-7-knockout.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="penney.html"><span class="toc-num">12.8</span>
+<span class="toc-title">페니의 게임</span>
+<span class="toc-src">STEP III 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-8-penney.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="von-neumann.html"><span class="toc-num">12.9</span>
+<span class="toc-title">치우친 동전으로 공정하게 정하기</span>
+<span class="toc-src">STEP I 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-9-von-neumann.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="loose-ends.html"><span class="toc-num">12.10</span>
+<span class="toc-title">느슨한 끈 끝 묶기</span>
+<span class="toc-src">STEP III 2008</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-10-loose-ends.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="stamps-and-e.html"><span class="toc-num">12.11</span>
+<span class="toc-title">우표, 컵, 그리고 \(e\)</span>
+<span class="toc-src">STEP I 1996</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-11-stamps-and-e.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="secretary.html"><span class="toc-num">12.12</span>
+<span class="toc-title">언제 그만 찾아야 하는가</span>
+<span class="toc-src">STEP I 2001</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-12-secretary.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="truel.html"><span class="toc-num">12.13</span>
+<span class="toc-title">삼자 결투</span>
+<span class="toc-src">STEP II 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-13-truel.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="mixed-strategies.html"><span class="toc-num">12.14</span>
+<span class="toc-title">혼합 전략</span>
+<span class="toc-src">STEP I 1989</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-14-mixed-strategies.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="branching.html"><span class="toc-num">12.15</span>
+<span class="toc-title">멸종인가 폭발인가</span>
+<span class="toc-src">STEP II 2003</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-15-branching.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="markov.html"><span class="toc-num">12.16</span>
+<span class="toc-title">앞으로 보고 거꾸로 보는 마르코프 연쇄</span>
+<span class="toc-src">STEP III 1996</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-16-markov.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="matchboxes.html"><span class="toc-num">12.17</span>
+<span class="toc-title">바나흐의 성냥갑</span>
+<span class="toc-src">STEP II 1992</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-17-matchboxes.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="memoryless.html"><span class="toc-num">12.18</span>
+<span class="toc-title">무기억성</span>
+<span class="toc-src">STEP III 2021</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-18-memoryless.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="spatial-poisson.html"><span class="toc-num">12.19</span>
+<span class="toc-title">평면 위의 무작위 점</span>
+<span class="toc-src">STEP II 2012</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-19-spatial-poisson.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="buffon.html"><span class="toc-num">12.20</span>
+<span class="toc-title">뷔퐁의 바늘</span>
+<span class="toc-src">STEP I 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-20-buffon.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="broken-stick.html"><span class="toc-num">12.21</span>
+<span class="toc-title">막대 부러뜨리기</span>
+<span class="toc-src">STEP III 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-21-broken-stick.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="cauchy.html"><span class="toc-num">12.22</span>
+<span class="toc-title">평균이 없는 분포</span>
+<span class="toc-src">STEP III 1995</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-22-cauchy.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="stirling-probability.html"><span class="toc-num">12.23</span>
+<span class="toc-title">확률로 얻는 스털링 공식</span>
+<span class="toc-src">STEP II 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-23-stirling-probability.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="clt.html"><span class="toc-num">12.24</span>
+<span class="toc-title">중심극한정리</span>
+<span class="toc-src">STEP III 2008</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-24-clt.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="extremes.html"><span class="toc-num">12.25</span>
+<span class="toc-title">여럿 가운데 가장 큰 값</span>
+<span class="toc-src">STEP III 2025</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-12-25-extremes.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">돌아보기: 지금까지 배운 것</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“다음으로 풀어 보기” 연습문제의 답</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">12장  \(\cdot\)  들어가며</div>
+    <h1 class="essay-title">우연에 대해 추론하기</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>확률론은 계산으로 환원된 상식에 지나지 않는다.</p>
+<p class="who">— 피에르시몽 라플라스(Pierre-Simon Laplace), <em>Théorie analytique des probabilités</em> (1812)</p>
+</div>
+<p>라플라스의 유명한 말은 절반만 옳다. 확률(probability)은 상식을 정밀하게 만든 것이다. 그러나 이 장에서 거듭 보게 되듯이, 상식을 그대로 내버려 두면 틀리고 만다. 사람들은 희귀병 검사에서 양성이 나오면 아마 그 병에 걸렸을 것이라고 생각한다. 비행기에 처음 탑승한 승객이 엉뚱한 자리에 앉으면 마지막 승객이 자기 자리에 앉을 가능성은 거의 없다고 생각한다. 동전 던지기에서 어떤 앞뒷면 배열이 같은 길이의 다른 배열을 이길 수는 없다고 생각한다. 많은 측정값의 평균은 언제나 어떤 값으로 안정된다고 생각한다. 이것들은 모두 거짓이며, 각각의 경우 짧은 계산 하나가 진실을, 더 나아가 그 이유까지 드러낸다.</p>
+<p>확률론은 17세기에 블레즈 파스칼(Blaise Pascal)과 피에르 드 페르마(Pierre de Fermat)가 주고받은 편지 속에서 도박에 관한 질문들로부터 시작되었다. 확률론이 엄밀한 수학의 한 분야가 된 것은 1933년에 이르러서였는데, 이때 안드레이 콜모고로프(Andrey Kolmogorov)가 그 공리(axiom)를 제시하였다. 그 사이에, 그리고 그 이후로, 확률론은 수학에서 가장 널리 쓰이는 분야 가운데 하나로 성장하였다.</p>
+<h3 id="확률은-왜-중요한가">확률은 왜 중요한가</h3>
+<p>불확실성을 다루는 모든 분야는 확률을 사용한다. 의학(진단 검사와 임상 시험), 법학(증거의 무게), 금융(위험과 보험), 공학(신뢰성과 홍수), 컴퓨터 과학(무작위 알고리즘, 암호학, 기계 학습), 물리학(양자역학과 통계역학), 생물학(유전학과 전염병)이 모두 그렇다. 현대 인공지능은 상당 부분 응용 확률론이다. 언어 모델은 다음 단어가 나올 확률을 예측한다. 그리고 위험, 우연, 증거에 대해 올바르게 추론하는 능력은 교육받은 사람이라면 누구나 지닐 수 있는 가장 값진 능력 가운데 하나이다.</p>
+<h3 id="대학에서-만나게-될-내용">대학에서 만나게 될 내용</h3>
+<p>대학 1학년 확률론에서는 공리, 조건부 확률(conditional probability)과 베이즈 정리(Bayes’ theorem), 독립(independence), 이산 확률변수와 연속 확률변수(random variable), 기댓값(expectation)과 분산(variance), 생성함수(generating function), 그리고 두 가지 위대한 극한 정리인 큰 수의 법칙(law of large numbers)과 중심극한정리(central limit theorem)를 다룬다. 이후의 과목에서는 확률과정(random process)(마르코프 연쇄(Markov chain), 푸아송 과정(Poisson process), 무작위 행보(random walk), 분기 과정(branching process)), 측도론적 확률론(measure-theoretic probability)(극한과 연속분포를 튼튼한 기반 위에 올려놓는다), 마팅게일(martingale)을 공부하며, 확률론을 통계학, 해석학, 조합론, 물리학과 연결한다.</p>
+<h3 id="이-장을-관통하는-질문들">이 장을 관통하는 질문들</h3>
+<div class="skillbox">
+<div class="box-title">세 가지 큰 질문</div>
+<ol class="arabic">
+<li><p><strong>질문이 정확히 무엇인가?</strong> 확률 실험은 무엇이고, 무엇을 조건으로 삼고 있으며, “무작위로”라는 말은 무슨 뜻인가?</p></li>
+<li><p><strong>영리한 접근법은 무엇인가?</strong> 언제 대칭(symmetry), 지시변수(indicator), 조건부화, 잘 고른 상태가 긴 계산을 대신할 수 있는가?</p></li>
+<li><p><strong>장기적으로 무슨 일이 일어나는가?</strong> 확률과정은 시간이 흐름에 따라 어떻게 행동하며, 많은 확률적인 양의 합, 평균, 최댓값은 어떤 모습인가?</p></li>
+</ol>
+</div>
+<p>이 장은 다섯 부분으로 이루어져 있다. <em>명료하게 생각하기</em>(<a href="../ch12/conditioning.html">12.1 절</a>에서 <a href="../ch12/pairwise-independence.html">12.4 절</a>까지)에서는 함정들, 즉 조건부화, 기저율(base rate), “무작위”의 의미, 독립의 의미를 다룬다. <em>대칭과 영리한 논증</em>(<a href="../ch12/airline-seat.html">12.5 절</a>에서 <a href="../ch12/von-neumann.html">12.9 절</a>까지)에는 아름답고 짧은 풀이를 가진 문제들을 모았다. <em>기댓값, 게임, 멈추기</em>(<a href="../ch12/loose-ends.html">12.10 절</a>에서 <a href="../ch12/mixed-strategies.html">12.14 절</a>까지)에서는 평균과 의사 결정, 즉 언제 멈출지, 누구를 쏠지, 어떻게 무작위화할지로 눈을 돌린다. <em>확률과정</em>(<a href="../ch12/branching.html">12.15 절</a>에서 <a href="../ch12/spatial-poisson.html">12.19 절</a>까지)에서는 시간과 공간 속에서 무작위성을 따라간다. 그리고 <em>극한과 연속 확률</em>(<a href="../ch12/buffon.html">12.20 절</a>에서 <a href="../ch12/extremes.html">12.25 절</a>까지)은 기하학적 확률(geometric probability)과 위대한 극한 정리들로 마무리한다.</p>
+<h3 id="이-장의-아이디어">이 장의 아이디어</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">주제</th>
+<th style="text-align: left;">아이디어</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">12.1</td>
+<td style="text-align: left;">조건부화</td>
+<td style="text-align: left;">“특정한 하나” 대 “적어도 하나”</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.2</td>
+<td style="text-align: left;">베이즈 정리</td>
+<td style="text-align: left;">기저율과 자연 빈도(natural frequency)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.3</td>
+<td style="text-align: left;">베르트랑(Bertrand)의 역설</td>
+<td style="text-align: left;">“무작위”에는 정의가 필요하다</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.4</td>
+<td style="text-align: left;">독립</td>
+<td style="text-align: left;">쌍별 독립(pairwise independence)은 상호 독립(mutual independence)이 아니다</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.5</td>
+<td style="text-align: left;">비행기 좌석</td>
+<td style="text-align: left;">두 좌석 사이의 대칭</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.6</td>
+<td style="text-align: left;">동전 하나 더</td>
+<td style="text-align: left;">서로 여사건인 대칭적 사건</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.7</td>
+<td style="text-align: left;">토너먼트</td>
+<td style="text-align: left;">경기와 쌍 세기</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.8</td>
+<td style="text-align: left;">Penney의 게임</td>
+<td style="text-align: left;">첫걸음 분석(first-step analysis); 비추이성(non-transitivity)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.9</td>
+<td style="text-align: left;">공정한 동전</td>
+<td style="text-align: left;">치우침에서 공정함 끌어내기</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.10</td>
+<td style="text-align: left;">무작위 고리</td>
+<td style="text-align: left;">무기억적인 지시변수의 합</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.11</td>
+<td style="text-align: left;">컵과 <span class="math inline">\(e\)</span></td>
+<td style="text-align: left;">계승(factorial)과 지수급수</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.12</td>
+<td style="text-align: left;">최적 정지(optimal stopping)</td>
+<td style="text-align: left;"><span class="math inline">\(\frac1e\)</span> 규칙</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.13</td>
+<td style="text-align: left;">삼자 결투(truel)</td>
+<td style="text-align: left;">전략적 약함</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.14</td>
+<td style="text-align: left;">게임 이론(game theory)</td>
+<td style="text-align: left;">무작위화 전략; 최소최대(minimax)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.15</td>
+<td style="text-align: left;">분기 과정</td>
+<td style="text-align: left;">고정점(fixed point)으로서의 소멸</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.16</td>
+<td style="text-align: left;">마르코프 연쇄</td>
+<td style="text-align: left;">정상분포(stationary distribution); 시간 역전(reversal)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.17</td>
+<td style="text-align: left;">바나흐(Banach)의 성냥갑</td>
+<td style="text-align: left;">음이항분포(negative binomial distribution)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.18</td>
+<td style="text-align: left;">지수분포(exponential distribution)</td>
+<td style="text-align: left;">무기억성(memorylessness)과 독립</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.19</td>
+<td style="text-align: left;">공간적 무작위성</td>
+<td style="text-align: left;">최근접 이웃(nearest neighbour); 레일리(Rayleigh) 분포</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.20</td>
+<td style="text-align: left;">뷔퐁(Buffon)의 바늘</td>
+<td style="text-align: left;">기하학적 확률과 <span class="math inline">\(\pi\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.21</td>
+<td style="text-align: left;">무작위 삼각형</td>
+<td style="text-align: left;">넓이로서의 확률</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.22</td>
+<td style="text-align: left;">코시(Cauchy) 분포</td>
+<td style="text-align: left;">평균이 없는 분포</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.23</td>
+<td style="text-align: left;">스털링(Stirling) 공식</td>
+<td style="text-align: left;">정규곡선에서 얻는 계승</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12.24</td>
+<td style="text-align: left;">중심극한정리</td>
+<td style="text-align: left;">적률생성함수(moment generating function)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">12.25</td>
+<td style="text-align: left;">극값(extreme value)</td>
+<td style="text-align: left;">검벨 분포(Gumbel distribution)</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="../ch12/clt.html">12.24 절</a> 한 절은 적률생성함수를 사용하는데, 이 내용은 2019년에 STEP 출제 범위에서 빠졌다. 그 절에서는 필요한 내용을 직접 설명한다.</p>
+<h3 id="이-장을-읽는-방법">이 장을 읽는 방법</h3>
+<p>확률 문제가 헷갈릴 때에는 작은 경우에 대해 표본공간(sample space)을 적어 보고 세어 보라. 답이 수상할 만큼 간단하게 나오면 그것을 설명해 주는 대칭을 찾아보라. 그리고 직관과 계산이 어긋나면 계산을 믿고, 그다음에 직관이 왜 틀렸는지 알아내라. 바로 거기에서 배움이 일어난다.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="conditioning.html">→ 시작: 12.1 조건을 정확하게 걸기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

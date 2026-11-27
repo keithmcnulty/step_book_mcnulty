@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5장 정리 — Beyond STEP</title>
+<meta name="description" content="우리는 실수인 답을 얻는 데에도 허수를 거치는 단계가 필요할 수 있다는 카르다노(Cardano)의 당혹스러운 발견에서 출발했고, 세 가지 질문을 던졌다. 복소수(complex number)는 실수 문제를 푸는 데 어떻게 도움이 되는가, 단위근(roots of unity)은 무엇이 특별한가, 그리고 복소함수는 어떻게 생겼는가. 이 장의 여덟 문제가 보여 준…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch05/wrap-up.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch05/wrap-up.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch05/wrap-up.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/wrap-up.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/wrap-up.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch05/wrap-up.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch05/wrap-up.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="5장 정리 — Beyond STEP">
+<meta property="og:description" content="우리는 실수인 답을 얻는 데에도 허수를 거치는 단계가 필요할 수 있다는 카르다노(Cardano)의 당혹스러운 발견에서 출발했고, 세 가지 질문을 던졌다. 복소수(complex number)는 실수 문제를 푸는 데 어떻게 도움이 되는가, 단위근(roots of unity)은 무엇이 특별한가, 그리고 복소함수는 어떻게 생겼는가. 이 장의 여덟 문제가 보여 준…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch05/wrap-up.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="5장 정리 — Beyond STEP">
+<meta name="twitter:description" content="우리는 실수인 답을 얻는 데에도 허수를 거치는 단계가 필요할 수 있다는 카르다노(Cardano)의 당혹스러운 발견에서 출발했고, 세 가지 질문을 던졌다. 복소수(complex number)는 실수 문제를 푸는 데 어떻게 도움이 되는가, 단위근(roots of unity)은 무엇이 특별한가, 그리고 복소함수는 어떻게 생겼는가. 이 장의 여덟 문제가 보여 준…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제5장: 복소수", "item": "https://beyondstep.keithmcnulty.org/ko/ch05/"}, {"@type": "ListItem", "position": 3, "name": "우리가 배운 것", "item": "https://beyondstep.keithmcnulty.org/ko/ch05/wrap-up.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch05/wrap-up.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch05/wrap-up.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch05/wrap-up.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch05/wrap-up.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제5장 · 복소수</a>
+    <div class="sec-head"><h1>우리가 배운 것</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <article class="prose">
+<p>우리는 실수인 답을 얻는 데에도 허수를 거치는 단계가 필요할 수 있다는 카르다노(Cardano)의 당혹스러운 발견에서 출발했고, 세 가지 질문을 던졌다. 복소수(complex number)는 실수 문제를 푸는 데 어떻게 도움이 되는가, 단위근(roots of unity)은 무엇이 특별한가, 그리고 복소함수는 어떻게 생겼는가. 이 장의 여덟 문제가 보여 준 것을 정리하면 다음과 같다.</p>
+<h3 id="복소수는-실수-문제를-푸는-데-어떻게-도움이-되는가">1. 복소수는 실수 문제를 푸는 데 어떻게 도움이 되는가?</h3>
+<p>실수에 관한 사실이 복소평면을 거치면 짧게 증명되는 경우를 거듭 보았다.</p>
+<ul>
+<li><p><strong>각은 곱이 된다.</strong> <span class="math inline">\(\pi\)</span>에 관한 마친(Machin)의 공식은 <span class="math inline">\((5 - \mathrm{i})^4(1 + \mathrm{i})\)</span>가 <span class="math inline">\(239 - \mathrm{i}\)</span>의 실수배라는 명제이며, 이는 정수 계산만으로 확인된다(<a href="../ch05/machin.html">5.1 절</a>).</p></li>
+<li><p><strong>세기는 평균 내기가 된다.</strong> 이항계수(binomial coefficient)를 세 개마다 하나씩 더한 합은 <span class="math inline">\((1 + x)^n\)</span>에 1의 세제곱근을 대입하여 얻었다(<a href="../ch05/roots-filter.html">5.2 절</a>).</p></li>
+<li><p><strong>삼각함수의 곱은 다항식의 값이 된다.</strong> 같은 간격의 각에서 코사인 값을 곱한 것은 <span class="math inline">\(z^{2n} + 1\)</span>을 인수분해하고 <span class="math inline">\(z = \mathrm{i}\)</span>를 대입하여 얻었다(<a href="../ch05/z2n-plus-one.html">5.3 절</a>).</p></li>
+<li><p><strong>기하는 대수가 된다.</strong> 거리는 절댓값(modulus)이 되므로, 정<span class="math inline">\(n\)</span>각형의 한 꼭짓점에서 그은 현(chord)들의 길이의 곱은 <span class="math inline">\(|1 + 1 + \cdots + 1| = n\)</span>이다(<a href="../ch05/polygon-distances.html">5.4 절</a>). 회전은 곱셈이 되므로, 페르마 점(Fermat point)의 작도는 항등식 <span class="math inline">\(1 + \alpha^2 = \alpha\)</span>로 귀결되었다(<a href="../ch05/fermat-point.html">5.6 절</a>).</p></li>
+<li><p><strong>드무아브르로부터 무리성을.</strong> <span class="math inline">\((\cos\theta + \mathrm{i}\sin\theta)^k\)</span>를 전개하고 홀짝성(parity)을 따지는 논증으로, <span class="math inline">\(\cos^{-1}\frac13\)</span>이 도 단위로 유리수가 아님을 보였다. 이는 힐베르트(Hilbert)의 세 번째 문제에 대한 덴(Dehn)의 풀이에서 핵심이 되는 사실이다(<a href="../ch05/rational-angles.html">5.5 절</a>).</p></li>
+</ul>
+<h3 id="단위근은-무엇이-특별한가">2. 단위근은 무엇이 특별한가?</h3>
+<p><span class="math inline">\(n\)</span>제곱근인 단위근은 정<span class="math inline">\(n\)</span>각형의 꼭짓점이고, 가장 단순한 다항식 <span class="math inline">\(z^n - 1\)</span>의 근이며, 곱셈에 대하여 군(group)을 이룬다. 이 세 가지 사실을 합치면 단위근이 어디에나 등장하는 이유가 설명된다. 원 위에 고르게 퍼져 있으므로 그 합은 <span class="math inline">\(0\)</span>이고, 이로부터 <a href="../ch05/roots-filter.html">5.2 절</a>의 거르기 방법과, 더 일반적으로는 이산 푸리에 변환(discrete Fourier transform)이 나온다. <span class="math inline">\(z^n - 1\)</span>의 근이므로 단위근 전체에 걸친 곱은 단순한 다항식의 값이 된다(<a href="../ch05/z2n-plus-one.html">5.3 절</a>, <a href="../ch05/polygon-distances.html">5.4 절</a>). 그리고 곱셈에 대하여 닫혀 있으므로 단위근의 거듭제곱은 순환하는데, 바로 이 성질이 <span class="math inline">\(\cos^{-1}\frac13\)</span> 같은 각에서는 성립하지 않는다(<a href="../ch05/rational-angles.html">5.5 절</a>). 6장에서 단위근은 대수학의 중심이 되며, 갈루아 이론(Galois theory)으로 이어진다.</p>
+<h3 id="복소함수는-어떻게-생겼는가">3. 복소함수는 어떻게 생겼는가?</h3>
+<p><a href="../ch05/complex-exponential.html">5.7 절</a>에서 우리는 <span class="math inline">\(e^w\)</span>를 띠 모양의 영역을 말아서 평면으로 만드는 사상으로 그려 보았다. 이 사상은 세로선을 원으로, 가로선을 반직선으로 보내고, 무한히 여러 번 감기므로 로그는 다가함수가 된다. 또한 이 사상이 각을 보존한다는 것, 즉 <em>등각(conformal)</em> 사상의 첫 번째 예라는 것과 메르카토르(Mercator) 도법의 바탕이 된다는 것을 보았다. <a href="../ch05/poincare-disc.html">5.8 절</a>에서는 낯선 부등식 하나가 쌍곡기하학(hyperbolic geometry)의 삼각부등식(triangle inequality)임이 밝혀졌다. 쌍곡기하학에서 단위원판은 무한한 평면이고, 직선은 원호이며, 거리는 상대론적 속도 덧셈 공식에 따라 합쳐진다.</p>
+<h3 id="복소수-도구-상자">4. 복소수 도구 상자</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">방법</th>
+<th style="text-align: left;">사용한 곳</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">곱셈에서 편각(argument)이 더해짐</td>
+<td style="text-align: left;">마친의 공식(5.1)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(2\pi\)</span>의 배수 확인하기</td>
+<td style="text-align: left;">마친의 공식(5.1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">단위근에 대한 평균</td>
+<td style="text-align: left;">세 개마다 하나씩 고른 계수(5.2)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">근을 이용해 인수분해한 뒤 대입하기</td>
+<td style="text-align: left;">코사인의 곱(5.3); 현(5.4)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">0이 되는 인수를 나누어 없애기</td>
+<td style="text-align: left;">5.3; 5.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">드무아브르(De Moivre)의 정리</td>
+<td style="text-align: left;">배각 공식(5.5)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">홀짝성과 최소 반례(minimal counterexample)</td>
+<td style="text-align: left;">무리수 각(5.5)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">곱셈으로서의 회전</td>
+<td style="text-align: left;">정삼각형(5.6)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">격자의 사상</td>
+<td style="text-align: left;">지수 사상(5.7)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(|a|^2 = aa^*\)</span></td>
+<td style="text-align: left;">푸앵카레(Poincaré) 원판 부등식(5.8)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="다음으로">다음으로</h3>
+<ul>
+<li><p>단위근은 6장을 이끌어 가며, 여기에는 <a href="../ch06/cyclotomic.html">6.1 절</a>의 원분다항식(cyclotomic polynomial)과 <a href="../ch06/gauss-17gon.html">6.2 절</a>의 가우스(Gauss)의 정<span class="math inline">\(17\)</span>각형 작도가 포함된다.</p></li>
+<li><p>쌍곡기하학, <span class="math inline">\(\tanh\)</span>, 상대성이론 사이의 관계는 <a href="../ch07/hyperbolic-rotations.html">7.6 절</a>에서 전개된다.</p></li>
+<li><p>마친의 공식에 등장한 가우스 정수(Gaussian integers)는 <a href="../ch01/two-squares.html">1.6 절</a>의 주제였다.</p></li>
+</ul>
+<div class="skillbox">
+<div class="box-title">대학에 가기 전에 더 나아가고 싶다면</div>
+<ul>
+<li><p><strong>Tristan Needham, <a href="https://uk.bookshop.org/search?keywords=Visual+Complex+Analysis+Needham"><em>Visual Complex Analysis</em></a></strong>(시각적 복소해석학): 지금까지 쓰인 복소수 책 가운데 가장 아름다운 책으로, 그림이 가득하다. 1장부터 시작하자.</p></li>
+<li><p><strong>Paul Nahin, <a href="https://uk.bookshop.org/search?keywords=An+Imaginary+Tale+Nahin"><em>An Imaginary Tale</em></a></strong>(허수 이야기): 카르다노에서 현대 물리학까지 이어지는 <span class="math inline">\(\sqrt{-1}\)</span>의 역사.</p></li>
+<li><p><strong>Liang-shin Hahn, <a href="https://uk.bookshop.org/search?keywords=Complex+Numbers+and+Geometry+Hahn"><em>Complex Numbers and Geometry</em></a></strong>(복소수와 기하학): 복소수로 다루는 유클리드 기하학으로, 수준이 이 장과 꼭 맞는다.</p></li>
+<li><p><strong>Hilary Priestley, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Complex+Analysis+Priestley"><em>Introduction to Complex Analysis</em></a></strong>(복소해석학 입문): 대학 과정을 처음 엿보기에 좋다.</p></li>
+</ul>
+</div>
+<p>카르다노는 자신의 허수량이 미묘한 만큼이나 쓸모없다고 생각했다. 다섯 세기가 지난 지금, 수학이나 물리학에서 허수가 등장하지 않는 분야를 찾기는 어렵다. 이 장의 교훈은 아다마르(Hadamard)의 말 그대로이다. 실수에 관한 문제가 어려우면 실수 직선 밖으로 나가 보라. 복소평면은 더 넓고, 그 안에서는 복잡해 보이던 많은 것이 단순해진다.</p>
+
+  </article>
+  <p class="newsletter-callout"><strong>이 장이 즐거웠는가?</strong> The STEP Up에서는 매주 이와 같은 문제를 하나씩 보내며, 풀이 과정을 빠짐없이 담는다. <a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=chapter-end">무료 구독 →</a></p>
+  <nav class="pager"><a class="prev" href="poincare-disc.html">← 5.8 원판에 숨은 거리</a><a class="next" href="answers.html">→ 연습문제 해답</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

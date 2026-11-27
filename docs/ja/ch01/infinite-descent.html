@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>無限降下法 (STEP III 2022 Q2) — Beyond STEP</title>
+<meta name="description" content="STEP III 2022 問題 2：解説付き解答とその背後にある大学数学。 ある方程式が整数解を もたない ことは、どうすれば証明できるだろうか。すべての可能性を試すことはできない。候補は無限にあるからである。1630年代、フェルマー（Fermat）はその方法を見つけた。解が存在すれば、そこから より小さい 数でできた別の解が得られ、さらにそこからもっと小さい解が得られ、これが果てしなく続くこと…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch01/infinite-descent.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch01/infinite-descent.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch01/infinite-descent.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch01/infinite-descent.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch01/infinite-descent.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch01/infinite-descent.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch01/infinite-descent.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="無限降下法 (STEP III 2022 Q2) — Beyond STEP">
+<meta property="og:description" content="STEP III 2022 問題 2：解説付き解答とその背後にある大学数学。 ある方程式が整数解を もたない ことは、どうすれば証明できるだろうか。すべての可能性を試すことはできない。候補は無限にあるからである。1630年代、フェルマー（Fermat）はその方法を見つけた。解が存在すれば、そこから より小さい 数でできた別の解が得られ、さらにそこからもっと小さい解が得られ、これが果てしなく続くこと…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch01/infinite-descent.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="無限降下法 (STEP III 2022 Q2) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2022 問題 2：解説付き解答とその背後にある大学数学。 ある方程式が整数解を もたない ことは、どうすれば証明できるだろうか。すべての可能性を試すことはできない。候補は無限にあるからである。1630年代、フェルマー（Fermat）はその方法を見つけた。解が存在すれば、そこから より小さい 数でできた別の解が得られ、さらにそこからもっと小さい解が得られ、これが果てしなく続くこと…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "無限降下法", "headline": "無限降下法", "description": "STEP III 2022 問題 2：解説付き解答とその背後にある大学数学。 ある方程式が整数解を もたない ことは、どうすれば証明できるだろうか。すべての可能性を試すことはできない。候補は無限にあるからである。1630年代、フェルマー（Fermat）はその方法を見つけた。解が存在すれば、そこから より小さい 数でできた別の解が得られ、さらにそこからもっと小さい解が得られ、これが果てしなく続くこと…", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/infinite-descent.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2022 問題 2", "数論と証明"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 1, "name": "数論と証明", "url": "https://beyondstep.keithmcnulty.org/ja/ch01/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第1章：数論と証明", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/"}, {"@type": "ListItem", "position": 3, "name": "無限降下法", "item": "https://beyondstep.keithmcnulty.org/ja/ch01/infinite-descent.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch01/infinite-descent.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch01/infinite-descent.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch01/infinite-descent.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch01/infinite-descent.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第1章 · 数論と証明</a>
+    <div class="src">STEP III · 2022 · 問題 2</div>
+    <div class="sec-head"><span class="sec-num">1.5</span><h1>無限降下法</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-1-5-infinite-descent.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-01-number-theory-and-proof.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第1章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2022、第2問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は、OCRが配布している2022年のSTEP問題一式（zipファイル）のSTEP IIIに収録されている： <a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">www.ocr.org.uk/Images/696587-2022-past-papers.zip</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>ある方程式が整数解を<em>もたない</em>ことは、どうすれば証明できるだろうか。すべての可能性を試すことはできない。候補は無限にあるからである。1630年代、フェルマー（Fermat）はその方法を見つけた。解が存在すれば、そこから<em>より小さい</em>数でできた別の解が得られ、さらにそこからもっと小さい解が得られ、これが果てしなく続くことを示すのである。しかし、正の整数がいつまでも小さくなり続けることはできない。したがって、そもそも解は存在しなかったことになる。</p>
+<p>フェルマーはこれを<em>無限降下法</em>（method of infinite descent）と呼び、大いに誇りにしていた。これは<a href="../ch01/well-ordering.html">第 1.3 節</a>で扱った整列原理（well-ordering principle）の裏返しであり、方程式が解をもたないことを証明するための主要な道具の一つとして今も使われている。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<p>四つの小問はすべて同じ形をしている。解があると仮定し、それを小さくし、矛盾（contradiction）を導く。問題は、<em>どうやって</em>小さくするかである。</p>
+<div class="askyourself">
+<p>小問 (i) の <span class="math inline">\(a^3 + 2b^3 + 4c^3 = 0\)</span> を見てみよう。三つの項のうち二つは明らかに偶数（even）である。このことから残りの一つについて何がわかるか。</p>
+</div>
+<p>このような観察こそ、あらゆる降下法の出発点である。ある種の整除性（divisibility）が否応なく課されるのである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-最初の降下" class="stage"><span class="stage-n">段階 1</span> 最初の降下</h4>
+<p><span class="math inline">\(a^3 = -2b^3 - 4c^3\)</span> であるから <span class="math inline">\(a^3\)</span> は偶数であり、したがって <span class="math inline">\(a\)</span> は偶数である（奇数の3乗は奇数だからである）。<span class="math inline">\(a = 2p\)</span> とおく。すると <span class="math inline">\(|p| = |a|/2 &lt; |a|\)</span> であり、代入すると <span class="math display">\[8p^3 + 2b^3 + 4c^3 = 0 \quad\Longrightarrow\quad 4p^3 + b^3 + 2c^3 = 0.\]</span> となる。</p>
+<div class="askyourself">
+<p>新しい方程式は <span class="math inline">\(4p^3 + b^3 + 2c^3 = 0\)</span> である。係数は同じで、並びが巡回しただけである。同じ手法をもう一度使えるだろうか。</p>
+</div>
+<p>今度は <span class="math inline">\(b^3 = -4p^3 - 2c^3\)</span> が偶数であるから、<span class="math inline">\(|q| &lt; |b|\)</span> を満たす <span class="math inline">\(q\)</span> を用いて <span class="math inline">\(b = 2q\)</span> と書け、<span class="math inline">\(2\)</span> で割ると <span class="math inline">\(2p^3 + 4q^3 + c^3 = 0\)</span> を得る。もう一度、<span class="math inline">\(c\)</span> は偶数でなければならない。<span class="math inline">\(|r| &lt; |c|\)</span> を満たす <span class="math inline">\(r\)</span> を用いて <span class="math inline">\(c = 2r\)</span> と書き、<span class="math inline">\(2\)</span> で割ると <span class="math display">\[p^3 + 2q^3 + 4r^3 = 0.\]</span> となる。これは <span class="math inline">\(a\)</span>、<span class="math inline">\(b\)</span>、<span class="math inline">\(c\)</span> の代わりに <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span>、<span class="math inline">\(r\)</span> を入れた<em>もとの</em>方程式である。それぞれの大きさは半分になっており、しかもどれも <span class="math inline">\(0\)</span> ではない。<span class="math inline">\(0\)</span> でない数を半分にしても <span class="math inline">\(0\)</span> にはならないからである。</p>
+<div class="pausebox">
+<p>これを、<span class="math inline">\(0\)</span> でない解が存在しないことの証明にまとめよ。正確には、何が「最小」であると仮定すべきだろうか。</p>
+</div>
+<p><span class="math inline">\(0\)</span> でない整数からなるすべての解の中から、<span class="math inline">\(|a|\)</span> ができるだけ小さいものを一つ選ぶ（解が一つでも存在すれば、整列原理によってこれが可能である）。上の議論により、<span class="math inline">\(|p| &lt; |a|\)</span> を満たす <span class="math inline">\(0\)</span> でない別の解が得られ、最小性（minimality）に矛盾する。よって、<span class="math inline">\(0\)</span> でない解は存在しない。<span class="qed" aria-label="end of proof">■</span></p>
+<p>同じことを次のように言い換えることもできる。一つの解から、<span class="math inline">\(|a| &gt; |p| &gt; \cdots\)</span> となる解の無限列を作ることができる。これは正の整数からなる狭義単調減少の無限列であり、そのようなものは存在しない。</p>
+<h4 id="stagemark2-別の素数" class="stage"><span class="stage-n">段階 2</span> 別の素数</h4>
+<div class="askyourself">
+<p><span class="math inline">\(9a^3 + 10b^3 + 6c^3 = 0\)</span> では、偶奇性（parity）は明らかには役に立たない。係数 <span class="math inline">\(9\)</span>、<span class="math inline">\(10\)</span>、<span class="math inline">\(6\)</span> を見よう。そのうち二つを割り切る素数はどれか。</p>
+</div>
+<p>素数 <span class="math inline">\(3\)</span> は <span class="math inline">\(9\)</span> と <span class="math inline">\(6\)</span> を割り切るので、<span class="math inline">\(3\)</span> は <span class="math inline">\(10b^3\)</span> を割り切り、したがって <span class="math inline">\(3\)</span> は <span class="math inline">\(b\)</span> を割り切る。<span class="math inline">\(b = 3q\)</span> とおいて <span class="math inline">\(3\)</span> で割ると <span class="math display">\[3a^3 + 90q^3 + 2c^3 = 0.\]</span> となる。今度は <span class="math inline">\(3\)</span> が <span class="math inline">\(2c^3\)</span> を割り切るので <span class="math inline">\(c = 3r\)</span> と書け、再び <span class="math inline">\(3\)</span> で割ると <span class="math inline">\(a^3 + 30q^3 + 18r^3 = 0\)</span> を得る。よって <span class="math inline">\(3\)</span> は <span class="math inline">\(a\)</span> を割り切る。<span class="math inline">\(a = 3p\)</span> とおき、もう一度 <span class="math inline">\(3\)</span> で割ると <span class="math display">\[9p^3 + 10q^3 + 6r^3 = 0.\]</span> となる。これはまさにもとの方程式であり、数はより小さく、しかも <span class="math inline">\(0\)</span> でない。同じ降下の議論により、<span class="math inline">\(0\)</span> でない解は存在しない。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-3-を法とする平方数" class="stage"><span class="stage-n">段階 3</span> 3 を法とする平方数</h4>
+<div class="askyourself">
+<p>すべての整数は <span class="math inline">\(3n\)</span>、<span class="math inline">\(3n+1\)</span>、<span class="math inline">\(3n-1\)</span> のいずれかの形をしている。それらの平方は、<span class="math inline">\(3\)</span> を法として（modulo）いくつになるか。</p>
+</div>
+<p><span class="math inline">\((3n \pm 1)^2 = 9n^2 \pm 6n + 1 = 3(3n^2 \pm 2n) + 1\)</span> であり、これは <span class="math inline">\(3\)</span> の倍数より <span class="math inline">\(1\)</span> 大きい。また <span class="math inline">\((3n)^2\)</span> は <span class="math inline">\(3\)</span> の倍数である。したがって、平方数を <span class="math inline">\(3\)</span> で割った余りは <span class="math inline">\(0\)</span> または <span class="math inline">\(1\)</span> であり、<span class="math inline">\(2\)</span> になることは決してない。</p>
+<p>ここで <span class="math inline">\(a^2 + b^2\)</span> が <span class="math inline">\(3\)</span> の倍数であるとすると、余りの組合せは <span class="math inline">\(0+0\)</span>、<span class="math inline">\(0+1\)</span>、<span class="math inline">\(1+0\)</span>、<span class="math inline">\(1+1\)</span> であり、それぞれ <span class="math inline">\(0\)</span>、<span class="math inline">\(1\)</span>、<span class="math inline">\(1\)</span>、<span class="math inline">\(2\)</span> となる。<span class="math inline">\(3\)</span> の倍数になるのは最初の場合だけなので、<span class="math inline">\(a\)</span> と <span class="math inline">\(b\)</span> はともに <span class="math inline">\(3\)</span> の倍数でなければならない。</p>
+<div class="askyourself">
+<p><span class="math inline">\(a^2 + b^2 = 3c^2\)</span> かつ <span class="math inline">\(a = 3p\)</span>、<span class="math inline">\(b = 3q\)</span> のとき、<span class="math inline">\(c\)</span> について何が言えるか。</p>
+</div>
+<p><span class="math inline">\(9p^2 + 9q^2 = 3c^2\)</span> となるので、<span class="math inline">\(c^2 = 3(p^2 + q^2)\)</span> は <span class="math inline">\(3\)</span> の倍数であり、したがって <span class="math inline">\(c = 3r\)</span> と書ける。すると <span class="math inline">\(9p^2 + 9q^2 = 27r^2\)</span> より <span class="math inline">\(p^2 + q^2 = 3r^2\)</span> となる。同じ方程式で、数はより小さい。ここでも降下法が使える。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark4-ひとひねり方程式が変わる" class="stage"><span class="stage-n">段階 4</span> ひとひねり：方程式が変わる</h4>
+<div class="askyourself">
+<p><span class="math inline">\(a^2 + b^2 + c^2 = 4abc\)</span> では、右辺は <span class="math inline">\(4\)</span> の倍数である。<span class="math inline">\(4\)</span> を法とする平方数はどうなるか。</p>
+</div>
+<p>偶数の平方は <span class="math inline">\(4\)</span> の倍数であり、奇数の平方は <span class="math inline">\(4\)</span> の倍数より <span class="math inline">\(1\)</span> 大きい（<span class="math inline">\((2n+1)^2 = 4n^2 + 4n + 1\)</span>）。したがって <span class="math inline">\(a^2 + b^2 + c^2\)</span> を <span class="math inline">\(4\)</span> で割った余りは、<span class="math inline">\(a\)</span>、<span class="math inline">\(b\)</span>、<span class="math inline">\(c\)</span> のうち奇数がいくつあるかに応じて <span class="math inline">\(0\)</span>、<span class="math inline">\(1\)</span>、<span class="math inline">\(2\)</span>、<span class="math inline">\(3\)</span> のいずれかとなる。右辺は <span class="math inline">\(4\)</span> の倍数であるから、奇数のものは<em>一つもあってはならない</em>。<span class="math inline">\(a = 2p\)</span>、<span class="math inline">\(b = 2q\)</span>、<span class="math inline">\(c = 2r\)</span> とおくと <span class="math display">\[4(p^2 + q^2 + r^2) = 32\,pqr \quad\Longrightarrow\quad p^2 + q^2 + r^2 = 8\,pqr.\]</span> となる。</p>
+<div class="askyourself">
+<p>これはもとと同じ方程式では<em>ない</em>。<span class="math inline">\(4\)</span> が <span class="math inline">\(8\)</span> になっている。それでも降下法はうまくいくだろうか。</p>
+</div>
+<p>ここでの工夫は、<em>より強い主張を証明する</em>ことである。次の形の方程式をすべて考える。 <span class="math display">\[x^2 + y^2 + z^2 = 2^m\, xyz \qquad\text{ただし } m \geq 2.\]</span> このような <span class="math inline">\(m\)</span> ならどれでも右辺は <span class="math inline">\(4\)</span> の倍数であるから、まったく同じ議論によって <span class="math inline">\(x\)</span>、<span class="math inline">\(y\)</span>、<span class="math inline">\(z\)</span> はすべて偶数であることがわかる。それらを半分にすると <span class="math inline">\(2^{m+1}\)</span> の方程式の解が得られ、これもまたこの形をしている。こうして、<span class="math inline">\(m\)</span> の方程式の <span class="math inline">\(0\)</span> でない解から、<span class="math inline">\(m+1\)</span> の方程式のより小さい <span class="math inline">\(0\)</span> でない解が得られる。この族に属する<em>どの</em>方程式の解でもよいので、その中で <span class="math inline">\(|x|\)</span> が最小のものをとれば矛盾が生じる。特に、<span class="math inline">\(a^2 + b^2 + c^2 = 4abc\)</span> は <span class="math inline">\(0\)</span> でない解をもたない。<span class="qed" aria-label="end of proof">■</span></p>
+<p>証明したい主張がそれ自身の帰納法（induction）を支えるには弱すぎることがあり、その場合の処方箋は、それ自身を支え<em>られる</em>より一般的な主張を証明することである。これは大学で驚くほどよく使われる手法である。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-1-5-1.svg" alt="図 1.5.1"><figcaption><span class="fig-label">図 1.5.1</span> 小問 (i) の降下。<span class="math inline">\(a^3 + 2b^3 + 4c^3 = 0\)</span> の解から、三つの段階を経て、すべての成分が半分になった別の解が得られる。これを永遠に繰り返すと、正の整数の果てしない減少列 <span class="math inline">\(|a| &gt; |\frac a2| &gt; |\frac a4| &gt; \cdots\)</span> が得られることになるが、これは不可能である。したがって、そもそも解は存在しなかったのである。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>降下法には整除性の源が必要である。</strong>毎回、すべての変数を割り切らざるを得ない素数 <span class="math inline">\(p\)</span>（ここでは <span class="math inline">\(2\)</span> または <span class="math inline">\(3\)</span>）を見つけ、それで割った。</p></li>
+<li><p><strong>それを見つけるには <span class="math inline">\(n\)</span> を法として考えればよい。</strong><span class="math inline">\(2\)</span>、<span class="math inline">\(3\)</span>、<span class="math inline">\(4\)</span> を法とする余りを調べることで、「何かうまくいくものはあるか」という問いが、短い有限個の確認に変わった。</p></li>
+<li><p><strong>方程式が変わるなら、一般化せよ。</strong>小問 (iv) では、降下の操作で閉じた方程式の族全体が必要であった。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">フェルマー、降下法、そして最終定理</div>
+<p>フェルマーは無限降下法を用いて、<span class="math inline">\(x^4 + y^4 = z^2\)</span> が正の整数解をもたないことを証明した。これは有名な「最終定理」（Last Theorem）のうち彼が証明を残した唯一の場合であり、<span class="math inline">\(x^n + y^n = z^n\)</span> の <span class="math inline">\(n = 4\)</span> の場合を解決するものである。のちにオイラー（Euler）が <span class="math inline">\(n = 3\)</span> の場合に降下法を用いた（その証明には欠陥があったが、後に補われた）。降下法は今でも現代の理論の出発点である。<a href="../ch01/tangents-cubic.html">第 1.9 節</a>に出てくるような曲線に関するモーデル–ヴェイユの定理（Mordell–Weil theorem）の証明は、高度に洗練された降下法なのである。</p>
+</div>
+<h3 id="局所的障害">局所的障害</h3>
+<p>この節の証明はどれも、ある数を法とする余りを調べることで成り立っていた。ある <span class="math inline">\(n\)</span> について方程式が <span class="math inline">\(n\)</span> を法として解をもたないか、あるいは実数解をもたなければ、整数解ももたないことは確かである。このような理由を<em>局所的障害</em>（local obstructions）といい、大学では、<span class="math inline">\(p, p^2, p^3, \ldots\)</span> を法とするすべての余りを一度に調べる方法である <em><span class="math inline">\(p\)</span> 進数</em>（<span class="math inline">\(p\)</span>-adic numbers）に出会うことになる。</p>
+<p>ハッセ（Hasse）とミンコフスキー（Minkowski）による見事な定理によれば、<span class="math inline">\(a^2 + b^2 = 3c^2\)</span> のような<em>二次</em>方程式については、局所的障害が唯一の障害である。すなわち、解をもたない「局所的」な理由がなければ、実際に有理数解が存在する。三次方程式では、これは劇的に破綻する。1951年、セルマー（Ernst Selmer）は <span class="math display">\[3x^3 + 4y^3 + 5z^3 = 0\]</span> が任意の整数を法として解をもち、実数解ももつにもかかわらず、<span class="math inline">\(0\)</span> でない整数解をもたないことを示した。「局所から大域へ」の原理（local-to-global principle）がいつ、なぜ破綻するのかを解明することは、現代の整数論の大きなテーマの一つである。</p>
+<h3 id="解をもつ方程式">解を<em>もつ</em>方程式</h3>
+<p>小問 (iv) には有名な親類がある。<span class="math inline">\(x^2 + y^2 + z^2 = 3xyz\)</span>、すなわち<em>マルコフ方程式</em>（Markov equation）である。この方程式は正の整数解を無限に多くもち、<span class="math inline">\((1,1,1)\)</span>、<span class="math inline">\((1,1,2)\)</span>、<span class="math inline">\((1,2,5)\)</span>、<span class="math inline">\((1,5,13)\)</span>、<span class="math inline">\((2,5,29)\)</span> と続く。そしてこれらの解は、無理数が分数によってどれほどよく近似できるかという問題と結びついている。演習 4 を参照せよ。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">無限降下法</div>
+<p><em>方程式が解をもたないことを示すには、任意の解から真に小さい解が得られることを示せばよい。そうすれば、最小の解は存在し得ない。</em></p>
+<p>これを、<span class="math inline">\(n\)</span> を法として考えて降下を推し進める整除性を見つける方法と組み合わせよう。また、主張が降下の操作で保たれない場合には、それを一般化する用意をしておこう。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>STEP I の準備運動。</strong><em>（STEP I 2010 問題 8）</em><span class="math inline">\(a^3 + 3b^3 = 9c^3\)</span> の整数解は <span class="math inline">\(a = b = c = 0\)</span> のみであることを示せ。次に、一の位の数字を考えることにより、<span class="math inline">\(p^4 + 2q^4 = 5r^4\)</span> についても同じことを示せ。</p></li>
+<li><p><strong>降下を必要としない法。</strong><span class="math inline">\(4\)</span> を法として考えるだけで、<span class="math inline">\(x^2 + y^2 = 4z + 3\)</span> が整数解を一つももたないことを示せ。</p></li>
+<li><p><strong>有理点。</strong>小問 (iii) を用いて、円 <span class="math inline">\(x^2 + y^2 = 3\)</span> 上には<em>有理数</em>座標をもつ点（有理点、rational point）が存在しないことを示せ（<span class="math inline">\((1,1)\)</span> を含む <span class="math inline">\(x^2 + y^2 = 2\)</span> と対比せよ）。</p></li>
+<li><p><strong>マルコフの三つ組。</strong><span class="math inline">\((x, y, z)\)</span> が <span class="math inline">\(x^2 + y^2 + z^2 = 3xyz\)</span> を満たすならば、<span class="math inline">\((x, y, 3xy - z)\)</span> もこれを満たすことを示せ。<span class="math inline">\((1,1,1)\)</span> から出発して、上に挙げた三つ組を生成せよ（この「跳躍」の手法は降下法の逆である）。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Harold Davenport, <a href="https://uk.bookshop.org/search?keywords=The+Higher+Arithmetic+Davenport"><em>The Higher Arithmetic</em></a></strong>（『数論の高みへ』）、第 2 章および第 5 章。</p></li>
+<li><p><strong>Joseph Silverman, <a href="https://uk.bookshop.org/search?keywords=A+Friendly+Introduction+to+Number+Theory+Silverman"><em>A Friendly Introduction to Number Theory</em></a></strong>（Pearson）（『やさしい数論入門』）。非常に読みやすい。<span class="math inline">\(x^4 + y^4 = z^2\)</span> に対するフェルマーの降下法による証明も載っている。</p></li>
+<li><p><strong>Simon Singh, <a href="https://uk.bookshop.org/search?keywords=Fermat%27s+Last+Theorem+Singh"><em>Fermat’s Last Theorem</em></a></strong>（Fourth Estate）（『フェルマーの最終定理』）。フェルマーの余白の書き込みからワイルズ（Wiles）の証明に至るまでの物語を、一般の読者向けに描いている。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="e-irrational.html">← 1.4 e は無理数であり、e² もまた無理数である</a><a class="next" href="two-squares.html">→ 1.6 二つの平方数の和</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

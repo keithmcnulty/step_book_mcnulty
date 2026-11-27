@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>平均をもたない分布 (STEP III 1995 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP III 1995 問題 12：解説付き解答とその背後にある大学数学。 多数の測定値の平均をとれば、偶然誤差は打ち消し合い、平均は真の値に落ち着いていく。この 大数の法則 （law of large numbers）はあらゆる統計学の土台である。しかし、そこには隠れた仮定がある。測定値が有限な平均をもたなければならないのである。この問題では、ごく自然な確率変数、すなわち独立な2つの標準正規…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch12/cauchy.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/cauchy.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/cauchy.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/cauchy.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/cauchy.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/cauchy.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/cauchy.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="平均をもたない分布 (STEP III 1995 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP III 1995 問題 12：解説付き解答とその背後にある大学数学。 多数の測定値の平均をとれば、偶然誤差は打ち消し合い、平均は真の値に落ち着いていく。この 大数の法則 （law of large numbers）はあらゆる統計学の土台である。しかし、そこには隠れた仮定がある。測定値が有限な平均をもたなければならないのである。この問題では、ごく自然な確率変数、すなわち独立な2つの標準正規…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch12/cauchy.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="平均をもたない分布 (STEP III 1995 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1995 問題 12：解説付き解答とその背後にある大学数学。 多数の測定値の平均をとれば、偶然誤差は打ち消し合い、平均は真の値に落ち着いていく。この 大数の法則 （law of large numbers）はあらゆる統計学の土台である。しかし、そこには隠れた仮定がある。測定値が有限な平均をもたなければならないのである。この問題では、ごく自然な確率変数、すなわち独立な2つの標準正規…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "平均をもたない分布", "headline": "平均をもたない分布", "description": "STEP III 1995 問題 12：解説付き解答とその背後にある大学数学。 多数の測定値の平均をとれば、偶然誤差は打ち消し合い、平均は真の値に落ち着いていく。この 大数の法則 （law of large numbers）はあらゆる統計学の土台である。しかし、そこには隠れた仮定がある。測定値が有限な平均をもたなければならないのである。この問題では、ごく自然な確率変数、すなわち独立な2つの標準正規…", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/cauchy.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1995 問題 12", "確率"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "確率", "url": "https://beyondstep.keithmcnulty.org/ja/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第12章：確率", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/"}, {"@type": "ListItem", "position": 3, "name": "平均をもたない分布", "item": "https://beyondstep.keithmcnulty.org/ja/ch12/cauchy.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch12/cauchy.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/cauchy.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/cauchy.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch12/cauchy.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第12章 · 確率</a>
+    <div class="src">STEP III · 1995 · 問題 12</div>
+    <div class="sec-head"><span class="sec-num">12.22</span><h1>平均をもたない分布</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-22-cauchy.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第12章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 1995、第12問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/95-s3-q12">step.maths.org/questions/95-s3-q12</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>多数の測定値の平均をとれば、偶然誤差は打ち消し合い、平均は真の値に落ち着いていく。この<em>大数の法則</em>（law of large numbers）はあらゆる統計学の土台である。しかし、そこには隠れた仮定がある。測定値が有限な平均をもたなければならないのである。この問題では、ごく自然な確率変数、すなわち独立な2つの標準正規確率変数の比を構成するが、これは平均をまったくもたない。その平均値は決して落ち着かない。実際、それを100万個平均したものは、1個だけのものとまったく同じ分布をもつのである。</p>
+<p>これが<em>コーシー分布</em>（Cauchy distribution）である。その確率密度関数は無害な釣鐘形に見えるが、裾が非常に重いため、ときおり現れる巨大な値がどんな平均をも支配してしまう。この問題では、美しい幾何学的議論によってこの分布を導く。座標の比は直線の傾きであり、放射対称性によってその直線の角度は一様に分布するのである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\((U, V)\)</span> が、確率密度が原点からの距離だけに依存するような確率的な点であるとき、原点からその点へ引いた直線が軸となす角 <span class="math inline">\(\Theta\)</span> について何がいえるか。</p>
+</div>
+<p>平面を回転しても確率密度は変わらないので、どの方向も同様に確からしい。すなわち角 <span class="math inline">\(\Theta\)</span> は <span class="math inline">\([0, 2\pi)\)</span> 上の一様分布に従う。そして <span class="math inline">\(\frac UV\)</span> は方向だけに依存し、距離には依存しない。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-同時確率密度関数" class="stage"><span class="stage-n">段階 1</span> 同時確率密度関数</h4>
+<p><span class="math inline">\(X\)</span> と <span class="math inline">\(Y\)</span> は独立であるから、それらの同時確率密度関数（joint density）はそれぞれの確率密度関数の積である。 <span class="math display">\[\mathrm{f}(x, y) = \frac{1}{\sqrt{2\pi}}e^{-x^2/2}\cdot\frac{1}{\sqrt{2\pi}}e^{-y^2/2} = \frac{1}{2\pi}e^{-\frac12(x^2 + y^2)}.\]</span> これは <span class="math inline">\(x\)</span> と <span class="math inline">\(y\)</span> に、原点からの距離の2乗である <span class="math inline">\(x^2 + y^2\)</span> を通してのみ依存する。つまり、確率密度は原点を中心とする円の上で一定である。これが「放射対称（radially symmetrical）」の意味である。</p>
+<h4 id="stagemark2-対称性を利用する" class="stage"><span class="stage-n">段階 2</span> 対称性を利用する</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\frac UV &lt; k\)</span> となる場合は、<span class="math inline">\(V\)</span> の符号に応じて2通りある。<span class="math inline">\(180^\circ\)</span> の回転 <span class="math inline">\((u, v) \mapsto (-u, -v)\)</span> によって、これらはどのように結びつくか。</p>
+</div>
+<p><span class="math inline">\(\frac UV &lt; k\)</span> とは、<span class="math inline">\(V &gt; 0\)</span> かつ <span class="math inline">\(U &lt; kV\)</span> であるか、または <span class="math inline">\(V &lt; 0\)</span> かつ <span class="math inline">\(U &gt; kV\)</span> であることを意味する。回転 <span class="math inline">\((u, v) \mapsto (-u, -v)\)</span> は1つ目の領域を2つ目の領域に写し、確率密度を保つ。したがって両者の確率は等しく、 <span class="math display">\[\mathrm{P}\Bigl(\frac UV &lt; k\Bigr) = 2\mathrm{P}(U &lt; kV, V &gt; 0). \qed\]</span></p>
+<h4 id="stagemark3-角度" class="stage"><span class="stage-n">段階 3</span> 角度</h4>
+<div class="askyourself">
+<p><span class="math inline">\(u\)</span> を横軸、<span class="math inline">\(v\)</span> を縦軸とする平面に領域 <span class="math inline">\(\{V &gt; 0, U &lt; kV\}\)</span> を図示せよ。これは原点を頂点とする扇形の領域である。その角の大きさはいくらか。</p>
+</div>
+<p>領域 <span class="math inline">\(V &gt; 0\)</span> は上半平面である。原点を通る直線 <span class="math inline">\(u = kv\)</span> は、正の <span class="math inline">\(v\)</span> 軸と角 <span class="math inline">\(\arctan k\)</span> をなす（<span class="math inline">\(k &gt; 0\)</span> のときは正の <span class="math inline">\(u\)</span> の側に傾く）。上半平面のうちこの直線より左側の部分は、角 <span class="math inline">\(\frac\pi2 + \arctan k\)</span> の扇形の領域である。放射対称性により、扇形の領域の確率はその角を <span class="math inline">\(2\pi\)</span> で割ったものであるから、 <span class="math display">\[\mathrm{P}\Bigl(\frac UV &lt; k\Bigr) = 2\cdot\frac{\frac\pi2 + \arctan k}{2\pi} = \frac12 + \frac1\pi\arctan k.\]</span> これを <span class="math inline">\(k\)</span> で微分すると、確率密度関数 <span class="math display">\[\mathrm{g}(k) = \frac{1}{\pi(1 + k^2)}. \qed\]</span> が得られる。</p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>独立な正規分布は放射対称である。</strong> 2つの正規分布の確率密度関数の積は距離だけに依存する。</p></li>
+<li><p><strong>比は方向を表す。</strong> <span class="math inline">\(\frac UV\)</span> は点の角度だけに依存し、その角度は一様分布に従う。</p></li>
+<li><p><strong>扇形の領域の確率。</strong> 放射対称性があれば、扇形の領域の確率はその角に比例する。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="平均が存在しない">平均が存在しない</h3>
+<p>コーシー分布の平均は <span class="math inline">\(\int_{-\infty}^\infty\frac{k}{\pi(1 + k^2)}\,\mathrm{d}k\)</span> となるはずであるが、<span class="math inline">\(\int_0^K\frac{k}{1 + k^2}\,\mathrm{d}k = \frac12\ln(1 + K^2) \to \infty\)</span> である。この積分は収束（converge）せず、平均は存在しない。（対称性から答えは <span class="math inline">\(0\)</span> だと思うかもしれないが、正の部分も負の部分もともに無限大であり、<span class="math inline">\(\infty - \infty\)</span> には値がない。）分散も無限大である。</p>
+<p>さらに悪いことに、独立な <span class="math inline">\(n\)</span> 個のコーシー確率変数の平均は再びコーシー分布に従い、しかもまったく同じ分布をもつ。（これを確かめる1つの方法は、特性関数（characteristic function）<span class="math inline">\(\mathrm{E}(e^{itX}) = e^{-|t|}\)</span> を用いるものである。）したがって平均をとってもまったく役に立たない。100万個の測定値の平均は、1個の測定値より少しも信頼できないのである。図 12.22.1 はその様子を示している。正規分布の標本の逐次平均は落ち着いていくが、コーシー分布の標本の逐次平均は、ときおり現れる巨大な値に揺さぶられて、いつまでもふらつき続ける。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-22-1.svg" alt="図 12.22.1"><figcaption><span class="fig-label">図 12.22.1</span> 独立な <span class="math inline">\(2000\)</span> 個の標本の逐次平均。標準正規分布の標本（ティール）では、大数の法則が予言するとおり、平均は <span class="math inline">\(0\)</span> に落ち着いていく。コーシー分布の標本（プラム）では決して落ち着かない。ときおり現れるたった1つの巨大な値が、平均をどこか新しい場所へ放り出してしまうのである。</figcaption></figure>
+<h3 id="コーシー確率変数はどこから現れるか">コーシー確率変数はどこから現れるか</h3>
+<p>一様に無作為な方向に向けた懐中電灯で壁を照らすと、壁に映る光点の位置はコーシー分布に従う。物理学では、同じ確率密度関数が<em>ローレンツ関数</em>（Lorentzian）とよばれ、スペクトル線や共鳴ピークの形を記述する（<a href="../ch11/resonance.html">第 11.1 節</a> と比較せよ）。金融の分野では、正規分布によるモデルが大幅に過小評価してしまうときおりの暴落をモデル化するために、コーシー分布のような裾の重い分布が用いられる。統計学にとっての教訓は深刻である。平均や分散に基づく手法は裾の重いデータに対しては破綻し、中央値（コーシー分布に対してもまったく問題なく振る舞う）を用いるなどの頑健な手法が必要となるのである。</p>
+<div class="historybox">
+<div class="box-title">ポアソン、コーシー、そして論争</div>
+<p>この分布は1824年にポアソン（Siméon Denis Poisson）によって研究され、彼はそれが大数の法則を満たさないことに気づいていた。コーシー（Augustin-Louis Cauchy）は1853年、最小二乗法をめぐるビエネメ（Irénée-Jules Bienaymé）との公開論争の中でこの分布に出会った。コーシーはこれを用いて、誤差の裾が重い場合には最小二乗法が劣った方法になりうることを示したのである。名前はコーシーに定着したが、これは Stephen Stigler が「スティグラーの名祖の法則」とよぶものの一例である。すなわち、科学上の発見は最初の発見者の名前ではよばれない、という法則である。</p>
+</div>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">期待値が存在することを確かめる</div>
+<p><em>平均や分散を用いる前に、それを定義する積分が収束することを確かめよ。対称性があっても、発散する積分が <span class="math inline">\(0\)</span> になるわけではない。</em></p>
+<p>大学では、可積分性の条件が確率論のあらゆる定理の一部となっている。大数の法則には有限な平均が、中心極限定理（<a href="../ch12/clt.html">第 12.24 節</a>）には有限な分散が必要である。コーシー分布は、それらの条件が成り立たないときの標準的な反例である。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>懐中電灯。</strong> 長くまっすぐな壁から距離 <span class="math inline">\(1\)</span> の位置にある懐中電灯が、壁への垂線と角 <span class="math inline">\(\Theta\)</span> をなす方向を向いている。ただし <span class="math inline">\(\Theta\)</span> は <span class="math inline">\((-\frac\pi2, \frac\pi2)\)</span> 上の一様分布に従う。光点の位置 <span class="math inline">\(\tan\Theta\)</span> がコーシー分布に従うことを示せ。</p></li>
+<li><p><strong>逆数。</strong> <span class="math inline">\(C\)</span> がコーシー分布に従うならば、<span class="math inline">\(\frac1C\)</span> もコーシー分布に従うことを示せ。（<em>ヒント：</em><span class="math inline">\(\frac UV\)</span> と <span class="math inline">\(\frac VU\)</span>。）</p></li>
+<li><p><strong>中央値はうまく働く。</strong> コーシー分布の中央値は <span class="math inline">\(0\)</span> であり、四分位数は <span class="math inline">\(\pm1\)</span> であることを示せ。</p></li>
+<li><p><strong>半径と角度。</strong> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> を独立な標準正規確率変数とするとき、極座標に変換することにより、<span class="math inline">\(R^2 = X^2 + Y^2\)</span> が平均 <span class="math inline">\(2\)</span> の指数分布に従い、かつ角度と独立であることを示せ。（これは正規乱数を生成するボックス＝ミュラー法の基礎である。）</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <a href="https://uk.bookshop.org/search?keywords=Probability%3A+An+Introduction+Grimmett+Welsh"><em>Probability: An Introduction</em></a></strong> (Oxford University Press)。確率変数の変換について。</p></li>
+<li><p><strong>Nassim Nicholas Taleb, <a href="https://uk.bookshop.org/search?keywords=The+Black+Swan+Taleb"><em>The Black Swan</em></a></strong> (Penguin)。邦題『ブラック・スワン』。裾の重い分布とそれがなぜ重要なのかを、一般読者向けに解説している。</p></li>
+<li><p><strong>Stephen Stigler, <a href="https://uk.bookshop.org/search?keywords=The+History+of+Statistics+Stigler"><em>The History of Statistics</em></a></strong> (Harvard University Press)。コーシーとビエネメの論争も扱っている。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="broken-stick.html">← 12.21 棒を折る</a><a class="next" href="stirling-probability.html">→ 12.23 確率から導くスターリングの公式</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

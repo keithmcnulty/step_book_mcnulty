@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>동전 하나 더 (STEP I 2016 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP I 2016 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 밥은 앨리스보다 동전을 하나 더 던진다. 밥이 앞면을 더 많이 얻을 확률(probability)은 얼마일까? 밥이 유리하기는 하지만 앞면이 보장되는 것은 아니며, 비기는 경우는 밥에게 불리하게 처리된다. 처음 두 경우를 일일이 계산해 보면 두 번 모두 답이 frac12 이다.…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch12/one-more-coin.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/one-more-coin.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/one-more-coin.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/one-more-coin.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/one-more-coin.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/one-more-coin.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/one-more-coin.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="동전 하나 더 (STEP I 2016 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP I 2016 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 밥은 앨리스보다 동전을 하나 더 던진다. 밥이 앞면을 더 많이 얻을 확률(probability)은 얼마일까? 밥이 유리하기는 하지만 앞면이 보장되는 것은 아니며, 비기는 경우는 밥에게 불리하게 처리된다. 처음 두 경우를 일일이 계산해 보면 두 번 모두 답이 frac12 이다.…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch12/one-more-coin.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="동전 하나 더 (STEP I 2016 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2016 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 밥은 앨리스보다 동전을 하나 더 던진다. 밥이 앞면을 더 많이 얻을 확률(probability)은 얼마일까? 밥이 유리하기는 하지만 앞면이 보장되는 것은 아니며, 비기는 경우는 밥에게 불리하게 처리된다. 처음 두 경우를 일일이 계산해 보면 두 번 모두 답이 frac12 이다.…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "동전 하나 더", "headline": "동전 하나 더", "description": "STEP I 2016 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 밥은 앨리스보다 동전을 하나 더 던진다. 밥이 앞면을 더 많이 얻을 확률(probability)은 얼마일까? 밥이 유리하기는 하지만 앞면이 보장되는 것은 아니며, 비기는 경우는 밥에게 불리하게 처리된다. 처음 두 경우를 일일이 계산해 보면 두 번 모두 답이 frac12 이다.…", "url": "https://beyondstep.keithmcnulty.org/ko/ch12/one-more-coin.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2016 문제 12", "확률"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "확률", "url": "https://beyondstep.keithmcnulty.org/ko/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제12장: 확률", "item": "https://beyondstep.keithmcnulty.org/ko/ch12/"}, {"@type": "ListItem", "position": 3, "name": "동전 하나 더", "item": "https://beyondstep.keithmcnulty.org/ko/ch12/one-more-coin.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch12/one-more-coin.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/one-more-coin.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/one-more-coin.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch12/one-more-coin.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제12장 · 확률</a>
+    <div class="src">STEP I · 2016 · 문제 12</div>
+    <div class="sec-head"><span class="sec-num">12.6</span><h1>동전 하나 더</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-6-one-more-coin.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제12장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP I 2016, 문제 12</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/16-s1-q12">step.maths.org/questions/16-s1-q12</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>밥은 앨리스보다 동전을 하나 더 던진다. 밥이 앞면을 더 많이 얻을 확률(probability)은 얼마일까? 밥이 유리하기는 하지만 앞면이 보장되는 것은 아니며, 비기는 경우는 밥에게 불리하게 처리된다. 처음 두 경우를 일일이 계산해 보면 두 번 모두 답이 <span class="math inline">\(\frac12\)</span>이다. 이것은 우연일까?</p>
+<p>우연이 아니다. 밥은 앨리스보다 앞면을 더 많이 얻거나 뒷면을 더 많이 얻되 둘 다는 아니라는 사실을 알아차리기만 하면, 한 문장으로 끝나는 증명(proof)이 있다. 이 문제는 계산이 어떻게 패턴을 암시하고, 교묘한 대칭(symmetry)이 그 패턴을 어떻게 설명하는지를 보여 주는 모범적인 예이다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>앨리스가 동전을 두 번 던질 때, 앨리스가 얻는 앞면의 개수의 분포(distribution)는 무엇인가? 밥이 세 번 던질 때는 어떠한가?</p>
+</div>
+<p>앨리스는 앞면을 <span class="math inline">\(0, 1, 2\)</span>개 얻을 확률이 각각 <span class="math inline">\(\frac14, \frac24, \frac14\)</span>이고, 밥은 <span class="math inline">\(0, 1, 2, 3\)</span>개 얻을 확률이 각각 <span class="math inline">\(\frac18, \frac38, \frac38, \frac18\)</span>이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-직접-계산하기" class="stage"><span class="stage-n">단계 1</span> 직접 계산하기</h4>
+<p>소문항 (i)에서는 앨리스의 앞면 개수에 대하여 모두 더한다. <span class="math display">\[\begin{aligned}
+  \mathrm{P}(B &gt; A) &amp;= \tfrac14\,\mathrm{P}(B \geq 1) + \tfrac24\,\mathrm{P}(B \geq 2) + \tfrac14\,\mathrm{P}(B = 3) \\
+  &amp;= \tfrac14\cdot\tfrac78 + \tfrac12\cdot\tfrac48 + \tfrac14\cdot\tfrac18 = \frac{7 + 8 + 1}{32} = \frac12.
+\end{aligned}\]</span> 소문항 (ii)는 항이 더 많을 뿐 같은 계산이다. 같은 정도로 일어날 수 있는 <span class="math inline">\(8 \times 16 = 128\)</span>가지 결과를 세어 보면 그중 <span class="math inline">\(64\)</span>가지에서 밥이 앞서므로(그림 12.6.1), 이번에도 답은 <span class="math inline">\(\frac12\)</span>이다.</p>
+<h4 id="stagemark2-밥의-던지기를-나누기" class="stage"><span class="stage-n">단계 2</span> 밥의 던지기를 나누기</h4>
+<div class="askyourself">
+<p>밥의 <span class="math inline">\(n + 1\)</span>번 던지기를 <span class="math inline">\(n\)</span>번 던진 다음 한 번을 더 던지는 것으로 생각해 보자. 처음 <span class="math inline">\(n\)</span>번을 던진 뒤 밥은 앨리스보다 앞서 있거나, 같거나, 뒤처져 있다. 각 경우에 어떤 일이 일어나는가?</p>
+</div>
+<p>둘 다 <span class="math inline">\(n\)</span>번씩 던진 뒤, 밥이 앞서 있을 확률은 <span class="math inline">\(p_2\)</span>, 같을 확률은 <span class="math inline">\(p_1\)</span>, 뒤처져 있을 확률은 (앨리스와 밥 사이의 대칭에 의해) <span class="math inline">\(p_2\)</span>이다. 밥이 앞서 있다면 계속 앞선다. 같다면 추가로 던진 동전으로 확률 <span class="math inline">\(\frac12\)</span>로 앞서게 된다. 뒤처져 있다면 앞면이 하나 더 나와도 기껏해야 같아질 뿐이다. 따라서 <span class="math display">\[\mathrm{P}(\text{밥이 앞면을 더 많이 얻음}) = p_2 + \tfrac12p_1.\]</span> 세 경우가 모든 경우를 포괄하므로 <span class="math inline">\(2p_2 + p_1 = 1\)</span>이고, 따라서 <span class="math inline">\(p_2 + \frac12p_1 = \frac12\)</span>이다. 동전이 하나 더 있으면, 모든 <span class="math inline">\(n\)</span>에 대하여 밥이 앞면을 더 많이 얻을 확률은 정확히 <span class="math inline">\(\frac12\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>한 문장 증명은 다음과 같다. 밥은 <span class="math inline">\(n + 1\)</span>번 던지므로 앞면과 뒷면의 개수의 합이 <span class="math inline">\(n + 1\)</span>로, 앨리스보다 하나 많다. 밥이 앨리스보다 앞면을 더 많이 얻는 것은 밥이 앨리스보다 뒷면을 더 많이 얻지 <em>않는</em> 것과 필요충분조건임을 보여라. 앞면과 뒷면은 대칭이므로 이 두 사건의 확률은 같고, 따라서 각각 <span class="math inline">\(\frac12\)</span>이다.</p>
+</div>
+<p>실제로 <span class="math inline">\(H_A + T_A = n\)</span>, <span class="math inline">\(H_B + T_B = n + 1\)</span>이라 쓰자. <span class="math inline">\(H_B &gt; H_A\)</span>이면 <span class="math inline">\(H_B \geq H_A + 1\)</span>이므로 <span class="math inline">\(T_B = n + 1 - H_B \leq n - H_A = T_A\)</span>이다. 역으로 <span class="math inline">\(T_B \leq T_A\)</span>이면 <span class="math inline">\(H_B \geq H_A + 1\)</span>이다. 따라서 “앞면이 더 많음”과 “뒷면이 더 많음”은 서로 여사건(complementary event)이고, 앞면과 뒷면을 맞바꾸면(동전이 공정하므로 확률은 변하지 않는다) 두 사건이 서로 맞바뀐다.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-6-1.svg" alt="그림 12.6.1"><figcaption><span class="fig-label">그림 12.6.1</span> 소문항 (ii): 같은 정도로 일어날 수 있는 <span class="math inline">\(128\)</span>가지 결과 중 각 앞면 개수 조합에 해당하는 결과의 수. 밥이 앞서는 칸은 색칠되어 있으며, 정확히 전체 결과의 절반을 담고 있다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>작은 경우를 계산하라.</strong> 두 번의 계산이 답 <span class="math inline">\(\frac12\)</span>을 암시했다.</p></li>
+<li><p><strong>자연스러운 분할에 대해 조건을 걸어라(conditioning).</strong> 밥의 추가 던지기를 따로 떼어 내자 문제가 대등한 승부에 동전 하나를 더한 것으로 줄어들었다.</p></li>
+<li><p><strong>서로 여사건인 쌍을 찾아라.</strong> “앞면이 더 많음”과 “뒷면이 더 많음”은 서로 여사건이며, 대칭에 의해 서로 맞바뀐다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="대칭과-여사건">대칭과 여사건</h3>
+<p>이 깔끔한 증명은 두 가지 사실을 결합한다. 대칭에 의해 서로 맞바뀌는 두 사건은 확률이 같고, 서로 여사건인 두 사건은 확률의 합이 <span class="math inline">\(1\)</span>이다. 두 조건이 모두 성립하면 각 사건의 확률은 <span class="math inline">\(\frac12\)</span>이다. 같은 추론이 확률론 곳곳에 등장한다. 비행기 좌석 문제(<a href="../ch12/airline-seat.html">12.5 절</a>)에서 <span class="math inline">\(S_1\)</span>과 <span class="math inline">\(S_n\)</span>은 대칭에 의해 맞바뀌었고, 마지막에 남는 것은 정확히 둘 중 하나였다. 헥스(Hex) 게임에서는 판의 대칭성과 반드시 정확히 한 명이 이긴다는 사실로부터 선수가 유리함을 보일 수 있지만, 큰 판에서의 필승 전략은 아무도 모른다.</p>
+<h3 id="비길-확률은-얼마나-될까">비길 확률은 얼마나 될까?</h3>
+<p>던지는 횟수가 같을 때는 비길 확률 <span class="math inline">\(p_1\)</span>이 중요하다. 앨리스와 밥은 앨리스의 앞면 수가 밥의 앞면 수와 같을 때 비기는데, 이는 (대칭에 의해 밥의 앞면 수를 뒷면 수로 바꾸면) 앨리스의 앞면 수와 밥의 앞면 수의 합이 <span class="math inline">\(n\)</span>일 확률, 즉 <span class="math inline">\(2n\)</span>번 던져서 앞면이 모두 <span class="math inline">\(n\)</span>개 나올 확률과 같다. 따라서 스털링(Stirling) 근사(<a href="../ch12/stirling-probability.html">12.23 절</a>)를 이용하면 <span class="math display">\[p_1 = \binom{2n}{n}\frac{1}{4^n} \approx \frac{1}{\sqrt{\pi n}},\]</span> 이다. 비기는 일은 드물어지지만 그 속도는 느리다. 각자 <span class="math inline">\(100\)</span>번씩 던져도 비길 확률은 여전히 약 <span class="math inline">\(5.6\%\)</span>이다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">계산하고, 추측하고, 그다음 설명하라</div>
+<p><em>계산 결과가 의심스러울 만큼 단순한 답을 내면, 그 이유를 찾아라. 단순한 답에는 대개 단순한 설명이 있다.</em></p>
+<p>대학에서는 이 습관이 이해와 계산을 가른다. 여기서 첫 번째 증명은 답을 확인해 주고, 두 번째 증명은 답을 설명하며 곧바로 일반화된다(연습문제 2를 풀어 보라).</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>동전 두 개 더.</strong> 밥이 동전을 <span class="math inline">\(n + 2\)</span>개, 앨리스가 <span class="math inline">\(n\)</span>개 던질 때, <span class="math inline">\(H&#39;\)</span>을 밥의 처음 <span class="math inline">\(n + 1\)</span>번 던지기에서 나온 앞면의 개수라 하면 <span class="math inline">\(\mathrm{P}(\text{밥이 앞면을 더 많이 얻음}) = \frac12 + \frac12\mathrm{P}(H&#39; = H_A)\)</span>임을 증명하여라.</p></li>
+<li><p><strong>편향된 동전.</strong> 두 사람 모두 앞면이 나올 확률이 <span class="math inline">\(p\)</span>인 동전을 사용한다면, 한 번 더 던질 때 답은 여전히 <span class="math inline">\(\frac12\)</span>인가? 깔끔한 증명의 어느 단계가 성립하지 않는가?</p></li>
+<li><p><strong>비기기.</strong> 본문의 요령을 이용하여 <span class="math inline">\(p_1 = \binom{2n}{n}/4^n\)</span>임을 보이고, <span class="math inline">\(n = 1, 2, 3\)</span>일 때 그 값을 계산하여라.</p></li>
+<li><p><strong>주사위.</strong> 앨리스는 주사위 <span class="math inline">\(n\)</span>개를, 밥은 <span class="math inline">\(n + 1\)</span>개를 던진다. 밥이 6의 눈을 더 많이 얻을 확률은 <span class="math inline">\(\frac12\)</span>인가?</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Peter Winkler, <a href="https://uk.bookshop.org/search?keywords=Mathematical+Mind-Benders+Winkler"><em>Mathematical Mind-Benders</em></a></strong> (A K Peters). 대칭을 이용한 풀이가 있는 확률 퍼즐이 많이 실려 있다.</p></li>
+<li><p><strong>Gabor Székely, <a href="https://uk.bookshop.org/search?keywords=Paradoxes+in+Probability+Theory+and+Mathematical+Statistics+Szekely"><em>Paradoxes in Probability Theory and Mathematical Statistics</em></a></strong> (Reidel). 확률론과 수리통계학의 역설.</p></li>
+<li><p><strong>Frederick Mosteller, <a href="https://uk.bookshop.org/search?keywords=Fifty+Challenging+Problems+in+Probability+Mosteller"><em>Fifty Challenging Problems in Probability</em></a></strong> (Dover). 확률의 도전적인 문제 50선.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="airline-seat.html">← 12.5 마지막 승객의 좌석</a><a class="next" href="knockout.html">→ 12.7 토너먼트에서 누가 누구와 만나는가</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

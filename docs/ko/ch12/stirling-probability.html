@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>확률로 얻는 스털링 공식 (STEP II 2016 Q13) — Beyond STEP</title>
+<meta name="description" content="STEP II 2016 문제 13: 단계별 풀이와 그 바탕에 있는 대학 수학. 100! 은 얼마나 큰 수일까? 직접 곱해 보면 시간이 꽤 걸리는데, 이 수는 158 자리이다. 스털링 공식(Stirling’s formula) n! approx sqrt2π n\,(n/e)^n 을 쓰면 단 한 줄로 오차 0.1\% 이내의 값을 얻는다. 이것은 수학에서 가장…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch12/stirling-probability.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/stirling-probability.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/stirling-probability.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/stirling-probability.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/stirling-probability.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/stirling-probability.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/stirling-probability.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="확률로 얻는 스털링 공식 (STEP II 2016 Q13) — Beyond STEP">
+<meta property="og:description" content="STEP II 2016 문제 13: 단계별 풀이와 그 바탕에 있는 대학 수학. 100! 은 얼마나 큰 수일까? 직접 곱해 보면 시간이 꽤 걸리는데, 이 수는 158 자리이다. 스털링 공식(Stirling’s formula) n! approx sqrt2π n\,(n/e)^n 을 쓰면 단 한 줄로 오차 0.1\% 이내의 값을 얻는다. 이것은 수학에서 가장…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch12/stirling-probability.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="확률로 얻는 스털링 공식 (STEP II 2016 Q13) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 2016 문제 13: 단계별 풀이와 그 바탕에 있는 대학 수학. 100! 은 얼마나 큰 수일까? 직접 곱해 보면 시간이 꽤 걸리는데, 이 수는 158 자리이다. 스털링 공식(Stirling’s formula) n! approx sqrt2π n\,(n/e)^n 을 쓰면 단 한 줄로 오차 0.1\% 이내의 값을 얻는다. 이것은 수학에서 가장…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "확률로 얻는 스털링 공식", "headline": "확률로 얻는 스털링 공식", "description": "STEP II 2016 문제 13: 단계별 풀이와 그 바탕에 있는 대학 수학. 100! 은 얼마나 큰 수일까? 직접 곱해 보면 시간이 꽤 걸리는데, 이 수는 158 자리이다. 스털링 공식(Stirling’s formula) n! approx sqrt2π n\\,(n/e)^n 을 쓰면 단 한 줄로 오차 0.1\\% 이내의 값을 얻는다. 이것은 수학에서 가장…", "url": "https://beyondstep.keithmcnulty.org/ko/ch12/stirling-probability.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 2016 문제 13", "확률"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "확률", "url": "https://beyondstep.keithmcnulty.org/ko/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제12장: 확률", "item": "https://beyondstep.keithmcnulty.org/ko/ch12/"}, {"@type": "ListItem", "position": 3, "name": "확률로 얻는 스털링 공식", "item": "https://beyondstep.keithmcnulty.org/ko/ch12/stirling-probability.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch12/stirling-probability.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/stirling-probability.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/stirling-probability.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch12/stirling-probability.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제12장 · 확률</a>
+    <div class="src">STEP II · 2016 · 문제 13</div>
+    <div class="sec-head"><span class="sec-num">12.23</span><h1>확률로 얻는 스털링 공식</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-23-stirling-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제12장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 2016, 문제 13</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/16-s2-q13">step.maths.org/questions/16-s2-q13</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p><span class="math inline">\(100!\)</span>은 얼마나 큰 수일까? 직접 곱해 보면 시간이 꽤 걸리는데, 이 수는 <span class="math inline">\(158\)</span>자리이다. <em>스털링 공식(Stirling’s formula)</em> <span class="math inline">\(n! \approx \sqrt{2\pi n}\,(n/e)^n\)</span>을 쓰면 단 한 줄로 오차 <span class="math inline">\(0.1\%\)</span> 이내의 값을 얻는다. 이것은 수학에서 가장 유용한 근사(approximation) 가운데 하나로, 확률론, 통계물리학, 알고리즘 분석에서 늘 쓰인다.</p>
+<p>이 공식의 증명은 여러 가지가 있는데, 적분을 이용하는 방법(<a href="../ch04/wallis-beta.html">4.4 절</a>)이나 오일러-매클로린 공식(Euler–Maclaurin formula)을 이용하는 방법이 있다. 이 문제는 그중 가장 놀라운 증명, 즉 확률을 이용한 증명을 보여 준다. 평균이 <span class="math inline">\(n\)</span>인 푸아송 분포(Poisson distribution)는 근사적으로 정규분포(normal distribution)를 따르고, 봉우리에서 두 분포를 비교하면 <span class="math inline">\(n!\)</span>의 값이 저절로 정해진다. 스털링 공식에 나오는 <span class="math inline">\(\sqrt{2\pi}\)</span>는 말 그대로 정규분포의 확률밀도(density)에 나오는 바로 그 <span class="math inline">\(\sqrt{2\pi}\)</span>이다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>평균이 <span class="math inline">\(\mu\)</span>이고 분산이 <span class="math inline">\(\sigma^2\)</span>인 이산 확률변수(discrete random variable) <span class="math inline">\(X\)</span>가 근사적으로 정규분포를 따른다면, <span class="math inline">\(\mathrm{P}(X = \mu)\)</span>는 대략 얼마일까? (<span class="math inline">\(\mu\)</span>를 중심으로 하는 폭 <span class="math inline">\(1\)</span>인 구간의 확률을 생각해 보자.)</p>
+</div>
+<p>정규근사(normal approximation)에서 <span class="math inline">\(\mathrm{P}(X = \mu) \approx \mathrm{P}(\mu - \frac12 &lt; X &lt; \mu + \frac12)\)</span>이고, 이는 대략 폭 <span class="math inline">\(1\)</span>에 봉우리에서의 확률밀도를 곱한 값, 곧 <span class="math inline">\(\frac{1}{\sigma\sqrt{2\pi}}\)</span>이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-동전-열여섯-개" class="stage"><span class="stage-n">단계 1</span> 동전 열여섯 개</h4>
+<p><span class="math inline">\(X \sim \mathrm{B}(16, \frac12)\)</span>의 평균(mean)은 <span class="math inline">\(8\)</span>이고 분산(variance)은 <span class="math inline">\(16 \cdot \frac12 \cdot \frac12 = 4\)</span>이므로 <span class="math inline">\(\sigma = 2\)</span>이다. 정규근사에 의해 <span class="math display">\[\mathrm{P}(X = 8) \approx \frac{1}{2\sqrt{2\pi}} \approx 0.1995.\]</span> 정확한 값은 <span class="math inline">\(\binom{16}{8}/2^{16} = \frac{12870}{65536} \approx 0.1964\)</span>이므로 오차는 <span class="math inline">\(2\%\)</span> 이내이다.</p>
+<h4 id="stagemark2-중심-이항계수" class="stage"><span class="stage-n">단계 2</span> 중심 이항계수</h4>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{B}(2n, \frac12)\)</span>의 평균과 표준편차(standard deviation)는 무엇인가? <span class="math inline">\(\mathrm{P}(X = n)\)</span>을 정확한 값과 근삿값으로 각각 써 보자.</p>
+</div>
+<p>평균은 <span class="math inline">\(n\)</span>이고 분산은 <span class="math inline">\(\frac n2\)</span>이므로 <span class="math inline">\(\sigma = \sqrt{n/2}\)</span>이다. 정확한 값은 <span class="math inline">\(\mathrm{P}(X = n) = \binom{2n}{n}\frac{1}{2^{2n}}\)</span>이고, 근삿값은 <span class="math inline">\(\frac{1}{\sqrt{n/2}\sqrt{2\pi}} = \frac{1}{\sqrt{\pi n}}\)</span>이다. 두 값을 같다고 놓으면 <span class="math display">\[\frac{(2n)!}{(n!)^2\,2^{2n}} \approx \frac{1}{\sqrt{\pi n}}, \qquad (2n)! \approx \frac{2^{2n}(n!)^2}{\sqrt{n\pi}}. \qed\]</span></p>
+<h4 id="stagemark3-스털링-공식" class="stage"><span class="stage-n">단계 3</span> 스털링 공식</h4>
+<div class="askyourself">
+<p>모수가 <span class="math inline">\(n\)</span>인 푸아송 분포는 평균과 분산이 모두 <span class="math inline">\(n\)</span>이다. <span class="math inline">\(\mathrm{P}(X = n)\)</span>을 정확한 값과 근삿값으로 각각 써 보자.</p>
+</div>
+<p>정확한 값은 <span class="math inline">\(\mathrm{P}(X = n) = e^{-n}\frac{n^n}{n!}\)</span>이다. <span class="math inline">\(n\)</span>이 클 때 푸아송 분포는 근사적으로 정규분포를 따르고(서로 독립(independent)인 <span class="math inline">\(n\)</span>개의 푸아송<span class="math inline">\((1)\)</span> 확률변수의 합이기 때문이다), <span class="math inline">\(\sigma = \sqrt n\)</span>이므로 <span class="math inline">\(\mathrm{P}(X = n) \approx \frac{1}{\sqrt{2\pi n}}\)</span>이다. 두 값을 같다고 놓으면 <span class="math display">\[n! \approx \sqrt{2\pi n}\,e^{-n}n^n. \qed\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-23-1.svg" alt="그림 12.23.1"><figcaption><span class="fig-label">그림 12.23.1</span> 평균이 <span class="math inline">\(10\)</span>인 푸아송 분포(막대)와, 평균과 분산이 같은 정규분포의 확률밀도(자주색). 봉우리에서 푸아송 확률 <span class="math inline">\(e^{-10}10^{10}/10!\)</span>(호박색)은 정규분포의 확률밀도 <span class="math inline">\(\frac{1}{\sqrt{2\pi\cdot10}}\)</span>에 가깝다. 이 근사적 등식을 정리한 것이 바로 스털링 공식이다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>한 점의 확률 <span class="math inline">\(\approx\)</span> 확률밀도 곱하기 폭.</strong> 격자 분포(lattice distribution)에서는 한 점에서의 정규분포 확률밀도가 그 점의 확률의 근삿값이 된다.</p></li>
+<li><p><strong>정확한 공식과 근사의 만남.</strong> 이항분포(binomial distribution)와 푸아송 분포의 확률은 정확한 값이다. 이것을 정규근사와 같다고 놓아 계승(factorial)의 추정값을 얻었다.</p></li>
+<li><p><strong>공식에 맞는 분포를 고른다.</strong> <span class="math inline">\(\binom{2n}{n}\)</span>은 <span class="math inline">\(\mathrm{B}(2n, \frac12)\)</span>를, <span class="math inline">\(\frac{n^n}{n!}\)</span>은 푸아송<span class="math inline">\((n)\)</span>을 떠올리게 했다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="근사는-얼마나-정확한가">근사는 얼마나 정확한가?</h3>
+<p>이 논증은 휴리스틱(heuristic)이다. 정규근사를 <em>한 점에서</em> 사용하는데, 보통의 중심극한정리(central limit theorem)는 이를 정당화해 주지 않는다. 이를 엄밀하게 다룬 <em>국소 중심극한정리(local central limit theorem)</em>가 바로 그 일을 해 주며, 이로써 이 논증은 진정한 증명이 된다. 사실 스털링 공식은 놀라울 만큼 정확하다. 비 <span class="math inline">\(\frac{n!}{\sqrt{2\pi n}(n/e)^n}\)</span>은 대략 <span class="math inline">\(1 + \frac{1}{12n}\)</span>이므로, <span class="math inline">\(n = 1\)</span>일 때조차 <span class="math inline">\(1\)</span> 대신 <span class="math inline">\(0.92\)</span>를 주고, <span class="math inline">\(n = 10\)</span>일 때는 <span class="math inline">\(0.8\%\)</span>만큼 작다. 전체 급수 <span class="math inline">\(1 + \frac{1}{12n} + \frac{1}{288n^2} - \cdots\)</span>는 <em>점근급수(asymptotic series)</em>의 한 예이다. <span class="math inline">\(n\)</span>이 클수록 점점 더 좋은 근삿값을 주지만, <span class="math inline">\(n\)</span>을 고정하면 결국 발산(diverge)한다.</p>
+<h3 id="계승과-정규분포가-연결되는-이유">계승과 정규분포가 연결되는 이유</h3>
+<p>스털링 공식의 <span class="math inline">\(\sqrt{2\pi}\)</span>와 정규분포의 확률밀도에 나오는 <span class="math inline">\(\sqrt{2\pi}\)</span>는 같은 상수이다. <span class="math inline">\(\int_{-\infty}^\infty e^{-x^2/2}\,\mathrm{d}x = \sqrt{2\pi}\)</span>이기 때문이다. 드무아브르(de Moivre)는 1733년에 바로 이런 방식으로 이항분포의 정규근사를 발견했는데, 그 과정에서 큰 <span class="math inline">\(n\)</span>에 대한 <span class="math inline">\(\binom{n}{k}\)</span>의 근삿값이 필요했다. 그는 <span class="math inline">\(n! \approx Cn^{n + 1/2}e^{-n}\)</span> 꼴은 찾았지만 상수는 찾지 못했다. 스털링(James Stirling)이 <span class="math inline">\(C = \sqrt{2\pi}\)</span>임을 보였다. 정규분포는 계승의 점근적 성질에서 태어난 것이다.</p>
+<div class="historybox">
+<div class="box-title">드무아브르와 스털링</div>
+<p>드무아브르(Abraham de Moivre)는 런던으로 망명한 프랑스 개신교도로, 개인 교습과 도박꾼들에게 조언을 해 주며 생계를 꾸렸다. 그는 1718년에 <em>The Doctrine of Chances</em>(우연의 이론)를 출간했고, 1733년의 소책자에서 이항분포의 정규근사를 발견했는데, 이것이 정규곡선이 처음 등장한 곳이다. 스코틀랜드의 수학자 스털링은 <em>Methodus Differentialis</em>(차분법, 1730)에서 이 상수의 값을 발표했고, 드무아브르는 너그럽게 그의 공로를 인정했다. 계승의 근사는 지금도 활발히 연구되는 주제이다. 아주 큰 <span class="math inline">\(n\)</span>에 대해 <span class="math inline">\(n!\)</span>을 계산하는 일은 조합론과 암호학에서 필요하다.</p>
+</div>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">확률과 무관한 것을 확률로 증명하기</div>
+<p><em>정확한 확률을 근삿값과 비교하면 그 공식에 나오는 수들에 대한 정보를 얻을 수 있다.</em></p>
+<p>이 “확률론적 방법(probabilistic method)”은 양방향으로 작동한다. 여기서는 확률이 계승의 추정값을 주었고, 에르되시(Erdős)는 이 방법으로 그래프(graph)의 존재를 증명했다(<a href="../ch09/ramsey.html">9.2 절</a>). 대학에서는 확률을 이용해 해석학, 정수론, 조합론의 정리를 증명하는 것을 보게 될 것이다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>공식 확인하기.</strong> 스털링 공식으로 <span class="math inline">\(10!\)</span>과 <span class="math inline">\(20!\)</span>을 추정하고, 참값 <span class="math inline">\(3\,628\,800\)</span>, <span class="math inline">\(2\,432\,902\,008\,176\,640\,000\)</span>과 비교하여라.</p></li>
+<li><p><strong>(iii)에서 (ii)로.</strong> 소문항 (iii)의 스털링 공식으로부터 소문항 (ii)의 근사가 나옴을 보여라.</p></li>
+<li><p><strong><span class="math inline">\(100!\)</span>의 자릿수.</strong> <span class="math inline">\(\log_{10}n! \approx n\log_{10}\frac ne + \frac12\log_{10}(2\pi n)\)</span>을 이용하여 <span class="math inline">\(100!\)</span>이 <span class="math inline">\(158\)</span>자리 수임을 보여라.</p></li>
+<li><p><strong>동전 던지기에서의 동점.</strong> 소문항 (ii)를 이용하여, 공정한 동전을 <span class="math inline">\(1000\)</span>번 던질 때 앞면이 정확히 <span class="math inline">\(500\)</span>번 나올 확률이 약 <span class="math inline">\(0.025\)</span>임을 보여라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>William Feller, <a href="https://uk.bookshop.org/search?keywords=An+Introduction+to+Probability+Theory+and+Its+Applications+Feller"><em>An Introduction to Probability Theory and Its Applications</em></a>, Vol. 1</strong> (Wiley), 제II장. 스털링 공식을 증명한다.</p></li>
+<li><p><strong>Ronald Graham, Donald Knuth &amp; Oren Patashnik, <a href="https://uk.bookshop.org/search?keywords=Concrete+Mathematics+Graham+Knuth"><em>Concrete Mathematics</em></a></strong> (Addison-Wesley), 제9장. 점근적 방법을 다룬다.</p></li>
+<li><p><strong>Stephen Stigler, <a href="https://uk.bookshop.org/search?keywords=The+History+of+Statistics+Stigler"><em>The History of Statistics</em></a></strong> (Harvard University Press). 드무아브르와 정규곡선의 탄생을 다룬다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="cauchy.html">← 12.22 평균이 없는 분포</a><a class="next" href="clt.html">→ 12.24 중심극한정리</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>근이 모두 단위근인 다항식 (STEP III 2010 Q3) — Beyond STEP</title>
+<meta name="description" content="STEP III 2010 문제 3: 단계별 풀이와 그 바탕에 있는 대학 수학. n 차 단위근(roots of unity), 즉 z^n = 1 의 해는 정 n 각형의 꼭짓점에 놓인다. 그러나 이들이 모두 같은 성격인 것은 아니다. 예를 들어 12 차 단위근 가운데 1 은 이미 1차 단위근이고, -1 은 2차 단위근이며, i 는 4차 단위근이다. 열두 개…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch06/cyclotomic.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch06/cyclotomic.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/cyclotomic.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/cyclotomic.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/cyclotomic.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch06/cyclotomic.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/cyclotomic.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="근이 모두 단위근인 다항식 (STEP III 2010 Q3) — Beyond STEP">
+<meta property="og:description" content="STEP III 2010 문제 3: 단계별 풀이와 그 바탕에 있는 대학 수학. n 차 단위근(roots of unity), 즉 z^n = 1 의 해는 정 n 각형의 꼭짓점에 놓인다. 그러나 이들이 모두 같은 성격인 것은 아니다. 예를 들어 12 차 단위근 가운데 1 은 이미 1차 단위근이고, -1 은 2차 단위근이며, i 는 4차 단위근이다. 열두 개…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch06/cyclotomic.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="근이 모두 단위근인 다항식 (STEP III 2010 Q3) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2010 문제 3: 단계별 풀이와 그 바탕에 있는 대학 수학. n 차 단위근(roots of unity), 즉 z^n = 1 의 해는 정 n 각형의 꼭짓점에 놓인다. 그러나 이들이 모두 같은 성격인 것은 아니다. 예를 들어 12 차 단위근 가운데 1 은 이미 1차 단위근이고, -1 은 2차 단위근이며, i 는 4차 단위근이다. 열두 개…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "근이 모두 단위근인 다항식", "headline": "근이 모두 단위근인 다항식", "description": "STEP III 2010 문제 3: 단계별 풀이와 그 바탕에 있는 대학 수학. n 차 단위근(roots of unity), 즉 z^n = 1 의 해는 정 n 각형의 꼭짓점에 놓인다. 그러나 이들이 모두 같은 성격인 것은 아니다. 예를 들어 12 차 단위근 가운데 1 은 이미 1차 단위근이고, -1 은 2차 단위근이며, i 는 4차 단위근이다. 열두 개…", "url": "https://beyondstep.keithmcnulty.org/ko/ch06/cyclotomic.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2010 문제 3", "대수와 구조"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 6, "name": "대수와 구조", "url": "https://beyondstep.keithmcnulty.org/ko/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제6장: 대수와 구조", "item": "https://beyondstep.keithmcnulty.org/ko/ch06/"}, {"@type": "ListItem", "position": 3, "name": "근이 모두 단위근인 다항식", "item": "https://beyondstep.keithmcnulty.org/ko/ch06/cyclotomic.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch06/cyclotomic.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/cyclotomic.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch06/cyclotomic.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch06/cyclotomic.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제6장 · 대수와 구조</a>
+    <div class="src">STEP III · 2010 · 문제 3</div>
+    <div class="sec-head"><span class="sec-num">6.1</span><h1>근이 모두 단위근인 다항식</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-1-cyclotomic.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제6장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 2010, 문제 3</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/10-s3-q3">step.maths.org/questions/10-s3-q3</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p><span class="math inline">\(n\)</span>차 단위근(roots of unity), 즉 <span class="math inline">\(z^n = 1\)</span>의 해는 정<span class="math inline">\(n\)</span>각형의 꼭짓점에 놓인다. 그러나 이들이 모두 같은 성격인 것은 아니다. 예를 들어 <span class="math inline">\(12\)</span>차 단위근 가운데 <span class="math inline">\(1\)</span>은 이미 1차 단위근이고, <span class="math inline">\(-1\)</span>은 2차 단위근이며, <span class="math inline">\(\mathrm{i}\)</span>는 4차 단위근이다. 열두 개 가운데 <em>원시(primitive)</em> 단위근인 네 개만이 열두 걸음을 모두 거쳐야 <span class="math inline">\(1\)</span>로 돌아온다.</p>
+<p>단위근을 필요한 걸음 수에 따라 분류하고 각 부류마다 다항식을 하나씩 만들면 <em>원분다항식(cyclotomic polynomials)</em>을 얻는다(그리스어로 “원을 나눈다”는 뜻이다). 소수가 자연수를 이루는 기본 구성 요소이듯이 원분다항식은 <span class="math inline">\(z^n - 1\)</span>을 이루는 기본 구성 요소이며, 가우스(Gauss)의 정<span class="math inline">\(17\)</span>각형 작도(<a href="../ch06/gauss-17gon.html">6.2 절</a>), 단위근 필터(<a href="../ch05/roots-filter.html">5.2 절</a>), 그리고 현대 정수론의 많은 부분의 바탕에 놓여 있다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>모든 <span class="math inline">\(n\)</span>차 단위근은 <span class="math inline">\(z^n = 1\)</span>을 만족한다. 그러나 <span class="math inline">\(1\)</span>이 되는 가장 작은 양의 거듭제곱 지수는 <span class="math inline">\(n\)</span>보다 작을 수도 있다. 네 개의 4차 단위근 <span class="math inline">\(1\)</span>, <span class="math inline">\(\mathrm{i}\)</span>, <span class="math inline">\(-1\)</span>, <span class="math inline">\(-\mathrm{i}\)</span> 각각에 대하여 그 가장 작은 지수는 무엇인가?</p>
+</div>
+<p><span class="math inline">\(1^1 = 1\)</span>, <span class="math inline">\((-1)^2 = 1\)</span>이고, <span class="math inline">\(\mathrm{i}^4 = (-\mathrm{i})^4 = 1\)</span>이며 이보다 작은 지수로는 성립하지 않는다. 따라서 가장 작은 지수는 각각 <span class="math inline">\(1\)</span>, <span class="math inline">\(4\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(4\)</span>이다. 이 가장 작은 지수를 단위근의 <em>위수(order)</em>라 하며, 원시 <span class="math inline">\(n\)</span>차 단위근은 바로 위수가 <span class="math inline">\(n\)</span>인 단위근이다. 이 문제 전체의 핵심이 되는 사실은 <em>모든 단위근의 위수는 정확히 하나로 정해진다</em>는 것이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-처음-몇-개" class="stage"><span class="stage-n">단계 1</span> 처음 몇 개</h4>
+<p>원시 4차 단위근은 <span class="math inline">\(\mathrm{i}\)</span>와 <span class="math inline">\(-\mathrm{i}\)</span>이므로 <span class="math inline">\(\mathrm{C}_4(x) = (x - \mathrm{i})(x + \mathrm{i}) = x^2 + 1\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="askyourself">
+<p>위수가 <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(5\)</span>, <span class="math inline">\(6\)</span>인 단위근은 각각 무엇인가? (<span class="math inline">\(6\)</span>차 단위근을 그려 보고 위수에 따라 분류해 보아라.)</p>
+</div>
+<p>위수 <span class="math inline">\(1\)</span>: <span class="math inline">\(1\)</span>뿐이므로 <span class="math inline">\(\mathrm{C}_1(x) = x - 1\)</span>이다. 위수 <span class="math inline">\(2\)</span>: <span class="math inline">\(-1\)</span>뿐이므로 <span class="math inline">\(\mathrm{C}_2(x) = x + 1\)</span>이다.</p>
+<p>위수 <span class="math inline">\(3\)</span>: <span class="math inline">\(1\)</span>이 아닌 3차 단위근, 즉 <span class="math inline">\(\frac{x^3 - 1}{x - 1}\)</span>의 근이다. 따라서 <span class="math inline">\(\mathrm{C}_3(x) = x^2 + x + 1\)</span>이다.</p>
+<p>위수 <span class="math inline">\(5\)</span>: <span class="math inline">\(1\)</span>이 아닌 5차 단위근으로, 이들은 <span class="math inline">\(\frac{x^5 - 1}{x - 1}\)</span>의 근이다. 따라서 <span class="math inline">\(\mathrm{C}_5(x) = x^4 + x^3 + x^2 + x + 1\)</span>이다.</p>
+<p>위수 <span class="math inline">\(6\)</span>: 6차 단위근 <span class="math inline">\(e^{k\pi\mathrm{i}/3}\)</span>, <span class="math inline">\(k = 0, \ldots, 5\)</span> 가운데 <span class="math inline">\(k = 0\)</span>, <span class="math inline">\(3\)</span>인 것의 위수는 각각 <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>이고, <span class="math inline">\(k = 2\)</span>, <span class="math inline">\(4\)</span>인 것의 위수는 <span class="math inline">\(3\)</span>이다. 남는 것은 <span class="math inline">\(e^{\pm\pi\mathrm{i}/3}\)</span>이므로 <span class="math display">\[\mathrm{C}_6(x) = (x - e^{\mathrm{i}\pi/3})(x - e^{-\mathrm{i}\pi/3}) = x^2 - 2x\cos\tfrac\pi3 + 1 = x^2 - x + 1. \qed\]</span></p>
+<h4 id="stagemark2-어떤-n에서-x4-1이-나오는가" class="stage"><span class="stage-n">단계 2</span> 어떤 <span class="math inline">\(n\)</span>에서 <span class="math inline">\(x^4 + 1\)</span>이 나오는가?</h4>
+<p><span class="math inline">\(x^4 + 1 = 0\)</span>의 근은 <span class="math inline">\(x^4 = -1\)</span>을 만족하므로 <span class="math inline">\(x^8 = 1\)</span>이지만 <span class="math inline">\(x^4 \neq 1\)</span>이다. 따라서 그 위수는 <span class="math inline">\(8\)</span>의 약수이지만 <span class="math inline">\(4\)</span>의 약수는 아니므로 <span class="math inline">\(8\)</span>이다. 역으로 위수가 <span class="math inline">\(8\)</span>인 근은 <span class="math inline">\(x^8 = 1\)</span>, <span class="math inline">\(x^4 \neq 1\)</span>을 만족하므로 <span class="math inline">\(x^4 = -1\)</span>이다. 원시 <span class="math inline">\(8\)</span>차 단위근은 네 개이고 <span class="math inline">\(x^4 + 1\)</span>의 근도 네 개이므로 <span class="math inline">\(n = 8\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-소수" class="stage"><span class="stage-n">단계 3</span> 소수</h4>
+<p><span class="math inline">\(p\)</span>가 소수(prime)이면 <span class="math inline">\(p\)</span>차 단위근의 위수는 <span class="math inline">\(p\)</span>의 약수이므로 <span class="math inline">\(1\)</span> 또는 <span class="math inline">\(p\)</span>이다. 따라서 <span class="math inline">\(1\)</span>을 제외한 모든 <span class="math inline">\(p\)</span>차 단위근은 원시 단위근이고, <span class="math display">\[\mathrm{C}_p(x) = \frac{x^p - 1}{x - 1} = x^{p-1} + x^{p-2} + \cdots + x + 1. \qed\]</span></p>
+<h4 id="stagemark4-어떤-원분다항식도-다른-두-원분다항식의-곱이-아니다" class="stage"><span class="stage-n">단계 4</span> 어떤 원분다항식도 다른 두 원분다항식의 곱이 아니다</h4>
+<div class="pausebox">
+<p><span class="math inline">\(\mathrm{C}_q = \mathrm{C}_r\mathrm{C}_s\)</span>라고 하자. <span class="math inline">\(\mathrm{C}_r\)</span>의 근 하나를 잡자. 그 위수는 무엇인가? 이 항등식은 그 위수에 대해 무엇을 말해 주는가? 그 결과 무엇이 강제되는가?</p>
+</div>
+<p><span class="math inline">\(\mathrm{C}_r\)</span>의 모든 근(<span class="math inline">\(e^{2\pi\mathrm{i}/r}\)</span>이 원시 단위근이므로 근은 적어도 하나 있다)은 <span class="math inline">\(\mathrm{C}_r\mathrm{C}_s = \mathrm{C}_q\)</span>의 근이므로 위수가 <span class="math inline">\(q\)</span>이다. 그런데 이 근의 위수는 <span class="math inline">\(r\)</span>이기도 하고, 단위근의 위수는 하나뿐이므로 <span class="math inline">\(r = q\)</span>이다. 그러면 <span class="math inline">\(\mathrm{C}_q = \mathrm{C}_q\,\mathrm{C}_s\)</span>이고, <span class="math inline">\(\mathrm{C}_q\)</span>는 영다항식이 아니므로 <span class="math inline">\(\mathrm{C}_s = 1\)</span>이다. 그러나 <span class="math inline">\(\mathrm{C}_s\)</span>는 적어도 하나의 근 <span class="math inline">\(e^{2\pi\mathrm{i}/s}\)</span>를 가지므로 이는 불가능하다. 따라서 그러한 <span class="math inline">\(q\)</span>, <span class="math inline">\(r\)</span>, <span class="math inline">\(s\)</span>는 존재하지 않는다.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>위수에 따라 분류하라.</strong> 모든 단위근은 유일한 위수를 가지며, 위수에 따라 묶으면 <span class="math inline">\(z^n - 1\)</span>의 근이 서로소인 부류들로 나뉜다.</p></li>
+<li><p><strong>근으로 다항식을 정의하라.</strong> 각 <span class="math inline">\(\mathrm{C}_n\)</span>은 어떤 수들이 정확히 그 근인지를 밝힘으로써 결정되었다.</p></li>
+<li><p><strong>유일성에서 불가능성이 나온다.</strong> 소문항 (iv)에는 단 하나의 아이디어만 필요했다. 하나의 근이 서로 다른 두 위수를 가질 수는 없다는 것이다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title"><span class="math inline">\(x^n - 1\)</span>의 인수분해</div>
+<p>모든 <span class="math inline">\(n\)</span>차 단위근은 <span class="math inline">\(n\)</span>의 약수인 어떤 위수 <span class="math inline">\(d\)</span>를 가지며, <span class="math inline">\(d\)</span>차 단위근 가운데 위수가 <span class="math inline">\(d\)</span>인 것은 <span class="math inline">\(d \mid n\)</span>일 때 모두 <span class="math inline">\(n\)</span>차 단위근이다. 따라서 <span class="math inline">\(x^n - 1\)</span>의 근은 위수에 따라 여러 부류로 나뉘고, 다음을 얻는다. <span class="math display">\[x^n - 1 = \prod_{d \mid n}\mathrm{C}_d(x).\]</span> 예를 들어 <span class="math inline">\(x^6 - 1 = \mathrm{C}_1\mathrm{C}_2\mathrm{C}_3\mathrm{C}_6 = (x - 1)(x + 1)(x^2 + x + 1)(x^2 - x + 1)\)</span>이다. 그림 6.1.1은 열두 개의 <span class="math inline">\(12\)</span>차 단위근을 이런 방식으로 분류한 것이다. 원시 <span class="math inline">\(n\)</span>차 단위근의 개수, 즉 <span class="math inline">\(\mathrm{C}_n\)</span>의 차수는 <span class="math inline">\(k\)</span> 가운데 <span class="math inline">\(1\)</span>과 <span class="math inline">\(n\)</span> 사이에 있으면서 <span class="math inline">\(n\)</span>과 공약수가 없는 것의 개수이며, 이것이 바로 <em>오일러 피 함수(Euler’s totient function)</em> <span class="math inline">\(\varphi(n)\)</span>이다. 차수를 비교하면 항등식 <span class="math inline">\(\sum_{d \mid n}\varphi(d) = n\)</span>을 얻는다.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-1-1.svg" alt="그림 6.1.1"><figcaption><span class="fig-label">그림 6.1.1</span> 위수에 따라 색칠한 열두 개의 <span class="math inline">\(12\)</span>차 단위근. 네 개의 원시 <span class="math inline">\(12\)</span>차 단위근(고리 표시)은 <span class="math inline">\(\mathrm{C}_{12}\)</span>의 근이다. 모든 부류를 합치면 <span class="math inline">\(x^{12} - 1 = \mathrm{C}_1\mathrm{C}_2\mathrm{C}_3\mathrm{C}_4\mathrm{C}_6\mathrm{C}_{12}\)</span>이고, 차수는 <span class="math inline">\(1 + 1 + 2 + 2 + 2 + 4 = 12\)</span>이다.</figcaption></figure>
+<h3 id="정수-계수-그리고-뜻밖의-사실">정수 계수, 그리고 뜻밖의 사실</h3>
+<p>정의만 보아서는 분명하지 않지만, 모든 원분다항식의 계수는 <em>정수</em>이다. (<span class="math inline">\(x^n - 1\)</span>의 인수분해와 수학적 귀납법(induction)을 이용한다. <span class="math inline">\(\mathrm{C}_n\)</span>은 <span class="math inline">\(x^n - 1\)</span>을 그보다 앞선 원분다항식들의 곱으로 나눈 것이고, 정수 계수 다항식을 최고차항의 계수가 <span class="math inline">\(1\)</span>인(monic) 정수 계수 다항식으로 나누는 다항식의 나눗셈에서는 계수가 계속 정수로 남는다.) 오랫동안 알려진 모든 예는 계수가 <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(-1\)</span>뿐이었다. 첫 번째 예외는 1883년 Migotti가 발견한 <span class="math inline">\(\mathrm{C}_{105}\)</span>로, 이 다항식에는 <span class="math inline">\(-2x^7\)</span>이라는 항이 있다. <span class="math inline">\(105 = 3 \times 5 \times 7\)</span>은 서로 다른 홀수 소인수를 세 개 가지는 가장 작은 수이다. 사실 원분다항식의 계수는 원하는 만큼 크게 만들 수 있다.</p>
+<h3 id="기약성">기약성</h3>
+<p>소문항 (iv)는 어떤 원분다항식도 다른 두 원분다항식의 곱이 아님을 보여 준다. 실제로는 훨씬 강한 사실이 성립한다. <span class="math inline">\(\mathrm{C}_n\)</span>은 유리수 계수를 가진 더 낮은 차수의 다항식들로 전혀 인수분해되지 않는다. 가우스는 소수 <span class="math inline">\(n\)</span>에 대하여 이를 증명했고(이는 대학 첫 대수학 강의에서 배우게 될 <em>아이젠슈타인 판정법(Eisenstein’s criterion)</em>에서 나온다), 크로네커(Kronecker)와 데데킨트(Dedekind)는 일반적인 <span class="math inline">\(n\)</span>에 대하여 증명했다. 이 <em>기약성(irreducibility)</em> 덕분에 원분다항식은 단위근과 관련된 다항식 가운데 “소수”의 역할을 하며, 이는 단위근에 대한 갈루아(Galois) 이론의 출발점이 된다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">분류한 다음 쌓아 올리기</div>
+<p><em>문제 속의 대상들을 하나의 잘 정의된 불변량(invariant)에 따라 부류로 나누고, 부류별로 구조를 쌓아 올려라.</em></p>
+<p>여기서 불변량은 단위근의 위수였다. 각 근의 위수가 정확히 하나이므로 부류들은 겹치지 않으며, <span class="math inline">\(x^n - 1\)</span>은 이 부류들에 걸친 곱으로 분해된다. 같은 패턴(유일한 불변량이 서로소인 분해를 낳는 것)이 소인수분해와 유한 아벨 군(finite abelian groups)의 분류의 바탕에도 놓여 있다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>인수분해 확인하기.</strong> <span class="math inline">\((x - 1)(x + 1)(x^2 + x + 1)(x^2 - x + 1) = x^6 - 1\)</span>임을 확인하고, <span class="math inline">\(x^{12} - 1\)</span>이 그림 6.1.1에서처럼 인수분해됨을 확인하여라.</p></li>
+<li><p><strong>소수의 두 배.</strong> <span class="math inline">\(p\)</span>가 홀수인 소수이면 <span class="math inline">\(\mathrm{C}_{2p}(x) = \mathrm{C}_p(-x)\)</span>임을 보여라. <span class="math inline">\(p = 3\)</span>일 때 이를 확인하여라.</p></li>
+<li><p><strong>오일러 피 함수.</strong> 소수 <span class="math inline">\(p\)</span>에 대하여 <span class="math inline">\(\varphi(p^k) = p^k - p^{k-1}\)</span>이고 <span class="math inline">\(\mathrm{C}_{p^k}(x) = \mathrm{C}_p\bigl(x^{p^{k-1}}\bigr)\)</span>임을 보여라. 이를 이용하여 <span class="math inline">\(\mathrm{C}_9\)</span>를 구하여라.</p></li>
+<li><p><strong>조금 긴 문제.</strong> <span class="hard">심화</span> <span class="math inline">\(x^{15} - 1 = \mathrm{C}_1\mathrm{C}_3\mathrm{C}_5\mathrm{C}_{15}\)</span>를 이용하여 <span class="math inline">\(\mathrm{C}_{15}(x) = x^8 - x^7 + x^5 - x^4 + x^3 - x + 1\)</span>임을 보여라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Ian Stewart, <a href="https://uk.bookshop.org/search?keywords=Galois+Theory+Stewart"><em>Galois Theory</em></a></strong> (CRC Press). 갈루아 이론에 대한 표준적인 학부 입문서이다. 원분다항식과 정다각형이 앞부분에 나온다.</p></li>
+<li><p><strong>Harold Davenport, <a href="https://uk.bookshop.org/search?keywords=The+Higher+Arithmetic+Davenport"><em>The Higher Arithmetic</em></a></strong> (Cambridge University Press). 단위근과 그 산술을 다룬다.</p></li>
+<li><p><strong>Marcus du Sautoy, <a href="https://uk.bookshop.org/search?keywords=Finding+Moonshine+Sautoy"><em>Finding Moonshine</em></a></strong> (Fourth Estate). 대칭과 군론을 다룬 교양서로, 갈루아의 이야기도 담겨 있다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 장 도입</a><a class="next" href="gauss-17gon.html">→ 6.2 가우스의 정17각형</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

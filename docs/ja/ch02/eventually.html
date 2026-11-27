@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>「いずれは」とは何を意味するか (STEP III 2015 Q2) — Beyond STEP</title>
+<meta name="description" content="STEP III 2015 問題 2：解説付き解答とその背後にある大学数学。 大学で最初に学ぶ解析学（analysis）の講義に出てくる命題は、ほとんどすべてが同じ形をしている。すなわち、「何かが 存在して 、 すべての 何々について、ある条件が成り立つ」という形である。「数列が L に収束する」とは、任意の許容誤差 ε &gt; 0 に対して、ある番号 N が 存在して 、 すべての n ≥ N…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch02/eventually.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch02/eventually.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch02/eventually.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch02/eventually.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch02/eventually.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch02/eventually.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch02/eventually.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="「いずれは」とは何を意味するか (STEP III 2015 Q2) — Beyond STEP">
+<meta property="og:description" content="STEP III 2015 問題 2：解説付き解答とその背後にある大学数学。 大学で最初に学ぶ解析学（analysis）の講義に出てくる命題は、ほとんどすべてが同じ形をしている。すなわち、「何かが 存在して 、 すべての 何々について、ある条件が成り立つ」という形である。「数列が L に収束する」とは、任意の許容誤差 ε &gt; 0 に対して、ある番号 N が 存在して 、 すべての n ≥ N…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch02/eventually.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="「いずれは」とは何を意味するか (STEP III 2015 Q2) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2015 問題 2：解説付き解答とその背後にある大学数学。 大学で最初に学ぶ解析学（analysis）の講義に出てくる命題は、ほとんどすべてが同じ形をしている。すなわち、「何かが 存在して 、 すべての 何々について、ある条件が成り立つ」という形である。「数列が L に収束する」とは、任意の許容誤差 ε &gt; 0 に対して、ある番号 N が 存在して 、 すべての n ≥ N…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "「いずれは」とは何を意味するか", "headline": "「いずれは」とは何を意味するか", "description": "STEP III 2015 問題 2：解説付き解答とその背後にある大学数学。 大学で最初に学ぶ解析学（analysis）の講義に出てくる命題は、ほとんどすべてが同じ形をしている。すなわち、「何かが 存在して 、 すべての 何々について、ある条件が成り立つ」という形である。「数列が L に収束する」とは、任意の許容誤差 ε > 0 に対して、ある番号 N が 存在して 、 すべての n ≥ N…", "url": "https://beyondstep.keithmcnulty.org/ja/ch02/eventually.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2015 問題 2", "数列・級数・収束"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 2, "name": "数列・級数・収束", "url": "https://beyondstep.keithmcnulty.org/ja/ch02/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第2章：数列・級数・収束", "item": "https://beyondstep.keithmcnulty.org/ja/ch02/"}, {"@type": "ListItem", "position": 3, "name": "「いずれは」とは何を意味するか", "item": "https://beyondstep.keithmcnulty.org/ja/ch02/eventually.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch02/eventually.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch02/eventually.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch02/eventually.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch02/eventually.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第2章 · 数列・級数・収束</a>
+    <div class="src">STEP III · 2015 · 問題 2</div>
+    <div class="sec-head"><span class="sec-num">2.1</span><h1>「いずれは」とは何を意味するか</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-2-1-eventually.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-02-sequences-series-and-convergence.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第2章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP III 2015、第2問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/15-s3-q2">step.maths.org/questions/15-s3-q2</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>大学で最初に学ぶ解析学（analysis）の講義に出てくる命題は、ほとんどすべてが同じ形をしている。すなわち、「何かが<em>存在して</em>、<em>すべての</em>何々について、ある条件が成り立つ」という形である。「数列が <span class="math inline">\(L\)</span> に収束する」とは、任意の許容誤差 <span class="math inline">\(\varepsilon &gt; 0\)</span> に対して、ある番号 <span class="math inline">\(N\)</span> が<em>存在して</em>、<em>すべての</em> <span class="math inline">\(n \geq N\)</span> について <span class="math inline">\(|a_n - L| &lt; \varepsilon\)</span> となる、という意味である。この形を自在に扱える学生にとって解析学は刺激的であり、そうでない学生にとっては不可解なものになる。</p>
+<p>この問題は、そうした語り方への穏やかで見事に設計された入門である。問題は「最終的に小さい（eventually smaller than）」という新しい概念を一つだけ定義し、それについて真か偽かを問う問いを四つ投げかける。四つのうち一つは偽であり、それが偽である理由こそ、量化子（quantifier）を含む命題を初めて<em>否定</em>（negate）しようとする大学一年生の大半が陥る罠そのものである。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<p>定義をゆっくり読むこと。<span class="math inline">\((s_n) \leq (t_n)\)</span> は、すべての <span class="math inline">\(n\)</span> について <span class="math inline">\(s_n \leq t_n\)</span> であるという意味ではない。<em>ある番号から先では</em>それが成り立つ、という意味である。最初のいくつかの項はまったく関係がない。どちらの数列の最初の百万項を変えても、<span class="math inline">\((s_n) \leq (t_n)\)</span> が成り立つかどうかには影響しない。</p>
+<div class="askyourself">
+<p>定義には「ある正の整数 <span class="math inline">\(m\)</span> が存在して」という語句が含まれている。<span class="math inline">\((s_n) \leq (t_n)\)</span> を証明するには、正確には何を示せばよいか。それが<em>偽</em>であることを証明するには、何を示さなければならないか。</p>
+</div>
+<p>証明するには、適切な <span class="math inline">\(m\)</span> を<em>具体的に挙げ</em>、そのうえで<em>すべての</em> <span class="math inline">\(n \geq m\)</span> で条件が成り立つことを示せばよい。反証するには、<em>どの</em> <span class="math inline">\(m\)</span> もうまくいかないこと、すなわち誰がどんな <span class="math inline">\(m\)</span> を提案しても、ある <span class="math inline">\(n \geq m\)</span> で <span class="math inline">\(s_n &gt; t_n\)</span> となることを示さなければならない。この二つ目の形は小問 (ii) のために覚えておくこと。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-一次関数と二次関数の比較" class="stage"><span class="stage-n">段階 1</span> 一次関数と二次関数の比較</h4>
+<p>小問 (i) は、最終的に <span class="math inline">\(1000n \leq n^2\)</span> となるかを問うている。<span class="math inline">\(n &gt; 0\)</span> であるから、これは <span class="math inline">\(1000 \leq n\)</span> と同値である。よって <span class="math inline">\(m = 1000\)</span> とすればよい。実際、すべての <span class="math inline">\(n \geq 1000\)</span> について <span class="math inline">\(n^2 = n \cdot n \geq 1000 n\)</span> である。この命題は<strong>真</strong>である。<span class="qed" aria-label="end of proof">■</span></p>
+<p>最初の <span class="math inline">\(999\)</span> 項では <span class="math inline">\(1000n\)</span> が <span class="math inline">\(n^2\)</span> よりはるかに大きいが、それは問題にならない。「最終的に」は有限個の項を無視するのである。</p>
+<h4 id="stagemark2-最終的に小さいは通常の小さいと同じように振る舞うか" class="stage"><span class="stage-n">段階 2</span> 「最終的に小さい」は通常の「小さい」と同じように振る舞うか</h4>
+<p>通常の数では、<span class="math inline">\(a \leq b\)</span> でないならば <span class="math inline">\(b &lt; a\)</span> であり、したがって当然 <span class="math inline">\(b \leq a\)</span> である。小問 (ii) は、この新しい関係についても同じことが成り立つかを問うている。</p>
+<div class="askyourself">
+<p>「<span class="math inline">\((s_n) \leq (t_n)\)</span> <em>ではない</em>」とは実際には何を意味するか。先頭に「ではない」を付けずに、すべて書き下してみよ。</p>
+</div>
+<p>「ある <span class="math inline">\(m\)</span> が存在して、すべての <span class="math inline">\(n \geq m\)</span> について <span class="math inline">\(s_n \leq t_n\)</span>」という命題が偽になるのは、ちょうど次の場合である。</p>
+<p>任意の <span class="math inline">\(m\)</span> に対して、ある <span class="math inline">\(n \geq m\)</span> で <span class="math inline">\(s_n &gt; t_n\)</span> となるものが存在する。</p>
+<p>言い換えれば、<span class="math inline">\(s_n &gt; t_n\)</span> が<em>無限回</em>起こるということである。これは「ある番号以降つねに <span class="math inline">\(s_n &gt; t_n\)</span>」よりもはるかに弱い。二つの数列は大小を入れ替え続けるかもしれないのである。</p>
+<div class="pausebox">
+<p>大小を永遠に入れ替え続け、どちらも他方より最終的に小さくはならないような、正の数からなる二つの数列を見つけよ。</p>
+</div>
+<p><span class="math inline">\(s_n = 2 + (-1)^n\)</span> とおくと <span class="math inline">\(s_n = 1, 3, 1, 3, \ldots\)</span> であり、すべての <span class="math inline">\(n\)</span> について <span class="math inline">\(t_n = 2\)</span> とする。任意の <span class="math inline">\(m\)</span> に対して <span class="math inline">\(s_n = 3 &gt; 2 = t_n\)</span> となる偶数 <span class="math inline">\(n \geq m\)</span> が存在するので、<span class="math inline">\((s_n) \leq (t_n)\)</span> ではない。しかし同様に、任意の <span class="math inline">\(m\)</span> に対して <span class="math inline">\(t_n = 2 &gt; 1 = s_n\)</span> となる奇数 <span class="math inline">\(n \geq m\)</span> が存在するので、<span class="math inline">\((t_n) \leq (s_n)\)</span> でもない。この命題は<strong>偽</strong>である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark3-連鎖させる" class="stage"><span class="stage-n">段階 3</span> 連鎖させる</h4>
+<div class="askyourself">
+<p>小問 (iii) では、二つの仮定それぞれに対して一つずつ、合わせて二つの <span class="math inline">\(m\)</span> の値が与えられる。それらは異なるかもしれない。結論にはどちらを使えばよいか。</p>
+</div>
+<p>すべての <span class="math inline">\(n \geq m_1\)</span> について <span class="math inline">\(s_n \leq t_n\)</span> であり、すべての <span class="math inline">\(n \geq m_2\)</span> について <span class="math inline">\(t_n \leq u_n\)</span> であるとする。<span class="math inline">\(n \geq \max(m_1, m_2)\)</span> ならば両方の不等式が成り立つので、<span class="math inline">\(s_n \leq t_n \leq u_n\)</span> である。よって <span class="math inline">\(m = \max(m_1, m_2)\)</span> とすればよく、この命題は<strong>真</strong>である。<span class="qed" aria-label="end of proof">■</span></p>
+<p>二つのしきい値のうち大きい方をとるというのは、解析学で何百回も使うことになる手法である。たとえば、二つの収束（converge）する数列の和が収束することもこうして証明する。</p>
+<h4 id="stagemark4-二次関数と指数関数の比較" class="stage"><span class="stage-n">段階 4</span> 二次関数と指数関数の比較</h4>
+<p>まずいくつかの値を試してみる。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(n^2\)</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">49</td>
+<td style="text-align: center;">64</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(2^n\)</span></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">256</td>
+</tr>
+</tbody>
+</table></div>
+<p>したがって <span class="math inline">\(n^2 \leq 2^n\)</span> は <span class="math inline">\(n = 1, 2\)</span> では成り立ち、<span class="math inline">\(n = 3\)</span> では成り立たず、<span class="math inline">\(n = 4\)</span> 以降は成り立ち続けるように見える（図 2.1.1）。自然な予想は <span class="math inline">\(m = 4\)</span> である。</p>
+<div class="askyourself">
+<p>すべての <span class="math inline">\(n \geq 4\)</span> について <span class="math inline">\(n^2 \leq 2^n\)</span> であることを数学的帰納法（induction）で証明するには、<span class="math inline">\(n^2 \leq 2^n\)</span> から <span class="math inline">\((n+1)^2 \leq 2^{n+1} = 2 \cdot 2^n\)</span> を導く必要がある。<span class="math inline">\((n+1)^2\)</span> と <span class="math inline">\(n^2\)</span> の間にどのような不等式があれば、この段階がうまくいくか。</p>
+</div>
+<p><span class="math inline">\((n+1)^2 \leq 2n^2\)</span> がわかれば十分である。そうすれば <span class="math inline">\((n+1)^2 \leq 2n^2 \leq 2 \cdot 2^n\)</span> となるからである。ここで <span class="math inline">\(2n^2 - (n+1)^2 = n^2 - 2n - 1 = (n-1)^2 - 2\)</span> であり、これは <span class="math inline">\(n \geq 3\)</span> のとき正である。よって次のようになる。</p>
+<ul>
+<li><p><em>基底段階：</em><span class="math inline">\(4^2 = 16 = 2^4\)</span>。</p></li>
+<li><p><em>帰納段階：</em><span class="math inline">\(n \geq 4\)</span> かつ <span class="math inline">\(n^2 \leq 2^n\)</span> ならば、<span class="math inline">\((n+1)^2 \leq 2n^2 \leq 2^{n+1}\)</span>。</p></li>
+</ul>
+<p>したがってすべての <span class="math inline">\(n \geq 4\)</span> について <span class="math inline">\(n^2 \leq 2^n\)</span> であり、この命題は <span class="math inline">\(m = 4\)</span> として<strong>真</strong>である。<span class="qed" aria-label="end of proof">■</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-2-1-1.svg" alt="図 2.1.1"><figcaption><span class="fig-label">図 2.1.1</span> <span class="math inline">\(n^2\)</span>（紫の丸）と <span class="math inline">\(2^n\)</span>（琥珀色の四角）の比較。二つの数列は最初の数項で二度交差するが、<span class="math inline">\(n = 4\)</span> 以降は <span class="math inline">\(2^n\)</span> が永遠に上回り続ける。これがまさに <span class="math inline">\(m = 4\)</span> として <span class="math inline">\((n^2) \leq (2^n)\)</span> が成り立つということの意味である。</figcaption></figure>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>「存在する」を証明するとは、具体的に挙げることである。</strong>小問 (i)、(iii)、(iv) では、証明は <span class="math inline">\(m\)</span> を挙げてそれを確かめることであった。</p></li>
+<li><p><strong>否定すると量化子が入れ替わる。</strong>「（ある <span class="math inline">\(m\)</span> が存在して、すべての <span class="math inline">\(n \geq m\)</span> について <span class="math inline">\(P\)</span>）ではない」は「すべての <span class="math inline">\(m\)</span> に対して、ある <span class="math inline">\(n \geq m\)</span> が存在して、<span class="math inline">\(P\)</span> でない」となる。これを正しく扱えるかどうかを試しているのが小問 (ii) である。</p></li>
+<li><p><strong>新しい関係が古い関係と同じように振る舞うとは限らない。</strong>「最終的に小さい」は <span class="math inline">\(\leq\)</span> と同様に推移的（transitive）であるが、<span class="math inline">\(\leq\)</span> とは異なり、すべての数列の組を比較できるわけではない。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">解析学の言葉</div>
+<p>ニュートン（Newton）とライプニッツ（Leibniz）以後のおよそ150年間、数学者たちは極限（limit）や無限小（infinitesimal）を見事に使いこなしたが、それが正確に何を意味するのかを述べることはできなかった。1734年、バークリー（Berkeley）司教は無限小を「消え去った量の亡霊」と嘲笑したが、彼の指摘にも一理あった。その修復は19世紀に行われた。コーシー（Augustin-Louis Cauchy）、続いてワイエルシュトラス（Karl Weierstrass）が、「限りなく近づく」という曖昧な言い方を、「任意の」と「存在する」から組み立てられた命題に置き換えたのである。現代の定義 <span class="math display">\[a_n \to L \iff \text{任意の } \varepsilon &gt; 0 \text{ に対してある } N \text{ が存在して、} |a_n - L| &lt; \varepsilon \text{ がすべての次で成立：} n \geq N\]</span> は、先頭に量化子が一つ多いことを除けば、この問題の定義とまったく同じ形をしている。これは大学の解析学の講義で最初に出会うものである。</p>
+</div>
+<h3 id="増大度">増大度</h3>
+<p>小問 (iv) は、有名な階段の小さな一段である。任意の固定された <span class="math inline">\(k &gt; 0\)</span> と <span class="math inline">\(c &gt; 1\)</span> に対して <span class="math display">\[(\ln n) \leq (n^k), \qquad (n^k) \leq (c^n), \qquad (c^n) \leq (n!), \qquad (n!) \leq (n^n),\]</span> が成り立ち、実はそれぞれの数列は次の数列より最終的に小さいだけでなく、次の数列の<em>任意の定数倍</em>よりも最終的に小さい。ハーディ（G. H. Hardy）はこの種の比較について、<em>Orders of Infinity</em>（『無限の位数』、1910年）という一冊の本を書いた。今日ではこれは計算機科学の日常的な言葉であり、「このアルゴリズムは <span class="math inline">\(O(n^2)\)</span> ステップかかる」とは、ステップ数が最終的に <span class="math inline">\(n^2\)</span> の定数倍以下になるという意味である。<span class="math inline">\(n^2\)</span> と <span class="math inline">\(2^n\)</span> の違いは、終了するプログラムと、太陽が燃え尽きるまでに終了しないプログラムとの違いである。</p>
+<h3 id="全順序でない順序">全順序でない順序</h3>
+<p>小問 (ii) は、「最終的に小さい」が<em>全順序</em>（total order）ではないことを示している。すなわち、まったく比較できない数列の組が存在する。このような、推移的ではあるがすべてを比較するわけではない関係は<em>前順序</em>（preorder）や<em>半順序</em>（partial order）と呼ばれ、いたるところに現れる。整数の整除関係、集合の包含関係、「部分群である」という関係はいずれもその例である。ある関係がどの性質をもち、どの性質をもたないかを見分けることは、数学者としての訓練の一部である。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">量化子を扱う</div>
+<p><em>「ある <span class="math inline">\(m\)</span> が存在して、すべての <span class="math inline">\(n \geq m\)</span> について…」を証明するには、<span class="math inline">\(m\)</span> を挙げてから、すべての <span class="math inline">\(n\)</span> を確かめる。反証するには、任意の <span class="math inline">\(m\)</span> に対して、ある <span class="math inline">\(n \geq m\)</span> で成り立たないことを示す。</em></p>
+<p>命題に量化子が複数含まれるときは、証明や反証を試みる前にそれをすべて書き下し、左から順に否定していくこと。すなわち、「すべての」は「存在する」に、「存在する」は「すべての」に変わり、最後の条件は否定される。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>見本問題で準備運動。</strong>1987年の最初の STEP の前に公表された問題である <a href="https://step.maths.org/questions/spec-s3-q2">STEP III Specimen paper、第2問</a> に挑戦せよ。（<em>最後の部分のヒント：</em>二項展開（binomial expansion）の次の項を使え。）</p></li>
+<li><p><strong>両方向。</strong><span class="math inline">\((s_n) \leq (t_n)\)</span> かつ <span class="math inline">\((t_n) \leq (s_n)\)</span> ならば、十分大きいすべての <span class="math inline">\(n\)</span> について <span class="math inline">\(s_n = t_n\)</span> であることを証明せよ。</p></li>
+<li><p><strong>無限大への競走。</strong>正の数からなる二つの<em>増加</em>（increasing）数列で、どちらも無限大に発散し、どちらも他方より最終的に小さくはならないものを見つけよ。</p></li>
+<li><p><strong>階段を上る。</strong>具体的な <span class="math inline">\(m\)</span> を挙げて <span class="math inline">\((2^n) \leq (n!)\)</span> を示せ。次に <span class="math inline">\((n^{10}) \leq (2^n)\)</span> を示し、条件を満たす最小の <span class="math inline">\(m\)</span> を求めよ。（二つ目の部分では表計算ソフトが役に立つ。答えは驚くほど大きい。）</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Lara Alcock, <a href="https://uk.bookshop.org/search?keywords=How+to+Study+for+a+Mathematics+Degree+Alcock"><em>How to Study for a Mathematics Degree</em></a></strong>（Oxford University Press）。『数学の学位を取るための学び方』。第 3 章は、まさにこの種の論理的な言葉と、それが新入生にとってなぜ難しいのかを扱っている。</p></li>
+<li><p><strong>Lara Alcock, <a href="https://uk.bookshop.org/search?keywords=How+to+Think+About+Analysis+Alcock"><em>How to Think About Analysis</em></a></strong>（Oxford University Press）。『解析学の考え方』。大学一年次の解析学の定義への親しみやすい案内書である。</p></li>
+<li><p><strong>Daniel Velleman, <a href="https://uk.bookshop.org/search?keywords=How+to+Prove+It+Velleman"><em>How to Prove It</em></a></strong>（Cambridge University Press）。『証明の方法』。論理、量化子、証明への体系的な入門書である。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="index.html">← 章の導入</a><a class="next" href="golden-limit.html">→ 2.2 極限としての黄金比</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>解けるカオス (STEP I 2014 Q6) — Beyond STEP</title>
+<meta name="description" content="STEP I 2014 問題 6：解説付き解答とその背後にある大学数学。 規則 u_n+1 = ku_n(1 - u_n) は ロジスティック写像 （logistic map）とよばれ、資源が限られた環境における個体数の最も単純なモデルである。 u_n は n 年目の個体数を環境が支えうる最大数に対する割合で表したもの、 k は増殖率であり、因子 1 - u_n…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch08/solvable-chaos.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch08/solvable-chaos.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/solvable-chaos.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/solvable-chaos.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch08/solvable-chaos.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch08/solvable-chaos.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/solvable-chaos.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="解けるカオス (STEP I 2014 Q6) — Beyond STEP">
+<meta property="og:description" content="STEP I 2014 問題 6：解説付き解答とその背後にある大学数学。 規則 u_n+1 = ku_n(1 - u_n) は ロジスティック写像 （logistic map）とよばれ、資源が限られた環境における個体数の最も単純なモデルである。 u_n は n 年目の個体数を環境が支えうる最大数に対する割合で表したもの、 k は増殖率であり、因子 1 - u_n…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch08/solvable-chaos.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="解けるカオス (STEP I 2014 Q6) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2014 問題 6：解説付き解答とその背後にある大学数学。 規則 u_n+1 = ku_n(1 - u_n) は ロジスティック写像 （logistic map）とよばれ、資源が限られた環境における個体数の最も単純なモデルである。 u_n は n 年目の個体数を環境が支えうる最大数に対する割合で表したもの、 k は増殖率であり、因子 1 - u_n…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "解けるカオス", "headline": "解けるカオス", "description": "STEP I 2014 問題 6：解説付き解答とその背後にある大学数学。 規則 u_n+1 = ku_n(1 - u_n) は ロジスティック写像 （logistic map）とよばれ、資源が限られた環境における個体数の最も単純なモデルである。 u_n は n 年目の個体数を環境が支えうる最大数に対する割合で表したもの、 k は増殖率であり、因子 1 - u_n…", "url": "https://beyondstep.keithmcnulty.org/ja/ch08/solvable-chaos.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2014 問題 6", "微分方程式と力学系"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 8, "name": "微分方程式と力学系", "url": "https://beyondstep.keithmcnulty.org/ja/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第8章：微分方程式と力学系", "item": "https://beyondstep.keithmcnulty.org/ja/ch08/"}, {"@type": "ListItem", "position": 3, "name": "解けるカオス", "item": "https://beyondstep.keithmcnulty.org/ja/ch08/solvable-chaos.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch08/solvable-chaos.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch08/solvable-chaos.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch08/solvable-chaos.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch08/solvable-chaos.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第8章 · 微分方程式と力学系</a>
+    <div class="src">STEP I · 2014 · 問題 6</div>
+    <div class="sec-head"><span class="sec-num">8.7</span><h1>解けるカオス</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-7-solvable-chaos.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第8章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP I 2014、第6問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/14-s1-q6">step.maths.org/questions/14-s1-q6</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>規則 <span class="math inline">\(u_{n+1} = ku_n(1 - u_n)\)</span> は<em>ロジスティック写像</em>（logistic map）とよばれ、資源が限られた環境における個体数の最も単純なモデルである。<span class="math inline">\(u_n\)</span> は <span class="math inline">\(n\)</span> 年目の個体数を環境が支えうる最大数に対する割合で表したもの、<span class="math inline">\(k\)</span> は増殖率であり、因子 <span class="math inline">\(1 - u_n\)</span> は過密の効果を表す。1976年、生物学者ロバート・メイ（Robert May）は『<em>Nature</em>』誌に「Simple mathematical models with very complicated dynamics」（非常に複雑な振る舞いをする単純な数学モデル）という短い論文を発表した。メイは、<span class="math inline">\(k\)</span> を <span class="math inline">\(4\)</span> に向けて大きくしていくと、このたった1行の規則が、一定の値に落ち着く状態から、振動する状態を経て、まったくでたらめに見える振る舞いへと移り変わることを示した。これは<em>カオス</em>（chaos）の原点となる例の一つとなった。</p>
+<p>カオス的な系は、ふつう解くことができない。<span class="math inline">\(u_n\)</span> を与える公式は存在せず、<span class="math inline">\(u_{100}\)</span> を求めるにはそれより前の項をすべて計算するしかない。この問題はその例外を見つけるものである。最もカオス的な値である <span class="math inline">\(k = 4\)</span> では、公式が<em>存在する</em>のである。しかもその公式は、なぜこの数列が予測不能なのかを正確に説明してくれる。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(s = \sin^2\theta\)</span> として、式 <span class="math inline">\(4s(1 - s)\)</span> をどこかで見たことはないだろうか。<span class="math inline">\(\sin^2\theta\)</span>、<span class="math inline">\(\cos^2\theta\)</span>、<span class="math inline">\(\sin 2\theta\)</span> を結びつける恒等式は何か。</p>
+</div>
+<p><span class="math inline">\(s = \sin^2\theta\)</span> ならば <span class="math inline">\(1 - s = \cos^2\theta\)</span> であるから、<span class="math inline">\(4s(1 - s) = 4\sin^2\theta\cos^2\theta = (2\sin\theta\cos\theta)^2 = \sin^2 2\theta\)</span> となる。写像 <span class="math inline">\(s \mapsto 4s(1 - s)\)</span> は、2倍角の公式（double-angle formula）が姿を変えたものなのである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-規則性を予想する" class="stage"><span class="stage-n">段階 1</span> 規則性を予想する</h4>
+<p><span class="math inline">\(u_0 = \sin^2\theta\)</span> とすると、上の恒等式から <span class="math display">\[u_1 = 4\sin^2\theta\cos^2\theta = \sin^2 2\theta, \qquad u_2 = 4\sin^2 2\theta\cos^2 2\theta = \sin^2 4\theta.\]</span></p>
+<div class="askyourself">
+<p>各ステップで角はどうなっているか。<span class="math inline">\(u_n\)</span> についてどのような予想が立つか。</p>
+</div>
+<p>角は毎回2倍になっているので、<span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span> と予想できる。</p>
+<h4 id="stagemark2-証明する" class="stage"><span class="stage-n">段階 2</span> 証明する</h4>
+<div class="askyourself">
+<p>ある項から次の項を定める規則で定義された数列について、そのすべての項に関する主張を示すには、どの証明法が適しているか。</p>
+</div>
+<p>数学的帰納法（induction）である。<span class="math inline">\(u_0 = \sin^2\theta = \sin^2(2^0\theta)\)</span> であるから、<span class="math inline">\(n = 0\)</span> のとき主張は成り立つ。ある <span class="math inline">\(n\)</span> について <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span> が成り立つと仮定すると、 <span class="math display">\[u_{n+1} = 4\sin^2(2^n\theta)\bigl(1 - \sin^2(2^n\theta)\bigr) = \bigl(2\sin(2^n\theta)\cos(2^n\theta)\bigr)^2 = \sin^2(2^{n+1}\theta),\]</span> となり、これは <span class="math inline">\(n + 1\)</span> のときの主張である。よって、すべての <span class="math inline">\(n \geq 0\)</span> について <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span> が成り立つ。<span class="qed" aria-label="end of proof">■</span></p>
+<p><span class="math inline">\([0, 1]\)</span> に属するどの初期値 <span class="math inline">\(u\)</span> も <span class="math inline">\(\sin^2\theta\)</span> の形に書ける（<span class="math inline">\(\theta = \arcsin\sqrt u\)</span> とすればよい）ことに注意しよう。したがって、これで <span class="math inline">\(k = 4\)</span> のロジスティック写像が、<span class="math inline">\([0, 1]\)</span> のあらゆる初期値について解けたことになる。</p>
+<h4 id="stagemark3-変数を変換する" class="stage"><span class="stage-n">段階 3</span> 変数を変換する</h4>
+<div class="askyourself">
+<p><span class="math inline">\(v_n = \alpha u_n + \beta\)</span> を <span class="math inline">\(v_{n+1}\)</span> の規則に代入せよ。その結果が <span class="math inline">\(u_{n+1} = 4u_n - 4u_n^2\)</span> となる必要がある。条件はいくつ得られ、未知数はいくつあるか。</p>
+</div>
+<p>代入すると <span class="math display">\[\alpha u_{n+1} + \beta = -p(\alpha u_n + \beta)^2 + q(\alpha u_n + \beta) + r,\]</span> であるから <span class="math display">\[u_{n+1} = -p\alpha\, u_n^2 + (q - 2p\beta)\, u_n + \frac{-p\beta^2 + q\beta + r - \beta}{\alpha}.\]</span> これが <span class="math inline">\(4u_n - 4u_n^2\)</span> となるためには、次の3つが必要である。 <span class="math display">\[p\alpha = 4, \qquad q - 2p\beta = 4, \qquad -p\beta^2 + (q - 1)\beta + r = 0.\]</span> 最初の2つから <span class="math inline">\(\alpha = 4/p\)</span>、<span class="math inline">\(\beta = (q - 4)/(2p)\)</span> と定まる。未知数はもう残っていないので、3つ目の式は <span class="math inline">\(p\)</span>、<span class="math inline">\(q\)</span>、<span class="math inline">\(r\)</span> に対する本当の意味での条件となる。<span class="math inline">\(\beta\)</span> を代入して <span class="math inline">\(4p\)</span> を掛けると <span class="math display">\[-(q - 4)^2 + 2(q - 1)(q - 4) + 4pr = 0,\]</span> となり、展開すると <span class="math inline">\(-(q^2 - 8q + 16) + (2q^2 - 10q + 8) + 4pr = 0\)</span>、すなわち <span class="math inline">\(q^2 - 2q - 8 + 4pr = 0\)</span>、つまり <span class="math display">\[4pr = 8 + 2q - q^2. \qed\]</span></p>
+<div class="pausebox">
+<p>方程式は3つあるのに未知数は2つしかない。条件が現れるのはこのためである。計算する前に、一般の2次写像がいつも <span class="math inline">\((*)\)</span> と同値になるとは限らない理由がわかるだろうか。（1次の変数変換で変えられるものと変えられないものを考えてみよ。）</p>
+</div>
+<h4 id="stagemark4-具体例" class="stage"><span class="stage-n">段階 4</span> 具体例</h4>
+<p><span class="math inline">\(v_{n+1} = -v_n^2 + 2v_n + 2\)</span> では <span class="math inline">\(p = 1\)</span>、<span class="math inline">\(q = 2\)</span>、<span class="math inline">\(r = 2\)</span> であり、<span class="math inline">\(4pr = 8 = 8 + 4 - 4\)</span> であるから条件は成り立つ。このとき <span class="math inline">\(\alpha = 4\)</span>、<span class="math inline">\(\beta = -1\)</span> であるから <span class="math inline">\(v_n = 4u_n - 1\)</span> であり、<span class="math inline">\(u_n\)</span> は <span class="math inline">\((*)\)</span> を満たす。<span class="math inline">\(v_0 = 1\)</span> より <span class="math inline">\(u_0 = \frac12 = \sin^2\frac{\pi}{4}\)</span> であるから <span class="math display">\[u_n = \sin^2\!\Bigl(\frac{2^n\pi}{4}\Bigr), \qquad v_n = 4\sin^2\!\Bigl(\frac{2^n\pi}{4}\Bigr) - 1 = 1 - 2\cos\Bigl(\frac{2^n\pi}{2}\Bigr).\]</span> これより <span class="math inline">\(v_0 = 1\)</span>、<span class="math inline">\(v_1 = 3\)</span> であり、すべての <span class="math inline">\(n \geq 2\)</span> について <span class="math inline">\(v_n = -1\)</span> となる。（直接確かめると、<span class="math inline">\(-1 + 2 + 2 = 3\)</span>、次に <span class="math inline">\(-9 + 6 + 2 = -1\)</span>、さらに <span class="math inline">\(-1 - 2 + 2 = -1\)</span> である。）<span class="qed" aria-label="end of proof">■</span></p>
+<p>この特別な初期値は、角が <span class="math inline">\(\pi\)</span> の倍数に行き着いて数列が止まるように選ばれている。そのせいで面白い部分が隠れてしまっているが、それを次に見ていこう。</p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>変装を見抜く。</strong>写像 <span class="math inline">\(s \mapsto 4s(1 - s)\)</span> は、<span class="math inline">\(s = \sin^2\theta\)</span> と書いたとたんに角の2倍化になった。</p></li>
+<li><p><strong>予想し、帰納法で証明する。</strong>2つの項から規則性が見え、帰納法でそれを証明した。</p></li>
+<li><p><strong>方程式と未知数の個数を数える。</strong>1次の置き換えには自由なパラメータが2つあり、2次式には係数が3つある。したがって条件が1つ余るはずである。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<h3 id="数列が予測不能である理由">数列が予測不能である理由</h3>
+<p>公式 <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span> を得たことで、話は終わったように見える。どの項も直接計算できるからである。しかし、この公式が何を言っているかをよく見てみよう。<span class="math inline">\(\sin^2\)</span> は周期 <span class="math inline">\(\pi\)</span> をもつので、意味をもつのは <span class="math inline">\(2^n\theta\)</span> を <span class="math inline">\(\pi\)</span> を法（modulo）として見た値だけである。<span class="math inline">\(0 \leq x &lt; 1\)</span> として <span class="math inline">\(\theta = \pi x\)</span> と書き、<span class="math inline">\(x\)</span> を2進法（binary）で表す。 <span class="math display">\[x = 0.b_1 b_2 b_3 \ldots \quad(\text{基数 } 2).\]</span> <span class="math inline">\(2\)</span> を掛けると小数点が1桁右にずれ、その結果を <span class="math inline">\(1\)</span> を法として見ると、小数点を越えた桁が捨てられる。したがって <span class="math inline">\(u_n\)</span> は、<span class="math inline">\(x\)</span> の2進表記の <span class="math inline">\(b_{n+1}\)</span> 以降の桁だけで決まる。ロジスティック写像は1ステップごとに初期値の桁を1つ新たに読み込み、先頭の桁を1つ捨てていくのである。</p>
+<p>これが<em>初期値鋭敏性</em>（sensitive dependence on initial conditions）であり、カオスを特徴づける性質である。2進法で <span class="math inline">\(20\)</span> 桁（10進法でおよそ6桁）まで一致する2つの初期値からは、たいてい、およそ <span class="math inline">\(20\)</span> ステップまでは一致し、その後はまったく無関係になる数列が生じる（図 8.7.1）。<span class="math inline">\(u_{100}\)</span> を予測するには、<span class="math inline">\(u_0\)</span> を2進法で <span class="math inline">\(100\)</span> 桁まで知る必要がある。初期の角の誤差は、どれほど小さくても、ステップごとに2倍になる。（個体数 <span class="math inline">\(u\)</span> そのものの誤差が毎回まったく同じ倍率で増えるわけではない。写像は <span class="math inline">\([0, 1]\)</span> のある部分を他の部分より強く引き伸ばすからである。しかし平均すれば同じ割合で増大する。）公式はこの状況を救ってはくれない。単にその仕組みを目に見えるようにするだけである。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-7-1.svg" alt="図 8.7.1"><figcaption><span class="fig-label">図 8.7.1</span> <span class="math inline">\(k = 4\)</span> のロジスティック写像による2つの数列。初期値は <span class="math inline">\(\sin^2(1)\)</span>（ティール）と <span class="math inline">\(\sin^2(1.00001)\)</span>（プラム、破線）である。およそ10ステップまでは区別がつかず、ステップ <span class="math inline">\(12\)</span> までには目に見えて異なり、その後は無関係になる。ステップ <span class="math inline">\(12\)</span> までに、角の差 <span class="math inline">\(10^{-5}\)</span> は12回2倍されて、およそ <span class="math inline">\(2^{12} \times 10^{-5} \approx 0.04\)</span> になっている。</figcaption></figure>
+<h3 id="いたるところにある周期点">いたるところにある周期点</h3>
+<p>この公式からは、写像のすべての周期軌道（cycle）も求められる。数列が <span class="math inline">\(N\)</span> ステップ後に初期値に戻るのは、ちょうど <span class="math inline">\(\sin^2(2^N\theta) = \sin^2\theta\)</span>、すなわち <span class="math inline">\(2^N\theta \equiv \pm\theta \pmod{\pi}\)</span> のときである。したがって <span class="math inline">\(\theta = m\pi/(2^N - 1)\)</span> または <span class="math inline">\(\theta = m\pi/(2^N + 1)\)</span> は、周期が <span class="math inline">\(N\)</span> の約数となる点を与える。たとえば <span class="math inline">\(\theta = \pi/5\)</span> は <span class="math inline">\(4\theta \equiv -\theta\)</span> を満たすので、<span class="math inline">\(\sin^2\frac{\pi}{5} \to \sin^2\frac{2\pi}{5} \to \sin^2\frac{4\pi}{5} = \sin^2\frac{\pi}{5}\)</span> は周期 <span class="math inline">\(2\)</span> の軌道である。あらゆる周期の周期点（periodic point）が存在し、しかもそれらは <span class="math inline">\([0, 1]\)</span> において稠密（dense）である。つまり、どれほど小さな区間の中にも、数列が繰り返しになる初期値が存在する。それにもかかわらず、誤差は2倍になっていくので、どの周期点も不安定である。近くのものをすべて遠ざける周期点が稠密に存在すること、これがカオスの第二の特徴である。</p>
+<h3 id="カオスへの道">カオスへの道</h3>
+<p><span class="math inline">\(k\)</span> がもっと小さいときには公式は存在せず、振る舞いは <span class="math inline">\(k\)</span> によって劇的に変わる（図 8.7.2）。<span class="math inline">\(1 &lt; k &lt; 3\)</span> では、<span class="math inline">\((0, 1)\)</span> から出発するどの数列も不動点（fixed point）<span class="math inline">\(1 - 1/k\)</span> に落ち着く。<span class="math inline">\(k = 3\)</span> でこの不動点は不安定になり、代わって周期 <span class="math inline">\(2\)</span> の軌道が現れる（これが STEP II 2002 Q5 の主題である。演習問題を参照）。<span class="math inline">\(k = 1 + \sqrt6 \approx 3.449\)</span> で周期 <span class="math inline">\(2\)</span> の軌道は周期 <span class="math inline">\(4\)</span> の軌道に取って代わられ、さらに周期 <span class="math inline">\(8\)</span> の軌道へと続く。この周期倍分岐（period doubling）はどんどん速く起こるようになり、<span class="math inline">\(k \approx 3.5699\)</span> で周期が無限大となってカオスが始まる。カオス領域の内部には秩序の「窓」がある。最もはっきりしたものは <span class="math inline">\(k = 3.83\)</span> 付近にあり、周期 <span class="math inline">\(3\)</span> の軌道を含む。これが<a href="../ch08/period-three.html">第 8.8 節</a>の主題である。</p>
+<figure class="stepfig"><img src="../assets/fig/fig-8-7-2.svg" alt="図 8.7.2"><figcaption><span class="fig-label">図 8.7.2</span> ロジスティック写像の分岐図（bifurcation diagram）。各 <span class="math inline">\(k\)</span> について、<span class="math inline">\(u_0 = 0.31416\)</span> から写像を <span class="math inline">\(300\)</span> 回反復し、その次の <span class="math inline">\(40\)</span> 個の値をプロットした。ただ一つの不動点が <span class="math inline">\(k = 3\)</span> で周期 <span class="math inline">\(2\)</span> の軌道に分かれ、続いて周期 <span class="math inline">\(4\)</span>、<span class="math inline">\(8\)</span>、…と分かれていき、<span class="math inline">\(k = 3.57\)</span> 付近でカオスが始まる。<span class="math inline">\(k = 3.83\)</span> 付近の白っぽい縦の隙間が、安定な周期 <span class="math inline">\(3\)</span> の軌道を含む窓である。<span class="math inline">\(k = 4\)</span> では値が <span class="math inline">\([0, 1]\)</span> 全体を埋め尽くす。</figcaption></figure>
+<div class="historybox">
+<div class="box-title">ファイゲンバウム定数</div>
+<p>1975年、ロスアラモスで研究していたファイゲンバウム（Mitchell Feigenbaum）は、プログラム可能なポケット電卓を使って、周期が倍になる <span class="math inline">\(k\)</span> の値 <span class="math inline">\(k_1 = 3\)</span>、<span class="math inline">\(k_2 \approx 3.4495\)</span>、<span class="math inline">\(k_3 \approx 3.5441\)</span>、<span class="math inline">\(k_4 \approx 3.5644\)</span>、…を測定した。彼は、その間隔が一定の比で縮んでいくこと、 <span class="math display">\[\frac{k_{n} - k_{n-1}}{k_{n+1} - k_{n}} \to 4.6692\ldots,\]</span> に気づいた。さらに驚くべきことに、同じ数 <span class="math inline">\(4.6692\ldots\)</span> が <span class="math inline">\(x \mapsto k\sin(\pi x)\)</span> についても、また山が一つで頂上が放物線のように丸い（<em>2次の極大</em>（quadratic maximum）をもつ）他のあらゆる滑らかな写像についても現れることを発見した。この定数はそのクラス全体に対して<em>普遍的</em>（universal）なのである。頂上がもっと平らな山をもつ写像、たとえば <span class="math inline">\(-x^4\)</span> のような形の写像には、それ固有の普遍定数がある。この定数はその後、水滴がしたたる蛇口、加熱された流体、電子回路などの実験でも測定されている。その理由を説明するには相転移の物理学から借りてきた考え方が必要であり、1982年になってようやく Oscar Lanford が計算機の助けを借りて厳密なものにした。</p>
+</div>
+<h3 id="同じ技法が3度">同じ技法が3度</h3>
+<p>小問 (ii) の置き換えは<em>共役</em>（conjugacy）の一例である。2つの写像は、変数変換によって一方が他方に変わるとき共役であるといい、そのとき両者はまったく同じ力学的振る舞いをもつ。この問題は、条件を満たすすべての2次写像が <span class="math inline">\(k = 4\)</span> のロジスティック写像と共役であり、そのロジスティック写像がさらに <span class="math inline">\(u = \sin^2\theta\)</span> を通して角の2倍化の変装したものであることを示している。（厳密には、この最後のつながりは<em>半共役</em>（semiconjugacy）である。<span class="math inline">\(\theta\)</span> と <span class="math inline">\(\pi - \theta\)</span> は同じ <span class="math inline">\(u\)</span> を与えるので、この変数変換は1対1（one-to-one）ではない。ロジスティック写像が真の意味で共役になるのは<em>テント写像</em>（tent map）、すなわち <span class="math inline">\(t \leq \frac12\)</span> のとき <span class="math inline">\(t \mapsto 2t\)</span>、<span class="math inline">\(t \geq \frac12\)</span> のとき <span class="math inline">\(t \mapsto 2 - 2t\)</span> で定まる写像であり、そのときの変換 <span class="math inline">\(u = \sin^2\frac{\pi t}{2}\)</span> は <span class="math inline">\([0, 1]\)</span> 上で1対1である。）<a href="../ch02/squaring-minus-two.html">第 2.8 節</a>では、<span class="math inline">\(x = 2\cos\theta\)</span> とおくと各ステップで角が2倍になることによって解ける <span class="math inline">\(x \mapsto x^2 - 2\)</span> に出会った。これも条件を満たしている（確かめてみよ）。つまり、これらはすべて同じ写像が姿を変えたものなのである。<a href="../ch08/period-three.html">第 8.8 節</a>では、この仲間の3番目のメンバーとして、直線からできた写像である<em>テント写像</em>が登場する。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">変数を変換して構造を見抜く</div>
+<p><em>うまい置き換えをすると、複雑な規則が単純なものに変わることがある。問題を、すでに理解しているものに変えてくれる変数変換を探そう。</em></p>
+<p>ここでは <span class="math inline">\(u = \sin^2\theta\)</span> によって2次写像が角の2倍化に変わり、1次の置き換えによって2次式の族全体が一つの写像にまとめられた。大学では、共役は中心的な道具である。力学系（dynamical systems）でも、線形代数でも（行列の対角化（diagonalising）とは、その行列が単純になる座標を選ぶことである）、群論（group theory）でも用いられる。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>ロジスティック写像の周期軌道。</strong><a href="https://step.maths.org/questions/02-s2-q5">STEP II 2002、第5問</a>に取り組んでみよ。そのうえで、周期 <span class="math inline">\(2\)</span> の軌道が存在するのは <span class="math inline">\(k &gt; 3\)</span> のときに限ることを示せ。</p></li>
+<li><p><strong>2乗して2を引く。</strong><span class="math inline">\(v_{n+1} = v_n^2 - 2\)</span> が小問 (ii) の条件を満たすことを示せ（<span class="math inline">\(p = -1\)</span> として <span class="math inline">\(-pv_n^2 + qv_n + r\)</span> の形に書くこと）。<span class="math inline">\(\alpha\)</span> と <span class="math inline">\(\beta\)</span> を求め、その答えが <span class="math inline">\(v_n = 2\cos(2^n\phi)\)</span> と一致することを確かめよ。</p></li>
+<li><p><strong>周期 <span class="math inline">\(3\)</span> の軌道。</strong>公式 <span class="math inline">\(u_n = \sin^2(2^n\theta)\)</span> を用いて、<span class="math inline">\(u_{n+1} = 4u_n(1 - u_n)\)</span> の周期 <span class="math inline">\(3\)</span> の軌道を求めよ。（<em>ヒント：</em><span class="math inline">\(\theta = \pi/7\)</span> または <span class="math inline">\(\theta = \pi/9\)</span> を試してみよ。）周期がちょうど <span class="math inline">\(3\)</span> である点はいくつあるか。</p></li>
+<li><p><strong>失われる桁。</strong>計算機は数を2進法でおよそ <span class="math inline">\(53\)</span> 桁まで記憶する。計算機で <span class="math inline">\(u_{n+1} = 4u_n(1 - u_n)\)</span> を反復すると、およそ何ステップで計算値が真の数列とまったく無関係になるか。そうなったとき、計算された数列は役に立たないのだろうか。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Robert May, 「Simple mathematical models with very complicated dynamics」</strong>, <em>Nature</em> 261 (1976)。古典的な論文であり、今でも非常に読みやすい。</p></li>
+<li><p><strong>James Gleick, <a href="https://uk.bookshop.org/search?keywords=Chaos%3A+Making+a+New+Science+Gleick"><em>Chaos: Making a New Science</em></a></strong> (Penguin)。メイ、ファイゲンバウム、そしてカオスの発見の物語である。</p></li>
+<li><p><strong>Steven Strogatz, <a href="https://uk.bookshop.org/search?keywords=Nonlinear+Dynamics+and+Chaos+Strogatz"><em>Nonlinear Dynamics and Chaos</em></a></strong> (CRC Press)、第10章。1次元写像、ロジスティック写像、ファイゲンバウム定数を、大学1年生の水準で扱っている。</p></li>
+<li><p><strong>Ian Stewart, <a href="https://uk.bookshop.org/search?keywords=Does+God+Play+Dice%3F+Stewart"><em>Does God Play Dice?</em></a></strong> (Penguin)。カオスについての一般向けの解説書で、ロジスティック写像についての優れた章がある。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="quantum-oscillator.html">← 8.6 量子振動子</a><a class="next" href="period-three.html">→ 8.8 周期3ならばカオス</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

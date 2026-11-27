@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>傾きの上界 (STEP I 1988 Q7) — Beyond STEP</title>
+<meta name="description" content="STEP I 1988 問題 7：解説付き解答とその背後にある大学数学。 ある区間で関数の値が -1 と 1 の間にとどまることがわかっているとき、その関数の傾きの大きさについて何かいえるだろうか。一般の関数については、何もいえない。 sin(1000x) は -1 と 1 の間にとどまるが、傾きは 1000 にもなる。しかし2次関数（quadratic）はそのように激しく振動することはできない。…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch03/markov-bound.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch03/markov-bound.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch03/markov-bound.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/markov-bound.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch03/markov-bound.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch03/markov-bound.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch03/markov-bound.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="傾きの上界 (STEP I 1988 Q7) — Beyond STEP">
+<meta property="og:description" content="STEP I 1988 問題 7：解説付き解答とその背後にある大学数学。 ある区間で関数の値が -1 と 1 の間にとどまることがわかっているとき、その関数の傾きの大きさについて何かいえるだろうか。一般の関数については、何もいえない。 sin(1000x) は -1 と 1 の間にとどまるが、傾きは 1000 にもなる。しかし2次関数（quadratic）はそのように激しく振動することはできない。…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch03/markov-bound.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="傾きの上界 (STEP I 1988 Q7) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 1988 問題 7：解説付き解答とその背後にある大学数学。 ある区間で関数の値が -1 と 1 の間にとどまることがわかっているとき、その関数の傾きの大きさについて何かいえるだろうか。一般の関数については、何もいえない。 sin(1000x) は -1 と 1 の間にとどまるが、傾きは 1000 にもなる。しかし2次関数（quadratic）はそのように激しく振動することはできない。…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "傾きの上界", "headline": "傾きの上界", "description": "STEP I 1988 問題 7：解説付き解答とその背後にある大学数学。 ある区間で関数の値が -1 と 1 の間にとどまることがわかっているとき、その関数の傾きの大きさについて何かいえるだろうか。一般の関数については、何もいえない。 sin(1000x) は -1 と 1 の間にとどまるが、傾きは 1000 にもなる。しかし2次関数（quadratic）はそのように激しく振動することはできない。…", "url": "https://beyondstep.keithmcnulty.org/ja/ch03/markov-bound.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 1988 問題 7", "関数・不等式・厳密さ"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 3, "name": "関数・不等式・厳密さ", "url": "https://beyondstep.keithmcnulty.org/ja/ch03/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第3章：関数・不等式・厳密さ", "item": "https://beyondstep.keithmcnulty.org/ja/ch03/"}, {"@type": "ListItem", "position": 3, "name": "傾きの上界", "item": "https://beyondstep.keithmcnulty.org/ja/ch03/markov-bound.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch03/markov-bound.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch03/markov-bound.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch03/markov-bound.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch03/markov-bound.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第3章 · 関数・不等式・厳密さ</a>
+    <div class="src">STEP I · 1988 · 問題 7</div>
+    <div class="sec-head"><span class="sec-num">3.6</span><h1>傾きの上界</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-6-markov-bound.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第3章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP I 1988、第7問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/88-s1-q7">step.maths.org/questions/88-s1-q7</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>ある区間で関数の値が <span class="math inline">\(-1\)</span> と <span class="math inline">\(1\)</span> の間にとどまることがわかっているとき、その関数の傾きの大きさについて何かいえるだろうか。一般の関数については、何もいえない。<span class="math inline">\(\sin(1000x)\)</span> は <span class="math inline">\(-1\)</span> と <span class="math inline">\(1\)</span> の間にとどまるが、傾きは <span class="math inline">\(1000\)</span> にもなる。しかし2次関数（quadratic）はそのように激しく振動することはできない。この問題は、箱 <span class="math inline">\(|x| \leq 1\)</span>, <span class="math inline">\(|y| \leq 1\)</span> に閉じ込められた2次関数は箱の内部で傾きが <span class="math inline">\(4\)</span> を超えることはなく、しかも <span class="math inline">\(4\)</span> が最良の値であることを示すものである。</p>
+<p>この問題には意外な由来がある。1887年、周期表（periodic table）で有名な化学者メンデレーエフ（Dmitri Mendeleev）は、溶液の密度が濃度にどのように依存するかを研究しており、データに2次関数を当てはめていた。彼はデータの誤差が曲線の傾きにどれほど悪影響を及ぼしうるかを知る必要があり、まさにこの問題の結果を証明した。その2年後、若きマルコフ（Andrei Markov）が任意の次数の多項式（polynomial）について一般の問題を解決し、その答えは数学において最も重要な多項式のいくつかへとまっすぐにつながっていった。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{f}&#39;(x)\)</span> の公式は、<span class="math inline">\(\mathrm{f}\)</span> の3つの値、すなわち <span class="math inline">\(-1\)</span>, <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span> における値しか用いていない。なぜ3つの値だけで2次関数の導関数（derivative）が決まるのだろうか。</p>
+</div>
+<p>2次関数は3つの係数をもつので、任意の3点における値によって決まる。したがって、その導関数も係数の関数であるから、それら3つの値によって表せるはずである。公式はその表し方を教えてくれる。そしてこれこそが必要なものである。というのも、仮定 <span class="math inline">\(|\mathrm{f}(x)| \leq 1\)</span> は <span class="math inline">\(\mathrm{f}\)</span> の<em>値</em>についての情報を与える一方で、結論はその<em>導関数</em>についてのものだからである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-公式" class="stage"><span class="stage-n">段階 1</span> 公式</h4>
+<p><span class="math inline">\(\mathrm{f}(1) = a + b + c\)</span>、<span class="math inline">\(\mathrm{f}(-1) = a - b + c\)</span>、<span class="math inline">\(\mathrm{f}(0) = c\)</span> である。よって右辺は <span class="math display">\[(a + b + c)\left(x + \tfrac12\right) + (a - b + c)\left(x - \tfrac12\right) - 2cx\]</span> となる。<span class="math inline">\(x\)</span> の係数は <span class="math inline">\((a + b + c) + (a - b + c) - 2c = 2a\)</span> であり、定数項は <span class="math inline">\(\frac12(a + b + c) - \frac12(a - b + c) = b\)</span> である。よって右辺は <span class="math inline">\(2ax + b = \mathrm{f}&#39;(x)\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-上界" class="stage"><span class="stage-n">段階 2</span> 上界</h4>
+<div class="askyourself">
+<p>公式の両辺の絶対値をとり、三角不等式と <span class="math inline">\(|\mathrm{f}(1)|, |\mathrm{f}(-1)|, |\mathrm{f}(0)| \leq 1\)</span> を用いよ。<span class="math inline">\(|\mathrm{f}&#39;(x)|\)</span> に対して、<span class="math inline">\(x\)</span> の関数としてどのような上界が得られるか。</p>
+</div>
+<p>三角不等式（triangle inequality）<span class="math inline">\(|u + v + w| \leq |u| + |v| + |w|\)</span> により、 <span class="math display">\[|\mathrm{f}&#39;(x)| \leq |\mathrm{f}(1)|\,\bigl|x + \tfrac12\bigr| + |\mathrm{f}(-1)|\,\bigl|x - \tfrac12\bigr| + 2|\mathrm{f}(0)|\,|x| \leq \bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| + 2|x|.\]</span></p>
+<div class="pausebox">
+<p><span class="math inline">\(|x| \leq 1\)</span> のとき <span class="math inline">\(\bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| + 2|x| \leq 4\)</span> であることを示せ。（符号に応じて場合分けせよ。）</p>
+</div>
+<p><span class="math inline">\(|x| \leq \frac12\)</span> ならば、<span class="math inline">\(x + \frac12 \geq 0\)</span> かつ <span class="math inline">\(x - \frac12 \leq 0\)</span> であるから <span class="math inline">\(\bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| = (x + \tfrac12) - (x - \tfrac12) = 1\)</span> となり、合計は <span class="math inline">\(1 + 2|x| \leq 2\)</span> である。</p>
+<p><span class="math inline">\(\frac12 \leq |x| \leq 1\)</span> ならば、2つの括弧の中身はどちらも <span class="math inline">\(x\)</span> と同じ符号をもつので <span class="math inline">\(\bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| = 2|x|\)</span> となり、合計は <span class="math inline">\(4|x| \leq 4\)</span> である。</p>
+<p>いずれの場合も <span class="math inline">\(|\mathrm{f}&#39;(x)| \leq 4\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<p>この上界が達成されるのは <span class="math inline">\(x = \pm1\)</span> においてのみである。区間の中央の半分では、傾きは高々 <span class="math inline">\(2\)</span> である。</p>
+<h4 id="stagemark3-極端な例" class="stage"><span class="stage-n">段階 3</span> 極端な例</h4>
+<div class="askyourself">
+<p><span class="math inline">\(x = 1\)</span> で上界が達成されるためには、段階 2 のすべての不等式で等号が成り立たなければならない。<span class="math inline">\(\mathrm{f}(1)\)</span>、<span class="math inline">\(\mathrm{f}(-1)\)</span>、<span class="math inline">\(\mathrm{f}(0)\)</span> はどのような値をとり、それぞれどの符号でなければならないか。</p>
+</div>
+<p><span class="math inline">\(x = 1\)</span> では、公式は <span class="math inline">\(\mathrm{f}&#39;(1) = \frac32\mathrm{f}(1) + \frac12\mathrm{f}(-1) - 2\mathrm{f}(0)\)</span> となる。これを <span class="math inline">\(4\)</span> に等しくするには、<span class="math inline">\(\mathrm{f}(1) = 1\)</span>、<span class="math inline">\(\mathrm{f}(-1) = 1\)</span>、<span class="math inline">\(\mathrm{f}(0) = -1\)</span> でなければならない。<span class="math inline">\((-1, 1)\)</span>、<span class="math inline">\((0, -1)\)</span>、<span class="math inline">\((1, 1)\)</span> を通る2次関数は <span class="math display">\[\mathrm{f}(x) = 2x^2 - 1\]</span> であるから、<span class="math inline">\(a = 2\)</span>, <span class="math inline">\(b = 0\)</span>, <span class="math inline">\(c = -1\)</span> である。<span class="math inline">\(|x| \leq 1\)</span> において <span class="math inline">\(x^2 \in [0, 1]\)</span> であるから <span class="math inline">\(2x^2 - 1 \in [-1, 1]\)</span> であり、さらに <span class="math inline">\(\mathrm{f}&#39;(1) = 4\)</span> である。<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>求めたいものを、わかっているもので表す。</strong> 公式は導関数を <span class="math inline">\(\mathrm{f}\)</span> の値で書き直した。仮定が情報を与えていたのはまさにその値である。</p></li>
+<li><p><strong>三角不等式。</strong> 和を絶対値の和で上から抑えるのは、解析学で最もよく使われる手法の一つである。</p></li>
+<li><p><strong>等号成立条件から極値的な場合を見つける。</strong> すべての不等式で等号が成り立つのはいつかを問うことで、例 <span class="math inline">\(2x^2 - 1\)</span> が直接得られた。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">マルコフの不等式とチェビシェフ多項式</div>
+<p>マルコフは1889年に、<span class="math inline">\(p\)</span> が <span class="math inline">\(n\)</span> 次の多項式で <span class="math inline">\([-1, 1]\)</span> 上で <span class="math inline">\(|p(x)| \leq 1\)</span> を満たすならば <span class="math display">\[|p&#39;(x)| \leq n^2 \qquad\text{ただし } |x| \leq 1\]</span> であることを証明した。<span class="math inline">\(n = 2\)</span> の場合、これは我々の上界 <span class="math inline">\(4\)</span> である。極端な場合を与えるのは、 <span class="math display">\[T_n(\cos\theta) = \cos n\theta.\]</span> によって定義される<em>チェビシェフ多項式</em>（Chebyshev polynomials）<span class="math inline">\(T_n\)</span> である。たとえば <span class="math inline">\(\cos 2\theta = 2\cos^2\theta - 1\)</span> から我々の極端な2次関数 <span class="math inline">\(T_2(x) = 2x^2 - 1\)</span> が得られ、<span class="math inline">\(\cos 3\theta = 4\cos^3\theta - 3\cos\theta\)</span> から <span class="math inline">\(T_3(x) = 4x^3 - 3x\)</span> が得られる。<span class="math inline">\(T_n(x) = \cos n\theta\)</span> であるから、これらの多項式は <span class="math inline">\(n\)</span> 次の多項式に可能な限り多く <span class="math inline">\(-1\)</span> と <span class="math inline">\(1\)</span> の間を振動し、両端では可能な限り急な傾きをもつ（図 3.6.1）。マルコフの弟ウラジーミル（Vladimir）は、1892年にこの結果を高階導関数へと拡張した。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-3-6-1.svg" alt="図 3.6.1"><figcaption><span class="fig-label">図 3.6.1</span> チェビシェフ多項式 <span class="math inline">\(T_2 = 2x^2 - 1\)</span>、<span class="math inline">\(T_3 = 4x^3 - 3x\)</span>、<span class="math inline">\(T_4 = 8x^4 - 8x^2 + 1\)</span> は箱 <span class="math inline">\(|x| \leq 1\)</span>, <span class="math inline">\(|y| \leq 1\)</span> の内部にとどまり、その上辺と下辺に可能な限り多く接する。これらは両端において、同じ次数の多項式の中で最も急な傾きをもつ：<span class="math inline">\(T_n&#39;(1) = n^2\)</span>。破線は <span class="math inline">\(x = 1\)</span> における <span class="math inline">\(T_2\)</span> の接線（tangent）であり、傾きは <span class="math inline">\(4\)</span> である。</figcaption></figure>
+<h3 id="補間">補間</h3>
+<p>問題の公式は<em>ラグランジュ補間</em>（Lagrange interpolation）の一例である。いくつかの点における関数の値が与えられたとき、それらを通る次数最小のただ一つの多項式を書き下し、それを用いて関数やその導関数を近似するのである。ここでは3点は <span class="math inline">\(-1, 0, 1\)</span> である。このような公式は数値解析（numerical analysis）のあらゆる場面で用いられており、たとえば測定データから導関数を推定するのに使われる。マルコフの不等式は、それに付随する警告である。すなわち、値のわずかな誤差が導関数では最大 <span class="math inline">\(n^2\)</span> 倍にまで拡大されうるのであり、これはまさにメンデレーエフが懸念していた問題である。</p>
+<h3 id="実用におけるチェビシェフ多項式">実用におけるチェビシェフ多項式</h3>
+<p>チェビシェフ多項式は近似理論（approximation theory）の主力となる道具である。等間隔の点ではなく <span class="math inline">\(T_n\)</span> の根において関数を補間すると、誤差を抑えることができる。等間隔の点を用いると、高次の補間は区間の両端付近でとんでもなく大きく外れることがある（ルンゲ（Runge）現象）。関数をマシン精度いっぱいまで計算したり、微分方程式を非常に高い精度で解いたりするソフトウェアは、内部でチェビシェフ展開を用いていることが多い。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">未知のものを既知のもので表す</div>
+<p><em>仮定がある種類の量について述べ、結論が別の種類の量についてのものであるときは、両者を結びつける恒等式を探し、各項ごとに上から抑えよ。</em></p>
+<p>そして上界が得られたら、それが最良かどうかを問え。等号成立の場合を逆にたどると、たいていは極端な例にたどり着く。そしてその極端な例は、それ自体として興味深いことが多い。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>一般的な考え方。</strong> <span class="math inline">\(\mathrm{f}\)</span> が2次関数ならば <span class="math inline">\(\mathrm{f}(x) = \mathrm{f}(-1)\dfrac{x(x-1)}{2} + \mathrm{f}(0)(1 - x^2) + \mathrm{f}(1)\dfrac{x(x+1)}{2}\)</span> であることを示し、これを微分して問題の公式を導け。</p></li>
+<li><p><strong>一意性。</strong> <span class="hard">発展</span> <span class="math inline">\([-1, 1]\)</span> 上で <span class="math inline">\(|\mathrm{f}(x)| \leq 1\)</span> を満たし、かつ <span class="math inline">\([-1, 1]\)</span> のどこかで <span class="math inline">\(|\mathrm{f}&#39;(x)| = 4\)</span> となる2次関数は <span class="math inline">\(\pm(2x^2 - 1)\)</span> に限ることを示せ。</p></li>
+<li><p><strong>チェビシェフ多項式。</strong> <span class="math inline">\(\cos 3\theta = 4\cos^3\theta - 3\cos\theta\)</span> を用いて <span class="math inline">\(T_3(x) = 4x^3 - 3x\)</span> であることを確かめ、<span class="math inline">\(T_3&#39;(1) = 9\)</span> を確認せよ。また <span class="math inline">\(T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)\)</span> を示し、<span class="math inline">\(T_4\)</span> を求めよ。</p></li>
+<li><p><strong><span class="math inline">\(T_n\)</span> の傾き。</strong> <span class="math inline">\(T_n(\cos\theta) = \cos n\theta\)</span> を <span class="math inline">\(\theta\)</span> について微分することにより <span class="math inline">\(T_n&#39;(\cos\theta) = \dfrac{n\sin n\theta}{\sin\theta}\)</span> を示し、<span class="math inline">\(\theta \to 0\)</span> とすることで <span class="math inline">\(T_n&#39;(1) = n^2\)</span> を導け。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Lloyd N. Trefethen, <a href="https://uk.bookshop.org/search?keywords=Approximation+Theory+and+Approximation+Practice+Trefethen"><em>Approximation Theory and Approximation Practice</em></a></strong>（SIAM）。チェビシェフ多項式と補間についての美しい現代的な本で、優秀な高校生でも読むことができ、全編にわたってコンピュータによる実験が盛り込まれている。</p></li>
+<li><p><strong>Peter Borwein &amp; Tamás Erdélyi, <a href="https://uk.bookshop.org/search?keywords=Polynomials+and+Polynomial+Inequalities+Borwein+Erdelyi"><em>Polynomials and Polynomial Inequalities</em></a></strong>（Springer）。マルコフの不等式とその仲間たちの全体像を知るための本。上級者向け。</p></li>
+<li><p><strong>George M. Phillips, <a href="https://uk.bookshop.org/search?keywords=Interpolation+and+Approximation+by+Polynomials+Phillips"><em>Interpolation and Approximation by Polynomials</em></a></strong>（Springer）。ラグランジュ補間、チェビシェフ多項式、マルコフ型の不等式を扱う大学学部向けの教科書。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="pi-e-or-e-pi.html">← 3.5 πᵉ か e^π か？</a><a class="next" href="wirtinger.html">→ 3.7 π² ≤ 10</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제5장: 복소수 — Beyond STEP</title>
+<meta name="description" content="편각과 1의 거듭제곱근을 다룬 뒤, 복소수의 기하학을 살펴보고, 이어서 사상으로서의 복소함수를 다룬다. 6장의 대수가 1의 거듭제곱근을 바탕으로 전개되므로 6장보다 앞에 배치하였다.">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch05/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch05/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch05/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch05/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch05/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch05/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch05/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="제5장: 복소수 — Beyond STEP">
+<meta property="og:description" content="편각과 1의 거듭제곱근을 다룬 뒤, 복소수의 기하학을 살펴보고, 이어서 사상으로서의 복소함수를 다룬다. 6장의 대수가 1의 거듭제곱근을 바탕으로 전개되므로 6장보다 앞에 배치하였다.">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch05/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="제5장: 복소수 — Beyond STEP">
+<meta name="twitter:description" content="편각과 1의 거듭제곱근을 다룬 뒤, 복소수의 기하학을 살펴보고, 이어서 사상으로서의 복소함수를 다룬다. 6장의 대수가 1의 거듭제곱근을 바탕으로 전개되므로 6장보다 앞에 배치하였다.">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 5, "name": "복소수", "url": "https://beyondstep.keithmcnulty.org/ko/ch05/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "편각과 1의 거듭제곱근을 다룬 뒤, 복소수의 기하학을 살펴보고, 이어서 사상으로서의 복소함수를 다룬다. 6장의 대수가 1의 거듭제곱근을 바탕으로 전개되므로 6장보다 앞에 배치하였다."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제5장: 복소수", "item": "https://beyondstep.keithmcnulty.org/ko/ch05/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch05/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch05/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch05/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch05/index.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">장</div>
+    <div class="ch-num">5</div>
+    <h1>복소수</h1>
+    <p class="strap">실수 영역의 두 진리를 잇는 가장 짧은 길은 복소수 영역을 지나간다.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-05-complex-numbers.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">장 전체 내려받기</span><span class="dl-sub">인쇄용으로 조판한 PDF</span></span></a>
+  </div>
+  <h2 class="contents-head">이 장의 내용</h2>
+  <ol class="toc"><li><a class="toc-link" href="machin.html"><span class="toc-num">5.1</span>
+<span class="toc-title">마친의 공식</span>
+<span class="toc-src">STEP III 1987</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-1-machin.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="roots-filter.html"><span class="toc-num">5.2</span>
+<span class="toc-title">단위근 필터</span>
+<span class="toc-src">STEP I 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-2-roots-filter.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="z2n-plus-one.html"><span class="toc-num">5.3</span>
+<span class="toc-title">\(z^{2n} + 1\)의 인수분해</span>
+<span class="toc-src">STEP III 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-3-z2n-plus-one.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="polygon-distances.html"><span class="toc-num">5.4</span>
+<span class="toc-title">정다각형 속의 거리</span>
+<span class="toc-src">STEP III 2016</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-4-polygon-distances.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="rational-angles.html"><span class="toc-num">5.5</span>
+<span class="toc-title">유리수처럼 보이지만 아닌 각</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-5-rational-angles.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="fermat-point.html"><span class="toc-num">5.6</span>
+<span class="toc-title">페르마 점</span>
+<span class="toc-src">STEP III 2000</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-6-fermat-point.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="complex-exponential.html"><span class="toc-num">5.7</span>
+<span class="toc-title">사상으로서의 복소 지수함수</span>
+<span class="toc-src">STEP II 1997</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-7-complex-exponential.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="poincare-disc.html"><span class="toc-num">5.8</span>
+<span class="toc-title">원판에 숨은 거리</span>
+<span class="toc-src">STEP III 2013</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-5-8-poincare-disc.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">돌아보기: 지금까지 배운 것</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“다음으로 풀어 보기” 연습문제의 답</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">제5장  \(\cdot\)  서론</div>
+    <h1 class="essay-title">허수, 실제의 답</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>실수 영역의 두 진리를 잇는 가장 짧은 길은 복소수 영역을 지나간다.</p>
+<p class="who">— 자크 아다마르(Jacques Hadamard)</p>
+</div>
+<p>1545년 카르다노(Gerolamo Cardano)는 삼차방정식(cubic equation)의 해법 공식을 발표했는데, 그 과정에서 당혹스러운 사실을 발견했다. 세 개의 멀쩡한 실근을 가진 어떤 삼차방정식에서는, 공식을 적용하는 도중에 음수의 제곱근을 구해야 했던 것이다. 이 제곱근들은 마지막에 서로 상쇄되어 실수인 답을 남겼지만, 계산 중간에는 당시의 어떤 기준으로 보아도 존재하지 않는 양이 등장했다. 카르다노는 이런 조작을 “미묘한 만큼 쓸모없다”고 했다. 그 뒤 두 세기 동안 수학자들은 이 “허수(imaginary number)”를 어쩌다 잘 통하는 요령쯤으로 여기며 불편한 마음으로 사용했다.</p>
+<p>허수가 제대로 인정받게 된 것은 19세기 초, 베셀(Caspar Wessel), 아르강(Jean-Robert Argand), 가우스(Gauss)가 복소수(complex number)를 평면 위의 점으로 나타내면서부터였다. 그렇게 되자 복소수는 요령이 아니라 하나의 계시였음이 드러났다. 복소수는 실제 현상이 왜 그렇게 행동하는지를 설명해 주며, 아다마르의 말처럼 실수에 관한 결과에 이르는 가장 짧은 길을 거듭 제공한다.</p>
+<h3 id="복소수가-중요한-이유">복소수가 중요한 이유</h3>
+<p>모든 다항방정식은 복소수 범위에서 해를 가진다. 이것이 <em>대수학의 기본정리(fundamental theorem of algebra)</em>이다. 따라서 복소수는 정확한 의미에서 대수학이 완비되는 곳이다. 복소수는 또한 회전과 진동을 나타내는 자연스러운 언어이기도 하다. 절댓값(modulus)이 <span class="math inline">\(1\)</span>인 복소수를 곱하면 평면이 회전하므로, 각, 파동, 주기적인 현상이 관련된 문제는 복소수를 쓰면 더 간단해진다. 전기 공학자는 교류 전류를 분석할 때 복소수를 사용하고, 물리학자는 복소수 없이는 양자역학을 적어 내려갈 수조차 없으며, 휴대전화에서 MRI 스캐너에 이르기까지 신호 처리는 복소 푸리에 변환(Fourier transform)으로 돌아간다. 그리고 순수수학에서 복소변수 함수는 놀라울 만큼 경직되어 있고 아름답다는 것이 밝혀졌다. 아주 작은 영역에서 복소함수를 알면 그 함수가 모든 곳에서 결정된다.</p>
+<h3 id="대학에서-만나게-될-내용">대학에서 만나게 될 내용</h3>
+<p>복소수는 대학 첫 주부터 사용하게 되지만, 큰 도약은 보통 2학년에 배우는 <em>복소해석학(complex analysis)</em>과 함께 찾아온다. 복소해석학의 중심 대상은 미분 가능한 복소함수인 <em>정칙(holomorphic)</em> 함수이며, 이 이론은 놀라운 사실로 가득하다. 모든 정칙함수는 자동으로 무한 번 미분 가능하고, 자신의 테일러 급수(Taylor series)와 같다. 닫힌 곡선을 따라 구하는 적분은 함수가 발산하는 점들만 살펴보아 계산할 수 있으며(코시(Cauchy)의 유수 정리(residue theorem)), 이를 이용하면 다른 어떤 방법으로도 풀리지 않는 실수 적분을 계산할 수 있다. 이 이론은 등각사상(conformal map)(<a href="../ch05/complex-exponential.html">5.7 절</a>), 리만 곡면(Riemann surface), 그리고 소수(prime)의 분포를 지배하는 리만(Riemann) 제타 함수(<a href="../ch01/prime-distribution.html">1.2 절</a>)로 이어진다. 이와 나란히, 1의 거듭제곱근(roots of unity)의 대수(<a href="../ch05/roots-filter.html">5.2 절</a>, <a href="../ch05/z2n-plus-one.html">5.3 절</a>)는 갈루아(Galois) 이론으로 이어지고, 복소 기하는 <a href="../ch05/poincare-disc.html">5.8 절</a>의 비유클리드 기하학(non-Euclidean geometry)으로 이어진다.</p>
+<h3 id="이-장을-관통하는-질문들">이 장을 관통하는 질문들</h3>
+<div class="skillbox">
+<div class="box-title">세 가지 큰 질문</div>
+<ol class="arabic">
+<li><p><strong>복소수는 실수 문제를 푸는 데 어떻게 도움이 되는가?</strong> 복소평면을 거쳐 돌아가는 길이 왜 <span class="math inline">\(\pi\)</span>, 이항계수, 코사인에 관한 사실을 만들어 내는가?</p></li>
+<li><p><strong>1의 거듭제곱근은 무엇이 특별한가?</strong> <span class="math inline">\(z^n = 1\)</span>의 해들은 왜 합, 곱, 다각형, 각에서 거듭 나타나는가?</p></li>
+<li><p><strong>복소함수는 어떻게 생겼는가?</strong> 입력과 출력이 모두 평면 위의 점인 함수를 어떻게 그림으로 나타낼 수 있으며, 그 그림은 어떤 기하를 드러내는가?</p></li>
+</ol>
+</div>
+<p>이 장은 편각(argument)과 곱셈(마친(Machin)의 공식)에서 출발하여, 1의 거듭제곱근의 대수(필터, 인수분해, 다각형의 거리, 무리수 각)를 거쳐, 복소수를 이용한 기하(페르마(Fermat) 점)로 나아가고, 마지막으로 사상으로서의 복소함수(지수함수, 그리고 단위원판 속에 숨은 거리)에 이른다.</p>
+<h3 id="이-장의-아이디어">이 장의 아이디어</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">주제</th>
+<th style="text-align: left;">아이디어</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">5.1</td>
+<td style="text-align: left;">마친의 공식</td>
+<td style="text-align: left;">복소수를 곱하면 편각이 더해진다</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.2</td>
+<td style="text-align: left;">세 개마다 하나씩 고른 이항계수</td>
+<td style="text-align: left;">1의 거듭제곱근에 대해 평균을 내면 나머지에 따라 걸러진다</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.3</td>
+<td style="text-align: left;">코사인의 곱</td>
+<td style="text-align: left;">근들로 인수분해한 다음 대입한다</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.4</td>
+<td style="text-align: left;">정다각형의 현</td>
+<td style="text-align: left;">거리는 절댓값이다; <span class="math inline">\(z^n - 1 = \prod(z - \omega^k)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.5</td>
+<td style="text-align: left;"><span class="math inline">\(\cos^{-1}\frac13\)</span>은 무리수이다</td>
+<td style="text-align: left;">드무아브르(De Moivre), 홀짝성, 최소 반례</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.6</td>
+<td style="text-align: left;">페르마 점</td>
+<td style="text-align: left;">회전은 곱셈이다; 좋은 좌표</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5.7</td>
+<td style="text-align: left;">사상으로서의 <span class="math inline">\(e^w\)</span></td>
+<td style="text-align: left;">복소함수를 그림으로 나타내기; 다대일 사상</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5.8</td>
+<td style="text-align: left;">숨은 거리</td>
+<td style="text-align: left;">쌍곡기하학의 삼각부등식으로서의 부등식</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="이-장을-읽는-방법">이 장을 읽는 방법</h3>
+<p>그림을 그려라. 이 장의 거의 모든 결과에는 기하학적 의미가 있으며, 복소평면을 간단히 스케치해 보면(1의 거듭제곱근이 어디에 있는지, 곱셈이 어느 방향으로 회전시키는지, 격자선이 어디로 가는지) 대수 계산을 하기도 전에 무엇을 해야 할지 보이는 경우가 많다. 그런 다음 대수 계산은 꼼꼼하게 하라. 그림은 부호나 <span class="math inline">\(2\pi\)</span>의 배수에 관해서는 잘못된 인상을 줄 수 있기 때문이다.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="machin.html">→ 시작: 5.1 마친의 공식</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

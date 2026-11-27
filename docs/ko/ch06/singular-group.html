@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>특이행렬로 이루어진 군 (STEP III 1996 Q6) — Beyond STEP</title>
+<meta name="description" content="STEP III 1996 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 행렬식(determinant)이 0인 행렬은 역행렬(inverse matrix)을 갖지 않는다는 것은 모든 학생이 배운다. 그렇다면 모든 원소가 역원을 갖는 행렬의 군(group)에는 특이(singular) 행렬이 들어 있을 수 없지 않을까? 들어 있을 수 있다. 함정은…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch06/singular-group.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch06/singular-group.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch06/singular-group.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch06/singular-group.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch06/singular-group.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch06/singular-group.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch06/singular-group.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="특이행렬로 이루어진 군 (STEP III 1996 Q6) — Beyond STEP">
+<meta property="og:description" content="STEP III 1996 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 행렬식(determinant)이 0인 행렬은 역행렬(inverse matrix)을 갖지 않는다는 것은 모든 학생이 배운다. 그렇다면 모든 원소가 역원을 갖는 행렬의 군(group)에는 특이(singular) 행렬이 들어 있을 수 없지 않을까? 들어 있을 수 있다. 함정은…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch06/singular-group.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="특이행렬로 이루어진 군 (STEP III 1996 Q6) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 1996 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 행렬식(determinant)이 0인 행렬은 역행렬(inverse matrix)을 갖지 않는다는 것은 모든 학생이 배운다. 그렇다면 모든 원소가 역원을 갖는 행렬의 군(group)에는 특이(singular) 행렬이 들어 있을 수 없지 않을까? 들어 있을 수 있다. 함정은…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "특이행렬로 이루어진 군", "headline": "특이행렬로 이루어진 군", "description": "STEP III 1996 문제 6: 단계별 풀이와 그 바탕에 있는 대학 수학. 행렬식(determinant)이 0인 행렬은 역행렬(inverse matrix)을 갖지 않는다는 것은 모든 학생이 배운다. 그렇다면 모든 원소가 역원을 갖는 행렬의 군(group)에는 특이(singular) 행렬이 들어 있을 수 없지 않을까? 들어 있을 수 있다. 함정은…", "url": "https://beyondstep.keithmcnulty.org/ko/ch06/singular-group.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 1996 문제 6", "대수와 구조"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 6, "name": "대수와 구조", "url": "https://beyondstep.keithmcnulty.org/ko/ch06/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제6장: 대수와 구조", "item": "https://beyondstep.keithmcnulty.org/ko/ch06/"}, {"@type": "ListItem", "position": 3, "name": "특이행렬로 이루어진 군", "item": "https://beyondstep.keithmcnulty.org/ko/ch06/singular-group.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch06/singular-group.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch06/singular-group.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch06/singular-group.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch06/singular-group.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제6장 · 대수와 구조</a>
+    <div class="src">STEP III · 1996 · 문제 6</div>
+    <div class="sec-head"><span class="sec-num">6.8</span><h1>특이행렬로 이루어진 군</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-6-8-singular-group.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-06-algebra-and-structure.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제6장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 1996, 문제 6</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/96-s3-q6">step.maths.org/questions/96-s3-q6</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>행렬식(determinant)이 0인 행렬은 역행렬(inverse matrix)을 갖지 않는다는 것은 모든 학생이 배운다. 그렇다면 모든 원소가 역원을 갖는 행렬의 군(group)에는 특이(singular) 행렬이 들어 있을 수 없지 않을까?</p>
+<p>들어 있을 수 있다. 함정은 “역원(inverse)”이라는 말에 있다. 군에서 <span class="math inline">\(\mathbf{A}\)</span>의 역원은 <span class="math inline">\(\mathbf{A}\)</span>와 결합하여 <em>그 군의</em> 항등원(identity element)을 만드는 원소이고, 군의 항등원이 반드시 단위행렬 <span class="math inline">\(\mathbf{I}\)</span>여야 한다는 조건은 어디에도 없다. 이 문제는 모든 행렬이 특이 행렬인 군을 만들며, 그 군의 항등원은 행렬식이 0인 행렬이다. 이 문제는 정의를 글자 그대로 읽는 법, 그리고 추상적인 구조와 그 구조를 처음 만났을 때의 익숙한 예가 어떻게 다른지를 가르쳐 준다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<p>군의 정의는 <a href="../ch06/subgroup-unions.html">6.6 절</a>을 참고한다.</p>
+<div class="askyourself">
+<p>소문항 (i)에서 단위행렬 <span class="math inline">\(\mathbf{I}\)</span>는 <span class="math inline">\(\begin{pmatrix} a &amp; a \\ a &amp; a \end{pmatrix}\)</span> 꼴이 아니다. 그렇다면 <span class="math inline">\(S\)</span>의 항등원은 무엇일 수 있을까?</p>
+</div>
+<p>그것은 <span class="math inline">\(S\)</span>의 모든 <span class="math inline">\(\mathbf{X}\)</span>에 대하여 <span class="math inline">\(\mathbf{E}\mathbf{X} = \mathbf{X}\mathbf{E} = \mathbf{X}\)</span>를 만족하는, <span class="math inline">\(S\)</span>에 속한 어떤 행렬 <span class="math inline">\(\mathbf{E}\)</span>여야 한다. 이는 모든 행렬이 아니라 이 특별한 꼴의 행렬에 <span class="math inline">\(\mathbf{E}\)</span>가 어떻게 작용하는지에 대한 조건일 뿐이다. 방정식을 풀어서 찾아보자.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-닫힘성" class="stage"><span class="stage-n">단계 1</span> 닫힘성</h4>
+<p>네 성분이 모두 <span class="math inline">\(a\)</span>인 행렬을 <span class="math inline">\(\mathbf{M}_a\)</span>라 쓰자. 그러면 <span class="math display">\[\mathbf{M}_a\mathbf{M}_b = \begin{pmatrix} a &amp; a \\ a &amp; a \end{pmatrix}\begin{pmatrix} b &amp; b \\ b &amp; b \end{pmatrix} = \begin{pmatrix} 2ab &amp; 2ab \\ 2ab &amp; 2ab \end{pmatrix} = \mathbf{M}_{2ab},\]</span> 이고, <span class="math inline">\(a, b \neq 0\)</span>이면 <span class="math inline">\(2ab \neq 0\)</span>이다. 따라서 <span class="math inline">\(S\)</span>는 닫혀 있다(closed).<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-군의-공리" class="stage"><span class="stage-n">단계 2</span> 군의 공리</h4>
+<div class="askyourself">
+<p>행렬의 곱셈은 결합법칙을 만족한다. 항등원을 찾으려면 <span class="math inline">\(\mathbf{M}_e\mathbf{M}_a = \mathbf{M}_a\)</span>를 풀고, 역원을 찾으려면 <span class="math inline">\(\mathbf{M}_a\mathbf{M}_b = \mathbf{M}_e\)</span>를 푼다.</p>
+</div>
+<p><em>결합법칙(associativity)</em>은 행렬의 곱셈에서 그대로 물려받는다. <em>항등원:</em> 모든 <span class="math inline">\(a\)</span>에 대하여 <span class="math inline">\(\mathbf{M}_e\mathbf{M}_a = \mathbf{M}_{2ea} = \mathbf{M}_a\)</span>가 성립할 필요충분조건은 <span class="math inline">\(e = \frac12\)</span>이다. 공식이 대칭이므로 <span class="math inline">\(\mathbf{M}_a\mathbf{M}_{1/2} = \mathbf{M}_a\)</span>도 성립한다. 따라서 <span class="math display">\[\mathbf{E} = \begin{pmatrix} \frac12 &amp; \frac12 \\ \frac12 &amp; \frac12 \end{pmatrix}\]</span> 가 <span class="math inline">\(S\)</span>의 항등원이다. <em>역원:</em> <span class="math inline">\(b = \frac{1}{4a}\)</span>이면 <span class="math inline">\(\mathbf{M}_a\mathbf{M}_b = \mathbf{M}_{2ab} = \mathbf{M}_{1/2}\)</span>이고 이 <span class="math inline">\(b\)</span>는 0이 아니므로, <span class="math inline">\(\mathbf{M}_{1/(4a)}\)</span>가 <span class="math inline">\(S\)</span>에서 <span class="math inline">\(\mathbf{M}_a\)</span>의 역원이다. 따라서 <span class="math inline">\(S\)</span>는 군이다.<span class="qed" aria-label="end of proof">■</span> 모든 원소의 행렬식은 <span class="math inline">\(a^2 - a^2 = 0\)</span>이다.</p>
+<h4 id="stagemark3-특이성은-퍼진다" class="stage"><span class="stage-n">단계 3</span> 특이성은 퍼진다</h4>
+<div class="pausebox">
+<p><span class="math inline">\(\mathbf{A} \in G\)</span>가 특이 행렬이라 하고, <span class="math inline">\(\mathbf{B}\)</span>를 <span class="math inline">\(G\)</span>의 임의의 원소라 하자. <span class="math inline">\(\mathbf{B}\)</span>를 <span class="math inline">\(\mathbf{A}\)</span>가 들어간 곱으로 나타낸 다음 행렬식을 취해 보라.</p>
+</div>
+<p><span class="math inline">\(\mathbf{A}^{-1}\)</span>를 <em>군</em> <span class="math inline">\(G\)</span><em>에서의</em> <span class="math inline">\(\mathbf{A}\)</span>의 역원(반드시 역행렬일 필요는 없다)이라 하자. 그러면 <span class="math inline">\(\mathbf{C} = \mathbf{A}^{-1}\mathbf{B}\)</span>는 <span class="math inline">\(G\)</span>에 속하고 <span class="math display">\[\mathbf{A}\mathbf{C} = \mathbf{A}\mathbf{A}^{-1}\mathbf{B} = \mathbf{E}\mathbf{B} = \mathbf{B}.\]</span> 이다. 행렬식을 취하면 <span class="math inline">\(\det\mathbf{B} = \det\mathbf{A}\,\det\mathbf{C} = 0\)</span>이다. 따라서 <span class="math inline">\(G\)</span>의 모든 원소는 특이 행렬이다.<span class="qed" aria-label="end of proof">■</span> 특히 행렬군의 한 원소가 행렬로서 가역이면 모든 원소가 가역이다. 즉 행렬군은 모두 가역이거나 모두 특이이다.</p>
+<h4 id="stagemark4-3-times-3-예" class="stage"><span class="stage-n">단계 4</span> <span class="math inline">\(3 \times 3\)</span> 예</h4>
+<div class="askyourself">
+<p>소문항 (i)을 <span class="math inline">\(3 \times 3\)</span> 행렬로 일반화할 수 있을까? 아니면 세 좌표 중 두 개를 “무시하는” 행렬을 써서 더 간단한 예를 찾을 수 있을까?</p>
+</div>
+<p>다음을 생각하자. <span class="math display">\[G = \left\{\begin{pmatrix} a &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix} : a \neq 0\right\}.\]</span> 모서리 성분이 <span class="math inline">\(a\)</span>와 <span class="math inline">\(b\)</span>인 두 행렬의 곱은 모서리 성분이 <span class="math inline">\(ab\)</span>인 행렬이므로 <span class="math inline">\(G\)</span>는 닫혀 있다. 곱셈은 결합법칙을 만족하고, 항등원은 모서리 성분이 <span class="math inline">\(1\)</span>인 행렬이며, 모서리 성분이 <span class="math inline">\(a\)</span>인 행렬의 역원은 모서리 성분이 <span class="math inline">\(\frac1a\)</span>인 행렬이다. 따라서 <span class="math inline">\(G\)</span>는 군이고, 모든 원소의 행렬식은 <span class="math inline">\(0\)</span>이다.<span class="qed" aria-label="end of proof">■</span> (또 다른 예: 아홉 성분이 모두 <span class="math inline">\(a \neq 0\)</span>인 <span class="math inline">\(3 \times 3\)</span> 행렬들. 이때 항등원은 모든 성분이 <span class="math inline">\(\frac13\)</span>인 행렬이다.)</p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>정의를 글자 그대로 읽는다.</strong> 군의 항등원은 <em>그 군 안에서</em> 항등원 역할을 하는 원소이면 무엇이든 된다. 익숙한 단위행렬일 필요는 없다.</p></li>
+<li><p><strong>구조를 방정식으로 구한다.</strong> <span class="math inline">\(S\)</span>의 항등원과 역원은 추측이 아니라 방정식을 풀어서 찾았다.</p></li>
+<li><p><strong>행렬식은 곱셈적이다.</strong> 이 성질 하나로 특이성이 한 원소에서 모든 원소로 퍼진다는 것을 보였다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">멱등원과 숨은 가역성</div>
+<p>임의의 행렬군의 항등원 <span class="math inline">\(\mathbf{E}\)</span>는 <span class="math inline">\(\mathbf{E}^2 = \mathbf{E}\)</span>를 만족한다. 즉 <em>멱등(idempotent)</em>이다. 기하적으로 멱등 행렬은 <em>사영(projection)</em>이다. 즉 모든 벡터를 어떤 부분공간(subspace) 위로 보내고, 그 부분공간 안의 벡터는 그대로 둔다. 소문항 (i)에서 <span class="math inline">\(\mathbf{E}\)</span>는 평면을 직선 <span class="math inline">\(y = x\)</span> 위로 사영하고, 각 행렬 <span class="math inline">\(\mathbf{M}_a\)</span>는 먼저 그 직선 위로 사영한 다음 직선을 따라 <span class="math inline">\(2a\)</span>배로 늘인다(그림 6.8.1). 직선 위에서 이 군은 가역인 늘이기로 작용하며, 직선에 수직인 방향은 그냥 무시한다. 따라서 <span class="math inline">\(S\)</span>는 실제로는 곱셈에 대한 0이 아닌 실수의 군(<span class="math inline">\(\mathbf{M}_a \mapsto 2a\)</span>를 통해)이 평면 안의 한 직선 위에 놓여 있는 것이다. 이는 일반적으로도 참이다. 모든 행렬군은 기저 변환(change of basis)을 하고 나면, 항등원의 상(image) 위에 작용하는 가역 행렬들의 군에 0을 덧붙인 것이다.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-6-8-1.svg" alt="그림 6.8.1"><figcaption><span class="fig-label">그림 6.8.1</span> 소문항 (i)의 행렬들이 하는 일. 항등원 <span class="math inline">\(\mathbf{E}\)</span>는 모든 벡터 <span class="math inline">\(\mathbf{v}\)</span>를 직선 <span class="math inline">\(y = x\)</span> 위로 사영한다(호박색, 점선). 각 <span class="math inline">\(\mathbf{M}_a\)</span>는 같은 사영을 한 다음 직선을 따라 <span class="math inline">\(2a\)</span>배로 늘인다(자주색. 여기서는 <span class="math inline">\(2a = \frac{16}{9}\)</span>). 직선 위에서 이 군은 보통의 가역인 배율 변환으로 작용한다.</figcaption></figure>
+<h3 id="추상과-구체">추상과 구체</h3>
+<p>사람들이 처음 연구한 군은 치환(permutation), 대칭(symmetry), 가역 행렬처럼 구체적인 것이었다. 추상적인 정의(세 공리(axiom)를 만족하는 연산이 주어진 집합)는 이런 예들로부터 걸러 낸 것이다. 이 문제는 추상적인 관점의 가치를 보여 준다. 하나는 특이 행렬로, 다른 하나는 수로 이루어져 있는데도 <span class="math inline">\(S\)</span>와 곱셈에 대한 0이 아닌 실수의 군은 <em>동형(isomorphic)</em>이다. 즉 옷만 다르게 입은 같은 군이다. 겉모습이 다른 두 구조가 언제 “같은지” 알아보는 것은 대수학의 핵심 기술 가운데 하나이며, 동형이라는 개념은 수학자들이 이를 엄밀하게 표현하는 방법이다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">익숙한 대상에 대한 숨은 가정을 의심하라</div>
+<p><em>익숙한 대상이 추상적인 정의 속에 나타나면, 그 대상의 익숙한 성질 가운데 정의가 실제로 요구하는 것이 무엇인지 확인하라.</em></p>
+<p>“행렬군의 항등원은 <span class="math inline">\(\mathbf{I}\)</span>이다”라는 말은 당연하게 들리지만 정의의 일부가 아니며, 이 가정을 버리자 진정으로 새로운 예가 나왔다. 이렇게 가정을 의심하는 것이 많은 새로운 수학적 구조가 발견되는 방식이다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>동형사상.</strong> 사상 <span class="math inline">\(\mathbf{M}_a \mapsto 2a\)</span>가 <span class="math inline">\(S\)</span>에서 0이 아닌 실수로의 일대일 대응(one-to-one correspondence)이며, 행렬의 곱셈을 수의 곱셈으로 바꾼다는 것을 보여라.</p></li>
+<li><p><strong>군이 아닌 경우.</strong> <span class="math inline">\(a \neq 0\)</span>인 행렬 <span class="math inline">\(\begin{pmatrix} a &amp; b \\ 0 &amp; 0 \end{pmatrix}\)</span>의 집합은 곱셈에 대하여 닫혀 있지만 군이 아님을 보여라. (<em>힌트:</em> 항등원을 찾아보라. 좌항등원(left identity)이 있는가? 우항등원(right identity)은?)</p></li>
+<li><p><strong>멱등 행렬.</strong> <span class="math inline">\(\mathbf{E}^2 = \mathbf{E}\)</span>인 <span class="math inline">\(2 \times 2\)</span> 실행렬 <span class="math inline">\(\mathbf{E}\)</span>를 모두 구하라. 이들을 기하적으로 설명하라.</p></li>
+<li><p><strong>모든 성분이 같은 행렬.</strong> 모든 성분이 <span class="math inline">\(a \neq 0\)</span>인 <span class="math inline">\(n \times n\)</span> 행렬들이 곱셈에 대하여 군을 이룸을 보이고, 그 항등원을 구하라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>M. A. Armstrong, <a href="https://uk.bookshop.org/search?keywords=Groups+and+Symmetry+Armstrong"><em>Groups and Symmetry</em></a></strong> (Springer). 행렬군과 동형사상을 많은 기하적 예와 함께 다룬다.</p></li>
+<li><p><strong>Gilbert Strang, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Linear+Algebra+Strang"><em>Introduction to Linear Algebra</em></a></strong> (Wellesley-Cambridge). 사영과 멱등 행렬을 명쾌하게 설명한다.</p></li>
+<li><p><strong>Joseph Gallian, <a href="https://uk.bookshop.org/search?keywords=Contemporary+Abstract+Algebra+Gallian"><em>Contemporary Abstract Algebra</em></a></strong> (CRC Press). 특이한 군의 예가 많이 담긴 친절한 입문서이다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="quaternions.html">← 6.7 사원수군</a><a class="next" href="wrap-up.html">→ 돌아보기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기울기의 한계 (STEP I 1988 Q7) — Beyond STEP</title>
+<meta name="description" content="STEP I 1988 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 어떤 구간에서 함수(function)의 값이 -1 과 1 사이에 머문다는 것을 안다면, 그 함수가 얼마나 가파른지에 대해 무언가 말할 수 있을까? 일반적인 함수라면 그럴 수 없다. sin(1000x) 는 -1 과 1 사이에 머물지만 기울기(slope)가 1000 만큼 커지기도…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch03/markov-bound.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch03/markov-bound.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch03/markov-bound.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch03/markov-bound.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch03/markov-bound.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch03/markov-bound.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch03/markov-bound.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="기울기의 한계 (STEP I 1988 Q7) — Beyond STEP">
+<meta property="og:description" content="STEP I 1988 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 어떤 구간에서 함수(function)의 값이 -1 과 1 사이에 머문다는 것을 안다면, 그 함수가 얼마나 가파른지에 대해 무언가 말할 수 있을까? 일반적인 함수라면 그럴 수 없다. sin(1000x) 는 -1 과 1 사이에 머물지만 기울기(slope)가 1000 만큼 커지기도…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch03/markov-bound.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="기울기의 한계 (STEP I 1988 Q7) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 1988 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 어떤 구간에서 함수(function)의 값이 -1 과 1 사이에 머문다는 것을 안다면, 그 함수가 얼마나 가파른지에 대해 무언가 말할 수 있을까? 일반적인 함수라면 그럴 수 없다. sin(1000x) 는 -1 과 1 사이에 머물지만 기울기(slope)가 1000 만큼 커지기도…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "기울기의 한계", "headline": "기울기의 한계", "description": "STEP I 1988 문제 7: 단계별 풀이와 그 바탕에 있는 대학 수학. 어떤 구간에서 함수(function)의 값이 -1 과 1 사이에 머문다는 것을 안다면, 그 함수가 얼마나 가파른지에 대해 무언가 말할 수 있을까? 일반적인 함수라면 그럴 수 없다. sin(1000x) 는 -1 과 1 사이에 머물지만 기울기(slope)가 1000 만큼 커지기도…", "url": "https://beyondstep.keithmcnulty.org/ko/ch03/markov-bound.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 1988 문제 7", "함수, 부등식, 그리고 엄밀함"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 3, "name": "함수, 부등식, 그리고 엄밀함", "url": "https://beyondstep.keithmcnulty.org/ko/ch03/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제3장: 함수, 부등식, 그리고 엄밀함", "item": "https://beyondstep.keithmcnulty.org/ko/ch03/"}, {"@type": "ListItem", "position": 3, "name": "기울기의 한계", "item": "https://beyondstep.keithmcnulty.org/ko/ch03/markov-bound.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch03/markov-bound.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch03/markov-bound.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch03/markov-bound.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch03/markov-bound.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제3장 · 함수, 부등식, 그리고 엄밀함</a>
+    <div class="src">STEP I · 1988 · 문제 7</div>
+    <div class="sec-head"><span class="sec-num">3.6</span><h1>기울기의 한계</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-3-6-markov-bound.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-03-functions-inequalities-and-rigour.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제3장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP I 1988, 문제 7</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/88-s1-q7">step.maths.org/questions/88-s1-q7</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>어떤 구간에서 함수(function)의 값이 <span class="math inline">\(-1\)</span>과 <span class="math inline">\(1\)</span> 사이에 머문다는 것을 안다면, 그 함수가 얼마나 가파른지에 대해 무언가 말할 수 있을까? 일반적인 함수라면 그럴 수 없다. <span class="math inline">\(\sin(1000x)\)</span>는 <span class="math inline">\(-1\)</span>과 <span class="math inline">\(1\)</span> 사이에 머물지만 기울기(slope)가 <span class="math inline">\(1000\)</span>만큼 커지기도 한다. 하지만 이차함수(quadratic)는 그렇게 요동칠 수 없다. 이 문제는 상자 <span class="math inline">\(|x| \leq 1\)</span>, <span class="math inline">\(|y| \leq 1\)</span> 안에 갇힌 이차함수의 기울기가 상자 안에서 결코 <span class="math inline">\(4\)</span>보다 클 수 없으며, <span class="math inline">\(4\)</span>가 가능한 최선의 값임을 보여 준다.</p>
+<p>이 문제의 기원은 놀랍다. 1887년, 주기율표(periodic table)로 유명한 화학자 드미트리 멘델레예프(Dmitri Mendeleev)는 용액의 밀도가 농도에 따라 어떻게 달라지는지 연구하면서 자료에 이차함수를 맞추고 있었다. 그는 자료의 오차가 곡선의 기울기에 얼마나 크게 영향을 줄 수 있는지 알아야 했고, 바로 이 문제의 결과를 증명(proof)했다. 2년 뒤 젊은 안드레이 마르코프(Andrei Markov)는 임의의 차수(degree)의 다항식(polynomial)에 대한 일반적인 문제를 해결했고, 그 답은 곧바로 수학에서 가장 중요한 다항식들 가운데 일부로 이어졌다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p><span class="math inline">\(\mathrm{f}&#39;(x)\)</span>에 대한 공식은 <span class="math inline">\(-1\)</span>, <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>에서의 <span class="math inline">\(\mathrm{f}\)</span>의 값 세 개만 사용한다. 왜 세 개의 값만으로 이차함수의 도함수(derivative)가 결정되어야 할까?</p>
+</div>
+<p>이차함수는 계수(coefficient)가 세 개이므로 임의의 세 점에서의 값으로 결정된다. 따라서 계수들의 또 다른 함수인 도함수도 그 세 값으로 나타낼 수 있어야 한다. 공식은 그 방법을 알려 준다. 그리고 이것이 바로 필요한 것인데, 가정(hypothesis) <span class="math inline">\(|\mathrm{f}(x)| \leq 1\)</span>은 <span class="math inline">\(\mathrm{f}\)</span>의 <em>값</em>에 대해 알려 주는 반면, 결론(conclusion)은 그 <em>도함수</em>에 관한 것이기 때문이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-공식" class="stage"><span class="stage-n">단계 1</span> 공식</h4>
+<p><span class="math inline">\(\mathrm{f}(1) = a + b + c\)</span>, <span class="math inline">\(\mathrm{f}(-1) = a - b + c\)</span>, <span class="math inline">\(\mathrm{f}(0) = c\)</span>이다. 따라서 우변은 <span class="math display">\[(a + b + c)\left(x + \tfrac12\right) + (a - b + c)\left(x - \tfrac12\right) - 2cx\]</span> 이다. <span class="math inline">\(x\)</span>의 계수는 <span class="math inline">\((a + b + c) + (a - b + c) - 2c = 2a\)</span>이고, 상수항(constant term)은 <span class="math inline">\(\frac12(a + b + c) - \frac12(a - b + c) = b\)</span>이다. 따라서 우변은 <span class="math inline">\(2ax + b = \mathrm{f}&#39;(x)\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h4 id="stagemark2-상계bound" class="stage"><span class="stage-n">단계 2</span> 상계(bound)</h4>
+<div class="askyourself">
+<p>공식의 양변에 절댓값(absolute value)을 취하고, <span class="math inline">\(|\mathrm{f}(1)|, |\mathrm{f}(-1)|, |\mathrm{f}(0)| \leq 1\)</span>과 함께 삼각부등식(triangle inequality)을 사용하라. <span class="math inline">\(x\)</span>의 함수로서 <span class="math inline">\(|\mathrm{f}&#39;(x)|\)</span>에 대해 어떤 상계를 얻는가?</p>
+</div>
+<p>삼각부등식 <span class="math inline">\(|u + v + w| \leq |u| + |v| + |w|\)</span>에 의해 <span class="math display">\[|\mathrm{f}&#39;(x)| \leq |\mathrm{f}(1)|\,\bigl|x + \tfrac12\bigr| + |\mathrm{f}(-1)|\,\bigl|x - \tfrac12\bigr| + 2|\mathrm{f}(0)|\,|x| \leq \bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| + 2|x|.\]</span></p>
+<div class="pausebox">
+<p><span class="math inline">\(|x| \leq 1\)</span>일 때 <span class="math inline">\(\bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| + 2|x| \leq 4\)</span>임을 보여라. (부호에 따라 경우를 나누어라.)</p>
+</div>
+<p><span class="math inline">\(|x| \leq \frac12\)</span>이면 <span class="math inline">\(x + \frac12 \geq 0\)</span>이고 <span class="math inline">\(x - \frac12 \leq 0\)</span>이므로 <span class="math inline">\(\bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| = (x + \tfrac12) - (x - \tfrac12) = 1\)</span>이고, 전체는 <span class="math inline">\(1 + 2|x| \leq 2\)</span>이다.</p>
+<p><span class="math inline">\(\frac12 \leq |x| \leq 1\)</span>이면 두 괄호 안의 식은 모두 <span class="math inline">\(x\)</span>와 부호가 같으므로 <span class="math inline">\(\bigl|x + \tfrac12\bigr| + \bigl|x - \tfrac12\bigr| = 2|x|\)</span>이고, 전체는 <span class="math inline">\(4|x| \leq 4\)</span>이다.</p>
+<p>어느 경우든 <span class="math inline">\(|\mathrm{f}&#39;(x)| \leq 4\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<p>이 상계는 <span class="math inline">\(x = \pm1\)</span>에서만 도달한다. 구간의 가운데 절반에서는 기울기가 많아야 <span class="math inline">\(2\)</span>이다.</p>
+<h4 id="stagemark3-극단적인-예" class="stage"><span class="stage-n">단계 3</span> 극단적인 예</h4>
+<div class="askyourself">
+<p><span class="math inline">\(x = 1\)</span>에서 상계에 도달하려면 2단계의 모든 부등식에서 등호가 성립해야 한다. <span class="math inline">\(\mathrm{f}(1)\)</span>, <span class="math inline">\(\mathrm{f}(-1)\)</span>, <span class="math inline">\(\mathrm{f}(0)\)</span>은 어떤 값을, 어떤 부호로 가져야 할까?</p>
+</div>
+<p><span class="math inline">\(x = 1\)</span>에서 공식은 <span class="math inline">\(\mathrm{f}&#39;(1) = \frac32\mathrm{f}(1) + \frac12\mathrm{f}(-1) - 2\mathrm{f}(0)\)</span>이다. 이 값이 <span class="math inline">\(4\)</span>가 되려면 <span class="math inline">\(\mathrm{f}(1) = 1\)</span>, <span class="math inline">\(\mathrm{f}(-1) = 1\)</span>, <span class="math inline">\(\mathrm{f}(0) = -1\)</span>이어야 한다. <span class="math inline">\((-1, 1)\)</span>, <span class="math inline">\((0, -1)\)</span>, <span class="math inline">\((1, 1)\)</span>을 지나는 이차함수는 <span class="math display">\[\mathrm{f}(x) = 2x^2 - 1,\]</span> 이므로 <span class="math inline">\(a = 2\)</span>, <span class="math inline">\(b = 0\)</span>, <span class="math inline">\(c = -1\)</span>이다. <span class="math inline">\(|x| \leq 1\)</span>에서 <span class="math inline">\(x^2 \in [0, 1]\)</span>이므로 <span class="math inline">\(2x^2 - 1 \in [-1, 1]\)</span>이고, <span class="math inline">\(\mathrm{f}&#39;(1) = 4\)</span>이다.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>알고 싶은 것을 아는 것으로 나타내라.</strong> 공식은 도함수를 <span class="math inline">\(\mathrm{f}\)</span>의 값으로 다시 썼고, 바로 그 값에 대해 가정이 정보를 주었다.</p></li>
+<li><p><strong>삼각부등식.</strong> 합을 절댓값들의 합으로 누르는 것은 해석학(analysis)에서 가장 흔한 수법 가운데 하나이다.</p></li>
+<li><p><strong>등호 조건(equality condition)에서 극단적인 경우를 찾아라.</strong> 모든 부등식에서 언제 등호가 성립하는지 물으니 예 <span class="math inline">\(2x^2 - 1\)</span>이 곧바로 나왔다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">마르코프 부등식(Markov’s inequality)과 체비쇼프 다항식</div>
+<p>안드레이 마르코프는 1889년에 <span class="math inline">\(p\)</span>가 <span class="math inline">\([-1, 1]\)</span>에서 <span class="math inline">\(|p(x)| \leq 1\)</span>을 만족하는 <span class="math inline">\(n\)</span>차 다항식이면 <span class="math display">\[|p&#39;(x)| \leq n^2 \qquad\text{단, } |x| \leq 1\]</span> 임을 증명했다. <span class="math inline">\(n = 2\)</span>일 때 이것은 우리의 상계 <span class="math inline">\(4\)</span>이다. 극단적인 경우는 <em>체비쇼프 다항식(Chebyshev polynomials)</em> <span class="math inline">\(T_n\)</span>으로, 다음과 같이 정의된다. <span class="math display">\[T_n(\cos\theta) = \cos n\theta.\]</span> 예를 들어 <span class="math inline">\(\cos 2\theta = 2\cos^2\theta - 1\)</span>에서 우리의 극단적인 이차함수 <span class="math inline">\(T_2(x) = 2x^2 - 1\)</span>을 얻고, <span class="math inline">\(\cos 3\theta = 4\cos^3\theta - 3\cos\theta\)</span>에서 <span class="math inline">\(T_3(x) = 4x^3 - 3x\)</span>를 얻는다. <span class="math inline">\(T_n(x) = \cos n\theta\)</span>이므로 이 다항식들은 <span class="math inline">\(n\)</span>차 다항식이 할 수 있는 한 가장 자주 <span class="math inline">\(-1\)</span>과 <span class="math inline">\(1\)</span> 사이를 진동하며, 양 끝에서 가능한 한 가장 가파르다(그림 3.6.1). 마르코프의 동생 블라디미르(Vladimir)는 1892년에 이 결과를 고계도함수로 확장했다.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-3-6-1.svg" alt="그림 3.6.1"><figcaption><span class="fig-label">그림 3.6.1</span> 체비쇼프 다항식 <span class="math inline">\(T_2 = 2x^2 - 1\)</span>, <span class="math inline">\(T_3 = 4x^3 - 3x\)</span>, <span class="math inline">\(T_4 = 8x^4 - 8x^2 + 1\)</span>은 상자 <span class="math inline">\(|x| \leq 1\)</span>, <span class="math inline">\(|y| \leq 1\)</span> 안에 머물며, 가능한 한 자주 상자의 위와 아래에 닿는다. 이들은 양 끝에서 같은 차수의 다항식 가운데 가장 가파르다: <span class="math inline">\(T_n&#39;(1) = n^2\)</span>. 점선은 <span class="math inline">\(x = 1\)</span>에서 <span class="math inline">\(T_2\)</span>에 그은 접선(tangent)으로, 기울기는 <span class="math inline">\(4\)</span>이다.</figcaption></figure>
+<h3 id="보간법interpolation">보간법(interpolation)</h3>
+<p>문제의 공식은 <em>라그랑주 보간법(Lagrange interpolation)</em>의 한 예이다. 몇 개의 점에서 함수의 값이 주어지면, 그 점들을 지나는 차수가 가장 낮은 유일한 다항식을 써 내고, 그것으로 함수나 그 도함수를 근사한다. 여기서 세 점은 <span class="math inline">\(-1, 0, 1\)</span>이다. 이런 공식은 수치해석(numerical analysis)의 모든 곳에서 쓰이며, 예를 들어 측정 자료로부터 도함수를 추정하는 데 쓰인다. 마르코프 부등식은 이런 공식에 따라붙는 경고이다. 값의 작은 오차가 도함수에서는 최대 <span class="math inline">\(n^2\)</span>배까지 커질 수 있는데, 이것이 바로 멘델레예프가 걱정했던 문제이다.</p>
+<h3 id="실제로-쓰이는-체비쇼프-다항식">실제로 쓰이는 체비쇼프 다항식</h3>
+<p>체비쇼프 다항식은 근사 이론(approximation theory)의 일꾼이다. 함수를 등간격의 점이 아니라 <span class="math inline">\(T_n\)</span>의 근에서 보간하면 오차를 제어할 수 있다. 등간격의 점을 쓰면 고차 보간이 구간의 양 끝 근처에서 크게 어긋날 수 있다(룽게 현상(Runge’s phenomenon)). 함숫값을 기계 정밀도까지 계산하거나 미분방정식을 매우 정확하게 푸는 소프트웨어는 내부적으로 체비쇼프 전개를 사용하는 경우가 많다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">모르는 것을 아는 것으로 나타내기</div>
+<p><em>가정이 한 종류의 양에 대해 알려 주고 결론이 다른 종류의 양에 관한 것이라면, 둘을 잇는 항등식을 찾은 뒤 항별로 상계를 구하라.</em></p>
+<p>그리고 상계를 얻었다면 그것이 최선인지 물어라. 등호 조건을 거꾸로 따라가면 대개 극단적인 예에 이르고, 그 극단적인 예는 그 자체로 흥미로운 경우가 많다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>일반적인 아이디어.</strong> <span class="math inline">\(\mathrm{f}\)</span>가 이차함수이면 <span class="math inline">\(\mathrm{f}(x) = \mathrm{f}(-1)\dfrac{x(x-1)}{2} + \mathrm{f}(0)(1 - x^2) + \mathrm{f}(1)\dfrac{x(x+1)}{2}\)</span>임을 보이고, 이를 미분하여 문제의 공식을 다시 얻어라.</p></li>
+<li><p><strong>유일성(uniqueness).</strong> <span class="hard">심화</span> <span class="math inline">\([-1, 1]\)</span>에서 <span class="math inline">\(|\mathrm{f}(x)| \leq 1\)</span>이고 <span class="math inline">\([-1, 1]\)</span>의 어떤 점에서 <span class="math inline">\(|\mathrm{f}&#39;(x)| = 4\)</span>인 이차함수는 <span class="math inline">\(\pm(2x^2 - 1)\)</span>뿐임을 보여라.</p></li>
+<li><p><strong>체비쇼프 다항식.</strong> <span class="math inline">\(\cos 3\theta = 4\cos^3\theta - 3\cos\theta\)</span>를 이용하여 <span class="math inline">\(T_3(x) = 4x^3 - 3x\)</span>임을 확인하고, <span class="math inline">\(T_3&#39;(1) = 9\)</span>임을 확인하라. <span class="math inline">\(T_{n+1}(x) = 2xT_n(x) - T_{n-1}(x)\)</span>임을 보이고, <span class="math inline">\(T_4\)</span>를 구하라.</p></li>
+<li><p><strong><span class="math inline">\(T_n\)</span>의 기울기.</strong> <span class="math inline">\(T_n(\cos\theta) = \cos n\theta\)</span>를 <span class="math inline">\(\theta\)</span>에 대해 미분하여 <span class="math inline">\(T_n&#39;(\cos\theta) = \dfrac{n\sin n\theta}{\sin\theta}\)</span>임을 보이고, <span class="math inline">\(\theta \to 0\)</span>으로 보내어 <span class="math inline">\(T_n&#39;(1) = n^2\)</span>임을 유도하라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Lloyd N. Trefethen, <a href="https://uk.bookshop.org/search?keywords=Approximation+Theory+and+Approximation+Practice+Trefethen"><em>Approximation Theory and Approximation Practice</em></a></strong> (SIAM). 체비쇼프 다항식과 보간법에 관한 아름다운 현대적 책으로, 실력 있는 고등학생도 읽을 수 있으며 책 전체에 걸쳐 컴퓨터 실험이 실려 있다.</p></li>
+<li><p><strong>Peter Borwein &amp; Tamás Erdélyi, <a href="https://uk.bookshop.org/search?keywords=Polynomials+and+Polynomial+Inequalities+Borwein+Erdelyi"><em>Polynomials and Polynomial Inequalities</em></a></strong> (Springer). 마르코프 부등식과 그 친척들에 대한 전체 이야기를 다룬다. 고급 수준이다.</p></li>
+<li><p><strong>George M. Phillips, <a href="https://uk.bookshop.org/search?keywords=Interpolation+and+Approximation+by+Polynomials+Phillips"><em>Interpolation and Approximation by Polynomials</em></a></strong> (Springer). 라그랑주 보간법, 체비쇼프 다항식, 마르코프형 부등식을 다루는 학부 교재이다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="pi-e-or-e-pi.html">← 3.5 πᵉ인가, e^π인가?</a><a class="next" href="wirtinger.html">→ 3.7 π² ≤ 10</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

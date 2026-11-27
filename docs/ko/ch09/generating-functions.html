@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>함수로서의 수열 (STEP I 2016 Q8) — Beyond STEP</title>
+<meta name="description" content="STEP I 2016 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 계산기로 1/89 를 계산해 보자: 0.011235955ldots . 숫자들이 0, 1, 1, 2, 3, 5 로 시작하는데, 이것은 피보나치 수(Fibonacci numbers)이다. 우연일까? 우연이 아니며, 이 문제가 그 이유를 설명해 준다. 이 아이디어는…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch09/generating-functions.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch09/generating-functions.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/generating-functions.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/generating-functions.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/generating-functions.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch09/generating-functions.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/generating-functions.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="함수로서의 수열 (STEP I 2016 Q8) — Beyond STEP">
+<meta property="og:description" content="STEP I 2016 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 계산기로 1/89 를 계산해 보자: 0.011235955ldots . 숫자들이 0, 1, 1, 2, 3, 5 로 시작하는데, 이것은 피보나치 수(Fibonacci numbers)이다. 우연일까? 우연이 아니며, 이 문제가 그 이유를 설명해 준다. 이 아이디어는…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch09/generating-functions.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="함수로서의 수열 (STEP I 2016 Q8) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 2016 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 계산기로 1/89 를 계산해 보자: 0.011235955ldots . 숫자들이 0, 1, 1, 2, 3, 5 로 시작하는데, 이것은 피보나치 수(Fibonacci numbers)이다. 우연일까? 우연이 아니며, 이 문제가 그 이유를 설명해 준다. 이 아이디어는…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "함수로서의 수열", "headline": "함수로서의 수열", "description": "STEP I 2016 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 계산기로 1/89 를 계산해 보자: 0.011235955ldots . 숫자들이 0, 1, 1, 2, 3, 5 로 시작하는데, 이것은 피보나치 수(Fibonacci numbers)이다. 우연일까? 우연이 아니며, 이 문제가 그 이유를 설명해 준다. 이 아이디어는…", "url": "https://beyondstep.keithmcnulty.org/ko/ch09/generating-functions.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 2016 문제 8", "세기와 확률"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "세기와 확률", "url": "https://beyondstep.keithmcnulty.org/ko/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제9장: 세기와 확률", "item": "https://beyondstep.keithmcnulty.org/ko/ch09/"}, {"@type": "ListItem", "position": 3, "name": "함수로서의 수열", "item": "https://beyondstep.keithmcnulty.org/ko/ch09/generating-functions.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch09/generating-functions.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch09/generating-functions.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch09/generating-functions.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch09/generating-functions.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제9장 · 세기와 확률</a>
+    <div class="src">STEP I · 2016 · 문제 8</div>
+    <div class="sec-head"><span class="sec-num">9.4</span><h1>함수로서의 수열</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-4-generating-functions.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제9장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP I 2016, 문제 8</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/16-s1-q8">step.maths.org/questions/16-s1-q8</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>계산기로 <span class="math inline">\(1/89\)</span>를 계산해 보자: <span class="math inline">\(0.011235955\ldots\)</span>. 숫자들이 <span class="math inline">\(0, 1, 1, 2, 3, 5\)</span>로 시작하는데, 이것은 피보나치 수(Fibonacci numbers)이다. 우연일까? 우연이 아니며, 이 문제가 그 이유를 설명해 준다.</p>
+<p>이 아이디어는 조합론(combinatorics)에서 가장 강력한 것 가운데 하나이다. 무한수열(infinite sequence)을 하나 잡아, 그 항들을 멱급수(power series)의 계수로 사용하여 하나의 함수로 묶는다. 그러면 수열에 관한 사실이 함수에 관한 사실이 되고, 여기에 대수와 미적분을 사용할 수 있다. Herbert Wilf는 이를 인상적으로 표현했다: “생성함수(generating function)는 수열을 걸어 놓고 보여 주는 빨랫줄이다.”</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>생성함수가 <span class="math inline">\(\dfrac{1}{1 - x}\)</span>인 수열은 무엇인가? <span class="math inline">\(\dfrac{1}{1 - 2x}\)</span>는 어떤가? 생성함수에 <span class="math inline">\(x\)</span>를 곱하면 수열은 어떻게 되는가?</p>
+</div>
+<p>등비급수(geometric series) <span class="math inline">\(\frac{1}{1 - x} = 1 + x + x^2 + \cdots\)</span>는 <span class="math inline">\(1, 1, 1, \ldots\)</span>의 생성함수이고, <span class="math inline">\(\frac{1}{1 - 2x} = 1 + 2x + 4x^2 + \cdots\)</span>는 <span class="math inline">\(2\)</span>의 거듭제곱들의 생성함수이다. <span class="math inline">\(x\)</span>를 곱하면 모든 항이 한 자리씩 뒤로 밀린다: <span class="math inline">\(x \cdot \frac{1}{1-x} = x + x^2 + \cdots\)</span>는 <span class="math inline">\(0, 1, 1, 1, \ldots\)</span>의 생성함수이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-자연수와-삼각수" class="stage"><span class="stage-n">단계 1</span> 자연수와 삼각수</h4>
+<div class="askyourself">
+<p>이항급수(binomial series)로 <span class="math inline">\((1 - x)^{-2}\)</span>를 전개하라. <span class="math inline">\(x^n\)</span>의 계수는 무엇인가?</p>
+</div>
+<p>이항급수에 의해 <span class="math display">\[(1 - x)^{-2} = 1 + 2x + 3x^2 + 4x^3 + \cdots = \sum_{n \geq 0}(n + 1)x^n,\]</span> 이므로 <span class="math inline">\(x(1 - x)^{-2} = x + 2x^2 + 3x^3 + \cdots = \sum n x^n\)</span>이다. 이것이 <span class="math inline">\(u_n = n\)</span>의 생성함수이다.</p>
+<p>마찬가지로 <span class="math inline">\((1 - x)^{-3}\)</span>에서 <span class="math inline">\(x^n\)</span>의 계수는 <span class="math inline">\(\frac{(-3)(-4)\cdots(-3-n+1)}{n!}(-1)^n = \frac{(n + 1)(n + 2)}{2}\)</span>이므로 <span class="math display">\[x(1 - x)^{-3} = \sum_{n \geq 1}\frac{n(n + 1)}{2}\,x^n = x + 3x^2 + 6x^3 + 10x^4 + \cdots,\]</span> 이고, 이것이 삼각수(triangle numbers) <span class="math inline">\(u_n = \frac12 n(n + 1)\)</span>의 생성함수이다.</p>
+<div class="askyourself">
+<p><span class="math inline">\(n^2\)</span>을 <span class="math inline">\(n\)</span>과 <span class="math inline">\(\frac12n(n + 1)\)</span>로 어떻게 나타낼 수 있는가?</p>
+</div>
+<p><span class="math inline">\(n^2 = 2 \cdot \frac12 n(n + 1) - n\)</span>이고, 생성함수는 수열과 똑같이 더해지므로 <span class="math display">\[\sum n^2 x^n = \frac{2x}{(1 - x)^3} - \frac{x}{(1 - x)^2} = \frac{2x - x(1 - x)}{(1 - x)^3} = \frac{x(1 + x)}{(1 - x)^3}. \qed\]</span></p>
+<h4 id="stagemark2-점화식이-방정식이-된다" class="stage"><span class="stage-n">단계 2</span> 점화식이 방정식이 된다</h4>
+<div class="askyourself">
+<p><span class="math inline">\(u_n = ku_{n-1}\)</span>에 <span class="math inline">\(x^n\)</span>을 곱하고 모든 <span class="math inline">\(n \geq 1\)</span>에 대하여 더하라. 각 변을 <span class="math inline">\(\mathrm{f}\)</span>로 나타내면 무엇인가?</p>
+</div>
+<p>좌변은 <span class="math inline">\(\sum_{n \geq 1}u_nx^n = \mathrm{f}(x) - u_0 = \mathrm{f}(x) - a\)</span>이다. 우변은 <span class="math inline">\(kx\sum_{n \geq 1}u_{n-1}x^{n-1} = kx\,\mathrm{f}(x)\)</span>이다. 따라서 <span class="math inline">\(\mathrm{f}(x) = a + kx\,\mathrm{f}(x)\)</span>이고, <span class="math display">\[\mathrm{f}(x) = \frac{a}{1 - kx}. \qed\]</span> 물론 <span class="math inline">\(u_n = ak^n\)</span>이다. <span class="math inline">\(\frac{a}{1 - kx}\)</span>를 등비급수로 전개하면 이를 확인할 수 있다.</p>
+<h4 id="stagemark3-피보나치-수" class="stage"><span class="stage-n">단계 3</span> 피보나치 수</h4>
+<p><span class="math inline">\(n \geq 2\)</span>에 대하여 <span class="math inline">\(u_n = u_{n-1} + u_{n-2}\)</span>에도 같은 일을 한다: <span class="math display">\[\sum_{n \geq 2}u_nx^n = x\sum_{n \geq 2}u_{n-1}x^{n-1} + x^2\sum_{n \geq 2}u_{n-2}x^{n-2},\]</span> 즉, <span class="math display">\[\mathrm{f}(x) - u_0 - u_1x = x\bigl(\mathrm{f}(x) - u_0\bigr) + x^2\,\mathrm{f}(x).\]</span> <span class="math inline">\(u_0 = 0\)</span>, <span class="math inline">\(u_1 = 1\)</span>이므로 이 식은 <span class="math inline">\(\mathrm{f}(x) - x = x\,\mathrm{f}(x) + x^2\,\mathrm{f}(x)\)</span>가 되고, 따라서 <span class="math display">\[\mathrm{f}(x) = \frac{x}{1 - x - x^2}. \qed\]</span></p>
+<h4 id="stagemark4-189의-설명" class="stage"><span class="stage-n">단계 4</span> <span class="math inline">\(1/89\)</span>의 설명</h4>
+<div class="pausebox">
+<p>수렴(convergence)은 무시하고(여기서는 괜찮다: 이 급수는 <span class="math inline">\(|x| &lt; 0.618\)</span>에서 수렴한다), <span class="math inline">\(\mathrm{f}\)</span>에 <span class="math inline">\(x = \frac{1}{10}\)</span>을 대입하라. 무엇을 얻는가?</p>
+</div>
+<p><span class="math display">\[\frac{1}{10}F_1 + \frac{1}{100}F_2 + \frac{1}{1000}F_3 + \cdots = \mathrm{f}\Bigl(\frac{1}{10}\Bigr) = \frac{1/10}{1 - 1/10 - 1/100} = \frac{10}{89}.\]</span> <span class="math inline">\(10\)</span>으로 나누면 <span class="math inline">\(\frac{1}{89} = \sum F_n/10^{n+1}\)</span>이다. 피보나치 수들이 소수점 아래 연속된 자리에 차례로 놓이고, <span class="math inline">\(9\)</span>보다 커지면 서로 겹친다(그림 9.4.1). <span class="math inline">\(1/89\)</span>의 앞쪽 숫자들에는 피보나치 수가 보이지만, 뒤쪽 숫자들은 자리올림(carrying) 때문에 흐려진다.</p>
+<figure class="stepfig"><img src="../assets/fig/fig-9-4-1.svg" alt="그림 9.4.1"><figcaption><span class="fig-label">그림 9.4.1</span> <span class="math inline">\(n = 1, 2, 3, \ldots\)</span>에 대하여 <span class="math inline">\(F_n/10^{n+1}\)</span>을 더한다. 각 피보나치 수는 앞의 것보다 소수점 아래 한 자리 더 오른쪽에서 끝난다. 두 자리 수가 되면 서로 겹치고, 자리올림 때문에 일곱째 자리부터 숫자가 바뀐다: <span class="math inline">\(\frac{1}{89} = 0.01123595505\ldots\)</span>.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>수열을 함수로 바꾼다.</strong> 무한수열 전체가 하나의 유리함수(rational function)가 되었다.</p></li>
+<li><p><strong>점화식(recurrence)이 방정식이 된다.</strong> <span class="math inline">\(x^n\)</span>을 곱하고 더하면 규칙 <span class="math inline">\(u_n = u_{n-1} + u_{n-2}\)</span>가 대수로 풀 수 있는 <span class="math inline">\(\mathrm{f}\)</span>에 관한 방정식으로 바뀌었다.</p></li>
+<li><p><strong>옛것에서 새것을 만든다.</strong> 생성함수를 더하고, 밀고, 미분하여 처음부터 다시 시작하지 않고도 새로운 생성함수를 얻었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="생성함수에서-공식으로">생성함수에서 공식으로</h3>
+<p>생성함수는 수열을 담아 두기만 하는 것이 아니라, 수열을 구해 낼 수도 있다. 분모는 <span class="math inline">\(1 - x - x^2 = (1 - \varphi x)(1 - \psi x)\)</span>로 인수분해되는데, 여기서 <span class="math inline">\(\varphi = \frac{1 + \sqrt5}{2}\)</span>와 <span class="math inline">\(\psi = \frac{1 - \sqrt5}{2}\)</span>는 <span class="math inline">\(t^2 = t + 1\)</span>의 근이다. 부분분수(partial fractions)로 분해하면 <span class="math display">\[\frac{x}{1 - x - x^2} = \frac{1}{\sqrt5}\Bigl(\frac{1}{1 - \varphi x} - \frac{1}{1 - \psi x}\Bigr),\]</span> 이고, 각 분수를 등비급수로 전개하면 <span class="math display">\[F_n = \frac{\varphi^n - \psi^n}{\sqrt5}.\]</span> 이것이 <em>비네(Binet) 공식</em>이다. <span class="math inline">\(|\psi| &lt; 1\)</span>이므로 둘째 항은 매우 작고, 따라서 <span class="math inline">\(F_n\)</span>은 <span class="math inline">\(\varphi^n/\sqrt5\)</span>에 가장 가까운 정수이며, 연속한 피보나치 수의 비는 황금비(golden ratio)로 수렴한다(<a href="../ch02/golden-limit.html">2.2 절</a>의 주제이다). 같은 방법으로 상수계수 선형 점화식(linear recurrence with constant coefficients)을 모두 풀 수 있다. 연습문제에 STEP I 2004의 예가 있다.</p>
+<h3 id="생성함수가-그토록-쓸모-있는-이유">생성함수가 그토록 쓸모 있는 이유</h3>
+<p>진짜 힘은 곱셈에서 드러난다. 곱 <span class="math inline">\(\mathrm{f}(x)\mathrm{g}(x)\)</span>에서 <span class="math inline">\(x^n\)</span>의 계수는 <span class="math inline">\(\sum_k u_kv_{n-k}\)</span>인데, 이는 <span class="math inline">\(n\)</span>을 두 부분으로 나누는 모든 방법에 대하여 더한 것이다. 두 조각으로 이루어진 것을 셀 때 정확히 필요한 것이 이것이다. 다음 두 절에서는 이를 이용하여 거스름돈을 만드는 방법의 수를 세고(<a href="../ch09/making-change.html">9.5 절</a>), 보통 주사위와 합의 분포가 같은 이상한 눈의 주사위를 찾는다(<a href="../ch09/strange-dice.html">9.6 절</a>). 확률에서는 같은 아이디어로 <em>확률생성함수(probability generating function)</em>를 얻는데, 이는 독립 확률변수(independent random variables)의 합을 곱으로 바꾼다.</p>
+<div class="historybox">
+<div class="box-title">드무아브르, 오일러, 라플라스</div>
+<p>아브라함 드무아브르(Abraham de Moivre)는 1720년대에 생성함수를 사용하여 선형 점화식을 풀었는데, 본질적으로 위의 방법이었다. 레온하르트 오일러(Leonhard Euler)는 1748년에 자연수의 분할(partitions)을 연구하는 데 생성함수를 사용했고, 피에르시몽 라플라스(Pierre-Simon Laplace)는 생성함수를 그의 저서 <em>Théorie analytique des probabilités</em>(확률의 해석적 이론, 1812)의 토대로 삼았다. 20세기에 생성함수는 조합론의 중심이 되었고, 오늘날에는 해석적 방법(생성함수를 복소변수(complex variable)의 함수로 연구하는 것)으로 정확히 풀기에는 너무 복잡한 세기 문제에 대해서도 정밀한 추정을 얻는다.</p>
+</div>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">표현을 바꾸어라</div>
+<p><em>수열에 관한 문제는 수열을 함수, 행렬, 또는 그림으로 바꾸면 쉬워질 수 있다.</em></p>
+<p>생성함수는 점화식을 대수로, 세기를 곱셈으로 옮긴다. 대학에서는 이런 옮기기를 많이 만나게 된다: 푸리에 급수(Fourier series)는 함수를 수열로 바꾸고, 라플라스 변환(Laplace transform)은 미분방정식(differential equation)을 대수로 바꾸며, 행렬(matrix)은 기하를 산술로 바꾼다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>한 번에 두 자리씩.</strong> <a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">STEP II 2022, 문제 3</a> (OCR에서 내려받는 2022년 시험지 묶음, zip 파일)을 풀어 보라. 이 문제는 <span class="math inline">\(\frac{1}{89}\)</span>의 소수 전개가 왜 피보나치 수로 시작하는지 설명하고, 소수 표현에서 이 패턴이 두 자리씩 나타나는 분수를 구하게 한다.</p></li>
+<li><p><strong>점화식 풀기.</strong> <a href="https://step.maths.org/questions/04-s1-q7">STEP I 2004, 문제 7</a>을 풀어 보라. 이 문제는 생성함수와 부분분수로 선형 점화식을 푼 다음, 그 방법을 거꾸로 적용한다.</p></li>
+<li><p><strong>수 세기.</strong> <span class="math inline">\(\frac{1}{9801} = 0.00\,01\,02\,03\,04\ldots\)</span>임을 보여라. 여기서 두 자리씩 끊은 묶음이 하나씩 커진다. 이 패턴은 어디에서 처음 깨지는가? 그 이유는 무엇인가?</p></li>
+<li><p><strong>제곱의 합.</strong> <span class="math inline">\(\frac{1}{1-x}\mathrm{f}(x)\)</span>가 부분합(partial sums) <span class="math inline">\(u_0 + u_1 + \cdots + u_n\)</span>의 생성함수인 이유를 설명하라. 이것과 소문항 (i)의 답을 이용하여 <span class="math inline">\(1^2 + 2^2 + \cdots + n^2\)</span>의 공식을 구하라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Herbert Wilf, <a href="https://www2.math.upenn.edu/~wilf/DownldGF.html"><em>generatingfunctionology</em></a></strong> (A K Peters; 온라인 무료). 고전적인 입문서이다. 이 절을 읽은 뒤에는 1장이 안성맞춤이다.</p></li>
+<li><p><strong>Ronald Graham, Donald Knuth &amp; Oren Patashnik, <a href="https://uk.bookshop.org/search?keywords=Concrete+Mathematics+Graham+Knuth"><em>Concrete Mathematics</em></a></strong> (Addison-Wesley), 7장.</p></li>
+<li><p><strong>Philippe Flajolet &amp; Robert Sedgewick, <a href="https://uk.bookshop.org/search?keywords=Analytic+Combinatorics+Flajolet+Sedgewick"><em>Analytic Combinatorics</em></a></strong> (Cambridge University Press; 온라인 무료). 대학 1학년 수준을 훨씬 넘어서지만, 첫 몇 쪽에서 이 분야가 어디로 이어지는지 볼 수 있다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="fence-posts.html">← 9.3 울타리 기둥 색칠하기</a><a class="next" href="making-change.html">→ 9.5 거스름돈 만들기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

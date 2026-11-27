@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>조작된 주사위 (STEP I 1999 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP I 1999 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 공정한 주사위(fair dice) 두 개를 던지면 합이 7 이 나올 가능성은 합이 2 가 나올 가능성의 여섯 배이다. 보드게임 설계자들은 때때로 그렇지 않기를 바란다. 주사위를 조작하여(loaded, 어떤 면이 더 자주 나오도록 무게를 조절하여) 2 부터 12 까지의 모든 합이…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch09/loaded-dice.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch09/loaded-dice.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch09/loaded-dice.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch09/loaded-dice.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch09/loaded-dice.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch09/loaded-dice.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch09/loaded-dice.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="조작된 주사위 (STEP I 1999 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP I 1999 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 공정한 주사위(fair dice) 두 개를 던지면 합이 7 이 나올 가능성은 합이 2 가 나올 가능성의 여섯 배이다. 보드게임 설계자들은 때때로 그렇지 않기를 바란다. 주사위를 조작하여(loaded, 어떤 면이 더 자주 나오도록 무게를 조절하여) 2 부터 12 까지의 모든 합이…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch09/loaded-dice.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="조작된 주사위 (STEP I 1999 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP I 1999 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 공정한 주사위(fair dice) 두 개를 던지면 합이 7 이 나올 가능성은 합이 2 가 나올 가능성의 여섯 배이다. 보드게임 설계자들은 때때로 그렇지 않기를 바란다. 주사위를 조작하여(loaded, 어떤 면이 더 자주 나오도록 무게를 조절하여) 2 부터 12 까지의 모든 합이…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "조작된 주사위", "headline": "조작된 주사위", "description": "STEP I 1999 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. 공정한 주사위(fair dice) 두 개를 던지면 합이 7 이 나올 가능성은 합이 2 가 나올 가능성의 여섯 배이다. 보드게임 설계자들은 때때로 그렇지 않기를 바란다. 주사위를 조작하여(loaded, 어떤 면이 더 자주 나오도록 무게를 조절하여) 2 부터 12 까지의 모든 합이…", "url": "https://beyondstep.keithmcnulty.org/ko/ch09/loaded-dice.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP I 1999 문제 12", "세기와 확률"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 9, "name": "세기와 확률", "url": "https://beyondstep.keithmcnulty.org/ko/ch09/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제9장: 세기와 확률", "item": "https://beyondstep.keithmcnulty.org/ko/ch09/"}, {"@type": "ListItem", "position": 3, "name": "조작된 주사위", "item": "https://beyondstep.keithmcnulty.org/ko/ch09/loaded-dice.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch09/loaded-dice.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch09/loaded-dice.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch09/loaded-dice.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch09/loaded-dice.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제9장 · 세기와 확률</a>
+    <div class="src">STEP I · 1999 · 문제 12</div>
+    <div class="sec-head"><span class="sec-num">9.13</span><h1>조작된 주사위</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-9-13-loaded-dice.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-09-counting-and-chance.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제9장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP I 1999, 문제 12</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/99-s1-q12">step.maths.org/questions/99-s1-q12</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>공정한 주사위(fair dice) 두 개를 던지면 합이 <span class="math inline">\(7\)</span>이 나올 가능성은 합이 <span class="math inline">\(2\)</span>가 나올 가능성의 여섯 배이다. 보드게임 설계자들은 때때로 그렇지 않기를 바란다. 주사위를 조작하여(loaded, 어떤 면이 더 자주 나오도록 무게를 조절하여) <span class="math inline">\(2\)</span>부터 <span class="math inline">\(12\)</span>까지의 모든 합이 같은 확률 <span class="math inline">\(\frac{1}{11}\)</span>을 갖게 할 수 있을까? 열두 개의 확률을 자유롭게 정할 수 있으니 여지는 충분해 보인다.</p>
+<p>답은 “불가능하다”이며, 그 증명은 보석 같다. 열한 가지 합 가운데 세 가지와 부등식 <span class="math inline">\(x + \frac1x \geq 2\)</span>만을 사용한다. 이 증명은 어떤 것이 <em>불가능함</em>을 증명하는 방법의 모범이 되는데, 이런 증명은 어떤 것이 가능함을 보이는 것보다 더 어렵고 더 흥미로운 경우가 많다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p><span class="math inline">\(x &gt; 0\)</span>일 때 <span class="math inline">\(x + \frac1x \geq 2\)</span>를 어떻게 증명하겠는가? 등호는 언제 성립하는가?</p>
+</div>
+<p>양변에 <span class="math inline">\(x &gt; 0\)</span>을 곱하면 부등식은 <span class="math inline">\(x^2 + 1 \geq 2x\)</span>, 즉 <span class="math inline">\((x - 1)^2 \geq 0\)</span>이 되고, 이는 참이다. 등호는 <span class="math inline">\(x = 1\)</span>일 때만 성립한다. (또는 <span class="math inline">\(x + \frac1x - 2 = \bigl(\sqrt x - \frac{1}{\sqrt x}\bigr)^2\)</span>을 이용해도 된다.) 이것은 가장 단순한 형태의 산술-기하 평균 부등식(AM–GM inequality)이다. 즉 <span class="math inline">\(x\)</span>와 <span class="math inline">\(\frac1x\)</span>의 산술평균은 둘의 기하평균(geometric mean)인 <span class="math inline">\(1\)</span> 이상이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-양-끝의-합" class="stage"><span class="stage-n">단계 1</span> 양 끝의 합</h4>
+<div class="askyourself">
+<p>합 <span class="math inline">\(2\)</span>가 나오는 경우는 몇 가지인가? 합 <span class="math inline">\(12\)</span>는? 그 확률을 <span class="math inline">\(q_i\)</span>와 <span class="math inline">\(r_j\)</span>로 나타내어 보아라.</p>
+</div>
+<p>합 <span class="math inline">\(2\)</span>가 나오려면 두 주사위 모두 <span class="math inline">\(1\)</span>이 나와야 하고, <span class="math inline">\(12\)</span>가 나오려면 둘 다 <span class="math inline">\(6\)</span>이 나와야 하므로 <span class="math inline">\(\mathrm{P}(2) = q_1r_1\)</span>이고 <span class="math inline">\(\mathrm{P}(12) = q_6r_6\)</span>이다.</p>
+<p>귀류법(proof by contradiction)을 쓰기 위해, 열한 가지 합이 모두 같은 가능성, 즉 각각 확률 <span class="math inline">\(\frac{1}{11}\)</span>을 갖는다고 가정하자. 그러면 <span class="math display">\[q_1r_1 = \frac{1}{11}, \qquad q_6r_6 = \frac{1}{11}.\]</span> 특히 <span class="math inline">\(q_1\)</span>, <span class="math inline">\(r_1\)</span>, <span class="math inline">\(q_6\)</span>, <span class="math inline">\(r_6\)</span> 네 값은 모두 양수이다.</p>
+<h4 id="stagemark2-가운데-합" class="stage"><span class="stage-n">단계 2</span> 가운데 합</h4>
+<div class="askyourself">
+<p>합 <span class="math inline">\(7\)</span>을 만드는 방법은 여섯 가지이다. 그중 면 <span class="math inline">\(1\)</span>과 <span class="math inline">\(6\)</span>만 관련된 두 가지는 무엇인가? 위의 식을 이용하여 그 확률을 나타내어 보아라.</p>
+</div>
+<p>합 <span class="math inline">\(7\)</span>에는 결과 (<span class="math inline">\(1\)</span>, <span class="math inline">\(6\)</span>)과 (<span class="math inline">\(6\)</span>, <span class="math inline">\(1\)</span>)이 포함되므로 <span class="math display">\[\mathrm{P}(7) \geq q_1r_6 + q_6r_1.\]</span> 이제 1단계의 식을 이용하여 비를 끌어들이자. <span class="math inline">\(q_1 = \frac{1}{11r_1}\)</span>이고 <span class="math inline">\(q_6 = \frac{1}{11r_6}\)</span>이므로 <span class="math display">\[q_1r_6 + q_6r_1 = \frac{1}{11}\Bigl(\frac{r_6}{r_1} + \frac{r_1}{r_6}\Bigr) \geq \frac{1}{11} \times 2 = \frac{2}{11},\]</span> 이다. 여기서 <span class="math inline">\(x = r_6/r_1 &gt; 0\)</span>으로 두고 <span class="math inline">\(x + \frac1x \geq 2\)</span>를 사용하였다. 따라서 <span class="math inline">\(\mathrm{P}(7) \geq \frac{2}{11}\)</span>이고, 이는 <span class="math inline">\(\mathrm{P}(7) = \frac{1}{11}\)</span>에 모순이다. 그러므로 모든 합이 같은 가능성을 가질 수는 없다.<span class="qed" aria-label="end of proof">■</span></p>
+<div class="pausebox">
+<p>증명이 성립하게 만든 것이 무엇인지 살펴보자. <span class="math inline">\(2\)</span>와 <span class="math inline">\(12\)</span>가 <span class="math inline">\(7\)</span>만큼 나올 가능성을 갖게 하려면 <span class="math inline">\(1\)</span>과 <span class="math inline">\(6\)</span>이 꽤 자주 나와야 하고, 그러면 “혼합된” 결과 (<span class="math inline">\(1\)</span>, <span class="math inline">\(6\)</span>)과 (<span class="math inline">\(6\)</span>, <span class="math inline">\(1\)</span>)만으로도 <span class="math inline">\(7\)</span>이 너무 자주 나오게 된다. 그림 9.13.1에 관련된 칸들이 나타나 있다.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-9-13-1.svg" alt="그림 9.13.1"><figcaption><span class="fig-label">그림 9.13.1</span> 두 주사위의 결과 <span class="math inline">\(36\)</span>가지를 합으로 표시한 것이다. 증명에는 네 모서리 칸만 사용된다. 두 호박색 칸의 확률의 곱은 두 짙은 청록색 칸의 확률의 곱과 같고(<span class="math inline">\(q_1r_1q_6r_6 = q_1r_6 \cdot q_6r_1\)</span>), 산술-기하 평균 부등식에 의해 청록색 두 칸의 합은 호박색 두 칸의 기하평균의 두 배 이상이다.</figcaption></figure>
+<h4 id="stagemark3-주사위-하나를-두-번-던지기" class="stage"><span class="stage-n">단계 3</span> 주사위 하나를 두 번 던지기</h4>
+<div class="askyourself">
+<p>주사위 하나를 두 번 던질 때 두 수가 같을 확률을 <span class="math inline">\(q_j\)</span>로 나타내면 무엇인가? 공정한 주사위라면 얼마인가?</p>
+</div>
+<p>두 번의 결과가 같을 확률은 <span class="math inline">\(q_1^2 + q_2^2 + \cdots + q_6^2\)</span>이다. 공정한 주사위라면 이 값은 <span class="math inline">\(6 \times \frac{1}{36} = \frac16\)</span>이고, 이미 <span class="math inline">\(\frac{1}{36}\)</span>보다 훨씬 크다.</p>
+<div class="askyourself">
+<p>주사위를 조작하여 <span class="math inline">\(\sum q_j^2\)</span>을 <span class="math inline">\(\frac16\)</span>보다 작게 만들 수 있는가? <span class="math inline">\(\sum q_j = 1\)</span>임을 알고 있다.</p>
+</div>
+<p><span class="math inline">\(q_j = \frac16 + e_j\)</span>로 쓰자. 여기서 편차(deviation) <span class="math inline">\(e_j\)</span>들의 합은 <span class="math inline">\(0\)</span>이다. 그러면 <span class="math display">\[\sum q_j^2 = \sum\Bigl(\frac{1}{36} + \frac{e_j}{3} + e_j^2\Bigr) = \frac16 + \frac13\sum e_j + \sum e_j^2 = \frac16 + \sum e_j^2 \geq \frac16.\]</span> 따라서 같은 수가 반복될 확률은 항상 <span class="math inline">\(\frac16\)</span> 이상이고, 등호는 공정한 주사위일 때만 성립한다. 이 확률이 <span class="math inline">\(\frac{1}{36}\)</span>보다 작을 수는 결코 없다.<span class="qed" aria-label="end of proof">■</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>귀류법.</strong> 모든 합이 같은 가능성을 갖는다고 가정하고 불가능한 결론을 이끌어 내었다.</p></li>
+<li><p><strong>필요한 것만 사용하라.</strong> 열한 개의 식 가운데 세 개로 충분했다. 알맞은 식을 고르는 것이 핵심 단계였다.</p></li>
+<li><p><strong>부등식은 불가능성을 증명한다.</strong> (i)에서는 산술-기하 평균 부등식이, (ii)에서는 “제곱의 합은 음이 아니다”라는 사실이 가능성의 모든 경우를 한꺼번에 배제하였다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="다항식을-이용한-증명">다항식을 이용한 증명</h3>
+<p>이번에는 <a href="../ch09/strange-dice.html">9.6 절</a>의 생성함수(generating function)를 이용한 완전히 다른 증명을 보자. <span class="math inline">\(Q(x) = q_1x + \cdots + q_6x^6\)</span>, <span class="math inline">\(R(x) = r_1x + \cdots + r_6x^6\)</span>이라 하자. 모든 합의 확률이 <span class="math inline">\(\frac{1}{11}\)</span>이라면 <span class="math display">\[Q(x)R(x) = \frac{x^2 + x^3 + \cdots + x^{12}}{11} = \frac{x^2}{11}\bigl(1 + x + \cdots + x^{10}\bigr).\]</span> 이다. 그런데 <span class="math inline">\(Q(x)/x\)</span>는 실수 계수를 갖는 <span class="math inline">\(5\)</span>차 다항식이고, 차수가 홀수인 실계수 다항식은 모두 실근을 갖는다(그래프가 <span class="math inline">\(-\infty\)</span>에서 <span class="math inline">\(+\infty\)</span>로, 또는 그 반대로 가기 때문이다). 따라서 좌변은 <span class="math inline">\(0\)</span>이 아닌 실근을 갖는다. 하지만 <span class="math inline">\(1 + x + \cdots + x^{10} = \frac{x^{11} - 1}{x - 1}\)</span>이고, 그 근은 <span class="math inline">\(1\)</span>을 제외한 <span class="math inline">\(11\)</span>차 단위근(roots of unity)이며, 그중 실수인 것은 없다. 모순이다. 같은 논증으로, <span class="math inline">\(n - 1\)</span>이 홀수일 때, 즉 <span class="math inline">\(n\)</span>이 짝수일 때 두 개의 <span class="math inline">\(n\)</span>면체 주사위를 어떻게 조작해도 합들이 같은 가능성을 갖게 할 수 없음을 보일 수 있다. (<span class="math inline">\(n\)</span>이 홀수이면 다항식 논증에 더 많은 작업이 필요하지만, 위의 산술-기하 평균 증명은 모든 <span class="math inline">\(n \geq 2\)</span>에 대해 성립한다.)</p>
+<h3 id="충돌-확률">충돌 확률</h3>
+<p>(ii)에 나온 양 <span class="math inline">\(\sum q_j^2\)</span>, 즉 서로 독립인 두 번의 추출 결과가 같을 확률을 분포의 <em>충돌 확률</em>(collision probability)이라 한다. (ii)는 이 값이 균등분포(uniform distribution)에서 가장 작다는 것을 보여 준다. 충돌 확률은 분포가 얼마나 집중되어 있는지를 측정한다. 생태학에서 <span class="math inline">\(\sum q_j^2\)</span>은 심프슨(Simpson)의 다양성 지수인데, 여기서 <span class="math inline">\(q_j\)</span>는 서식지에서 종 <span class="math inline">\(j\)</span>가 차지하는 비율이다. 경제학에서는 시장 집중도를 나타내는 Herfindahl 지수이고, 암호학에서는 비밀번호 분포를 얼마나 쉽게 추측할 수 있는지를 측정한다. 또한 이것은 <a href="../ch09/birthday.html">9.9 절</a> 끝의 언급을 설명해 준다. 생일의 확률이 균등하지 않으면 생일이 같은 사람이 있을 가능성은 커질 수밖에 없다.</p>
+<div class="historybox">
+<div class="box-title">불가능성 증명</div>
+<p>수학에서 가장 유명한 결과 가운데 일부는 어떤 것을 할 수 없다고 말한다. 제곱하여 <span class="math inline">\(2\)</span>가 되는 분수는 없다. 자와 컴퍼스만으로 하는 작도(ruler-and-compass construction)로는 모든 각을 삼등분할 수 없다. 거듭제곱근(radicals)을 이용한 공식으로 모든 5차방정식(quintic)을 풀 수는 없다. 모든 수학적 명제를 판정하는 알고리즘은 없다. 이 결과들은 각각 그 분야를 바꾸어 놓았다. 어떤 방법도 통하지 <em>않음</em>을 증명하려면 가능한 방법 전체의 공간을 이해해야 하기 때문이다. 조작된 주사위 문제는 그 축소판이다. 모든 조작을 배제하기 위해 모든 조작이 따라야 하는 불변 성질(invariant, 산술-기하 평균 부등식)이 필요했다.</p>
+</div>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">귀류법과 부등식으로 불가능성을 증명하라</div>
+<p><em>어떤 매개변수 선택도 통하지 않음을 보이려면, 통하는 선택이 있다고 가정하고, 서로 충돌하는 몇 가지 조건을 골라낸 뒤, 부등식을 이용하여 그 조건들이 동시에 성립할 수 없음을 보여라.</em></p>
+<p>대학에서는 귀류법과 부등식의 결합이 대상의 존재하지 않음을 증명하는 표준적인 방법이다. 해석학(analysis), 조합론(combinatorics), 최적화(optimisation)에서 그러한데, 이 분야들에서는 산술-기하 평균 부등식이나 코시-슈바르츠 부등식(Cauchy–Schwarz inequality) 같은 부등식이 달성할 수 있는 것의 한계를 정한다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>코시-슈바르츠.</strong> 코시-슈바르츠 부등식 <span class="math inline">\(\bigl(\sum a_jb_j\bigr)^2 \leq \sum a_j^2\sum b_j^2\)</span>에 <span class="math inline">\(a_j = q_j\)</span>, <span class="math inline">\(b_j = 1\)</span>을 대입하여 (ii)를 한 줄로 증명하여라.</p></li>
+<li><p><strong>서로 다른 두 주사위.</strong> <em>서로 다른</em> 조작된 주사위 두 개를 각각 한 번씩 던질 때, 두 주사위에서 같은 수가 나올 확률이 <span class="math inline">\(\frac16\)</span>보다 작을 수 있는가? <span class="math inline">\(0\)</span>이 될 수 있는가?</p></li>
+<li><p><strong>다른 눈을 가진 주사위의 균등한 합.</strong> 면에 다른 수를 적으면 두 주사위의 합이 같은 가능성을 <em>가질 수 있음</em>을 보여라. 한 주사위에는 <span class="math inline">\(0, 1, 2, 3, 4, 5\)</span>를, 다른 주사위에는 <span class="math inline">\(0, 6, 12, 18, 24, 30\)</span>을 적어 보아라. 어떤 합들이 나오는가? 이것이 왜 문제의 결론에 모순되지 않는가?</p></li>
+<li><p><strong>주사위 세 개.</strong> 면에 <span class="math inline">\(1\)</span>부터 <span class="math inline">\(6\)</span>까지 적힌 조작된 육면체 주사위 세 개로 <span class="math inline">\(3\)</span>부터 <span class="math inline">\(18\)</span>까지의 모든 합이 같은 가능성을 갖게 할 수 있는가? (<em>힌트:</em> 합 <span class="math inline">\(3\)</span>, <span class="math inline">\(8\)</span>, <span class="math inline">\(13\)</span>, <span class="math inline">\(18\)</span>과 여섯 개의 수에 대한 산술-기하 평균 부등식을 이용하여라. 이번에는 다항식 증명이 왜 통하지 않는가?)</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>J. Michael Steele, <a href="https://uk.bookshop.org/search?keywords=The+Cauchy-Schwarz+Master+Class+Steele"><em>The Cauchy–Schwarz Master Class</em></a></strong> (Cambridge University Press). 산술-기하 평균 부등식에서 출발하는 아름다운 부등식 입문서이다.</p></li>
+<li><p><strong>Geoffrey Grimmett &amp; Dominic Welsh, <a href="https://uk.bookshop.org/search?keywords=Probability%3A+An+Introduction+Grimmett+Welsh"><em>Probability: An Introduction</em></a></strong> (Oxford University Press). 생성함수와 위와 같은 증명에서의 활용을 다룬다.</p></li>
+<li><p><strong>Ian Stewart, <a href="https://uk.bookshop.org/search?keywords=Galois+Theory+Stewart"><em>Galois Theory</em></a></strong> (CRC Press)의 앞부분 장들. 가장 유명한 불가능성 증명인 5차방정식에 관한 증명을 다룬다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="random-subsets.html">← 9.12 무작위 부분집합</a><a class="next" href="wrap-up.html">→ 돌아보기</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

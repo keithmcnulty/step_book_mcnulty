@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개체군 수확하기 (STEP II 1995 Q8) — Beyond STEP</title>
+<meta name="description" content="STEP II 1995 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 먹이가 무한한 개체군은 지수적으로(exponentially) 증가한다. 하지만 실제 개체군은 공간이 부족해진다. 개체군이 환경이 감당할 수 있는 크기, 곧 수용력(carrying capacity) 에 가까워질수록 증가가 느려진다. 이를 나타내는 가장 단순한 모형인 로지스틱…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch08/harvesting.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch08/harvesting.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/harvesting.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/harvesting.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch08/harvesting.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch08/harvesting.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/harvesting.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="개체군 수확하기 (STEP II 1995 Q8) — Beyond STEP">
+<meta property="og:description" content="STEP II 1995 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 먹이가 무한한 개체군은 지수적으로(exponentially) 증가한다. 하지만 실제 개체군은 공간이 부족해진다. 개체군이 환경이 감당할 수 있는 크기, 곧 수용력(carrying capacity) 에 가까워질수록 증가가 느려진다. 이를 나타내는 가장 단순한 모형인 로지스틱…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch08/harvesting.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="개체군 수확하기 (STEP II 1995 Q8) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1995 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 먹이가 무한한 개체군은 지수적으로(exponentially) 증가한다. 하지만 실제 개체군은 공간이 부족해진다. 개체군이 환경이 감당할 수 있는 크기, 곧 수용력(carrying capacity) 에 가까워질수록 증가가 느려진다. 이를 나타내는 가장 단순한 모형인 로지스틱…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "개체군 수확하기", "headline": "개체군 수확하기", "description": "STEP II 1995 문제 8: 단계별 풀이와 그 바탕에 있는 대학 수학. 먹이가 무한한 개체군은 지수적으로(exponentially) 증가한다. 하지만 실제 개체군은 공간이 부족해진다. 개체군이 환경이 감당할 수 있는 크기, 곧 수용력(carrying capacity) 에 가까워질수록 증가가 느려진다. 이를 나타내는 가장 단순한 모형인 로지스틱…", "url": "https://beyondstep.keithmcnulty.org/ko/ch08/harvesting.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1995 문제 8", "미분방정식과 동역학계"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 8, "name": "미분방정식과 동역학계", "url": "https://beyondstep.keithmcnulty.org/ko/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제8장: 미분방정식과 동역학계", "item": "https://beyondstep.keithmcnulty.org/ko/ch08/"}, {"@type": "ListItem", "position": 3, "name": "개체군 수확하기", "item": "https://beyondstep.keithmcnulty.org/ko/ch08/harvesting.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch08/harvesting.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch08/harvesting.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch08/harvesting.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch08/harvesting.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제8장 · 미분방정식과 동역학계</a>
+    <div class="src">STEP II · 1995 · 문제 8</div>
+    <div class="sec-head"><span class="sec-num">8.3</span><h1>개체군 수확하기</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-3-harvesting.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제8장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP II 1995, 문제 8</strong></p>
+<p>계속 읽기 전에 문제를 먼저 읽어 보자. 문제는 STEP Support Programme의 문제 데이터베이스에 있다: <a href="https://step.maths.org/questions/95-s2-q8">step.maths.org/questions/95-s2-q8</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>먹이가 무한한 개체군은 지수적으로(exponentially) 증가한다. 하지만 실제 개체군은 공간이 부족해진다. 개체군이 환경이 감당할 수 있는 크기, 곧 <em>수용력(carrying capacity)</em>에 가까워질수록 증가가 느려진다. 이를 나타내는 가장 단순한 모형인 <em>로지스틱 방정식(logistic equation)</em>이 문제의 앞부분에 나오며, 이 방정식은 배양 접시 속 세균에서 새로운 기술의 확산에 이르기까지 온갖 현상을 설명한다.</p>
+<p>문제의 뒷부분은 실용적으로 매우 중요한 질문을 던진다. 개체군을 일정한 비율로 수확(harvest)하면 어떻게 될까? 수확량이 어떤 문턱값보다 작으면 개체군은 더 낮은 새로운 평형(equilibrium)에 맞추어 자리를 잡는다. 그러나 수확량을 그 문턱값보다 조금이라도 늘리면 평형이 사라지고 개체군은 0으로 붕괴한다. 이것이 어장 붕괴 뒤에 숨은 수학이며, 어획 할당량이 존재하는 이유이다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>무엇이든 풀기 전에, 증가율 <span class="math inline">\((2K - x)x\)</span>를 <span class="math inline">\(x\)</span>의 함수(function)로 보고 그래프를 그려 보자. 어디에서 0이 되는가? 어디에서 양수인가? 이로부터 <span class="math inline">\(x\)</span>가 어떻게 움직일지 알 수 있는가?</p>
+</div>
+<p>증가율은 <span class="math inline">\(x = 0\)</span>과 <span class="math inline">\(x = 2K\)</span>에서 0이고, 그 사이에서는 양수이며, <span class="math inline">\(2K\)</span>보다 큰 곳에서는 음수이다. 따라서 <span class="math inline">\(0\)</span>과 <span class="math inline">\(2K\)</span> 사이에서 출발한 개체군은 <span class="math inline">\(2K\)</span>를 향해 증가하고, <span class="math inline">\(2K\)</span>보다 큰 값에서 출발한 개체군은 그 값을 향해 감소한다. 수용력은 <span class="math inline">\(2K\)</span>이고, 증가가 가장 빠른 곳은 <span class="math inline">\(x = K\)</span>이며 이때 증가율은 <span class="math inline">\(K^2\)</span>이다. 방정식을 풀지 않고도 장기적인 거동을 예측할 수 있다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-로지스틱-방정식-풀기" class="stage"><span class="stage-n">단계 1</span> 로지스틱 방정식 풀기</h4>
+<div class="askyourself">
+<p>변수를 분리하자(separation of variables): <span class="math inline">\(\displaystyle\int \frac{\mathrm{d}x}{(2K - x)x} = \int \mathrm{d}t\)</span>. 좌변을 부분분수(partial fractions)로 나누어 보자.</p>
+</div>
+<p><span class="math inline">\(\dfrac{1}{(2K - x)x} = \dfrac{1}{2K}\left(\dfrac1x + \dfrac{1}{2K - x}\right)\)</span>이므로 <span class="math display">\[\frac{1}{2K}\ln\frac{x}{2K - x} = t + C.\]</span> <span class="math inline">\(t = 0\)</span>일 때 <span class="math inline">\(x = K\)</span>이므로 <span class="math inline">\(\ln 1 = 0\)</span>이고 <span class="math inline">\(C = 0\)</span>이다. 그러면 <span class="math inline">\(\frac{x}{2K - x} = e^{2Kt}\)</span>이고, 따라서 <span class="math display">\[x = \frac{2Ke^{2Kt}}{1 + e^{2Kt}} = \frac{2K}{1 + e^{-2Kt}} = K + K\frac{1 - e^{-2Kt}}{1 + e^{-2Kt}}. \qed\]</span> 이 분수는 <span class="math inline">\(\tanh(Kt)\)</span>이므로 <span class="math inline">\(x = K + K\tanh Kt\)</span>이다. 이는 <span class="math inline">\(K\)</span>에서 출발하여 <span class="math inline">\(2K\)</span>를 향해 올라가는 S자 모양의 곡선이다. <span class="math inline">\(t \to \infty\)</span>일 때 <span class="math inline">\(e^{-2Kt} \to 0\)</span>이고 <span class="math inline">\(x \to 2K\)</span>이다.</p>
+<h4 id="stagemark2-수확" class="stage"><span class="stage-n">단계 2</span> 수확</h4>
+<p>세균을 비율 <span class="math inline">\(L\)</span>로 제거하면 <span class="math display">\[\frac{\mathrm{d}x}{\mathrm{d}t} = (2K - x)x - L.\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\((2K - x)x - L\)</span>을 완전제곱식으로 고쳐 보자(completing the square). 그 영점은 어디인가?</p>
+</div>
+<p><span class="math inline">\((2K - x)x - L = K^2 - L - (x - K)^2 = \alpha^2 - (x - K)^2 = \bigl(\alpha - (x - K)\bigr)\bigl(\alpha + (x - K)\bigr)\)</span>이다. 평형점은 <span class="math inline">\(x = K \pm \alpha\)</span>이다.</p>
+<div class="pausebox">
+<p>이제 <span class="math inline">\(y = x - K + \alpha\)</span>로 치환(substitution)하자. <span class="math inline">\(y\)</span>는 어떤 방정식을 만족하는가? 원래의 로지스틱 방정식과 비교해 보자.</p>
+</div>
+<p><span class="math inline">\(y = x - K + \alpha\)</span>로 두면 <span class="math inline">\(x - K = y - \alpha\)</span>이므로 <span class="math inline">\(\alpha + (x - K) = y\)</span>이고 <span class="math inline">\(\alpha - (x - K) = 2\alpha - y\)</span>이다. 따라서 <span class="math display">\[\frac{\mathrm{d}y}{\mathrm{d}t} = (2\alpha - y)y,\]</span> 이는 <span class="math inline">\(K\)</span>를 <span class="math inline">\(\alpha\)</span>로 바꾼 로지스틱 방정식 그대로이다. 처음 값은 <span class="math inline">\(y(0) = K - K + \alpha = \alpha\)</span>로, 첫 부분의 <span class="math inline">\(x(0) = K\)</span>와 정확히 같은 꼴이다. 그러므로 1단계에 의해(<span class="math inline">\(K\)</span> 대신 <span class="math inline">\(\alpha\)</span>를 넣으면) <span class="math inline">\(y(t) = \alpha + \alpha\tanh\alpha t \to 2\alpha\)</span>이고, 따라서 <span class="math display">\[x(t) = K + \alpha\tanh\alpha t \to K + \alpha. \qed\]</span></p>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>정성적 분석이 먼저이다.</strong> 증가율의 부호만으로, 아무것도 풀기 전에 장기적인 거동을 예측할 수 있었다.</p></li>
+<li><p><strong>완전제곱식이 평형점을 드러낸다.</strong> 수확이 있는 방정식의 평형점은 <span class="math inline">\(K \pm \alpha\)</span>였다.</p></li>
+<li><p><strong>치환으로 새로운 문제를 이미 푼 문제로 바꾼다.</strong> 변수를 평행이동하자 수확이 있는 방정식이 이미 풀어 본 로지스틱 방정식으로 바뀌었다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<div class="historybox">
+<div class="box-title">티핑 포인트</div>
+<p>수확이 있는 방정식에는 두 평형점 <span class="math inline">\(K + \alpha\)</span>와 <span class="math inline">\(K - \alpha\)</span>가 있다. 위쪽 평형점은 <em>안정(stable)</em>하다. 개체군이 그보다 약간 크거나 작아도 다시 그 값으로 돌아온다. 아래쪽 평형점은 <em>불안정(unstable)</em>하다. <span class="math inline">\(K - \alpha\)</span>보다 조금이라도 작은 개체군은 줄어들어 멸종한다. 수확률 <span class="math inline">\(L\)</span>이 커지면 <span class="math inline">\(\alpha = \sqrt{K^2 - L}\)</span>이 작아지고 두 평형점은 서로 가까워진다. <span class="math inline">\(L = K^2\)</span>에서 두 평형점은 하나로 합쳐지고, <span class="math inline">\(L &gt; K^2\)</span>이면 평형점이 전혀 없어 모든 개체군이 붕괴한다(그림 8.3.1). 이것이 <em>안장-마디 분기(saddle-node bifurcation)</em>로, 가장 단순한 종류의 <em>티핑 포인트(tipping point)</em>이다. 무서운 점은 이를 미리 알려 주는 극적인 징후가 전혀 없다는 것이다. <span class="math inline">\(L\)</span>이 <span class="math inline">\(K^2\)</span>에 가까워지는 동안 평형 개체군은 완만하게 줄어들 뿐이다가, 갑자기 평형이 사라진다. 그 뒤에 수확량을 줄여도 소용이 없을 수 있는데, 개체군이 이미 불안정한 문턱값 아래로 내려갔을 수 있기 때문이다.</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-8-3-1.svg" alt="그림 8.3.1"><figcaption><span class="fig-label">그림 8.3.1</span> <span class="math inline">\(K = 1\)</span>일 때 수확률 <span class="math inline">\(L\)</span>에 따른 평형 개체군. 안정 평형점(실선)과 불안정한 문턱값(점선)은 <span class="math inline">\(L\)</span>이 커질수록 서로 가까워지다가 <span class="math inline">\(L = K^2\)</span>에서 만난다. 그보다 크면 평형점이 존재하지 않고, 개체군은 크기와 관계없이 붕괴한다.</figcaption></figure>
+<h3 id="최대-지속-가능-수확량">최대 지속 가능 수확량</h3>
+<p>개체군이 지속적으로 감당할 수 있는 가장 큰 수확량은 얼마일까? 그것은 증가율 <span class="math inline">\((2K - x)x\)</span>의 최댓값인 <span class="math inline">\(L = K^2\)</span>이며, 개체군을 수용력의 절반인 <span class="math inline">\(K\)</span>로 유지할 때 얻어진다. 수산학은 20세기 중반에 이 “최대 지속 가능 수확량(maximum sustainable yield)”을 관리 목표로 채택했다. 그러나 정확히 최댓값만큼 수확하면 계는 정확히 티핑 포인트에 놓이게 되고, 그곳에서는 <span class="math inline">\(K\)</span>를 아주 조금만 과대평가하거나 한 해만 흉년이 들어도 붕괴가 일어난다. 뉴펀들랜드(Newfoundland) 앞바다의 그랜드뱅크스(Grand Banks) 대구 어장은 500년 동안 세계에서 가장 풍요로운 어장 가운데 하나였지만 1990년대 초에 붕괴했고, 1992년 캐나다 정부는 조업 중단 조치(moratorium)를 내려 수만 명이 일자리를 잃었다. 어족 자원은 아직도 완전히 회복되지 않았다.</p>
+<h3 id="다른-곳의-로지스틱-성장">다른 곳의 로지스틱 성장</h3>
+<p>로지스틱 방정식은 1838년 페르휠스트(Pierre-François Verhulst)가 인구를 모형화하기 위해 제안했다. 같은 S자 곡선이 초기 단계의 전염병 확산, 신기술의 보급, 자기촉매 화학 반응, 종양의 성장을 설명한다. 이산 시간 버전인 로지스틱 <em>사상(map)</em>은 매우 다르게 행동한다. <a href="../ch08/solvable-chaos.html">8.7 절</a>에서 보겠지만, 이 사상은 카오스적(chaotic)일 수 있다.</p>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">평형점과 그 안정성</div>
+<p><em>방정식 <span class="math inline">\(x&#39; = f(x)\)</span>에서 평형점은 <span class="math inline">\(f\)</span>의 영점이며, 평형점 사이에서 <span class="math inline">\(f\)</span>의 부호를 보면 해가 어느 쪽으로 움직이는지 알 수 있다.</em></p>
+<p><span class="math inline">\(f\)</span>가 양수에서 음수로 바뀌는 평형점은 안정하고, 음수에서 양수로 바뀌는 평형점은 불안정하다. <span class="math inline">\(f\)</span>의 그래프를 그리면 아무것도 풀지 않고도 중요한 질문에 답할 수 있는 경우가 많다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>낮은 곳에서 출발하기.</strong> 수확이 있고 <span class="math inline">\(K^2 &gt; L\)</span>일 때, <span class="math inline">\(x(0) &lt; K - \alpha\)</span>이면 개체군이 유한한 시간 안에 0에 도달함을 보여라. (<em>힌트:</em> <span class="math inline">\(y(0) &lt; 0\)</span>이면 <span class="math inline">\(y\)</span>는 어떻게 되는가?)</p></li>
+<li><p><strong>남획.</strong> <span class="math inline">\(L &gt; K^2\)</span>이면 <span class="math inline">\(\beta = \sqrt{L - K^2}\)</span>로 두자. <span class="math inline">\(x(0) = 2K\)</span>일 때 <span class="math inline">\(x&#39; = -(x - K)^2 - \beta^2\)</span>을 풀고, 개체군이 0에 도달하는 시각을 구하여라.</p></li>
+<li><p><strong>비례 수확.</strong> 대신 개체군의 일정한 <em>비율</em>을 제거한다고 하자: <span class="math inline">\(x&#39; = (2K - x)x - hx\)</span>. 평형점을 구하고, 모든 <span class="math inline">\(h &lt; 2K\)</span>에 대하여 개체군이 살아남음을 보여라. 이 정책이 더 안전한 이유는 무엇인가?</p></li>
+<li><p><strong>도달 시간.</strong> 수확이 없는 경우, 개체군이 <span class="math inline">\(\frac32K\)</span>에 도달하는 시각을 구하여라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Steven Strogatz, <a href="https://uk.bookshop.org/search?keywords=Nonlinear+Dynamics+and+Chaos+Strogatz"><em>Nonlinear Dynamics and Chaos</em></a></strong> (CRC Press). 비선형 동역학과 카오스. 3장은 분기를 다루며, 이 수확 모형이 연습문제로 나온다.</p></li>
+<li><p><strong>Nicholas Britton, <a href="https://uk.bookshop.org/search?keywords=Essential+Mathematical+Biology+Britton"><em>Essential Mathematical Biology</em></a></strong> (Springer). 학부생을 위한 개체군 모형.</p></li>
+<li><p><strong>Mark Kurlansky, <a href="https://uk.bookshop.org/search?keywords=Cod%3A+A+Biography+of+the+Fish+That+Changed+the+World+Kurlansky"><em>Cod: A Biography of the Fish That Changed the World</em></a></strong> (Penguin). 대구 어업의 역사와 그 붕괴.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="bounding-without-solving.html">← 8.2 풀지 않고 범위 구하기</a><a class="next" href="limit-cycle.html">→ 8.4 원으로 감겨드는 나선</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

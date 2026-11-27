@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제7장: 선형대수학과 기하학 — Beyond STEP</title>
+<meta name="description" content="행렬 자체를 하나의 대상으로 다룬다: 고유벡터, 행렬식, 회전과 불변량을 살펴보고 오일러 공식으로 마무리한다.">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch07/">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch07/">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch07/">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch07/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch07/">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch07/">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch07/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="제7장: 선형대수학과 기하학 — Beyond STEP">
+<meta property="og:description" content="행렬 자체를 하나의 대상으로 다룬다: 고유벡터, 행렬식, 회전과 불변량을 살펴보고 오일러 공식으로 마무리한다.">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch07/">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="제7장: 선형대수학과 기하학 — Beyond STEP">
+<meta name="twitter:description" content="행렬 자체를 하나의 대상으로 다룬다: 고유벡터, 행렬식, 회전과 불변량을 살펴보고 오일러 공식으로 마무리한다.">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Chapter", "position": 7, "name": "선형대수학과 기하학", "url": "https://beyondstep.keithmcnulty.org/ko/ch07/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}, "description": "행렬 자체를 하나의 대상으로 다룬다: 고유벡터, 행렬식, 회전과 불변량을 살펴보고 오일러 공식으로 마무리한다."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제7장: 선형대수학과 기하학", "item": "https://beyondstep.keithmcnulty.org/ko/ch07/"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch07/index.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch07/index.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch07/index.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch07/index.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="chapter-banner">
+  <div class="wrap">
+    <div class="ch-kicker">장</div>
+    <div class="ch-num">7</div>
+    <h1>선형대수학과 기하학</h1>
+    <p class="strap">행렬은 수를 늘어놓은 표가 아니다. 행렬은 공간의 변환이며, 그 자체로 살아 움직이는 대상이다.</p>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/chapter-07-linear-algebra-and-geometry.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">장 전체 내려받기</span><span class="dl-sub">인쇄용으로 조판한 PDF</span></span></a>
+  </div>
+  <h2 class="contents-head">이 장의 내용</h2>
+  <ol class="toc"><li><a class="toc-link" href="matrix-rules.html"><span class="toc-num">7.1</span>
+<span class="toc-title">행렬에서는 성립하지 않는 법칙</span>
+<span class="toc-src">STEP II 1993</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-1-matrix-rules.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="eigenvectors.html"><span class="toc-num">7.2</span>
+<span class="toc-title">돌지 않고 늘어나기</span>
+<span class="toc-src">STEP III 1990</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-2-eigenvectors.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="determinant-axioms.html"><span class="toc-num">7.3</span>
+<span class="toc-title">행렬식을 행렬식이게 하는 것</span>
+<span class="toc-src">STEP II 2019</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-3-determinant-axioms.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="finite-order.html"><span class="toc-num">7.4</span>
+<span class="toc-title">제자리로 돌아오는 행렬</span>
+<span class="toc-src">STEP II 2020</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-4-finite-order.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="rotations-3d.html"><span class="toc-num">7.5</span>
+<span class="toc-title">3차원에서의 회전</span>
+<span class="toc-src">STEP III 2022</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-5-rotations-3d.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="hyperbolic-rotations.html"><span class="toc-num">7.6</span>
+<span class="toc-title">쌍곡 회전과 상대성 이론</span>
+<span class="toc-src">STEP III 1991</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-6-hyperbolic-rotations.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="lax-pairs.html"><span class="toc-num">7.7</span>
+<span class="toc-title">결코 변하지 않는 양</span>
+<span class="toc-src">STEP III 2024</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-7-lax-pairs.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="four-squares.html"><span class="toc-num">7.8</span>
+<span class="toc-title">네 제곱수</span>
+<span class="toc-src">STEP III 1994</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-8-four-squares.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="platonic-solids.html"><span class="toc-num">7.9</span>
+<span class="toc-title">정다면체는 다섯 개뿐이다</span>
+<span class="toc-src">STEP III 1999</span></a>
+<a class="toc-ws" href="../pdf/worksheets/worksheet-7-9-platonic-solids.pdf" download title="학습지 PDF">학습지</a></li><li><a class="toc-link" href="wrap-up.html"><span class="toc-num">✔</span>
+<span class="toc-title">돌아보기: 지금까지 배운 것</span><span class="toc-src"></span></a><span></span></li><li><a class="toc-link" href="answers.html"><span class="toc-num">✎</span>
+<span class="toc-title">“다음으로 풀어 보기” 연습문제의 답</span><span class="toc-src"></span></a><span></span></li></ol>
+  <article class="prose">
+    <div class="essay-kicker">제7장  \(\cdot\)  들어가며</div>
+    <h1 class="essay-title">공간의 변환</h1>
+    <div class="essay-rule"></div>
+    <div class="pullquote">
+<p>우리는 기저 없이 생각하고, 기저 없이 쓴다. 하지만 막상 일이 닥치면 연구실 문을 닫고 미친 듯이 행렬로 계산한다.</p>
+<p class="who">— Irving Kaplansky, 자신과 Paul Halmos의 선형대수학 접근 방식에 대하여</p>
+</div>
+<p>학교에서 행렬(matrix)은 보통 연립방정식(simultaneous equations)을 푸는 도구로, 또는 점을 변환하는 방법으로 등장한다. 행렬에 열벡터(column vector)를 곱하고 새 좌표를 읽어 내는 식이다. 둘 다 쓸모 있지만, 이런 시각은 행렬이 수학에서 가장 중요한 개념 가운데 하나인 이유를 가려 버린다. 행렬은 <em>선형변환(linear transformation)</em>, 곧 공간을 늘이고, 회전하고, 반사하고, 층밀리기하는 방법이며, 수처럼 더하고, 곱하고, 거듭제곱하고, 미분할 수 있다. 그런데 행렬은 수와 같지 않다. 행렬의 곱셈은 순서에 따라 달라지고, 영이 아닌 두 행렬을 곱해 영이 될 수 있으며, 행렬에는 어떻게 적느냐와 상관없이 그 본질적인 성질을 담아내는 숨은 불변량(invariant)(대각합(trace), 행렬식(determinant), 고윳값(eigenvalue))이 있다.</p>
+<h3 id="선형대수학이-중요한-이유">선형대수학이 중요한 이유</h3>
+<p>선형대수학(linear algebra)은 아마 수학에서 가장 널리 쓰이는 분야일 것이다. 비디오 게임에서 영화 애니메이션에 이르기까지 모든 컴퓨터 그래픽 엔진은 행렬을 곱하는 기계이다. 캐릭터의 모든 회전, 모든 카메라 각도, 모든 원근 투영(perspective projection)이 행렬이다. 인터넷의 검색 엔진과 추천 시스템은 고유벡터(eigenvector) 위에 세워져 있다. 공학자는 고윳값으로 다리와 건물의 진동수를 구하고, 통계학자는 고윳값으로 데이터의 주요 패턴을 찾아내며, 양자역학은 전부 선형대수학의 언어로 쓰여 있다. 그리고 현대 기계학습은 그 핵심을 들여다보면 엄청난 양의 행렬 곱셈이다.</p>
+<p>이렇게 어디에나 쓰이는 데에는 이유가 있다. 선형 문제는 우리가 완전히 풀 수 있는 문제이고, 거의 모든 비선형 문제는 충분히 가까이 확대해 보면 선형처럼 보인다. 이것이 미적분학(calculus)의 아이디어이며, 이는 곧 선형대수학이 거의 모든 것의 국소적인 행동을 기술하는 언어라는 뜻이다.</p>
+<h3 id="대학에서-만나게-될-내용">대학에서 만나게 될 내용</h3>
+<p>선형대수학은 해석학(analysis)과 함께 대학 1학년 과정의 두 기둥 가운데 하나이다. 여러분은 <em>벡터공간(vector space)</em>(더하고 스칼라배할 수 있는 집합으로, 평면과 3차원 공간은 그 첫 번째 예일 뿐이다)과 그 사이의 <em>선형사상(linear map)</em>을 만나게 되고, 행렬이란 단지 선형사상을 좌표로 적은 것임을 배우게 된다. 행렬식, 고윳값과 고유벡터, 그리고 대칭행렬(symmetric matrix)은 회전으로 대각화(diagonalise)할 수 있다는 <em>스펙트럼 정리(spectral theorem)</em>도 공부한다. 이후의 과목들은 이것을 어디서나 사용한다. 미분방정식(differential equations)(제8장)에서, 기하학(회전과 반사가 군(group)을 이루는 곳)에서, 연속적인 대칭을 기술하는 <em>리 군(Lie group)</em> 이론에서, 그리고 무한 차원의 선형대수학이라 할 수 있는 함수해석학(functional analysis)에서 말이다.</p>
+<h3 id="이-장을-관통하는-질문">이 장을 관통하는 질문</h3>
+<div class="skillbox">
+<div class="box-title">세 가지 큰 질문</div>
+<ol class="arabic">
+<li><p><strong>행렬은 어떤 점에서 수와 같고, 어떤 점에서 다른가?</strong> 산술의 어떤 법칙이 살아남고, 어떤 법칙이 무너지는가?</p></li>
+<li><p><strong>행렬은 실제로 무엇을 하는가?</strong> 변환의 기하학적 모습을 어떻게 볼 수 있으며, 좌표와 무관하게 그것을 담아내는 수는 무엇인가?</p></li>
+<li><p><strong>무엇이 변하지 않는가?</strong> 변환이나 운동에 의해 보존되는 양은 무엇이며, 그것은 우리에게 무엇을 알려 주는가?</p></li>
+</ol>
+</div>
+<p>이 장은 행렬 대수의 법칙(<a href="../ch07/matrix-rules.html">7.1 절</a>)에서 시작하여 변환의 기하학으로 넘어간다. 고유벡터, 행렬식, 유한 위수(finite order)의 행렬, 3차원 회전, 그리고 특수상대성이론(special relativity)의 쌍곡 회전(hyperbolic rotation)을 다룬다. 이어서 시간에 따라 변하는 행렬의 보존량(conserved quantity), 행렬식에서 나오는 네 제곱수 항등식을 살펴보고, 마지막으로 정다면체(Platonic solids)를 분류하는 세기 논법인 오일러(Euler) 공식으로 마무리한다.</p>
+<h3 id="이-장의-아이디어">이 장의 아이디어</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">§</th>
+<th style="text-align: left;">주제</th>
+<th style="text-align: left;">아이디어</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">7.1</td>
+<td style="text-align: left;">무너지는 법칙</td>
+<td style="text-align: left;">비가환성(non-commutativity); 영인자(zero divisor)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.2</td>
+<td style="text-align: left;">고유벡터</td>
+<td style="text-align: left;">변환이 회전시키지 않는 방향</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.3</td>
+<td style="text-align: left;">행렬식</td>
+<td style="text-align: left;">곱셈성(multiplicativity)에 의한 특징짓기; 부호 있는 넓이(signed area)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.4</td>
+<td style="text-align: left;">유한 위수의 행렬</td>
+<td style="text-align: left;">대각합, 행렬식, 케일리–해밀턴(Cayley–Hamilton)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.5</td>
+<td style="text-align: left;">3차원 회전</td>
+<td style="text-align: left;">외적(cross product)에서 얻는 Rodrigues 공식</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.6</td>
+<td style="text-align: left;">로런츠 부스트(Lorentz boost)</td>
+<td style="text-align: left;">쌍곡각은 더해진다</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.7</td>
+<td style="text-align: left;">보존량</td>
+<td style="text-align: left;">교환자(commutator)의 대각합은 0이다</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7.8</td>
+<td style="text-align: left;">네 제곱수</td>
+<td style="text-align: left;">곱셈적인 행렬식</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7.9</td>
+<td style="text-align: left;">정다면체</td>
+<td style="text-align: left;">이중 세기(double counting)와 오일러 공식</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="이-장을-읽는-방법">이 장을 읽는 방법</h3>
+<p>이 장에 나오는 모든 행렬에 대해, 그 행렬이 하는 일을 그림으로 그려 보아라. 단위정사각형이나 단위원, 또는 벡터 몇 개를 잡고 그 상을 대강 그려 보는 것이다. 2분짜리 스케치만으로도 계산을 시작하기 전에 답(고유벡터, 반례(counterexample), 불변직선(invariant line))이 보이는 경우가 많고, 나중에 계산을 검산하는 데에도 도움이 된다.</p>
+
+  </article>
+  <nav class="pager"><span></span><a class="next" href="matrix-rules.html">→ 시작: 7.1 행렬에서는 성립하지 않는 법칙</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

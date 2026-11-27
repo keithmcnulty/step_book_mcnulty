@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>“무작위”란 무슨 뜻인가? (STEP III 2022 Q12) — Beyond STEP</title>
+<meta name="description" content="STEP III 2022 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. “원의 현(chord)을 무작위로 하나 고른다. 그 길이의 기댓값(expected value)은 얼마인가?” 이 질문에는 답이 있을 것처럼 들린다. 그러나 “무작위로”가 무슨 뜻인지 정하기 전까지는 답이 없다. 원 위의 두 점을 무작위로 골라 이으면 길이의 기댓값은…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ko/ch12/bertrand.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch12/bertrand.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch12/bertrand.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch12/bertrand.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch12/bertrand.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch12/bertrand.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch12/bertrand.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="“무작위”란 무슨 뜻인가? (STEP III 2022 Q12) — Beyond STEP">
+<meta property="og:description" content="STEP III 2022 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. “원의 현(chord)을 무작위로 하나 고른다. 그 길이의 기댓값(expected value)은 얼마인가?” 이 질문에는 답이 있을 것처럼 들린다. 그러나 “무작위로”가 무슨 뜻인지 정하기 전까지는 답이 없다. 원 위의 두 점을 무작위로 골라 이으면 길이의 기댓값은…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ko/ch12/bertrand.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 대학 수학으로 들어가는 문, STEP 기출문제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="“무작위”란 무슨 뜻인가? (STEP III 2022 Q12) — Beyond STEP">
+<meta name="twitter:description" content="STEP III 2022 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. “원의 현(chord)을 무작위로 하나 고른다. 그 길이의 기댓값(expected value)은 얼마인가?” 이 질문에는 답이 있을 것처럼 들린다. 그러나 “무작위로”가 무슨 뜻인지 정하기 전까지는 답이 없다. 원 위의 두 점을 무작위로 골라 이으면 길이의 기댓값은…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "“무작위”란 무슨 뜻인가?", "headline": "“무작위”란 무슨 뜻인가?", "description": "STEP III 2022 문제 12: 단계별 풀이와 그 바탕에 있는 대학 수학. “원의 현(chord)을 무작위로 하나 고른다. 그 길이의 기댓값(expected value)은 얼마인가?” 이 질문에는 답이 있을 것처럼 들린다. 그러나 “무작위로”가 무슨 뜻인지 정하기 전까지는 답이 없다. 원 위의 두 점을 무작위로 골라 이으면 길이의 기댓값은…", "url": "https://beyondstep.keithmcnulty.org/ko/ch12/bertrand.html", "inLanguage": "ko", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP III 2022 문제 12", "확률"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 12, "name": "확률", "url": "https://beyondstep.keithmcnulty.org/ko/ch12/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ko/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ko/"}, {"@type": "ListItem", "position": 2, "name": "제12장: 확률", "item": "https://beyondstep.keithmcnulty.org/ko/ch12/"}, {"@type": "ListItem", "position": 3, "name": "“무작위”란 무슨 뜻인가?", "item": "https://beyondstep.keithmcnulty.org/ko/ch12/bertrand.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">들어가며</a><a href="../index.html#chapters">장</a><a href="../glossary/index.html">용어 해설</a><a href="../symbols/index.html">기호</a><a href="../solutions/index.html">풀이</a><a href="../index.html#download">내려받기</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">뉴스레터</a><a class="nav-search" href="../search/index.html" aria-label="검색">검색</a><a class="lang-switch" href="../../ch12/bertrand.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch12/bertrand.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch12/bertrand.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ja/ch12/bertrand.html" hreflang="ja" lang="ja">日本語</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">제12장 · 확률</a>
+    <div class="src">STEP III · 2022 · 문제 12</div>
+    <div class="sec-head"><span class="sec-num">12.3</span><h1>“무작위”란 무슨 뜻인가?</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-12-3-bertrand.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">학습지</span><span class="dl-sub">문제 링크, 힌트, 대학 수학과 연습문제</span></span></a>
+    <a class="dl" href="../pdf/chapter-12-probability.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">제12장</span><span class="dl-sub">장 전체 PDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">문제</div>
+<p><strong>STEP III 2022, 문제 12</strong></p>
+<p>다음으로 넘어가기 전에 문제를 먼저 읽어 보자. 이 문제는 OCR에서 내려받을 수 있는 2022년 STEP 문제지 모음(zip 파일)의 STEP III 문제지에 있다: <a href="https://www.ocr.org.uk/Images/696587-2022-past-papers.zip">www.ocr.org.uk/Images/696587-2022-past-papers.zip</a></p>
+</div>
+<h2 id="도입">도입</h2>
+<p>“원의 현(chord)을 무작위로 하나 고른다. 그 길이의 기댓값(expected value)은 얼마인가?” 이 질문에는 답이 있을 것처럼 들린다. 그러나 “무작위로”가 무슨 뜻인지 정하기 전까지는 답이 없다. 원 위의 두 점을 무작위로 골라 이으면 길이의 기댓값은 <span class="math inline">\(\frac{4a}{\pi} \approx 1.27a\)</span>이다. 원 내부의 한 점과 그 점을 지나는 방향을 무작위로 고르면 답은 <span class="math inline">\(\frac{16a}{3\pi} \approx 1.70a\)</span>이다. 두 방법 모두 “무작위 현”을 고르는 지극히 타당한 방법이다.</p>
+<p>이것이 <em>베르트랑의 역설(Bertrand’s paradox)</em>로, 조제프 베르트랑(Joseph Bertrand)이 1889년에 일종의 경고로서 발표한 것이다. 확률은 무작위 시행이 구체적으로 정해진 뒤에야 비로소 잘 정의된다. 이 역설은 수학자들이 20세기에 확률론의 엄밀한 기초를 세우는 데 한몫했는데, 이 기초에서는 모든 확률이 정확하게 정의된 결과들의 공간 위에서 다루어진다.</p>
+<h2 id="시작하기-전에">시작하기 전에</h2>
+<div class="askyourself">
+<p>각 <span class="math inline">\(AOB\)</span>가 <span class="math inline">\(\theta\)</span>일 때 현 <span class="math inline">\(AB\)</span>의 길이는 얼마인가? (<span class="math inline">\(O\)</span>에서 수선을 내려 보자.)</p>
+</div>
+<p><span class="math inline">\(O\)</span>에서 내린 수선은 현과 각을 모두 이등분하므로 <span class="math inline">\(AB = 2a\sin\frac\theta2\)</span>이다.</p>
+<h2 id="차근차근-풀기">차근차근 풀기</h2>
+<h4 id="stagemark1-원-위의-두-점" class="stage"><span class="stage-n">단계 1</span> 원 위의 두 점</h4>
+<p><span class="math display">\[\mathrm{E}(AB) = \frac{1}{2\pi}\int_0^{2\pi}2a\sin\frac\theta2\,\mathrm{d}\theta = \frac{a}{\pi}\Bigl[-2\cos\frac\theta2\Bigr]_0^{2\pi} = \frac{a}{\pi}\cdot 4 = \frac{4a}{\pi}. \qed\]</span></p>
+<h4 id="stagemark2-내부의-무작위-점" class="stage"><span class="stage-n">단계 2</span> 내부의 무작위 점</h4>
+<div class="askyourself">
+<p><span class="math inline">\(0 \leq r \leq a\)</span>일 때 <span class="math inline">\(\mathrm{P}(R \leq r)\)</span>는 얼마인가? 이를 미분하여 확률밀도를 구하라.</p>
+</div>
+<p><span class="math inline">\(\mathrm{P}(R \leq r)\)</span>는 반지름이 <span class="math inline">\(r\)</span>인 원판의 넓이를 전체 원판의 넓이로 나눈 값, 즉 <span class="math inline">\(\frac{r^2}{a^2}\)</span>이다. 따라서 <span class="math inline">\(R\)</span>는 <span class="math inline">\([0, a]\)</span>에서 확률밀도(probability density) <span class="math inline">\(\frac{2r}{a^2}\)</span>를 가진다. (중심에서 먼 곳일수록 넓이가 더 크므로, 점은 중심에서 멀리 있을 가능성이 더 크다.)</p>
+<div class="askyourself">
+<p><span class="math inline">\(C\)</span>를 지나는 현이 <span class="math inline">\(OC\)</span>와 각 <span class="math inline">\(t\)</span>를 이룬다. 이 현은 <span class="math inline">\(O\)</span>에서 얼마나 떨어져 있는가?</p>
+</div>
+<p><span class="math inline">\(O\)</span>에서 이 직선까지의 거리는 <span class="math inline">\(R\sin t\)</span>이므로 현의 길이는 <span class="math inline">\(2\sqrt{a^2 - R^2\sin^2t}\)</span>이다.</p>
+<h4 id="stagemark3-c에-대한-평균" class="stage"><span class="stage-n">단계 3</span> <span class="math inline">\(C\)</span>에 대한 평균</h4>
+<p><span class="math inline">\(s = \sin t\)</span>라 하면 <span class="math display">\[\begin{aligned}
+  L(t) &amp;= \int_0^a 2\sqrt{a^2 - r^2s^2}\cdot\frac{2r}{a^2}\,\mathrm{d}r = \frac{4}{a^2}\Bigl[-\frac{(a^2 - r^2s^2)^{3/2}}{3s^2}\Bigr]_0^a \\
+  &amp;= \frac{4}{a^2}\cdot\frac{a^3 - a^3(1 - s^2)^{3/2}}{3s^2} = \frac{4a(1 - \cos^3t)}{3\sin^2t}. \qed
+\end{aligned}\]</span></p>
+<div class="askyourself">
+<p><span class="math inline">\(1 - \cos^3t\)</span>와 <span class="math inline">\(\sin^2t = 1 - \cos^2t\)</span>를 인수분해하라. 무엇이 약분되는가?</p>
+</div>
+<p><span class="math inline">\(c = \cos t\)</span>라 하면 <span class="math inline">\(\frac{1 - c^3}{1 - c^2} = \frac{(1 - c)(1 + c + c^2)}{(1 - c)(1 + c)} = \frac{1 + c + c^2}{1 + c} = c + \frac{1}{1 + c}\)</span>이고, <span class="math inline">\(1 + \cos t = 2\cos^2\frac t2\)</span>이다. 따라서 <span class="math display">\[L(t) = \frac{4a}{3}\Bigl(\cos t + \tfrac12\sec^2\tfrac t2\Bigr). \qed\]</span></p>
+<h4 id="stagemark4-방향도-무작위로" class="stage"><span class="stage-n">단계 4</span> 방향도 무작위로</h4>
+<p><span class="math display">\[\begin{aligned}
+  \mathrm{E}\bigl(L(T)\bigr) &amp;= \frac2\pi\int_0^{\pi/2}\frac{4a}{3}\Bigl(\cos t + \tfrac12\sec^2\tfrac t2\Bigr)\mathrm{d}t \\
+  &amp;= \frac{8a}{3\pi}\Bigl[\sin t + \tan\tfrac t2\Bigr]_0^{\pi/2} = \frac{8a}{3\pi}(1 + 1) = \frac{16a}{3\pi}. \qed
+\end{aligned}\]</span></p>
+<figure class="stepfig"><img src="../assets/fig/fig-12-3-1.svg" alt="그림 12.3.1"><figcaption><span class="fig-label">그림 12.3.1</span> 서로 다른 두 방법으로 고른 28개의 “무작위 현”. 왼쪽: 원 위에서 독립적으로 균등하게 고른 두 점. 오른쪽: 원판에서 균등하게 무작위로 고른 점을 현의 중점으로 삼은 경우. 오른쪽 방법에서는 가장자리 근처의 짧은 현이 더 적게 나온다. 방법이 다르면 분포가 다르고, 답도 다르다.</figcaption></figure>
+<h2 id="돌아보기">돌아보기</h2>
+<ul>
+<li><p><strong>시행을 구체적으로 정하라.</strong> 각 소문항에서 “무작위 현”은 정확한 절차가 되었고, 절차마다 다른 답이 나왔다.</p></li>
+<li><p><strong>넓이에서 확률밀도로.</strong> <span class="math inline">\(\mathrm{P}(R \leq r)\)</span>는 기하에서 곧바로 나왔고, 이를 미분하여 확률밀도를 얻었다.</p></li>
+<li><p><strong>단계별로 평균하라.</strong> 먼저 (<span class="math inline">\(t\)</span>를 고정하고) <span class="math inline">\(C\)</span>의 위치에 대해 평균하고, 그다음 <span class="math inline">\(t\)</span>에 대해 평균했다.</p></li>
+</ul>
+<h2 id="숨은-수학">숨은 수학</h2>
+<h3 id="베르트랑의-세-가지-답">베르트랑의 세 가지 답</h3>
+<p>베르트랑이 원래 던진 질문은 다음과 같았다. 무작위 현이 원에 내접하는 정삼각형(inscribed equilateral triangle)의 한 변 <span class="math inline">\(\sqrt3a\)</span>보다 길 확률은 얼마인가? 그는 세 가지 방법과 세 가지 답을 제시했다.</p>
+<ul>
+<li><p>무작위 양 끝점: 한 끝점을 고정하면, 다른 끝점이 원의 가운데 3분의 1 부분에 있을 때 현이 길다. 확률은 <span class="math inline">\(\frac13\)</span>이다.</p></li>
+<li><p>무작위 반지름과 그 위의 무작위 점을 중점으로: 현이 <span class="math inline">\(O\)</span>로부터 <span class="math inline">\(\frac a2\)</span>보다 가까이 있으면 현이 길다. 확률은 <span class="math inline">\(\frac12\)</span>이다.</p></li>
+<li><p>원판 전체에서 고른 무작위 중점: 중점이 <span class="math inline">\(O\)</span>로부터 <span class="math inline">\(\frac a2\)</span> 이내에 있으면 현이 길다. 확률은 <span class="math inline">\(\frac14\)</span>이다.</p></li>
+</ul>
+<p>각 방법은 현들의 집합 위에 주어진 서로 다른 확률분포이며, 여기에 모순은 없다. 세 방법은 서로 다른 질문에 답하고 있을 뿐이다. 교훈은 “균등하게 무작위로”라는 말이 어떤 매개화(parametrisation)를 택했는지에 상대적으로만 의미가 있으며, 연속적인 집합에서는 대개 유일하게 자연스러운 매개화가 존재하지 않는다는 것이다.</p>
+<h3 id="정답이-있을까">정답이 있을까?</h3>
+<p>1973년 물리학자 Edwin Jaynes는 원을 조금 옮기거나 크기를 조금 바꾸어도 답이 변하지 않아야 한다는 근거로 두 번째 방법이 “올바른” 방법이라고 주장했다. 무작위 현이란 바닥에 그린 원 위로 빨대를 던지는 것과 같아야 한다는 것이다. 중심으로부터의 거리가 균등한 분포만이 이러한 불변성(invariance)을 가지며, 빨대를 던지는 실험도 <span class="math inline">\(\frac12\)</span>를 확인해 준다. 올바른 분포란 상황의 대칭성을 존중하는 분포라는 같은 생각이 무작위 직선의 수학인 <em>적분기하학(integral geometry)</em>의 바탕에 깔려 있으며, 이것은 <a href="../ch12/buffon.html">12.20 절</a>의 뷔퐁(Buffon)의 바늘 문제도 설명해 준다.</p>
+<div class="historybox">
+<div class="box-title">역설에서 공리로</div>
+<p>베르트랑은 <em>Calcul des probabilités</em>(1889)에서 현의 역설을 발표했는데, 부분적으로는 그가 보기에 부주의한 “기하학적 확률”의 사용을 비꼬기 위해서였다. 푸앵카레(Henri Poincaré)도 이 역설을 논의했다. 1900년 힐베르트(David Hilbert)는 새 세기를 위한 유명한 문제 목록에 확률론의 공리화(axiomatisation)를 포함시켰고, 콜모고로프(Andrey Kolmogorov)가 1933년에 이를 해결했다. 확률은 결과들의 공간 위의 측도이며, “무작위” 대상에 관한 모든 질문은 먼저 어떤 공간과 어떤 측도를 쓰는지 밝혀야 한다. 베르트랑의 역설은 왜 이것이 필요한지를 보여 주는 대표적인 예이다.</p>
+</div>
+<h2 id="사고-기술">사고 기술</h2>
+<div class="skillbox">
+<div class="box-title">무작위 시행을 정의하라</div>
+<p><em>확률을 계산하기 전에 무작위 대상이 정확히 어떻게 생성되는지 기술하라. 기술 방식이 다르면 답도 달라질 수 있다.</em></p>
+<p>대학에서는 모든 확률 계산이 표본공간(sample space)과 확률측도(probability measure)에서 출발한다. 통계학과 물리학에서는 흔히 대칭성을 이용해 올바른 무작위성 모형을 고르는 일이 작업의 큰 부분을 차지한다.</p>
+</div>
+<h2 id="더-도전하기">더 도전하기</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>베르트랑의 확률.</strong> 위의 세 확률 <span class="math inline">\(\frac13\)</span>, <span class="math inline">\(\frac12\)</span>, <span class="math inline">\(\frac14\)</span>를 확인하라.</p></li>
+<li><p><strong>또 하나의 평균.</strong> 현의 중점을 원판에서 균등하게 고르면(오른쪽 그림) 길이의 기댓값이 <span class="math inline">\(\frac{4a}{3}\)</span>임을 보여라. (<em>힌트:</em> 이것은 <span class="math inline">\(L(\frac\pi2)\)</span>이다. 왜 그런가?)</p></li>
+<li><p><strong>무작위 거리.</strong> <span class="math inline">\(O\)</span>에서 현까지의 거리가 <span class="math inline">\([0, a]\)</span>에서 균등분포를 따르면 길이의 기댓값이 <span class="math inline">\(\frac{\pi a}{2}\)</span>임을 보여라.</p></li>
+<li><p><strong>세 방법, 세 분포.</strong> 세 방법 각각에 대해 <span class="math inline">\([0, 2a]\)</span>에서 현의 길이 <span class="math inline">\(\ell\)</span>의 확률밀도를 구하라.</p></li>
+</ol>
+</div>
+<h2 id="더-읽을거리">더 읽을거리</h2>
+<ul>
+<li><p><strong>Edwin Jaynes, “The well-posed problem”</strong>, <em>Foundations of Physics</em> 3 (1973). 불변성 논증을 담은 글로, 읽기 쉽고 도발적이다.</p></li>
+<li><p><strong>Gábor Székely, <a href="https://uk.bookshop.org/search?keywords=Paradoxes+in+Probability+Theory+and+Mathematical+Statistics+Szekely"><em>Paradoxes in Probability Theory and Mathematical Statistics</em></a></strong> (Reidel). 베르트랑의 역설을 비롯한 많은 역설을 다룬다.</p></li>
+<li><p><strong>Daniel Klain &amp; Gian-Carlo Rota, <a href="https://uk.bookshop.org/search?keywords=Introduction+to+Geometric+Probability+Klain+Rota"><em>Introduction to Geometric Probability</em></a></strong> (Cambridge University Press). 적분기하학을 다룬 책으로, 나중에 읽어 볼 만하다.</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="base-rate.html">← 12.2 기저율 오류</a><a class="next" href="pairwise-independence.html">→ 12.4 둘씩은 독립이지만 한꺼번에는 독립이 아닌</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">이 판은 영어 원문을 기계로 번역한 것으로, 아직 한국어를 모국어로 하는 수학 교사의 검토를 거치지 않았다. 내용이 분명하지 않은 곳에서는 영어 원문을 기준으로 한다.</p><p>본문, 풀이, 그림, 연습문제: Keith McNulty. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>에 따라 퍼블릭 도메인으로 공개한다. 오류 수정은 <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub 이슈</a>로 알려 주면 고맙겠다.</p>
+    <p>STEP 문제의 저작권은 &copy; Cambridge University Press &amp; Assessment에 있으며 CC0 공개 대상에 포함되지 않는다. 문제는 여기에 수록하지 않았으며, 각 절에서 공식 출처의 해당 문제로 연결된다.</p>
+    <p class="footer-links"><a href="../privacy/index.html">개인정보 보호</a> &middot; <a href="#" data-cookie-settings>쿠키 설정</a></p>
+  </div>
+</footer>
+</body>
+</html>

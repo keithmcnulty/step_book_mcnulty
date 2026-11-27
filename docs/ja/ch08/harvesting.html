@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>個体群の収穫 (STEP II 1995 Q8) — Beyond STEP</title>
+<meta name="description" content="STEP II 1995 問題 8：解説付き解答とその背後にある大学数学。 食料が無制限にある個体群は指数関数的に（exponentially）増加する。しかし現実の個体群はやがて場所が足りなくなる。個体数が環境の支えうる上限、すなわち 環境収容力 （carrying capacity）に近づくにつれて、増加は鈍っていく。これを表す最も単純なモデルが ロジスティック方程式 （logistic…">
+<link rel="stylesheet" href="../assets/style.css?v=d6e4765c6f">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="theme-color" content="#1D5C63">
+<meta name="author" content="Keith McNulty">
+<link rel="canonical" href="https://beyondstep.keithmcnulty.org/ja/ch08/harvesting.html">
+<link rel="alternate" hreflang="ja" href="https://beyondstep.keithmcnulty.org/ja/ch08/harvesting.html">
+<link rel="alternate" hreflang="en-GB" href="https://beyondstep.keithmcnulty.org/ch08/harvesting.html">
+<link rel="alternate" hreflang="zh-Hant-HK" href="https://beyondstep.keithmcnulty.org/zh-hant/ch08/harvesting.html">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://beyondstep.keithmcnulty.org/zh-hans/ch08/harvesting.html">
+<link rel="alternate" hreflang="ko" href="https://beyondstep.keithmcnulty.org/ko/ch08/harvesting.html">
+<link rel="alternate" hreflang="x-default" href="https://beyondstep.keithmcnulty.org/ch08/harvesting.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Beyond STEP">
+<meta property="og:title" content="個体群の収穫 (STEP II 1995 Q8) — Beyond STEP">
+<meta property="og:description" content="STEP II 1995 問題 8：解説付き解答とその背後にある大学数学。 食料が無制限にある個体群は指数関数的に（exponentially）増加する。しかし現実の個体群はやがて場所が足りなくなる。個体数が環境の支えうる上限、すなわち 環境収容力 （carrying capacity）に近づくにつれて、増加は鈍っていく。これを表す最も単純なモデルが ロジスティック方程式 （logistic…">
+<meta property="og:url" content="https://beyondstep.keithmcnulty.org/ja/ch08/harvesting.html">
+<meta property="og:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Beyond STEP: 大学数学への入口としての STEP 過去問">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="個体群の収穫 (STEP II 1995 Q8) — Beyond STEP">
+<meta name="twitter:description" content="STEP II 1995 問題 8：解説付き解答とその背後にある大学数学。 食料が無制限にある個体群は指数関数的に（exponentially）増加する。しかし現実の個体群はやがて場所が足りなくなる。個体数が環境の支えうる上限、すなわち 環境収容力 （carrying capacity）に近づくにつれて、増加は鈍っていく。これを表す最も単純なモデルが ロジスティック方程式 （logistic…">
+<meta name="twitter:image" content="https://beyondstep.keithmcnulty.org/assets/social-card.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "個体群の収穫", "headline": "個体群の収穫", "description": "STEP II 1995 問題 8：解説付き解答とその背後にある大学数学。 食料が無制限にある個体群は指数関数的に（exponentially）増加する。しかし現実の個体群はやがて場所が足りなくなる。個体数が環境の支えうる上限、すなわち 環境収容力 （carrying capacity）に近づくにつれて、増加は鈍っていく。これを表す最も単純なモデルが ロジスティック方程式 （logistic…", "url": "https://beyondstep.keithmcnulty.org/ja/ch08/harvesting.html", "inLanguage": "ja", "learningResourceType": ["Worked example", "Problem"], "educationalLevel": "Sixth form / pre-university", "about": ["STEP II 1995 問題 8", "微分方程式と力学系"], "isAccessibleForFree": true, "license": "https://creativecommons.org/publicdomain/zero/1.0/", "author": {"@type": "Person", "name": "Keith McNulty"}, "isPartOf": {"@type": "Chapter", "position": 8, "name": "微分方程式と力学系", "url": "https://beyondstep.keithmcnulty.org/ja/ch08/", "isPartOf": {"@type": "Book", "name": "Beyond STEP", "url": "https://beyondstep.keithmcnulty.org/ja/", "author": {"@type": "Person", "name": "Keith McNulty"}}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Beyond STEP", "item": "https://beyondstep.keithmcnulty.org/ja/"}, {"@type": "ListItem", "position": 2, "name": "第8章：微分方程式と力学系", "item": "https://beyondstep.keithmcnulty.org/ja/ch08/"}, {"@type": "ListItem", "position": 3, "name": "個体群の収穫", "item": "https://beyondstep.keithmcnulty.org/ja/ch08/harvesting.html"}]}</script>
+<script defer src="../assets/question.js?v=d6e4765c6f"></script>
+<script defer src="../assets/consent.js?v=d6e4765c6f" data-ga="G-M8RDPR4MXR"></script>
+<script>
+window.MathJax = {
+  tex: { macros: { qed: '\\qquad\\color{#1D5C63}{\\blacksquare}' } },
+  chtml: { scale: 0.96 }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body data-root="../">
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Beyond STEP</a>
+    <nav><a href="../introduction/index.html">はじめに</a><a href="../index.html#chapters">章</a><a href="../glossary/index.html">用語集</a><a href="../symbols/index.html">記号</a><a href="../solutions/index.html">解答</a><a href="../index.html#download">ダウンロード</a><a href="https://keithmcnulty.substack.com/?utm_source=beyondstep&utm_medium=nav">ニュースレター</a><a class="nav-search" href="../search/index.html" aria-label="検索">検索</a><a class="lang-switch" href="../../ch08/harvesting.html" hreflang="en-GB" lang="en-GB">English</a><a class="lang-switch" href="../../zh-hant/ch08/harvesting.html" hreflang="zh-Hant-HK" lang="zh-Hant-HK">繁體中文</a><a class="lang-switch" href="../../zh-hans/ch08/harvesting.html" hreflang="zh-Hans-CN" lang="zh-Hans-CN">简体中文</a><a class="lang-switch" href="../../ko/ch08/harvesting.html" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main>
+
+<section class="section-banner">
+  <div class="wrap">
+    <a class="crumb" href="index.html">第8章 · 微分方程式と力学系</a>
+    <div class="src">STEP II · 1995 · 問題 8</div>
+    <div class="sec-head"><span class="sec-num">8.3</span><h1>個体群の収穫</h1></div>
+  </div>
+</section>
+<div class="wrap narrow">
+  <div class="downloads">
+    <a class="dl" href="../pdf/worksheets/worksheet-8-3-harvesting.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">ワークシート</span><span class="dl-sub">問題へのリンク、ヒント、大学の数学、演習問題</span></span></a>
+    <a class="dl" href="../pdf/chapter-08-differential-equations-and-dynamical-systems.pdf" download><span class="dl-icon" aria-hidden="true"></span><span><span class="dl-label">第8章</span><span class="dl-sub">章全体のPDF</span></span></a>
+  </div>
+  <article class="prose">
+<div class="stepquestion">
+<div class="box-title">問題</div>
+<p><strong>STEP II 1995、第8問</strong></p>
+<p>先に進む前に問題を読んでおこう。問題は STEP Support Programme の問題データベースにある： <a href="https://step.maths.org/questions/95-s2-q8">step.maths.org/questions/95-s2-q8</a></p>
+</div>
+<h2 id="導入">導入</h2>
+<p>食料が無制限にある個体群は指数関数的に（exponentially）増加する。しかし現実の個体群はやがて場所が足りなくなる。個体数が環境の支えうる上限、すなわち<em>環境収容力</em>（carrying capacity）に近づくにつれて、増加は鈍っていく。これを表す最も単純なモデルが<em>ロジスティック方程式</em>（logistic equation）であり、問題の前半で扱われる。この方程式は、シャーレの中の細菌から新しい技術の普及に至るまで、あらゆるものを記述する。</p>
+<p>問題の後半は、実用上きわめて重大な問いを投げかける。個体群を一定の割合で収穫（harvesting）し続けると何が起こるだろうか。ある閾値より下であれば、個体群は新しい、より低い平衡点（equilibrium）に落ち着く。しかし収穫をその閾値を超えて増やすと、たとえわずかであっても平衡点は消え、個体数はゼロへと崩壊する。これが漁業資源の崩壊の背後にある数学であり、漁獲枠が存在する理由である。</p>
+<h2 id="取りかかる前に">取りかかる前に</h2>
+<div class="askyourself">
+<p>何かを解く前に、増加率 <span class="math inline">\((2K - x)x\)</span> を <span class="math inline">\(x\)</span> の関数としてグラフに描いてみよう。それはどこでゼロになるか。どこで正になるか。そこから <span class="math inline">\(x\)</span> がどのように振る舞うかについて何がわかるか。</p>
+</div>
+<p>増加率は <span class="math inline">\(x = 0\)</span> と <span class="math inline">\(x = 2K\)</span> でゼロとなり、その間では正、<span class="math inline">\(2K\)</span> より先では負である。したがって、<span class="math inline">\(0\)</span> と <span class="math inline">\(2K\)</span> の間から出発した個体群は <span class="math inline">\(2K\)</span> に向かって増加し、<span class="math inline">\(2K\)</span> より上から出発した個体群はそこへ向かって減少する。環境収容力は <span class="math inline">\(2K\)</span> であり、増加が最も速いのは <span class="math inline">\(x = K\)</span> のときで、そのときの増加率は <span class="math inline">\(K^2\)</span> である。方程式を解かなくても、長期的な振る舞いを予測できるのである。</p>
+<h2 id="順を追って解く">順を追って解く</h2>
+<h4 id="stagemark1-ロジスティック方程式を解く" class="stage"><span class="stage-n">段階 1</span> ロジスティック方程式を解く</h4>
+<div class="askyourself">
+<p>変数分離（separation of variables）を行うと <span class="math inline">\(\displaystyle\int \frac{\mathrm{d}x}{(2K - x)x} = \int \mathrm{d}t\)</span> となる。左辺を部分分数（partial fractions）に分解せよ。</p>
+</div>
+<p><span class="math inline">\(\dfrac{1}{(2K - x)x} = \dfrac{1}{2K}\left(\dfrac1x + \dfrac{1}{2K - x}\right)\)</span> であるから、 <span class="math display">\[\frac{1}{2K}\ln\frac{x}{2K - x} = t + C.\]</span> <span class="math inline">\(t = 0\)</span> のとき <span class="math inline">\(x = K\)</span> であるから、<span class="math inline">\(\ln 1 = 0\)</span> より <span class="math inline">\(C = 0\)</span> である。すると <span class="math inline">\(\frac{x}{2K - x} = e^{2Kt}\)</span> となり、 <span class="math display">\[x = \frac{2Ke^{2Kt}}{1 + e^{2Kt}} = \frac{2K}{1 + e^{-2Kt}} = K + K\frac{1 - e^{-2Kt}}{1 + e^{-2Kt}}. \qed\]</span> を得る。この分数は <span class="math inline">\(\tanh(Kt)\)</span> であるから、<span class="math inline">\(x = K + K\tanh Kt\)</span> となる。これは <span class="math inline">\(K\)</span> から <span class="math inline">\(2K\)</span> へ向かって上昇する S 字形の曲線である。<span class="math inline">\(t \to \infty\)</span> のとき <span class="math inline">\(e^{-2Kt} \to 0\)</span> であり、<span class="math inline">\(x \to 2K\)</span> となる。</p>
+<h4 id="stagemark2-収穫" class="stage"><span class="stage-n">段階 2</span> 収穫</h4>
+<p>細菌を割合 <span class="math inline">\(L\)</span> で取り除くと、 <span class="math display">\[\frac{\mathrm{d}x}{\mathrm{d}t} = (2K - x)x - L.\]</span> となる。</p>
+<div class="askyourself">
+<p><span class="math inline">\((2K - x)x - L\)</span> を平方完成せよ。その零点はどこにあるか。</p>
+</div>
+<p><span class="math inline">\((2K - x)x - L = K^2 - L - (x - K)^2 = \alpha^2 - (x - K)^2 = \bigl(\alpha - (x - K)\bigr)\bigl(\alpha + (x - K)\bigr)\)</span> である。平衡点は <span class="math inline">\(x = K \pm \alpha\)</span> である。</p>
+<div class="pausebox">
+<p>ここで <span class="math inline">\(y = x - K + \alpha\)</span> と置換しよう。<span class="math inline">\(y\)</span> はどのような方程式を満たすか。もとのロジスティック方程式と比べてみよ。</p>
+</div>
+<p><span class="math inline">\(y = x - K + \alpha\)</span> とすると <span class="math inline">\(x - K = y - \alpha\)</span> であるから、<span class="math inline">\(\alpha + (x - K) = y\)</span> かつ <span class="math inline">\(\alpha - (x - K) = 2\alpha - y\)</span> である。よって <span class="math display">\[\frac{\mathrm{d}y}{\mathrm{d}t} = (2\alpha - y)y,\]</span> となり、これは <span class="math inline">\(K\)</span> を <span class="math inline">\(\alpha\)</span> に置き換えた、再びロジスティック方程式である。初期値は <span class="math inline">\(y(0) = K - K + \alpha = \alpha\)</span> であり、前半の <span class="math inline">\(x(0) = K\)</span> とまったく同じ形をしている。したがって段階 1 により（<span class="math inline">\(K\)</span> を <span class="math inline">\(\alpha\)</span> に置き換えて）<span class="math inline">\(y(t) = \alpha + \alpha\tanh\alpha t \to 2\alpha\)</span> となり、ゆえに <span class="math display">\[x(t) = K + \alpha\tanh\alpha t \to K + \alpha. \qed\]</span></p>
+<h2 id="振り返り">振り返り</h2>
+<ul>
+<li><p><strong>まず定性的に考える。</strong>増加率の符号から、何も解かないうちに長期的な振る舞いが予測できた。</p></li>
+<li><p><strong>平方完成によって平衡点が明らかになる。</strong>収穫のある方程式の平衡点は <span class="math inline">\(K \pm \alpha\)</span> であった。</p></li>
+<li><p><strong>置換によって新しい問題を既知の問題に帰着させる。</strong>変数をずらすことで、収穫のある方程式は、すでに解いたロジスティック方程式に変わった。</p></li>
+</ul>
+<h2 id="背後にある数学">背後にある数学</h2>
+<div class="historybox">
+<div class="box-title">転換点（tipping point）</div>
+<p>収穫のある方程式には <span class="math inline">\(K + \alpha\)</span> と <span class="math inline">\(K - \alpha\)</span> の二つの平衡点がある。上の平衡点は<em>安定</em>（stable）である。すなわち、それよりわずかに上または下にある個体群はそこへ戻っていく。下の平衡点は<em>不安定</em>（unstable）である。すなわち、<span class="math inline">\(K - \alpha\)</span> をわずかに下回る個体群は減少して絶滅に至る。収穫率 <span class="math inline">\(L\)</span> が増加すると <span class="math inline">\(\alpha = \sqrt{K^2 - L}\)</span> は小さくなり、二つの平衡点は互いに近づく。<span class="math inline">\(L = K^2\)</span> で両者は一つに合わさり、<span class="math inline">\(L &gt; K^2\)</span> では平衡点はまったく存在せず、どのような個体群も崩壊する（図 8.3.1）。これは<em>サドル・ノード分岐</em>（saddle-node bifurcation）と呼ばれ、最も単純な種類の<em>転換点</em>である。その厄介な点は、何の劇的な前兆もないことである。<span class="math inline">\(L\)</span> が <span class="math inline">\(K^2\)</span> に近づいても平衡個体数はゆるやかに減少するだけであり、そして突然、平衡点が存在しなくなる。その後で収穫を減らしても役に立たないかもしれない。個体数がすでに不安定な閾値を下回っている可能性があるからである。</p>
+</div>
+<figure class="stepfig"><img src="../assets/fig/fig-8-3-1.svg" alt="図 8.3.1"><figcaption><span class="fig-label">図 8.3.1</span> 収穫率 <span class="math inline">\(L\)</span> に対する平衡個体数（<span class="math inline">\(K = 1\)</span>）。安定な平衡点（実線）と不安定な閾値（破線）は <span class="math inline">\(L\)</span> が増加するにつれて互いに近づき、<span class="math inline">\(L = K^2\)</span> で出会う。それを超えると平衡点は存在せず、個体群はその大きさにかかわらず崩壊する。</figcaption></figure>
+<h3 id="最大持続生産量">最大持続生産量</h3>
+<p>個体群が持ちこたえられる最大の収穫はどれだけだろうか。それは <span class="math inline">\(L = K^2\)</span>、すなわち増加率 <span class="math inline">\((2K - x)x\)</span> の最大値であり、個体数を環境収容力の半分である <span class="math inline">\(K\)</span> に保つときに達成される。水産科学は20世紀半ばに、この「最大持続生産量」（maximum sustainable yield）を資源管理の目標として採用した。しかし、ちょうど最大値で収穫するということは、系をちょうど転換点に置くということであり、そこでは <span class="math inline">\(K\)</span> をほんのわずか過大に見積もったり、不漁の年が一度あったりするだけで崩壊が起こる。ニューファンドランド（Newfoundland）沖のグランドバンクス（Grand Banks）のタラ漁場は、500年にわたって世界有数の豊かな漁場であったが、1990年代初めに崩壊した。1992年、カナダ政府は禁漁措置を導入し、数万人が職を失った。資源は今なお完全には回復していない。</p>
+<h3 id="他の場面でのロジスティック成長">他の場面でのロジスティック成長</h3>
+<p>ロジスティック方程式は、1838年にフェルフルスト（Pierre-François Verhulst）が人口のモデルとして提案したものである。同じ S 字形の曲線は、感染症の初期段階での広がり、新技術の普及、自己触媒的な化学反応、腫瘍の成長などを記述する。その離散時間版であるロジスティック<em>写像</em>（logistic map）はまったく異なる振る舞いを示し、カオス的（chaotic）になりうる。これについては <a href="../ch08/solvable-chaos.html">第 8.7 節</a> で見ることにする。</p>
+<h2 id="思考のスキル">思考のスキル</h2>
+<div class="skillbox">
+<div class="box-title">平衡点とその安定性</div>
+<p><em>方程式 <span class="math inline">\(x&#39; = f(x)\)</span> について、平衡点は <span class="math inline">\(f\)</span> の零点であり、それらの間での <span class="math inline">\(f\)</span> の符号から解がどちらへ動くかがわかる。</em></p>
+<p><span class="math inline">\(f\)</span> が正から負へ変わる平衡点は安定であり、負から正へ変わる平衡点は不安定である。<span class="math inline">\(f\)</span> のグラフを描くだけで、何も解かずに重要な問いに答えられることが多い。</p>
+</div>
+<h2 id="次の一歩">次の一歩</h2>
+<div class="exercises">
+<ol class="exercises">
+<li><p><strong>低い値から出発する。</strong>収穫があり <span class="math inline">\(K^2 &gt; L\)</span> のとき、<span class="math inline">\(x(0) &lt; K - \alpha\)</span> ならば個体数は有限時間でゼロに達することを示せ。（<em>ヒント：</em><span class="math inline">\(y(0) &lt; 0\)</span> のとき <span class="math inline">\(y\)</span> はどう振る舞うか。）</p></li>
+<li><p><strong>過剰収穫。</strong><span class="math inline">\(L &gt; K^2\)</span> のとき、<span class="math inline">\(\beta = \sqrt{L - K^2}\)</span> とおく。<span class="math inline">\(x(0) = 2K\)</span> のもとで <span class="math inline">\(x&#39; = -(x - K)^2 - \beta^2\)</span> を解き、個体数がゼロに達する時刻を求めよ。</p></li>
+<li><p><strong>比例収穫。</strong>代わりに、個体群の一定の<em>割合</em>を取り除くとする：<span class="math inline">\(x&#39; = (2K - x)x - hx\)</span>。平衡点を求め、すべての <span class="math inline">\(h &lt; 2K\)</span> に対して個体群が存続することを示せ。この方策はなぜより安全なのか。</p></li>
+<li><p><strong>到達時刻。</strong>収穫のない場合に、個体数が <span class="math inline">\(\frac32K\)</span> に達する時刻を求めよ。</p></li>
+</ol>
+</div>
+<h2 id="さらに学ぶために">さらに学ぶために</h2>
+<ul>
+<li><p><strong>Steven Strogatz, <a href="https://uk.bookshop.org/search?keywords=Nonlinear+Dynamics+and+Chaos+Strogatz"><em>Nonlinear Dynamics and Chaos</em></a></strong>（CRC Press）。『非線形力学とカオス』。第 3 章は分岐を扱っており、この収穫モデルが演習問題として取り上げられている。</p></li>
+<li><p><strong>Nicholas Britton, <a href="https://uk.bookshop.org/search?keywords=Essential+Mathematical+Biology+Britton"><em>Essential Mathematical Biology</em></a></strong>（Springer）。『数理生物学の基礎』。学部生向けの個体群モデル。</p></li>
+<li><p><strong>Mark Kurlansky, <a href="https://uk.bookshop.org/search?keywords=Cod%3A+A+Biography+of+the+Fish+That+Changed+the+World+Kurlansky"><em>Cod: A Biography of the Fish That Changed the World</em></a></strong>（Penguin）。『タラ：世界を変えた魚の歴史』。タラ漁業とその崩壊の歴史。</p></li>
+</ul>
+
+  </article>
+  <nav class="pager"><a class="prev" href="bounding-without-solving.html">← 8.2 解かずに評価する</a><a class="next" href="limit-cycle.html">→ 8.4 渦を巻いて円に近づく</a></nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="mt-note">この版は英語版から機械翻訳したものであり、日本語を母語とする数学教師による校閲はまだ受けていない。不明確な箇所については英語の原文を正とする。</p><p>本文、解答、図および演習問題の著者はKeith McNultyであり、<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> のもとでパブリックドメインに提供されている。誤りの指摘は <a href="https://github.com/keithmcnulty/step_book_mcnulty/issues">GitHub issues</a> で歓迎する。</p>
+    <p>STEP の問題の著作権は &copy; Cambridge University Press &amp; Assessment に帰属し、CC0 の対象ではない。問題はここには掲載せず、各節から公式の出典にある該当問題へリンクしている。</p>
+    <p class="footer-links"><a href="../privacy/index.html">プライバシー</a> &middot; <a href="#" data-cookie-settings>Cookieの設定</a></p>
+  </div>
+</footer>
+</body>
+</html>

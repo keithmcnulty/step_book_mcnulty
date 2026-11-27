@@ -27,9 +27,22 @@
   --sans: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", "Noto Sans CJK SC", "Noto Sans SC",
           "PingFang SC", "Microsoft YaHei", sans-serif;
 }
-:lang(zh) body { line-height: 1.85; letter-spacing: 0.02em; }
-:lang(zh) em { font-style: normal; font-weight: 600; }
-:lang(zh) .hero-kicker, :lang(zh) .ch-kicker { letter-spacing: 0.04em; }
+:root:lang(ja) {
+  --serif: "Palatino Linotype", Palatino, "Book Antiqua", "TeX Gyre Pagella", "URW Palladio L", Georgia,
+           "Noto Serif CJK JP", "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", "Noto Sans CJK JP", "Noto Sans JP",
+          "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+}
+:root:lang(ko) {
+  --serif: "Palatino Linotype", Palatino, "Book Antiqua", "TeX Gyre Pagella", "URW Palladio L", Georgia,
+           "Noto Serif CJK KR", "Noto Serif KR", "AppleMyungjo", "Batang", serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", "Noto Sans CJK KR", "Noto Sans KR",
+          "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+:lang(zh) body, :lang(ja) body { line-height: 1.85; letter-spacing: 0.02em; }
+:lang(ko) body { line-height: 1.8; word-break: keep-all; overflow-wrap: break-word; }
+:lang(zh) em, :lang(ja) em, :lang(ko) em { font-style: normal; font-weight: 600; }
+:lang(zh) .hero-kicker, :lang(zh) .ch-kicker, :lang(ja) .hero-kicker, :lang(ja) .ch-kicker { letter-spacing: 0.04em; }
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -187,6 +200,10 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width:
 .pausebox > p:first-child::before { content: "Pause and try"; color: var(--amber); }
 :lang(zh) .askyourself > p:first-child::before { content: "想一想"; }
 :lang(zh) .pausebox > p:first-child::before { content: "停一停，试一试"; }
+:lang(ja) .askyourself > p:first-child::before { content: "考えてみよう"; }
+:lang(ja) .pausebox > p:first-child::before { content: "手を止めて、やってみよう"; }
+:lang(ko) .askyourself > p:first-child::before { content: "생각해 보기"; }
+:lang(ko) .pausebox > p:first-child::before { content: "잠깐, 직접 해 보기"; }
 
 .skillbox { border: 1.5px solid var(--teal); padding: 0.9rem 1.2rem 0.4rem; margin: 1.2rem 0; }
 .skillbox .box-title { color: var(--teal); font-size: 0.95rem; }
